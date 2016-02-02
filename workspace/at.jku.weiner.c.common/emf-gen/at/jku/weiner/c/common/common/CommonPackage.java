@@ -188,50 +188,13 @@ public interface CommonPackage extends EPackage
 	int EXPRESSION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION__EXPRESSION = 0;
-
-	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see at.jku.weiner.c.common.common.impl.UnaryOperatorImpl
-	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getUnaryOperator()
-	 * @generated
-	 */
-	int UNARY_OPERATOR = 5;
-
-	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_OPERATOR__OP = 0;
-
-	/**
-	 * The number of structural features of the '<em>Unary Operator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_OPERATOR_FEATURE_COUNT = 1;
+	int EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
@@ -241,7 +204,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpressionSuffix()
 	 * @generated
 	 */
-	int POSTFIX_EXPRESSION_SUFFIX = 6;
+	int POSTFIX_EXPRESSION_SUFFIX = 5;
 
 	/**
 	 * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
@@ -260,7 +223,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getArgumentExpressionList()
 	 * @generated
 	 */
-	int ARGUMENT_EXPRESSION_LIST = 7;
+	int ARGUMENT_EXPRESSION_LIST = 6;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -288,7 +251,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstant2()
 	 * @generated
 	 */
-	int CONSTANT2 = 8;
+	int CONSTANT2 = 7;
 
 	/**
 	 * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -370,25 +333,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstantExpression()
 	 * @generated
 	 */
-	int CONSTANT_EXPRESSION = 9;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int CONSTANT_EXPRESSION = 8;
 
 	/**
 	 * The number of structural features of the '<em>Constant Expression</em>' class.
@@ -397,7 +342,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.ConditionalExpressionImpl <em>Conditional Expression</em>}' class.
@@ -407,16 +352,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConditionalExpression()
 	 * @generated
 	 */
-	int CONDITIONAL_EXPRESSION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int CONDITIONAL_EXPRESSION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -462,25 +398,25 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getLogicalOrExpression()
 	 * @generated
 	 */
-	int LOGICAL_OR_EXPRESSION = 11;
+	int LOGICAL_OR_EXPRESSION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int LOGICAL_OR_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int LOGICAL_OR_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Logical Or Expression</em>' class.
@@ -489,7 +425,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int LOGICAL_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
@@ -499,25 +435,25 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getLogicalAndExpression()
 	 * @generated
 	 */
-	int LOGICAL_AND_EXPRESSION = 12;
+	int LOGICAL_AND_EXPRESSION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int LOGICAL_AND_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_AND_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int LOGICAL_AND_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Logical And Expression</em>' class.
@@ -526,7 +462,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int LOGICAL_AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.InclusiveOrExpressionImpl <em>Inclusive Or Expression</em>}' class.
@@ -536,25 +472,25 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getInclusiveOrExpression()
 	 * @generated
 	 */
-	int INCLUSIVE_OR_EXPRESSION = 13;
+	int INCLUSIVE_OR_EXPRESSION = 12;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int INCLUSIVE_OR_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUSIVE_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int INCLUSIVE_OR_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Inclusive Or Expression</em>' class.
@@ -563,7 +499,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int INCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.ExclusiveOrExpressionImpl <em>Exclusive Or Expression</em>}' class.
@@ -573,25 +509,25 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getExclusiveOrExpression()
 	 * @generated
 	 */
-	int EXCLUSIVE_OR_EXPRESSION = 14;
+	int EXCLUSIVE_OR_EXPRESSION = 13;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int EXCLUSIVE_OR_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int EXCLUSIVE_OR_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive Or Expression</em>' class.
@@ -600,7 +536,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int EXCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.AndExpressionImpl <em>And Expression</em>}' class.
@@ -610,25 +546,25 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getAndExpression()
 	 * @generated
 	 */
-	int AND_EXPRESSION = 15;
+	int AND_EXPRESSION = 14;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int AND_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AND_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int AND_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>And Expression</em>' class.
@@ -637,7 +573,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.EqualityExpressionImpl <em>Equality Expression</em>}' class.
@@ -647,34 +583,34 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getEqualityExpression()
 	 * @generated
 	 */
-	int EQUALITY_EXPRESSION = 16;
+	int EQUALITY_EXPRESSION = 15;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUALITY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int EQUALITY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUALITY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int EQUALITY_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUALITY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+	int EQUALITY_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Equality Expression</em>' class.
@@ -683,7 +619,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int EQUALITY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int EQUALITY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.RelationalExpressionImpl <em>Relational Expression</em>}' class.
@@ -693,34 +629,34 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getRelationalExpression()
 	 * @generated
 	 */
-	int RELATIONAL_EXPRESSION = 17;
+	int RELATIONAL_EXPRESSION = 16;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int RELATIONAL_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONAL_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int RELATIONAL_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONAL_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+	int RELATIONAL_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Relational Expression</em>' class.
@@ -729,7 +665,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int RELATIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.ShiftExpressionImpl <em>Shift Expression</em>}' class.
@@ -739,34 +675,34 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getShiftExpression()
 	 * @generated
 	 */
-	int SHIFT_EXPRESSION = 18;
+	int SHIFT_EXPRESSION = 17;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHIFT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int SHIFT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHIFT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int SHIFT_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHIFT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+	int SHIFT_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Shift Expression</em>' class.
@@ -775,7 +711,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SHIFT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int SHIFT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.AdditiveExpressionImpl <em>Additive Expression</em>}' class.
@@ -785,34 +721,34 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getAdditiveExpression()
 	 * @generated
 	 */
-	int ADDITIVE_EXPRESSION = 19;
+	int ADDITIVE_EXPRESSION = 18;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int ADDITIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITIVE_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int ADDITIVE_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+	int ADDITIVE_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Additive Expression</em>' class.
@@ -821,7 +757,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int ADDITIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.MultiplicativeExpressionImpl <em>Multiplicative Expression</em>}' class.
@@ -831,34 +767,34 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getMultiplicativeExpression()
 	 * @generated
 	 */
-	int MULTIPLICATIVE_EXPRESSION = 20;
+	int MULTIPLICATIVE_EXPRESSION = 19;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int MULTIPLICATIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATIVE_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int MULTIPLICATIVE_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute list.
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+	int MULTIPLICATIVE_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Multiplicative Expression</em>' class.
@@ -867,7 +803,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.CastExpressionImpl <em>Cast Expression</em>}' class.
@@ -877,25 +813,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getCastExpression()
 	 * @generated
 	 */
-	int CAST_EXPRESSION = 21;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAST_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAST_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+	int CAST_EXPRESSION = 20;
 
 	/**
 	 * The number of structural features of the '<em>Cast Expression</em>' class.
@@ -904,7 +822,7 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int CAST_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int CAST_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.
@@ -914,16 +832,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getUnaryExpression()
 	 * @generated
 	 */
-	int UNARY_EXPRESSION = 22;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int UNARY_EXPRESSION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -935,7 +844,7 @@ public interface CommonPackage extends EPackage
 	int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Op</b></em>' containment reference.
+	 * The feature id for the '<em><b>Op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -960,16 +869,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpression()
 	 * @generated
 	 */
-	int POSTFIX_EXPRESSION = 23;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSTFIX_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int POSTFIX_EXPRESSION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1006,7 +906,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpressionSuffixArgument()
 	 * @generated
 	 */
-	int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 24;
+	int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 23;
 
 	/**
 	 * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
@@ -1034,16 +934,7 @@ public interface CommonPackage extends EPackage
 	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPrimaryExpression()
 	 * @generated
 	 */
-	int PRIMARY_EXPRESSION = 25;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int PRIMARY_EXPRESSION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Const</b></em>' attribute.
@@ -1073,13 +964,50 @@ public interface CommonPackage extends EPackage
 	int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Parentheses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_EXPRESSION__PARENTHESES = EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Primary Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.Constant1Impl <em>Constant1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.jku.weiner.c.common.common.impl.Constant1Impl
+	 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstant1()
+	 * @generated
+	 */
+	int CONSTANT1 = 25;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT1__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Constant1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT1_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
 	/**
@@ -1186,38 +1114,6 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 */
 	EClass getExpression();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.Expression#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see at.jku.weiner.c.common.common.Expression#getExpression()
-	 * @see #getExpression()
-	 * @generated
-	 */
-	EReference getExpression_Expression();
-
-	/**
-	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.UnaryOperator <em>Unary Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unary Operator</em>'.
-	 * @see at.jku.weiner.c.common.common.UnaryOperator
-	 * @generated
-	 */
-	EClass getUnaryOperator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.UnaryOperator#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Op</em>'.
-	 * @see at.jku.weiner.c.common.common.UnaryOperator#getOp()
-	 * @see #getUnaryOperator()
-	 * @generated
-	 */
-	EAttribute getUnaryOperator_Op();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
@@ -1348,17 +1244,6 @@ public interface CommonPackage extends EPackage
 	EClass getConstantExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.ConstantExpression#getExpr <em>Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.ConstantExpression#getExpr()
-	 * @see #getConstantExpression()
-	 * @generated
-	 */
-	EReference getConstantExpression_Expr();
-
-	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.ConditionalExpression <em>Conditional Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1412,15 +1297,26 @@ public interface CommonPackage extends EPackage
 	EClass getLogicalOrExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.LogicalOrExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.LogicalOrExpression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.LogicalOrExpression#getExpr()
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.LogicalOrExpression#getLeft()
 	 * @see #getLogicalOrExpression()
 	 * @generated
 	 */
-	EReference getLogicalOrExpression_Expr();
+	EReference getLogicalOrExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.LogicalOrExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.LogicalOrExpression#getRight()
+	 * @see #getLogicalOrExpression()
+	 * @generated
+	 */
+	EReference getLogicalOrExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.LogicalAndExpression <em>Logical And Expression</em>}'.
@@ -1433,15 +1329,26 @@ public interface CommonPackage extends EPackage
 	EClass getLogicalAndExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.LogicalAndExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.LogicalAndExpression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.LogicalAndExpression#getExpr()
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.LogicalAndExpression#getLeft()
 	 * @see #getLogicalAndExpression()
 	 * @generated
 	 */
-	EReference getLogicalAndExpression_Expr();
+	EReference getLogicalAndExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.LogicalAndExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.LogicalAndExpression#getRight()
+	 * @see #getLogicalAndExpression()
+	 * @generated
+	 */
+	EReference getLogicalAndExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.InclusiveOrExpression <em>Inclusive Or Expression</em>}'.
@@ -1454,15 +1361,26 @@ public interface CommonPackage extends EPackage
 	EClass getInclusiveOrExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.InclusiveOrExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.InclusiveOrExpression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.InclusiveOrExpression#getExpr()
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.InclusiveOrExpression#getLeft()
 	 * @see #getInclusiveOrExpression()
 	 * @generated
 	 */
-	EReference getInclusiveOrExpression_Expr();
+	EReference getInclusiveOrExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.InclusiveOrExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.InclusiveOrExpression#getRight()
+	 * @see #getInclusiveOrExpression()
+	 * @generated
+	 */
+	EReference getInclusiveOrExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.ExclusiveOrExpression <em>Exclusive Or Expression</em>}'.
@@ -1475,15 +1393,26 @@ public interface CommonPackage extends EPackage
 	EClass getExclusiveOrExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.ExclusiveOrExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.ExclusiveOrExpression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.ExclusiveOrExpression#getExpr()
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.ExclusiveOrExpression#getLeft()
 	 * @see #getExclusiveOrExpression()
 	 * @generated
 	 */
-	EReference getExclusiveOrExpression_Expr();
+	EReference getExclusiveOrExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.ExclusiveOrExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.ExclusiveOrExpression#getRight()
+	 * @see #getExclusiveOrExpression()
+	 * @generated
+	 */
+	EReference getExclusiveOrExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.AndExpression <em>And Expression</em>}'.
@@ -1496,15 +1425,26 @@ public interface CommonPackage extends EPackage
 	EClass getAndExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.AndExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.AndExpression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.AndExpression#getExpr()
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.AndExpression#getLeft()
 	 * @see #getAndExpression()
 	 * @generated
 	 */
-	EReference getAndExpression_Expr();
+	EReference getAndExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.AndExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.AndExpression#getRight()
+	 * @see #getAndExpression()
+	 * @generated
+	 */
+	EReference getAndExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.EqualityExpression <em>Equality Expression</em>}'.
@@ -1517,26 +1457,37 @@ public interface CommonPackage extends EPackage
 	EClass getEqualityExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.EqualityExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.EqualityExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.EqualityExpression#getExpr()
-	 * @see #getEqualityExpression()
-	 * @generated
-	 */
-	EReference getEqualityExpression_Expr();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.common.common.EqualityExpression#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.EqualityExpression#getOp()
 	 * @see #getEqualityExpression()
 	 * @generated
 	 */
 	EAttribute getEqualityExpression_Op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.EqualityExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.EqualityExpression#getLeft()
+	 * @see #getEqualityExpression()
+	 * @generated
+	 */
+	EReference getEqualityExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.EqualityExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.EqualityExpression#getRight()
+	 * @see #getEqualityExpression()
+	 * @generated
+	 */
+	EReference getEqualityExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.RelationalExpression <em>Relational Expression</em>}'.
@@ -1549,26 +1500,37 @@ public interface CommonPackage extends EPackage
 	EClass getRelationalExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.RelationalExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.RelationalExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.RelationalExpression#getExpr()
-	 * @see #getRelationalExpression()
-	 * @generated
-	 */
-	EReference getRelationalExpression_Expr();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.common.common.RelationalExpression#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.RelationalExpression#getOp()
 	 * @see #getRelationalExpression()
 	 * @generated
 	 */
 	EAttribute getRelationalExpression_Op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.RelationalExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.RelationalExpression#getLeft()
+	 * @see #getRelationalExpression()
+	 * @generated
+	 */
+	EReference getRelationalExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.RelationalExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.RelationalExpression#getRight()
+	 * @see #getRelationalExpression()
+	 * @generated
+	 */
+	EReference getRelationalExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.ShiftExpression <em>Shift Expression</em>}'.
@@ -1581,26 +1543,37 @@ public interface CommonPackage extends EPackage
 	EClass getShiftExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.ShiftExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.ShiftExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.ShiftExpression#getExpr()
-	 * @see #getShiftExpression()
-	 * @generated
-	 */
-	EReference getShiftExpression_Expr();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.common.common.ShiftExpression#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.ShiftExpression#getOp()
 	 * @see #getShiftExpression()
 	 * @generated
 	 */
 	EAttribute getShiftExpression_Op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.ShiftExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.ShiftExpression#getLeft()
+	 * @see #getShiftExpression()
+	 * @generated
+	 */
+	EReference getShiftExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.ShiftExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.ShiftExpression#getRight()
+	 * @see #getShiftExpression()
+	 * @generated
+	 */
+	EReference getShiftExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.AdditiveExpression <em>Additive Expression</em>}'.
@@ -1613,26 +1586,37 @@ public interface CommonPackage extends EPackage
 	EClass getAdditiveExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.AdditiveExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.AdditiveExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.AdditiveExpression#getExpr()
-	 * @see #getAdditiveExpression()
-	 * @generated
-	 */
-	EReference getAdditiveExpression_Expr();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.common.common.AdditiveExpression#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.AdditiveExpression#getOp()
 	 * @see #getAdditiveExpression()
 	 * @generated
 	 */
 	EAttribute getAdditiveExpression_Op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.AdditiveExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.AdditiveExpression#getLeft()
+	 * @see #getAdditiveExpression()
+	 * @generated
+	 */
+	EReference getAdditiveExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.AdditiveExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.AdditiveExpression#getRight()
+	 * @see #getAdditiveExpression()
+	 * @generated
+	 */
+	EReference getAdditiveExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.MultiplicativeExpression <em>Multiplicative Expression</em>}'.
@@ -1645,26 +1629,37 @@ public interface CommonPackage extends EPackage
 	EClass getMultiplicativeExpression();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.MultiplicativeExpression#getExpr()
-	 * @see #getMultiplicativeExpression()
-	 * @generated
-	 */
-	EReference getMultiplicativeExpression_Expr();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.MultiplicativeExpression#getOp()
 	 * @see #getMultiplicativeExpression()
 	 * @generated
 	 */
 	EAttribute getMultiplicativeExpression_Op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see at.jku.weiner.c.common.common.MultiplicativeExpression#getLeft()
+	 * @see #getMultiplicativeExpression()
+	 * @generated
+	 */
+	EReference getMultiplicativeExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see at.jku.weiner.c.common.common.MultiplicativeExpression#getRight()
+	 * @see #getMultiplicativeExpression()
+	 * @generated
+	 */
+	EReference getMultiplicativeExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.CastExpression <em>Cast Expression</em>}'.
@@ -1675,17 +1670,6 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 */
 	EClass getCastExpression();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.CastExpression#getExpr <em>Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expr</em>'.
-	 * @see at.jku.weiner.c.common.common.CastExpression#getExpr()
-	 * @see #getCastExpression()
-	 * @generated
-	 */
-	EReference getCastExpression_Expr();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.UnaryExpression <em>Unary Expression</em>}'.
@@ -1709,15 +1693,15 @@ public interface CommonPackage extends EPackage
 	EReference getUnaryExpression_Expr();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.UnaryExpression#getOp <em>Op</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.UnaryExpression#getOp <em>Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Op</em>'.
+	 * @return the meta object for the attribute '<em>Op</em>'.
 	 * @see at.jku.weiner.c.common.common.UnaryExpression#getOp()
 	 * @see #getUnaryExpression()
 	 * @generated
 	 */
-	EReference getUnaryExpression_Op();
+	EAttribute getUnaryExpression_Op();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.PostfixExpression <em>Postfix Expression</em>}'.
@@ -1814,6 +1798,38 @@ public interface CommonPackage extends EPackage
 	 * @generated
 	 */
 	EReference getPrimaryExpression_Expr();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.PrimaryExpression#isParentheses <em>Parentheses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parentheses</em>'.
+	 * @see at.jku.weiner.c.common.common.PrimaryExpression#isParentheses()
+	 * @see #getPrimaryExpression()
+	 * @generated
+	 */
+	EAttribute getPrimaryExpression_Parentheses();
+
+	/**
+	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.Constant1 <em>Constant1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant1</em>'.
+	 * @see at.jku.weiner.c.common.common.Constant1
+	 * @generated
+	 */
+	EClass getConstant1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.Constant1#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see at.jku.weiner.c.common.common.Constant1#getValue()
+	 * @see #getConstant1()
+	 * @generated
+	 */
+	EAttribute getConstant1_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1929,32 +1945,6 @@ public interface CommonPackage extends EPackage
 		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPRESSION__EXPRESSION = eINSTANCE.getExpression_Expression();
-
-		/**
-		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see at.jku.weiner.c.common.common.impl.UnaryOperatorImpl
-		 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getUnaryOperator()
-		 * @generated
-		 */
-		EClass UNARY_OPERATOR = eINSTANCE.getUnaryOperator();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2059,14 +2049,6 @@ public interface CommonPackage extends EPackage
 		EClass CONSTANT_EXPRESSION = eINSTANCE.getConstantExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONSTANT_EXPRESSION__EXPR = eINSTANCE.getConstantExpression_Expr();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.ConditionalExpressionImpl <em>Conditional Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2111,12 +2093,20 @@ public interface CommonPackage extends EPackage
 		EClass LOGICAL_OR_EXPRESSION = eINSTANCE.getLogicalOrExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LOGICAL_OR_EXPRESSION__EXPR = eINSTANCE.getLogicalOrExpression_Expr();
+		EReference LOGICAL_OR_EXPRESSION__LEFT = eINSTANCE.getLogicalOrExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOGICAL_OR_EXPRESSION__RIGHT = eINSTANCE.getLogicalOrExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
@@ -2129,12 +2119,20 @@ public interface CommonPackage extends EPackage
 		EClass LOGICAL_AND_EXPRESSION = eINSTANCE.getLogicalAndExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LOGICAL_AND_EXPRESSION__EXPR = eINSTANCE.getLogicalAndExpression_Expr();
+		EReference LOGICAL_AND_EXPRESSION__LEFT = eINSTANCE.getLogicalAndExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOGICAL_AND_EXPRESSION__RIGHT = eINSTANCE.getLogicalAndExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.InclusiveOrExpressionImpl <em>Inclusive Or Expression</em>}' class.
@@ -2147,12 +2145,20 @@ public interface CommonPackage extends EPackage
 		EClass INCLUSIVE_OR_EXPRESSION = eINSTANCE.getInclusiveOrExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INCLUSIVE_OR_EXPRESSION__EXPR = eINSTANCE.getInclusiveOrExpression_Expr();
+		EReference INCLUSIVE_OR_EXPRESSION__LEFT = eINSTANCE.getInclusiveOrExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INCLUSIVE_OR_EXPRESSION__RIGHT = eINSTANCE.getInclusiveOrExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.ExclusiveOrExpressionImpl <em>Exclusive Or Expression</em>}' class.
@@ -2165,12 +2171,20 @@ public interface CommonPackage extends EPackage
 		EClass EXCLUSIVE_OR_EXPRESSION = eINSTANCE.getExclusiveOrExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXCLUSIVE_OR_EXPRESSION__EXPR = eINSTANCE.getExclusiveOrExpression_Expr();
+		EReference EXCLUSIVE_OR_EXPRESSION__LEFT = eINSTANCE.getExclusiveOrExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCLUSIVE_OR_EXPRESSION__RIGHT = eINSTANCE.getExclusiveOrExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.AndExpressionImpl <em>And Expression</em>}' class.
@@ -2183,12 +2197,20 @@ public interface CommonPackage extends EPackage
 		EClass AND_EXPRESSION = eINSTANCE.getAndExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AND_EXPRESSION__EXPR = eINSTANCE.getAndExpression_Expr();
+		EReference AND_EXPRESSION__LEFT = eINSTANCE.getAndExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AND_EXPRESSION__RIGHT = eINSTANCE.getAndExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.EqualityExpressionImpl <em>Equality Expression</em>}' class.
@@ -2201,20 +2223,28 @@ public interface CommonPackage extends EPackage
 		EClass EQUALITY_EXPRESSION = eINSTANCE.getEqualityExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EQUALITY_EXPRESSION__EXPR = eINSTANCE.getEqualityExpression_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute EQUALITY_EXPRESSION__OP = eINSTANCE.getEqualityExpression_Op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUALITY_EXPRESSION__LEFT = eINSTANCE.getEqualityExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUALITY_EXPRESSION__RIGHT = eINSTANCE.getEqualityExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.RelationalExpressionImpl <em>Relational Expression</em>}' class.
@@ -2227,20 +2257,28 @@ public interface CommonPackage extends EPackage
 		EClass RELATIONAL_EXPRESSION = eINSTANCE.getRelationalExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATIONAL_EXPRESSION__EXPR = eINSTANCE.getRelationalExpression_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RELATIONAL_EXPRESSION__OP = eINSTANCE.getRelationalExpression_Op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIONAL_EXPRESSION__LEFT = eINSTANCE.getRelationalExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIONAL_EXPRESSION__RIGHT = eINSTANCE.getRelationalExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.ShiftExpressionImpl <em>Shift Expression</em>}' class.
@@ -2253,20 +2291,28 @@ public interface CommonPackage extends EPackage
 		EClass SHIFT_EXPRESSION = eINSTANCE.getShiftExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SHIFT_EXPRESSION__EXPR = eINSTANCE.getShiftExpression_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SHIFT_EXPRESSION__OP = eINSTANCE.getShiftExpression_Op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHIFT_EXPRESSION__LEFT = eINSTANCE.getShiftExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHIFT_EXPRESSION__RIGHT = eINSTANCE.getShiftExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.AdditiveExpressionImpl <em>Additive Expression</em>}' class.
@@ -2279,20 +2325,28 @@ public interface CommonPackage extends EPackage
 		EClass ADDITIVE_EXPRESSION = eINSTANCE.getAdditiveExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ADDITIVE_EXPRESSION__EXPR = eINSTANCE.getAdditiveExpression_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ADDITIVE_EXPRESSION__OP = eINSTANCE.getAdditiveExpression_Op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADDITIVE_EXPRESSION__LEFT = eINSTANCE.getAdditiveExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADDITIVE_EXPRESSION__RIGHT = eINSTANCE.getAdditiveExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.MultiplicativeExpressionImpl <em>Multiplicative Expression</em>}' class.
@@ -2305,20 +2359,28 @@ public interface CommonPackage extends EPackage
 		EClass MULTIPLICATIVE_EXPRESSION = eINSTANCE.getMultiplicativeExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MULTIPLICATIVE_EXPRESSION__EXPR = eINSTANCE.getMultiplicativeExpression_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MULTIPLICATIVE_EXPRESSION__OP = eINSTANCE.getMultiplicativeExpression_Op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTIPLICATIVE_EXPRESSION__LEFT = eINSTANCE.getMultiplicativeExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTIPLICATIVE_EXPRESSION__RIGHT = eINSTANCE.getMultiplicativeExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.CastExpressionImpl <em>Cast Expression</em>}' class.
@@ -2329,14 +2391,6 @@ public interface CommonPackage extends EPackage
 		 * @generated
 		 */
 		EClass CAST_EXPRESSION = eINSTANCE.getCastExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CAST_EXPRESSION__EXPR = eINSTANCE.getCastExpression_Expr();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.
@@ -2357,12 +2411,12 @@ public interface CommonPackage extends EPackage
 		EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
 
 		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
+		EAttribute UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -2441,6 +2495,32 @@ public interface CommonPackage extends EPackage
 		 * @generated
 		 */
 		EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
+
+		/**
+		 * The meta object literal for the '<em><b>Parentheses</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIMARY_EXPRESSION__PARENTHESES = eINSTANCE.getPrimaryExpression_Parentheses();
+
+		/**
+		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.Constant1Impl <em>Constant1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.jku.weiner.c.common.common.impl.Constant1Impl
+		 * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstant1()
+		 * @generated
+		 */
+		EClass CONSTANT1 = eINSTANCE.getConstant1();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT1__VALUE = eINSTANCE.getConstant1_Value();
 
 	}
 

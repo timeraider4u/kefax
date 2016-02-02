@@ -103,194 +103,42 @@ SKW_RIGHTBRACE NEWLINE
 											initializer=
 											(Initializer
 												expr=
-												(AssignmentExpression
-													expr=
-													(ConditionalExpression
-														expr=
-														(LogicalOrExpression
-															expr+=
-															(LogicalAndExpression
-																expr+=
-																(InclusiveOrExpression
-																	expr+=
-																	(ExclusiveOrExpression
-																		expr+=
-																		(AndExpression
-																			expr+=
-																			(EqualityExpression
-																				expr+=
-																				(RelationalExpression
-																					expr+=
-																					(ShiftExpression
-																						expr+=
-																						(AdditiveExpression
-																							expr+=
-																							(MultiplicativeExpression
-																								expr+=
-																								(CastExpression
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												const=
-																												(common::Constant2
-																													dec++"0"
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"0"
 													)
-												) // end assignment expression
+												) // end  expression
 											)
 										)
 									)
 								), // end init declaration
 								// i < 5
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		op+*"[<]",
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"i"
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		),
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										dec++"5"
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
+								(RelationalExpression
+									op++"<",
+									left=
+									(PrimaryExpression
+										id++"i"
+									),
+									right=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"5"
 										)
 									)
 								), // end loop criteria expression
 								// i++
 								incExpr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"i"
-																								),
-																								suffix+=
-																								(PostfixExpressionSuffixPlusPlus
-																									
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PostfixExpression
+									expr=
+									(PrimaryExpression
+										id++"i"
+									),
+									suffix=
+									(PostfixExpressionSuffixPlusPlus
+										
 									)
 								), // end increment expression
 								statement=

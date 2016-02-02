@@ -75,59 +75,14 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(ExpressionStatement
 								expression=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"num"
-																								),
-																								suffix+=
-																								(PostfixExpressionSuffixPlusPlus
-																									
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PostfixExpression
+									expr=
+									(PrimaryExpression
+										id++"num"
+									),
+									suffix=
+									(PostfixExpressionSuffixPlusPlus
+										
 									)
 								) // end expression
 							) // end expression statement
@@ -137,61 +92,12 @@ SKW_RIGHTBRACE NEWLINE
 							(JumpStatement
 								return++"return",
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										id++"num"
-																									)
-																								)
-																							),
-																							plusplus++"++"
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																	
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
+								(UnaryExpression
+									expr=
+									(PrimaryExpression
+										id++"num"
+									),
+									plusplus++"++"
 								) // end expression
 							) // end expression statement
 						) // end statement

@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.parser.parser;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -132,35 +131,55 @@ public interface PostfixExpression extends Expression
   void setComma(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.parser.parser.Expression}.
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference list.
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expression)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpr();
+  Expression getExpr();
 
   /**
-   * Returns the value of the '<em><b>Suffix</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffix}.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getExpr <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
+   * @generated
+   */
+  void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Suffix</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Suffix</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Suffix</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Suffix</em>' containment reference list.
+   * @return the value of the '<em>Suffix</em>' containment reference.
+   * @see #setSuffix(PostfixExpressionSuffix)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpression_Suffix()
    * @model containment="true"
    * @generated
    */
-  EList<PostfixExpressionSuffix> getSuffix();
+  PostfixExpressionSuffix getSuffix();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getSuffix <em>Suffix</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Suffix</em>' containment reference.
+   * @see #getSuffix()
+   * @generated
+   */
+  void setSuffix(PostfixExpressionSuffix value);
 
 } // PostfixExpression

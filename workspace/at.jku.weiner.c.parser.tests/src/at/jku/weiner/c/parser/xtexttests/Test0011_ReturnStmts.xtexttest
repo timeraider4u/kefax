@@ -56,58 +56,10 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(JumpStatement
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										ch++"'a'"
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										ch++"'a'"
 									)
 								), // end expression
 								return++"return"
@@ -146,69 +98,15 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(JumpStatement
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(common::Constant2
-																												dec++"1"
-																											)
-																										)
-																									)
-																								)
-																							), // end cast expression
-																							op=
-																							(UnaryOperator
-																								op++"-"
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
+								(UnaryExpression
+									expr=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"1"
 										)
-									)
+									), 
+									op++"-"
 								), // end expression
 								return++"return"
 							)// end jump statement
@@ -246,58 +144,10 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(JumpStatement
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										float++"0.8"
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										float++"0.8"
 									)
 								), // end expression
 								return++"return"
@@ -336,58 +186,10 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(JumpStatement
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										hex++"0x01A"
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										hex++"0x01A"
 									)
 								), // end expression
 								return++"return"

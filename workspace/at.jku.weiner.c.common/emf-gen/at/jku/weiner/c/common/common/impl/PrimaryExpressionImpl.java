@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#isParentheses <em>Parentheses</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +81,26 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 * @ordered
 	 */
 	protected Expression expr;
+
+	/**
+	 * The default value of the '{@link #isParentheses() <em>Parentheses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isParentheses()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PARENTHESES_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isParentheses() <em>Parentheses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isParentheses()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean parentheses = PARENTHESES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,6 +222,29 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isParentheses()
+	{
+		return parentheses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentheses(boolean newParentheses)
+	{
+		boolean oldParentheses = parentheses;
+		parentheses = newParentheses;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.PRIMARY_EXPRESSION__PARENTHESES, oldParentheses, parentheses));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -228,6 +272,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 				return getId();
 			case CommonPackage.PRIMARY_EXPRESSION__EXPR:
 				return getExpr();
+			case CommonPackage.PRIMARY_EXPRESSION__PARENTHESES:
+				return isParentheses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +296,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 				return;
 			case CommonPackage.PRIMARY_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
+				return;
+			case CommonPackage.PRIMARY_EXPRESSION__PARENTHESES:
+				setParentheses((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,6 +323,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 			case CommonPackage.PRIMARY_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
+			case CommonPackage.PRIMARY_EXPRESSION__PARENTHESES:
+				setParentheses(PARENTHESES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,6 +346,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case CommonPackage.PRIMARY_EXPRESSION__EXPR:
 				return expr != null;
+			case CommonPackage.PRIMARY_EXPRESSION__PARENTHESES:
+				return parentheses != PARENTHESES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -313,6 +367,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 		result.append(const_);
 		result.append(", id: ");
 		result.append(id);
+		result.append(", parentheses: ");
+		result.append(parentheses);
 		result.append(')');
 		return result.toString();
 	}

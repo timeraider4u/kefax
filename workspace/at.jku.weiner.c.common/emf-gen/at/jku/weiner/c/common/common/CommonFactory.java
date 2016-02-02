@@ -68,15 +68,6 @@ public interface CommonFactory extends EFactory
 	Expression createExpression();
 
 	/**
-	 * Returns a new object of class '<em>Unary Operator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unary Operator</em>'.
-	 * @generated
-	 */
-	UnaryOperator createUnaryOperator();
-
-	/**
 	 * Returns a new object of class '<em>Postfix Expression Suffix</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,6 +246,15 @@ public interface CommonFactory extends EFactory
 	 * @generated
 	 */
 	PrimaryExpression createPrimaryExpression();
+
+	/**
+	 * Returns a new object of class '<em>Constant1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constant1</em>'.
+	 * @generated
+	 */
+	Constant1 createConstant1();
 
 	/**
 	 * Returns the package supported by this factory.

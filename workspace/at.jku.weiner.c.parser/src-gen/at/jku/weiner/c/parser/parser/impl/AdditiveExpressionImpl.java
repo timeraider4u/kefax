@@ -3,21 +3,13 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
-import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +18,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AdditiveExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AdditiveExpressionImpl#getOp <em>Op</em>}</li>
  * </ul>
  * </p>
@@ -36,24 +27,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveExpression
 {
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpr()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> expr;
-
-  /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute list.
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOp()
    * @generated
    * @ordered
    */
-  protected EList<String> op;
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -81,26 +72,8 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public String getOp()
   {
-    if (expr == null)
-    {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, ParserPackage.ADDITIVE_EXPRESSION__EXPR);
-    }
-    return expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getOp()
-  {
-    if (op == null)
-    {
-      op = new EDataTypeEList<String>(String.class, this, ParserPackage.ADDITIVE_EXPRESSION__OP);
-    }
     return op;
   }
 
@@ -109,15 +82,12 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setOp(String newOp)
   {
-    switch (featureID)
-    {
-      case ParserPackage.ADDITIVE_EXPRESSION__EXPR:
-        return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ADDITIVE_EXPRESSION__OP, oldOp, op));
   }
 
   /**
@@ -130,8 +100,6 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
   {
     switch (featureID)
     {
-      case ParserPackage.ADDITIVE_EXPRESSION__EXPR:
-        return getExpr();
       case ParserPackage.ADDITIVE_EXPRESSION__OP:
         return getOp();
     }
@@ -143,19 +111,13 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ParserPackage.ADDITIVE_EXPRESSION__EXPR:
-        getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
-        return;
       case ParserPackage.ADDITIVE_EXPRESSION__OP:
-        getOp().clear();
-        getOp().addAll((Collection<? extends String>)newValue);
+        setOp((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,11 +133,8 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
   {
     switch (featureID)
     {
-      case ParserPackage.ADDITIVE_EXPRESSION__EXPR:
-        getExpr().clear();
-        return;
       case ParserPackage.ADDITIVE_EXPRESSION__OP:
-        getOp().clear();
+        setOp(OP_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -191,10 +150,8 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
   {
     switch (featureID)
     {
-      case ParserPackage.ADDITIVE_EXPRESSION__EXPR:
-        return expr != null && !expr.isEmpty();
       case ParserPackage.ADDITIVE_EXPRESSION__OP:
-        return op != null && !op.isEmpty();
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
     }
     return super.eIsSet(featureID);
   }

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getString <em>String</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isParentheses <em>Parentheses</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isExt <em>Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getCompoundStmt <em>Compound Stmt</em>}</li>
@@ -87,6 +88,26 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected EList<String> string;
+
+  /**
+   * The default value of the '{@link #isParentheses() <em>Parentheses</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isParentheses()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean PARENTHESES_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isParentheses() <em>Parentheses</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isParentheses()
+   * @generated
+   * @ordered
+   */
+  protected boolean parentheses = PARENTHESES_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -292,6 +313,29 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       string = new EDataTypeEList<String>(String.class, this, ParserPackage.PRIMARY_EXPRESSION__STRING);
     }
     return string;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isParentheses()
+  {
+    return parentheses;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParentheses(boolean newParentheses)
+  {
+    boolean oldParentheses = parentheses;
+    parentheses = newParentheses;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__PARENTHESES, oldParentheses, parentheses));
   }
 
   /**
@@ -595,6 +639,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return getConst();
       case ParserPackage.PRIMARY_EXPRESSION__STRING:
         return getString();
+      case ParserPackage.PRIMARY_EXPRESSION__PARENTHESES:
+        return isParentheses();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return getExpr();
       case ParserPackage.PRIMARY_EXPRESSION__EXT:
@@ -633,6 +679,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__STRING:
         getString().clear();
         getString().addAll((Collection<? extends String>)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__PARENTHESES:
+        setParentheses((Boolean)newValue);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
@@ -678,6 +727,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__STRING:
         getString().clear();
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__PARENTHESES:
+        setParentheses(PARENTHESES_EDEFAULT);
+        return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
@@ -719,6 +771,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return const_ != null;
       case ParserPackage.PRIMARY_EXPRESSION__STRING:
         return string != null && !string.isEmpty();
+      case ParserPackage.PRIMARY_EXPRESSION__PARENTHESES:
+        return parentheses != PARENTHESES_EDEFAULT;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return expr != null;
       case ParserPackage.PRIMARY_EXPRESSION__EXT:
@@ -752,6 +806,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     result.append(id);
     result.append(", string: ");
     result.append(string);
+    result.append(", parentheses: ");
+    result.append(parentheses);
     result.append(", ext: ");
     result.append(ext);
     result.append(", builtin_offsetof: ");

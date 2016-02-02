@@ -15,13 +15,11 @@ import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
 import at.jku.weiner.c.parser.parser.AsmSymbolicName;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.AssignmentOperator;
 import at.jku.weiner.c.parser.parser.BlockList;
 import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.ConstantExpression;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
@@ -97,7 +95,6 @@ import at.jku.weiner.c.parser.parser.TypeQualifierList;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.TypedefName;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
-import at.jku.weiner.c.parser.parser.UnaryOperator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -498,20 +495,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass assignmentOperatorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass unaryOperatorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass postfixExpressionSuffixEClass = null;
 
   /**
@@ -751,13 +734,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass primaryExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass constantExpressionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -2430,7 +2406,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_ExprExpr()
+  public EReference getExpression_Left()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
   }
@@ -2440,29 +2416,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAssignmentOperator()
+  public EReference getExpression_Right()
   {
-    return assignmentOperatorEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAssignmentOperator_Op()
-  {
-    return (EAttribute)assignmentOperatorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUnaryOperator()
-  {
-    return unaryOperatorEClass;
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3030,9 +2986,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssignmentExpression_Op()
+  public EAttribute getAssignmentExpression_Op()
   {
-    return (EReference)assignmentExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)assignmentExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3060,7 +3016,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConditionalExpression_Expr()
+  public EReference getConditionalExpression_QExpr()
   {
     return (EReference)conditionalExpressionEClass.getEStructuralFeatures().get(0);
   }
@@ -3070,19 +3026,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConditionalExpression_QExpr()
-  {
-    return (EReference)conditionalExpressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getConditionalExpression_CExpr()
   {
-    return (EReference)conditionalExpressionEClass.getEStructuralFeatures().get(2);
+    return (EReference)conditionalExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3100,29 +3046,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLogicalOrExpression_Expr()
-  {
-    return (EReference)logicalOrExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getLogicalAndExpression()
   {
     return logicalAndExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLogicalAndExpression_Expr()
-  {
-    return (EReference)logicalAndExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3140,29 +3066,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInclusiveOrExpression_Expr()
-  {
-    return (EReference)inclusiveOrExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExclusiveOrExpression()
   {
     return exclusiveOrExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExclusiveOrExpression_Expr()
-  {
-    return (EReference)exclusiveOrExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3180,16 +3086,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAndExpression_Expr()
-  {
-    return (EReference)andExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getEqualityExpression()
   {
     return equalityExpressionEClass;
@@ -3200,19 +3096,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEqualityExpression_Expr()
-  {
-    return (EReference)equalityExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getEqualityExpression_Op()
   {
-    return (EAttribute)equalityExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)equalityExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3230,19 +3116,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelationalExpression_Expr()
-  {
-    return (EReference)relationalExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getRelationalExpression_Op()
   {
-    return (EAttribute)relationalExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)relationalExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3260,19 +3136,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getShiftExpression_Expr()
-  {
-    return (EReference)shiftExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getShiftExpression_Op()
   {
-    return (EAttribute)shiftExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)shiftExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3290,19 +3156,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdditiveExpression_Expr()
-  {
-    return (EReference)additiveExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getAdditiveExpression_Op()
   {
-    return (EAttribute)additiveExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)additiveExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3320,19 +3176,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMultiplicativeExpression_Expr()
-  {
-    return (EReference)multiplicativeExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getMultiplicativeExpression_Op()
   {
-    return (EAttribute)multiplicativeExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)multiplicativeExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3380,9 +3226,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUnaryExpression_Expr()
+  public EAttribute getUnaryExpression_Plusplus()
   {
-    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3390,9 +3236,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Plusplus()
+  public EReference getUnaryExpression_Expr()
   {
-    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3410,9 +3256,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUnaryExpression_Op()
+  public EAttribute getUnaryExpression_Op()
   {
-    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3680,9 +3526,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPrimaryExpression_Parentheses()
+  {
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getPrimaryExpression_Expr()
   {
-    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3692,7 +3548,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EAttribute getPrimaryExpression_Ext()
   {
-    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -3702,7 +3558,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EReference getPrimaryExpression_CompoundStmt()
   {
-    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(5);
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -3712,7 +3568,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EAttribute getPrimaryExpression_Builtin_offsetof()
   {
-    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -3722,7 +3578,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EReference getPrimaryExpression_TypeName()
   {
-    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(7);
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -3732,7 +3588,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EAttribute getPrimaryExpression_Builtin_typescompatiblep()
   {
-    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -3742,27 +3598,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EReference getPrimaryExpression_TypeName2()
   {
-    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(9);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConstantExpression()
-  {
-    return constantExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConstantExpression_Expr()
-  {
-    return (EReference)constantExpressionEClass.getEStructuralFeatures().get(0);
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -4008,12 +3844,8 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(designatorEClass, DESIGNATOR__ID);
 
     expressionEClass = createEClass(EXPRESSION);
-    createEReference(expressionEClass, EXPRESSION__EXPR_EXPR);
-
-    assignmentOperatorEClass = createEClass(ASSIGNMENT_OPERATOR);
-    createEAttribute(assignmentOperatorEClass, ASSIGNMENT_OPERATOR__OP);
-
-    unaryOperatorEClass = createEClass(UNARY_OPERATOR);
+    createEReference(expressionEClass, EXPRESSION__LEFT);
+    createEReference(expressionEClass, EXPRESSION__RIGHT);
 
     postfixExpressionSuffixEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX);
 
@@ -4084,47 +3916,36 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
-    createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__OP);
+    createEAttribute(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__OP);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR);
 
     conditionalExpressionEClass = createEClass(CONDITIONAL_EXPRESSION);
-    createEReference(conditionalExpressionEClass, CONDITIONAL_EXPRESSION__EXPR);
     createEReference(conditionalExpressionEClass, CONDITIONAL_EXPRESSION__QEXPR);
     createEReference(conditionalExpressionEClass, CONDITIONAL_EXPRESSION__CEXPR);
 
     logicalOrExpressionEClass = createEClass(LOGICAL_OR_EXPRESSION);
-    createEReference(logicalOrExpressionEClass, LOGICAL_OR_EXPRESSION__EXPR);
 
     logicalAndExpressionEClass = createEClass(LOGICAL_AND_EXPRESSION);
-    createEReference(logicalAndExpressionEClass, LOGICAL_AND_EXPRESSION__EXPR);
 
     inclusiveOrExpressionEClass = createEClass(INCLUSIVE_OR_EXPRESSION);
-    createEReference(inclusiveOrExpressionEClass, INCLUSIVE_OR_EXPRESSION__EXPR);
 
     exclusiveOrExpressionEClass = createEClass(EXCLUSIVE_OR_EXPRESSION);
-    createEReference(exclusiveOrExpressionEClass, EXCLUSIVE_OR_EXPRESSION__EXPR);
 
     andExpressionEClass = createEClass(AND_EXPRESSION);
-    createEReference(andExpressionEClass, AND_EXPRESSION__EXPR);
 
     equalityExpressionEClass = createEClass(EQUALITY_EXPRESSION);
-    createEReference(equalityExpressionEClass, EQUALITY_EXPRESSION__EXPR);
     createEAttribute(equalityExpressionEClass, EQUALITY_EXPRESSION__OP);
 
     relationalExpressionEClass = createEClass(RELATIONAL_EXPRESSION);
-    createEReference(relationalExpressionEClass, RELATIONAL_EXPRESSION__EXPR);
     createEAttribute(relationalExpressionEClass, RELATIONAL_EXPRESSION__OP);
 
     shiftExpressionEClass = createEClass(SHIFT_EXPRESSION);
-    createEReference(shiftExpressionEClass, SHIFT_EXPRESSION__EXPR);
     createEAttribute(shiftExpressionEClass, SHIFT_EXPRESSION__OP);
 
     additiveExpressionEClass = createEClass(ADDITIVE_EXPRESSION);
-    createEReference(additiveExpressionEClass, ADDITIVE_EXPRESSION__EXPR);
     createEAttribute(additiveExpressionEClass, ADDITIVE_EXPRESSION__OP);
 
     multiplicativeExpressionEClass = createEClass(MULTIPLICATIVE_EXPRESSION);
-    createEReference(multiplicativeExpressionEClass, MULTIPLICATIVE_EXPRESSION__EXPR);
     createEAttribute(multiplicativeExpressionEClass, MULTIPLICATIVE_EXPRESSION__OP);
 
     castExpressionEClass = createEClass(CAST_EXPRESSION);
@@ -4132,10 +3953,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(castExpressionEClass, CAST_EXPRESSION__EXPR);
 
     unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
-    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__EXPR);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__PLUSPLUS);
+    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__EXPR);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__MINUSMINUS);
-    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__OP);
+    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__OP);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__SIZE_OF);
     createEReference(unaryExpressionEClass, UNARY_EXPRESSION__TYPE_NAME);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ALIGN_OF);
@@ -4170,6 +3991,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__STRING);
+    createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__PARENTHESES);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__EXPR);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__EXT);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__COMPOUND_STMT);
@@ -4177,9 +3999,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME2);
-
-    constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
-    createEReference(constantExpressionEClass, CONSTANT_EXPRESSION__EXPR);
   }
 
   /**
@@ -4216,7 +4035,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     // Add supertypes to classes
     expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
-    unaryOperatorEClass.getESuperTypes().add(theCommonPackage.getUnaryOperator());
     postfixExpressionSuffixEClass.getESuperTypes().add(theCommonPackage.getPostfixExpressionSuffix());
     argumentExpressionListEClass.getESuperTypes().add(theCommonPackage.getArgumentExpressionList());
     parserEClass.getESuperTypes().add(theCommonPackage.getParser());
@@ -4252,7 +4070,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     postfixExpressionSuffixPlusPlusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     postfixExpressionSuffixMinusMinusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
-    constantExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(externalDeclarationEClass, ExternalDeclaration.class, "ExternalDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4468,12 +4285,8 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getDesignator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpression_ExprExpr(), this.getExpression(), null, "exprExpr", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(assignmentOperatorEClass, AssignmentOperator.class, "AssignmentOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAssignmentOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AssignmentOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Right(), this.getExpression(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionSuffixEClass, PostfixExpressionSuffix.class, "PostfixExpressionSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4544,58 +4357,47 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssignmentExpression_Op(), this.getAssignmentOperator(), null, "op", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssignmentExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssignmentExpression_AssignmentExpr(), this.getExpression(), null, "assignmentExpr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionalExpressionEClass, ConditionalExpression.class, "ConditionalExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConditionalExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, ConditionalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConditionalExpression_QExpr(), this.getExpression(), null, "qExpr", null, 0, 1, ConditionalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConditionalExpression_CExpr(), this.getExpression(), null, "cExpr", null, 0, 1, ConditionalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalOrExpressionEClass, LogicalOrExpression.class, "LogicalOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLogicalOrExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, LogicalOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalAndExpressionEClass, LogicalAndExpression.class, "LogicalAndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLogicalAndExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, LogicalAndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inclusiveOrExpressionEClass, InclusiveOrExpression.class, "InclusiveOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInclusiveOrExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, InclusiveOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exclusiveOrExpressionEClass, ExclusiveOrExpression.class, "ExclusiveOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExclusiveOrExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, ExclusiveOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andExpressionEClass, AndExpression.class, "AndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAndExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equalityExpressionEClass, EqualityExpression.class, "EqualityExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEqualityExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, EqualityExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEqualityExpression_Op(), theEcorePackage.getEString(), "op", null, 0, -1, EqualityExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEqualityExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, EqualityExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationalExpressionEClass, RelationalExpression.class, "RelationalExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRelationalExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, RelationalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRelationalExpression_Op(), theEcorePackage.getEString(), "op", null, 0, -1, RelationalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelationalExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, RelationalExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(shiftExpressionEClass, ShiftExpression.class, "ShiftExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getShiftExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getShiftExpression_Op(), theEcorePackage.getEString(), "op", null, 0, -1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getShiftExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(additiveExpressionEClass, AdditiveExpression.class, "AdditiveExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAdditiveExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAdditiveExpression_Op(), theEcorePackage.getEString(), "op", null, 0, -1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdditiveExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicativeExpressionEClass, MultiplicativeExpression.class, "MultiplicativeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiplicativeExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, MultiplicativeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMultiplicativeExpression_Op(), theEcorePackage.getEString(), "op", null, 0, -1, MultiplicativeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMultiplicativeExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, MultiplicativeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(castExpressionEClass, CastExpression.class, "CastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCastExpression_Type(), this.getTypeName(), null, "type", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCastExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUnaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_Minusminus(), theEcorePackage.getEString(), "minusminus", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnaryExpression_Op(), this.getUnaryOperator(), null, "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_SizeOf(), theEcorePackage.getEString(), "sizeOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_AlignOf(), theEcorePackage.getEString(), "alignOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4607,8 +4409,8 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getPostfixExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostfixExpression_InitializerList(), this.getInitializerList(), null, "initializerList", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPostfixExpression_Comma(), theEcorePackage.getEBoolean(), "comma", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPostfixExpression_Suffix(), this.getPostfixExpressionSuffix(), null, "suffix", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_Suffix(), this.getPostfixExpressionSuffix(), null, "suffix", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionSuffixArrayEClass, PostfixExpressionSuffixArray.class, "PostfixExpressionSuffixArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpressionSuffixArray_ArrayExpr(), this.getExpression(), null, "arrayExpr", null, 0, 1, PostfixExpressionSuffixArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4630,6 +4432,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Const(), theCommonPackage.getConstant2(), null, "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_String(), theEcorePackage.getEString(), "string", null, 0, -1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPrimaryExpression_Parentheses(), theEcorePackage.getEBoolean(), "parentheses", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Ext(), theEcorePackage.getEBoolean(), "ext", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_CompoundStmt(), this.getStatement(), null, "compoundStmt", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4637,9 +4440,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getPrimaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Builtin_typescompatiblep(), theEcorePackage.getEBoolean(), "builtin_typescompatiblep", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_TypeName2(), this.getTypeName(), null, "typeName2", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstantExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

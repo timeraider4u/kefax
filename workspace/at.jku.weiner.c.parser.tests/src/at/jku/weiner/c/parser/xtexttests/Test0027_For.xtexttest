@@ -81,211 +81,47 @@ SKW_RIGHTBRACE NEWLINE
 								for++"for",
 								// num = 0
 								initExpr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										op=
-										(AssignmentOperator
-											op++"="
-										),
-										expr=
-										(UnaryExpression
-											expr=
-											(PostfixExpression
-												expr+=
-												(PrimaryExpression
-													id++"num"
-												)
-											)
-										
-										), // end unary expression
-										assignmentExpr=
-										(AssignmentExpression
-											expr=
-											(ConditionalExpression
-												expr=
-												(LogicalOrExpression
-													expr+=
-													(LogicalAndExpression
-														expr+=
-														(InclusiveOrExpression
-															expr+=
-															(ExclusiveOrExpression
-																expr+=
-																(AndExpression
-																	expr+=
-																	(EqualityExpression
-																		expr+=
-																		(RelationalExpression
-																			expr+=
-																			(ShiftExpression
-																				expr+=
-																				(AdditiveExpression
-																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											dec++"0"
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											) // end conditional expression
-										) // end assignment expression
+								(AssignmentExpression
+									op++"=",
+									expr=
+									(PrimaryExpression
+										id++"num"
+									),
+									assignmentExpr=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"0"
+										)
 									) // end assignment expression
 								), // end init expression
 								// num < 5
 								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		op+*"[<]",
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"num"
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		),
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										dec++"5"
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
+								(RelationalExpression
+									op++"<",
+									left=
+								
+									(PrimaryExpression
+										id++"num"
+									),
+									right=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"5"
 										)
 									)
 								), // end loop criteria expression
 								// num++
 								incExpr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"num"
-																								),
-																								suffix+=
-																								(PostfixExpressionSuffixPlusPlus
-																									
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(PostfixExpression
+									expr=
+									(PrimaryExpression
+										id++"num"
+									),
+									suffix=
+									(PostfixExpressionSuffixPlusPlus
+										
 									)
 								), // end increment expression
 								statement=
@@ -301,60 +137,14 @@ SKW_RIGHTBRACE NEWLINE
 													stmt=
 													(ExpressionStatement
 														expression=
-														(Expression
-															exprExpr+=
-															(AssignmentExpression
-																expr=
-																(ConditionalExpression
-																	expr=
-																	(LogicalOrExpression
-																		expr+=
-																		(LogicalAndExpression
-																			expr+=
-																			(InclusiveOrExpression
-																				expr+=
-																				(ExclusiveOrExpression
-																					expr+=
-																					(AndExpression
-																						expr+=
-																						(EqualityExpression
-																							expr+=
-																							(RelationalExpression
-																								expr+=
-																								(ShiftExpression
-																									expr+=
-																									(AdditiveExpression
-																										expr+=
-																										(MultiplicativeExpression
-																											expr+=
-																											(CastExpression
-																												expr=
-																												(UnaryExpression
-																													expr=
-																													(PostfixExpression
-																														expr+=
-																														(PrimaryExpression
-																															id++"num"
-																														),
-																														suffix+=
-																														(PostfixExpressionSuffixMinusMinus
-																															
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																							
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
+														(PostfixExpression
+															expr=
+															(PrimaryExpression
+																id++"num"
+															),
+															suffix=
+															(PostfixExpressionSuffixMinusMinus
+																
 															)
 														) // end expression
 													) // end expression statement

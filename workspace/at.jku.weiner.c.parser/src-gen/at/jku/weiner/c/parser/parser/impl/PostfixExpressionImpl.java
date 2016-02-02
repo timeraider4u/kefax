@@ -9,20 +9,13 @@ import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix;
 import at.jku.weiner.c.parser.parser.TypeName;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,24 +98,24 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   protected boolean comma = COMMA_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected Expression expr;
 
   /**
-   * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' containment reference list.
+   * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSuffix()
    * @generated
    * @ordered
    */
-  protected EList<PostfixExpressionSuffix> suffix;
+  protected PostfixExpressionSuffix suffix;
 
   /**
    * <!-- begin-user-doc -->
@@ -292,12 +285,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public Expression getExpr()
   {
-    if (expr == null)
-    {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, ParserPackage.POSTFIX_EXPRESSION__EXPR);
-    }
     return expr;
   }
 
@@ -306,13 +295,85 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PostfixExpressionSuffix> getSuffix()
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    if (suffix == null)
+    Expression oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
     {
-      suffix = new EObjectContainmentEList<PostfixExpressionSuffix>(PostfixExpressionSuffix.class, this, ParserPackage.POSTFIX_EXPRESSION__SUFFIX);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.POSTFIX_EXPRESSION__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(Expression newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.POSTFIX_EXPRESSION__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.POSTFIX_EXPRESSION__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.POSTFIX_EXPRESSION__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffix getSuffix()
+  {
     return suffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSuffix(PostfixExpressionSuffix newSuffix, NotificationChain msgs)
+  {
+    PostfixExpressionSuffix oldSuffix = suffix;
+    suffix = newSuffix;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.POSTFIX_EXPRESSION__SUFFIX, oldSuffix, newSuffix);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSuffix(PostfixExpressionSuffix newSuffix)
+  {
+    if (newSuffix != suffix)
+    {
+      NotificationChain msgs = null;
+      if (suffix != null)
+        msgs = ((InternalEObject)suffix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.POSTFIX_EXPRESSION__SUFFIX, null, msgs);
+      if (newSuffix != null)
+        msgs = ((InternalEObject)newSuffix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.POSTFIX_EXPRESSION__SUFFIX, null, msgs);
+      msgs = basicSetSuffix(newSuffix, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.POSTFIX_EXPRESSION__SUFFIX, newSuffix, newSuffix));
   }
 
   /**
@@ -330,9 +391,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case ParserPackage.POSTFIX_EXPRESSION__INITIALIZER_LIST:
         return basicSetInitializerList(null, msgs);
       case ParserPackage.POSTFIX_EXPRESSION__EXPR:
-        return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
+        return basicSetExpr(null, msgs);
       case ParserPackage.POSTFIX_EXPRESSION__SUFFIX:
-        return ((InternalEList<?>)getSuffix()).basicRemove(otherEnd, msgs);
+        return basicSetSuffix(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -368,7 +429,6 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -387,12 +447,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         setComma((Boolean)newValue);
         return;
       case ParserPackage.POSTFIX_EXPRESSION__EXPR:
-        getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+        setExpr((Expression)newValue);
         return;
       case ParserPackage.POSTFIX_EXPRESSION__SUFFIX:
-        getSuffix().clear();
-        getSuffix().addAll((Collection<? extends PostfixExpressionSuffix>)newValue);
+        setSuffix((PostfixExpressionSuffix)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -421,10 +479,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         setComma(COMMA_EDEFAULT);
         return;
       case ParserPackage.POSTFIX_EXPRESSION__EXPR:
-        getExpr().clear();
+        setExpr((Expression)null);
         return;
       case ParserPackage.POSTFIX_EXPRESSION__SUFFIX:
-        getSuffix().clear();
+        setSuffix((PostfixExpressionSuffix)null);
         return;
     }
     super.eUnset(featureID);
@@ -449,9 +507,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case ParserPackage.POSTFIX_EXPRESSION__COMMA:
         return comma != COMMA_EDEFAULT;
       case ParserPackage.POSTFIX_EXPRESSION__EXPR:
-        return expr != null && !expr.isEmpty();
+        return expr != null;
       case ParserPackage.POSTFIX_EXPRESSION__SUFFIX:
-        return suffix != null && !suffix.isEmpty();
+        return suffix != null;
     }
     return super.eIsSet(featureID);
   }

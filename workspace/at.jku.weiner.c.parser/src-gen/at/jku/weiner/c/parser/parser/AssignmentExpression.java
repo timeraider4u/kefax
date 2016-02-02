@@ -50,30 +50,30 @@ public interface AssignmentExpression extends Expression
   void setExpr(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Op</b></em>' containment reference.
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Op</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Op</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Op</em>' containment reference.
-   * @see #setOp(AssignmentOperator)
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getAssignmentExpression_Op()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  AssignmentOperator getOp();
+  String getOp();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getOp <em>Op</em>}' containment reference.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Op</em>' containment reference.
+   * @param value the new value of the '<em>Op</em>' attribute.
    * @see #getOp()
    * @generated
    */
-  void setOp(AssignmentOperator value);
+  void setOp(String value);
 
   /**
    * Returns the value of the '<em><b>Assignment Expr</b></em>' containment reference.

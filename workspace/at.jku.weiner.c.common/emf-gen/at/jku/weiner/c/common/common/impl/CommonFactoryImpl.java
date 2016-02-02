@@ -69,7 +69,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 			case CommonPackage.PREPROCESS: return createPreprocess();
 			case CommonPackage.PARSER: return createParser();
 			case CommonPackage.EXPRESSION: return createExpression();
-			case CommonPackage.UNARY_OPERATOR: return createUnaryOperator();
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
 			case CommonPackage.CONSTANT2: return createConstant2();
@@ -90,6 +89,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 			case CommonPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: return createPostfixExpressionSuffixArgument();
 			case CommonPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+			case CommonPackage.CONSTANT1: return createConstant1();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,17 +148,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 	{
 		ExpressionImpl expression = new ExpressionImpl();
 		return expression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnaryOperator createUnaryOperator()
-	{
-		UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
-		return unaryOperator;
 	}
 
 	/**
@@ -379,6 +368,17 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 	{
 		PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
 		return primaryExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constant1 createConstant1()
+	{
+		Constant1Impl constant1 = new Constant1Impl();
+		return constant1;
 	}
 
 	/**

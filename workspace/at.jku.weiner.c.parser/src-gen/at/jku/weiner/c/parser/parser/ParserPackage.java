@@ -2030,22 +2030,22 @@ public interface ParserPackage extends EPackage
   int EXPRESSION = 53;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXPRESSION = CommonPackage.EXPRESSION__EXPRESSION;
+  int EXPRESSION__LEFT = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXPR_EXPR = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int EXPRESSION__RIGHT = CommonPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2054,63 +2054,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentOperatorImpl <em>Assignment Operator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.AssignmentOperatorImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentOperator()
-   * @generated
-   */
-  int ASSIGNMENT_OPERATOR = 54;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_OPERATOR__OP = 0;
-
-  /**
-   * The number of structural features of the '<em>Assignment Operator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_OPERATOR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.UnaryOperatorImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryOperator()
-   * @generated
-   */
-  int UNARY_OPERATOR = 55;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_OPERATOR__OP = CommonPackage.UNARY_OPERATOR__OP;
-
-  /**
-   * The number of structural features of the '<em>Unary Operator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_OPERATOR_FEATURE_COUNT = CommonPackage.UNARY_OPERATOR_FEATURE_COUNT + 0;
+  int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
@@ -2120,7 +2064,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffix()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX = 56;
+  int POSTFIX_EXPRESSION_SUFFIX = 54;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
@@ -2139,7 +2083,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 57;
+  int ARGUMENT_EXPRESSION_LIST = 55;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2167,7 +2111,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getParser()
    * @generated
    */
-  int PARSER = 58;
+  int PARSER = 56;
 
   /**
    * The feature id for the '<em><b>External</b></em>' containment reference list.
@@ -2195,7 +2139,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getStructOrUnionSpecifier()
    * @generated
    */
-  int STRUCT_OR_UNION_SPECIFIER = 59;
+  int STRUCT_OR_UNION_SPECIFIER = 57;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2250,7 +2194,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 60;
+  int ENUM_SPECIFIER = 58;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2287,7 +2231,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 61;
+  int LABELED_STATEMENT = 59;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2378,7 +2322,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 62;
+  int COMPOUND_STATEMENT = 60;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2415,7 +2359,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 63;
+  int BODY_STATEMENT = 61;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2452,7 +2396,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 64;
+  int EXPRESSION_STATEMENT = 62;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2489,7 +2433,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 65;
+  int SELECTION_STATEMENT = 63;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2580,7 +2524,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 66;
+  int ITERATION_STATEMENT = 64;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2689,7 +2633,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 67;
+  int JUMP_STATEMENT = 65;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2762,7 +2706,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 68;
+  int ASM_STATEMENT = 66;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2835,25 +2779,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 69;
+  int ASSIGNMENT_EXPRESSION = 67;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int ASSIGNMENT_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int ASSIGNMENT_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2865,7 +2809,7 @@ public interface ParserPackage extends EPackage
   int ASSIGNMENT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' containment reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2899,34 +2843,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 70;
+  int CONDITIONAL_EXPRESSION = 68;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int CONDITIONAL_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITIONAL_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int CONDITIONAL_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>QExpr</b></em>' containment reference.
@@ -2935,7 +2870,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__QEXPR = EXPRESSION_FEATURE_COUNT + 1;
+  int CONDITIONAL_EXPRESSION__QEXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>CExpr</b></em>' containment reference.
@@ -2944,7 +2879,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__CEXPR = EXPRESSION_FEATURE_COUNT + 2;
+  int CONDITIONAL_EXPRESSION__CEXPR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Conditional Expression</em>' class.
@@ -2953,7 +2888,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int CONDITIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.LogicalOrExpressionImpl <em>Logical Or Expression</em>}' class.
@@ -2963,34 +2898,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 71;
+  int LOGICAL_OR_EXPRESSION = 69;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int LOGICAL_OR_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_OR_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int LOGICAL_OR_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The number of structural features of the '<em>Logical Or Expression</em>' class.
@@ -2999,7 +2925,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int LOGICAL_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
@@ -3009,34 +2935,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 72;
+  int LOGICAL_AND_EXPRESSION = 70;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int LOGICAL_AND_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_AND_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_AND_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int LOGICAL_AND_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The number of structural features of the '<em>Logical And Expression</em>' class.
@@ -3045,7 +2962,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL_AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int LOGICAL_AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.InclusiveOrExpressionImpl <em>Inclusive Or Expression</em>}' class.
@@ -3055,34 +2972,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 73;
+  int INCLUSIVE_OR_EXPRESSION = 71;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int INCLUSIVE_OR_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUSIVE_OR_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INCLUSIVE_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int INCLUSIVE_OR_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The number of structural features of the '<em>Inclusive Or Expression</em>' class.
@@ -3091,7 +2999,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int INCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ExclusiveOrExpressionImpl <em>Exclusive Or Expression</em>}' class.
@@ -3101,34 +3009,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 74;
+  int EXCLUSIVE_OR_EXPRESSION = 72;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int EXCLUSIVE_OR_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXCLUSIVE_OR_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXCLUSIVE_OR_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int EXCLUSIVE_OR_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The number of structural features of the '<em>Exclusive Or Expression</em>' class.
@@ -3137,7 +3036,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int EXCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AndExpressionImpl <em>And Expression</em>}' class.
@@ -3147,34 +3046,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 75;
+  int AND_EXPRESSION = 73;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int AND_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int AND_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The number of structural features of the '<em>And Expression</em>' class.
@@ -3183,7 +3073,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int AND_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.EqualityExpressionImpl <em>Equality Expression</em>}' class.
@@ -3193,43 +3083,34 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 76;
+  int EQUALITY_EXPRESSION = 74;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int EQUALITY_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int EQUALITY_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUALITY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int EQUALITY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Equality Expression</em>' class.
@@ -3238,7 +3119,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int EQUALITY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.RelationalExpressionImpl <em>Relational Expression</em>}' class.
@@ -3248,43 +3129,34 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 77;
+  int RELATIONAL_EXPRESSION = 75;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int RELATIONAL_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int RELATIONAL_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RELATIONAL_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int RELATIONAL_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Relational Expression</em>' class.
@@ -3293,7 +3165,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int RELATIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ShiftExpressionImpl <em>Shift Expression</em>}' class.
@@ -3303,43 +3175,34 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 78;
+  int SHIFT_EXPRESSION = 76;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int SHIFT_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int SHIFT_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHIFT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int SHIFT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Shift Expression</em>' class.
@@ -3348,7 +3211,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int SHIFT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AdditiveExpressionImpl <em>Additive Expression</em>}' class.
@@ -3358,43 +3221,34 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 79;
+  int ADDITIVE_EXPRESSION = 77;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int ADDITIVE_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int ADDITIVE_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADDITIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int ADDITIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Additive Expression</em>' class.
@@ -3403,7 +3257,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int ADDITIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.MultiplicativeExpressionImpl <em>Multiplicative Expression</em>}' class.
@@ -3413,43 +3267,34 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 80;
+  int MULTIPLICATIVE_EXPRESSION = 78;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int MULTIPLICATIVE_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int MULTIPLICATIVE_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int MULTIPLICATIVE_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Multiplicative Expression</em>' class.
@@ -3458,7 +3303,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl <em>Cast Expression</em>}' class.
@@ -3468,25 +3313,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 81;
+  int CAST_EXPRESSION = 79;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int CAST_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int CAST_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -3523,34 +3368,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 82;
+  int UNARY_EXPRESSION = 80;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int UNARY_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int UNARY_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>Plusplus</b></em>' attribute.
@@ -3559,7 +3395,16 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 1;
+  int UNARY_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Minusminus</b></em>' attribute.
@@ -3571,7 +3416,7 @@ public interface ParserPackage extends EPackage
   int UNARY_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' containment reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3641,25 +3486,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 83;
+  int POSTFIX_EXPRESSION = 81;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int POSTFIX_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int POSTFIX_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>Ext</b></em>' attribute.
@@ -3698,7 +3543,7 @@ public interface ParserPackage extends EPackage
   int POSTFIX_EXPRESSION__COMMA = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3707,7 +3552,7 @@ public interface ParserPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Suffix</b></em>' containment reference list.
+   * The feature id for the '<em><b>Suffix</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3732,7 +3577,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArray()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 84;
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 82;
 
   /**
    * The feature id for the '<em><b>Array Expr</b></em>' containment reference.
@@ -3760,7 +3605,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArgument()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 85;
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 83;
 
   /**
    * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
@@ -3788,7 +3633,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixDot()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_DOT = 86;
+  int POSTFIX_EXPRESSION_SUFFIX_DOT = 84;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3816,7 +3661,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArrow()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 87;
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 85;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3844,7 +3689,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixPlusPlus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 88;
+  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 86;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Plus Plus</em>' class.
@@ -3863,7 +3708,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixMinusMinus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 89;
+  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 87;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Minus Minus</em>' class.
@@ -3882,25 +3727,25 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 90;
+  int PRIMARY_EXPRESSION = 88;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+  int PRIMARY_EXPRESSION__LEFT = EXPRESSION__LEFT;
 
   /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+  int PRIMARY_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3930,13 +3775,22 @@ public interface ParserPackage extends EPackage
   int PRIMARY_EXPRESSION__STRING = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Parentheses</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__PARENTHESES = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 3;
+  int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Ext</b></em>' attribute.
@@ -3945,7 +3799,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 4;
+  int PRIMARY_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Compound Stmt</b></em>' containment reference.
@@ -3954,7 +3808,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__COMPOUND_STMT = EXPRESSION_FEATURE_COUNT + 5;
+  int PRIMARY_EXPRESSION__COMPOUND_STMT = EXPRESSION_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Builtin offsetof</b></em>' attribute.
@@ -3963,7 +3817,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = EXPRESSION_FEATURE_COUNT + 6;
+  int PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Type Name</b></em>' containment reference.
@@ -3972,7 +3826,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 7;
+  int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Builtin typescompatiblep</b></em>' attribute.
@@ -3981,7 +3835,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP = EXPRESSION_FEATURE_COUNT + 8;
+  int PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP = EXPRESSION_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Type Name2</b></em>' containment reference.
@@ -3990,7 +3844,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__TYPE_NAME2 = EXPRESSION_FEATURE_COUNT + 9;
+  int PRIMARY_EXPRESSION__TYPE_NAME2 = EXPRESSION_FEATURE_COUNT + 10;
 
   /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
@@ -3999,53 +3853,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 10;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
-   * @generated
-   */
-  int CONSTANT_EXPRESSION = 91;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Constant Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 11;
 
 
   /**
@@ -5755,46 +5563,26 @@ public interface ParserPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.Expression#getExprExpr <em>Expr Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.Expression#getExprExpr()
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see at.jku.weiner.c.parser.parser.Expression#getLeft()
    * @see #getExpression()
    * @generated
    */
-  EReference getExpression_ExprExpr();
+  EReference getExpression_Left();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AssignmentOperator <em>Assignment Operator</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Assignment Operator</em>'.
-   * @see at.jku.weiner.c.parser.parser.AssignmentOperator
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see at.jku.weiner.c.parser.parser.Expression#getRight()
+   * @see #getExpression()
    * @generated
    */
-  EClass getAssignmentOperator();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AssignmentOperator#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see at.jku.weiner.c.parser.parser.AssignmentOperator#getOp()
-   * @see #getAssignmentOperator()
-   * @generated
-   */
-  EAttribute getAssignmentOperator_Op();
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.UnaryOperator <em>Unary Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Unary Operator</em>'.
-   * @see at.jku.weiner.c.parser.parser.UnaryOperator
-   * @generated
-   */
-  EClass getUnaryOperator();
+  EReference getExpression_Right();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
@@ -6399,15 +6187,15 @@ public interface ParserPackage extends EPackage
   EReference getAssignmentExpression_Expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getOp <em>Op</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.AssignmentExpression#getOp()
    * @see #getAssignmentExpression()
    * @generated
    */
-  EReference getAssignmentExpression_Op();
+  EAttribute getAssignmentExpression_Op();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}'.
@@ -6429,17 +6217,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EClass getConditionalExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.ConditionalExpression#getExpr()
-   * @see #getConditionalExpression()
-   * @generated
-   */
-  EReference getConditionalExpression_Expr();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getQExpr <em>QExpr</em>}'.
@@ -6474,17 +6251,6 @@ public interface ParserPackage extends EPackage
   EClass getLogicalOrExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.LogicalOrExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.LogicalOrExpression#getExpr()
-   * @see #getLogicalOrExpression()
-   * @generated
-   */
-  EReference getLogicalOrExpression_Expr();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.LogicalAndExpression <em>Logical And Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6493,17 +6259,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EClass getLogicalAndExpression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.LogicalAndExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.LogicalAndExpression#getExpr()
-   * @see #getLogicalAndExpression()
-   * @generated
-   */
-  EReference getLogicalAndExpression_Expr();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.InclusiveOrExpression <em>Inclusive Or Expression</em>}'.
@@ -6516,17 +6271,6 @@ public interface ParserPackage extends EPackage
   EClass getInclusiveOrExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.InclusiveOrExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.InclusiveOrExpression#getExpr()
-   * @see #getInclusiveOrExpression()
-   * @generated
-   */
-  EReference getInclusiveOrExpression_Expr();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ExclusiveOrExpression <em>Exclusive Or Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6535,17 +6279,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EClass getExclusiveOrExpression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.ExclusiveOrExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.ExclusiveOrExpression#getExpr()
-   * @see #getExclusiveOrExpression()
-   * @generated
-   */
-  EReference getExclusiveOrExpression_Expr();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AndExpression <em>And Expression</em>}'.
@@ -6558,17 +6291,6 @@ public interface ParserPackage extends EPackage
   EClass getAndExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AndExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.AndExpression#getExpr()
-   * @see #getAndExpression()
-   * @generated
-   */
-  EReference getAndExpression_Expr();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.EqualityExpression <em>Equality Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6579,21 +6301,10 @@ public interface ParserPackage extends EPackage
   EClass getEqualityExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.EqualityExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.EqualityExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.EqualityExpression#getExpr()
-   * @see #getEqualityExpression()
-   * @generated
-   */
-  EReference getEqualityExpression_Expr();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.EqualityExpression#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.EqualityExpression#getOp()
    * @see #getEqualityExpression()
    * @generated
@@ -6611,21 +6322,10 @@ public interface ParserPackage extends EPackage
   EClass getRelationalExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.RelationalExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.RelationalExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.RelationalExpression#getExpr()
-   * @see #getRelationalExpression()
-   * @generated
-   */
-  EReference getRelationalExpression_Expr();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.RelationalExpression#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.RelationalExpression#getOp()
    * @see #getRelationalExpression()
    * @generated
@@ -6643,21 +6343,10 @@ public interface ParserPackage extends EPackage
   EClass getShiftExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.ShiftExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.ShiftExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.ShiftExpression#getExpr()
-   * @see #getShiftExpression()
-   * @generated
-   */
-  EReference getShiftExpression_Expr();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.ShiftExpression#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.ShiftExpression#getOp()
    * @see #getShiftExpression()
    * @generated
@@ -6675,21 +6364,10 @@ public interface ParserPackage extends EPackage
   EClass getAdditiveExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AdditiveExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AdditiveExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.AdditiveExpression#getExpr()
-   * @see #getAdditiveExpression()
-   * @generated
-   */
-  EReference getAdditiveExpression_Expr();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.AdditiveExpression#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.AdditiveExpression#getOp()
    * @see #getAdditiveExpression()
    * @generated
@@ -6707,21 +6385,10 @@ public interface ParserPackage extends EPackage
   EClass getMultiplicativeExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.MultiplicativeExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.MultiplicativeExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.MultiplicativeExpression#getExpr()
-   * @see #getMultiplicativeExpression()
-   * @generated
-   */
-  EReference getMultiplicativeExpression_Expr();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.MultiplicativeExpression#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.MultiplicativeExpression#getOp()
    * @see #getMultiplicativeExpression()
    * @generated
@@ -6771,17 +6438,6 @@ public interface ParserPackage extends EPackage
   EClass getUnaryExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.UnaryExpression#getExpr()
-   * @see #getUnaryExpression()
-   * @generated
-   */
-  EReference getUnaryExpression_Expr();
-
-  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getPlusplus <em>Plusplus</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6791,6 +6447,17 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EAttribute getUnaryExpression_Plusplus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.UnaryExpression#getExpr()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EReference getUnaryExpression_Expr();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getMinusminus <em>Minusminus</em>}'.
@@ -6804,15 +6471,15 @@ public interface ParserPackage extends EPackage
   EAttribute getUnaryExpression_Minusminus();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @return the meta object for the attribute '<em>Op</em>'.
    * @see at.jku.weiner.c.parser.parser.UnaryExpression#getOp()
    * @see #getUnaryExpression()
    * @generated
    */
-  EReference getUnaryExpression_Op();
+  EAttribute getUnaryExpression_Op();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getSizeOf <em>Size Of</em>}'.
@@ -6924,10 +6591,10 @@ public interface ParserPackage extends EPackage
   EAttribute getPostfixExpression_Comma();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @return the meta object for the containment reference '<em>Expr</em>'.
    * @see at.jku.weiner.c.parser.parser.PostfixExpression#getExpr()
    * @see #getPostfixExpression()
    * @generated
@@ -6935,10 +6602,10 @@ public interface ParserPackage extends EPackage
   EReference getPostfixExpression_Expr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getSuffix <em>Suffix</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getSuffix <em>Suffix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Suffix</em>'.
+   * @return the meta object for the containment reference '<em>Suffix</em>'.
    * @see at.jku.weiner.c.parser.parser.PostfixExpression#getSuffix()
    * @see #getPostfixExpression()
    * @generated
@@ -7093,6 +6760,17 @@ public interface ParserPackage extends EPackage
   EAttribute getPrimaryExpression_String();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isParentheses <em>Parentheses</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Parentheses</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#isParentheses()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EAttribute getPrimaryExpression_Parentheses();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7168,27 +6846,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getPrimaryExpression_TypeName2();
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ConstantExpression <em>Constant Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constant Expression</em>'.
-   * @see at.jku.weiner.c.parser.parser.ConstantExpression
-   * @generated
-   */
-  EClass getConstantExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.ConstantExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.ConstantExpression#getExpr()
-   * @see #getConstantExpression()
-   * @generated
-   */
-  EReference getConstantExpression_Expr();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -8602,40 +8259,20 @@ public interface ParserPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__EXPR_EXPR = eINSTANCE.getExpression_ExprExpr();
+    EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentOperatorImpl <em>Assignment Operator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.AssignmentOperatorImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentOperator()
-     * @generated
-     */
-    EClass ASSIGNMENT_OPERATOR = eINSTANCE.getAssignmentOperator();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ASSIGNMENT_OPERATOR__OP = eINSTANCE.getAssignmentOperator_Op();
-
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.UnaryOperatorImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryOperator()
-     * @generated
-     */
-    EClass UNARY_OPERATOR = eINSTANCE.getUnaryOperator();
+    EReference EXPRESSION__RIGHT = eINSTANCE.getExpression_Right();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
@@ -9114,12 +8751,12 @@ public interface ParserPackage extends EPackage
     EReference ASSIGNMENT_EXPRESSION__EXPR = eINSTANCE.getAssignmentExpression_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSIGNMENT_EXPRESSION__OP = eINSTANCE.getAssignmentExpression_Op();
+    EAttribute ASSIGNMENT_EXPRESSION__OP = eINSTANCE.getAssignmentExpression_Op();
 
     /**
      * The meta object literal for the '<em><b>Assignment Expr</b></em>' containment reference feature.
@@ -9138,14 +8775,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass CONDITIONAL_EXPRESSION = eINSTANCE.getConditionalExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONDITIONAL_EXPRESSION__EXPR = eINSTANCE.getConditionalExpression_Expr();
 
     /**
      * The meta object literal for the '<em><b>QExpr</b></em>' containment reference feature.
@@ -9174,14 +8803,6 @@ public interface ParserPackage extends EPackage
     EClass LOGICAL_OR_EXPRESSION = eINSTANCE.getLogicalOrExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOGICAL_OR_EXPRESSION__EXPR = eINSTANCE.getLogicalOrExpression_Expr();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9190,14 +8811,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass LOGICAL_AND_EXPRESSION = eINSTANCE.getLogicalAndExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOGICAL_AND_EXPRESSION__EXPR = eINSTANCE.getLogicalAndExpression_Expr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.InclusiveOrExpressionImpl <em>Inclusive Or Expression</em>}' class.
@@ -9210,14 +8823,6 @@ public interface ParserPackage extends EPackage
     EClass INCLUSIVE_OR_EXPRESSION = eINSTANCE.getInclusiveOrExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INCLUSIVE_OR_EXPRESSION__EXPR = eINSTANCE.getInclusiveOrExpression_Expr();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ExclusiveOrExpressionImpl <em>Exclusive Or Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9226,14 +8831,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass EXCLUSIVE_OR_EXPRESSION = eINSTANCE.getExclusiveOrExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXCLUSIVE_OR_EXPRESSION__EXPR = eINSTANCE.getExclusiveOrExpression_Expr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AndExpressionImpl <em>And Expression</em>}' class.
@@ -9246,14 +8843,6 @@ public interface ParserPackage extends EPackage
     EClass AND_EXPRESSION = eINSTANCE.getAndExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference AND_EXPRESSION__EXPR = eINSTANCE.getAndExpression_Expr();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.EqualityExpressionImpl <em>Equality Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9264,15 +8853,7 @@ public interface ParserPackage extends EPackage
     EClass EQUALITY_EXPRESSION = eINSTANCE.getEqualityExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EQUALITY_EXPRESSION__EXPR = eINSTANCE.getEqualityExpression_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9290,15 +8871,7 @@ public interface ParserPackage extends EPackage
     EClass RELATIONAL_EXPRESSION = eINSTANCE.getRelationalExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RELATIONAL_EXPRESSION__EXPR = eINSTANCE.getRelationalExpression_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9316,15 +8889,7 @@ public interface ParserPackage extends EPackage
     EClass SHIFT_EXPRESSION = eINSTANCE.getShiftExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SHIFT_EXPRESSION__EXPR = eINSTANCE.getShiftExpression_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9342,15 +8907,7 @@ public interface ParserPackage extends EPackage
     EClass ADDITIVE_EXPRESSION = eINSTANCE.getAdditiveExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ADDITIVE_EXPRESSION__EXPR = eINSTANCE.getAdditiveExpression_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9368,15 +8925,7 @@ public interface ParserPackage extends EPackage
     EClass MULTIPLICATIVE_EXPRESSION = eINSTANCE.getMultiplicativeExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MULTIPLICATIVE_EXPRESSION__EXPR = eINSTANCE.getMultiplicativeExpression_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9420,20 +8969,20 @@ public interface ParserPackage extends EPackage
     EClass UNARY_EXPRESSION = eINSTANCE.getUnaryExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
-
-    /**
      * The meta object literal for the '<em><b>Plusplus</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute UNARY_EXPRESSION__PLUSPLUS = eINSTANCE.getUnaryExpression_Plusplus();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
 
     /**
      * The meta object literal for the '<em><b>Minusminus</b></em>' attribute feature.
@@ -9444,12 +8993,12 @@ public interface ParserPackage extends EPackage
     EAttribute UNARY_EXPRESSION__MINUSMINUS = eINSTANCE.getUnaryExpression_Minusminus();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
+    EAttribute UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
 
     /**
      * The meta object literal for the '<em><b>Size Of</b></em>' attribute feature.
@@ -9534,7 +9083,7 @@ public interface ParserPackage extends EPackage
     EAttribute POSTFIX_EXPRESSION__COMMA = eINSTANCE.getPostfixExpression_Comma();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9542,7 +9091,7 @@ public interface ParserPackage extends EPackage
     EReference POSTFIX_EXPRESSION__EXPR = eINSTANCE.getPostfixExpression_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Suffix</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Suffix</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -9676,6 +9225,14 @@ public interface ParserPackage extends EPackage
     EAttribute PRIMARY_EXPRESSION__STRING = eINSTANCE.getPrimaryExpression_String();
 
     /**
+     * The meta object literal for the '<em><b>Parentheses</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPRESSION__PARENTHESES = eINSTANCE.getPrimaryExpression_Parentheses();
+
+    /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9730,24 +9287,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__TYPE_NAME2 = eINSTANCE.getPrimaryExpression_TypeName2();
-
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
-     * @generated
-     */
-    EClass CONSTANT_EXPRESSION = eINSTANCE.getConstantExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONSTANT_EXPRESSION__EXPR = eINSTANCE.getConstantExpression_Expr();
 
   }
 

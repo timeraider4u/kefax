@@ -19,7 +19,6 @@ import at.jku.weiner.c.parser.parser.BodyStatement
 import at.jku.weiner.c.parser.parser.CastExpression
 import at.jku.weiner.c.parser.parser.CompoundStatement
 import at.jku.weiner.c.parser.parser.ConditionalExpression
-import at.jku.weiner.c.parser.parser.ConstantExpression
 import at.jku.weiner.c.parser.parser.Declaration
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers
 import at.jku.weiner.c.parser.parser.Declarator
@@ -66,7 +65,6 @@ import at.jku.weiner.c.parser.parser.ParameterTypeList
 import at.jku.weiner.c.parser.parser.Parser
 import at.jku.weiner.c.parser.parser.Pointer
 import at.jku.weiner.c.parser.parser.PostfixExpression
-import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArgument
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArray
 import at.jku.weiner.c.parser.parser.PrimaryExpression
@@ -486,97 +484,86 @@ class ParserFormatter extends CommonFormatter {
 	def dispatch void format(Designator designator, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(designator.getExpr(), document);
+		format(designator.getTo(), document);
 	}
 
 	def dispatch void format(Expression expression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression exprExpr : expression.getExprExpr()) {
-			format(exprExpr, document);
-		}
+		format(expression.getRight(), document);
+		format(expression.getLeft(), document);
 	}
 
 	def dispatch void format(AssignmentExpression assignmentExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(assignmentExpression.getExpr(), document);
-		format(assignmentExpression.getOp(), document);
 		format(assignmentExpression.getAssignmentExpr(), document);
 	}
 
 	def dispatch void format(ConditionalExpression conditionalExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(conditionalExpression.getExpr(), document);
 		format(conditionalExpression.getQExpr(), document);
 		format(conditionalExpression.getCExpr(), document);
+		format(conditionalExpression.getLeft(), document);
 	}
 
 	def dispatch void format(LogicalOrExpression logicalOrExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : logicalOrExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(logicalOrExpression.getRight(), document);
+		format(logicalOrExpression.getLeft(), document);
 	}
 
 	def dispatch void format(LogicalAndExpression logicalAndExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : logicalAndExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(logicalAndExpression.getRight(), document);
+		format(logicalAndExpression.getLeft(), document);
 	}
 
 	def dispatch void format(InclusiveOrExpression inclusiveOrExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : inclusiveOrExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(inclusiveOrExpression.getRight(), document);
+		format(inclusiveOrExpression.getLeft(), document);
 	}
 
 	def dispatch void format(ExclusiveOrExpression exclusiveOrExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : exclusiveOrExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(exclusiveOrExpression.getRight(), document);
+		format(exclusiveOrExpression.getLeft(), document);
 	}
 
 	def dispatch void format(AndExpression andExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : andExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(andExpression.getRight(), document);
+		format(andExpression.getLeft(), document);
 	}
 
 	def dispatch void format(EqualityExpression equalityExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : equalityExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(equalityExpression.getRight(), document);
+		format(equalityExpression.getLeft(), document);
 	}
 
 	def dispatch void format(RelationalExpression relationalExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : relationalExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(relationalExpression.getRight(), document);
+		format(relationalExpression.getLeft(), document);
 	}
 
 	def dispatch void format(ShiftExpression shiftExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : shiftExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(shiftExpression.getRight(), document);
+		format(shiftExpression.getLeft(), document);
 	}
 
 	def dispatch void format(AdditiveExpression additiveExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : additiveExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(additiveExpression.getRight(), document);
+		format(additiveExpression.getLeft(), document);
 	}
 
 	def dispatch void format(MultiplicativeExpression multiplicativeExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : multiplicativeExpression.getExpr()) {
-			format(expr, document);
-		}
+		format(multiplicativeExpression.getRight(), document);
+		format(multiplicativeExpression.getLeft(), document);
 	}
 
 	def dispatch void format(CastExpression castExpression, extension IFormattableDocument document) {
@@ -588,7 +575,6 @@ class ParserFormatter extends CommonFormatter {
 	def dispatch void format(UnaryExpression unaryExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(unaryExpression.getExpr(), document);
-		format(unaryExpression.getOp(), document);
 		format(unaryExpression.getTypeName(), document);
 	}
 
@@ -596,12 +582,8 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(postfixExpression.getTypeName(), document);
 		format(postfixExpression.getInitializerList(), document);
-		for (Expression expr : postfixExpression.getExpr()) {
-			format(expr, document);
-		}
-		for (PostfixExpressionSuffix suffix : postfixExpression.getSuffix()) {
-			format(suffix, document);
-		}
+		format(postfixExpression.getSuffix(), document);
+		format(postfixExpression.getExpr(), document);
 	}
 
 	def dispatch void format(PostfixExpressionSuffixArray postfixExpressionSuffixArray, extension IFormattableDocument document) {
@@ -627,10 +609,6 @@ class ParserFormatter extends CommonFormatter {
 		format(primaryExpression.getExpr(), document);
 		format(primaryExpression.getCompoundStmt(), document);
 		format(primaryExpression.getTypeName(), document);
-	}
-
-	def dispatch void format(ConstantExpression constantExpression, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(constantExpression.getExpr(), document);
+		format(primaryExpression.getTypeName2(), document);
 	}
 }

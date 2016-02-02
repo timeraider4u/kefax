@@ -6,14 +6,11 @@ package at.jku.weiner.c.common.serializer;
 import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
-import at.jku.weiner.c.common.common.CastExpression;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.ConditionalExpression;
 import at.jku.weiner.c.common.common.Constant2;
-import at.jku.weiner.c.common.common.ConstantExpression;
 import at.jku.weiner.c.common.common.EqualityExpression;
 import at.jku.weiner.c.common.common.ExclusiveOrExpression;
-import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.InclusiveOrExpression;
 import at.jku.weiner.c.common.common.LogicalAndExpression;
 import at.jku.weiner.c.common.common.LogicalOrExpression;
@@ -24,7 +21,6 @@ import at.jku.weiner.c.common.common.PrimaryExpression;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
-import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.common.services.CommonGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -58,26 +54,17 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST:
 				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
 				return; 
-			case CommonPackage.CAST_EXPRESSION:
-				sequence_CastExpression(context, (CastExpression) semanticObject); 
-				return; 
 			case CommonPackage.CONDITIONAL_EXPRESSION:
 				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
 				return; 
 			case CommonPackage.CONSTANT2:
 				sequence_Constant2(context, (Constant2) semanticObject); 
 				return; 
-			case CommonPackage.CONSTANT_EXPRESSION:
-				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
-				return; 
 			case CommonPackage.EQUALITY_EXPRESSION:
 				sequence_EqualityExpression(context, (EqualityExpression) semanticObject); 
 				return; 
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION:
 				sequence_ExclusiveOrExpression(context, (ExclusiveOrExpression) semanticObject); 
-				return; 
-			case CommonPackage.EXPRESSION:
-				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case CommonPackage.INCLUSIVE_OR_EXPRESSION:
 				sequence_InclusiveOrExpression(context, (InclusiveOrExpression) semanticObject); 
@@ -109,16 +96,13 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case CommonPackage.UNARY_EXPRESSION:
 				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
 				return; 
-			case CommonPackage.UNARY_OPERATOR:
-				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Constraint:
-	 *     (expr+=MultiplicativeExpression ((op+=SKW_PLUS | op+=SKW_MINUS) expr+=MultiplicativeExpression)*)
+	 *     (left=AdditiveExpression_AdditiveExpression_1_0 (op=SKW_PLUS | op=SKW_MINUS) right=MultiplicativeExpression)
 	 */
 	protected void sequence_AdditiveExpression(EObject context, AdditiveExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -127,10 +111,20 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=EqualityExpression expr+=EqualityExpression*)
+	 *     (left=AndExpression_AndExpression_1_0 right=EqualityExpression)
 	 */
 	protected void sequence_AndExpression(EObject context, AndExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.AND_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.AND_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.AND_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.AND_EXPRESSION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAndExpressionAccess().getAndExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndExpressionAccess().getRightEqualityExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -145,19 +139,23 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     expr=UnaryExpression
-	 */
-	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (expr=LogicalOrExpression (qExpr=Expression cExpr=ConditionalExpression)?)
+	 *     (expr=ConditionalExpression_ConditionalExpression_1_0 qExpr=Expression cExpr=ConditionalExpression)
 	 */
 	protected void sequence_ConditionalExpression(EObject context, ConditionalExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__EXPR));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__QEXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__QEXPR));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__CEXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.CONDITIONAL_EXPRESSION__CEXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConditionalExpressionAccess().getConditionalExpressionExprAction_1_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getConditionalExpressionAccess().getQExprExpressionParserRuleCall_1_2_0(), semanticObject.getQExpr());
+		feeder.accept(grammarAccess.getConditionalExpressionAccess().getCExprConditionalExpressionParserRuleCall_1_4_0(), semanticObject.getCExpr());
+		feeder.finish();
 	}
 	
 	
@@ -179,16 +177,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     expr=ConditionalExpression
-	 */
-	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (expr+=RelationalExpression ((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*)
+	 *     (left=EqualityExpression_EqualityExpression_1_0 (op=SKW_EQUAL | op=SKW_NOTEQUAL) right=RelationalExpression)
 	 */
 	protected void sequence_EqualityExpression(EObject context, EqualityExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -197,59 +186,83 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=AndExpression expr+=AndExpression*)
+	 *     (left=ExclusiveOrExpression_ExclusiveOrExpression_1_0 right=AndExpression)
 	 */
 	protected void sequence_ExclusiveOrExpression(EObject context, ExclusiveOrExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     expression=ConditionalExpression
-	 */
-	protected void sequence_Expression(EObject context, Expression semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.EXPRESSION__EXPRESSION));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.EXCLUSIVE_OR_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.EXCLUSIVE_OR_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.EXCLUSIVE_OR_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.EXCLUSIVE_OR_EXPRESSION__RIGHT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getExpressionAccess().getExpressionConditionalExpressionParserRuleCall_1_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getExclusiveOrExpressionAccess().getExclusiveOrExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExclusiveOrExpressionAccess().getRightAndExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expr+=ExclusiveOrExpression expr+=ExclusiveOrExpression*)
+	 *     (left=InclusiveOrExpression_InclusiveOrExpression_1_0 right=ExclusiveOrExpression)
 	 */
 	protected void sequence_InclusiveOrExpression(EObject context, InclusiveOrExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.INCLUSIVE_OR_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.INCLUSIVE_OR_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.INCLUSIVE_OR_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.INCLUSIVE_OR_EXPRESSION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getInclusiveOrExpressionAccess().getInclusiveOrExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getInclusiveOrExpressionAccess().getRightExclusiveOrExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expr+=InclusiveOrExpression expr+=InclusiveOrExpression*)
+	 *     (left=LogicalAndExpression_LogicalAndExpression_1_0 right=InclusiveOrExpression)
 	 */
 	protected void sequence_LogicalAndExpression(EObject context, LogicalAndExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.LOGICAL_AND_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.LOGICAL_AND_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.LOGICAL_AND_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.LOGICAL_AND_EXPRESSION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLogicalAndExpressionAccess().getLogicalAndExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalAndExpressionAccess().getRightInclusiveOrExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expr+=LogicalAndExpression expr+=LogicalAndExpression*)
+	 *     (left=LogicalOrExpression_LogicalOrExpression_1_0 right=LogicalAndExpression)
 	 */
 	protected void sequence_LogicalOrExpression(EObject context, LogicalOrExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.LOGICAL_OR_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.LOGICAL_OR_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.LOGICAL_OR_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.LOGICAL_OR_EXPRESSION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLogicalOrExpressionAccess().getLogicalOrExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalOrExpressionAccess().getRightLogicalAndExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*)
+	 *     (left=MultiplicativeExpression_MultiplicativeExpression_1_0 (op=SKW_STAR | op=SKW_DIV | op=SKW_MOD) right=CastExpression)
 	 */
 	protected void sequence_MultiplicativeExpression(EObject context, MultiplicativeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -267,7 +280,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr=PrimaryExpression suffix+=PostfixExpressionSuffixArgument*)
+	 *     (expr=PostfixExpression_PostfixExpression_1_0 suffix+=PostfixExpressionSuffixArgument)
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -276,7 +289,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (const=Constant1 | id=ID | expr=Expression)
+	 *     (const=Constant1 | id=ID | (parentheses?=SKW_LEFTPAREN expr=Expression))
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -285,7 +298,11 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=ShiftExpression ((op+=SKW_LESS | op+=SKW_GREATER | op+=SKW_LESSEQUAL | op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*)
+	 *     (
+	 *         left=RelationalExpression_RelationalExpression_1_0 
+	 *         (op=SKW_LESS | op=SKW_GREATER | op=SKW_LESSEQUAL | op=SKW_GREATEREQUAL) 
+	 *         right=ShiftExpression
+	 *     )
 	 */
 	protected void sequence_RelationalExpression(EObject context, RelationalExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -294,7 +311,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT | op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*)
+	 *     (left=ShiftExpression_ShiftExpression_1_0 (op=SKW_LEFTSHIFT | op=SKW_RIGHTSHIFT) right=AdditiveExpression)
 	 */
 	protected void sequence_ShiftExpression(EObject context, ShiftExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -303,25 +320,19 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr=PostfixExpression | (op=UnaryOperator expr=CastExpression))
+	 *     (op=UnaryOperator expr=CastExpression)
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     op=SKW_AND
-	 */
-	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.UNARY_OPERATOR__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.UNARY_OPERATOR__OP));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.UNARY_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.UNARY_EXPRESSION__EXPR));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.UNARY_EXPRESSION__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.UNARY_EXPRESSION__OP));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_0_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_1_2_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 }

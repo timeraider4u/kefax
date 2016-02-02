@@ -107,13 +107,6 @@ public class CommonSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.UNARY_OPERATOR:
-			{
-				UnaryOperator unaryOperator = (UnaryOperator)theEObject;
-				T result = caseUnaryOperator(unaryOperator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX:
 			{
 				PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
@@ -271,6 +264,14 @@ public class CommonSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CommonPackage.CONSTANT1:
+			{
+				Constant1 constant1 = (Constant1)theEObject;
+				T result = caseConstant1(constant1);
+				if (result == null) result = caseExpression(constant1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -351,22 +352,6 @@ public class CommonSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseExpression(Expression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnaryOperator(UnaryOperator object)
 	{
 		return null;
 	}
@@ -687,6 +672,22 @@ public class CommonSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T casePrimaryExpression(PrimaryExpression object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constant1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constant1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstant1(Constant1 object)
 	{
 		return null;
 	}

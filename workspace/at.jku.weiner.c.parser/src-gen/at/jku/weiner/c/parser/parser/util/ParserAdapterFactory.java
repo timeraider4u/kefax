@@ -345,16 +345,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseAssignmentOperator(AssignmentOperator object)
-      {
-        return createAssignmentOperatorAdapter();
-      }
-      @Override
-      public Adapter caseUnaryOperator(UnaryOperator object)
-      {
-        return createUnaryOperatorAdapter();
-      }
-      @Override
       public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
       {
         return createPostfixExpressionSuffixAdapter();
@@ -530,19 +520,9 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createPrimaryExpressionAdapter();
       }
       @Override
-      public Adapter caseConstantExpression(ConstantExpression object)
-      {
-        return createConstantExpressionAdapter();
-      }
-      @Override
       public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
       {
         return createCommon_ExpressionAdapter();
-      }
-      @Override
-      public Adapter caseCommon_UnaryOperator(at.jku.weiner.c.common.common.UnaryOperator object)
-      {
-        return createCommon_UnaryOperatorAdapter();
       }
       @Override
       public Adapter caseCommon_PostfixExpressionSuffix(at.jku.weiner.c.common.common.PostfixExpressionSuffix object)
@@ -1392,36 +1372,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AssignmentOperator <em>Assignment Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.AssignmentOperator
-   * @generated
-   */
-  public Adapter createAssignmentOperatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.UnaryOperator <em>Unary Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.UnaryOperator
-   * @generated
-   */
-  public Adapter createUnaryOperatorAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1947,21 +1897,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.ConstantExpression <em>Constant Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.ConstantExpression
-   * @generated
-   */
-  public Adapter createConstantExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1972,21 +1907,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommon_ExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.UnaryOperator <em>Unary Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.common.common.UnaryOperator
-   * @generated
-   */
-  public Adapter createCommon_UnaryOperatorAdapter()
   {
     return null;
   }

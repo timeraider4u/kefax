@@ -35,225 +35,147 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 //generate common "http://www.jku.at/weiner/c/common/Common"
 
-//Model:
-//	{Model}
-//	(units+=TranslationUnit)
-//;
-//
-//TranslationUnit:
-//	{TranslationUnit}
-//	preprocess=Preprocess
-//	parser=Parser
-//;
-//
-//Preprocess:
-//	{Preprocess}
-//;
-//
-//Parser:
-//	{Parser}
-//;
-
 /*** expressions ***/
 Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
-	{Expression}
-	expression=ConditionalExpression
+	ConditionalExpression
 ;
 
 ConstantExpression returns Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
-	{ConstantExpression}
-	expr=ConditionalExpression
+	ConditionalExpression
 ;
 
 ConditionalExpression returns Expression:
-	{ConditionalExpression}
-	expr=LogicalOrExpression
-	(SKW_QUESTION qExpr=Expression SKW_COLON
+	LogicalOrExpression
+	({ConditionalExpression.expr=current}
+		SKW_QUESTION qExpr=Expression SKW_COLON
 		cExpr=ConditionalExpression
 	)?
 ;
 
 LogicalOrExpression returns Expression:
-	{LogicalOrExpression}
-	expr+=LogicalAndExpression
-	(SKW_OROR expr+=LogicalAndExpression)*
+	LogicalAndExpression
+	({LogicalOrExpression.left=current} 
+		SKW_OROR right=LogicalAndExpression
+	)*
 ;
 
 LogicalAndExpression returns Expression:
-	{LogicalAndExpression}
-	expr+=InclusiveOrExpression
-	(SKW_ANDAND expr+=InclusiveOrExpression)*
+	InclusiveOrExpression
+	({LogicalAndExpression.left=current} 
+		SKW_ANDAND right=InclusiveOrExpression
+	)*
 ;
 
 InclusiveOrExpression returns Expression:
-	{InclusiveOrExpression}
-	expr+=ExclusiveOrExpression
-	(SKW_OR expr+=ExclusiveOrExpression)*
+	ExclusiveOrExpression
+	({InclusiveOrExpression.left=current} 
+		SKW_OR right=ExclusiveOrExpression
+	)*
 ;
 
 ExclusiveOrExpression returns Expression:
-	{ExclusiveOrExpression}
-	expr+=AndExpression
-	(SKW_CARET expr+=AndExpression)*
+	AndExpression
+	({ExclusiveOrExpression.left=current} 
+		SKW_CARET right=AndExpression
+	)*
 ;
 
 AndExpression returns Expression:
-	{AndExpression}
-	expr+=EqualityExpression
-	(SKW_AND expr+=EqualityExpression)*
+	EqualityExpression
+	({AndExpression.left=current} 
+		SKW_AND right=EqualityExpression
+	)*
 ;
 
 EqualityExpression returns Expression:
-	{EqualityExpression}
-	expr+=RelationalExpression
-	(
+	RelationalExpression
+	({EqualityExpression.left=current} 
 		(
-				op+=SKW_EQUAL
-			|	op+=SKW_NOTEQUAL
+				op=SKW_EQUAL
+			|	op=SKW_NOTEQUAL
 		)
-		expr+=RelationalExpression
+		right=RelationalExpression
 	)*
 ;
 
 RelationalExpression returns Expression:
-	{RelationalExpression}
-	expr+=ShiftExpression
-	(
+	ShiftExpression
+	({RelationalExpression.left=current} 
 		(
-				op+=SKW_LESS
-			|	op+=SKW_GREATER
-			|	op+=SKW_LESSEQUAL
-			|	op+=SKW_GREATEREQUAL
+				op=SKW_LESS
+			|	op=SKW_GREATER
+			|	op=SKW_LESSEQUAL
+			|	op=SKW_GREATEREQUAL
 		)
-		expr += ShiftExpression
+		right = ShiftExpression
 	)*
 ;
 
 ShiftExpression returns Expression:
-	{ShiftExpression}
-	expr+=AdditiveExpression
-	(
+	AdditiveExpression
+	({ShiftExpression.left=current} 
 		(
-				op+=SKW_LEFTSHIFT
-			|	op+=SKW_RIGHTSHIFT
+				op=SKW_LEFTSHIFT
+			|	op=SKW_RIGHTSHIFT
 		)
-		expr+=AdditiveExpression
+		right=AdditiveExpression
 	)*
 ;
 
 AdditiveExpression returns Expression:
-	{AdditiveExpression}
-	expr+=MultiplicativeExpression
-	(
+	MultiplicativeExpression
+	({AdditiveExpression.left=current} 
 		(
-				op+=SKW_PLUS
-			|	op+=SKW_MINUS
+				op=SKW_PLUS
+			|	op=SKW_MINUS
 		)
-		expr+=MultiplicativeExpression
+		right=MultiplicativeExpression
 	)*
 ;
 
 MultiplicativeExpression returns Expression:
-	{MultiplicativeExpression}
-	expr+=CastExpression
-	(
+	CastExpression
+	({MultiplicativeExpression.left=current} 
 		(
-				op+=SKW_STAR
-			|	op+=SKW_DIV
-			|	op+=SKW_MOD
+				op=SKW_STAR
+			|	op=SKW_DIV
+			|	op=SKW_MOD
 		)
-		expr+=CastExpression
+		right=CastExpression
 	)*
 ;
 
 CastExpression returns Expression:
-	{CastExpression}
-	(
-		expr=UnaryExpression
-	//|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
-	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
-	)
+	UnaryExpression
 ;
 
 UnaryExpression returns Expression:
-	{UnaryExpression}	
 	(
-		expr=PostfixExpression
-	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
-	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
-	|	op=UnaryOperator expr=CastExpression
-	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
-	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
-	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
+		PostfixExpression
+	|	{UnaryExpression} op=UnaryOperator expr=CastExpression
 	)
 ;
 
 UnaryOperator:
-	{UnaryOperator}
-		op=SKW_AND
-	|	op=SKW_STAR
-	|	op=SKW_PLUS 
-	|	op=SKW_MINUS 
-	|	op=SKW_TILDE
-	|	op=SKW_NOT
+		SKW_AND
+	|	SKW_STAR
+	|	SKW_PLUS 
+	|	SKW_MINUS 
+	|	SKW_TILDE
+	|	SKW_NOT
 ;
 
 PostfixExpression returns Expression:
-	{PostfixExpression}
-	(expr=PrimaryExpression
-	/*	(
-	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
-			(COMMA? RIGHTBRACE)
-	)
-	*/
-	
-	(
-		//	suffix+=PostfixExpressionSuffixArray
+	PrimaryExpression
+	({PostfixExpression.expr=current} 
 		suffix+=PostfixExpressionSuffixArgument
-		//|	suffix+=PostfixExpressionSuffixDot
-		//|	suffix+=PostfixExpressionSuffixArrow
-		//	suffix+=PostfixExpressionSuffixPlusPlus
-		//|	suffix+=PostfixExpressionSuffixMinusMinus
 	)*
-	
-	)
 ;
-
-/*
-PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
-	{PostfixExpressionSuffixArray}
-	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
-;
-*/
 
 PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArgument}
 	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
 ;
-
-/*
-PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
-	{PostfixExpressionSuffixDot}
-	SKW_DOT id=ID
-;
-
-PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
-	{PostfixExpressionSuffixArrow}
-	SKW_ARROW id=ID
-;
-
-
-PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
-	{PostfixExpressionSuffixPlusPlus}
-	SKW_PLUSPLUS
-;
-
-PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
-	{PostfixExpressionSuffixMinusMinus}
-	SKW_MINUSMINUS
-;
-*/
 
 ArgumentExpressionList: expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
 
@@ -263,8 +185,7 @@ PrimaryExpression returns Expression:
 	(	
 			const=Constant1
 		|	id=ID
-		//|	string+=STRING_LITERAL+ // reachable over Constant!
-		|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+		|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	)
 ;
 

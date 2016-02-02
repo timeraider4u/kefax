@@ -664,21 +664,21 @@ Designator:
 
 /*** Expressions ***/
 Expression:
-	{Expression}
-	exprExpr+=AssignmentExpression
-	(SKW_COMMA exprExpr+=AssignmentExpression)*
+	AssignmentExpression
+	({Expression.left=current}
+		SKW_COMMA right=AssignmentExpression
+	)*
 ;
 
 AssignmentExpression returns Expression:
-	{AssignmentExpression}
 	(
-		(
+		({AssignmentExpression}
 			expr=Lvalue
 			op=AssignmentOperator
 			assignmentExpr=AssignmentExpression
 		)
 	|
-		expr=ConditionalExpression
+		ConditionalExpression
 	)
 ;
 
@@ -687,161 +687,155 @@ Lvalue returns Expression:
 ;
 
 AssignmentOperator:
-	{AssignmentOperator}
 	(
-		op=SKW_ASSIGN
-	| 	op=STARASSIGN
-	| 	op=DIVASSIGN
-	| 	op=MODASSIGN
-	| 	op=PLUSASSIGN
-	| 	op=MINUSASSIGN
-	| 	op=LEFTSHIFTASSIGN
-	| 	op=RIGHTSHIFTASSIGN
-	| 	op=ANDASSIGN
-	| 	op=XORASSIGN
-	| 	op=ORASSIGN
+		SKW_ASSIGN
+	| 	STARASSIGN
+	| 	DIVASSIGN
+	| 	MODASSIGN
+	| 	PLUSASSIGN
+	| 	MINUSASSIGN
+	| 	LEFTSHIFTASSIGN
+	| 	RIGHTSHIFTASSIGN
+	| 	ANDASSIGN
+	| 	XORASSIGN
+	| 	ORASSIGN
 	)
 ;
 
 ConditionalExpression returns Expression:
-	{ConditionalExpression}
-	expr=LogicalOrExpression
-	(SKW_QUESTION qExpr=Expression SKW_COLON
+	LogicalOrExpression
+	({ConditionalExpression.left=current}
+		SKW_QUESTION qExpr=Expression SKW_COLON
 		cExpr=ConditionalExpression
 	)?
 ;
 
 LogicalOrExpression returns Expression:
-	{LogicalOrExpression}
-	expr+=LogicalAndExpression
-	(SKW_OROR expr+=LogicalAndExpression)*
+	LogicalAndExpression
+	({LogicalOrExpression.left=current}
+		SKW_OROR right=LogicalAndExpression
+	)*
 ;
 
 LogicalAndExpression returns Expression:
-	{LogicalAndExpression}
-	expr+=InclusiveOrExpression
-	(SKW_ANDAND expr+=InclusiveOrExpression)*
+	InclusiveOrExpression
+	({LogicalAndExpression.left=current}
+		SKW_ANDAND right=InclusiveOrExpression
+	)*
 ;
 
 InclusiveOrExpression returns Expression:
-	{InclusiveOrExpression}
-	expr+=ExclusiveOrExpression
-	(SKW_OR expr+=ExclusiveOrExpression)*
+	ExclusiveOrExpression
+	({InclusiveOrExpression.left=current}
+		SKW_OR right=ExclusiveOrExpression
+	)*
 ;
 
 ExclusiveOrExpression returns Expression:
-	{ExclusiveOrExpression}
-	expr+=AndExpression
-	(SKW_CARET expr+=AndExpression)*
+	AndExpression
+	({ExclusiveOrExpression.left=current}
+		SKW_CARET right=AndExpression
+	)*
 ;
 
 AndExpression returns Expression:
-	{AndExpression}
-	expr+=EqualityExpression
-	(SKW_AND expr+=EqualityExpression)*
+	EqualityExpression
+	({AndExpression.left=current}
+		SKW_AND right=EqualityExpression
+	)*
 ;
 
 EqualityExpression returns Expression:
-	{EqualityExpression}
-	expr+=RelationalExpression
-	((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
+	RelationalExpression
+	({EqualityExpression.left=current}
+		(op=SKW_EQUAL | op=SKW_NOTEQUAL) right=RelationalExpression
+	)*
 ;
 
 RelationalExpression returns Expression:
-	{RelationalExpression}
-	expr+=ShiftExpression
-	((op+=SKW_LESS|op+=SKW_GREATER|op+=SKW_LESSEQUAL|op+=SKW_GREATEREQUAL)
-		expr += ShiftExpression
+	ShiftExpression
+	({RelationalExpression.left=current}
+		(op=SKW_LESS|op=SKW_GREATER|op=SKW_LESSEQUAL|op=SKW_GREATEREQUAL)
+		right=ShiftExpression
 	)*
 ;
 
 ShiftExpression returns Expression:
-	{ShiftExpression}
-	expr+=AdditiveExpression
-	((op+=SKW_LEFTSHIFT| op+=SKW_RIGHTSHIFT)
-		expr+=AdditiveExpression
+	AdditiveExpression
+	({ShiftExpression.left=current}
+		(op=SKW_LEFTSHIFT| op=SKW_RIGHTSHIFT)
+		right=AdditiveExpression
 	)*
 ;
 
 AdditiveExpression returns Expression:
-	{AdditiveExpression}
-	expr+=MultiplicativeExpression
-	((op+=SKW_PLUS| op+=SKW_MINUS)
-		expr+=MultiplicativeExpression
+	MultiplicativeExpression
+	({AdditiveExpression.left=current}
+		(op=SKW_PLUS| op=SKW_MINUS)
+		right=MultiplicativeExpression
 	)*
 ;
 
 MultiplicativeExpression returns Expression:
-	{MultiplicativeExpression}
-	expr+=CastExpression
-	((op+=SKW_STAR|op+=SKW_DIV|op+=SKW_MOD)
-		expr+=CastExpression
+	CastExpression
+	({MultiplicativeExpression.left=current}
+		(op=SKW_STAR|op=SKW_DIV|op=SKW_MOD)
+		right=CastExpression
 	)*
 ;
 
-CastExpression returns Expression
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In cast expression");
-	}:
-	{CastExpression}
-	(
+CastExpression returns Expression:
+	({CastExpression}
 		SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
 			expr=CastExpression
-	|	expr=UnaryExpression
+	|	UnaryExpression
 	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	)
 ;
 
-UnaryExpression returns Expression
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In unary expression");
-	}
-:
-	{UnaryExpression}	
+UnaryExpression returns Expression:
+		
 	(
-		expr=PostfixExpression
-	|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
-	|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
-	|	op=UnaryOperator expr=CastExpression
-	|	sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
-	|	sizeOf=KW_SIZEOF expr=UnaryExpression 
-	|	alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
-	|	andand=SKW_ANDAND id=ID // GCC extension address of label
+		PostfixExpression
+	|	{UnaryExpression} plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	|	{UnaryExpression} minusminus=SKW_MINUSMINUS expr=UnaryExpression
+	|	{UnaryExpression} op=UnaryOperator expr=CastExpression
+	|	{UnaryExpression} sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	|	{UnaryExpression} sizeOf=KW_SIZEOF expr=UnaryExpression 
+	|	{UnaryExpression} alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	|	{UnaryExpression} andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;
 
 UnaryOperator:
-	{UnaryOperator}
 	(
-		op=SKW_AND
-	|	op=SKW_STAR
-	|	op=SKW_PLUS 
-	|	op=SKW_MINUS 
-	|	op=SKW_TILDE
-	|	op=SKW_NOT
+		SKW_AND
+	|	SKW_STAR
+	|	SKW_PLUS 
+	|	SKW_MINUS 
+	|	SKW_TILDE
+	|	SKW_NOT
 	)
 ;
 
-PostfixExpression returns Expression
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In postfix expression");
-	}
-:
-	{PostfixExpression}
+PostfixExpression returns Expression:
 	(		
 			// compound literal
+			{PostfixExpression}
 			(ext?=KW_EXTENSION? SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN 
 				SKW_LEFTBRACE initializerList=InitializerList 
 				comma?=SKW_COMMA? SKW_RIGHTBRACE)
-		|	expr+=PrimaryExpression
+		|	PrimaryExpression
 	)
-	(
-			suffix+=PostfixExpressionSuffixArray
-		|	suffix+=PostfixExpressionSuffixArgument
-		|	suffix+=PostfixExpressionSuffixDot
-		|	suffix+=PostfixExpressionSuffixArrow
-		|	suffix+=PostfixExpressionSuffixPlusPlus
-		|	suffix+=PostfixExpressionSuffixMinusMinus
+	({PostfixExpression.expr=current}
+		(
+				suffix=PostfixExpressionSuffixArray
+			|	suffix=PostfixExpressionSuffixArgument
+			|	suffix=PostfixExpressionSuffixDot
+			|	suffix=PostfixExpressionSuffixArrow
+			|	suffix=PostfixExpressionSuffixPlusPlus
+			|	suffix=PostfixExpressionSuffixMinusMinus
+		)
 	)*
 ;
 
@@ -877,16 +871,12 @@ PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
 
 ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
 
-PrimaryExpression returns Expression
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In primary expression");
-	}
-:
+PrimaryExpression returns Expression:
 	{PrimaryExpression}
-	(id=ID
+	(	id=ID
 	|	const=Constant2
 	|	string+=STRING_LITERAL+
-	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+	|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//|	genericSelection=genericSelection
 	|	ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
@@ -897,8 +887,7 @@ initRuleAction {
 ;
 
 ConstantExpression returns Expression:
-	{ConstantExpression}
-	expr=ConditionalExpression
+	ConditionalExpression
 ;
 
 /*** UNKNOWN!!! ***/

@@ -451,21 +451,6 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ParserPackage.ASSIGNMENT_OPERATOR:
-      {
-        AssignmentOperator assignmentOperator = (AssignmentOperator)theEObject;
-        T result = caseAssignmentOperator(assignmentOperator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ParserPackage.UNARY_OPERATOR:
-      {
-        UnaryOperator unaryOperator = (UnaryOperator)theEObject;
-        T result = caseUnaryOperator(unaryOperator);
-        if (result == null) result = caseCommon_UnaryOperator(unaryOperator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX:
       {
         PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
@@ -765,15 +750,6 @@ public class ParserSwitch<T> extends Switch<T>
         T result = casePrimaryExpression(primaryExpression);
         if (result == null) result = caseExpression(primaryExpression);
         if (result == null) result = caseCommon_Expression(primaryExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ParserPackage.CONSTANT_EXPRESSION:
-      {
-        ConstantExpression constantExpression = (ConstantExpression)theEObject;
-        T result = caseConstantExpression(constantExpression);
-        if (result == null) result = caseExpression(constantExpression);
-        if (result == null) result = caseCommon_Expression(constantExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1646,38 +1622,6 @@ public class ParserSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Assignment Operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assignment Operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssignmentOperator(AssignmentOperator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnaryOperator(UnaryOperator object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2238,22 +2182,6 @@ public class ParserSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstantExpression(ConstantExpression object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2265,22 +2193,6 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCommon_UnaryOperator(at.jku.weiner.c.common.common.UnaryOperator object)
   {
     return null;
   }

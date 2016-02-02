@@ -118,8 +118,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.DESIGNATOR_LIST: return createDesignatorList();
       case ParserPackage.DESIGNATOR: return createDesignator();
       case ParserPackage.EXPRESSION: return createExpression();
-      case ParserPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
-      case ParserPackage.UNARY_OPERATOR: return createUnaryOperator();
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
       case ParserPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case ParserPackage.PARSER: return createParser();
@@ -155,7 +153,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS: return createPostfixExpressionSuffixPlusPlus();
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return createPostfixExpressionSuffixMinusMinus();
       case ParserPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
-      case ParserPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -760,28 +757,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssignmentOperator createAssignmentOperator()
-  {
-    AssignmentOperatorImpl assignmentOperator = new AssignmentOperatorImpl();
-    return assignmentOperator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UnaryOperator createUnaryOperator()
-  {
-    UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
-    return unaryOperator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public PostfixExpressionSuffix createPostfixExpressionSuffix()
   {
     PostfixExpressionSuffixImpl postfixExpressionSuffix = new PostfixExpressionSuffixImpl();
@@ -1160,17 +1135,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConstantExpression createConstantExpression()
-  {
-    ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
-    return constantExpression;
   }
 
   /**

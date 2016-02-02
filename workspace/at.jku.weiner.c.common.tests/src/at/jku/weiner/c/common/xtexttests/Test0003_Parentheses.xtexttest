@@ -10,120 +10,22 @@ SKW_LEFTPAREN
 	DECIMAL_LITERAL WHITESPACE SKW_PLUS WHITESPACE DECIMAL_LITERAL
 SKW_RIGHTPAREN
 //----------------------------------------------------------------------
-(Expression
-	expression=
-	(ConditionalExpression
-		expr=
-		(LogicalOrExpression
-			expr+=
-			(LogicalAndExpression
-				expr+=
-				(InclusiveOrExpression
-					expr+=
-					(ExclusiveOrExpression
-						expr+=
-						(AndExpression
-							expr+=
-							(EqualityExpression
-								expr+=
-								(RelationalExpression
-									expr+=
-									(ShiftExpression
-										expr+=
-										(AdditiveExpression
-											expr+=
-											(MultiplicativeExpression
-												expr+=
-												(CastExpression
-													expr=
-													(UnaryExpression
-														expr=
-														(PostfixExpression
-															expr=
-															(PrimaryExpression
-																expr=
-																(Expression
-																	expression=
-																	(ConditionalExpression
-																		expr=
-																		(LogicalOrExpression
-																			expr+=
-																			(LogicalAndExpression
-																				expr+=
-																				(InclusiveOrExpression
-																					expr+=
-																					(ExclusiveOrExpression
-																						expr+=
-																						(AndExpression
-																							expr+=
-																							(EqualityExpression
-																								expr+=
-																								(RelationalExpression
-																									expr+=
-																									(ShiftExpression
-																										expr+=
-																										(AdditiveExpression
-																											op+*"[+]",
-																											expr+=
-																											(MultiplicativeExpression
-																												expr+=
-																												(CastExpression
-																													expr=
-																													(UnaryExpression
-																														expr=
-																														(PostfixExpression
-																															expr=
-																															(PrimaryExpression
-																																const++"1"
-																															)
-																														)
-																													)
-																												)
-																											),
-																											(MultiplicativeExpression
-																												expr+=
-																												(CastExpression
-																													expr=
-																													(UnaryExpression
-																														expr=
-																														(PostfixExpression
-																															expr=
-																															(PrimaryExpression
-																																const++"2"
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																								
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)//end expression		
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								)
-								
-							)
-						)
-					)
-				)
-			)
+
+(PrimaryExpression
+	parentheses?=true,
+	expr=
+	(AdditiveExpression
+		op++"+",
+		left=
+		(PrimaryExpression
+			const++"1"
+		),
+		right=
+		(PrimaryExpression
+			const++"2"
 		)
 	)
-)//end expression			
+)
 
 //----------------------------------------------------------------------
 //output file="bin/Test0010_SimpleExpr.c"

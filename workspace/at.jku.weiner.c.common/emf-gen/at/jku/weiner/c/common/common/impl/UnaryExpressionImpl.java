@@ -5,7 +5,6 @@ package at.jku.weiner.c.common.common.impl;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.UnaryExpression;
-import at.jku.weiner.c.common.common.UnaryOperator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -42,14 +41,24 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	protected Expression expr;
 
 	/**
-	 * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
+	 * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOp()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnaryOperator op;
+	protected static final String OP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOp()
+	 * @generated
+	 * @ordered
+	 */
+	protected String op = OP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,7 +134,7 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnaryOperator getOp()
+	public String getOp()
 	{
 		return op;
 	}
@@ -135,37 +144,12 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOp(UnaryOperator newOp, NotificationChain msgs)
+	public void setOp(String newOp)
 	{
-		UnaryOperator oldOp = op;
+		String oldOp = op;
 		op = newOp;
 		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.UNARY_EXPRESSION__OP, oldOp, newOp);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOp(UnaryOperator newOp)
-	{
-		if (newOp != op)
-		{
-			NotificationChain msgs = null;
-			if (op != null)
-				msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.UNARY_EXPRESSION__OP, null, msgs);
-			if (newOp != null)
-				msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommonPackage.UNARY_EXPRESSION__OP, null, msgs);
-			msgs = basicSetOp(newOp, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.UNARY_EXPRESSION__OP, newOp, newOp));
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.UNARY_EXPRESSION__OP, oldOp, op));
 	}
 
 	/**
@@ -180,8 +164,6 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
-			case CommonPackage.UNARY_EXPRESSION__OP:
-				return basicSetOp(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,7 +200,7 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 				setExpr((Expression)newValue);
 				return;
 			case CommonPackage.UNARY_EXPRESSION__OP:
-				setOp((UnaryOperator)newValue);
+				setOp((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,7 +220,7 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 				setExpr((Expression)null);
 				return;
 			case CommonPackage.UNARY_EXPRESSION__OP:
-				setOp((UnaryOperator)null);
+				setOp(OP_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -257,9 +239,26 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				return expr != null;
 			case CommonPackage.UNARY_EXPRESSION__OP:
-				return op != null;
+				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (op: ");
+		result.append(op);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UnaryExpressionImpl

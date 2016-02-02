@@ -70,75 +70,14 @@ import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.BlockList;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.ExpressionStatement;
-import at.jku.weiner.c.parser.parser.Expression;
-import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.LogicalAndExpression;
-import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.ExclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.AndExpression;
-import at.jku.weiner.c.parser.parser.EqualityExpression;
-import at.jku.weiner.c.parser.parser.RelationalExpression;
-import at.jku.weiner.c.parser.parser.ShiftExpression;
-import at.jku.weiner.c.parser.parser.AdditiveExpression;
-import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
-import at.jku.weiner.c.parser.parser.CastExpression;
-import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
-import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.LogicalAndExpression;
-import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.ExclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.AndExpression;
-import at.jku.weiner.c.parser.parser.EqualityExpression;
-import at.jku.weiner.c.parser.parser.RelationalExpression;
-import at.jku.weiner.c.parser.parser.ShiftExpression;
-import at.jku.weiner.c.parser.parser.AdditiveExpression;
-import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
-import at.jku.weiner.c.parser.parser.CastExpression;
-import at.jku.weiner.c.parser.parser.UnaryExpression;
-import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.LogicalAndExpression;
-import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.ExclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.AndExpression;
-import at.jku.weiner.c.parser.parser.EqualityExpression;
-import at.jku.weiner.c.parser.parser.RelationalExpression;
-import at.jku.weiner.c.parser.parser.ShiftExpression;
-import at.jku.weiner.c.parser.parser.AdditiveExpression;
-import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
-import at.jku.weiner.c.parser.parser.CastExpression;
-import at.jku.weiner.c.parser.parser.UnaryExpression;
-import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.JumpStatement;
-import at.jku.weiner.c.parser.parser.Expression;
-import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.LogicalAndExpression;
-import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.ExclusiveOrExpression;
-import at.jku.weiner.c.parser.parser.AndExpression;
-import at.jku.weiner.c.parser.parser.EqualityExpression;
-import at.jku.weiner.c.parser.parser.RelationalExpression;
-import at.jku.weiner.c.parser.parser.ShiftExpression;
-import at.jku.weiner.c.parser.parser.AdditiveExpression;
-import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
-import at.jku.weiner.c.parser.parser.CastExpression;
-import at.jku.weiner.c.parser.parser.UnaryExpression;
-import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
@@ -447,582 +386,75 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(ExpressionStatement_26_Var
 		);
 		//26
-		final Expression Expression_27_Var
-		 = (Expression)ExpressionStatement_26_Var
+		final PostfixExpression PostfixExpression_27_Var
+		 = (PostfixExpression)ExpressionStatement_26_Var
 		.getExpression();
-		Assert.assertNotNull(Expression_27_Var
+		Assert.assertNotNull(PostfixExpression_27_Var
 		);
-		final EList<? extends EObject> ExprExpr_27_list = Expression_27_Var
-		.getExprExpr();
-		Assert.assertNotNull(ExprExpr_27_list);
-		Assert.assertEquals(1, ExprExpr_27_list.size());
 		//27
-		final AssignmentExpression AssignmentExpression_28_Var
-		 = (AssignmentExpression)ExprExpr_27_list.get(0);
-		Assert.assertNotNull(AssignmentExpression_28_Var
-		);
-		//28
-		final ConditionalExpression ConditionalExpression_29_Var
-		 = (ConditionalExpression)AssignmentExpression_28_Var
+		final PrimaryExpression PrimaryExpression_28_Var
+		 = (PrimaryExpression)PostfixExpression_27_Var
 		.getExpr();
-		Assert.assertNotNull(ConditionalExpression_29_Var
+		Assert.assertNotNull(PrimaryExpression_28_Var
+		);
+		Assert.assertEquals("printf", PrimaryExpression_28_Var
+		.getId());
+		//28
+		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_29_Var
+		 = (PostfixExpressionSuffixArgument)PostfixExpression_27_Var
+		.getSuffix();
+		Assert.assertNotNull(PostfixExpressionSuffixArgument_29_Var
 		);
 		//29
-		final LogicalOrExpression LogicalOrExpression_30_Var
-		 = (LogicalOrExpression)ConditionalExpression_29_Var
-		.getExpr();
-		Assert.assertNotNull(LogicalOrExpression_30_Var
+		final ArgumentExpressionList ArgumentExpressionList_30_Var
+		 = (ArgumentExpressionList)PostfixExpressionSuffixArgument_29_Var
+		.getArgumentExpressionList();
+		Assert.assertNotNull(ArgumentExpressionList_30_Var
 		);
-		final EList<? extends EObject> Expr_30_list = LogicalOrExpression_30_Var
+		final EList<? extends EObject> Expr_30_list = ArgumentExpressionList_30_Var
 		.getExpr();
 		Assert.assertNotNull(Expr_30_list);
-		Assert.assertEquals(1, Expr_30_list.size());
+		Assert.assertEquals(2, Expr_30_list.size());
 		//30
-		final LogicalAndExpression LogicalAndExpression_31_Var
-		 = (LogicalAndExpression)Expr_30_list.get(0);
-		Assert.assertNotNull(LogicalAndExpression_31_Var
+		final PrimaryExpression PrimaryExpression_31_Var
+		 = (PrimaryExpression)Expr_30_list.get(0);
+		Assert.assertNotNull(PrimaryExpression_31_Var
 		);
-		final EList<? extends EObject> Expr_31_list = LogicalAndExpression_31_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_31_list);
-		Assert.assertEquals(1, Expr_31_list.size());
+		Assert.assertEquals("[\"%s\\n\"]", PrimaryExpression_31_Var
+		.getString().toString());
 		//31
-		final InclusiveOrExpression InclusiveOrExpression_32_Var
-		 = (InclusiveOrExpression)Expr_31_list.get(0);
-		Assert.assertNotNull(InclusiveOrExpression_32_Var
+		final PrimaryExpression PrimaryExpression_32_Var
+		 = (PrimaryExpression)Expr_30_list.get(1);
+		Assert.assertNotNull(PrimaryExpression_32_Var
 		);
-		final EList<? extends EObject> Expr_32_list = InclusiveOrExpression_32_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_32_list);
-		Assert.assertEquals(1, Expr_32_list.size());
+		Assert.assertEquals("[\"Hello World!\"]", PrimaryExpression_32_Var
+		.getString().toString());
 		//32
-		final ExclusiveOrExpression ExclusiveOrExpression_33_Var
-		 = (ExclusiveOrExpression)Expr_32_list.get(0);
-		Assert.assertNotNull(ExclusiveOrExpression_33_Var
-		);
-		final EList<? extends EObject> Expr_33_list = ExclusiveOrExpression_33_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_33_list);
-		Assert.assertEquals(1, Expr_33_list.size());
-		//33
-		final AndExpression AndExpression_34_Var
-		 = (AndExpression)Expr_33_list.get(0);
-		Assert.assertNotNull(AndExpression_34_Var
-		);
-		final EList<? extends EObject> Expr_34_list = AndExpression_34_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_34_list);
-		Assert.assertEquals(1, Expr_34_list.size());
-		//34
-		final EqualityExpression EqualityExpression_35_Var
-		 = (EqualityExpression)Expr_34_list.get(0);
-		Assert.assertNotNull(EqualityExpression_35_Var
-		);
-		final EList<? extends EObject> Expr_35_list = EqualityExpression_35_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_35_list);
-		Assert.assertEquals(1, Expr_35_list.size());
-		//35
-		final RelationalExpression RelationalExpression_36_Var
-		 = (RelationalExpression)Expr_35_list.get(0);
-		Assert.assertNotNull(RelationalExpression_36_Var
-		);
-		final EList<? extends EObject> Expr_36_list = RelationalExpression_36_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_36_list);
-		Assert.assertEquals(1, Expr_36_list.size());
-		//36
-		final ShiftExpression ShiftExpression_37_Var
-		 = (ShiftExpression)Expr_36_list.get(0);
-		Assert.assertNotNull(ShiftExpression_37_Var
-		);
-		final EList<? extends EObject> Expr_37_list = ShiftExpression_37_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_37_list);
-		Assert.assertEquals(1, Expr_37_list.size());
-		//37
-		final AdditiveExpression AdditiveExpression_38_Var
-		 = (AdditiveExpression)Expr_37_list.get(0);
-		Assert.assertNotNull(AdditiveExpression_38_Var
-		);
-		final EList<? extends EObject> Expr_38_list = AdditiveExpression_38_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_38_list);
-		Assert.assertEquals(1, Expr_38_list.size());
-		//38
-		final MultiplicativeExpression MultiplicativeExpression_39_Var
-		 = (MultiplicativeExpression)Expr_38_list.get(0);
-		Assert.assertNotNull(MultiplicativeExpression_39_Var
-		);
-		final EList<? extends EObject> Expr_39_list = MultiplicativeExpression_39_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_39_list);
-		Assert.assertEquals(1, Expr_39_list.size());
-		//39
-		final CastExpression CastExpression_40_Var
-		 = (CastExpression)Expr_39_list.get(0);
-		Assert.assertNotNull(CastExpression_40_Var
-		);
-		//40
-		final UnaryExpression UnaryExpression_41_Var
-		 = (UnaryExpression)CastExpression_40_Var
-		.getExpr();
-		Assert.assertNotNull(UnaryExpression_41_Var
-		);
-		//41
-		final PostfixExpression PostfixExpression_42_Var
-		 = (PostfixExpression)UnaryExpression_41_Var
-		.getExpr();
-		Assert.assertNotNull(PostfixExpression_42_Var
-		);
-		final EList<? extends EObject> Expr_42_list = PostfixExpression_42_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_42_list);
-		Assert.assertEquals(1, Expr_42_list.size());
-		//42
-		final PrimaryExpression PrimaryExpression_43_Var
-		 = (PrimaryExpression)Expr_42_list.get(0);
-		Assert.assertNotNull(PrimaryExpression_43_Var
-		);
-		Assert.assertEquals("printf", PrimaryExpression_43_Var
-		.getId());
-		final EList<? extends EObject> Suffix_43_list = PostfixExpression_42_Var
-		.getSuffix();
-		Assert.assertNotNull(Suffix_43_list);
-		Assert.assertEquals(1, Suffix_43_list.size());
-		//43
-		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_44_Var
-		 = (PostfixExpressionSuffixArgument)Suffix_43_list.get(0);
-		Assert.assertNotNull(PostfixExpressionSuffixArgument_44_Var
-		);
-		//44
-		final ArgumentExpressionList ArgumentExpressionList_45_Var
-		 = (ArgumentExpressionList)PostfixExpressionSuffixArgument_44_Var
-		.getArgumentExpressionList();
-		Assert.assertNotNull(ArgumentExpressionList_45_Var
-		);
-		final EList<? extends EObject> Expr_45_list = ArgumentExpressionList_45_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_45_list);
-		Assert.assertEquals(2, Expr_45_list.size());
-		//45
-		final AssignmentExpression AssignmentExpression_46_Var
-		 = (AssignmentExpression)Expr_45_list.get(0);
-		Assert.assertNotNull(AssignmentExpression_46_Var
-		);
-		//46
-		final ConditionalExpression ConditionalExpression_47_Var
-		 = (ConditionalExpression)AssignmentExpression_46_Var
-		.getExpr();
-		Assert.assertNotNull(ConditionalExpression_47_Var
-		);
-		//47
-		final LogicalOrExpression LogicalOrExpression_48_Var
-		 = (LogicalOrExpression)ConditionalExpression_47_Var
-		.getExpr();
-		Assert.assertNotNull(LogicalOrExpression_48_Var
-		);
-		final EList<? extends EObject> Expr_48_list = LogicalOrExpression_48_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_48_list);
-		Assert.assertEquals(1, Expr_48_list.size());
-		//48
-		final LogicalAndExpression LogicalAndExpression_49_Var
-		 = (LogicalAndExpression)Expr_48_list.get(0);
-		Assert.assertNotNull(LogicalAndExpression_49_Var
-		);
-		final EList<? extends EObject> Expr_49_list = LogicalAndExpression_49_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_49_list);
-		Assert.assertEquals(1, Expr_49_list.size());
-		//49
-		final InclusiveOrExpression InclusiveOrExpression_50_Var
-		 = (InclusiveOrExpression)Expr_49_list.get(0);
-		Assert.assertNotNull(InclusiveOrExpression_50_Var
-		);
-		final EList<? extends EObject> Expr_50_list = InclusiveOrExpression_50_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_50_list);
-		Assert.assertEquals(1, Expr_50_list.size());
-		//50
-		final ExclusiveOrExpression ExclusiveOrExpression_51_Var
-		 = (ExclusiveOrExpression)Expr_50_list.get(0);
-		Assert.assertNotNull(ExclusiveOrExpression_51_Var
-		);
-		final EList<? extends EObject> Expr_51_list = ExclusiveOrExpression_51_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_51_list);
-		Assert.assertEquals(1, Expr_51_list.size());
-		//51
-		final AndExpression AndExpression_52_Var
-		 = (AndExpression)Expr_51_list.get(0);
-		Assert.assertNotNull(AndExpression_52_Var
-		);
-		final EList<? extends EObject> Expr_52_list = AndExpression_52_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_52_list);
-		Assert.assertEquals(1, Expr_52_list.size());
-		//52
-		final EqualityExpression EqualityExpression_53_Var
-		 = (EqualityExpression)Expr_52_list.get(0);
-		Assert.assertNotNull(EqualityExpression_53_Var
-		);
-		final EList<? extends EObject> Expr_53_list = EqualityExpression_53_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_53_list);
-		Assert.assertEquals(1, Expr_53_list.size());
-		//53
-		final RelationalExpression RelationalExpression_54_Var
-		 = (RelationalExpression)Expr_53_list.get(0);
-		Assert.assertNotNull(RelationalExpression_54_Var
-		);
-		final EList<? extends EObject> Expr_54_list = RelationalExpression_54_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_54_list);
-		Assert.assertEquals(1, Expr_54_list.size());
-		//54
-		final ShiftExpression ShiftExpression_55_Var
-		 = (ShiftExpression)Expr_54_list.get(0);
-		Assert.assertNotNull(ShiftExpression_55_Var
-		);
-		final EList<? extends EObject> Expr_55_list = ShiftExpression_55_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_55_list);
-		Assert.assertEquals(1, Expr_55_list.size());
-		//55
-		final AdditiveExpression AdditiveExpression_56_Var
-		 = (AdditiveExpression)Expr_55_list.get(0);
-		Assert.assertNotNull(AdditiveExpression_56_Var
-		);
-		final EList<? extends EObject> Expr_56_list = AdditiveExpression_56_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_56_list);
-		Assert.assertEquals(1, Expr_56_list.size());
-		//56
-		final MultiplicativeExpression MultiplicativeExpression_57_Var
-		 = (MultiplicativeExpression)Expr_56_list.get(0);
-		Assert.assertNotNull(MultiplicativeExpression_57_Var
-		);
-		final EList<? extends EObject> Expr_57_list = MultiplicativeExpression_57_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_57_list);
-		Assert.assertEquals(1, Expr_57_list.size());
-		//57
-		final CastExpression CastExpression_58_Var
-		 = (CastExpression)Expr_57_list.get(0);
-		Assert.assertNotNull(CastExpression_58_Var
-		);
-		//58
-		final UnaryExpression UnaryExpression_59_Var
-		 = (UnaryExpression)CastExpression_58_Var
-		.getExpr();
-		Assert.assertNotNull(UnaryExpression_59_Var
-		);
-		//59
-		final PostfixExpression PostfixExpression_60_Var
-		 = (PostfixExpression)UnaryExpression_59_Var
-		.getExpr();
-		Assert.assertNotNull(PostfixExpression_60_Var
-		);
-		final EList<? extends EObject> Expr_60_list = PostfixExpression_60_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_60_list);
-		Assert.assertEquals(1, Expr_60_list.size());
-		//60
-		final PrimaryExpression PrimaryExpression_61_Var
-		 = (PrimaryExpression)Expr_60_list.get(0);
-		Assert.assertNotNull(PrimaryExpression_61_Var
-		);
-		Assert.assertEquals("[\"%s\\n\"]", PrimaryExpression_61_Var
-		.getString().toString());
-		//61
-		final AssignmentExpression AssignmentExpression_62_Var
-		 = (AssignmentExpression)Expr_45_list.get(1);
-		Assert.assertNotNull(AssignmentExpression_62_Var
-		);
-		//62
-		final ConditionalExpression ConditionalExpression_63_Var
-		 = (ConditionalExpression)AssignmentExpression_62_Var
-		.getExpr();
-		Assert.assertNotNull(ConditionalExpression_63_Var
-		);
-		//63
-		final LogicalOrExpression LogicalOrExpression_64_Var
-		 = (LogicalOrExpression)ConditionalExpression_63_Var
-		.getExpr();
-		Assert.assertNotNull(LogicalOrExpression_64_Var
-		);
-		final EList<? extends EObject> Expr_64_list = LogicalOrExpression_64_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_64_list);
-		Assert.assertEquals(1, Expr_64_list.size());
-		//64
-		final LogicalAndExpression LogicalAndExpression_65_Var
-		 = (LogicalAndExpression)Expr_64_list.get(0);
-		Assert.assertNotNull(LogicalAndExpression_65_Var
-		);
-		final EList<? extends EObject> Expr_65_list = LogicalAndExpression_65_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_65_list);
-		Assert.assertEquals(1, Expr_65_list.size());
-		//65
-		final InclusiveOrExpression InclusiveOrExpression_66_Var
-		 = (InclusiveOrExpression)Expr_65_list.get(0);
-		Assert.assertNotNull(InclusiveOrExpression_66_Var
-		);
-		final EList<? extends EObject> Expr_66_list = InclusiveOrExpression_66_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_66_list);
-		Assert.assertEquals(1, Expr_66_list.size());
-		//66
-		final ExclusiveOrExpression ExclusiveOrExpression_67_Var
-		 = (ExclusiveOrExpression)Expr_66_list.get(0);
-		Assert.assertNotNull(ExclusiveOrExpression_67_Var
-		);
-		final EList<? extends EObject> Expr_67_list = ExclusiveOrExpression_67_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_67_list);
-		Assert.assertEquals(1, Expr_67_list.size());
-		//67
-		final AndExpression AndExpression_68_Var
-		 = (AndExpression)Expr_67_list.get(0);
-		Assert.assertNotNull(AndExpression_68_Var
-		);
-		final EList<? extends EObject> Expr_68_list = AndExpression_68_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_68_list);
-		Assert.assertEquals(1, Expr_68_list.size());
-		//68
-		final EqualityExpression EqualityExpression_69_Var
-		 = (EqualityExpression)Expr_68_list.get(0);
-		Assert.assertNotNull(EqualityExpression_69_Var
-		);
-		final EList<? extends EObject> Expr_69_list = EqualityExpression_69_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_69_list);
-		Assert.assertEquals(1, Expr_69_list.size());
-		//69
-		final RelationalExpression RelationalExpression_70_Var
-		 = (RelationalExpression)Expr_69_list.get(0);
-		Assert.assertNotNull(RelationalExpression_70_Var
-		);
-		final EList<? extends EObject> Expr_70_list = RelationalExpression_70_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_70_list);
-		Assert.assertEquals(1, Expr_70_list.size());
-		//70
-		final ShiftExpression ShiftExpression_71_Var
-		 = (ShiftExpression)Expr_70_list.get(0);
-		Assert.assertNotNull(ShiftExpression_71_Var
-		);
-		final EList<? extends EObject> Expr_71_list = ShiftExpression_71_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_71_list);
-		Assert.assertEquals(1, Expr_71_list.size());
-		//71
-		final AdditiveExpression AdditiveExpression_72_Var
-		 = (AdditiveExpression)Expr_71_list.get(0);
-		Assert.assertNotNull(AdditiveExpression_72_Var
-		);
-		final EList<? extends EObject> Expr_72_list = AdditiveExpression_72_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_72_list);
-		Assert.assertEquals(1, Expr_72_list.size());
-		//72
-		final MultiplicativeExpression MultiplicativeExpression_73_Var
-		 = (MultiplicativeExpression)Expr_72_list.get(0);
-		Assert.assertNotNull(MultiplicativeExpression_73_Var
-		);
-		final EList<? extends EObject> Expr_73_list = MultiplicativeExpression_73_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_73_list);
-		Assert.assertEquals(1, Expr_73_list.size());
-		//73
-		final CastExpression CastExpression_74_Var
-		 = (CastExpression)Expr_73_list.get(0);
-		Assert.assertNotNull(CastExpression_74_Var
-		);
-		//74
-		final UnaryExpression UnaryExpression_75_Var
-		 = (UnaryExpression)CastExpression_74_Var
-		.getExpr();
-		Assert.assertNotNull(UnaryExpression_75_Var
-		);
-		//75
-		final PostfixExpression PostfixExpression_76_Var
-		 = (PostfixExpression)UnaryExpression_75_Var
-		.getExpr();
-		Assert.assertNotNull(PostfixExpression_76_Var
-		);
-		final EList<? extends EObject> Expr_76_list = PostfixExpression_76_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_76_list);
-		Assert.assertEquals(1, Expr_76_list.size());
-		//76
-		final PrimaryExpression PrimaryExpression_77_Var
-		 = (PrimaryExpression)Expr_76_list.get(0);
-		Assert.assertNotNull(PrimaryExpression_77_Var
-		);
-		Assert.assertEquals("[\"Hello World!\"]", PrimaryExpression_77_Var
-		.getString().toString());
-		//77
-		final Statement Statement_78_Var
+		final Statement Statement_33_Var
 		 = (Statement)Statement_24_list.get(1);
-		Assert.assertNotNull(Statement_78_Var
+		Assert.assertNotNull(Statement_33_Var
 		);
-		//78
-		final JumpStatement JumpStatement_79_Var
-		 = (JumpStatement)Statement_78_Var
+		//33
+		final JumpStatement JumpStatement_34_Var
+		 = (JumpStatement)Statement_33_Var
 		.getStmt();
-		Assert.assertNotNull(JumpStatement_79_Var
+		Assert.assertNotNull(JumpStatement_34_Var
 		);
-		//79
-		final Expression Expression_80_Var
-		 = (Expression)JumpStatement_79_Var
+		//34
+		final PrimaryExpression PrimaryExpression_35_Var
+		 = (PrimaryExpression)JumpStatement_34_Var
 		.getExpr();
-		Assert.assertNotNull(Expression_80_Var
+		Assert.assertNotNull(PrimaryExpression_35_Var
 		);
-		final EList<? extends EObject> ExprExpr_80_list = Expression_80_Var
-		.getExprExpr();
-		Assert.assertNotNull(ExprExpr_80_list);
-		Assert.assertEquals(1, ExprExpr_80_list.size());
-		//80
-		final AssignmentExpression AssignmentExpression_81_Var
-		 = (AssignmentExpression)ExprExpr_80_list.get(0);
-		Assert.assertNotNull(AssignmentExpression_81_Var
-		);
-		//81
-		final ConditionalExpression ConditionalExpression_82_Var
-		 = (ConditionalExpression)AssignmentExpression_81_Var
-		.getExpr();
-		Assert.assertNotNull(ConditionalExpression_82_Var
-		);
-		//82
-		final LogicalOrExpression LogicalOrExpression_83_Var
-		 = (LogicalOrExpression)ConditionalExpression_82_Var
-		.getExpr();
-		Assert.assertNotNull(LogicalOrExpression_83_Var
-		);
-		final EList<? extends EObject> Expr_83_list = LogicalOrExpression_83_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_83_list);
-		Assert.assertEquals(1, Expr_83_list.size());
-		//83
-		final LogicalAndExpression LogicalAndExpression_84_Var
-		 = (LogicalAndExpression)Expr_83_list.get(0);
-		Assert.assertNotNull(LogicalAndExpression_84_Var
-		);
-		final EList<? extends EObject> Expr_84_list = LogicalAndExpression_84_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_84_list);
-		Assert.assertEquals(1, Expr_84_list.size());
-		//84
-		final InclusiveOrExpression InclusiveOrExpression_85_Var
-		 = (InclusiveOrExpression)Expr_84_list.get(0);
-		Assert.assertNotNull(InclusiveOrExpression_85_Var
-		);
-		final EList<? extends EObject> Expr_85_list = InclusiveOrExpression_85_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_85_list);
-		Assert.assertEquals(1, Expr_85_list.size());
-		//85
-		final ExclusiveOrExpression ExclusiveOrExpression_86_Var
-		 = (ExclusiveOrExpression)Expr_85_list.get(0);
-		Assert.assertNotNull(ExclusiveOrExpression_86_Var
-		);
-		final EList<? extends EObject> Expr_86_list = ExclusiveOrExpression_86_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_86_list);
-		Assert.assertEquals(1, Expr_86_list.size());
-		//86
-		final AndExpression AndExpression_87_Var
-		 = (AndExpression)Expr_86_list.get(0);
-		Assert.assertNotNull(AndExpression_87_Var
-		);
-		final EList<? extends EObject> Expr_87_list = AndExpression_87_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_87_list);
-		Assert.assertEquals(1, Expr_87_list.size());
-		//87
-		final EqualityExpression EqualityExpression_88_Var
-		 = (EqualityExpression)Expr_87_list.get(0);
-		Assert.assertNotNull(EqualityExpression_88_Var
-		);
-		final EList<? extends EObject> Expr_88_list = EqualityExpression_88_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_88_list);
-		Assert.assertEquals(1, Expr_88_list.size());
-		//88
-		final RelationalExpression RelationalExpression_89_Var
-		 = (RelationalExpression)Expr_88_list.get(0);
-		Assert.assertNotNull(RelationalExpression_89_Var
-		);
-		final EList<? extends EObject> Expr_89_list = RelationalExpression_89_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_89_list);
-		Assert.assertEquals(1, Expr_89_list.size());
-		//89
-		final ShiftExpression ShiftExpression_90_Var
-		 = (ShiftExpression)Expr_89_list.get(0);
-		Assert.assertNotNull(ShiftExpression_90_Var
-		);
-		final EList<? extends EObject> Expr_90_list = ShiftExpression_90_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_90_list);
-		Assert.assertEquals(1, Expr_90_list.size());
-		//90
-		final AdditiveExpression AdditiveExpression_91_Var
-		 = (AdditiveExpression)Expr_90_list.get(0);
-		Assert.assertNotNull(AdditiveExpression_91_Var
-		);
-		final EList<? extends EObject> Expr_91_list = AdditiveExpression_91_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_91_list);
-		Assert.assertEquals(1, Expr_91_list.size());
-		//91
-		final MultiplicativeExpression MultiplicativeExpression_92_Var
-		 = (MultiplicativeExpression)Expr_91_list.get(0);
-		Assert.assertNotNull(MultiplicativeExpression_92_Var
-		);
-		final EList<? extends EObject> Expr_92_list = MultiplicativeExpression_92_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_92_list);
-		Assert.assertEquals(1, Expr_92_list.size());
-		//92
-		final CastExpression CastExpression_93_Var
-		 = (CastExpression)Expr_92_list.get(0);
-		Assert.assertNotNull(CastExpression_93_Var
-		);
-		//93
-		final UnaryExpression UnaryExpression_94_Var
-		 = (UnaryExpression)CastExpression_93_Var
-		.getExpr();
-		Assert.assertNotNull(UnaryExpression_94_Var
-		);
-		//94
-		final PostfixExpression PostfixExpression_95_Var
-		 = (PostfixExpression)UnaryExpression_94_Var
-		.getExpr();
-		Assert.assertNotNull(PostfixExpression_95_Var
-		);
-		final EList<? extends EObject> Expr_95_list = PostfixExpression_95_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_95_list);
-		Assert.assertEquals(1, Expr_95_list.size());
-		//95
-		final PrimaryExpression PrimaryExpression_96_Var
-		 = (PrimaryExpression)Expr_95_list.get(0);
-		Assert.assertNotNull(PrimaryExpression_96_Var
-		);
-		//96
-		final Constant2 Constant2_97_Var
-		 = (Constant2)PrimaryExpression_96_Var
+		//35
+		final Constant2 Constant2_36_Var
+		 = (Constant2)PrimaryExpression_35_Var
 		.getConst();
-		Assert.assertNotNull(Constant2_97_Var
+		Assert.assertNotNull(Constant2_36_Var
 		);
-		Assert.assertEquals("0", Constant2_97_Var
+		Assert.assertEquals("0", Constant2_36_Var
 		.getDec());
-		Assert.assertEquals("return", JumpStatement_79_Var
+		Assert.assertEquals("return", JumpStatement_34_Var
 		.getReturn());
 	}
 	

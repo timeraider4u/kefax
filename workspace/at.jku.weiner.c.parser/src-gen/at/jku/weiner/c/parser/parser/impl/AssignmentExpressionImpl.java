@@ -3,7 +3,6 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
-import at.jku.weiner.c.parser.parser.AssignmentOperator;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -43,14 +42,24 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
   protected Expression expr;
 
   /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOp()
    * @generated
    * @ordered
    */
-  protected AssignmentOperator op;
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAssignmentExpr() <em>Assignment Expr</em>}' containment reference.
@@ -136,7 +145,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssignmentOperator getOp()
+  public String getOp()
   {
     return op;
   }
@@ -146,37 +155,12 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOp(AssignmentOperator newOp, NotificationChain msgs)
+  public void setOp(String newOp)
   {
-    AssignmentOperator oldOp = op;
+    String oldOp = op;
     op = newOp;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASSIGNMENT_EXPRESSION__OP, oldOp, newOp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOp(AssignmentOperator newOp)
-  {
-    if (newOp != op)
-    {
-      NotificationChain msgs = null;
-      if (op != null)
-        msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASSIGNMENT_EXPRESSION__OP, null, msgs);
-      if (newOp != null)
-        msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASSIGNMENT_EXPRESSION__OP, null, msgs);
-      msgs = basicSetOp(newOp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASSIGNMENT_EXPRESSION__OP, newOp, newOp));
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASSIGNMENT_EXPRESSION__OP, oldOp, op));
   }
 
   /**
@@ -239,8 +223,6 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
     {
       case ParserPackage.ASSIGNMENT_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
-      case ParserPackage.ASSIGNMENT_EXPRESSION__OP:
-        return basicSetOp(null, msgs);
       case ParserPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
         return basicSetAssignmentExpr(null, msgs);
     }
@@ -281,7 +263,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
         setExpr((Expression)newValue);
         return;
       case ParserPackage.ASSIGNMENT_EXPRESSION__OP:
-        setOp((AssignmentOperator)newValue);
+        setOp((String)newValue);
         return;
       case ParserPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
         setAssignmentExpr((Expression)newValue);
@@ -304,7 +286,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
         setExpr((Expression)null);
         return;
       case ParserPackage.ASSIGNMENT_EXPRESSION__OP:
-        setOp((AssignmentOperator)null);
+        setOp(OP_EDEFAULT);
         return;
       case ParserPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
         setAssignmentExpr((Expression)null);
@@ -326,11 +308,28 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
       case ParserPackage.ASSIGNMENT_EXPRESSION__EXPR:
         return expr != null;
       case ParserPackage.ASSIGNMENT_EXPRESSION__OP:
-        return op != null;
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case ParserPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
         return assignmentExpr != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (op: ");
+    result.append(op);
+    result.append(')');
+    return result.toString();
   }
 
 } //AssignmentExpressionImpl

@@ -38,57 +38,12 @@ SKW_SEMI NEWLINE
 						initializer=
 						(Initializer
 							expr=
-							(AssignmentExpression
-								expr=
-								(ConditionalExpression
-									expr=
-									(LogicalOrExpression
-										expr+=
-										(LogicalAndExpression
-											expr+=
-											(InclusiveOrExpression
-												expr+=
-												(ExclusiveOrExpression
-													expr+=
-													(AndExpression
-														expr+=
-														(EqualityExpression
-															expr+=
-															(RelationalExpression
-																expr+=
-																(ShiftExpression
-																	expr+=
-																	(AdditiveExpression
-																		expr+=
-																		(MultiplicativeExpression
-																			expr+=
-																			(CastExpression
-																				expr=
-																				(UnaryExpression
-																					expr=
-																					(PostfixExpression
-																						expr+=
-																						(PrimaryExpression
-																							const=
-																							(common::Constant2
-																								dec++"0"
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
+							(PrimaryExpression
+								const=
+								(common::Constant2
+									dec++"0"
 								)
-							) // end assignment expression
+							) // end expression
 						) // end initializer
 					)
 				)

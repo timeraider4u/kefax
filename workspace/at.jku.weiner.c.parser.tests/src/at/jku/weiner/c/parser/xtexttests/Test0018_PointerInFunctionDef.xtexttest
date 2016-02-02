@@ -140,262 +140,56 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(ExpressionStatement
 								expression=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
+								(AssignmentExpression
+									expr=
+									(PrimaryExpression
+										parentheses?=true,
 										expr=
-										(UnaryExpression
+										// ( ... )
+										(PostfixExpression
 											expr=
-											(PostfixExpression
-												expr+=
+											(PrimaryExpression
+												id++"argv"
+											),
+											// [9]
+											suffix=
+											(PostfixExpressionSuffixArray
+												arrayExpr=
 												(PrimaryExpression
-													expr=
-													// ( ... )
-													(Expression
-														exprExpr+=
-														(AssignmentExpression
-															expr=
-															(ConditionalExpression
-																expr=
-																(LogicalOrExpression
-																	expr+=
-																	(LogicalAndExpression
-																		expr+=
-																		(InclusiveOrExpression
-																			expr+=
-																			(ExclusiveOrExpression
-																				expr+=
-																				(AndExpression
-																					expr+=
-																					(EqualityExpression
-																						expr+=
-																						(RelationalExpression
-																							expr+=
-																							(ShiftExpression
-																								expr+=
-																								(AdditiveExpression
-																									expr+=
-																									(MultiplicativeExpression
-																										expr+=
-																										(CastExpression
-																											expr=
-																											(UnaryExpression
-																												expr=
-																												(PostfixExpression
-																													expr+=
-																													(PrimaryExpression
-																														id++"argv"
-																													),
-																													// [9]
-																													suffix+=
-																													(PostfixExpressionSuffixArray
-																														arrayExpr=
-																														(Expression
-																															exprExpr+=
-																															(AssignmentExpression
-																																expr=
-																																(ConditionalExpression
-																																	expr=
-																																	(LogicalOrExpression
-																																		expr+=
-																																		(LogicalAndExpression
-																																			expr+=
-																																			(InclusiveOrExpression
-																																				expr+=
-																																				(ExclusiveOrExpression
-																																					expr+=
-																																					(AndExpression
-																																						expr+=
-																																						(EqualityExpression
-																																							expr+=
-																																							(RelationalExpression
-																																								expr+=
-																																								(ShiftExpression
-																																									expr+=
-																																									(AdditiveExpression
-																																										expr+=
-																																										(MultiplicativeExpression
-																																											expr+=
-																																											(CastExpression
-																																												expr=
-																																												(UnaryExpression
-																																													expr=
-																																													(PostfixExpression
-																																														expr+=
-																																														(PrimaryExpression
-																																															const=
-																																															(common::Constant2
-																																																dec++"9"
-																																															)
-																																														)
-																																													)
-																																												)
-																																											)
-																																										)
-																																									)
-																																								)
-																																							)
-																																							
-																																						)
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													) //end expression (array expression)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																						
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													) //end expression
-												)
-											) // end postfix expression
-										), // end unary expression
-										op=
-										(AssignmentOperator
-											op++"="
-										),
-										assignmentExpr=
-										(AssignmentExpression
-											expr=
-											(ConditionalExpression
-												expr=
-												(LogicalOrExpression
-													expr+=
-													(LogicalAndExpression
-														expr+=
-														(InclusiveOrExpression
-															expr+=
-															(ExclusiveOrExpression
-																expr+=
-																(AndExpression
-																	expr+=
-																	(EqualityExpression
-																		expr+=
-																		(RelationalExpression
-																			expr+=
-																			(ShiftExpression
-																				expr+=
-																				(AdditiveExpression
-																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										id++"argv"
-																									),
-																									// [i]
-																									suffix+=
-																									(PostfixExpressionSuffixArray
-																										arrayExpr=
-																										(Expression
-																											exprExpr+=
-																											(AssignmentExpression
-																												expr=
-																												(ConditionalExpression
-																													expr=
-																													(LogicalOrExpression
-																														expr+=
-																														(LogicalAndExpression
-																															expr+=
-																															(InclusiveOrExpression
-																																expr+=
-																																(ExclusiveOrExpression
-																																	expr+=
-																																	(AndExpression
-																																		expr+=
-																																		(EqualityExpression
-																																			expr+=
-																																			(RelationalExpression
-																																				expr+=
-																																				(ShiftExpression
-																																					expr+=
-																																					(AdditiveExpression
-																																						expr+=
-																																						(MultiplicativeExpression
-																																							expr+=
-																																							(CastExpression
-																																								expr=
-																																								(UnaryExpression
-																																									expr=
-																																									(PostfixExpression
-																																										expr+=
-																																										(PrimaryExpression
-																																											id++"i"
-																																										)
-																																									)
-																																								)
-																																							)
-																																						)
-																																					)
-																																				)
-																																			)
-																																			
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									) //end expression
-																								)
-																							)
-																						)
-																					),
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											bin++"0b011"
-																										)
-																									)
-																								)
-																							)
-																						)																					
-																					),
-																					op+*"[+]"
-																				)
-																			)
-																		)
-																		
-																	)
-																)
-															)
-														)
+													const=
+													(common::Constant2
+														dec++"9"
 													)
 												)
-											) // end conditional expression
-										) // end assignment expression
+											)
+										) // end postfix expression
+									),
+									op++"=",
+									assignmentExpr=
+									(AdditiveExpression
+										left=
+										(PostfixExpression
+											expr=
+											(PrimaryExpression
+												id++"argv"
+											),
+											// [i]
+											suffix=
+											(PostfixExpressionSuffixArray
+												arrayExpr=
+												(PrimaryExpression
+													id++"i"
+												)
+											)
+										),
+										right=
+										(PrimaryExpression
+											const=
+											(common::Constant2
+												bin++"0b011"
+											)
+										),
+										op++"+"
 									) // end assignment expression
 								) // end expression
 							) // end expression statement

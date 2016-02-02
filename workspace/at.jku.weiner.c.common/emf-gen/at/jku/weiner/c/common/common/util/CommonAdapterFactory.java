@@ -100,11 +100,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 				return createExpressionAdapter();
 			}
 			@Override
-			public Adapter caseUnaryOperator(UnaryOperator object)
-			{
-				return createUnaryOperatorAdapter();
-			}
-			@Override
 			public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
 			{
 				return createPostfixExpressionSuffixAdapter();
@@ -205,6 +200,11 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 				return createPrimaryExpressionAdapter();
 			}
 			@Override
+			public Adapter caseConstant1(Constant1 object)
+			{
+				return createConstant1Adapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -297,21 +297,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.UnaryOperator <em>Unary Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see at.jku.weiner.c.common.common.UnaryOperator
-	 * @generated
-	 */
-	public Adapter createUnaryOperatorAdapter()
 	{
 		return null;
 	}
@@ -612,6 +597,21 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createPrimaryExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Constant1 <em>Constant1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.c.common.common.Constant1
+	 * @generated
+	 */
+	public Adapter createConstant1Adapter()
 	{
 		return null;
 	}

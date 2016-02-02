@@ -3,56 +3,55 @@
 package at.jku.weiner.c.common.common.impl;
 
 import at.jku.weiner.c.common.common.CommonPackage;
-import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.common.common.Constant1;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unary Operator</b></em>'.
+ * An implementation of the model object '<em><b>Constant1</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.common.common.impl.UnaryOperatorImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.impl.Constant1Impl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements UnaryOperator
+public class Constant1Impl extends ExpressionImpl implements Constant1
 {
 	/**
-	 * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOp()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OP_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOp()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String op = OP_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UnaryOperatorImpl()
+	protected Constant1Impl()
 	{
 		super();
 	}
@@ -65,7 +64,7 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	protected EClass eStaticClass()
 	{
-		return CommonPackage.Literals.UNARY_OPERATOR;
+		return CommonPackage.Literals.CONSTANT1;
 	}
 
 	/**
@@ -73,9 +72,9 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getOp()
+	public String getValue()
 	{
-		return op;
+		return value;
 	}
 
 	/**
@@ -83,12 +82,12 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOp(String newOp)
+	public void setValue(String newValue)
 	{
-		String oldOp = op;
-		op = newOp;
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.UNARY_OPERATOR__OP, oldOp, op));
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.CONSTANT1__VALUE, oldValue, value));
 	}
 
 	/**
@@ -101,8 +100,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	{
 		switch (featureID)
 		{
-			case CommonPackage.UNARY_OPERATOR__OP:
-				return getOp();
+			case CommonPackage.CONSTANT1__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,8 +116,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	{
 		switch (featureID)
 		{
-			case CommonPackage.UNARY_OPERATOR__OP:
-				setOp((String)newValue);
+			case CommonPackage.CONSTANT1__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,8 +133,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	{
 		switch (featureID)
 		{
-			case CommonPackage.UNARY_OPERATOR__OP:
-				setOp(OP_EDEFAULT);
+			case CommonPackage.CONSTANT1__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -151,8 +150,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	{
 		switch (featureID)
 		{
-			case CommonPackage.UNARY_OPERATOR__OP:
-				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+			case CommonPackage.CONSTANT1__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -168,10 +167,10 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (op: ");
-		result.append(op);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //UnaryOperatorImpl
+} //Constant1Impl

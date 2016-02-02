@@ -14,6 +14,7 @@ package at.jku.weiner.c.common.common;
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +101,31 @@ public interface PrimaryExpression extends Expression
 	 * @generated
 	 */
 	void setExpr(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Parentheses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parentheses</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parentheses</em>' attribute.
+	 * @see #setParentheses(boolean)
+	 * @see at.jku.weiner.c.common.common.CommonPackage#getPrimaryExpression_Parentheses()
+	 * @model
+	 * @generated
+	 */
+	boolean isParentheses();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.common.common.PrimaryExpression#isParentheses <em>Parentheses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parentheses</em>' attribute.
+	 * @see #isParentheses()
+	 * @generated
+	 */
+	void setParentheses(boolean value);
 
 } // PrimaryExpression

@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.parser.parser;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.ShiftExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ShiftExpression#getOp <em>Op</em>}</li>
  * </ul>
  * </p>
@@ -24,35 +22,29 @@ import org.eclipse.emf.common.util.EList;
 public interface ShiftExpression extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.parser.parser.Expression}.
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Op</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getShiftExpression_Expr()
-   * @model containment="true"
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getShiftExpression_Op()
+   * @model
    * @generated
    */
-  EList<Expression> getExpr();
+  String getOp();
 
   /**
-   * Returns the value of the '<em><b>Op</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.ShiftExpression#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Op</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Op</em>' attribute list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getShiftExpression_Op()
-   * @model unique="false"
+   * @param value the new value of the '<em>Op</em>' attribute.
+   * @see #getOp()
    * @generated
    */
-  EList<String> getOp();
+  void setOp(String value);
 
 } // ShiftExpression

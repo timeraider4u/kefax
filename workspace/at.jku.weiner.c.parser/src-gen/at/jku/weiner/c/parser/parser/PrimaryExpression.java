@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getString <em>String</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isExt <em>Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}</li>
@@ -100,6 +101,32 @@ public interface PrimaryExpression extends Expression
    * @generated
    */
   EList<String> getString();
+
+  /**
+   * Returns the value of the '<em><b>Parentheses</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parentheses</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parentheses</em>' attribute.
+   * @see #setParentheses(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Parentheses()
+   * @model
+   * @generated
+   */
+  boolean isParentheses();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isParentheses <em>Parentheses</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parentheses</em>' attribute.
+   * @see #isParentheses()
+   * @generated
+   */
+  void setParentheses(boolean value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

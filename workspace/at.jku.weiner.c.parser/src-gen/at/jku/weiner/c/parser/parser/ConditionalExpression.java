@@ -11,7 +11,6 @@ package at.jku.weiner.c.parser.parser;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getQExpr <em>QExpr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getCExpr <em>CExpr</em>}</li>
  * </ul>
@@ -23,32 +22,6 @@ package at.jku.weiner.c.parser.parser;
  */
 public interface ConditionalExpression extends Expression
 {
-  /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getConditionalExpression_Expr()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpr();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.ConditionalExpression#getExpr <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
-   * @generated
-   */
-  void setExpr(Expression value);
-
   /**
    * Returns the value of the '<em><b>QExpr</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -11,8 +11,8 @@ package at.jku.weiner.c.parser.parser;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getPlusplus <em>Plusplus</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getMinusminus <em>Minusminus</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getSizeOf <em>Size Of</em>}</li>
@@ -29,32 +29,6 @@ package at.jku.weiner.c.parser.parser;
  */
 public interface UnaryExpression extends Expression
 {
-  /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getUnaryExpression_Expr()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpr();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
-   * @generated
-   */
-  void setExpr(Expression value);
-
   /**
    * Returns the value of the '<em><b>Plusplus</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -80,6 +54,32 @@ public interface UnaryExpression extends Expression
    * @generated
    */
   void setPlusplus(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expression)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getUnaryExpression_Expr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
+   * @generated
+   */
+  void setExpr(Expression value);
 
   /**
    * Returns the value of the '<em><b>Minusminus</b></em>' attribute.
@@ -108,30 +108,30 @@ public interface UnaryExpression extends Expression
   void setMinusminus(String value);
 
   /**
-   * Returns the value of the '<em><b>Op</b></em>' containment reference.
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Op</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Op</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Op</em>' containment reference.
-   * @see #setOp(UnaryOperator)
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getUnaryExpression_Op()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  UnaryOperator getOp();
+  String getOp();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}' containment reference.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Op</em>' containment reference.
+   * @param value the new value of the '<em>Op</em>' attribute.
    * @see #getOp()
    * @generated
    */
-  void setOp(UnaryOperator value);
+  void setOp(String value);
 
   /**
    * Returns the value of the '<em><b>Size Of</b></em>' attribute.

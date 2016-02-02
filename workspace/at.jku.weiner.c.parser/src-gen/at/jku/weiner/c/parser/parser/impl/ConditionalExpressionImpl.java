@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConditionalExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConditionalExpressionImpl#getQExpr <em>QExpr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConditionalExpressionImpl#getCExpr <em>CExpr</em>}</li>
  * </ul>
@@ -31,16 +30,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ConditionalExpressionImpl extends ExpressionImpl implements ConditionalExpression
 {
-  /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpr()
-   * @generated
-   * @ordered
-   */
-  protected Expression expr;
-
   /**
    * The cached value of the '{@link #getQExpr() <em>QExpr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -80,54 +69,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.CONDITIONAL_EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getExpr()
-  {
-    return expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
-  {
-    Expression oldExpr = expr;
-    expr = newExpr;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.CONDITIONAL_EXPRESSION__EXPR, oldExpr, newExpr);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpr(Expression newExpr)
-  {
-    if (newExpr != expr)
-    {
-      NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CONDITIONAL_EXPRESSION__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CONDITIONAL_EXPRESSION__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.CONDITIONAL_EXPRESSION__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -236,8 +177,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   {
     switch (featureID)
     {
-      case ParserPackage.CONDITIONAL_EXPRESSION__EXPR:
-        return basicSetExpr(null, msgs);
       case ParserPackage.CONDITIONAL_EXPRESSION__QEXPR:
         return basicSetQExpr(null, msgs);
       case ParserPackage.CONDITIONAL_EXPRESSION__CEXPR:
@@ -256,8 +195,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   {
     switch (featureID)
     {
-      case ParserPackage.CONDITIONAL_EXPRESSION__EXPR:
-        return getExpr();
       case ParserPackage.CONDITIONAL_EXPRESSION__QEXPR:
         return getQExpr();
       case ParserPackage.CONDITIONAL_EXPRESSION__CEXPR:
@@ -276,9 +213,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   {
     switch (featureID)
     {
-      case ParserPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((Expression)newValue);
-        return;
       case ParserPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)newValue);
         return;
@@ -299,9 +233,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   {
     switch (featureID)
     {
-      case ParserPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((Expression)null);
-        return;
       case ParserPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)null);
         return;
@@ -322,8 +253,6 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
   {
     switch (featureID)
     {
-      case ParserPackage.CONDITIONAL_EXPRESSION__EXPR:
-        return expr != null;
       case ParserPackage.CONDITIONAL_EXPRESSION__QEXPR:
         return qExpr != null;
       case ParserPackage.CONDITIONAL_EXPRESSION__CEXPR:

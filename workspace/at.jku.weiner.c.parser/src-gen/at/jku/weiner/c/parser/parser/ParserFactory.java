@@ -509,24 +509,6 @@ public interface ParserFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Assignment Operator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assignment Operator</em>'.
-   * @generated
-   */
-  AssignmentOperator createAssignmentOperator();
-
-  /**
-   * Returns a new object of class '<em>Unary Operator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary Operator</em>'.
-   * @generated
-   */
-  UnaryOperator createUnaryOperator();
-
-  /**
    * Returns a new object of class '<em>Postfix Expression Suffix</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -840,15 +822,6 @@ public interface ParserFactory extends EFactory
    * @generated
    */
   PrimaryExpression createPrimaryExpression();
-
-  /**
-   * Returns a new object of class '<em>Constant Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant Expression</em>'.
-   * @generated
-   */
-  ConstantExpression createConstantExpression();
 
   /**
    * Returns the package supported by this factory.

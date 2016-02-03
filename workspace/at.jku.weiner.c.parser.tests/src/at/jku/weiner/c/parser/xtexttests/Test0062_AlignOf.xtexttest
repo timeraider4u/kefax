@@ -38,58 +38,19 @@ KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE KW_ALIGNOF3 SKW_LEFTPAREN
 						initializer=
 						(Initializer
 							expr=
-							(AssignmentExpression
-								expr=
-								(ConditionalExpression
-									expr=
-									(LogicalOrExpression
-										expr+=
-										(LogicalAndExpression
-											expr+=
-											(InclusiveOrExpression
-												expr+=
-												(ExclusiveOrExpression
-													expr+=
-													(AndExpression
-														expr+=
-														(EqualityExpression
-															expr+=
-															(RelationalExpression
-																expr+=
-																(ShiftExpression
-																	expr+=
-																	(AdditiveExpression
-																		expr+=
-																		(MultiplicativeExpression
-																			expr+=
-																			(CastExpression
-																				expr=
-																				(UnaryExpression
-																					alignOf++"__alignof__",
-																					typeName=
-																					(TypeName
-																						list=
-																						(SpecifierQualifierList
-																							typeSpecifier+=
-																							(TypeSpecifier
-																								name++"int"
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
+							(UnaryExpression
+								alignOf++"__alignof__",
+								typeName=
+								(TypeName
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
 										)
 									)
 								)
-							) // end assignment expression
+							)
 						) // end initializer
 						
 					)					

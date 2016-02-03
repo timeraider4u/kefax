@@ -140,83 +140,28 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(ExpressionStatement
 								expression=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									builtin_offsetof?=true,
-																									typeName=
-																									(TypeName
-																										list=
-																										(SpecifierQualifierList
-																											typeSpecifier+=
-																											(TypeSpecifier
-																												specifier=
-																												(StructOrUnionSpecifier
-																													type=
-																													(StructOrUnion
-																														name++"struct"
-																													),
-																													id++"foo"
-																												)
-																											)
-																										)
-																									),
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												id++"i"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																	
-																)
-															)
-														)
-													)
+								(PrimaryExpression
+									builtin_offsetof?=true,
+									typeName=
+									(TypeName
+										list=
+										(SpecifierQualifierList
+											typeSpecifier+=
+											(TypeSpecifier
+												specifier=
+												(StructOrUnionSpecifier
+													type=
+													(StructOrUnion
+														name++"struct"
+													),
+													id++"foo"
 												)
 											)
-										)
+											)
+									),
+									expr=
+									(PrimaryExpression
+										id++"i"
 									)
 								) // end expression
 							) // end expression statement

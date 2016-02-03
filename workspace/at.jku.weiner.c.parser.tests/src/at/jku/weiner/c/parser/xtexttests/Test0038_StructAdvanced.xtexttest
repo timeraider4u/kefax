@@ -270,15 +270,9 @@ SKW_RIGHTBRACE NEWLINE
 									initializer=
 									(Initializer
 										expr=
-										(AssignmentExpression
-											expr=
-											(PrimaryExpression
-												//const=
-												//(common::Constant2
-													string+*"[\\\"Phil Morrison\\\"]"
-												//)
-											)
-										) // end assignment expression
+										(PrimaryExpression
+												string+*"[\\\"Phil Morrison\\\"]"
+										)
 									) // end initializer
 								)
 							)
@@ -367,18 +361,25 @@ SKW_RIGHTBRACE NEWLINE
 											(PrimaryExpression
 												string+*"[\\\"(*employee).id=%d\\\\n\\\"]"
 											),
-											(PrimaryExpression
-												parentheses?=true,
-												// (...)
+											(PostfixExpression
 												expr=
-												(UnaryExpression
-													op++"*",
+												(PrimaryExpression
+													parentheses?=true,
+													// (...)
 													expr=
-													(PrimaryExpression
-														id++"emp"
+													(UnaryExpression
+														op++"*",
+														expr=
+														(PrimaryExpression
+															id++"emp"
+														)
 													)
+												),
+												suffix=
+												(PostfixExpressionSuffixDot
+													id++"id"
 												)
-											)
+												)
 										)
 									)
 								) // end expression
@@ -545,7 +546,7 @@ SKW_RIGHTBRACE NEWLINE
 									(PrimaryExpression
 										id++"newEmployee"
 									),
-									op+*"[==]",
+									op++"==",
 									right=
 									(PrimaryExpression
 										id++"NULL"

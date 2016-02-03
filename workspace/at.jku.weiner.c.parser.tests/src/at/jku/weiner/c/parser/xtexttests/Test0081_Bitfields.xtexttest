@@ -56,58 +56,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												)
 											),
 											constExpr+=
-											(ConstantExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(common::Constant2
-																												dec++"3"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																			
-																		)
-																	)
-																)
-															)
-														)
-													)
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"3"
 												)
-											) // end constant expression
+											)
 										)
 									)
 								),
@@ -131,58 +85,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												)
 											),
 											constExpr+=
-											(ConstantExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(common::Constant2
-																												dec++"4"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																			
-																		)
-																	)
-																)
-															)
-														)
-													)
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"4"
 												)
-											) // end constant expression
+											)
 										)
 									)
 								),
@@ -206,58 +114,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												)
 											),
 											constExpr+=
-											(ConstantExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(common::Constant2
-																												dec++"1"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																			
-																		)
-																	)
-																)
-															)
-														)
-													)
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"1"
 												)
-											) // end constant expression
+											)
 										)
 									)
 								),
@@ -275,58 +137,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 										(StructDeclarator
 											declarator isNull,
 											constExpr+=
-											(ConstantExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(common::Constant2
-																												dec++"8"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																			
-																		)
-																	)
-																)
-															)
-														)
-													)
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"8"
 												)
-											) // end constant expression
+											) // end expression
 										)
 									)
 								)

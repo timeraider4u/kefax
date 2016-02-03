@@ -71,14 +71,8 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(JumpStatement
 								expr=
-								(UnaryExpression
-									expr=
-									(PostfixExpression
-										expr+=
-										(PrimaryExpression
-											id++"target"
-										)
-									)
+								(PrimaryExpression
+									id++"target"
 								), // end expression
 								goto++"goto"
 							) // end expression statement
@@ -87,112 +81,18 @@ SKW_RIGHTBRACE NEWLINE
 							stmt=
 							(ExpressionStatement
 								expression=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
-																				expr+=
-																				(MultiplicativeExpression
-																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"printf"
-																								),
-																								suffix+=
-																								(PostfixExpressionSuffixArgument
-																									argumentExpressionList=
-																									(ArgumentExpressionList
-																										expr+=
-																										(AssignmentExpression
-																											expr=
-																											(ConditionalExpression
-																												expr=
-																												(LogicalOrExpression
-																													expr+=
-																													(LogicalAndExpression
-																														expr+=
-																														(InclusiveOrExpression
-																															expr+=
-																															(ExclusiveOrExpression
-																																expr+=
-																																(AndExpression
-																																	expr+=
-																																	(EqualityExpression
-																																		expr+=
-																																		(RelationalExpression
-																																			expr+=
-																																			(ShiftExpression
-																																				expr+=
-																																				(AdditiveExpression
-																																					expr+=
-																																					(MultiplicativeExpression
-																																						expr+=
-																																						(CastExpression
-																																							expr=
-																																							(UnaryExpression
-																																								expr=
-																																								(PostfixExpression
-																																									expr+=
-																																									(PrimaryExpression
-																																										//const=
-																																										//(common::Constant2
-																																											string+*"[\\\"will never be reached\\\\n\\\"]"
-																																										//)
-																																									)
-																																								)
-																																							)
-																																						)
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										) // end assignment expression
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																	
-																)
-															)
-														)
-													)
-												)
+								(PostfixExpression
+									expr=
+									(PrimaryExpression
+										id++"printf"
+									),
+									suffix=
+									(PostfixExpressionSuffixArgument
+										argumentExpressionList=
+										(ArgumentExpressionList
+											expr+=
+											(PrimaryExpression
+												string+*"[\\\"will never be reached\\\\n\\\"]"
 											)
 										)
 									)
@@ -208,112 +108,18 @@ SKW_RIGHTBRACE NEWLINE
 									stmt=
 									(ExpressionStatement
 										expression=
-										(Expression
-											exprExpr+=
-											(AssignmentExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											id++"printf"
-																										),
-																										suffix+=
-																										(PostfixExpressionSuffixArgument
-																											argumentExpressionList=
-																											(ArgumentExpressionList
-																												expr+=
-																												(AssignmentExpression
-																													expr=
-																													(ConditionalExpression
-																														expr=
-																														(LogicalOrExpression
-																															expr+=
-																															(LogicalAndExpression
-																																expr+=
-																																(InclusiveOrExpression
-																																	expr+=
-																																	(ExclusiveOrExpression
-																																		expr+=
-																																		(AndExpression
-																																			expr+=
-																																			(EqualityExpression
-																																				expr+=
-																																				(RelationalExpression
-																																					expr+=
-																																					(ShiftExpression
-																																						expr+=
-																																						(AdditiveExpression
-																																							expr+=
-																																							(MultiplicativeExpression
-																																								expr+=
-																																								(CastExpression
-																																									expr=
-																																									(UnaryExpression
-																																										expr=
-																																										(PostfixExpression
-																																											expr+=
-																																											(PrimaryExpression
-																																												//const=
-																																												//(common::Constant2
-																																													string+*"[\\\"reached target\\\\n\\\"]"
-																																												//)
-																																											)
-																																										)
-																																									)
-																																								)
-																																							)
-																																						)
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												) // end assignment expression
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																			
-																		)
-																	)
-																)
-															)
-														)
+										(PostfixExpression
+											expr=
+											(PrimaryExpression
+												id++"printf"
+											),
+											suffix=
+											(PostfixExpressionSuffixArgument
+												argumentExpressionList=
+												(ArgumentExpressionList
+													expr+=
+													(PrimaryExpression
+														string+*"[\\\"reached target\\\\n\\\"]"
 													)
 												)
 											)

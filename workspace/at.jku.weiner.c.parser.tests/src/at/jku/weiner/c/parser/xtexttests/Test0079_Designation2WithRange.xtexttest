@@ -65,55 +65,10 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											designator+=
 											(Designator
 												expr=
-												(ConstantExpression
-													expr=
-													(ConditionalExpression
-														expr=
-														(LogicalOrExpression
-															expr+=
-															(LogicalAndExpression
-																expr+=
-																(InclusiveOrExpression
-																	expr+=
-																	(ExclusiveOrExpression
-																		expr+=
-																		(AndExpression
-																			expr+=
-																			(EqualityExpression
-																				expr+=
-																				(RelationalExpression
-																					expr+=
-																					(ShiftExpression
-																						expr+=
-																						(AdditiveExpression
-																							expr+=
-																							(MultiplicativeExpression
-																								expr+=
-																								(CastExpression
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												const=
-																												(common::Constant2
-																													dec++"0"
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"0"
 													)
 												)
 											)
@@ -122,57 +77,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 									initializer=
 									(Initializer
 										expr=
-										(AssignmentExpression
-											expr=
-											(ConditionalExpression
-												expr=
-												(LogicalOrExpression
-													expr+=
-													(LogicalAndExpression
-														expr+=
-														(InclusiveOrExpression
-															expr+=
-															(ExclusiveOrExpression
-																expr+=
-																(AndExpression
-																	expr+=
-																	(EqualityExpression
-																		expr+=
-																		(RelationalExpression
-																			expr+=
-																			(ShiftExpression
-																				expr+=
-																				(AdditiveExpression
-																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											dec++"0"
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
+										(PrimaryExpression
+											const=
+											(common::Constant2
+												dec++"0"
 											)
-										) // end assignment expression
+										)
 									) // end initializer
 								), // end init
 								// [1 ... 9] = 1,
@@ -184,166 +94,31 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											designator+=
 											(Designator
 												expr=
-												(ConstantExpression
-													expr=
-													(ConditionalExpression
-														expr=
-														(LogicalOrExpression
-															expr+=
-															(LogicalAndExpression
-																expr+=
-																(InclusiveOrExpression
-																	expr+=
-																	(ExclusiveOrExpression
-																		expr+=
-																		(AndExpression
-																			expr+=
-																			(EqualityExpression
-																				expr+=
-																				(RelationalExpression
-																					expr+=
-																					(ShiftExpression
-																						expr+=
-																						(AdditiveExpression
-																							expr+=
-																							(MultiplicativeExpression
-																								expr+=
-																								(CastExpression
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												const=
-																												(common::Constant2
-																													dec++"1"
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													) // end conditional expression
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"1"
+													)
 												), // end constant expression
 												to=
-												(ConstantExpression
-													expr=
-													(ConditionalExpression
-														expr=
-														(LogicalOrExpression
-															expr+=
-															(LogicalAndExpression
-																expr+=
-																(InclusiveOrExpression
-																	expr+=
-																	(ExclusiveOrExpression
-																		expr+=
-																		(AndExpression
-																			expr+=
-																			(EqualityExpression
-																				expr+=
-																				(RelationalExpression
-																					expr+=
-																					(ShiftExpression
-																						expr+=
-																						(AdditiveExpression
-																							expr+=
-																							(MultiplicativeExpression
-																								expr+=
-																								(CastExpression
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												const=
-																												(common::Constant2
-																													dec++"9"
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													) // end conditional expression
-												) // end constant expression
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"9"
+													)
+												)
 											) // end designator
 										)
 									),
 									initializer=
 									(Initializer
 										expr=
-										(AssignmentExpression
-											expr=
-											(ConditionalExpression
-												expr=
-												(LogicalOrExpression
-													expr+=
-													(LogicalAndExpression
-														expr+=
-														(InclusiveOrExpression
-															expr+=
-															(ExclusiveOrExpression
-																expr+=
-																(AndExpression
-																	expr+=
-																	(EqualityExpression
-																		expr+=
-																		(RelationalExpression
-																			expr+=
-																			(ShiftExpression
-																				expr+=
-																				(AdditiveExpression
-																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											dec++"1"
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
+										(PrimaryExpression
+											const=
+											(common::Constant2
+												dec++"1"
 											)
-										) // end assignment expression
+										)
 									) // end initializer
 								), // end init
 								// [10] = 2,
@@ -355,55 +130,10 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											designator+=
 											(Designator
 												expr=
-												(ConstantExpression
-													expr=
-													(ConditionalExpression
-														expr=
-														(LogicalOrExpression
-															expr+=
-															(LogicalAndExpression
-																expr+=
-																(InclusiveOrExpression
-																	expr+=
-																	(ExclusiveOrExpression
-																		expr+=
-																		(AndExpression
-																			expr+=
-																			(EqualityExpression
-																				expr+=
-																				(RelationalExpression
-																					expr+=
-																					(ShiftExpression
-																						expr+=
-																						(AdditiveExpression
-																							expr+=
-																							(MultiplicativeExpression
-																								expr+=
-																								(CastExpression
-																									expr=
-																									(UnaryExpression
-																										expr=
-																										(PostfixExpression
-																											expr+=
-																											(PrimaryExpression
-																												const=
-																												(common::Constant2
-																													dec++"10"
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"10"
 													)
 												)
 											)
@@ -412,57 +142,12 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 									initializer=
 									(Initializer
 										expr=
-										(AssignmentExpression
-											expr=
-											(ConditionalExpression
-												expr=
-												(LogicalOrExpression
-													expr+=
-													(LogicalAndExpression
-														expr+=
-														(InclusiveOrExpression
-															expr+=
-															(ExclusiveOrExpression
-																expr+=
-																(AndExpression
-																	expr+=
-																	(EqualityExpression
-																		expr+=
-																		(RelationalExpression
-																			expr+=
-																			(ShiftExpression
-																				expr+=
-																				(AdditiveExpression
-																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
-																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											dec++"2"
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
+										(PrimaryExpression
+											const=
+											(common::Constant2
+												dec++"2"
 											)
-										) // end assignment expression
+										)
 									) // end initializer
 								) // end init
 							), // end initializer list

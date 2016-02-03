@@ -651,7 +651,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputForRoot(Expression obj) '''
-		«outputFor(obj.left)»,«outputFor(obj.right)»
+		«outputFor(obj.left)»«IF obj.right != null»,«outputFor(obj.right)»«ENDIF»
 	'''
 	
 	def String outputForAssignmentExpression(AssignmentExpression obj) '''
@@ -801,7 +801,7 @@ class ParserGenerator implements IGenerator {
 			«IF obj.comma»,«ENDIF»
 			}
 		«ENDIF»
-		«outputFor(obj.expr)»
+		«IF obj.expr != null»«outputFor(obj.expr)»«ENDIF»
 		«outputForPostfixExpressionSuffix(obj.suffix)»
 	'''
 	

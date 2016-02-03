@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.apache.commons.io.FileUtils;
-
 public class ReadLinuxBuildFilesLog {
-
+	
 	private static List<String> includeDirs = new ArrayList<String>();
 	private static List<String> sourceFiles = new CopyOnWriteArrayList<String>();
-
+	
 	public static void run() throws IOException {
 		ReadLinuxBuildFilesLog.parseAll(Settings.FILE_NAME_KERNEL);
 		System.out.println("Parsing kernel-build-log completed!");
@@ -28,7 +26,7 @@ public class ReadLinuxBuildFilesLog {
 		LinuxBuildInfrastructure.copyInfrastructureFiles();
 		System.out.println("done!");
 	}
-
+	
 	private static void parseAll(final String fileName) {
 		try {
 			final List<String> lines = ReadLinuxBuildFilesLog
@@ -38,7 +36,7 @@ public class ReadLinuxBuildFilesLog {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private static List<String> readFile(final String fileName)
 			throws IOException {
 		System.out.println("Parsing buildfiles-log '" + fileName + "'");
@@ -54,7 +52,7 @@ public class ReadLinuxBuildFilesLog {
 		}
 		return result;
 	}
-
+	
 	private static void parseLines(final List<String> lines) {
 		for (final String line : lines) {
 			final String[] words = line.split(" ");
@@ -63,7 +61,7 @@ public class ReadLinuxBuildFilesLog {
 			}
 		}
 	}
-
+	
 	private static void parseWord(final String word) {
 		if (word.startsWith(Settings.PREFIX_INCLUDE)) {
 			ReadLinuxBuildFilesLog.handleIncludeDir(word);
@@ -75,7 +73,7 @@ public class ReadLinuxBuildFilesLog {
 			}
 		}
 	}
-
+	
 	private static void handleIncludeDir(final String word) {
 		final String include = word.substring(Settings.PREFIX_INCLUDE.length());
 		if (include.startsWith(Settings.PREFIX_SLASH)) {
@@ -90,7 +88,7 @@ public class ReadLinuxBuildFilesLog {
 			ReadLinuxBuildFilesLog.includeDirs.add(includeFile);
 		}
 	}
-
+	
 	private static String parseFileName(String include) {
 		if (include.startsWith("-Wa,")) {
 			include = include.substring("-Wa,".length());
@@ -102,14 +100,14 @@ public class ReadLinuxBuildFilesLog {
 		return help.replaceAll(Settings.STR_UP_DIR_PATTERN_2,
 				Settings.STR_UP_DIR_REPLACE_2);
 	}
-
+	
 	private static void handleSourceFile(final String word) {
 		final String sourceFile = ReadLinuxBuildFilesLog.parseFileName(word);
 		if (!ReadLinuxBuildFilesLog.sourceFiles.contains(sourceFile)) {
 			ReadLinuxBuildFilesLog.sourceFiles.add(sourceFile);
 		}
 	}
-
+	
 	private static void copyIncludeDirs() throws IOException {
 		for (final String include : ReadLinuxBuildFilesLog.includeDirs) {
 			final File src = new File(Settings.DEFAULT_LINUX + include);
@@ -118,7 +116,7 @@ public class ReadLinuxBuildFilesLog {
 			copy.copy();
 		}
 	}
-
+	
 	private static void copySourceFiles() throws IOException {
 		for (int i = 0; i < ReadLinuxBuildFilesLog.sourceFiles.size(); i++) {
 			final String sourceFile = ReadLinuxBuildFilesLog.sourceFiles.get(i);
@@ -128,7 +126,7 @@ public class ReadLinuxBuildFilesLog {
 			ReadLinuxBuildFilesLog.parseSourceFileForIncludeFiles(sourceFile);
 		}
 	}
-
+	
 	private static void parseSourceFileForIncludeFiles(final String fileName)
 			throws IOException {
 		final BufferedReader br = new BufferedReader(new FileReader(
@@ -150,7 +148,7 @@ public class ReadLinuxBuildFilesLog {
 									.contains(includeFile))) {
 						ReadLinuxBuildFilesLog.sourceFiles.add(includeFile);
 						System.out
-						.println("include file='" + includeFile + "'");
+								.println("include file='" + includeFile + "'");
 					}
 				}
 			}
@@ -158,7 +156,7 @@ public class ReadLinuxBuildFilesLog {
 			br.close();
 		}
 	}
-
+	
 	private static String getFileName(final String includeFile) {
 		final File src = new File(Settings.DEFAULT_LINUX + includeFile);
 		if (src.exists()) {
@@ -177,7 +175,7 @@ public class ReadLinuxBuildFilesLog {
 		}
 		return "";
 	}
-
+	
 	private static String getLastPath(final String includeFile) {
 		String subject = includeFile;
 		String[] paths;
@@ -197,5 +195,5 @@ public class ReadLinuxBuildFilesLog {
 				+ subject + "'");
 		return "";
 	}
-
+	
 }

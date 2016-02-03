@@ -580,7 +580,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) HASH WHITESPACE* ELIF WHITESPACE+ expression=ConstantExpression
+	 *     (rule start) (ambiguity) HASH WHITESPACE* ELIF WHITESPACE+ expression=Expression
 	 */
 	protected void emit_ElIfConditional_WHITESPACETerminalRuleCall_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -591,7 +591,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) WHITESPACE* HASH (ambiguity) ELIF WHITESPACE+ expression=ConstantExpression
+	 *     (rule start) WHITESPACE* HASH (ambiguity) ELIF WHITESPACE+ expression=Expression
 	 */
 	protected void emit_ElIfConditional_WHITESPACETerminalRuleCall_1_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -602,7 +602,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) WHITESPACE* HASH WHITESPACE* ELIF (ambiguity) expression=ConstantExpression
+	 *     (rule start) WHITESPACE* HASH WHITESPACE* ELIF (ambiguity) expression=Expression
 	 */
 	protected void emit_ElIfConditional_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -613,7 +613,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     expression=ConstantExpression (ambiguity) NEWLINE group=GroupOpt
+	 *     expression=Expression (ambiguity) NEWLINE group=GroupOpt
 	 */
 	protected void emit_ElIfConditional_WHITESPACETerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -716,7 +716,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) IF (ambiguity) expression=ConstantExpression
+	 *     (rule start) IF (ambiguity) expression=Expression
 	 */
 	protected void emit_IfConditional_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -727,7 +727,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     expression=ConstantExpression (ambiguity) NEWLINE group=GroupOpt
+	 *     expression=Expression (ambiguity) NEWLINE group=GroupOpt
 	 */
 	protected void emit_IfConditional_WHITESPACETerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

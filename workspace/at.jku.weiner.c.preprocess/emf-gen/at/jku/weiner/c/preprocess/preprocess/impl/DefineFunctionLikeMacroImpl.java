@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineFunctionLikeMacroImpl#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineFunctionLikeMacroImpl#getString <em>String</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

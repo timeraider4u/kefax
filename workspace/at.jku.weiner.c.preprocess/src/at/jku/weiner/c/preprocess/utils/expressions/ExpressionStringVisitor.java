@@ -4,10 +4,8 @@ import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.Expression;
-import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
-import at.jku.weiner.c.common.common.UnaryOperator;
 
 public class ExpressionStringVisitor implements IExpressionVisitor<String> {
 
@@ -76,8 +74,13 @@ public class ExpressionStringVisitor implements IExpressionVisitor<String> {
 
 	@Override
 	public String evaluateForUnaryExpression(
-			final String resultOfCastExpression, final UnaryOperator op) {
-		return op.getOp() + resultOfCastExpression;
+			final String resultOfCastExpression, final String op) {
+		return op + resultOfCastExpression;
+	}
+
+	@Override
+	public String evaluateForParentheses(final String resultOfExpression) {
+		return "(" + resultOfExpression + ")";
 	}
 
 	@Override
@@ -86,46 +89,43 @@ public class ExpressionStringVisitor implements IExpressionVisitor<String> {
 	}
 
 	@Override
-	public String evaluateForId(final boolean isDefined, final String id,
-			final PostfixExpression postfix) {
+	public String evaluateForId(final boolean isDefined, final String id) {
 		StringBuffer result = new StringBuffer("");
 		if (isDefined) {
 			result.append(" defined ");
 		}
 		result.append(id);
+		return result.toString();
+	}
 
-		if (postfix == null) {
+	@Override
+	public String evaluateForPostfixExpression(
+			final PostfixExpressionSuffix suffix, final String name,
+			final boolean isConst) {
+		StringBuffer result = new StringBuffer("");
+		result.append(name);
+		if (!(suffix instanceof PostfixExpressionSuffixArgument)) {
 			return result.toString();
 		}
-		EList<PostfixExpressionSuffix> suffixList = postfix.getSuffix();
-		if (suffixList == null) {
+		PostfixExpressionSuffixArgument argument = (PostfixExpressionSuffixArgument) suffix;
+		ArgumentExpressionList argList = argument.getArgumentExpressionList();
+		if (argList == null) {
 			return result.toString();
 		}
-		for (PostfixExpressionSuffix suffix : suffixList) {
-			if (!(suffix instanceof PostfixExpressionSuffixArgument)) {
-				continue;
+		final EList<Expression> exprList = argList.getExpr();
+		result.append("(");
+		for (int j = 0; j < exprList.size(); j++) {
+			if (j > 0) {
+				result.append(",");
 			}
-			PostfixExpressionSuffixArgument argument = (PostfixExpressionSuffixArgument) suffix;
-			ArgumentExpressionList argList = argument
-					.getArgumentExpressionList();
-			if (argList == null) {
-				continue;
-			}
-			final EList<Expression> exprList = argList.getExpr();
-			result.append("(");
-			for (int j = 0; j < exprList.size(); j++) {
-				if (j > 0) {
-					result.append(",");
-				}
-				final Expression expression = exprList.get(j);
-				final IExpressionVisitor<String> visitor = new ExpressionStringVisitor();
-				final ExpressionEvaluation<String> evaluater = new ExpressionEvaluation<String>(
-						visitor);
-				final String param = evaluater.walkTo(expression);
-				result.append(param);
-			}
-			result.append(")");
+			final Expression expression = exprList.get(j);
+			final IExpressionVisitor<String> visitor = new ExpressionStringVisitor();
+			final ExpressionEvaluation<String> evaluater = new ExpressionEvaluation<String>(
+					visitor);
+			final String param = evaluater.walkTo(expression);
+			result.append(param);
 		}
+		result.append(")");
 		return result.toString();
 	}
 

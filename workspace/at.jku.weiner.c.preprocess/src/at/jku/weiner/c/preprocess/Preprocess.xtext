@@ -148,35 +148,6 @@ IdentifierList:
 	)
 ;
 
-//ReplaceLine:
-//	{ReplaceLine}
-//	(
-//	(string=MyDefineLine)
-//	
-//	(HASH
-//		(
-//				(WHITESPACE* id=ID)
-//			|	concatenate?=(HASH)
-//		)
-//	)?
-//	)
-//	| (HASH WHITESPACE* id=ID)
-//;
-
-//ReplacementStringify:
-//	WHITESPACE* id=ID
-//;
-
-//ReplacementStringify returns ReplaceLine:
-//	{ReplacementStringify}
-//	HASH WHITESPACE* id=ID
-//;
-//
-//ReplacementConcate returns ReplaceLine:
-//	{ReplacementConcate}
-//	string=MyDefineLine HASH HASH
-//;
-
 ErrorDirective:
 	{ErrorDirective}
 	ERROR WHITESPACE* (msg=MyCodeLine)?
@@ -207,7 +178,7 @@ ConditionalDirective:
 
 IfConditional:
 	{IfConditional}
-	IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
+	IF WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
@@ -225,7 +196,7 @@ IfNotDefConditional:
 
 ElIfConditional:
 	{ElIfConditional}
-	(WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
+	(WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
@@ -296,7 +267,7 @@ PrimaryExpression returns Expression:
 	|	(defined?=DEFINED)? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 	|	const=Constant1
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
-	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+	|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	)
 ;
 

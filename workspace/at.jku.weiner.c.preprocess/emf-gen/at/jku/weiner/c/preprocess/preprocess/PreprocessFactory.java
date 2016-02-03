@@ -167,15 +167,6 @@ public interface PreprocessFactory extends EFactory
 	NullDirective createNullDirective();
 
 	/**
-	 * Returns a new object of class '<em>Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression</em>'.
-	 * @generated
-	 */
-	Expression createExpression();
-
-	/**
 	 * Returns a new object of class '<em>Preprocess</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,6 +246,15 @@ public interface PreprocessFactory extends EFactory
 	 * @generated
 	 */
 	IfAbstractConditional createIfAbstractConditional();
+
+	/**
+	 * Returns a new object of class '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expression</em>'.
+	 * @generated
+	 */
+	Expression createExpression();
 
 	/**
 	 * Returns the package supported by this factory.

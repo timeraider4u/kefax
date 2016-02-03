@@ -124,8 +124,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	{
 		Preprocess oldPreprocess = preprocess;
 		preprocess = newPreprocess;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.TRANSLATION_UNIT__PREPROCESS, oldPreprocess, newPreprocess);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -139,8 +138,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public void setPreprocess(Preprocess newPreprocess)
 	{
-		if (newPreprocess != preprocess)
-		{
+		if (newPreprocess != preprocess) {
 			NotificationChain msgs = null;
 			if (preprocess != null)
 				msgs = ((InternalEObject)preprocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.TRANSLATION_UNIT__PREPROCESS, null, msgs);
@@ -172,8 +170,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	{
 		Parser oldParser = parser;
 		parser = newParser;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.TRANSLATION_UNIT__PARSER, oldParser, newParser);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -187,8 +184,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public void setParser(Parser newParser)
 	{
-		if (newParser != parser)
-		{
+		if (newParser != parser) {
 			NotificationChain msgs = null;
 			if (parser != null)
 				msgs = ((InternalEObject)parser).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.TRANSLATION_UNIT__PARSER, null, msgs);
@@ -231,12 +227,10 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Preprocess getAdditionalPreprocessingDirectives()
 	{
-		if (additionalPreprocessingDirectives != null && additionalPreprocessingDirectives.eIsProxy())
-		{
+		if (additionalPreprocessingDirectives != null && additionalPreprocessingDirectives.eIsProxy()) {
 			InternalEObject oldAdditionalPreprocessingDirectives = (InternalEObject)additionalPreprocessingDirectives;
 			additionalPreprocessingDirectives = (Preprocess)eResolveProxy(oldAdditionalPreprocessingDirectives);
-			if (additionalPreprocessingDirectives != oldAdditionalPreprocessingDirectives)
-			{
+			if (additionalPreprocessingDirectives != oldAdditionalPreprocessingDirectives) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CommonPackage.TRANSLATION_UNIT__ADDITIONAL_PREPROCESSING_DIRECTIVES, oldAdditionalPreprocessingDirectives, additionalPreprocessingDirectives));
 			}
@@ -275,8 +269,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.TRANSLATION_UNIT__PREPROCESS:
 				return basicSetPreprocess(null, msgs);
 			case CommonPackage.TRANSLATION_UNIT__PARSER:
@@ -293,8 +286,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.TRANSLATION_UNIT__PREPROCESS:
 				return getPreprocess();
 			case CommonPackage.TRANSLATION_UNIT__PARSER:
@@ -316,8 +308,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.TRANSLATION_UNIT__PREPROCESS:
 				setPreprocess((Preprocess)newValue);
 				return;
@@ -342,8 +333,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.TRANSLATION_UNIT__PREPROCESS:
 				setPreprocess((Preprocess)null);
 				return;
@@ -368,8 +358,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.TRANSLATION_UNIT__PREPROCESS:
 				return preprocess != null;
 			case CommonPackage.TRANSLATION_UNIT__PARSER:

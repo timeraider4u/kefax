@@ -73,8 +73,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	 */
 	public EList<TranslationUnit> getUnits()
 	{
-		if (units == null)
-		{
+		if (units == null) {
 			units = new EObjectContainmentEList<TranslationUnit>(TranslationUnit.class, this, CommonPackage.MODEL__UNITS);
 		}
 		return units;
@@ -88,8 +87,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.MODEL__UNITS:
 				return ((InternalEList<?>)getUnits()).basicRemove(otherEnd, msgs);
 		}
@@ -104,8 +102,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.MODEL__UNITS:
 				return getUnits();
 		}
@@ -121,8 +118,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.MODEL__UNITS:
 				getUnits().clear();
 				getUnits().addAll((Collection<? extends TranslationUnit>)newValue);
@@ -139,8 +135,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.MODEL__UNITS:
 				getUnits().clear();
 				return;
@@ -156,8 +151,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.MODEL__UNITS:
 				return units != null && !units.isEmpty();
 		}

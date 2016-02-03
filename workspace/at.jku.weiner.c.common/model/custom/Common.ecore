@@ -114,8 +114,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="suffix" upperBound="-1"
-        eType="#//PostfixExpressionSuffix" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suffix" eType="#//PostfixExpressionSuffix"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpressionSuffixArgument" eSuperTypes="#//PostfixExpressionSuffix">
     <eStructuralFeatures xsi:type="ecore:EReference" name="argumentExpressionList"

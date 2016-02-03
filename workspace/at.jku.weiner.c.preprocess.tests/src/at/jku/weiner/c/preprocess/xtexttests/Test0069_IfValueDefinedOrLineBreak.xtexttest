@@ -35,144 +35,23 @@ lexer-tokens
 					conditional=
 					(IfConditional
 						expression=
-						(common::ConstantExpression
+						(PrimaryExpression
+							parentheses?=true,
 							expr=
-							(common::ConditionalExpression
-								expr=
-								(common::LogicalOrExpression
-									expr+=
-									(common::LogicalAndExpression
-										expr+=
-										(common::InclusiveOrExpression
-											expr+=
-											(common::ExclusiveOrExpression
-												expr+=
-												(common::AndExpression
-													expr+=
-													(common::EqualityExpression
-														expr+=
-														(common::RelationalExpression
-															expr+=
-															(common::ShiftExpression
-																expr+=
-																(common::AdditiveExpression
-																	expr+=
-																	(common::MultiplicativeExpression
-																		expr+=
-																		(common::CastExpression
-																			expr=
-																			(common::UnaryExpression
-																				expr=
-																				(common::PostfixExpression
-																					expr=
-																					(PrimaryExpression
-																						//id++"__STDC_VERSION__"
-																						expr=
-																						(common::Expression
-																							expression=
-																							(common::ConditionalExpression
-																								expr=
-																								(common::LogicalOrExpression
-																									expr+=
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						defined?=true,
-																																						id++"__STDC_VERSION__"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									), // logical and expression
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						defined?=true,
-																																						id++"__GCC_VERSION__"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										) // inclusive or expression
-																									) // inclusive and expression
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
+							(common::LogicalOrExpression
+								left=
+								(PrimaryExpression
+									defined?=true,
+									id++"__STDC_VERSION__"
+								),
+								right=
+								(PrimaryExpression
+									defined?=true,
+									id++"__GCC_VERSION__"
 								)
 							)
 						),
+						
 						group=
 						(GroupOpt
 							lines+=

@@ -82,150 +82,26 @@ lexer-tokens
 					conditional=
 					(IfConditional
 						expression=
-						(common::ConstantExpression
+						(common::PostfixExpression
 							expr=
-							(common::ConditionalExpression
-								expr=
-								(common::LogicalOrExpression
+							(PrimaryExpression
+								id++"REQ"
+							),
+							suffix=
+							(common::PostfixExpressionSuffixArgument
+								argumentExpressionList=
+								(common::ArgumentExpressionList
 									expr+=
-									(common::LogicalAndExpression
-										expr+=
-										(common::InclusiveOrExpression
-											expr+=
-											(common::ExclusiveOrExpression
-												expr+=
-												(common::AndExpression
-													expr+=
-													(common::EqualityExpression
-														expr+=
-														(common::RelationalExpression
-															expr+=
-															(common::ShiftExpression
-																expr+=
-																(common::AdditiveExpression
-																	expr+=
-																	(common::MultiplicativeExpression
-																		expr+=
-																		(common::CastExpression
-																			expr=
-																			(common::UnaryExpression
-																				expr=
-																				(common::PostfixExpression
-																					expr=
-																					(PrimaryExpression
-																						id++"REQ"
-																					),
-																					suffix+=
-																					(common::PostfixExpressionSuffixArgument
-																						argumentExpressionList=
-																						(common::ArgumentExpressionList
-																							expr+=
-																							(common::ConditionalExpression
-																								expr=
-																								(common::LogicalOrExpression
-																									expr+=
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						id++"MAJOR"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							), // end common::ConditionalExpression
-																							(common::ConditionalExpression
-																								expr=
-																								(common::LogicalOrExpression
-																									expr+=
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						id++"MINOR"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							) // end common::ConditionalExpression
-																						) // end argument expression list
-																					) // end post-fix expression suffix argument
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+									
+									(PrimaryExpression
+										id++"MAJOR"
+																							
+									), // end
+									(PrimaryExpression
+										id++"MINOR"
 									)
-								)
-							)
+								) // end argument expression list
+							) // end post-fix expression suffix argument
 						),
 						group=
 						(GroupOpt

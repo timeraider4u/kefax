@@ -49,7 +49,7 @@ public class PreprocessSwitch<T> extends Switch<T>
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param ePackage the package in question.
+	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -171,13 +171,6 @@ public class PreprocessSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PreprocessPackage.EXPRESSION: {
-				Expression expression = (Expression)theEObject;
-				T result = caseExpression(expression);
-				if (result == null) result = caseCommon_Expression(expression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PreprocessPackage.PREPROCESS: {
 				Preprocess preprocess = (Preprocess)theEObject;
 				T result = casePreprocess(preprocess);
@@ -238,6 +231,13 @@ public class PreprocessSwitch<T> extends Switch<T>
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: {
 				IfAbstractConditional ifAbstractConditional = (IfAbstractConditional)theEObject;
 				T result = caseIfAbstractConditional(ifAbstractConditional);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PreprocessPackage.EXPRESSION: {
+				Expression expression = (Expression)theEObject;
+				T result = caseExpression(expression);
+				if (result == null) result = caseCommon_Expression(expression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -502,22 +502,6 @@ public class PreprocessSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExpression(Expression object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Preprocess</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -672,7 +656,7 @@ public class PreprocessSwitch<T> extends Switch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+	public T caseExpression(Expression object)
 	{
 		return null;
 	}
@@ -689,6 +673,22 @@ public class PreprocessSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
 	{
 		return null;
 	}

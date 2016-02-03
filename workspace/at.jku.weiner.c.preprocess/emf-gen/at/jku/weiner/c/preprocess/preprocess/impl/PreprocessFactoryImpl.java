@@ -76,7 +76,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 			case PreprocessPackage.ELSE_CONDITIONAL: return createElseConditional();
 			case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
 			case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
-			case PreprocessPackage.EXPRESSION: return createExpression();
 			case PreprocessPackage.PREPROCESS: return createPreprocess();
 			case PreprocessPackage.GROUP_OPT2: return createGroupOpt2();
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
@@ -86,6 +85,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 			case PreprocessPackage.CODE: return createCode();
 			case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: return createIfAbstractConditional();
+			case PreprocessPackage.EXPRESSION: return createExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -272,17 +272,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression createExpression()
-	{
-		ExpressionImpl expression = new ExpressionImpl();
-		return expression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Preprocess createPreprocess()
 	{
 		PreprocessImpl preprocess = new PreprocessImpl();
@@ -375,6 +364,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	{
 		IfAbstractConditionalImpl ifAbstractConditional = new IfAbstractConditionalImpl();
 		return ifAbstractConditional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression createExpression()
+	{
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
 	}
 
 	/**

@@ -47,173 +47,33 @@ lexer-tokens
 					conditional=
 					(IfConditional
 						expression=
-						(common::ConstantExpression
-							expr=
-							(common::ConditionalExpression
+						(common::RelationalExpression
+							op++">=",
+							left=
+							(common::PostfixExpression
 								expr=
-								(common::LogicalOrExpression
-									expr+=
-									(common::LogicalAndExpression
+								(PrimaryExpression
+									id++"MIN"
+								),
+								suffix=
+								(common::PostfixExpressionSuffixArgument
+									argumentExpressionList=
+									(common::ArgumentExpressionList
 										expr+=
-										(common::InclusiveOrExpression
-											expr+=
-											(common::ExclusiveOrExpression
-												expr+=
-												(common::AndExpression
-													expr+=
-													(common::EqualityExpression
-														expr+=
-														(common::RelationalExpression
-															op+*"[>=]",
-															expr+=
-															(common::ShiftExpression
-																expr+=
-																(common::AdditiveExpression
-																	expr+=
-																	(common::MultiplicativeExpression
-																		expr+=
-																		(common::CastExpression
-																			expr=
-																			(common::UnaryExpression
-																				expr=
-																				(common::PostfixExpression
-																					expr=
-																					(PrimaryExpression
-																						id++"MIN"
-																					),
-																					suffix+=
-																					(common::PostfixExpressionSuffixArgument
-																						argumentExpressionList=
-																						(common::ArgumentExpressionList
-																							expr+=
-																							// 1. argument of min
-																							(common::ConditionalExpression
-																								expr=
-																								(common::LogicalOrExpression
-																									expr+=
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						const++"0"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							), // end 1. argument of min
-																							// 2. argument of min
-																							(common::ConditionalExpression
-																								expr=
-																								(common::LogicalOrExpression
-																									expr+=
-																									(common::LogicalAndExpression
-																										expr+=
-																										(common::InclusiveOrExpression
-																											expr+=
-																											(common::ExclusiveOrExpression
-																												expr+=
-																												(common::AndExpression
-																													expr+=
-																													(common::EqualityExpression
-																														expr+=
-																														(common::RelationalExpression
-																															expr+=
-																															(common::ShiftExpression
-																																expr+=
-																																(common::AdditiveExpression
-																																	expr+=
-																																	(common::MultiplicativeExpression
-																																		expr+=
-																																		(common::CastExpression
-																																			expr=
-																																			(common::UnaryExpression
-																																				expr=
-																																				(common::PostfixExpression
-																																					expr=
-																																					(PrimaryExpression
-																																						const++"6"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							) // end 2. argument of min
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															),
-															(common::ShiftExpression
-																expr+=
-																(common::AdditiveExpression
-																	expr+=
-																	(common::MultiplicativeExpression
-																		expr+=
-																		(common::CastExpression
-																			expr=
-																			(common::UnaryExpression
-																				expr=
-																				(common::PostfixExpression
-																					expr=
-																					(PrimaryExpression
-																						const++"5"
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+										// 1. argument of min
+										(PrimaryExpression
+											const++"0"
+										), // end 1. argument of min
+										// 2. argument of min
+										(PrimaryExpression
+											const++"6"
+										) // end 2. argument of min
 									)
 								)
+							),
+							right=
+							(PrimaryExpression
+								const++"5"
 							)
 						),
 						group=

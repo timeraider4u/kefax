@@ -1,7 +1,6 @@
 package at.jku.weiner.c.preprocess.utils.expressions;
 
-import at.jku.weiner.c.common.common.PostfixExpression;
-import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 
 public interface IExpressionVisitor<T> {
 
@@ -27,13 +26,16 @@ public interface IExpressionVisitor<T> {
 
 	public T evaluateForMultiplicativeExpression(T a, T b, String op);
 
-	public T evaluateForUnaryExpression(T resultOfCastExpression,
-			UnaryOperator op);
+	public T evaluateForUnaryExpression(T resultOfCastExpression, String op);
+
+	public T evaluateForPostfixExpression(PostfixExpressionSuffix suffix,
+			String name, boolean isConst);
 
 	public T evaluateConstant(final String constant);
 
-	public T evaluateForId(boolean isDefined, final String id,
-			PostfixExpression postfix);
+	public T evaluateForId(final boolean defined, final String id);
+
+	public T evaluateForParentheses(final T resultOfExpression);
 
 	public T getDefaultReturn();
 

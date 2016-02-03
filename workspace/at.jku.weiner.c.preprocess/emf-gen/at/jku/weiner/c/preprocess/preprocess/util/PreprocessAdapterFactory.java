@@ -135,10 +135,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 				return createNullDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseExpression(Expression object) {
-				return createExpressionAdapter();
-			}
-			@Override
 			public Adapter casePreprocess(Preprocess object) {
 				return createPreprocessAdapter();
 			}
@@ -175,12 +171,16 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 				return createIfAbstractConditionalAdapter();
 			}
 			@Override
-			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object) {
-				return createCommon_ExpressionAdapter();
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
 			}
 			@Override
 			public Adapter caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object) {
 				return createCommon_PreprocessAdapter();
+			}
+			@Override
+			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object) {
+				return createCommon_ExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -444,21 +444,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Expression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see at.jku.weiner.c.preprocess.preprocess.Expression
-	 * @generated
-	 */
-	public Adapter createExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Preprocess <em>Preprocess</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -594,16 +579,16 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see at.jku.weiner.c.common.common.Expression
+	 * @see at.jku.weiner.c.preprocess.preprocess.Expression
 	 * @generated
 	 */
-	public Adapter createCommon_ExpressionAdapter()
+	public Adapter createExpressionAdapter()
 	{
 		return null;
 	}
@@ -619,6 +604,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createCommon_PreprocessAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.c.common.common.Expression
+	 * @generated
+	 */
+	public Adapter createCommon_ExpressionAdapter()
 	{
 		return null;
 	}

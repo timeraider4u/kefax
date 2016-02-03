@@ -33,64 +33,13 @@ lexer-tokens
 					conditional=
 					(IfConditional
 						expression=
-						(common::ConstantExpression
+						
+						(common::UnaryExpression
+							op++"!",
 							expr=
-							(common::ConditionalExpression
-								expr=
-								(common::LogicalOrExpression
-									expr+=
-									(common::LogicalAndExpression
-										expr+=
-										(common::InclusiveOrExpression
-											expr+=
-											(common::ExclusiveOrExpression
-												expr+=
-												(common::AndExpression
-													expr+=
-													(common::EqualityExpression
-														expr+=
-														(common::RelationalExpression
-															expr+=
-															(common::ShiftExpression
-																expr+=
-																(common::AdditiveExpression
-																	expr+=
-																	(common::MultiplicativeExpression
-																		expr+=
-																		(common::CastExpression
-																			expr=
-																			(common::UnaryExpression
-																				op=
-																				(common::UnaryOperator
-																					op++"!"
-																				),
-																				expr=
-																				(common::CastExpression
-																					expr=
-																					(common::UnaryExpression
-																						op isNull,
-																						expr=
-																						(common::PostfixExpression
-																							expr=
-																							(PrimaryExpression
-																								defined?=true,
-																								id++"FOO"
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								)
+							(PrimaryExpression
+								defined?=true,
+								id++"FOO"
 							)
 						),
 						group=

@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface PreprocessPackage extends EPackage
-{
+public interface PreprocessPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -363,7 +362,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfAbstractConditional()
 	 * @generated
 	 */
-	int IF_ABSTRACT_CONDITIONAL = 25;
+	int IF_ABSTRACT_CONDITIONAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Branch Taken</b></em>' attribute.
@@ -661,34 +660,6 @@ public interface PreprocessPackage extends EPackage
 	int NULL_DIRECTIVE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl <em>Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl
-	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
-	 * @generated
-	 */
-	int EXPRESSION = 16;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION__EXPRESSION = CommonPackage.EXPRESSION__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl <em>Preprocess</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,7 +667,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocess()
 	 * @generated
 	 */
-	int PREPROCESS = 17;
+	int PREPROCESS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' containment reference.
@@ -724,7 +695,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getGroupOpt2()
 	 * @generated
 	 */
-	int GROUP_OPT2 = 18;
+	int GROUP_OPT2 = 17;
 
 	/**
 	 * The feature id for the '<em><b>Lines</b></em>' containment reference list.
@@ -752,7 +723,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
 	 * @generated
 	 */
-	int PREPROCESSOR_DIRECTIVES = 19;
+	int PREPROCESSOR_DIRECTIVES = 18;
 
 	/**
 	 * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -780,7 +751,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
 	 * @generated
 	 */
-	int DEFINE_OBJECT_MACRO = 20;
+	int DEFINE_OBJECT_MACRO = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -817,7 +788,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
 	 * @generated
 	 */
-	int DEFINE_FUNCTION_LIKE_MACRO = 21;
+	int DEFINE_FUNCTION_LIKE_MACRO = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -863,7 +834,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
 	 * @generated
 	 */
-	int NEW_LINE_LINE = 22;
+	int NEW_LINE_LINE = 21;
 
 	/**
 	 * The number of structural features of the '<em>New Line Line</em>' class.
@@ -882,7 +853,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 23;
+	int CODE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -903,6 +874,25 @@ public interface PreprocessPackage extends EPackage
 	int CODE_FEATURE_COUNT = SOURCE_CODE_LINE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl
+	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 25;
+
+	/**
+	 * The number of structural features of the '<em>Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -910,16 +900,7 @@ public interface PreprocessPackage extends EPackage
 	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
 	 * @generated
 	 */
-	int PRIMARY_EXPRESSION = 24;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
+	int PRIMARY_EXPRESSION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Defined</b></em>' attribute.
@@ -958,13 +939,22 @@ public interface PreprocessPackage extends EPackage
 	int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Parentheses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_EXPRESSION__PARENTHESES = EXPRESSION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Primary Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
+	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
 
 	/**
@@ -1337,16 +1327,6 @@ public interface PreprocessPackage extends EPackage
 	EClass getNullDirective();
 
 	/**
-	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.Expression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Expression</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.Expression
-	 * @generated
-	 */
-	EClass getExpression();
-
-	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.Preprocess <em>Preprocess</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1537,6 +1517,17 @@ public interface PreprocessPackage extends EPackage
 	EReference getPrimaryExpression_Expr();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses <em>Parentheses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parentheses</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses()
+	 * @see #getPrimaryExpression()
+	 * @generated
+	 */
+	EAttribute getPrimaryExpression_Parentheses();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional <em>If Abstract Conditional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1569,6 +1560,16 @@ public interface PreprocessPackage extends EPackage
 	EReference getIfAbstractConditional_Group();
 
 	/**
+	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.Expression
+	 * @generated
+	 */
+	EClass getExpression();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,8 +1590,7 @@ public interface PreprocessPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1904,16 +1904,6 @@ public interface PreprocessPackage extends EPackage
 		EClass NULL_DIRECTIVE = eINSTANCE.getNullDirective();
 
 		/**
-		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl <em>Expression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl
-		 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
-		 * @generated
-		 */
-		EClass EXPRESSION = eINSTANCE.getExpression();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl <em>Preprocess</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2074,6 +2064,14 @@ public interface PreprocessPackage extends EPackage
 		EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
 
 		/**
+		 * The meta object literal for the '<em><b>Parentheses</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIMARY_EXPRESSION__PARENTHESES = eINSTANCE.getPrimaryExpression_Parentheses();
+
+		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl <em>If Abstract Conditional</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2098,6 +2096,16 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EReference IF_ABSTRACT_CONDITIONAL__GROUP = eINSTANCE.getIfAbstractConditional_Group();
+
+		/**
+		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl <em>Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.jku.weiner.c.preprocess.preprocess.impl.ExpressionImpl
+		 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
+		 * @generated
+		 */
+		EClass EXPRESSION = eINSTANCE.getExpression();
 
 	}
 

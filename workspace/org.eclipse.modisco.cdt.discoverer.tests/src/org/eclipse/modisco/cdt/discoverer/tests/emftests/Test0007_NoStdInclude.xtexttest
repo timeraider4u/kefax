@@ -53,57 +53,12 @@ source file="res/Test0007_NoStdInclude"
 							initializer=
 							(parser::Initializer
 								expr=
-								(parser::AssignmentExpression
-									expr=
-									(parser::ConditionalExpression
-										expr=
-										(parser::LogicalOrExpression
-											expr+=
-											(parser::LogicalAndExpression
-												expr+=
-												(parser::InclusiveOrExpression
-													expr+=
-													(parser::ExclusiveOrExpression
-														expr+=
-														(parser::AndExpression
-															expr+=
-															(parser::EqualityExpression
-																expr+=
-																(parser::RelationalExpression
-																	expr+=
-																	(parser::ShiftExpression
-																		expr+=
-																		(parser::AdditiveExpression
-																			expr+=
-																			(parser::MultiplicativeExpression
-																				expr+=
-																				(parser::CastExpression
-																					expr=
-																					(parser::UnaryExpression
-																						expr=
-																						(parser::PostfixExpression
-																							expr+=
-																							(parser::PrimaryExpression
-																								const=
-																								(Constant2
-																									dec++"1"
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
+								(parser::PrimaryExpression
+									const=
+									(Constant2
+										dec++"1"
 									)
-								) // end assignment expression
+								)
 							)
 						)
 					)

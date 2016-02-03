@@ -134,59 +134,14 @@ source file="res/Test0006_SimpleAbsoluteInclude"
 								stmt=
 								(parser::JumpStatement
 									expr=
-									(parser::Expression
-										exprExpr+=
-										(parser::AssignmentExpression
-											expr=
-											(parser::ConditionalExpression
-												expr=
-												(parser::LogicalOrExpression
-													expr+=
-													(parser::LogicalAndExpression
-														expr+=
-														(parser::InclusiveOrExpression
-															expr+=
-															(parser::ExclusiveOrExpression
-																expr+=
-																(parser::AndExpression
-																	expr+=
-																	(parser::EqualityExpression
-																		expr+=
-																		(parser::RelationalExpression
-																			expr+=
-																			(parser::ShiftExpression
-																				expr+=
-																				(parser::AdditiveExpression
-																					expr+=
-																					(parser::MultiplicativeExpression
-																						expr+=
-																						(parser::CastExpression
-																							expr=
-																							(parser::UnaryExpression
-																								expr=
-																								(parser::PostfixExpression
-																									expr+=
-																									(parser::PrimaryExpression
-																										id++"getValue"
-																									),
-																									suffix+=
-																									(parser::PostfixExpressionSuffixArgument
-																										argumentExpressionList isNull
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
+									(parser::PostfixExpression
+										expr=
+										(parser::PrimaryExpression
+											id++"getValue"
+										),
+										suffix=
+										(parser::PostfixExpressionSuffixArgument
+											argumentExpressionList isNull
 										)
 									), // end expression
 									return++"return"

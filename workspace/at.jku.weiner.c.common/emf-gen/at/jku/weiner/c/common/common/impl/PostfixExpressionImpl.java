@@ -49,14 +49,14 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	protected Expression expr;
 
 	/**
-	 * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' containment reference list.
+	 * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSuffix()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PostfixExpressionSuffix> suffix;
+	protected PostfixExpressionSuffix suffix;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,8 +98,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -113,8 +112,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr)
-		{
+		if (newExpr != expr) {
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION__EXPR, null, msgs);
@@ -132,13 +130,43 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PostfixExpressionSuffix> getSuffix()
+	public PostfixExpressionSuffix getSuffix()
 	{
-		if (suffix == null)
-		{
-			suffix = new EObjectContainmentEList<PostfixExpressionSuffix>(PostfixExpressionSuffix.class, this, CommonPackage.POSTFIX_EXPRESSION__SUFFIX);
-		}
 		return suffix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSuffix(PostfixExpressionSuffix newSuffix, NotificationChain msgs) {
+		PostfixExpressionSuffix oldSuffix = suffix;
+		suffix = newSuffix;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION__SUFFIX, oldSuffix, newSuffix);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSuffix(PostfixExpressionSuffix newSuffix) {
+		if (newSuffix != suffix) {
+			NotificationChain msgs = null;
+			if (suffix != null)
+				msgs = ((InternalEObject)suffix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION__SUFFIX, null, msgs);
+			if (newSuffix != null)
+				msgs = ((InternalEObject)newSuffix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION__SUFFIX, null, msgs);
+			msgs = basicSetSuffix(newSuffix, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION__SUFFIX, newSuffix, newSuffix));
 	}
 
 	/**
@@ -149,12 +177,11 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
-				return ((InternalEList<?>)getSuffix()).basicRemove(otherEnd, msgs);
+				return basicSetSuffix(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,8 +194,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
@@ -186,14 +212,12 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
 				return;
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
-				getSuffix().clear();
-				getSuffix().addAll((Collection<? extends PostfixExpressionSuffix>)newValue);
+				setSuffix((PostfixExpressionSuffix)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,13 +231,12 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
-				getSuffix().clear();
+				setSuffix((PostfixExpressionSuffix)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,12 +250,11 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return expr != null;
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
-				return suffix != null && !suffix.isEmpty();
+				return suffix != null;
 		}
 		return super.eIsSet(featureID);
 	}

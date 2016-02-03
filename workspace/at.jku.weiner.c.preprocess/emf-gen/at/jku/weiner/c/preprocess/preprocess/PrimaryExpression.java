@@ -10,13 +10,14 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression()
  * @model
@@ -127,5 +128,31 @@ public interface PrimaryExpression extends Expression
 	 * @generated
 	 */
 	void setExpr(at.jku.weiner.c.common.common.Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Parentheses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parentheses</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parentheses</em>' attribute.
+	 * @see #setParentheses(boolean)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression_Parentheses()
+	 * @model
+	 * @generated
+	 */
+	boolean isParentheses();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses <em>Parentheses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parentheses</em>' attribute.
+	 * @see #isParentheses()
+	 * @generated
+	 */
+	void setParentheses(boolean value);
 
 } // PrimaryExpression

@@ -166,13 +166,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass expressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass preprocessEClass = null;
 
 	/**
@@ -230,6 +223,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * @generated
 	 */
 	private EClass ifAbstractConditionalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass expressionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -352,7 +352,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIncludeDirective_Unit() {
+	public EReference getIncludeDirective_Unit()
+	{
 		return (EReference)includeDirectiveEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -651,16 +652,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExpression()
-	{
-		return expressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPreprocess()
 	{
 		return preprocessEClass;
@@ -841,6 +832,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPrimaryExpression_Parentheses()
+	{
+		return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIfAbstractConditional()
 	{
 		return ifAbstractConditionalEClass;
@@ -861,8 +862,19 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIfAbstractConditional_Group() {
+	public EReference getIfAbstractConditional_Group()
+	{
 		return (EReference)ifAbstractConditionalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExpression()
+	{
+		return expressionEClass;
 	}
 
 	/**
@@ -946,8 +958,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		nullDirectiveEClass = createEClass(NULL_DIRECTIVE);
 
-		expressionEClass = createEClass(EXPRESSION);
-
 		preprocessEClass = createEClass(PREPROCESS);
 		createEReference(preprocessEClass, PREPROCESS__GROUP);
 
@@ -973,10 +983,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
 		createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__EXPR);
+		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__PARENTHESES);
 
 		ifAbstractConditionalEClass = createEClass(IF_ABSTRACT_CONDITIONAL);
 		createEAttribute(ifAbstractConditionalEClass, IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN);
 		createEReference(ifAbstractConditionalEClass, IF_ABSTRACT_CONDITIONAL__GROUP);
+
+		expressionEClass = createEClass(EXPRESSION);
 	}
 
 	/**
@@ -1017,7 +1030,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		ifNotDefConditionalEClass.getESuperTypes().add(this.getIfAbstractConditional());
 		elIfConditionalEClass.getESuperTypes().add(this.getIfAbstractConditional());
 		elseConditionalEClass.getESuperTypes().add(this.getIfAbstractConditional());
-		expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
 		preprocessEClass.getESuperTypes().add(theCommonPackage.getPreprocess());
 		groupOpt2EClass.getESuperTypes().add(this.getGroupOpt());
 		preprocessorDirectivesEClass.getESuperTypes().add(this.getSourceCodeLine());
@@ -1026,6 +1038,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		newLineLineEClass.getESuperTypes().add(this.getSourceCodeLine());
 		codeEClass.getESuperTypes().add(this.getSourceCodeLine());
 		primaryExpressionEClass.getESuperTypes().add(this.getExpression());
+		expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(groupOptEClass, GroupOpt.class, "GroupOpt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1079,8 +1092,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		initEClass(nullDirectiveEClass, NullDirective.class, "NullDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(preprocessEClass, Preprocess.class, "Preprocess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPreprocess_Group(), this.getGroupOpt(), null, "group", null, 0, 1, Preprocess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1106,10 +1117,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPrimaryExpression_Const(), theEcorePackage.getEString(), "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimaryExpression_Expr(), theCommonPackage.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimaryExpression_Parentheses(), theEcorePackage.getEBoolean(), "parentheses", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifAbstractConditionalEClass, IfAbstractConditional.class, "IfAbstractConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIfAbstractConditional_BranchTaken(), theEcorePackage.getEBoolean(), "branchTaken", null, 0, 1, IfAbstractConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIfAbstractConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, IfAbstractConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

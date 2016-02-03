@@ -6,10 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.Expression;
-import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
-import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 import com.google.inject.Injector;
@@ -20,12 +18,11 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 	public static final Long FALSE = new Long(0);
 	private final Injector injector;
 	private final DefinitionTable definitionTable;
-	
+
 	public ExpressionLongVisitor(final Injector injector,
 			final DefinitionTable definitionTable) {
 		this.injector = injector;
 		this.definitionTable = definitionTable;
-
 	}
 
 	@Override
@@ -77,12 +74,12 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-			case "==":
-				result = ExpressionEvaluationUtils.convertFrom(a.equals(b));
-				break;
-			case "!=":
-				result = ExpressionEvaluationUtils.convertFrom(!a.equals(b));
-				break;
+		case "==":
+			result = ExpressionEvaluationUtils.convertFrom(a.equals(b));
+			break;
+		case "!=":
+			result = ExpressionEvaluationUtils.convertFrom(!a.equals(b));
+			break;
 		}
 		return result;
 	}
@@ -92,18 +89,18 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-			case "<=":
-				result = ExpressionEvaluationUtils.convertFrom(a <= b);
-				break;
-			case "<":
-				result = ExpressionEvaluationUtils.convertFrom(a < b);
-				break;
-			case ">":
-				result = ExpressionEvaluationUtils.convertFrom(a > b);
-				break;
-			case ">=":
-				result = ExpressionEvaluationUtils.convertFrom(a >= b);
-				break;
+		case "<=":
+			result = ExpressionEvaluationUtils.convertFrom(a <= b);
+			break;
+		case "<":
+			result = ExpressionEvaluationUtils.convertFrom(a < b);
+			break;
+		case ">":
+			result = ExpressionEvaluationUtils.convertFrom(a > b);
+			break;
+		case ">=":
+			result = ExpressionEvaluationUtils.convertFrom(a >= b);
+			break;
 		}
 		return result;
 	}
@@ -113,15 +110,15 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-			case ">>":
-				result = (a >> b);
-				break;
-			case "<<":
-				result = (a << b);
-				break;
-			default:
-				throw new UnsupportedOperationException(
-						"other operators not allowed in preprocessor conditionals!");
+		case ">>":
+			result = (a >> b);
+			break;
+		case "<<":
+			result = (a << b);
+			break;
+		default:
+			throw new UnsupportedOperationException(
+					"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
@@ -131,15 +128,15 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-			case "+":
-				result = a + b;
-				break;
-			case "-":
-				result = a - b;
-				break;
-			default:
-				throw new UnsupportedOperationException(
-						"other operators not allowed in preprocessor conditionals!");
+		case "+":
+			result = a + b;
+			break;
+		case "-":
+			result = a - b;
+			break;
+		default:
+			throw new UnsupportedOperationException(
+					"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
@@ -149,43 +146,48 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-			case "*":
-				result = a * b;
-				break;
-			case "/":
-				result = a / b;
-				break;
-			case "%":
-				result = a % b;
-				break;
-			default:
-				throw new UnsupportedOperationException(
-						"other operators not allowed in preprocessor conditionals!");
+		case "*":
+			result = a * b;
+			break;
+		case "/":
+			result = a / b;
+			break;
+		case "%":
+			result = a % b;
+			break;
+		default:
+			throw new UnsupportedOperationException(
+					"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
 
 	@Override
 	public Long evaluateForUnaryExpression(final Long resultOfCastExpression,
-			final UnaryOperator op) {
-		switch (op.getOp()) {
-			case "-":
-				return resultOfCastExpression * (-1);
-			case "!":
-				if (ExpressionLongVisitor.FALSE.equals(resultOfCastExpression)) {
-					return ExpressionLongVisitor.TRUE;
-				}
-				return ExpressionLongVisitor.FALSE;
-			case "+":
-				break;
-			case "&":
-			case "*":
-			case "~":
-			default:
-				throw new UnsupportedOperationException(
-						"address operators not allowed in preprocessor conditionals!");
+			final String op) {
+		switch (op) {
+		case "-":
+			return resultOfCastExpression * (-1);
+		case "!":
+			if (ExpressionLongVisitor.FALSE.equals(resultOfCastExpression)) {
+				return ExpressionLongVisitor.TRUE;
+			}
+			return ExpressionLongVisitor.FALSE;
+		case "+":
+			break;
+		case "&":
+		case "*":
+		case "~":
+		default:
+			throw new UnsupportedOperationException(
+					"address operators not allowed in preprocessor conditionals!");
 		}
 		return resultOfCastExpression;
+	}
+
+	@Override
+	public Long evaluateForParentheses(final Long resultOfExpression) {
+		return resultOfExpression;
 	}
 
 	@Override
@@ -213,23 +215,30 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 	}
 
 	@Override
-	public Long evaluateForId(final boolean isDefined, final String id,
-			final PostfixExpression postfix) {
+	public Long evaluateForId(final boolean isDefined, final String id) {
+		final boolean inTable = this.definitionTable.isDefined(id);
 		if (isDefined) {
-			if (this.definitionTable.isDefined(id)) {
+			if (inTable) {
 				return ExpressionLongVisitor.TRUE;
+			} else {
+				return ExpressionLongVisitor.FALSE;
 			}
-			return ExpressionLongVisitor.FALSE;
-		} else {
-			final Long result = this.evaluateForString(id, false, postfix);
-			return result;
 		}
+		final Long result = this.evaluateForString(id);
+		return result;
 	}
 
-	private Long evaluateForString(final String macroName,
-			final boolean isConst, final PostfixExpression postfix) {
-		final String code = this.getCode(macroName, postfix);
-		final String macro = this.definitionTable.fullResolve(code);
+	@Override
+	public Long evaluateForPostfixExpression(
+			final PostfixExpressionSuffix suffix, final String name,
+			final boolean isConst) {
+		final String code = this.getCode(name, suffix);
+		final Long result = this.evaluateForString(code);
+		return result;
+	}
+
+	private Long evaluateForString(final String text) {
+		final String macro = this.definitionTable.fullResolve(text);
 		try {
 			if (macro.matches(".*[+\\-*/%><|&^]+.*")) {
 				final ExpressionParser parser = new ExpressionParser(
@@ -253,36 +262,30 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 	}
 
 	private String getCode(final String macroName,
-			final PostfixExpression postfix) {
-		if (postfix == null) {
-			return macroName;
-		}
-		final EList<PostfixExpressionSuffix> list = postfix.getSuffix();
-		if (list == null) {
+			final PostfixExpressionSuffix suffix) {
+		if (suffix == null) {
 			return macroName;
 		}
 		final StringBuffer result = new StringBuffer(macroName);
-		for (int i = 0; i < list.size(); i++) {
-			final PostfixExpressionSuffixArgument argument = (PostfixExpressionSuffixArgument) list
-					.get(i);
-			final ArgumentExpressionList argList = argument
-					.getArgumentExpressionList();
-			final EList<Expression> exprList = argList.getExpr();
-			result.append("(");
-			for (int j = 0; j < exprList.size(); j++) {
-				if (j > 0) {
-					result.append(",");
-				}
-				final Expression expression = exprList.get(j);
-				final IExpressionVisitor<Long> visitor = new ExpressionLongVisitor(
-						this.injector, this.definitionTable);
-				final ExpressionEvaluation<Long> evaluater = new ExpressionEvaluation<Long>(
-						visitor);
-				final Long param = evaluater.walkTo(expression);
-				result.append(param);
+
+		final PostfixExpressionSuffixArgument argument = (PostfixExpressionSuffixArgument) suffix;
+		final ArgumentExpressionList argList = argument
+				.getArgumentExpressionList();
+		final EList<Expression> exprList = argList.getExpr();
+		result.append("(");
+		for (int j = 0; j < exprList.size(); j++) {
+			if (j > 0) {
+				result.append(",");
 			}
-			result.append(")");
+			final Expression expression = exprList.get(j);
+			final IExpressionVisitor<Long> visitor = new ExpressionLongVisitor(
+					this.injector, this.definitionTable);
+			final ExpressionEvaluation<Long> evaluater = new ExpressionEvaluation<Long>(
+					visitor);
+			final Long param = evaluater.walkTo(expression);
+			result.append(param);
 		}
+		result.append(")");
 		return result.toString();
 	}
 

@@ -98,8 +98,7 @@ public class Constant1Impl extends ExpressionImpl implements Constant1
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT1__VALUE:
 				return getValue();
 		}
@@ -114,8 +113,7 @@ public class Constant1Impl extends ExpressionImpl implements Constant1
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT1__VALUE:
 				setValue((String)newValue);
 				return;
@@ -131,8 +129,7 @@ public class Constant1Impl extends ExpressionImpl implements Constant1
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT1__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -148,8 +145,7 @@ public class Constant1Impl extends ExpressionImpl implements Constant1
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT1__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}

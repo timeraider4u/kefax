@@ -134,8 +134,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	{
 		Expression oldLeft = left;
 		left = newLeft;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.RELATIONAL_EXPRESSION__LEFT, oldLeft, newLeft);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -149,8 +148,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	 */
 	public void setLeft(Expression newLeft)
 	{
-		if (newLeft != left)
-		{
+		if (newLeft != left) {
 			NotificationChain msgs = null;
 			if (left != null)
 				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.RELATIONAL_EXPRESSION__LEFT, null, msgs);
@@ -182,8 +180,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	{
 		Expression oldRight = right;
 		right = newRight;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.RELATIONAL_EXPRESSION__RIGHT, oldRight, newRight);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -197,8 +194,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	 */
 	public void setRight(Expression newRight)
 	{
-		if (newRight != right)
-		{
+		if (newRight != right) {
 			NotificationChain msgs = null;
 			if (right != null)
 				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.RELATIONAL_EXPRESSION__RIGHT, null, msgs);
@@ -219,8 +215,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.RELATIONAL_EXPRESSION__LEFT:
 				return basicSetLeft(null, msgs);
 			case CommonPackage.RELATIONAL_EXPRESSION__RIGHT:
@@ -237,8 +232,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.RELATIONAL_EXPRESSION__OP:
 				return getOp();
 			case CommonPackage.RELATIONAL_EXPRESSION__LEFT:
@@ -257,8 +251,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.RELATIONAL_EXPRESSION__OP:
 				setOp((String)newValue);
 				return;
@@ -280,8 +273,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.RELATIONAL_EXPRESSION__OP:
 				setOp(OP_EDEFAULT);
 				return;
@@ -303,8 +295,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.RELATIONAL_EXPRESSION__OP:
 				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
 			case CommonPackage.RELATIONAL_EXPRESSION__LEFT:

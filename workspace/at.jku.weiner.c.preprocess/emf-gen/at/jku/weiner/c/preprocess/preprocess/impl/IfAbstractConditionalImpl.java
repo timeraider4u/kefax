@@ -7,11 +7,11 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#isBranchTaken <em>Branch Taken</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -110,7 +110,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroupOpt getGroup() {
+	public GroupOpt getGroup()
+	{
 		return group;
 	}
 
@@ -119,7 +120,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGroup(GroupOpt newGroup, NotificationChain msgs) {
+	public NotificationChain basicSetGroup(GroupOpt newGroup, NotificationChain msgs)
+	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
 		if (eNotificationRequired()) {
@@ -134,7 +136,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGroup(GroupOpt newGroup) {
+	public void setGroup(GroupOpt newGroup)
+	{
 		if (newGroup != group) {
 			NotificationChain msgs = null;
 			if (group != null)
@@ -154,7 +157,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
 		switch (featureID) {
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP:
 				return basicSetGroup(null, msgs);

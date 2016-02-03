@@ -363,8 +363,7 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT2__HEX:
 				return getHex();
 			case CommonPackage.CONSTANT2__OCT:
@@ -391,8 +390,7 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT2__HEX:
 				setHex((String)newValue);
 				return;
@@ -426,8 +424,7 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT2__HEX:
 				setHex(HEX_EDEFAULT);
 				return;
@@ -461,8 +458,7 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.CONSTANT2__HEX:
 				return HEX_EDEFAULT == null ? hex != null : !HEX_EDEFAULT.equals(hex);
 			case CommonPackage.CONSTANT2__OCT:

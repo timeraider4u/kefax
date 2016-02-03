@@ -3,14 +3,15 @@
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.common.common.TranslationUnit;
+
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -20,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getUnit <em>Unit</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -109,7 +110,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TranslationUnit getUnit() {
+	public TranslationUnit getUnit()
+	{
 		if (unit != null && unit.eIsProxy()) {
 			InternalEObject oldUnit = (InternalEObject)unit;
 			unit = (TranslationUnit)eResolveProxy(oldUnit);
@@ -126,7 +128,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TranslationUnit basicGetUnit() {
+	public TranslationUnit basicGetUnit()
+	{
 		return unit;
 	}
 
@@ -135,7 +138,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(TranslationUnit newUnit) {
+	public void setUnit(TranslationUnit newUnit)
+	{
 		TranslationUnit oldUnit = unit;
 		unit = newUnit;
 		if (eNotificationRequired())

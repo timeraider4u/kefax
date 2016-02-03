@@ -168,7 +168,7 @@ UnaryOperator:
 PostfixExpression returns Expression:
 	PrimaryExpression
 	({PostfixExpression.expr=current} 
-		suffix+=PostfixExpressionSuffixArgument
+		suffix=PostfixExpressionSuffixArgument
 	)*
 ;
 

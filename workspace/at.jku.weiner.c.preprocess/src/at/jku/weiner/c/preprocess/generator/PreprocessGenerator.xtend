@@ -29,7 +29,6 @@ import at.jku.weiner.c.preprocess.preprocess.IfDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfConditional
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation
-import at.jku.weiner.c.common.common.ConstantExpression
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional
 import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
@@ -57,6 +56,7 @@ import org.eclipse.xtext.parser.antlr.ITokenDefProvider
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
 import at.jku.weiner.c.preprocess.utils.LexerUtils
 import at.jku.weiner.c.preprocess.utils.Trimmer
+import at.jku.weiner.c.common.common.Expression
 
 /**
  * Generates code from your model files on save.
@@ -380,9 +380,11 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective condDirective, IfConditional obj) {
-		val ConstantExpression expr = obj.expression as ConstantExpression;
+		val Expression expr = obj.expression;
 		val String string = ExpressionEvaluation.evaluateFor(expr);
-		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable)) {
+		val boolean result = ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable);
+		MyLog.trace("resultOfExpr='" + string + "'='" + result + "'");
+		if (result) {
 			path.add("if " + string + "/");
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
@@ -411,7 +413,7 @@ class PreprocessGenerator implements IGenerator {
  		if (condition != null) {
  			return "";
  		}
- 		val ConstantExpression expr = obj.expression as ConstantExpression;
+ 		val Expression expr = obj.expression;
  		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable)) {
  			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("elif" + string + "/");

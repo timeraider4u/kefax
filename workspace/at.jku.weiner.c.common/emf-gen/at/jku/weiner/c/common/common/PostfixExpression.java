@@ -50,19 +50,29 @@ public interface PostfixExpression extends Expression
 	void setExpr(Expression value);
 
 	/**
-	 * Returns the value of the '<em><b>Suffix</b></em>' containment reference list.
-	 * The list contents are of type {@link at.jku.weiner.c.common.common.PostfixExpressionSuffix}.
+	 * Returns the value of the '<em><b>Suffix</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Suffix</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Suffix</em>' containment reference list.
+	 * @return the value of the '<em>Suffix</em>' containment reference.
+	 * @see #setSuffix(PostfixExpressionSuffix)
 	 * @see at.jku.weiner.c.common.common.CommonPackage#getPostfixExpression_Suffix()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PostfixExpressionSuffix> getSuffix();
+	PostfixExpressionSuffix getSuffix();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.common.common.PostfixExpression#getSuffix <em>Suffix</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Suffix</em>' containment reference.
+	 * @see #getSuffix()
+	 * @generated
+	 */
+	void setSuffix(PostfixExpressionSuffix value);
 
 } // PostfixExpression

@@ -881,7 +881,7 @@ public interface CommonPackage extends EPackage
 	int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Suffix</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Suffix</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1725,10 +1725,10 @@ public interface CommonPackage extends EPackage
 	EReference getPostfixExpression_Expr();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.common.common.PostfixExpression#getSuffix <em>Suffix</em>}'.
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.PostfixExpression#getSuffix <em>Suffix</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Suffix</em>'.
+	 * @return the meta object for the containment reference '<em>Suffix</em>'.
 	 * @see at.jku.weiner.c.common.common.PostfixExpression#getSuffix()
 	 * @see #getPostfixExpression()
 	 * @generated
@@ -2437,7 +2437,7 @@ public interface CommonPackage extends EPackage
 		EReference POSTFIX_EXPRESSION__EXPR = eINSTANCE.getPostfixExpression_Expr();
 
 		/**
-		 * The meta object literal for the '<em><b>Suffix</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Suffix</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -588,32 +588,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMsgAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cMsgMyCodeLineParserRuleCall_3_0 = (RuleCall)cMsgAssignment_3.eContents().get(0);
 		
-		////ReplaceLine:
-		////	{ReplaceLine}
-		////	(
-		////	(string=MyDefineLine)
-		////	
-		////	(HASH
-		////		(
-		////				(WHITESPACE* id=ID)
-		////			|	concatenate?=(HASH)
-		////		)
-		////	)?
-		////	)
-		////	| (HASH WHITESPACE* id=ID)
-		////;
-		////ReplacementStringify:
-		////	WHITESPACE* id=ID
-		////;
-		////ReplacementStringify returns ReplaceLine:
-		////	{ReplacementStringify}
-		////	HASH WHITESPACE* id=ID
-		////;
-		////
-		////ReplacementConcate returns ReplaceLine:
-		////	{ReplacementConcate}
-		////	string=MyDefineLine HASH HASH
-		////;
 		//ErrorDirective:
 		//	{ErrorDirective} ERROR WHITESPACE* msg=MyCodeLine?;
 		@Override public ParserRule getRule() { return rule; }
@@ -785,18 +759,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionConstantExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
+		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfConditional:
-		//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
+		//	{IfConditional} IF WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE group=GroupOpt
+		//{IfConditional} IF WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfConditional}
@@ -808,11 +782,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//expression=Common::ConstantExpression
+		//expression=Common::Expression
 		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
 		
-		//Common::ConstantExpression
-		public RuleCall getExpressionConstantExpressionParserRuleCall_3_0() { return cExpressionConstantExpressionParserRuleCall_3_0; }
+		//Common::Expression
+		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
@@ -933,20 +907,19 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cELIFTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionConstantExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
+		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//ElIfConditional:
-		//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
-		//	NEWLINE
+		//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
-		//NEWLINE group=GroupOpt
+		//{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
+		//group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{ElIfConditional}
@@ -970,11 +943,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//expression=Common::ConstantExpression
+		//expression=Common::Expression
 		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
 		
-		//Common::ConstantExpression
-		public RuleCall getExpressionConstantExpressionParserRuleCall_3_0() { return cExpressionConstantExpressionParserRuleCall_3_0; }
+		//Common::Expression
+		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
@@ -1339,7 +1312,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cConstAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cConstConstant1ParserRuleCall_1_2_0 = (RuleCall)cConstAssignment_1_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_3_0 = (RuleCall)cGroup_1_3.eContents().get(0);
+		private final Assignment cParenthesesAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
+		private final RuleCall cParenthesesSKW_LEFTPARENTerminalRuleCall_1_3_0_0 = (RuleCall)cParenthesesAssignment_1_3_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
 		private final RuleCall cExprExpressionParserRuleCall_1_3_1_0 = (RuleCall)cExprAssignment_1_3_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3_2 = (RuleCall)cGroup_1_3.eContents().get(2);
@@ -1350,18 +1324,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 		//	| const=Constant1
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
-		//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PrimaryExpression} (defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
-		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
 		//(defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
-		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//defined?=DEFINED? id=ID
@@ -1406,11 +1380,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Constant1
 		public RuleCall getConstConstant1ParserRuleCall_1_2_0() { return cConstConstant1ParserRuleCall_1_2_0; }
 		
-		//SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+		//parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
+		//parentheses?=SKW_LEFTPAREN
+		public Assignment getParenthesesAssignment_1_3_0() { return cParenthesesAssignment_1_3_0; }
+		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_3_0() { return cSKW_LEFTPARENTerminalRuleCall_1_3_0; }
+		public RuleCall getParenthesesSKW_LEFTPARENTerminalRuleCall_1_3_0_0() { return cParenthesesSKW_LEFTPARENTerminalRuleCall_1_3_0_0; }
 		
 		//expr=Expression
 		public Assignment getExprAssignment_1_3_1() { return cExprAssignment_1_3_1; }
@@ -1702,32 +1679,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getIdentifierListAccess().getRule();
 	}
 	
-	////ReplaceLine:
-	////	{ReplaceLine}
-	////	(
-	////	(string=MyDefineLine)
-	////	
-	////	(HASH
-	////		(
-	////				(WHITESPACE* id=ID)
-	////			|	concatenate?=(HASH)
-	////		)
-	////	)?
-	////	)
-	////	| (HASH WHITESPACE* id=ID)
-	////;
-	////ReplacementStringify:
-	////	WHITESPACE* id=ID
-	////;
-	////ReplacementStringify returns ReplaceLine:
-	////	{ReplacementStringify}
-	////	HASH WHITESPACE* id=ID
-	////;
-	////
-	////ReplacementConcate returns ReplaceLine:
-	////	{ReplacementConcate}
-	////	string=MyDefineLine HASH HASH
-	////;
 	//ErrorDirective:
 	//	{ErrorDirective} ERROR WHITESPACE* msg=MyCodeLine?;
 	public ErrorDirectiveElements getErrorDirectiveAccess() {
@@ -1773,7 +1724,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfConditional:
-	//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
+	//	{IfConditional} IF WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfConditionalElements getIfConditionalAccess() {
 		return pIfConditional;
@@ -1806,8 +1757,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElIfConditional:
-	//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
-	//	NEWLINE
+	//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::Expression WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public ElIfConditionalElements getElIfConditionalAccess() {
 		return pElIfConditional;
@@ -1949,7 +1899,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 	//	| const=Constant1
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
-	//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+	//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}
@@ -2055,26 +2005,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////generate common "http://www.jku.at/weiner/c/common/Common"
-	////Model:
-	////	{Model}
-	////	(units+=TranslationUnit)
-	////;
-	////
-	////TranslationUnit:
-	////	{TranslationUnit}
-	////	preprocess=Preprocess
-	////	parser=Parser
-	////;
-	////
-	////Preprocess:
-	////	{Preprocess}
-	////;
-	////
-	////Parser:
-	////	{Parser}
-	////;
 	/// *** expressions *** / Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
-	//	{Expression} expression=ConditionalExpression;
+	//	ConditionalExpression;
 	public CommonGrammarAccess.ExpressionElements getExpressionAccess() {
 		return gaCommon.getExpressionAccess();
 	}
@@ -2084,7 +2016,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConstantExpression Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
-	//	{ConstantExpression} expr=ConditionalExpression
+	//	ConditionalExpression
 	public CommonGrammarAccess.ConstantExpressionElements getConstantExpressionAccess() {
 		return gaCommon.getConstantExpressionAccess();
 	}
@@ -2094,7 +2026,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConditionalExpression Expression:
-	//	{ConditionalExpression} expr=LogicalOrExpression (SKW_QUESTION qExpr=Expression SKW_COLON
+	//	LogicalOrExpression ({ConditionalExpression.expr=current} SKW_QUESTION qExpr=Expression SKW_COLON
 	//	cExpr=ConditionalExpression)?
 	public CommonGrammarAccess.ConditionalExpressionElements getConditionalExpressionAccess() {
 		return gaCommon.getConditionalExpressionAccess();
@@ -2105,7 +2037,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LogicalOrExpression Expression:
-	//	{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*
+	//	LogicalAndExpression ({LogicalOrExpression.left=current} SKW_OROR right=LogicalAndExpression)*
 	public CommonGrammarAccess.LogicalOrExpressionElements getLogicalOrExpressionAccess() {
 		return gaCommon.getLogicalOrExpressionAccess();
 	}
@@ -2115,7 +2047,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LogicalAndExpression Expression:
-	//	{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*
+	//	InclusiveOrExpression ({LogicalAndExpression.left=current} SKW_ANDAND right=InclusiveOrExpression)*
 	public CommonGrammarAccess.LogicalAndExpressionElements getLogicalAndExpressionAccess() {
 		return gaCommon.getLogicalAndExpressionAccess();
 	}
@@ -2125,7 +2057,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InclusiveOrExpression Expression:
-	//	{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*
+	//	ExclusiveOrExpression ({InclusiveOrExpression.left=current} SKW_OR right=ExclusiveOrExpression)*
 	public CommonGrammarAccess.InclusiveOrExpressionElements getInclusiveOrExpressionAccess() {
 		return gaCommon.getInclusiveOrExpressionAccess();
 	}
@@ -2135,7 +2067,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExclusiveOrExpression Expression:
-	//	{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*
+	//	AndExpression ({ExclusiveOrExpression.left=current} SKW_CARET right=AndExpression)*
 	public CommonGrammarAccess.ExclusiveOrExpressionElements getExclusiveOrExpressionAccess() {
 		return gaCommon.getExclusiveOrExpressionAccess();
 	}
@@ -2145,7 +2077,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AndExpression Expression:
-	//	{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*
+	//	EqualityExpression ({AndExpression.left=current} SKW_AND right=EqualityExpression)*
 	public CommonGrammarAccess.AndExpressionElements getAndExpressionAccess() {
 		return gaCommon.getAndExpressionAccess();
 	}
@@ -2155,8 +2087,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EqualityExpression Expression:
-	//	{EqualityExpression} expr+=RelationalExpression ((op+=SKW_EQUAL
-	//	| op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
+	//	RelationalExpression ({EqualityExpression.left=current} (op=SKW_EQUAL
+	//	| op=SKW_NOTEQUAL) right=RelationalExpression)*
 	public CommonGrammarAccess.EqualityExpressionElements getEqualityExpressionAccess() {
 		return gaCommon.getEqualityExpressionAccess();
 	}
@@ -2166,10 +2098,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RelationalExpression Expression:
-	//	{RelationalExpression} expr+=ShiftExpression ((op+=SKW_LESS
-	//	| op+=SKW_GREATER
-	//	| op+=SKW_LESSEQUAL
-	//	| op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*
+	//	ShiftExpression ({RelationalExpression.left=current} (op=SKW_LESS
+	//	| op=SKW_GREATER
+	//	| op=SKW_LESSEQUAL
+	//	| op=SKW_GREATEREQUAL) right=ShiftExpression)*
 	public CommonGrammarAccess.RelationalExpressionElements getRelationalExpressionAccess() {
 		return gaCommon.getRelationalExpressionAccess();
 	}
@@ -2179,8 +2111,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ShiftExpression Expression:
-	//	{ShiftExpression} expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT
-	//	| op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*
+	//	AdditiveExpression ({ShiftExpression.left=current} (op=SKW_LEFTSHIFT
+	//	| op=SKW_RIGHTSHIFT) right=AdditiveExpression)*
 	public CommonGrammarAccess.ShiftExpressionElements getShiftExpressionAccess() {
 		return gaCommon.getShiftExpressionAccess();
 	}
@@ -2190,8 +2122,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AdditiveExpression Expression:
-	//	{AdditiveExpression} expr+=MultiplicativeExpression ((op+=SKW_PLUS
-	//	| op+=SKW_MINUS) expr+=MultiplicativeExpression)*
+	//	MultiplicativeExpression ({AdditiveExpression.left=current} (op=SKW_PLUS
+	//	| op=SKW_MINUS) right=MultiplicativeExpression)*
 	public CommonGrammarAccess.AdditiveExpressionElements getAdditiveExpressionAccess() {
 		return gaCommon.getAdditiveExpressionAccess();
 	}
@@ -2201,9 +2133,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MultiplicativeExpression Expression:
-	//	{MultiplicativeExpression} expr+=CastExpression ((op+=SKW_STAR
-	//	| op+=SKW_DIV
-	//	| op+=SKW_MOD) expr+=CastExpression)*
+	//	CastExpression ({MultiplicativeExpression.left=current} (op=SKW_STAR
+	//	| op=SKW_DIV
+	//	| op=SKW_MOD) right=CastExpression)*
 	public CommonGrammarAccess.MultiplicativeExpressionElements getMultiplicativeExpressionAccess() {
 		return gaCommon.getMultiplicativeExpressionAccess();
 	}
@@ -2213,7 +2145,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CastExpression Expression:
-	//	{CastExpression} expr=UnaryExpression
+	//	UnaryExpression
 	public CommonGrammarAccess.CastExpressionElements getCastExpressionAccess() {
 		return gaCommon.getCastExpressionAccess();
 	}
@@ -2223,15 +2155,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnaryExpression Expression:
-	//	{UnaryExpression} (expr=PostfixExpression
-	//	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
-	//	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
-	//	| op=UnaryOperator expr=CastExpression
-	//	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
-	//	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
-	//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	//	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
-	//)
+	//	PostfixExpression
+	//	| {UnaryExpression} op=UnaryOperator expr=CastExpression
 	public CommonGrammarAccess.UnaryExpressionElements getUnaryExpressionAccess() {
 		return gaCommon.getUnaryExpressionAccess();
 	}
@@ -2240,13 +2165,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryExpressionAccess().getRule();
 	}
 	
-	//UnaryOperator:
-	//	{UnaryOperator} op=SKW_AND
-	//	| op=SKW_STAR
-	//	| op=SKW_PLUS
-	//	| op=SKW_MINUS
-	//	| op=SKW_TILDE
-	//	| op=SKW_NOT;
+	//UnaryOperator ecore::EString:
+	//	SKW_AND
+	//	| SKW_STAR
+	//	| SKW_PLUS
+	//	| SKW_MINUS
+	//	| SKW_TILDE
+	//	| SKW_NOT
 	public CommonGrammarAccess.UnaryOperatorElements getUnaryOperatorAccess() {
 		return gaCommon.getUnaryOperatorAccess();
 	}
@@ -2256,18 +2181,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PostfixExpression Expression:
-	//	{PostfixExpression} (expr=super::PrimaryExpression
-	//	/ *	(
-	//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
-	//			(COMMA? RIGHTBRACE)
-	//	)
-	//	* /
-	//	suffix+=PostfixExpressionSuffixArgument
-	//	//|	suffix+=PostfixExpressionSuffixDot
-	//	//|	suffix+=PostfixExpressionSuffixArrow
-	//	//	suffix+=PostfixExpressionSuffixPlusPlus
-	//	//|	suffix+=PostfixExpressionSuffixMinusMinus
-	// *)
+	//	super::PrimaryExpression ({PostfixExpression.expr=current} suffix=PostfixExpressionSuffixArgument)*
 	public CommonGrammarAccess.PostfixExpressionElements getPostfixExpressionAccess() {
 		return gaCommon.getPostfixExpressionAccess();
 	}
@@ -2276,12 +2190,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getPostfixExpressionAccess().getRule();
 	}
 	
-	/// *
-	//PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixArray}
-	//	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
-	//;
-	// * / PostfixExpressionSuffixArgument PostfixExpressionSuffix:
+	//PostfixExpressionSuffixArgument PostfixExpressionSuffix:
 	//	{PostfixExpressionSuffixArgument} SKW_LEFTPAREN argumentExpressionList=ArgumentExpressionList? SKW_RIGHTPAREN
 	public CommonGrammarAccess.PostfixExpressionSuffixArgumentElements getPostfixExpressionSuffixArgumentAccess() {
 		return gaCommon.getPostfixExpressionSuffixArgumentAccess();
@@ -2291,28 +2200,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getPostfixExpressionSuffixArgumentAccess().getRule();
 	}
 	
-	/// *
-	//PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixDot}
-	//	SKW_DOT id=ID
-	//;
-	//
-	//PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixArrow}
-	//	SKW_ARROW id=ID
-	//;
-	//
-	//
-	//PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixPlusPlus}
-	//	SKW_PLUSPLUS
-	//;
-	//
-	//PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixMinusMinus}
-	//	SKW_MINUSMINUS
-	//;
-	// * / ArgumentExpressionList:
+	//ArgumentExpressionList:
 	//	expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
 	public CommonGrammarAccess.ArgumentExpressionListElements getArgumentExpressionListAccess() {
 		return gaCommon.getArgumentExpressionListAccess();
@@ -2464,7 +2352,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[32]->TerminalRule'SKW_DOLLAR'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
@@ -2648,7 +2536,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[62]->TerminalRule'SKW_UNDERSCORE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
@@ -2664,7 +2552,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[64]->TerminalRule'IDENTIFIER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
@@ -2674,7 +2562,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[65]->TerminalRule'LETTER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
@@ -2720,7 +2608,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'HEX_DIGIT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
@@ -2730,7 +2618,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[73]->TerminalRule'INTEGER_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
@@ -2740,7 +2628,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[74]->TerminalRule'UNSIGNED_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
@@ -2750,7 +2638,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[75]->TerminalRule'LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
@@ -2760,7 +2648,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[76]->TerminalRule'LONG_LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
@@ -2779,7 +2667,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[78]->TerminalRule'EXPONENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
@@ -2789,7 +2677,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[79]->TerminalRule'FLOAT_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
@@ -2799,7 +2687,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'ESCAPE_SEQUENCE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
@@ -2809,7 +2697,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'OCTAL_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
@@ -2819,7 +2707,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'HEX_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
@@ -2829,7 +2717,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LINEFEED'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
@@ -2839,7 +2727,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[84]->TerminalRule'CARRIAGERETURN'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
@@ -2867,7 +2755,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'SPACE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
@@ -2877,7 +2765,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'TAB'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();

@@ -1,0 +1,70 @@
+emftest
+package at.jku.weiner.c.modisco.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0008_AddDefine"
+
+(Model
+	units+=
+	// Predefined
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	// SimpleInclude.c
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::Code
+					code++"__MY_TYPE__ var1;"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"unsigned"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"var1"
+								)
+							)
+						)
+					)
+				)	
+			)
+		),
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Simple.c"
+	)
+)
+
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=addDefine()

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<cdt:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdt="http://www.eclipse.org/MoDisco/CDT/0.1.incubation/cdt">
-  <units parent="/" name="macro.h" fullPath="${path}/macro.h">
-    <statements xsi:type="cdt:PreprocessorMacro" name="PI" value="3.1415"/>
-    <statements xsi:type="cdt:PreprocessorMacro" name="TEXT" value="&quot;Hello World!&quot;"/>
-    <statements xsi:type="cdt:PreprocessorMacro" name="TRUE" value="0"/>
-  </units>
-</cdt:Model>

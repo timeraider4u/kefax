@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource"
+            id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer"
+            id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer">
+      </discoverer>
+   </extension>
+    <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFile"
+            id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFile">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFolder"
+            id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFolder">
+      </discoverer>
+   </extension>
+</plugin>

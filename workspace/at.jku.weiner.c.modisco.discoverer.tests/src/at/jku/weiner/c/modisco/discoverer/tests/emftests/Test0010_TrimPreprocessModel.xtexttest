@@ -1,0 +1,182 @@
+emftest
+package at.jku.weiner.c.modisco.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0010_TrimPreprocessModel"
+
+(Model
+	units+=
+	// Another predefined is loaded with -nostdinc
+	(TranslationUnit
+		
+	),
+	// File.c
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/SimpleInclude.h\\\""
+					)
+				),
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineObjectMacro
+						id++"FOO",
+						string++"bar"
+					)
+				),
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::ConditionalDirective
+						conditional=
+						(preprocess::IfDefConditional
+							id++"FOO",
+							group=
+							(preprocess::GroupOpt
+								lines+=
+								(preprocess::PreprocessorDirectives
+									directive=
+									(preprocess::DefineObjectMacro
+										id++"SOMETHING",
+										string++"baz"
+									)
+								)
+							)
+						),
+						else=
+						(preprocess::ElseConditional
+							group=
+							(preprocess::GroupOpt
+								lines isEmpty
+							)
+						)
+					)
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			// comes from SimpleInclude.h
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"extern"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"getValue",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										lastSuffix=
+										(parser::DirectDeclaratorLastSuffix
+											
+										)
+									)
+								)
+							)
+						)
+					)
+				)	
+			),
+			// comes from File.c
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"bar"
+								)
+							)
+						)
+					)
+				)	
+			),
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							// macro expanded
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"foobar"
+								)
+							)
+						)
+					)
+				)	
+			)
+		),
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/File.c"
+	),
+	// SimpleInclude.h
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/include/SimpleInclude.h",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineObjectMacro
+						id++"NUMBER",
+						string++"int"
+					)
+				)
+			)
+		),
+		parser isNull
+	)
+)
+
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=doTrim()

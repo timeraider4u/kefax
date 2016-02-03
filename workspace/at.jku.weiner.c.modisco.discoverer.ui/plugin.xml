@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource"
+            icon="icons/cdtdev_obj.gif"
+            label="%discoverer.label">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFile"
+            icon="icons/cdtdev_obj.gif"
+            label="%discoverer.label">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer"
+            icon="icons/cdtdev_obj.gif"
+            label="%discoverer.label">
+      </discoverer>
+   </extension>
+    <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFolder"
+            icon="icons/cdtdev_obj.gif"
+            label="%discoverer.label">
+      </discoverer>
+   </extension>
+</plugin>

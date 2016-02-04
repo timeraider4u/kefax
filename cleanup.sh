@@ -3,6 +3,14 @@
 
 DIR="./workspace"
 function add() {
+	for FILE in $(ls "${DIR}"); do
+		BASE="${DIR}/${FILE}"
+		GEN="${BASE}/src-gen"
+		if [ -d "${GEN}" ]; then
+			#echo "${GEN}"
+			mkdir "${BASE}/src" &> /dev/null
+		fi
+	done
 	for FILE in $(find "${DIR}" -name "${1}" -type d); do
 		touch $FILE/"${2}"
 		git add --force ${FILE}/"${2}"

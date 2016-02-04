@@ -1,36 +1,31 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: at.jku.isse.ecco.linux.dotconfig
+Bundle-Name: at.jku.weiner.kefax.dotconfig
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: at.jku.weiner.kefax.dotconfig;singleton:=true
+Bundle-SymbolicName: at.jku.weiner.kefax.dotconfig; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
- org.eclipse.xtext.generator;resolution:=optional,
- org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
- org.eclipse.emf.codegen.ecore;resolution:=optional,
- org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional,
- org.eclipse.xtext.util,
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.emf.ecore,
- org.eclipse.emf.common,
- org.eclipse.xtext.xbase.lib,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.util,
  org.antlr.runtime,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
-Import-Package: org.apache.log4j
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.isse.ecco.kefax.dotconfig,
- at.jku.isse.ecco.kefax.dotconfig.services,
- at.jku.isse.ecco.kefax.dotconfig.dotconfig,
- at.jku.isse.ecco.kefax.dotconfig.dotconfig.impl,
- at.jku.isse.ecco.kefax.dotconfig.dotconfig.util,
- at.jku.isse.ecco.kefax.dotconfig.serializer,
- at.jku.isse.ecco.kefax.dotconfig.parser.antlr,
- at.jku.isse.ecco.kefax.dotconfig.parser.antlr.internal,
- at.jku.isse.ecco.kefax.dotconfig.validation,
- at.jku.isse.ecco.kefax.dotconfig.scoping,
- at.jku.isse.ecco.kefax.dotconfig.generator,
- at.jku.isse.ecco.kefax.dotconfig.formatting
-
+Export-Package: at.jku.weiner.kefax.dotconfig,
+ at.jku.weiner.kefax.dotconfig.parser.antlr.internal,
+ at.jku.weiner.kefax.dotconfig.serializer,
+ at.jku.weiner.kefax.dotconfig.dotconfig,
+ at.jku.weiner.kefax.dotconfig.validation,
+ at.jku.weiner.kefax.dotconfig.scoping,
+ at.jku.weiner.kefax.dotconfig.parser.antlr,
+ at.jku.weiner.kefax.dotconfig.generator,
+ at.jku.weiner.kefax.dotconfig.dotconfig.impl,
+ at.jku.weiner.kefax.dotconfig.dotconfig.util,
+ at.jku.weiner.kefax.dotconfig.services
+Import-Package: org.apache.log4j

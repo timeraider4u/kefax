@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import at.jku.isse.ecco.kefax.dotconfig.dotconfig.Config;
-import at.jku.isse.ecco.kefax.dotconfig.dotconfig.DotConfigModel;
+import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
+import at.jku.weiner.kefax.dotconfig.dotconfig.DotConfigModel;
 
 public class DotConfig {
 

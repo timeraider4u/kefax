@@ -8,14 +8,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.core.resources,
- at.jku.weiner.kefax.dotconfig,
  org.junit,
  at.jku.weiner.c.cmdarguments;bundle-version="1.0.0",
  at.jku.weiner.c.cmdarguments.ui;bundle-version="1.0.0",
  at.jku.weiner.c.modisco.discoverer;bundle-version="0.1.0",
  at.jku.weiner.c.modisco.discoverer.ui;bundle-version="0.1.0",
  org.eclipse.xtext.ui,
- org.eclipse.modisco.infra.discovery.core;bundle-version="0.12.2"
+ org.eclipse.modisco.infra.discovery.core;bundle-version="0.12.2",
+ at.jku.weiner.kefax.dotconfig
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/commons-io-2.4.jar,

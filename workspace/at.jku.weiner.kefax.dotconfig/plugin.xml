@@ -2,15 +2,15 @@
 <?eclipse version="3.0"?>
 
 <plugin>
-
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://www.jku.at/isse/ecco/kefax/dotconfig/Dotconfig" 
-       class = "at.jku.isse.ecco.kefax.dotconfig.dotconfig.DotconfigPackage"
-       genModel = "model/generated/Dotconfig.genmodel" /> 
 	
-  </extension>
-
-
-
+	
+	<extension point="org.eclipse.emf.ecore.generated_package">
+	
+	<package 
+	   uri = "http://www.jku.at/weiner/kefax/dotconfig/Dotconfig" 
+	   class = "at.jku.weiner.kefax.dotconfig.dotconfig.DotconfigPackage"
+	   genModel = "model/generated/Dotconfig.genmodel" /> 
+	
+	</extension>
+	
 </plugin>

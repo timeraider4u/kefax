@@ -2,15 +2,15 @@
 <?eclipse version="3.0"?>
 
 <plugin>
-
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://www.jku.at/isse/ecco/kefax/kbuild/Kbuild" 
-       class = "at.jku.isse.ecco.kefax.kbuild.kbuild.KbuildPackage"
-       genModel = "model/generated/Kbuild.genmodel" /> 
 	
-  </extension>
-
-
-
+	
+	<extension point="org.eclipse.emf.ecore.generated_package">
+	
+	<package 
+	   uri = "http://www.jku.at/weiner/kefax/kbuild/Kbuild" 
+	   class = "at.jku.weiner.kefax.kbuild.kbuild.KbuildPackage"
+	   genModel = "model/generated/Kbuild.genmodel" /> 
+	
+	</extension>
+	
 </plugin>

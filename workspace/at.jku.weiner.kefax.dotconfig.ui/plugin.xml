@@ -10,7 +10,7 @@
 			default="true"
 			extensions=".config"
 			id="at.jku.weiner.kefax.dotconfig.Dotconfig"
-			name=" Editor">
+			name="at.jku.weiner.kefax.dotconfig.Dotconfig  Editor">
 		</editor>
 	</extension>
 	<extension

@@ -10,7 +10,7 @@
 			default="true"
 			extensions="xtexttest"
 			id="at.jku.weiner.xtexttest.XtextTest"
-			name=" Editor">
+			name="at.jku.weiner.xtexttest.XtextTest  Editor">
 		</editor>
 	</extension>
 	<extension

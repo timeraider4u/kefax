@@ -10,7 +10,7 @@
 			default="true"
 			extensions=".kbuild"
 			id="at.jku.weiner.kefax.kbuild.Kbuild"
-			name=" Editor">
+			name="at.jku.weiner.kefax.kbuild.Kbuild">
 		</editor>
 	</extension>
 	<extension

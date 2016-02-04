@@ -1,7 +1,6 @@
 package at.jku.weiner.c.preprocess.utils;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
@@ -9,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public final class IncludeUtils {
@@ -34,7 +34,7 @@ public final class IncludeUtils {
 			newFileName = definitionTable.fullResolve(newFileName);
 		}
 		this.pathState = this.initializePathState(newFileName, true);
-		MyLog.trace("IncludeUtils state='" + this.pathState
+		MyLog.trace(IncludeUtils.class, "IncludeUtils state='" + this.pathState
 				+ "', newFileName='" + newFileName + "'");
 		this.fileName = this.replace(newFileName);
 		this.rs = set;
@@ -60,11 +60,11 @@ public final class IncludeUtils {
 		return fileName.substring(1, fileName.length() - 1);
 	}
 
-	public Resource getResource() throws IOException {
+	public Resource getResource() throws Exception {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
 		final URI uri = this.createURI();
-		MyLog.trace("resource='" + uri + "'");
+		MyLog.trace(IncludeUtils.class, "resource='" + uri + "'");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		// final List<Issue> list = this.validator.validate(resource,
@@ -76,7 +76,7 @@ public final class IncludeUtils {
 		return resource;
 	}
 
-	private URI createURI() {
+	private URI createURI() throws Exception {
 		if (this.pathState == PathState.Relative) {
 			final URI uri = this.createRelativeURI();
 			final String str = uri.toFileString();
@@ -89,7 +89,7 @@ public final class IncludeUtils {
 		return this.createAbsoluteURI();
 	}
 
-	private URI createAbsoluteURI() {
+	private URI createAbsoluteURI() throws Exception {
 		if (this.fileName.startsWith(File.separator)) {
 			return URI.createFileURI(this.fileName);
 		}
@@ -99,16 +99,22 @@ public final class IncludeUtils {
 			final MyPath pathInInclude = new MyPath(include);
 			final String searchForFile = pathInInclude.combine(pathInURI);
 			final File file = new File(searchForFile);
-			MyLog.trace("searchForFile='" + searchForFile + "'");
-			MyLog.trace("fileExists='" + file.exists() + "'");
-			MyLog.trace("canRead='" + file.canRead() + "'");
+			MyLog.trace(IncludeUtils.class, "searchForFile='" + searchForFile
+					+ "'");
+			MyLog.trace(IncludeUtils.class, "fileExists='" + file.exists()
+					+ "'");
+			MyLog.trace(IncludeUtils.class, "canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
 				return URI.createFileURI(searchForFile);
 			}
 		}
-		throw new RuntimeException("Absolute include file ('" + this.fileName
-				+ "') not found in directories='" + includeDirs.toString()
-				+ "'!");
+
+		final RuntimeException ex = new RuntimeException(
+				"Absolute include file ('" + this.fileName
+						+ "') not found in directories='"
+						+ includeDirs.toString() + "'!");
+		MyLog.error(IncludeUtils.class, ex);
+		return null;
 	}
 
 	private URI createRelativeURI() {

@@ -1,10 +1,13 @@
 package at.jku.weiner.c.parser.utils;
 
 import java.util.Stack;
+
 import org.antlr.runtime.TokenStream;
 
+import at.jku.weiner.c.common.log.MyLog;
+
 public final class Scope {
-	
+
 	protected static final Stack<ScopeSymbols> scope = new Stack<ScopeSymbols>();
 
 	public static final void createFirstScope(final String scopeName) {
@@ -13,30 +16,34 @@ public final class Scope {
 	}
 
 	public static final void createNewScope(final String scopeName) {
-		Log.log("createNewScope='" + scopeName + "'");
+		MyLog.debug(Scope.class, "createNewScope='" + scopeName + "'");
 		final ScopeSymbols symbols = new ScopeSymbols(scopeName);
 		Scope.scope.push(symbols);
-		Log.debug("Scope.size()='" + Scope.scope.size() + "'");
+		MyLog.trace(Scope.class, "Scope.size()='" + Scope.scope.size() + "'");
 	}
 
 	public static final void removeScope() {
 		if (Scope.scope.size() > 0) {
-			Log.log("removeScope='" + Scope.scope.peek().getScopeName() + "'");
+			MyLog.debug(Scope.class, "removeScope='"
+					+ Scope.scope.peek().getScopeName() + "'");
 			Scope.scope.pop();
 		}
-		Log.debug("Scope.size()='" + Scope.scope.size() + "'");
+		MyLog.trace(Scope.class, "Scope.size()='" + Scope.scope.size() + "'");
 	}
 
-	public static final void removeScope(final int expectedSize) {
+	public static final void removeScope(final int expectedSize)
+			throws Exception {
 		Scope.removeScope();
 		if (expectedSize != Scope.scope.size()) {
 			final int actualSize = Scope.scope.size();
 			Scope.scope.clear();
-			throw new RuntimeException("expected size='" + expectedSize
-					+ "', but was '" + actualSize + "'!");
+
+			final RuntimeException ex = new RuntimeException("expected size='"
+					+ expectedSize + "', but was '" + actualSize + "'!");
+			MyLog.error(Scope.class, ex);
 		}
 	}
-	
+
 	public static int size() {
 		return Scope.scope.size();
 	}
@@ -47,28 +54,30 @@ public final class Scope {
 		if ("(".equals(token)) {
 			token = input.LT(2).getText();
 		}
-		Log.debug("backtracking='" + backtracking + "', token(choosen)='"
-				+ token + "'");
+		MyLog.trace(Scope.class, "backtracking='" + backtracking
+				+ "', token(choosen)='" + token + "'");
 		return Scope.isTypeName(backtracking, token);
 	}
 
 	private static final boolean isTypeName(final int backtracking,
 			final String name) {
-		Log.log("searching for typeName='" + name + "', scopeSize='"
-				+ Scope.scope.size() + "'");
+		MyLog.debug(Scope.class, "searching for typeName='" + name
+				+ "', scopeSize='" + Scope.scope.size() + "'");
 		for (int i = 0; i < Scope.scope.size(); i++) {
 			final ScopeSymbols symbols = Scope.scope.get(i);
 			if (symbols.containsType(backtracking, name)) {
-				Log.log("found in scope='" + symbols.getScopeName() + "'");
-				Log.log(symbols.debug());
+				MyLog.debug(Scope.class,
+						"found in scope='" + symbols.getScopeName() + "'");
+				MyLog.trace(Scope.class, symbols.debug());
 				return true;
 			}
-			Log.debug("no type found in scope='" + symbols.getScopeName() + "'");
+			MyLog.debug(Scope.class,
+					"no type found in scope='" + symbols.getScopeName() + "'");
 		}
-		Log.log("isTypeName='false'");
+		MyLog.trace(Scope.class, "isTypeName='false'");
 		return false;
 	}
-	
+
 	public static final void setTemp(final TokenStream stream) {
 		final String string = stream.LT(1).getText();
 		Scope.scope.peek().setTemp(string);
@@ -88,13 +97,13 @@ public final class Scope {
 	public static final void addTypedefIfIsTypedef(final int backtracking) {
 		Scope.scope.peek().addType(backtracking);
 	}
-	
+
 	protected static final Stack<ScopeSymbols> scope2 = new Stack<ScopeSymbols>();
-	
+
 	public static final void saveState() {
 		Scope.copyTo(Scope.scope, Scope.scope2);
 	}
-	
+
 	public static final void restoreState() {
 		Scope.copyTo(Scope.scope2, Scope.scope);
 	}

@@ -6,8 +6,8 @@ import java.util.List;
 import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
-import at.jku.weiner.c.preprocess.utils.MyLog;
 
 final class TokenUtils {
 
@@ -54,7 +54,7 @@ final class TokenUtils {
 		final StringBuffer buffer = TokenUtils.getStringBufferFor(tokens, true);
 		buffer.insert(0, start);
 		buffer.append("'");
-		MyLog.trace(buffer.toString());
+		MyLog.trace(TokenUtils.class, buffer.toString());
 	}
 
 	protected static StringBuffer getStringBufferFor(final List<Token> tokens) {

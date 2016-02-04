@@ -51,7 +51,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 import java.util.Stack
-import at.jku.weiner.c.preprocess.utils.MyLog
+import at.jku.weiner.c.common.log.MyLog
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
 import at.jku.weiner.c.preprocess.utils.LexerUtils
@@ -109,7 +109,7 @@ class PreprocessGenerator implements IGenerator {
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
 		val String result = additional + output;
-		MyLog.debug("generating output file='" + fileName + "'");
+		MyLog.debug(PreprocessGenerator.getClass, "generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, result);
 		trimPreprocess(preprocess);
 	}
@@ -152,22 +152,23 @@ class PreprocessGenerator implements IGenerator {
 		val String fileName = getFileName(input);
 		if (this.unit == null) {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
-			MyLog.trace("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
+			MyLog.trace(PreprocessGenerator.getClass, "unit-null: preprocess='" + preprocess + "'" + fileName + "'");
 		}
 		else {
 			preprocess = unit.preprocess as Preprocess;
 			if (preprocess == null || forceLoading) {
 				preprocess = loadExistingPreprocess(fileName);
-				MyLog.debug("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
+				MyLog.debug(PreprocessGenerator.getClass, "force-loading: preprocess='" + preprocess + "'" + fileName + "'");
 				if (preprocess == null) {
 					preprocess = input.allContents.filter(typeof(Preprocess)).head;
-					MyLog.debug("filtering: preprocess='" + preprocess + "'" + fileName + "'");
+					MyLog.debug(PreprocessGenerator.getClass, "filtering: preprocess='" + preprocess + "'" + fileName + "'");
 				}
 			}
 		}
 		
 		if (preprocess == null) {
-			throw new RuntimeException("preprocess is null!");
+			val RuntimeException ex = new RuntimeException("preprocess is null!");
+			MyLog.error(PreprocessGenerator.getClass, ex);
 		}
 		
 		//val TranslationUnit unit = model.getUnits().head;
@@ -210,9 +211,10 @@ class PreprocessGenerator implements IGenerator {
 			CancelIndicator.NullImpl
 		);
 		if (!(list.isEmpty())) {
-			throw new RuntimeException("error during validation of unit='" 
+			val RuntimeException ex = new RuntimeException("error during validation of unit='" 
 				+ list.toString() + "'"
 			);
+			MyLog.error(PreprocessGenerator.getClass, ex);
 		}
 	}
 	
@@ -222,7 +224,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GroupOpt group) {
-		MyLog.log("outputFor path='" + path + "'");
+		MyLog.log(PreprocessGenerator.getClass, "outputFor path='" + path + "'");
 		
 		val StringBuffer result = new StringBuffer("");
 		for (var int i = 0; i < group.lines.size; i++) {
@@ -251,10 +253,11 @@ class PreprocessGenerator implements IGenerator {
 							obj = group.lines.get(i);
 						}
 						else {
-							throw new IllegalArgumentException("Can not nest a preprocessor directive while looking of a closing parentheses!");
+							val RuntimeException ex = new IllegalArgumentException("Can not nest a preprocessor directive while looking of a closing parentheses!");
+							MyLog.error(PreprocessGenerator.getClass, ex);
 						}
 					} catch (MacroParentheseNotClosedYetException ex) {
-						MyLog.debug("not fully resolved at='" + i + "'");
+						MyLog.debug(PreprocessGenerator.getClass, "not fully resolved at='" + i + "'");
 						i++;
 						obj = group.lines.get(i);
 						//fullResolved = true;
@@ -265,7 +268,7 @@ class PreprocessGenerator implements IGenerator {
 			}
 		}
 		path.remove(path.length() - 1);
-		MyLog.log("back in path='" + path + "'");
+		MyLog.log(PreprocessGenerator.getClass, "back in path='" + path + "'");
 		return result.toString();
 	}
 
@@ -383,7 +386,7 @@ class PreprocessGenerator implements IGenerator {
 		val Expression expr = obj.expression;
 		val String string = ExpressionEvaluation.evaluateFor(expr);
 		val boolean result = ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable);
-		MyLog.trace("resultOfExpr='" + string + "'='" + result + "'");
+		MyLog.trace(PreprocessGenerator.getClass, "resultOfExpr='" + string + "'='" + result + "'");
 		if (result) {
 			path.add("if " + string + "/");
 			condDirective.branchTaken = obj;

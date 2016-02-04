@@ -169,10 +169,7 @@ StorageClassSpecifier:
 	)
 ;
 
-TypeSpecifier
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
-	}:
+TypeSpecifier:
 	{TypeSpecifier}
 		name=KW_BOOL
 	|	name=KW_BUILTIN_VA_LIST
@@ -245,11 +242,7 @@ StructDeclaration:
 	//|	staticAssertDeclaration
 ;
 
-SpecifierQualifierList
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
-	}
-	:
+SpecifierQualifierList:
 	{SpecifierQualifierList} 
 	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier 
 	)+
@@ -437,19 +430,9 @@ MyIdentifier:
 	id=ID
 ;
 
-TypeName
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In type name");
-	}
-:
-	
+TypeName:
 	{TypeName}
-	
 	list=SpecifierQualifierList
-	preAction{ {
-			at.jku.weiner.c.parser.utils.Log.error("In typeName");
-		} }
-		
 	(abstractDeclarator=AbstractDeclarator)?
 ;
 
@@ -514,9 +497,7 @@ BlockList:
 	(declaration+=Declaration | statement+=Statement)+
 ;
 
-Statement
-initRuleAction { at.jku.weiner.c.parser.utils.Log.error("in statement"); }
-:
+Statement:
 	{Statement}
 	(
 		stmt=LabeledStatement
@@ -557,19 +538,12 @@ CompoundStatement returns Statement
 	SKW_RIGHTBRACE
 ;
 
-BodyStatement returns Statement
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In body statement");
-	}:
+BodyStatement returns Statement:
 	{BodyStatement}
 	(blockList+=BlockList)?
 ;
 
-ExpressionStatement returns Statement
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
-	}
-:
+ExpressionStatement returns Statement:
 	{ExpressionStatement} 
 	(expression = Expression)? 
 	SKW_SEMI

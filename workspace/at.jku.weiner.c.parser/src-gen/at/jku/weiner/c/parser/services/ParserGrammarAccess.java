@@ -602,7 +602,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstExprConstantExpressionParserRuleCall_22_2_1_0 = (RuleCall)cConstExprAssignment_22_2_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_22_3 = (RuleCall)cGroup_22.eContents().get(3);
 		
-		//TypeSpecifier initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier "); }:
+		//TypeSpecifier:
 		//	{TypeSpecifier} name=KW_BOOL
 		//	| name=KW_BUILTIN_VA_LIST
 		//	| name=KW_CHAR
@@ -1048,7 +1048,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeQualifierAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cTypeQualifierTypeQualifierParserRuleCall_1_1_0 = (RuleCall)cTypeQualifierAssignment_1_1.eContents().get(0);
 		
-		//SpecifierQualifierList initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList "); }:
+		//SpecifierQualifierList:
 		//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2217,20 +2217,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAbstractDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAbstractDeclaratorAbstractDeclaratorParserRuleCall_2_0 = (RuleCall)cAbstractDeclaratorAssignment_2.eContents().get(0);
 		
-		//TypeName initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In type name"); }:
+		//TypeName:
 		//	{TypeName} list=SpecifierQualifierList
-		//	preAction{ { at.jku.weiner.c.parser.utils.Log.error("In typeName");
-		//	} } abstractDeclarator=AbstractDeclarator?;
+		//	abstractDeclarator=AbstractDeclarator?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypeName} list=SpecifierQualifierList preAction{ { at.jku.weiner.c.parser.utils.Log.error("In typeName"); } }
-		//abstractDeclarator=AbstractDeclarator?
+		//{TypeName} list=SpecifierQualifierList abstractDeclarator=AbstractDeclarator?
 		public Group getGroup() { return cGroup; }
 		
 		//{TypeName}
 		public Action getTypeNameAction_0() { return cTypeNameAction_0; }
 		
-		//list=SpecifierQualifierList preAction{ { at.jku.weiner.c.parser.utils.Log.error("In typeName"); } }
+		//list=SpecifierQualifierList
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
 		
 		//SpecifierQualifierList
@@ -2722,7 +2720,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStmtAssignment_1_6 = (Assignment)cAlternatives_1.eContents().get(6);
 		private final RuleCall cStmtAsmStatementParserRuleCall_1_6_0 = (RuleCall)cStmtAssignment_1_6.eContents().get(0);
 		
-		//Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.error("in statement"); }:
+		//Statement:
 		//	{Statement} (stmt=LabeledStatement
 		//	| stmt=CompoundStatement
 		//	| stmt=ExpressionStatement
@@ -2957,7 +2955,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBlockListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockListBlockListParserRuleCall_1_0 = (RuleCall)cBlockListAssignment_1.eContents().get(0);
 		
-		//BodyStatement Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In body statement"); }:
+		//BodyStatement Statement:
 		//	{BodyStatement} blockList+=BlockList?
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2981,7 +2979,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
 		private final RuleCall cSKW_SEMITerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//ExpressionStatement Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In expression statement"); }:
+		//ExpressionStatement Statement:
 		//	{ExpressionStatement} expression=Expression?
 		//	SKW_SEMI
 		@Override public ParserRule getRule() { return rule; }
@@ -5993,7 +5991,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getStorageClassSpecifierAccess().getRule();
 	}
 	
-	//TypeSpecifier initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier "); }:
+	//TypeSpecifier:
 	//	{TypeSpecifier} name=KW_BOOL
 	//	| name=KW_BUILTIN_VA_LIST
 	//	| name=KW_CHAR
@@ -6087,7 +6085,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getStructDeclarationAccess().getRule();
 	}
 	
-	//SpecifierQualifierList initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList "); }:
+	//SpecifierQualifierList:
 	//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+;
 	public SpecifierQualifierListElements getSpecifierQualifierListAccess() {
 		return pSpecifierQualifierList;
@@ -6357,10 +6355,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getMyIdentifierAccess().getRule();
 	}
 	
-	//TypeName initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In type name"); }:
+	//TypeName:
 	//	{TypeName} list=SpecifierQualifierList
-	//	preAction{ { at.jku.weiner.c.parser.utils.Log.error("In typeName");
-	//	} } abstractDeclarator=AbstractDeclarator?;
+	//	abstractDeclarator=AbstractDeclarator?;
 	public TypeNameElements getTypeNameAccess() {
 		return pTypeName;
 	}
@@ -6453,7 +6450,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockListAccess().getRule();
 	}
 	
-	//Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.error("in statement"); }:
+	//Statement:
 	//	{Statement} (stmt=LabeledStatement
 	//	| stmt=CompoundStatement
 	//	| stmt=ExpressionStatement
@@ -6494,7 +6491,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getCompoundStatementAccess().getRule();
 	}
 	
-	//BodyStatement Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In body statement"); }:
+	//BodyStatement Statement:
 	//	{BodyStatement} blockList+=BlockList?
 	public BodyStatementElements getBodyStatementAccess() {
 		return pBodyStatement;
@@ -6504,7 +6501,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getBodyStatementAccess().getRule();
 	}
 	
-	//ExpressionStatement Statement initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In expression statement"); }:
+	//ExpressionStatement Statement:
 	//	{ExpressionStatement} expression=Expression?
 	//	SKW_SEMI
 	public ExpressionStatementElements getExpressionStatementAccess() {

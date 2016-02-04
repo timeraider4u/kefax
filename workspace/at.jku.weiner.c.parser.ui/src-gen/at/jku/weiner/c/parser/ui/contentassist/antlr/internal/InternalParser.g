@@ -425,7 +425,7 @@ entryRuleTypeSpecifier
 ruleTypeSpecifier
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -642,7 +642,7 @@ entryRuleSpecifierQualifierList
 ruleSpecifierQualifierList
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -1447,7 +1447,7 @@ entryRuleTypeName
 ruleTypeName
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.log("In type name");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -1727,7 +1727,7 @@ entryRuleStatement
 ruleStatement
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.error("in statement");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -1832,7 +1832,7 @@ entryRuleBodyStatement
 ruleBodyStatement
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.log("In body statement");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -1867,7 +1867,7 @@ entryRuleExpressionStatement
 ruleExpressionStatement
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
+		/*no init found*/
     }
 	@after {
     		/*no after found*/
@@ -11915,7 +11915,6 @@ rule__TypeName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{{at.jku.weiner.c.parser.utils.Log.error("In typeName");}}
 
 (
 { before(grammarAccess.getTypeNameAccess().getListAssignment_1()); }

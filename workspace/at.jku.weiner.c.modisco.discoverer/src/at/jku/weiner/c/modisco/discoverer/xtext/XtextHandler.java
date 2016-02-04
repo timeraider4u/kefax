@@ -20,6 +20,7 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 import at.jku.weiner.c.parser.ui.internal.ParserActivator;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
@@ -66,16 +67,17 @@ public abstract class XtextHandler<T> {
 	}
 
 	public final T parseFile(final File file, final IFile iFile)
-			throws DiscoveryException {
+			throws Exception {
 		// set-up
 		this.setUp(file, iFile);
 		// load resource
 		this.resource = this.loadResource(file, iFile);
-		// System.out.println("get resource was successfull!");
+		MyLog.trace(XtextHandler.class, "get resource was successfull!");
 		this.validateResource(this.resource);
-		// System.out.println("validation was successfull!");
+		MyLog.trace(XtextHandler.class, "validation was successfull!");
 		final EObject object = this.resource.getContents().get(0);
-		// System.out.println("get contents from resource was successfull!");
+		MyLog.trace(XtextHandler.class,
+				"get contents from resource was successfull!");
 		if (object == null) {
 			this.error("Returned object of file='" + file.getAbsolutePath()
 					+ "' from XText is null!");
@@ -83,8 +85,10 @@ public abstract class XtextHandler<T> {
 		try {
 			@SuppressWarnings("unchecked")
 			final T result = (T) object;
-			// System.out.println("XText parsing was successfuly for file='"
-			// + file.toString() + "'!");
+			MyLog.trace(
+					XtextHandler.class,
+					"XText parsing was successfuly for file='"
+							+ file.toString() + "'!");
 			this.parseFinalize(result);
 			return result;
 		} catch (final ClassCastException ignored) {
@@ -100,9 +104,10 @@ public abstract class XtextHandler<T> {
 
 	}
 
-	private final void error(final String string) throws DiscoveryException {
-		System.err.println(string);
-		throw new DiscoveryException(string);
+	private final void error(final String string) throws Exception {
+		final DiscoveryException ex = new DiscoveryException(string);
+		MyLog.error(XtextHandler.class, ex);
+		throw ex;
 	}
 
 	private final Resource loadResource(final File file, final IFile iFile)
@@ -119,15 +124,16 @@ public abstract class XtextHandler<T> {
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
 				Boolean.TRUE);
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
-		// final String uriStr = uri.toFileString();
-		// System.out.println("uri.toFileString()='" + uriStr + "'");
-		// System.out.println("uri.toString()='" + uri.toString() + "'");
+		final String uriStr = uri.toFileString();
+		MyLog.trace(XtextHandler.class, "uri.toFileString()='" + uriStr + "'");
+		MyLog.trace(XtextHandler.class, "uri.toString()='" + uri.toString()
+				+ "'");
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
 
 	private final void validateResource(final Resource resource)
-			throws DiscoveryException {
+			throws Exception {
 		// validate the resource
 		final List<Issue> list = this.validator.validate(resource,
 				CheckMode.ALL, CancelIndicator.NullImpl);
@@ -145,7 +151,7 @@ public abstract class XtextHandler<T> {
 	public void generate(final IFile iFile, final String fileNameOnly)
 			throws DiscoveryException {
 		final String path = this.getOutputPath(iFile);
-		// System.out.println("outputPath='" + path + "'");
+		MyLog.trace(XtextHandler.class, "outputPath='" + path + "'");
 		this.fileAccessSystem.setOutputPath(path);
 		this.setUpGenerator();
 		this.generator.doGenerate(this.resource, this.fileAccessSystem);

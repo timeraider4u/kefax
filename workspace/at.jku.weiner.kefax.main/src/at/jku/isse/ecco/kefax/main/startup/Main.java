@@ -43,7 +43,7 @@ public class Main {
 		Job job = new Job("at.jku.weiner.kefax.job") {
 			@Override
 			protected IStatus run(final IProgressMonitor monitor) {
-				Main.this.run1();
+				Main.this.run1(monitor);
 				return Status.OK_STATUS;
 			}
 		};
@@ -52,7 +52,7 @@ public class Main {
 		job.schedule();
 	}
 
-	private void run1() {
+	private void run1(final IProgressMonitor monitor) {
 		final Date start = new Date();
 		try {
 			Thread.sleep(1000);

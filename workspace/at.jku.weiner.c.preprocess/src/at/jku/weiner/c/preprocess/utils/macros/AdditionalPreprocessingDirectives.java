@@ -9,8 +9,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
-import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public class AdditionalPreprocessingDirectives {
 
@@ -20,7 +20,8 @@ public class AdditionalPreprocessingDirectives {
 		final ResourceSet resourceSet = new XtextResourceSet();
 		final Resource resource = resourceSet.createResource(URI
 				.createURI("dummy:/additionalDefines.c"));
-		MyLog.trace("Resource='" + resource + "'");
+		MyLog.trace(AdditionalPreprocessingDirectives.class, "Resource='"
+				+ resource + "'");
 		final InputStream in = new ByteArrayInputStream(
 				additionalPreprocessorDirectives.getBytes());
 		resource.load(in, resourceSet.getLoadOptions());

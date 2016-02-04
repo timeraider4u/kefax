@@ -1238,7 +1238,7 @@ entryRuleTypeSpecifier returns [EObject current=null]
 // Rule TypeSpecifier
 ruleTypeSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -2424,7 +2424,7 @@ entryRuleSpecifierQualifierList returns [EObject current=null]
 // Rule SpecifierQualifierList
 ruleSpecifierQualifierList returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -5070,7 +5070,7 @@ entryRuleTypeName returns [EObject current=null]
 // Rule TypeName
 ruleTypeName returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.log("In type name");
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -5088,7 +5088,6 @@ ruleTypeName returns [EObject current=null]
     }
 )
 
-{{at.jku.weiner.c.parser.utils.Log.error("In typeName");}}
 
 (
 (
@@ -6166,7 +6165,7 @@ entryRuleStatement returns [EObject current=null]
 // Rule Statement
 ruleStatement returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.error("in statement");
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -6734,7 +6733,7 @@ entryRuleBodyStatement returns [EObject current=null]
 // Rule BodyStatement
 ruleBodyStatement returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.log("In body statement");
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -6799,7 +6798,7 @@ entryRuleExpressionStatement returns [EObject current=null]
 // Rule ExpressionStatement
 ruleExpressionStatement returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
+   		/*no init found*/
     }
     @after { leaveRule();
     		

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.antlr.runtime.Token;
 
-import at.jku.weiner.c.preprocess.utils.MyLog;
+import at.jku.weiner.c.common.log.MyLog;
 
 public final class MacroParentheseNotClosedYetException extends
-		StringIndexOutOfBoundsException {
+StringIndexOutOfBoundsException {
 
 	/**
 	 * generated id
@@ -19,8 +19,9 @@ public final class MacroParentheseNotClosedYetException extends
 	public MacroParentheseNotClosedYetException(final String string,
 			final int index) {
 		super("String='" + string + "', index out of range: " + index);
-		MyLog.debug("MacroParentheseNotClosedYetException: string='" + string
-				+ ", index out of range='" + index + "'");
+		MyLog.debug(MacroParentheseNotClosedYetException.class,
+				"MacroParentheseNotClosedYetException: string='" + string
+						+ ", index out of range='" + index + "'");
 		this.string = string;
 		this.index = index;
 	}
@@ -29,7 +30,7 @@ public final class MacroParentheseNotClosedYetException extends
 			final int size) {
 		this(MacroParentheseNotClosedYetException.getString(code), size);
 	}
-	
+
 	public String getString() {
 		return this.string;
 	}

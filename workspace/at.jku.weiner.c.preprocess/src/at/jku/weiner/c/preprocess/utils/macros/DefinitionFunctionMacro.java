@@ -6,9 +6,9 @@ import java.util.List;
 import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
 	public static final String VAR_ARGS = "__VA_ARGS__";
@@ -98,14 +98,16 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			// prevent endless replacement loops
 			TokenUtils.print(
 					"resolveFor-disabled('" + id + "'), " + ranges.toString()
-							+ ", code='", code);
+					+ ", code='", code);
 			return;
 		}
-		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
+		MyLog.trace(DefinitionFunctionMacro.class, "resolveFor-start('" + id
+				+ "', '" + this.key + "')");
 		final List<ArrayList<Token>> replace = this.initializeReplaceList();
 		final int closingParenPosition = this.searchForClosingParen(code,
 				ranges, replace);
-		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
+		MyLog.trace(DefinitionFunctionMacro.class, "closingParenPosition='"
+				+ closingParenPosition + "'");
 		TokenUtils.printList("resolveFor-intermediate('" + id + "', '"
 				+ this.key + "')", replace);
 
@@ -121,7 +123,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.enabled = false;
 		TokenUtils.print(
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
-						+ ", code='", code);
+				+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
 				ranges.startIndex + ranges.addedElements);
 		this.definitionTable.resolve(id, code, newRanges);
@@ -159,7 +161,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final Token token = code.get(i);
 			final int tokenType = token.getType();
 			currState = this.getNextState(currState, tokenType);
-			MyLog.trace("currState='" + currState.state + "', openParens='"
+			MyLog.trace(DefinitionFunctionMacro.class, "currState='"
+					+ currState.state + "', openParens='"
 					+ currState.openParens + "'");
 			if (currState.state == MatchState.Invalid) {
 				return ranges.startIndex;
@@ -275,19 +278,22 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final int start, final int stop) {
 		for (int j = stop; ((j > 0) && (j < list.size()) && this.isWhitespace(
 				list, j)); j--) {
-			MyLog.trace("remove at stop index='" + j + "'");
+			MyLog.trace(DefinitionFunctionMacro.class, "remove at stop index='"
+					+ j + "'");
 			list.remove(j);
 		}
 		for (final int j = start; (j <= stop)
 				&& ((j < list.size()) && this.isWhitespace(list, j));) {
-			MyLog.trace("remove at start index='" + j + "'");
+			MyLog.trace(DefinitionFunctionMacro.class,
+					"remove at start index='" + j + "'");
 			list.remove(j);
 		}
 		boolean isWs = false;
 		for (int j = 0; j < list.size(); j++) {
 			if (this.isWhitespace(list, j)) {
 				if (isWs) {
-					MyLog.trace("remove at middle index='" + j + "'");
+					MyLog.trace(DefinitionFunctionMacro.class,
+							"remove at middle index='" + j + "'");
 					list.remove(j);
 					j--;
 				}
@@ -466,9 +472,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		case ConcatenateAndEatComma:
 			currState = ReplacementState.ConcatenateAndEatComma;
 			break;
-			// case ConcatenateAndEatCommaEnd:
-			// currState = ReplacementState.Normal;
-			// break;
+		// case ConcatenateAndEatCommaEnd:
+		// currState = ReplacementState.Normal;
+		// break;
 		default:
 			break;
 		}
@@ -485,8 +491,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		for (int j = start; j < this.replacements.size(); j++) {
 			final Token token = this.replacements.get(j);
 			final int type = token.getType();
-			MyLog.trace("j='" + j + "', nextToken='" + token.getText()
-					+ "', hashes='" + hashes + "'");
+			MyLog.trace(DefinitionFunctionMacro.class, "j='" + j
+					+ "', nextToken='" + token.getText() + "', hashes='"
+					+ hashes + "'");
 			if (type == InternalPreprocessLexer.RULE_HASH) {
 				hashes++;
 			} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
@@ -496,8 +503,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					return false;
 				}
 			}
-			MyLog.trace("j='" + j + "', nextToken='" + token.getText()
-					+ "', hashes='" + hashes + "'");
+			MyLog.trace(DefinitionFunctionMacro.class, "j='" + j
+					+ "', nextToken='" + token.getText() + "', hashes='"
+					+ hashes + "'");
 		}
 		return false;
 	}
@@ -507,8 +515,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final List<ArrayList<Token>> replace) {
 		final Token current = this.replacements.get(start);
 		final int currType = current.getType();
-		MyLog.trace("lookAHead2: start='" + start + "', nextToken='"
-				+ current.getText() + "'");
+		MyLog.trace(DefinitionFunctionMacro.class, "lookAHead2: start='"
+				+ start + "', nextToken='" + current.getText() + "'");
 		if (currType != InternalPreprocessLexer.RULE_SKW_COMMA) {
 			return false;
 		}
@@ -516,8 +524,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		for (int j = start + 1; j < this.replacements.size(); j++) {
 			final Token token = this.replacements.get(j);
 			final int type = token.getType();
-			MyLog.trace("j='" + j + "', nextToken='" + token.getText()
-					+ "', hashes='" + hashes + "'");
+			MyLog.trace(DefinitionFunctionMacro.class, "j='" + j
+					+ "', nextToken='" + token.getText() + "', hashes='"
+					+ hashes + "'");
 			if (type == InternalPreprocessLexer.RULE_HASH) {
 				hashes++;
 			} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
@@ -526,9 +535,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					final boolean rightType = ((type == InternalPreprocessLexer.RULE_ID) || (type == InternalPreprocessLexer.RULE_VA_ARGS));
 					final boolean varIsEmpty = this.variadicIsEmpty(replace);
 					final boolean rightName = this.varID.equals(name);
-					MyLog.trace("name='" + name + "', rightType='" + rightType
-							+ "', varIsEmpty='" + varIsEmpty + "', rightName='"
-							+ rightName + "'");
+					MyLog.trace(DefinitionFunctionMacro.class, "name='" + name
+							+ "', rightType='" + rightType + "', varIsEmpty='"
+							+ varIsEmpty + "', rightName='" + rightName + "'");
 					if (rightType && varIsEmpty && rightName) {
 						return true;
 					}
@@ -537,8 +546,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					return false;
 				}
 			}
-			MyLog.trace("j='" + j + "', nextToken='" + token.getText()
-					+ "', hashes='" + hashes + "'");
+			MyLog.trace(DefinitionFunctionMacro.class, "j='" + j
+					+ "', nextToken='" + token.getText() + "', hashes='"
+					+ hashes + "'");
 		}
 		return false;
 	}
@@ -576,9 +586,10 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			for (int j = 0; j < newList.size(); j++) {
 				final Token other = newList.get(j);
 				final int index = ranges.getCurrentInsertionIndex();
-				MyLog.trace("addNormalReplacement('" + parenID
-						+ "')-for1, add token='" + other.getText() + "' at '"
-						+ index + "'");
+				MyLog.trace(DefinitionFunctionMacro.class,
+						"addNormalReplacement('" + parenID
+								+ "')-for1, add token='" + other.getText()
+								+ "' at '" + index + "'");
 				code.add(index, other);
 				ranges.addElement();
 			}
@@ -593,9 +604,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				for (int i = 0; i < list.size(); i++) {
 					final Token newToken = list.get(i);
 					final int index = ranges.getCurrentInsertionIndex();
-					MyLog.trace("addNormalReplacement('" + parenID
-							+ "')-for2, add token='" + newToken.getText()
-							+ "' at '" + index + "'");
+					MyLog.trace(
+							DefinitionFunctionMacro.class,
+							"addNormalReplacement('" + parenID
+									+ "')-for2, add token='"
+									+ newToken.getText() + "' at '" + index
+									+ "'");
 					code.add(index, newToken);
 					ranges.addElement();
 				}
@@ -629,8 +643,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final List<Token> code, final MacroRanges ranges,
 			final Token token, final String text,
 			final List<ArrayList<Token>> replace) {
-		MyLog.trace("addStringifyReplacement-start('" + parenID + "'), text='"
-				+ text + "'");
+		MyLog.trace(DefinitionFunctionMacro.class,
+				"addStringifyReplacement-start('" + parenID + "'), text='"
+						+ text + "'");
 
 		final StringBuffer buffer = new StringBuffer("");
 		if (this.contains(text)) {
@@ -643,8 +658,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		} else {
 			buffer.append(text);
 		}
-		MyLog.trace("addStringifyReplacement-end('" + parenID + "'), text='"
-				+ text + "', buffer='" + buffer.toString() + "'");
+		MyLog.trace(DefinitionFunctionMacro.class,
+				"addStringifyReplacement-end('" + parenID + "'), text='" + text
+						+ "', buffer='" + buffer.toString() + "'");
 		final Token newToken = this.getDoubleQuoteToken(buffer);
 		final int index = ranges.getCurrentInsertionIndex();
 		code.add(index, newToken);
@@ -668,9 +684,10 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final List<ArrayList<Token>> replace, final Token temp,
 			final boolean addTemporary) {
 		final String oldText = temp.getText();
-		MyLog.trace("addConcatenReplacement at '" + ranges.toString()
-				+ "' on token='" + text + "', temp='" + oldText
-				+ "', temporary='" + addTemporary + "'");
+		MyLog.trace(DefinitionFunctionMacro.class,
+				"addConcatenReplacement at '" + ranges.toString()
+						+ "' on token='" + text + "', temp='" + oldText
+						+ "', temporary='" + addTemporary + "'");
 		TokenUtils.print("addConcatenReplacement - begin, tempCode='", code);
 		if (addTemporary) {
 			this.addNormalReplacement(parenID, code, ranges, temp, oldText,
@@ -679,8 +696,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		TokenUtils.print(
 				"addConcatenReplacement - afterAddTemporary, tempCode='", code);
 		final int insertionIndex = ranges.getCurrentInsertionIndex();
-		MyLog.trace("addConcatenReplacement, temp insertionIndex='"
-				+ insertionIndex + "'");
+		MyLog.trace(DefinitionFunctionMacro.class,
+				"addConcatenReplacement, temp insertionIndex='"
+						+ insertionIndex + "'");
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);
 		TokenUtils.print(

@@ -5,18 +5,19 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-public class DiscoverFromICContainer extends
-AbstractDiscoverer<ICContainer> {
+import at.jku.weiner.c.common.log.MyLog;
+
+public class DiscoverFromICContainer extends AbstractDiscoverer<ICContainer> {
 	private static final String ID = AbstractDiscoverer.PREFIX
 			+ "DiscoverCDTFromSource"; //$NON-NLS-1$
 
 	@Override
 	public boolean isApplicableTo(final ICContainer source) {
-		System.out
-		.println(DiscoverFromICContainer.ID + " - isAplicableTo()");
+		MyLog.trace(DiscoverFromIFile.class, DiscoverFromICContainer.ID
+				+ " - isAplicableTo()");
 		final IResource resource = source.getResource();
 		boolean result = super.isApplicableOn(resource);
-		System.out.println("result='" + result + "'");
+		MyLog.trace(DiscoverFromIFile.class, "result='" + result + "'");
 		return result;
 	}
 

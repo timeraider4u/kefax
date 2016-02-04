@@ -17,61 +17,74 @@ import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
-	
+
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
 
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
 	private String additionalDirectives = "";
 	private boolean trimPreprocessModel = false;
-	
+
 	protected final boolean isApplicableOn(final IResource resource) {
-		// System.out.println("isApplicableOn='" + resource + "'");
-		// System.out.println("isApplicableOn='" + resource.getClass() + "'");
-		
+		MyLog.trace(AbstractDiscoverer.class, "isApplicableOn='" + resource
+				+ "'");
+		MyLog.trace(AbstractDiscoverer.class,
+				"isApplicableOn='" + resource.getClass() + "'");
+
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
 			final IContainer container = (IContainer) resource;
-			// System.out.println("isContainer");
+			MyLog.trace(AbstractDiscoverer.class, "isContainer");
 			final boolean result = container.isAccessible();
-			// System.out.println("isContainer.isAccessible='" + result + "'");
+			MyLog.trace(AbstractDiscoverer.class, "isContainer.isAccessible='"
+					+ result + "'");
 			return result;
 		} else if (resource instanceof IFolder) {
 			final IFolder folder = (IFolder) resource;
-			// System.out.println("isFolder");
+			MyLog.trace(AbstractDiscoverer.class, "isFolder");
 			final boolean result = folder.isAccessible();
 			return result;
 		}
 		return false;
 	}
-	
+
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
+		try {
+			this.discover2(resource, monitor);
+		} catch (Exception ex) {
+			if (ex instanceof DiscoveryException) {
+				throw (DiscoveryException) ex;
+			}
+			final DiscoveryException newEx = new DiscoveryException(
+					ex.getMessage());
+			throw newEx;
+		}
+	}
+
+	private final void discover2(final IResource resource,
+			final IProgressMonitor monitor) throws Exception {
 		final MyStore store = this.initialize(resource, monitor);
 		// discover
 		store.getMonitor().beginTask(Messages.discover,
 				IProgressMonitor.UNKNOWN);
 		if (resource instanceof IFile) {
 			final IFile file = (IFile) resource;
-			// this.setDefaultTargetURI(URI.createPlatformResourceURI(file
-			// .getFullPath().toString().concat(Messages.modelFileSuffix),
-			// true));
 			this.discoverFile(file.getLocation().toFile(), store);
 		} else if (resource instanceof IContainer) {
 			final IContainer container = (IContainer) resource;
-			// this.setDefaultTargetURI(URI.createPlatformResourceURI(container
-			// .getFullPath().append(container.getName()).toString()
-			// .concat(Messages.modelFileSuffix), true));
 			this.discoverDirectory(container.getLocation().toFile(), store);
 		} else {
-			throw new DiscoveryException(resource.getClass().getName()
-					+ " not handled"); //$NON-NLS-1$
+			final DiscoveryException ex = new DiscoveryException(resource
+					.getClass().getName() + " not handled"); //$NON-NLS-1$
+			MyLog.error(AbstractDiscoverer.class, ex);
 		}
 		// clean-up
 		store.getParser().cleanUp();
@@ -80,7 +93,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		// done
 		store.getMonitor().setTaskName(Messages.done);
 	}
-	
+
 	/***
 	 * initialize all data values
 	 *
@@ -102,7 +115,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				this.getAdditionalDirectives(), this.trimPreprocessModel);
 		return result;
 	}
-	
+
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -110,10 +123,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	 * @throws DiscoveryException
 	 */
 	private final void discoverDirectory(final File directory,
-			final MyStore store) throws DiscoveryException {
+			final MyStore store) throws Exception {
 		if (!directory.isDirectory()) {
-			throw new DiscoveryException(
+			final Exception ex = new DiscoveryException(
 					"not a directory '" + directory.getAbsolutePath() + "'"); //$NON-NLS-1$
+			MyLog.error(AbstractDiscoverer.class, ex);
+			throw ex;
 		}
 		final File[] files = directory.listFiles();
 		Arrays.sort(files, new FileNameSorter());
@@ -122,18 +137,17 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				this.discoverDirectory(file, store);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-						.getFileExtension();
+				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file, store);
 				}
 			}
 		}
 	}
-	
+
 	private final void discoverFile(final File file, final MyStore store)
-			throws DiscoveryException {
-		// final ParserUtils utils = new ParserUtils(store.getMonitor());
-		
+			throws Exception {
+
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
@@ -146,9 +160,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
-		
 	}
-	
+
 	/***
 	 * saving
 	 *
@@ -163,7 +176,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			// update project
 			final IProject project = store.getResource().getProject();
 			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
-			System.out.println("saved to='"
+			MyLog.log(DiscoverFromIFile.class, "saved to='"
 					+ this.getTargetModel().getURI().toFileString() + "'");
 		} catch (final Exception ex) {
 			throw new DiscoveryException(
@@ -171,15 +184,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		}
 		// }
 	}
-	
+
 	public boolean isSetStdInclude() {
 		return this.setStdInclude;
 	}
-	
-	@Parameter(
-			name = "STD_INCLUDE",
-			requiresInputValue = false,
-			description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
+
+	@Parameter(name = "STD_INCLUDE", requiresInputValue = false, description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
 	public void setSetStdInclude(final boolean setStdInclude) {
 		this.setStdInclude = setStdInclude;
 	}
@@ -188,35 +198,28 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.includeDirs;
 	}
 
-	@Parameter(
-			name = "INCLUDE_DIRS",
-			requiresInputValue = false,
-			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
+	@Parameter(name = "INCLUDE_DIRS", requiresInputValue = false, description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
 	public void setIncludeDirs(final String includeDirs) {
 		this.includeDirs = includeDirs;
 	}
-	
+
 	public String getAdditionalDirectives() {
 		return this.additionalDirectives;
 	}
 
-	@Parameter(
-			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
-			requiresInputValue = false,
-			description = "Add additional preprocessor directives and macros"
-					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
+	@Parameter(name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES", requiresInputValue = false, description = "Add additional preprocessor directives and macros"
+			+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
 	public void setAdditionalDirectives(final String defines) {
 		this.additionalDirectives = defines;
 	}
-	
+
 	public boolean isTrimPreprocessModel() {
 		return this.trimPreprocessModel;
 	}
-	
-	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
-			description = "Remove code and empty lines from preprocessor model")
+
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model")
 	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		this.trimPreprocessModel = trimPreprocessModel;
 	}
-	
+
 }

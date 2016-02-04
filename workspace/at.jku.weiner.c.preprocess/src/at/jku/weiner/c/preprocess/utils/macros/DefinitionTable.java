@@ -6,10 +6,10 @@ import java.util.Map;
 
 import org.antlr.runtime.Token;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
-import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionTable {
 
@@ -23,7 +23,7 @@ public final class DefinitionTable {
 
 	public void reset() {
 		this.macros.clear();
-		MyLog.trace("DefinitionTable.reset()");
+		MyLog.trace(DefinitionTable.class, "DefinitionTable.reset()");
 	}
 
 	public int size() {
@@ -39,8 +39,9 @@ public final class DefinitionTable {
 	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
-		MyLog.trace("add new object-like macro with key='" + id
-				+ "' and replaceWith='" + replaceWith + "'");
+		MyLog.trace(DefinitionTable.class,
+				"add new object-like macro with key='" + id
+						+ "' and replaceWith='" + replaceWith + "'");
 		final DefinitionMacro newMacro = new DefinitionObjectMacro(this, key,
 				val);
 		this.checkForExistence(key, newMacro);
@@ -54,8 +55,9 @@ public final class DefinitionTable {
 			if (entry.equalsMacro(newMacro)) {
 				this.macros.remove(entry);
 			} else {
-				throw new IllegalArgumentException(
+				final RuntimeException ex = new IllegalArgumentException(
 						"re-definition is not possible!!!");
+				MyLog.error(DefinitionTable.class, ex);
 			}
 		}
 	}
@@ -103,8 +105,8 @@ public final class DefinitionTable {
 			result.append(text);
 		}
 		final String resultStr = result.toString();
-		MyLog.trace("fullResolve-end(id='" + this.id + "'), code='" + code
-				+ "', result='" + resultStr + "'");
+		MyLog.trace(DefinitionTable.class, "fullResolve-end(id='" + this.id
+				+ "'), code='" + code + "', result='" + resultStr + "'");
 		return resultStr;
 	}
 
@@ -113,35 +115,40 @@ public final class DefinitionTable {
 		TokenUtils.print(
 				"resolve-start('" + parenID + "'), " + ranges.toString(), list);
 		for (int i = ranges.startIndex; (i < ranges.stopIndex); i++) {
-			MyLog.trace("resolve-loop0('" + parenID + "'), ', i='" + i + "', "
-					+ ranges.toString() + ", size='" + list.size() + "'");
+			MyLog.trace(DefinitionTable.class, "resolve-loop0('" + parenID
+					+ "'), ', i='" + i + "', " + ranges.toString() + ", size='"
+					+ list.size() + "'");
 			final Token next = list.get(i);
 			final String text = next.getText();
-			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + i
-					+ "')='" + text + "'");
+			MyLog.trace(DefinitionTable.class, "resolve-loop1('" + parenID
+					+ "'), token('" + i + "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
 				final MacroRanges newRange = new MacroRanges(i,
 						ranges.stopIndex);
 				macro.resolve(parenID, list, newRange);
-				MyLog.trace("resolve-loop2('" + parenID + "'), ranges="
-						+ ranges.toString() + ", newRanges='"
+				MyLog.trace(DefinitionTable.class, "resolve-loop2('" + parenID
+						+ "'), ranges=" + ranges.toString() + ", newRanges='"
 						+ newRange.toString() + "', macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
 
 				i = ranges.update(newRange, true);
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
-				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "
-						+ ranges.toString() + ", macroID='" + macro.getKey()
-						+ "', size='" + list.size() + "'");
+				MyLog.trace(
+						DefinitionTable.class,
+						"resolve-loop3('" + parenID + "'), i='" + i + "', "
+								+ ranges.toString() + ", macroID='"
+								+ macro.getKey() + "', size='" + list.size()
+								+ "'");
 			}
 		}
 		TokenUtils.print("resolve-end('" + parenID + "'), " + ranges.toString()
 				+ ", list='", list);
 	}
 
+	@SuppressWarnings("unused")
 	private void addWhitespaceIfFunctionMacro(final DefinitionMacro macro,
 			final List<Token> code, final int currIndex,
 			final MacroRanges ranges) {

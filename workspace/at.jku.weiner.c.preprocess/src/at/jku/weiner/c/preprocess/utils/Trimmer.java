@@ -4,6 +4,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional;
@@ -16,16 +17,16 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine;
 
 public class Trimmer {
-	
+
 	public static void trimPreprocess(final Preprocess preprocess) {
 		if (preprocess == null) {
 			return;
 		}
-		MyLog.log("trimPreprocess");
+		MyLog.log(Trimmer.class, "trimPreprocess");
 		final GroupOpt group = preprocess.getGroup();
 		Trimmer.trimGroup(group);
 	}
-	
+
 	private static void trimGroup(final GroupOpt group) {
 		if (group == null) {
 			return;
@@ -41,7 +42,7 @@ public class Trimmer {
 			}
 		}
 	}
-	
+
 	private static void trimPreprocessorDirectives(
 			final PreprocessorDirectives line) {
 		final EObject obj = line.getDirective();
@@ -53,13 +54,13 @@ public class Trimmer {
 			Trimmer.trimConditional((ConditionalDirective) obj);
 		}
 	}
-	
+
 	private static void trimInclude(final IncludeDirective line) {
 		final TranslationUnit unit = line.getUnit();
 		if (unit == null) {
 			return;
 		}
-		MyLog.log("TrimInclude='" + unit.getPath() + "'");
+		MyLog.log(Trimmer.class, "TrimInclude='" + unit.getPath() + "'");
 		final Preprocess preprocess = (Preprocess) unit.getPreprocess();
 		Trimmer.trimPreprocess(preprocess);
 	}
@@ -75,7 +76,7 @@ public class Trimmer {
 		}
 		Trimmer.trimIfConditional(conditional.getElse());
 	}
-	
+
 	private static void trimIfConditional(
 			final IfAbstractConditional conditional) {
 		if (conditional == null) {

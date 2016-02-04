@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 
 final class DiscovererUtils {
@@ -32,8 +33,8 @@ final class DiscovererUtils {
 	protected static boolean isCdtExtension(final String fileExtension) {
 		final boolean result = DiscovererUtils.getExtensionList().contains(
 				fileExtension);
-		// System.out.println("isCdtExtension='" + fileExtension + "'=" +
-		// result);
+		MyLog.trace(DiscovererUtils.class, "isCdtExtension='" + fileExtension
+				+ "'=" + result);
 		return result;
 	}
 
@@ -53,10 +54,10 @@ final class DiscovererUtils {
 		if (ext == null) {
 			return false;
 		}
-		// System.out.println("ext=" + ext);
+		MyLog.trace(DiscovererUtils.class, "ext=" + ext);
 		final boolean result = DiscovererUtils.isCdtExtension(file
 				.getFileExtension());
-		// System.out.println("result=" + result);
+		MyLog.trace(DiscovererUtils.class, "result=" + result);
 		return result;
 	}
 
@@ -81,7 +82,8 @@ final class DiscovererUtils {
 			throw new DiscoveryException("file cannot be accessed="
 					+ file.getAbsolutePath());
 		}
-		// System.out.println("filename=" + result.getFullPath().toOSString());
+		MyLog.trace(DiscovererUtils.class, "filename="
+				+ result.getFullPath().toOSString());
 		return result;
 	}
 
@@ -104,14 +106,14 @@ final class DiscovererUtils {
 	public static URI getTargetModel(final IResource res,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
-		// System.out.println("targetPath='" + path + "'");
+		MyLog.trace(DiscovererUtils.class, "targetPath='" + path + "'");
 		final Date dNow = new Date();
 		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-hhmmss");
 		final String prefix = ft.format(dNow);
-		// System.out.println("prefix='" + prefix + "'");
+		MyLog.trace(DiscovererUtils.class, "prefix='" + prefix + "'");
 		final String model = path + IPath.SEPARATOR + "discover-" + prefix
 				+ Messages.modelFileSuffix;
-		// System.out.println("modelURI='" + model + "'");
+		MyLog.trace(DiscovererUtils.class, "modelURI='" + model + "'");
 		final URI uri = URI.createFileURI(model);
 		return uri;
 	}

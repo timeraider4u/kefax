@@ -15,8 +15,8 @@ import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
-import at.jku.weiner.c.preprocess.utils.MyLog;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 import com.google.inject.Injector;
@@ -32,7 +32,8 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final ExpressionEvaluation<Long> evaluate2 = new ExpressionEvaluation<Long>(
 				evalVisitor);
 		final Long value = evaluate2.walkTo(expression);
-		MyLog.trace("evaluateFor='" + value.toString() + "'");
+		MyLog.trace(ExpressionEvaluation.class,
+				"evaluateFor='" + value.toString() + "'");
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
@@ -83,7 +84,10 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			return this
 					.walkTo((at.jku.weiner.c.common.common.PrimaryExpression) expression);
 		}
-		throw new IllegalArgumentException("should never get here!");
+		final RuntimeException ex = new IllegalArgumentException(
+				"should never get here!");
+		MyLog.error(ExpressionEvaluation.class, ex);
+		throw ex;
 	}
 
 	@Override
@@ -263,7 +267,10 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			final T result = this.walkTo(expr);
 			return result;
 		}
-		throw new IllegalArgumentException("should never get here!");
+		final RuntimeException ex = new IllegalArgumentException(
+				"should never get here!");
+		MyLog.error(ExpressionEvaluation.class, ex);
+		throw ex;
 	}
 
 }

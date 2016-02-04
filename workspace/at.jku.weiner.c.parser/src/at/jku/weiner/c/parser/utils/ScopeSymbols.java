@@ -3,6 +3,8 @@ package at.jku.weiner.c.parser.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import at.jku.weiner.c.common.log.MyLog;
+
 public final class ScopeSymbols implements Cloneable {
 	private final String scopeName;
 	private final List<ScopeTypes> types = new ArrayList<ScopeTypes>();
@@ -14,7 +16,7 @@ public final class ScopeSymbols implements Cloneable {
 		// level 0
 		this.types.add(new ScopeTypes());
 	}
-	
+
 	public void clear(final int level) {
 		this.cleanUp(level);
 		if (level > 0) {
@@ -35,8 +37,9 @@ public final class ScopeSymbols implements Cloneable {
 		this.cleanUp(level);
 		if (this.isTypeDefValue && (this.temp != null)) {
 			this.types.get(level).addType(this.temp);
-			Log.log("add type, temp='" + this.temp + "', level='" + level + "'");
-			Log.log(this.debug());
+			MyLog.debug(ScopeSymbols.class, "add type, temp='" + this.temp
+					+ "', level='" + level + "'");
+			MyLog.debug(ScopeSymbols.class, this.debug());
 			this.setTemp(null);
 			this.setTypeDefValue(false);
 		}
@@ -44,7 +47,7 @@ public final class ScopeSymbols implements Cloneable {
 
 	public boolean containsType(final int level, final String type) {
 		this.cleanUp(level);
-		Log.log(this.debug());
+		MyLog.trace(ScopeSymbols.class, this.debug());
 		int start = level;
 		if (level >= this.types.size()) {
 			start = this.types.size() - 1;
@@ -57,7 +60,7 @@ public final class ScopeSymbols implements Cloneable {
 		}
 		return false;
 	}
-	
+
 	public String debug() {
 		final StringBuffer result = new StringBuffer("Scope='"
 				+ this.getScopeName() + "'");
@@ -75,9 +78,10 @@ public final class ScopeSymbols implements Cloneable {
 		}
 		return result.toString();
 	}
-	
+
 	public void setTypeDefValue(final boolean isTypeDefValue) {
-		Log.log("setTypedefValue='" + isTypeDefValue + "'");
+		MyLog.trace(ScopeSymbols.class, "setTypedefValue='" + isTypeDefValue
+				+ "'");
 		this.isTypeDefValue = isTypeDefValue;
 	}
 

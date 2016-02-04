@@ -86,8 +86,8 @@ public final class Scope {
 	public static final void setTypedef(final int backtracking,
 			final boolean newTypeDef) {
 		// if (!newTypeDef) {
-		// System.out.println("clear peek scope, backtracking='"
-		// + backtracking + "'");
+		MyLog.trace(Scope.class, "clear peek scope, backtracking='"
+				+ backtracking + "'");
 		// Scope.scope.peek().clear(backtracking);
 		// Log.log(Scope.scope.peek().debug());
 		// }

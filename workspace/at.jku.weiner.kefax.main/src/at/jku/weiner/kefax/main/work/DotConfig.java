@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.main.startup;
+package at.jku.weiner.kefax.main.work;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 import at.jku.weiner.kefax.dotconfig.dotconfig.DotConfigModel;
 
@@ -65,7 +66,7 @@ public class DotConfig {
 	 */
 	private static List<Config> parseDotConfigInteral(final File dotConfigFile,
 			final String dotConfig) throws IOException {
-		System.out.println("Parsing .config file '" + dotConfig + "'!");
+		MyLog.log(DotConfig.class, "Parsing .config file '" + dotConfig + "'!");
 		final ResourceSet resourceSet = new ResourceSetImpl();
 		final Resource resource = resourceSet.createResource(URI
 				.createURI("dummy:/example.config"));
@@ -95,7 +96,8 @@ public class DotConfig {
 	private static void createFeaturesTxtInternal(final File featuresFile,
 			final String features, final List<Config> configs)
 					throws IOException {
-		System.out.println("Creating features.txt as '" + features + "'");
+		MyLog.log(DotConfig.class, "Creating features.txt as '" + features
+				+ "'");
 		featuresFile.delete();
 		featuresFile.createNewFile();
 		final FileWriter writer = new FileWriter(featuresFile);
@@ -116,7 +118,8 @@ public class DotConfig {
 	public static void createDefineFile(final File defineFile,
 			final String defineFilePath, final List<Config> configs)
 					throws IOException {
-		System.out.println("Creating define file as '" + defineFilePath + "'");
+		MyLog.log(DotConfig.class, "Creating define file as '" + defineFilePath
+				+ "'");
 		defineFile.delete();
 		defineFile.createNewFile();
 		final FileWriter writer = new FileWriter(defineFile);

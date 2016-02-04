@@ -13,6 +13,7 @@ import at.jku.weiner.xtexttest.xtextTest.Inner
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtend.lib.annotations.Accessors
 import at.jku.weiner.xtexttest.xtextTest.Model
+import at.jku.weiner.c.common.log.MyLog
 
 /**
  * Generates code from your model files on save.
@@ -27,7 +28,7 @@ class XtextTestGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		uri = resource.URI;
-		// System.out.println("uri='" + uri + "'");
+		MyLog.trace(XtextTestGenerator.getClass, "uri='" + uri + "'");
 		model = resource.allContents.filter(typeof(Model)).head;
 		
 		if (model.xtextTest != null) {

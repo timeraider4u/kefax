@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.main.startup;
+package at.jku.weiner.kefax.main.work;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+
+import at.jku.weiner.c.common.log.MyLog;
 
 public class Copy {
 	private final File src;
@@ -37,8 +39,8 @@ public class Copy {
 	public void copy() throws IOException {
 		this.dst.getParentFile().mkdirs();
 		if (this.src.isDirectory()) {
-			System.out.println("copy dir-src='" + this.src + "' to dir-dst='"
-					+ this.dst + "'");
+			MyLog.debug(CmdArgs.class, "copy dir-src='" + this.src
+					+ "' to dir-dst='" + this.dst + "'");
 			final File[] files = this.src.listFiles();
 			this.dst.mkdirs();
 			for (final File file : files) {
@@ -47,7 +49,7 @@ public class Copy {
 				copy.copy();
 			}
 		} else {
-			System.out.println("copy src='" + this.src + "' to dst='"
+			MyLog.debug(CmdArgs.class, "copy src='" + this.src + "' to dst='"
 					+ this.dst + "'");
 			final String name = this.src.getName();
 			if (name.endsWith(".dwo")) {

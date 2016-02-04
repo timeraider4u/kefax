@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.main.startup;
+package at.jku.weiner.kefax.main.work;
 
 import java.io.File;
 

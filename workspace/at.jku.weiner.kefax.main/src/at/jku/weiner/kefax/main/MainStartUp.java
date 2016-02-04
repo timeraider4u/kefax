@@ -2,7 +2,7 @@ package at.jku.weiner.kefax.main;
 
 import org.eclipse.ui.IStartup;
 
-import at.jku.isse.ecco.kefax.main.startup.Main;
+import at.jku.weiner.kefax.main.work.Main;
 
 public class MainStartUp implements IStartup {
 

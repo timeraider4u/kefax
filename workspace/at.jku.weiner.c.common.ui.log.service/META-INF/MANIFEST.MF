@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: at.jku.weiner.c.common.ui.log.service
+Bundle-SymbolicName: at.jku.weiner.c.common.ui.log.service
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: at.jku.weiner.c.common.ui.log.service.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: at.jku.weiner.c.common.ui.log.service

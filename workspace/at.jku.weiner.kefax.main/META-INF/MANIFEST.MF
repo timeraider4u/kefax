@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: at.jku.weiner.kefax.main
 Bundle-SymbolicName: at.jku.weiner.kefax.main;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: at.jku.isse.ecco.kefax.main.Activator
+Bundle-Activator: at.jku.weiner.kefax.main.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  at.jku.weiner.c.modisco.discoverer.ui;bundle-version="0.1.0",
  org.eclipse.xtext.ui,
  org.eclipse.modisco.infra.discovery.core;bundle-version="0.12.2",
- at.jku.weiner.kefax.dotconfig
+ at.jku.weiner.kefax.dotconfig,
+ at.jku.weiner.c.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/commons-io-2.4.jar,

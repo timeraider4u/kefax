@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.xtexttest.generator;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.xtexttest.generator.EmfTestGenerator;
 import at.jku.weiner.xtexttest.generator.MyXtextTestGenerator;
 import at.jku.weiner.xtexttest.xtextTest.Model;
@@ -38,6 +39,8 @@ public class XtextTestGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     URI _uRI = resource.getURI();
     this.uri = _uRI;
+    Class<? extends Class> _class = XtextTestGenerator.class.getClass();
+    MyLog.trace(_class, (("uri=\'" + this.uri) + "\'"));
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterator<Model> _filter = Iterators.<Model>filter(_allContents, Model.class);
     Model _head = IteratorExtensions.<Model>head(_filter);

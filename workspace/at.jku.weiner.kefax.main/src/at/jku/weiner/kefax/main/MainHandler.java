@@ -4,7 +4,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import at.jku.isse.ecco.kefax.main.startup.Main;
+import at.jku.weiner.kefax.main.work.Main;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.

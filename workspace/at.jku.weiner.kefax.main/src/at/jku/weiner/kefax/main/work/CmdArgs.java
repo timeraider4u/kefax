@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.main.startup;
+package at.jku.weiner.kefax.main.work;
 
 import java.io.File;
 
@@ -14,6 +14,7 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.common.log.MyLog;
 
 public class CmdArgs {
 
@@ -45,7 +46,7 @@ public class CmdArgs {
 		}
 		for (int i = 0; i < list.size(); i++) {
 			final Argument arg = list.get(i);
-			// System.out.println("argument='" + arg + "'");
+			MyLog.trace(CmdArgs.class, "argument='" + arg + "'");
 			this.visit(arg);
 		}
 	}
@@ -79,7 +80,7 @@ public class CmdArgs {
 	}
 
 	private final void visit(final Macro macro) {
-		// System.out.println("visitMacro='" + macro + "'");
+		MyLog.trace(CmdArgs.class, "visitMacro='" + macro + "'");
 		if (macro instanceof SimpleMacro) {
 			this.visitFor((SimpleMacro) macro);
 		} else if (macro instanceof ObjectMacro) {
@@ -136,7 +137,7 @@ public class CmdArgs {
 
 	private final String getPathFor(final String str, final boolean useAbsPath) {
 		if (useAbsPath) {
-			String absPath = this.getAbsolutePath(str);
+			final String absPath = this.getAbsolutePath(str);
 			return absPath;
 		}
 		return this.getLinuxAbsolutePath();

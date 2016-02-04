@@ -15,6 +15,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import at.jku.weiner.xtexttest.xtextTest.Model
 import at.jku.weiner.xtexttest.xtextTest.Tokens
 import at.jku.weiner.xtexttest.xtextTest.MyTokens
+import at.jku.weiner.c.common.log.MyLog
 
 class MyXtextTestGenerator {
 	private static final String PKG_PREFIX = "xtexttests";
@@ -41,7 +42,7 @@ class MyXtextTestGenerator {
 		val outputForJava = outputJava();
 		setFileName(test.package.replace(".", "/") + "/" + PKG_PREFIX
 			+ "/" + getJavaClassFileName() + ".java");
-		// System.out.println("generate file='" + getFileName() + "'");
+		MyLog.trace(MyXtextTestGenerator.getClass, "generate file='" + getFileName() + "'");
 		fsa.generateFile(getFileName(), outputForJava);
 	}
 	
@@ -222,7 +223,6 @@ class MyXtextTestGenerator {
 		public void checkLexerTokens() throws Exception{
 			final String text = this.getTextFromFile(
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
-				//System.out.println(text);
 				final String[] expected = new String[] {
 					«outputFor(test.tokens.tokens)»
 					};
@@ -392,7 +392,6 @@ class MyXtextTestGenerator {
 				«ENDIF»
 				);
 			Assert.assertEquals(preprocess(expected), preprocess(actual));
-			// System.out.println("Code generation finished.");
 		}
 		
 		«outputForPreprocess»
@@ -411,7 +410,6 @@ class MyXtextTestGenerator {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 	'''
 	

@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.main.startup;
+package at.jku.weiner.kefax.main.work;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +32,7 @@ import org.eclipse.xtext.validation.Issue;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 
@@ -40,7 +41,7 @@ import com.google.inject.Injector;
 public class Main {
 
 	public void start() {
-		Job job = new Job("at.jku.weiner.kefax.job") {
+		final Job job = new Job("at.jku.weiner.kefax.job") {
 			@Override
 			protected IStatus run(final IProgressMonitor monitor) {
 				Main.this.run1(monitor);
@@ -56,20 +57,22 @@ public class Main {
 		final Date start = new Date();
 		try {
 			Thread.sleep(1000);
-			System.out.println("at.jku.weiner.kefax.main - Start of program!");
-			// this.run();
+			MyLog.log(Main.class,
+					"at.jku.weiner.kefax.main - Start of program!");
 			this.run2();
 		} catch (final Exception ex) {
 			ex.printStackTrace();
+		} finally {
+			monitor.done();
 		}
 		final Date end = new Date();
 		final long difference = end.getTime() - start.getTime();
 		final long sec = difference / 1000;
 		final long min = sec / 60;
 		final long seconds = sec % 60;
-		System.out.println("took '" + min + "' minutes and '" + seconds
+		MyLog.log(Main.class, "took '" + min + "' minutes and '" + seconds
 				+ "' seconds for parsing!");
-		System.out.println("at.jku.weiner.kefax.main - End of program!");
+		MyLog.log(Main.class, "at.jku.weiner.kefax.main - End of program!");
 	}
 
 	private void run2() throws Exception {
@@ -82,7 +85,7 @@ public class Main {
 		}
 		final IFile cmdFile = (IFile) cmdRes;
 		final String cmdPath = cmdRes.getLocationURI().toString();
-		System.out.println("cmdPath='" + cmdPath + "'");
+		MyLog.log(Main.class, "cmdPath='" + cmdPath + "'");
 		// Linux project
 		final IProject linux = root.getProject("linux-3.18");
 		if (linux == null) {
@@ -105,7 +108,7 @@ public class Main {
 		}
 		// validate resource
 		this.validateResource(injector, res);
-		System.out.println("validation has been successfull!");
+		MyLog.log(Main.class, "validation has been successfull!");
 		// get command arguments
 		final EObject object = res.getContents().get(0);
 		if ((object == null) || (!(object instanceof Model))) {
@@ -125,16 +128,16 @@ public class Main {
 			final CmdArgs args = new CmdArgs(cmdPath, cmdLine, linux);
 			final String additionalDirectives = args
 					.getAdditionalDirectivesAsString();
-			System.out.println("additionalDirectives='" + additionalDirectives
-					+ "'");
+			MyLog.debug(Main.class, "additionalDirectives='"
+					+ additionalDirectives + "'");
 			final String includeDirectories = args
 					.getIncludeDirectoriesAsString();
-			System.out.println("includeDirectories='" + includeDirectories
+			MyLog.debug(Main.class, "includeDirectories='" + includeDirectories
 					+ "'");
 			final boolean stdInclude = !args.isNoStandardInclude();
-			System.out.println("stdInclude='" + stdInclude + "'");
+			MyLog.debug(Main.class, "stdInclude='" + stdInclude + "'");
 			final String inFile = args.getInFile();
-			System.out.println("inFile='" + inFile + "'");
+			MyLog.debug(Main.class, "inFile='" + inFile + "'");
 			if (inFile == null) {
 				continue;
 			}
@@ -169,9 +172,9 @@ public class Main {
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
 				Boolean.TRUE);
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
-		// final String uriStr = uri.toFileString();
-		// System.out.println("uri.toFileString()='" + uriStr + "'");
-		// System.out.println("uri.toString()='" + uri.toString() + "'");
+		final String uriStr = uri.toFileString();
+		MyLog.trace(Main.class, "uri.toFileString()='" + uriStr + "'");
+		MyLog.trace(Main.class, "uri.toString()='" + uri.toString() + "'");
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
@@ -190,9 +193,10 @@ public class Main {
 		}
 	}
 
-	private void error(final String text) {
-		System.err.println("at.jku.weiner.kefax.main: text='" + text + "'");
-		throw new RuntimeException(text);
+	private void error(final String text) throws RuntimeException {
+		final String msg = "at.jku.weiner.kefax.main: text='" + text + "'";
+		final RuntimeException ex = new RuntimeException(msg);
+		MyLog.error(Main.class, ex);
 	}
 
 	@SuppressWarnings("unused")
@@ -201,19 +205,22 @@ public class Main {
 		final String linuxSrcDirPath = linuxSrcDir.getAbsolutePath();
 		final File outDir = Settings.DEFAULT_OUT_DIR;
 		if (outDir.exists()) {
-			System.out.println("deleting existing directory '"
+			MyLog.debug(Main.class, "deleting existing directory '"
 					+ Settings.DEFAULT_OUT + "'");
 			outDir.delete();
 			FileUtils.deleteDirectory(outDir);
 		}
 		outDir.mkdirs();
 		if ((!outDir.isDirectory()) && (!outDir.canRead())) {
-			throw new RuntimeException("Could not create '" + outDir + "'!");
+			final RuntimeException ex = new RuntimeException(
+					"Could not create '" + outDir + "'!");
+			MyLog.error(Main.class, ex);
 		}
 		final String outDirPath = outDir.getAbsolutePath();
-		System.out.println("Using '" + linuxSrcDirPath
+		MyLog.debug(Main.class, "Using '" + linuxSrcDirPath
 				+ "' as linux source directory!");
-		System.out.println("Using '" + outDirPath + "' as output directory!");
+		MyLog.debug(Main.class, "Using '" + outDirPath
+				+ "' as output directory!");
 
 		final File dotConfigFile = DotConfig.getDotConfigFile(linuxSrcDir,
 				linuxSrcDirPath);

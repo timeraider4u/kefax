@@ -26,6 +26,7 @@ import org.junit.runner.RunWith;
 import at.jku.weiner.c.common.common.CommonFactory;
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
@@ -110,7 +111,7 @@ public class TestPredefined {
 		final String expected = this
 				.getTextFromFile("expected/Test0000_Empty.c");
 		Assert.assertEquals(this.preprocess(expected), this.preprocess(actual));
-		// System.out.println("Code generation finished.");
+		MyLog.trace(TestPredefined.class, "Code generation finished.");
 		this.generator.getDefinitionTable();
 		Assert.assertTrue(this.generator.getDefinitionTable().size() > 0);
 		final String text = "__STDC__";

@@ -13,7 +13,6 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
@@ -39,29 +38,30 @@ import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 import com.google.inject.Injector;
 
 public class Main {
-
+	
 	public void start() {
 		final Job job = new Job("at.jku.weiner.kefax.job") {
 			@Override
 			protected IStatus run(final IProgressMonitor monitor) {
-				Main.this.run1(monitor);
-				return Status.OK_STATUS;
+				final IStatus result = Main.this.run1(monitor);
+				return result;
 			}
 		};
-
+		
 		// Start the Job
 		job.schedule();
 	}
-
-	private void run1(final IProgressMonitor monitor) {
+	
+	private IStatus run1(final IProgressMonitor monitor) {
+		IStatus result = Status.OK_STATUS;
 		final Date start = new Date();
 		try {
-			Thread.sleep(1000);
 			MyLog.log(Main.class,
 					"at.jku.weiner.kefax.main - Start of program!");
-			this.run2();
+			result = this.run2(monitor);
 		} catch (final Exception ex) {
 			ex.printStackTrace();
+			result = Status.CANCEL_STATUS;
 		} finally {
 			monitor.done();
 		}
@@ -73,9 +73,10 @@ public class Main {
 		MyLog.log(Main.class, "took '" + min + "' minutes and '" + seconds
 				+ "' seconds for parsing!");
 		MyLog.log(Main.class, "at.jku.weiner.kefax.main - End of program!");
+		return result;
 	}
-
-	private void run2() throws Exception {
+	
+	private IStatus run2(final IProgressMonitor monitor) throws Exception {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		final IProject project = root.getProject("HelloC");
 		final IResource cmdRes = project.findMember("test.cmd");
@@ -123,7 +124,12 @@ public class Main {
 		}
 		// iterate command lines
 		final DiscoverFromIResource discoverer = new DiscoverFromIResource();
+		monitor.beginTask("iterating modules", cmdLines.size());
 		for (int i = 0; i < cmdLines.size(); i++) {
+			if (monitor.isCanceled()) {
+				return Status.CANCEL_STATUS;
+			}
+			monitor.worked(i);
 			final CmdLine cmdLine = cmdLines.get(i);
 			final CmdArgs args = new CmdArgs(cmdPath, cmdLine, linux);
 			final String additionalDirectives = args
@@ -152,18 +158,19 @@ public class Main {
 			discoverer.setIncludeDirs(includeDirectories);
 			discoverer.setAdditionalDirectives(additionalDirectives);
 			discoverer.setTrimPreprocessModel(true);
-
-			discoverer.discoverElement(inFileRes, new NullProgressMonitor());
+			
+			discoverer.discoverElement(inFileRes, monitor);
 		}
+		return Status.OK_STATUS;
 	}
-
+	
 	private final Resource loadResource(final Injector injector,
 			final IFile iFile) throws Exception {
 		final IResourceFactory resourceFactory = injector
 				.getInstance(IResourceFactory.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				".cmd", resourceFactory);
-
+		
 		final IProject iProject = iFile.getProject();
 		final XtextResourceSetProvider provider = injector
 				.getInstance(XtextResourceSetProvider.class);
@@ -178,7 +185,7 @@ public class Main {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-
+	
 	private final void validateResource(final Injector injector,
 			final Resource resource) throws Exception {
 		// validate the resource
@@ -192,13 +199,13 @@ public class Main {
 					+ "': " + list.toString());
 		}
 	}
-
+	
 	private void error(final String text) throws RuntimeException {
 		final String msg = "at.jku.weiner.kefax.main: text='" + text + "'";
 		final RuntimeException ex = new RuntimeException(msg);
 		MyLog.error(Main.class, ex);
 	}
-
+	
 	@SuppressWarnings("unused")
 	private void run() throws IOException {
 		final File linuxSrcDir = Settings.DEFAULT_LINUX_DIR;
@@ -221,7 +228,7 @@ public class Main {
 				+ "' as linux source directory!");
 		MyLog.debug(Main.class, "Using '" + outDirPath
 				+ "' as output directory!");
-
+		
 		final File dotConfigFile = DotConfig.getDotConfigFile(linuxSrcDir,
 				linuxSrcDirPath);
 		final String dotConfig = dotConfigFile.getAbsolutePath();
@@ -235,7 +242,7 @@ public class Main {
 		DotConfig.createDefineFile(defineFile, defineFilePath, configs);
 		ReadLinuxBuildFilesLog.run();
 	}
-
+	
 	@SuppressWarnings("unused")
 	private static File parseLinuxSourceDir(final String[] args) {
 		if ((args == null) || (args.length <= 0)) {
@@ -251,5 +258,5 @@ public class Main {
 		}
 		return srcDir;
 	}
-
+	
 }

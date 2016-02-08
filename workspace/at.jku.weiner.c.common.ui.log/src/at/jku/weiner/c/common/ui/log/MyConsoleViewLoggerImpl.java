@@ -19,7 +19,6 @@ public final class MyConsoleViewLoggerImpl implements MyConsoleViewLogger {
 					.findConsole(MyConsoleViewLoggerImpl.CONSOLE_NAME);
 		}
 		final MessageConsoleStream out = this.messageConsole.newMessageStream();
-		System.out.println("writing to console...");
 		out.println(msg);
 		this.messageConsole.activate();
 	}

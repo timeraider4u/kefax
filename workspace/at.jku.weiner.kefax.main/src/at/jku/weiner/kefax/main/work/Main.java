@@ -14,6 +14,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -38,7 +40,7 @@ import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 import com.google.inject.Injector;
 
 public class Main {
-	
+
 	public void start() {
 		final Job job = new Job("at.jku.weiner.kefax.job") {
 			@Override
@@ -47,11 +49,11 @@ public class Main {
 				return result;
 			}
 		};
-		
+
 		// Start the Job
 		job.schedule();
 	}
-	
+
 	private IStatus run1(final IProgressMonitor monitor) {
 		IStatus result = Status.OK_STATUS;
 		final Date start = new Date();
@@ -75,7 +77,7 @@ public class Main {
 		MyLog.log(Main.class, "at.jku.weiner.kefax.main - End of program!");
 		return result;
 	}
-	
+
 	private IStatus run2(final IProgressMonitor monitor) throws Exception {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		final IProject project = root.getProject("HelloC");
@@ -158,19 +160,21 @@ public class Main {
 			discoverer.setIncludeDirs(includeDirectories);
 			discoverer.setAdditionalDirectives(additionalDirectives);
 			discoverer.setTrimPreprocessModel(true);
-			
-			discoverer.discoverElement(inFileRes, monitor);
+
+			final SubProgressMonitor subMonitor = new SubProgressMonitor(monitor, 100);
+			// final SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+			discoverer.discoverElement(inFileRes, subMonitor);
 		}
 		return Status.OK_STATUS;
 	}
-	
+
 	private final Resource loadResource(final Injector injector,
 			final IFile iFile) throws Exception {
 		final IResourceFactory resourceFactory = injector
 				.getInstance(IResourceFactory.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				".cmd", resourceFactory);
-		
+
 		final IProject iProject = iFile.getProject();
 		final XtextResourceSetProvider provider = injector
 				.getInstance(XtextResourceSetProvider.class);
@@ -185,7 +189,7 @@ public class Main {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-	
+
 	private final void validateResource(final Injector injector,
 			final Resource resource) throws Exception {
 		// validate the resource
@@ -199,13 +203,13 @@ public class Main {
 					+ "': " + list.toString());
 		}
 	}
-	
+
 	private void error(final String text) throws RuntimeException {
 		final String msg = "at.jku.weiner.kefax.main: text='" + text + "'";
 		final RuntimeException ex = new RuntimeException(msg);
 		MyLog.error(Main.class, ex);
 	}
-	
+
 	@SuppressWarnings("unused")
 	private void run() throws IOException {
 		final File linuxSrcDir = Settings.DEFAULT_LINUX_DIR;
@@ -228,7 +232,7 @@ public class Main {
 				+ "' as linux source directory!");
 		MyLog.debug(Main.class, "Using '" + outDirPath
 				+ "' as output directory!");
-		
+
 		final File dotConfigFile = DotConfig.getDotConfigFile(linuxSrcDir,
 				linuxSrcDirPath);
 		final String dotConfig = dotConfigFile.getAbsolutePath();
@@ -242,7 +246,7 @@ public class Main {
 		DotConfig.createDefineFile(defineFile, defineFilePath, configs);
 		ReadLinuxBuildFilesLog.run();
 	}
-	
+
 	@SuppressWarnings("unused")
 	private static File parseLinuxSourceDir(final String[] args) {
 		if ((args == null) || (args.length <= 0)) {
@@ -258,5 +262,5 @@ public class Main {
 		}
 		return srcDir;
 	}
-	
+
 }

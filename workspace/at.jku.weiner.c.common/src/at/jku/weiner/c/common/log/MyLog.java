@@ -3,25 +3,24 @@ package at.jku.weiner.c.common.log;
 import at.jku.weiner.c.common.ui.log.MyConsoleViewLoggerImpl;
 import at.jku.weiner.c.common.ui.log.service.MyConsoleViewLogger;
 
-@SuppressWarnings("unused")
 public class MyLog {
-
+	
 	public static final int LOG_NONE = 0;
 	public static final int LOG_ERROR = 2;
 	public static final int LOG_INFO = 3;
 	public static final int LOG_DEBUG = 4;
 	public static final int LOG_TRACE = 5;
-
-	// private static final int log_level = MyLog.LOG_NONE;
-
-	// private static final int log_level = MyLog.LOG_ERROR;
-
-	private static final int log_level = MyLog.LOG_INFO;
-
-	// private static final int log_level = MyLog.LOG_DEBUG;
-
-	// private static final int log_level = MyLog.LOG_TRACE;
-
+	
+	private static int log_level = MyLog.LOG_NONE;
+	
+	// private static int log_level = MyLog.LOG_ERROR;
+	
+	// private static int log_level = MyLog.LOG_INFO;
+	
+	// private static int log_level = MyLog.LOG_DEBUG;
+	
+	// private static int log_level = MyLog.LOG_TRACE;
+	
 	private static MyConsoleViewLogger consoleLogger = null;
 	private static boolean tryWritingToConsoleView = true;
 
@@ -30,36 +29,36 @@ public class MyLog {
 		MyLog.error(clazz, ex.getMessage());
 		throw ex;
 	}
-
+	
 	public static void error(final Class<?> clazz, final RuntimeException ex)
 			throws RuntimeException {
 		MyLog.error(clazz, ex.getMessage());
 		throw ex;
 	}
-
+	
 	public static void error(final Class<?> clazz, final String msg) {
-		if (MyLog.log_level >= MyLog.LOG_ERROR) {
+		if (MyLog.getLog_level() >= MyLog.LOG_ERROR) {
 			System.err.println(msg);
 			MyLog.writeToConsole(msg);
 		}
 	}
-
+	
 	public static void log(final Class<?> clazz, final String msg) {
-		if (MyLog.log_level >= MyLog.LOG_INFO) {
+		if (MyLog.getLog_level() >= MyLog.LOG_INFO) {
 			System.out.println(msg);
 			MyLog.writeToConsole(msg);
 		}
 	}
-
+	
 	public static void debug(final Class<?> clazz, final String msg) {
-		if (MyLog.log_level >= MyLog.LOG_DEBUG) {
+		if (MyLog.getLog_level() >= MyLog.LOG_DEBUG) {
 			System.out.println(msg);
 			MyLog.writeToConsole(msg);
 		}
 	}
-
+	
 	public static void trace(final Class<?> clazz, final String msg) {
-		if (MyLog.log_level >= MyLog.LOG_TRACE) {
+		if (MyLog.getLog_level() >= MyLog.LOG_TRACE) {
 			System.out.println(msg);
 			MyLog.writeToConsole(msg);
 		}
@@ -85,5 +84,13 @@ public class MyLog {
 			MyLog.tryWritingToConsoleView = false;
 		}
 	}
-
+	
+	private static int getLog_level() {
+		return MyLog.log_level;
+	}
+	
+	public static void setLog_level(final int log_level) {
+		MyLog.log_level = log_level;
+	}
+	
 }

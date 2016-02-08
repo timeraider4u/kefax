@@ -8,6 +8,29 @@
            id="at.jku.weiner.kefax.main.command"
            name="MainCommand">
      </command>
+     <command
+		      defaultHandler="at.jku.weiner.kefax.main.SetLogLevelCommand"
+		      id="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		      name="Set log level">
+		   <commandParameter
+		         id="org.eclipse.ui.commands.radioStateParameter"
+		         name="State"
+		         optional="false">
+		   </commandParameter>
+		   <state 
+		   		id="org.eclipse.ui.commands.radioState">
+		        <class class="org.eclipse.ui.handlers.RadioState">
+		        	<parameter
+		               name="default"
+		               value="LOG_LEVEL_NONE">
+		        	</parameter>
+		        	<parameter
+		               name="persisted"
+		               value="false">
+		         </parameter> 
+		        </class>
+		   </state>
+	</command>
   </extension>
   <extension
         point="org.eclipse.ui.menus">
@@ -23,6 +46,57 @@
                  style="push"
                  tooltip="Start discovering">
            </command>
+           <menu
+                 id="at.jku.weiner.kefax.main.menu.loglevel"
+                 label="Set log level">
+                 
+                 
+	               <command
+			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+			            label="None"
+			            style="radio">
+			         <parameter
+			               name="org.eclipse.ui.commands.radioStateParameter"
+			               value="LOG_LEVEL_NONE">
+			         </parameter>
+			      </command>
+			      <command
+			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+			            label="Errors only"
+			            style="radio">
+			         <parameter
+			               name="org.eclipse.ui.commands.radioStateParameter"
+			               value="LOG_LEVEL_ERROR">
+			         </parameter>
+			      </command>
+			      <command
+			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+			            label="Info (Normal logging)"
+			            style="radio">
+			         <parameter
+			               name="org.eclipse.ui.commands.radioStateParameter"
+			               value="LOG_LEVEL_INFO">
+			         </parameter>
+			      </command>
+			       <command
+			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+			            label="Debug"
+			            style="radio">
+			         <parameter
+			               name="org.eclipse.ui.commands.radioStateParameter"
+			               value="LOG_LEVEL_DEBUG">
+			         </parameter>
+			      </command> 
+			       <command
+			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+			            label="Trace (even more debugging)"
+			            style="radio">
+			         <parameter
+			               name="org.eclipse.ui.commands.radioStateParameter"
+			               value="LOG_LEVEL_TRACE">
+			         </parameter>
+			      </command> 
+           </menu>
         </menu>
      </menuContribution>
   </extension>

@@ -107,7 +107,7 @@ public class XtextUtils {
 		final String path = uri.path();
 		final String wholeStr = path + File.separator + fileNameOnly;
 
-		this.setUpIncludeDirs();
+		this.setUpIncludeDirs(path);
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
 		preprocessGenerator.setFileName(wholeStr);
@@ -127,11 +127,11 @@ public class XtextUtils {
 		return wholeStr;
 	}
 
-	private void setUpIncludeDirs() {
-		final String includeDirs = this.store.getIncludeDirs();
+	private void setUpIncludeDirs(final String path) {
+		String includeDirs = this.store.getIncludeDirs();
 		MyLog.trace(XtextUtils.class, "includeDirs='" + includeDirs + "'");
-		if ((includeDirs == null) || includeDirs.isEmpty()) {
-			return;
+		if (includeDirs == null) {
+			includeDirs = "";
 		}
 		final String[] dirs = includeDirs.split(File.pathSeparator);
 		for (final String dir : dirs) {
@@ -139,6 +139,7 @@ public class XtextUtils {
 					+ "'");
 			IncludeDirs.addIncludeDirectoryToList(dir);
 		}
+		IncludeDirs.addIncludeDirectoryToList(path);
 	}
 
 	public void cleanUp() {

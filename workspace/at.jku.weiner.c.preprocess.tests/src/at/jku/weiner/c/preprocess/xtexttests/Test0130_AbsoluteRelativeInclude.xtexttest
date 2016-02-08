@@ -9,6 +9,7 @@ source file="res/Test0130_AbsoluteRelativeInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	HASH INCLUDE WHITESPACE SKW_LESS ID SKW_DOT ID SKW_GREATER NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 	NEWLINE
 	ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
@@ -23,6 +24,12 @@ lexer-tokens
 				directive=
 				(IncludeDirective
 					string++"<test0130.h>"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"Test0130_IncludeFile.h\\\""
 				)
 			),
 			(NewLineLine),

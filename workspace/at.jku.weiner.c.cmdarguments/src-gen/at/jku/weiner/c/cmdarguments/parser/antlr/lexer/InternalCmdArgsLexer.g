@@ -52,6 +52,8 @@ RULE_NEWLINE : ('\n'|'\r');
 
 RULE_WS : (' '|'\t');
 
+RULE_LINE_COMMENT : '//' ( options {greedy=false;} : . )*RULE_NEWLINE;
+
 RULE_ANY_OTHER : .;
 
 

@@ -24,14 +24,14 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_LETTER", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_NEWLINE", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_LETTER", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_NEWLINE", "RULE_WS", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
     };
     public static final int RULE_SKW_MINUS=4;
     public static final int RULE_ID=16;
     public static final int RULE_NEWLINE=19;
     public static final int RULE_KW_INCDIR=10;
     public static final int RULE_KW_OUTPUT=11;
-    public static final int RULE_ANY_OTHER=21;
+    public static final int RULE_ANY_OTHER=22;
     public static final int RULE_KW_NOSTDINC=12;
     public static final int EOF=-1;
     public static final int RULE_LETTER=15;
@@ -39,6 +39,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
     public static final int RULE_KW_INCLUDE=14;
     public static final int RULE_STRING=18;
     public static final int RULE_KW_DEFINE=9;
+    public static final int RULE_LINE_COMMENT=21;
     public static final int RULE_KW_INCSYS=13;
     public static final int RULE_INT=17;
     public static final int RULE_SKW_COMMA=8;
@@ -8286,16 +8287,16 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
     static final String DFA3_minS =
         "\1\4\2\uffff\1\4\12\uffff\7\4\1\uffff\1\4\6\uffff\3\4\1\uffff\1\4\24\uffff\1\4\16\uffff\4\4\1\uffff\1\4\6\uffff\3\4\1\uffff\1\4\24\uffff\1\4\16\uffff\5\4\7\uffff\4\4\43\uffff";
     static final String DFA3_maxS =
-        "\1\25\2\uffff\1\25\12\uffff\7\25\1\uffff\1\25\6\uffff\3\25\1\uffff\1\25\24\uffff\1\25\16\uffff\4\25\1\uffff\1\25\6\uffff\3\25\1\uffff\1\25\24\uffff\1\25\16\uffff\5\25\7\uffff\4\25\43\uffff";
+        "\1\26\2\uffff\1\26\12\uffff\7\26\1\uffff\1\26\6\uffff\3\26\1\uffff\1\26\24\uffff\1\26\16\uffff\4\26\1\uffff\1\26\6\uffff\3\26\1\uffff\1\26\24\uffff\1\26\16\uffff\5\26\7\uffff\4\26\43\uffff";
     static final String DFA3_acceptS =
         "\1\uffff\1\1\1\2\1\uffff\1\6\1\10\7\7\1\4\7\uffff\1\3\1\uffff\6\3\3\uffff\1\5\1\uffff\6\5\16\3\1\uffff\16\5\4\uffff\1\3\1\uffff\6\3\3\uffff\1\5\1\uffff\6\5\16\3\1\uffff\16\5\5\uffff\7\3\4\uffff\7\5\16\3\16\5";
     static final String DFA3_specialS =
         "\u00ac\uffff}>";
     static final String[] DFA3_transitionS = {
-            "\1\3\1\5\2\uffff\1\5\1\1\1\2\1\4\4\uffff\3\5\2\uffff\1\5",
+            "\1\3\1\5\2\uffff\1\5\1\1\1\2\1\4\4\uffff\3\5\3\uffff\1\5",
             "",
             "",
-            "\1\13\1\11\2\uffff\1\12\3\5\1\15\1\16\1\17\1\uffff\1\6\1\7\1\10\2\5\1\14",
+            "\1\13\1\11\2\uffff\1\12\3\5\1\15\1\16\1\17\1\uffff\1\6\1\7\1\10\2\5\1\uffff\1\14",
             "",
             "",
             "",
@@ -8306,26 +8307,26 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\20\1\5",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\21\1\5",
-            "\1\25\1\32\2\uffff\1\33\1\23\1\24\1\26\3\34\1\uffff\1\27\1\30\1\31\1\uffff\1\22\1\34",
-            "\1\40\1\45\2\uffff\1\46\1\36\1\37\1\41\3\47\1\uffff\1\42\1\43\1\44\1\uffff\1\35\1\47",
-            "\1\25\1\32\2\uffff\1\33\1\23\1\24\1\26\3\34\1\uffff\1\27\1\30\1\31\1\uffff\1\22\1\34",
-            "\2\50\2\uffff\1\50\6\34\1\uffff\6\50",
-            "\1\64\1\62\2\uffff\1\63\1\51\1\52\1\56\1\53\1\54\1\55\1\uffff\1\57\1\60\1\61\3\65",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\20\1\uffff\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\21\1\uffff\1\5",
+            "\1\25\1\32\2\uffff\1\33\1\23\1\24\1\26\3\34\1\uffff\1\27\1\30\1\31\1\uffff\1\22\1\uffff\1\34",
+            "\1\40\1\45\2\uffff\1\46\1\36\1\37\1\41\3\47\1\uffff\1\42\1\43\1\44\1\uffff\1\35\1\uffff\1\47",
+            "\1\25\1\32\2\uffff\1\33\1\23\1\24\1\26\3\34\1\uffff\1\27\1\30\1\31\1\uffff\1\22\1\uffff\1\34",
+            "\2\50\2\uffff\1\50\6\34\1\uffff\5\50\1\uffff\1\50",
+            "\1\64\1\62\2\uffff\1\63\1\51\1\52\1\56\1\53\1\54\1\55\1\uffff\1\57\1\60\1\61\2\65\1\uffff\1\65",
             "",
-            "\2\65\2\uffff\7\65\1\uffff\4\65\1\66\1\65",
+            "\2\65\2\uffff\7\65\1\uffff\4\65\1\66\1\uffff\1\65",
             "",
             "",
             "",
             "",
             "",
             "",
-            "\1\40\1\45\2\uffff\1\46\1\36\1\37\1\41\3\47\1\uffff\1\42\1\43\1\44\1\uffff\1\35\1\47",
-            "\2\67\2\uffff\7\67\1\uffff\6\67",
-            "\1\103\1\101\2\uffff\1\102\1\70\1\71\1\75\1\72\1\73\1\74\1\uffff\1\76\1\77\1\100\3\104",
+            "\1\40\1\45\2\uffff\1\46\1\36\1\37\1\41\3\47\1\uffff\1\42\1\43\1\44\1\uffff\1\35\1\uffff\1\47",
+            "\2\67\2\uffff\7\67\1\uffff\5\67\1\uffff\1\67",
+            "\1\103\1\101\2\uffff\1\102\1\70\1\71\1\75\1\72\1\73\1\74\1\uffff\1\76\1\77\1\100\2\104\1\uffff\1\104",
             "",
-            "\2\104\2\uffff\7\104\1\uffff\4\104\1\105\1\104",
+            "\2\104\2\uffff\7\104\1\uffff\4\104\1\105\1\uffff\1\104",
             "",
             "",
             "",
@@ -8346,7 +8347,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\111\1\116\2\uffff\1\117\1\107\1\110\1\112\3\5\1\uffff\1\113\1\114\1\115\1\uffff\1\106\1\120",
+            "\1\111\1\116\2\uffff\1\117\1\107\1\110\1\112\3\5\1\uffff\1\113\1\114\1\115\1\uffff\1\106\1\uffff\1\120",
             "",
             "",
             "",
@@ -8361,23 +8362,23 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\124\1\131\2\uffff\1\132\1\122\1\123\1\125\3\5\1\uffff\1\126\1\127\1\130\1\uffff\1\121\1\133",
-            "\1\111\1\116\2\uffff\1\117\1\107\1\110\1\112\3\5\1\uffff\1\113\1\114\1\115\1\uffff\1\106\1\120",
-            "\2\5\2\uffff\7\5\1\uffff\1\134\5\5",
-            "\1\150\1\146\2\uffff\1\147\1\135\1\136\1\142\1\137\1\140\1\141\1\uffff\1\143\1\144\1\145\2\5\1\151",
+            "\1\124\1\131\2\uffff\1\132\1\122\1\123\1\125\3\5\1\uffff\1\126\1\127\1\130\1\uffff\1\121\1\uffff\1\133",
+            "\1\111\1\116\2\uffff\1\117\1\107\1\110\1\112\3\5\1\uffff\1\113\1\114\1\115\1\uffff\1\106\1\uffff\1\120",
+            "\2\5\2\uffff\7\5\1\uffff\1\134\4\5\1\uffff\1\5",
+            "\1\150\1\146\2\uffff\1\147\1\135\1\136\1\142\1\137\1\140\1\141\1\uffff\1\143\1\144\1\145\2\5\1\uffff\1\151",
             "",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\152\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\152\1\uffff\1\5",
             "",
             "",
             "",
             "",
             "",
             "",
-            "\1\124\1\131\2\uffff\1\132\1\122\1\123\1\125\3\5\1\uffff\1\126\1\127\1\130\1\uffff\1\121\1\133",
-            "\2\5\2\uffff\7\5\1\uffff\1\153\5\5",
-            "\1\167\1\165\2\uffff\1\166\1\154\1\155\1\161\1\156\1\157\1\160\1\uffff\1\162\1\163\1\164\2\5\1\170",
+            "\1\124\1\131\2\uffff\1\132\1\122\1\123\1\125\3\5\1\uffff\1\126\1\127\1\130\1\uffff\1\121\1\uffff\1\133",
+            "\2\5\2\uffff\7\5\1\uffff\1\153\4\5\1\uffff\1\5",
+            "\1\167\1\165\2\uffff\1\166\1\154\1\155\1\161\1\156\1\157\1\160\1\uffff\1\162\1\163\1\164\2\5\1\uffff\1\170",
             "",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\171\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\171\1\uffff\1\5",
             "",
             "",
             "",
@@ -8398,7 +8399,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\u0083\1\u0081\2\uffff\1\u0082\1\173\1\174\1\175\3\151\1\uffff\1\176\1\177\1\u0080\1\uffff\1\172\1\u0084",
+            "\1\u0083\1\u0081\2\uffff\1\u0082\1\173\1\174\1\175\3\151\1\uffff\1\176\1\177\1\u0080\1\uffff\1\172\1\uffff\1\u0084",
             "",
             "",
             "",
@@ -8413,11 +8414,11 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\u008e\1\u008c\2\uffff\1\u008d\1\u0086\1\u0087\1\u0088\3\170\1\uffff\1\u0089\1\u008a\1\u008b\1\uffff\1\u0085\1\u008f",
-            "\1\u0083\1\u0081\2\uffff\1\u0082\1\173\1\174\1\175\3\u0084\1\uffff\1\176\1\177\1\u0080\1\uffff\1\172\1\u0084",
-            "\2\u0090\2\uffff\7\u0090\1\uffff\6\u0090",
-            "\1\u009c\1\u009a\2\uffff\1\u009b\1\u0091\1\u0092\1\u0096\1\u0093\1\u0094\1\u0095\1\uffff\1\u0097\1\u0098\1\u0099\3\u009d",
-            "\2\u009d\2\uffff\7\u009d\1\uffff\4\u009d\1\66\1\u009d",
+            "\1\u008e\1\u008c\2\uffff\1\u008d\1\u0086\1\u0087\1\u0088\3\170\1\uffff\1\u0089\1\u008a\1\u008b\1\uffff\1\u0085\1\uffff\1\u008f",
+            "\1\u0083\1\u0081\2\uffff\1\u0082\1\173\1\174\1\175\3\u0084\1\uffff\1\176\1\177\1\u0080\1\uffff\1\172\1\uffff\1\u0084",
+            "\2\u0090\2\uffff\7\u0090\1\uffff\5\u0090\1\uffff\1\u0090",
+            "\1\u009c\1\u009a\2\uffff\1\u009b\1\u0091\1\u0092\1\u0096\1\u0093\1\u0094\1\u0095\1\uffff\1\u0097\1\u0098\1\u0099\2\u009d\1\uffff\1\u009d",
+            "\2\u009d\2\uffff\7\u009d\1\uffff\4\u009d\1\66\1\uffff\1\u009d",
             "",
             "",
             "",
@@ -8425,10 +8426,10 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\u008e\1\u008c\2\uffff\1\u008d\1\u0086\1\u0087\1\u0088\3\u008f\1\uffff\1\u0089\1\u008a\1\u008b\1\uffff\1\u0085\1\u008f",
-            "\2\u009e\2\uffff\1\u009e\6\u008f\1\uffff\6\u009e",
-            "\1\u00aa\1\u00a8\2\uffff\1\u00a9\1\u009f\1\u00a0\1\u00a4\1\u00a1\1\u00a2\1\u00a3\1\uffff\1\u00a5\1\u00a6\1\u00a7\3\u00ab",
-            "\2\u00ab\2\uffff\7\u00ab\1\uffff\4\u00ab\1\105\1\u00ab",
+            "\1\u008e\1\u008c\2\uffff\1\u008d\1\u0086\1\u0087\1\u0088\3\u008f\1\uffff\1\u0089\1\u008a\1\u008b\1\uffff\1\u0085\1\uffff\1\u008f",
+            "\2\u009e\2\uffff\1\u009e\6\u008f\1\uffff\5\u009e\1\uffff\1\u009e",
+            "\1\u00aa\1\u00a8\2\uffff\1\u00a9\1\u009f\1\u00a0\1\u00a4\1\u00a1\1\u00a2\1\u00a3\1\uffff\1\u00a5\1\u00a6\1\u00a7\2\u00ab\1\uffff\1\u00ab",
+            "\2\u00ab\2\uffff\7\u00ab\1\uffff\4\u00ab\1\105\1\uffff\1\u00ab",
             "",
             "",
             "",
@@ -8503,12 +8504,12 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000277FF2L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000277F32L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000002F7F30L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000477FF2L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000477F32L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000004F7F30L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000277F30L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000477F30L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000010000L});
@@ -8516,7 +8517,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000277FF0L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000477FF0L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000010080L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000100L});

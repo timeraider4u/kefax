@@ -16,15 +16,15 @@ public class MyLog {
 
 	// private static final int log_level = MyLog.LOG_ERROR;
 
-	// private static final int log_level = MyLog.LOG_INFO;
+	private static final int log_level = MyLog.LOG_INFO;
 
 	// private static final int log_level = MyLog.LOG_DEBUG;
 
-	private static final int log_level = MyLog.LOG_TRACE;
+	// private static final int log_level = MyLog.LOG_TRACE;
 
 	private static MyConsoleViewLogger consoleLogger = null;
 	private static boolean tryWritingToConsoleView = true;
-	
+
 	public static void error(final Class<?> clazz, final Exception ex)
 			throws Exception {
 		MyLog.error(clazz, ex.getMessage());
@@ -64,7 +64,7 @@ public class MyLog {
 			MyLog.writeToConsole(msg);
 		}
 	}
-	
+
 	private static void writeToConsole(final String msg) {
 		if (!MyLog.tryWritingToConsoleView) {
 			return;

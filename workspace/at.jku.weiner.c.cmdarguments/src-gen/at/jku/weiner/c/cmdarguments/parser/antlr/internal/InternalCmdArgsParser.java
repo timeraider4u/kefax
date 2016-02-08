@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_LETTER", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_NEWLINE", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_LETTER", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_NEWLINE", "RULE_WS", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
     };
     public static final int RULE_SKW_MINUS=4;
     public static final int RULE_ID=16;
     public static final int RULE_NEWLINE=19;
     public static final int RULE_KW_INCDIR=10;
     public static final int RULE_KW_OUTPUT=11;
-    public static final int RULE_ANY_OTHER=21;
+    public static final int RULE_ANY_OTHER=22;
     public static final int RULE_KW_NOSTDINC=12;
     public static final int EOF=-1;
     public static final int RULE_LETTER=15;
@@ -35,6 +35,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final int RULE_KW_INCLUDE=14;
     public static final int RULE_STRING=18;
     public static final int RULE_KW_DEFINE=9;
+    public static final int RULE_LINE_COMMENT=21;
     public static final int RULE_KW_INCSYS=13;
     public static final int RULE_INT=17;
     public static final int RULE_SKW_COMMA=8;
@@ -3604,21 +3605,21 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA9_minS =
         "\1\4\2\uffff\1\4\3\uffff\2\4\7\uffff\4\4\1\uffff\1\4\7\uffff\2\4\1\uffff\1\4\24\uffff\1\4\16\uffff\4\4\7\uffff\3\4\25\uffff\1\4\16\uffff\4\4\7\uffff\3\4\43\uffff";
     static final String DFA9_maxS =
-        "\1\25\2\uffff\1\25\3\uffff\2\25\7\uffff\4\25\1\uffff\1\25\7\uffff\2\25\1\uffff\1\25\24\uffff\1\25\16\uffff\4\25\7\uffff\3\25\25\uffff\1\25\16\uffff\4\25\7\uffff\3\25\43\uffff";
+        "\1\26\2\uffff\1\26\3\uffff\2\26\7\uffff\4\26\1\uffff\1\26\7\uffff\2\26\1\uffff\1\26\24\uffff\1\26\16\uffff\4\26\7\uffff\3\26\25\uffff\1\26\16\uffff\4\26\7\uffff\3\26\43\uffff";
     static final String DFA9_acceptS =
         "\1\uffff\1\1\1\2\1\uffff\1\6\1\10\1\4\2\uffff\7\7\4\uffff\1\3\1\uffff\7\3\2\uffff\1\5\1\uffff\6\5\16\3\1\uffff\16\5\4\uffff\7\3\3\uffff\7\5\16\3\1\uffff\16\5\4\uffff\7\3\3\uffff\7\5\16\3\16\5";
     static final String DFA9_specialS =
         "\u00a7\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\1\3\1\5\2\uffff\1\5\1\1\1\2\1\4\4\uffff\3\5\2\uffff\1\5",
+            "\1\3\1\5\2\uffff\1\5\1\1\1\2\1\4\4\uffff\3\5\3\uffff\1\5",
             "",
             "",
-            "\1\16\1\14\2\uffff\1\15\3\5\1\6\1\7\1\10\1\uffff\1\11\1\12\1\13\2\5\1\17",
+            "\1\16\1\14\2\uffff\1\15\3\5\1\6\1\7\1\10\1\uffff\1\11\1\12\1\13\2\5\1\uffff\1\17",
             "",
             "",
             "",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\20\1\5",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\21\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\20\1\uffff\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\21\1\uffff\1\5",
             "",
             "",
             "",
@@ -3626,12 +3627,12 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\33\1\31\2\uffff\1\32\1\22\1\23\1\25\3\24\1\uffff\1\26\1\27\1\30\1\uffff\1\20\1\34",
-            "\1\37\1\44\2\uffff\1\45\1\35\1\36\1\40\3\46\1\uffff\1\41\1\42\1\43\1\uffff\1\21\1\46",
-            "\2\47\2\uffff\4\47\1\24\2\47\1\uffff\6\47",
-            "\1\63\1\61\2\uffff\1\62\1\50\1\51\1\55\1\52\1\53\1\54\1\uffff\1\56\1\57\1\60\3\64",
+            "\1\33\1\31\2\uffff\1\32\1\22\1\23\1\25\3\24\1\uffff\1\26\1\27\1\30\1\uffff\1\20\1\uffff\1\34",
+            "\1\37\1\44\2\uffff\1\45\1\35\1\36\1\40\3\46\1\uffff\1\41\1\42\1\43\1\uffff\1\21\1\uffff\1\46",
+            "\2\47\2\uffff\4\47\1\24\2\47\1\uffff\5\47\1\uffff\1\47",
+            "\1\63\1\61\2\uffff\1\62\1\50\1\51\1\55\1\52\1\53\1\54\1\uffff\1\56\1\57\1\60\2\64\1\uffff\1\64",
             "",
-            "\2\64\2\uffff\4\64\1\24\2\64\1\uffff\4\64\1\65\1\64",
+            "\2\64\2\uffff\4\64\1\24\2\64\1\uffff\4\64\1\65\1\uffff\1\64",
             "",
             "",
             "",
@@ -3639,10 +3640,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\2\66\2\uffff\7\66\1\uffff\6\66",
-            "\1\102\1\100\2\uffff\1\101\1\67\1\70\1\74\1\71\1\72\1\73\1\uffff\1\75\1\76\1\77\3\103",
+            "\2\66\2\uffff\7\66\1\uffff\5\66\1\uffff\1\66",
+            "\1\102\1\100\2\uffff\1\101\1\67\1\70\1\74\1\71\1\72\1\73\1\uffff\1\75\1\76\1\77\2\103\1\uffff\1\103",
             "",
-            "\2\103\2\uffff\7\103\1\uffff\4\103\1\104\1\103",
+            "\2\103\2\uffff\7\103\1\uffff\4\103\1\104\1\uffff\1\103",
             "",
             "",
             "",
@@ -3663,7 +3664,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\115\1\113\2\uffff\1\114\1\105\1\106\1\107\3\5\1\uffff\1\110\1\111\1\112\1\uffff\1\65\1\116",
+            "\1\115\1\113\2\uffff\1\114\1\105\1\106\1\107\3\5\1\uffff\1\110\1\111\1\112\1\uffff\1\65\1\uffff\1\116",
             "",
             "",
             "",
@@ -3678,10 +3679,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\127\1\125\2\uffff\1\126\1\117\1\120\1\121\3\5\1\uffff\1\122\1\123\1\124\1\uffff\1\104\1\130",
-            "\2\5\2\uffff\7\5\1\uffff\1\131\5\5",
-            "\1\145\1\143\2\uffff\1\144\1\132\1\133\1\137\1\134\1\135\1\136\1\uffff\1\140\1\141\1\142\2\5\1\146",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\147\1\5",
+            "\1\127\1\125\2\uffff\1\126\1\117\1\120\1\121\3\5\1\uffff\1\122\1\123\1\124\1\uffff\1\104\1\uffff\1\130",
+            "\2\5\2\uffff\7\5\1\uffff\1\131\4\5\1\uffff\1\5",
+            "\1\145\1\143\2\uffff\1\144\1\132\1\133\1\137\1\134\1\135\1\136\1\uffff\1\140\1\141\1\142\2\5\1\uffff\1\146",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\147\1\uffff\1\5",
             "",
             "",
             "",
@@ -3689,9 +3690,9 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\2\5\2\uffff\7\5\1\uffff\1\150\5\5",
-            "\1\164\1\162\2\uffff\1\163\1\151\1\152\1\156\1\153\1\154\1\155\1\uffff\1\157\1\160\1\161\2\5\1\165",
-            "\2\5\2\uffff\7\5\1\uffff\4\5\1\166\1\5",
+            "\2\5\2\uffff\7\5\1\uffff\1\150\4\5\1\uffff\1\5",
+            "\1\164\1\162\2\uffff\1\163\1\151\1\152\1\156\1\153\1\154\1\155\1\uffff\1\157\1\160\1\161\2\5\1\uffff\1\165",
+            "\2\5\2\uffff\7\5\1\uffff\4\5\1\166\1\uffff\1\5",
             "",
             "",
             "",
@@ -3713,7 +3714,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\177\1\175\2\uffff\1\176\1\167\1\170\1\171\3\146\1\uffff\1\172\1\173\1\174\1\uffff\1\147\1\u0080",
+            "\1\177\1\175\2\uffff\1\176\1\167\1\170\1\171\3\146\1\uffff\1\172\1\173\1\174\1\uffff\1\147\1\uffff\1\u0080",
             "",
             "",
             "",
@@ -3728,10 +3729,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\u0089\1\u0087\2\uffff\1\u0088\1\u0081\1\u0082\1\u0083\3\165\1\uffff\1\u0084\1\u0085\1\u0086\1\uffff\1\166\1\u008a",
-            "\2\u008b\2\uffff\1\u008b\6\u0080\1\uffff\3\u008b\2\u0080\1\u008b",
-            "\1\u0097\1\u0095\2\uffff\1\u0096\1\u008c\1\u008d\1\u0091\1\u008e\1\u008f\1\u0090\1\uffff\1\u0092\1\u0093\1\u0094\3\u0098",
-            "\2\u0098\2\uffff\7\u0098\1\uffff\4\u0098\1\65\1\u0098",
+            "\1\u0089\1\u0087\2\uffff\1\u0088\1\u0081\1\u0082\1\u0083\3\165\1\uffff\1\u0084\1\u0085\1\u0086\1\uffff\1\166\1\uffff\1\u008a",
+            "\2\u008b\2\uffff\1\u008b\6\u0080\1\uffff\3\u008b\2\u0080\1\uffff\1\u008b",
+            "\1\u0097\1\u0095\2\uffff\1\u0096\1\u008c\1\u008d\1\u0091\1\u008e\1\u008f\1\u0090\1\uffff\1\u0092\1\u0093\1\u0094\2\u0098\1\uffff\1\u0098",
+            "\2\u0098\2\uffff\7\u0098\1\uffff\4\u0098\1\65\1\uffff\1\u0098",
             "",
             "",
             "",
@@ -3739,9 +3740,9 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\2\u0099\2\uffff\7\u0099\1\uffff\6\u0099",
-            "\1\u00a5\1\u00a3\2\uffff\1\u00a4\1\u009a\1\u009b\1\u009f\1\u009c\1\u009d\1\u009e\1\uffff\1\u00a0\1\u00a1\1\u00a2\3\u00a6",
-            "\2\u00a6\2\uffff\7\u00a6\1\uffff\4\u00a6\1\104\1\u00a6",
+            "\2\u0099\2\uffff\7\u0099\1\uffff\5\u0099\1\uffff\1\u0099",
+            "\1\u00a5\1\u00a3\2\uffff\1\u00a4\1\u009a\1\u009b\1\u009f\1\u009c\1\u009d\1\u009e\1\uffff\1\u00a0\1\u00a1\1\u00a2\2\u00a6\1\uffff\1\u00a6",
+            "\2\u00a6\2\uffff\7\u00a6\1\uffff\4\u00a6\1\104\1\uffff\1\u00a6",
             "",
             "",
             "",
@@ -3817,22 +3818,22 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000270F30L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000470F30L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000370F30L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000570F30L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000277F30L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000477F30L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000377F30L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000577F30L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000277FF0L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000477FF0L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000010080L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000180L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000277FF2L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000277F32L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000477FF2L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000477F32L});
 
 }

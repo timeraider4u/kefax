@@ -47,6 +47,8 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -111,6 +113,11 @@ public class Test0130_AbsoluteRelativeInclude {
 				"RULE_ID",
 				"RULE_SKW_GREATER",
 				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_NEWLINE",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
@@ -146,7 +153,7 @@ public class Test0130_AbsoluteRelativeInclude {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(3, Lines_1_list.size());
+		Assert.assertEquals(4, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -161,16 +168,29 @@ public class Test0130_AbsoluteRelativeInclude {
 		Assert.assertEquals("<test0130.h>", IncludeDirective_3_Var
 		.getString());
 		//3
-		final NewLineLine NewLineLine_4_Var
-		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final IncludeDirective IncludeDirective_5_Var
+		 = (IncludeDirective)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_5_Var
 		);
-		Assert.assertEquals("void doSomething();", Code_5_Var
+		Assert.assertEquals("\"Test0130_IncludeFile.h\"", IncludeDirective_5_Var
+		.getString());
+		//5
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_1_list.get(2);
+		Assert.assertNotNull(NewLineLine_6_Var
+		);
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("void doSomething();", Code_7_Var
 		.getCode());
 	}
 	

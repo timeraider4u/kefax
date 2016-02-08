@@ -1,6 +1,7 @@
 grammar at.jku.weiner.c.cmdarguments.CmdArgs 
 //with org.eclipse.xtext.common.Terminals
-hidden()
+//hidden()
+hidden(LINE_COMMENT)
 
 generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
 
@@ -114,7 +115,7 @@ Option:
 ;
 
 NonOptionChar:
-	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
+	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | SKW_MINUS | ANY_OTHER
 ;
 
 OptionChar:
@@ -154,6 +155,7 @@ terminal STRING	:
 terminal NEWLINE: '\n' | '\r';
 terminal WS: (' '|'\t');
 
+terminal LINE_COMMENT: '//' -> NEWLINE;
 
 terminal ANY_OTHER: .;
 //terminal END: EOF;

@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.cmdarguments.editor/src" modelPluginID="at.jku.weiner.c.cmdarguments"
     forceOverwrite="true" modelName="CmdArgs" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.cmdarguments.edit"
-    editorPluginID="at.jku.weiner.c.cmdarguments.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.c.cmdarguments.editor" runtimeVersion="2.10">
   <genPackages prefix="CmdArgs" basePackage="at.jku.weiner.c.cmdarguments" disposableProviderFactory="true"
       fileExtensions="cmd" ecorePackage="CmdArgs.ecore#/">
     <genClasses ecoreClass="CmdArgs.ecore#//Model">

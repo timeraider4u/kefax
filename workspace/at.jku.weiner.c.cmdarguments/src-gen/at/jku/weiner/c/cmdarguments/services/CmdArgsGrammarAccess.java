@@ -750,6 +750,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSTRING;
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tWS;
+	private final TerminalRule tLINE_COMMENT;
 	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
@@ -796,6 +797,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.STRING");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NEWLINE");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.WS");
+		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.LINE_COMMENT");
 		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.ANY_OTHER");
 	}
 	
@@ -1156,6 +1158,12 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//	' ' | '\t';
 	public TerminalRule getWSRule() {
 		return tWS;
+	}
+	
+	//terminal LINE_COMMENT:
+	//	'//'->NEWLINE;
+	public TerminalRule getLINE_COMMENTRule() {
+		return tLINE_COMMENT;
 	}
 	
 	//terminal ANY_OTHER:

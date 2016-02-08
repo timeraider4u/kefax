@@ -1,0 +1,45 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0130_AbsoluteRelativeInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH INCLUDE WHITESPACE SKW_LESS ID SKW_DOT ID SKW_GREATER NEWLINE
+	NEWLINE
+	ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"<test0130.h>"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"void doSomething();"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0130_AbsoluteRelativeInclude.c.i"
+expected file="expected/Test0130_AbsoluteRelativeInclude.c"
+//replacePatterns file="res/Patterns.txt"
+before
+	class= at.jku.weiner.c.preprocess.xtexttests.TestUtils
+	method=setUpTest0130
+	()
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

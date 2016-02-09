@@ -593,7 +593,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeOfAssignment_22_0 = (Assignment)cGroup_22.eContents().get(0);
 		private final Alternatives cTypeOfAlternatives_22_0_0 = (Alternatives)cTypeOfAssignment_22_0.eContents().get(0);
 		private final RuleCall cTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(0);
-		private final RuleCall cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(1);
+		private final RuleCall cTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(1);
+		private final RuleCall cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(2);
 		private final Group cGroup_22_1 = (Group)cGroup_22.eContents().get(1);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_22_1_0 = (RuleCall)cGroup_22_1.eContents().get(0);
 		private final Alternatives cAlternatives_22_1_1 = (Alternatives)cGroup_22_1.eContents().get(1);
@@ -641,8 +642,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| specifier=StructOrUnionSpecifier
 		//	| specifier=EnumSpecifier
 		//	| type=TypedefName
-		//	| typeOf=(KW_TYPEOF1 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN) |
-		//	builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN
+		//	| typeOf=(KW_TYPEOF1 | KW_TYPEOF2 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression)
+		//	SKW_RIGHTPAREN) | builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN
 		//	constExpr=ConstantExpression SKW_COMMA
 		//	expr1=ConstantExpression SKW_COMMA
 		//	expr2=ConstantExpression
@@ -653,8 +654,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//| name=KW_INT | name=KW_INT128_3 | name=KW_LONG | name=KW_SHORT | name=KW_M128 | name=KW_M128D | name=KW_M128I |
 		//name=KW_SIGNED1 | name=KW_SIGNED2 | name=KW_SIGNED3 | name=KW_UNSIGNED | name=KW_VOID | name=KW_EXTENSION
 		//(SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)? //  |	specifier=atomicTypeSpecifier
-		//| specifier=StructOrUnionSpecifier | specifier=EnumSpecifier | type=TypedefName | typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
-		//(SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN) |
+		//| specifier=StructOrUnionSpecifier | specifier=EnumSpecifier | type=TypedefName | typeOf=(KW_TYPEOF1 | KW_TYPEOF2 |
+		//KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN) |
 		//builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN constExpr=ConstantExpression SKW_COMMA
 		//expr1=ConstantExpression SKW_COMMA expr2=ConstantExpression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -830,20 +831,24 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//TypedefName
 		public RuleCall getTypeTypedefNameParserRuleCall_21_0() { return cTypeTypedefNameParserRuleCall_21_0; }
 		
-		//typeOf=(KW_TYPEOF1 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN)
+		//typeOf=(KW_TYPEOF1 | KW_TYPEOF2 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression)
+		//SKW_RIGHTPAREN)
 		public Group getGroup_22() { return cGroup_22; }
 		
-		//typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
+		//typeOf=(KW_TYPEOF1 | KW_TYPEOF2 | KW_TYPEOF3)
 		public Assignment getTypeOfAssignment_22_0() { return cTypeOfAssignment_22_0; }
 		
-		//(KW_TYPEOF1 | KW_TYPEOF3)
+		//(KW_TYPEOF1 | KW_TYPEOF2 | KW_TYPEOF3)
 		public Alternatives getTypeOfAlternatives_22_0_0() { return cTypeOfAlternatives_22_0_0; }
 		
 		//KW_TYPEOF1
 		public RuleCall getTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0() { return cTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0; }
 		
+		//KW_TYPEOF2
+		public RuleCall getTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1() { return cTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1; }
+		
 		//KW_TYPEOF3
-		public RuleCall getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1() { return cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1; }
+		public RuleCall getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2() { return cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2; }
 		
 		//(SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN)
 		public Group getGroup_22_1() { return cGroup_22_1; }
@@ -5700,6 +5705,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_THREADLOCAL;
 	private final TerminalRule tKW_TYPEDEF;
 	private final TerminalRule tKW_TYPEOF1;
+	private final TerminalRule tKW_TYPEOF2;
 	private final TerminalRule tKW_TYPEOF3;
 	private final TerminalRule tKW_UNION;
 	private final TerminalRule tKW_UNSIGNED;
@@ -5886,6 +5892,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_THREADLOCAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_THREADLOCAL");
 		this.tKW_TYPEDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_TYPEDEF");
 		this.tKW_TYPEOF1 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_TYPEOF1");
+		this.tKW_TYPEOF2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_TYPEOF2");
 		this.tKW_TYPEOF3 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_TYPEOF3");
 		this.tKW_UNION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_UNION");
 		this.tKW_UNSIGNED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_UNSIGNED");
@@ -6102,8 +6109,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| specifier=StructOrUnionSpecifier
 	//	| specifier=EnumSpecifier
 	//	| type=TypedefName
-	//	| typeOf=(KW_TYPEOF1 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN) |
-	//	builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN
+	//	| typeOf=(KW_TYPEOF1 | KW_TYPEOF2 | KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression)
+	//	SKW_RIGHTPAREN) | builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN
 	//	constExpr=ConstantExpression SKW_COMMA
 	//	expr1=ConstantExpression SKW_COMMA
 	//	expr2=ConstantExpression
@@ -7474,8 +7481,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tKW_TYPEOF1;
 	}
 	
+	//terminal KW_TYPEOF2:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_TYPEOF1;
+	public TerminalRule getKW_TYPEOF2Rule() {
+		return tKW_TYPEOF2;
+	}
+	
 	//terminal KW_TYPEOF3:
-	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_TYPEOF1 SKW_UNDERSCORE SKW_UNDERSCORE;
+	//	KW_TYPEOF2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_TYPEOF3Rule() {
 		return tKW_TYPEOF3;
 	}

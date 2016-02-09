@@ -15,7 +15,15 @@ KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
 			FLOAT_LITERAL
 		SKW_RIGHTPAREN
 	SKW_RIGHTPAREN 
-SKW_SEMI NEWLINE
+	SKW_SEMI NEWLINE
+KW_TYPEOF2 SKW_LEFTPAREN
+		KW_BUILTIN_CHOOSE_EXPR SKW_LEFTPAREN 
+			DECIMAL_LITERAL SKW_COMMA WHITESPACE
+			DECIMAL_LITERAL SKW_COMMA WHITESPACE
+			FLOAT_LITERAL
+		SKW_RIGHTPAREN
+	SKW_RIGHTPAREN WHITESPACE ID
+	SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
 	//(common::TranslationUnit 
@@ -80,6 +88,62 @@ SKW_SEMI NEWLINE
 								)
 							) // end expression
 						) // end initializer
+					)
+				)
+			)
+		),
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						typeOf++"__typeof",
+						typeName=
+						(TypeName
+							list=
+							(SpecifierQualifierList
+								typeSpecifier+=
+								(TypeSpecifier
+									builtinChooseExpr?=true,
+									constExpr=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"0"
+										)
+									),
+									expr1=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"0"
+										)
+									),
+									expr2=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											float++"1.5"
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"m"
+							)
+						)
 					)
 				)
 			)

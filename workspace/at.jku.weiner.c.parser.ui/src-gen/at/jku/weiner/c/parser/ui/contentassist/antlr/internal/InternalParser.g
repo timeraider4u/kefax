@@ -3881,9 +3881,18 @@ rule__TypeSpecifier__TypeOfAlternatives_22_0_0
 
     |
 (
-{ before(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1()); }
+{ before(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1()); }
+	RULE_KW_TYPEOF2
+{ after(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2()); }
 	RULE_KW_TYPEOF3
-{ after(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1()); }
+{ after(grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2()); }
 )
 
 
@@ -28494,7 +28503,9 @@ RULE_KW_TYPEDEF : 'typedef';
 
 RULE_KW_TYPEOF1 : 'typeof';
 
-RULE_KW_TYPEOF3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_TYPEOF1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
+RULE_KW_TYPEOF2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_TYPEOF1;
+
+RULE_KW_TYPEOF3 : RULE_KW_TYPEOF2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_UNION : 'union';
 

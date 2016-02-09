@@ -1851,9 +1851,9 @@ this_SKW_RIGHTPAREN_24=RULE_SKW_RIGHTPAREN
         		"at.jku.weiner.c.parser.Parser.KW_TYPEOF1");
 	    }
 
-    |		lv_typeOf_28_2=RULE_KW_TYPEOF3
+    |		lv_typeOf_28_2=RULE_KW_TYPEOF2
 		{
-			newLeafNode(lv_typeOf_28_2, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1()); 
+			newLeafNode(lv_typeOf_28_2, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF2TerminalRuleCall_22_0_0_1()); 
 		}
 		{
 	        if ($current==null) {
@@ -1863,6 +1863,21 @@ this_SKW_RIGHTPAREN_24=RULE_SKW_RIGHTPAREN
        			$current, 
        			"typeOf",
         		lv_typeOf_28_2, 
+        		"at.jku.weiner.c.parser.Parser.KW_TYPEOF2");
+	    }
+
+    |		lv_typeOf_28_3=RULE_KW_TYPEOF3
+		{
+			newLeafNode(lv_typeOf_28_3, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_2()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"typeOf",
+        		lv_typeOf_28_3, 
         		"at.jku.weiner.c.parser.Parser.KW_TYPEOF3");
 	    }
 
@@ -13041,7 +13056,9 @@ RULE_KW_TYPEDEF : 'typedef';
 
 RULE_KW_TYPEOF1 : 'typeof';
 
-RULE_KW_TYPEOF3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_TYPEOF1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
+RULE_KW_TYPEOF2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_TYPEOF1;
+
+RULE_KW_TYPEOF3 : RULE_KW_TYPEOF2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_UNION : 'union';
 

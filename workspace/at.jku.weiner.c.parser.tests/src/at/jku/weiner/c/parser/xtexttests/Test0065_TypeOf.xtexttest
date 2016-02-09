@@ -9,8 +9,10 @@ source file="res/Test0065_TypeOf.c"
 lexer-tokens
 KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 KW_TYPEOF1 SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID SKW_SEMI NEWLINE
+KW_TYPEOF2 SKW_LEFTPAREN 
+	ID 
+	SKW_RIGHTPAREN WHITESPACE ID SKW_SEMI NEWLINE
 KW_TYPEOF3 SKW_LEFTPAREN 
-	//KW_INT WHITESPACE SKW_STAR
 	ID 
 	SKW_RIGHTPAREN WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
@@ -81,7 +83,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
-						typeOf++"__typeof__",
+						typeOf++"__typeof",
 						constExpr=
 						(PrimaryExpression
 							id++"j"
@@ -97,6 +99,35 @@ KW_TYPEOF3 SKW_LEFTPAREN
 							declarator=
 							(DirectDeclarator
 								id++"k"
+							)
+						)
+					)
+				)
+			)
+		),
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						typeOf++"__typeof__",
+						constExpr=
+						(PrimaryExpression
+							id++"k"
+						)
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"m"
 							)
 						)
 					)

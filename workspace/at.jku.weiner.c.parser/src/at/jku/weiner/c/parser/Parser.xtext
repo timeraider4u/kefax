@@ -472,7 +472,11 @@ Initializer:
 	{Initializer}
 	(
 		expr=AssignmentExpression
-	|	SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE
+	|	SKW_LEFTBRACE
+			// empty initializer list is a GNU C extension
+			// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+			(list=InitializerList)? 
+			lastComma?=SKW_COMMA? SKW_RIGHTBRACE
 	)
 ;
 

@@ -2554,16 +2554,24 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Initializer:
 		//	{Initializer} (expr=AssignmentExpression
-		//	| SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
+		//	| SKW_LEFTBRACE
+		//	// empty initializer list is a GNU C extension
+		//	// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+		//	list=InitializerList?
+		//	lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Initializer} (expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
+		//{Initializer} (expr=AssignmentExpression | SKW_LEFTBRACE // empty initializer list is a GNU C extension
+		//// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+		//list=InitializerList? lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
 		public Group getGroup() { return cGroup; }
 		
 		//{Initializer}
 		public Action getInitializerAction_0() { return cInitializerAction_0; }
 		
-		//(expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
+		//(expr=AssignmentExpression | SKW_LEFTBRACE // empty initializer list is a GNU C extension
+		//// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+		//list=InitializerList? lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//expr=AssignmentExpression
@@ -2572,13 +2580,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//AssignmentExpression
 		public RuleCall getExprAssignmentExpressionParserRuleCall_1_0_0() { return cExprAssignmentExpressionParserRuleCall_1_0_0; }
 		
-		//SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE
+		//SKW_LEFTBRACE // empty initializer list is a GNU C extension
+		//// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+		//list=InitializerList? lastComma?=SKW_COMMA? SKW_RIGHTBRACE
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//SKW_LEFTBRACE
 		public RuleCall getSKW_LEFTBRACETerminalRuleCall_1_1_0() { return cSKW_LEFTBRACETerminalRuleCall_1_1_0; }
 		
-		//list=InitializerList
+		//// empty initializer list is a GNU C extension
+		//// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+		//list=InitializerList?
 		public Assignment getListAssignment_1_1_1() { return cListAssignment_1_1_1; }
 		
 		//InitializerList
@@ -6414,7 +6426,11 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Initializer:
 	//	{Initializer} (expr=AssignmentExpression
-	//	| SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
+	//	| SKW_LEFTBRACE
+	//	// empty initializer list is a GNU C extension
+	//	// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+	//	list=InitializerList?
+	//	lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
 	public InitializerElements getInitializerAccess() {
 		return pInitializer;
 	}

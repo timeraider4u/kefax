@@ -13274,7 +13274,7 @@ rule__Initializer__Group_1_1__1__Impl
 
 (
 { before(grammarAccess.getInitializerAccess().getListAssignment_1_1_1()); }
-(rule__Initializer__ListAssignment_1_1_1)
+(rule__Initializer__ListAssignment_1_1_1)?
 { after(grammarAccess.getInitializerAccess().getListAssignment_1_1_1()); }
 )
 

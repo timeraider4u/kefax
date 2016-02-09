@@ -911,7 +911,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=AssignmentExpression | (list=InitializerList lastComma?=SKW_COMMA?))
+	 *     (expr=AssignmentExpression | (list=InitializerList? lastComma?=SKW_COMMA?))
 	 */
 	protected void sequence_Initializer(EObject context, Initializer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

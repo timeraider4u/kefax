@@ -390,9 +390,8 @@ class ParserGenerator implements IGenerator {
 	def String outputFor(Initializer obj) '''
 		«IF obj.expr != null»
 			«outputFor(obj.expr)»
-		«ENDIF»
-		«IF obj.list != null»
-			{	«outputFor(obj.list)» }
+		«ELSE»
+			{«IF obj.list != null»«outputFor(obj.list)» «ENDIF»}
 		«ENDIF»
 	'''
 	

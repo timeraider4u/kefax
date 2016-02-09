@@ -1,29 +1,11 @@
 High priority:
-	- kate arch/x86/include/asm/asm.h
-	- kate arch/x86/include/asm/alternative.h
-	- kate ./arch/x86/include/asm/rwsem.h
 
-	actual		".popsection\n" "671:" "\n\tlock; " " " "" " "incqincl "(%1)\n\t"
-!=	expected	" " "incq" " "
-
-_ASM_INC
-#define _ASM_INC	__ASM_SIZE(inc)
-#define __ASM_SIZE(inst, ...)	__ASM_SEL(inst##l##__VA_ARGS__, \
-					  inst##q##__VA_ARGS__)
-__ASM_SIZE(inc) = __ASM_SEL(incl, \
-					  incq)
-# define __ASM_SEL(a,b) __ASM_FORM(b)
-
-__ASM_SEL(incl, incq) => __ASM_FORM(incq)
-
-# define __ASM_FORM(x)	" " #x " "
-
-" " "incq" " "
+	error during validation of unit='[ERROR:no viable alternative at input 'include_next'
+	(file:/usr/include/limits.h line : 123)]'
 
 
 	- http://slps.github.io/zoo/c/malton-dahn.html#attribute_spec
 	
 Low priority:
 	- Fixes for failing JUnit tests in at.jku.weiner.c.preprocess.tests
-			- Test0102_DefSamePattern
 

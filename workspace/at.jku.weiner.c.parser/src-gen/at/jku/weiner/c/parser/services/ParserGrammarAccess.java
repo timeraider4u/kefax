@@ -4002,18 +4002,22 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCExprConditionalExpressionParserRuleCall_1_4_0 = (RuleCall)cCExprAssignment_1_4.eContents().get(0);
 		
 		//ConditionalExpression Expression:
-		//	LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION qExpr=Expression SKW_COLON
+		//	LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION
+		//	// omitted qExpr is GNU c extension
+		//	qExpr=Expression?
+		//	SKW_COLON
 		//	cExpr=ConditionalExpression)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION qExpr=Expression SKW_COLON
-		//cExpr=ConditionalExpression)?
+		//LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION // omitted qExpr is GNU c extension
+		//qExpr=Expression? SKW_COLON cExpr=ConditionalExpression)?
 		public Group getGroup() { return cGroup; }
 		
 		//LogicalOrExpression
 		public RuleCall getLogicalOrExpressionParserRuleCall_0() { return cLogicalOrExpressionParserRuleCall_0; }
 		
-		//({ConditionalExpression.left=current} SKW_QUESTION qExpr=Expression SKW_COLON cExpr=ConditionalExpression)?
+		//({ConditionalExpression.left=current} SKW_QUESTION // omitted qExpr is GNU c extension
+		//qExpr=Expression? SKW_COLON cExpr=ConditionalExpression)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{ConditionalExpression.left=current}
@@ -4022,7 +4026,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_QUESTION
 		public RuleCall getSKW_QUESTIONTerminalRuleCall_1_1() { return cSKW_QUESTIONTerminalRuleCall_1_1; }
 		
-		//qExpr=Expression
+		//// omitted qExpr is GNU c extension
+		//qExpr=Expression?
 		public Assignment getQExprAssignment_1_2() { return cQExprAssignment_1_2; }
 		
 		//Expression
@@ -6693,7 +6698,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConditionalExpression Expression:
-	//	LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION qExpr=Expression SKW_COLON
+	//	LogicalOrExpression ({ConditionalExpression.left=current} SKW_QUESTION
+	//	// omitted qExpr is GNU c extension
+	//	qExpr=Expression?
+	//	SKW_COLON
 	//	cExpr=ConditionalExpression)?
 	public ConditionalExpressionElements getConditionalExpressionAccess() {
 		return pConditionalExpression;

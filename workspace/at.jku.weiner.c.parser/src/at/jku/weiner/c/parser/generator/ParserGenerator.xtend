@@ -664,7 +664,7 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputForConditionalExpression(ConditionalExpression obj) '''
 		«outputFor(obj.left)»
-		?«outputFor(obj.QExpr)»:
+		?«IF obj.QExpr != null»«outputFor(obj.QExpr)»«ENDIF»:
 		«outputFor(obj.CExpr)»
 	'''
 	

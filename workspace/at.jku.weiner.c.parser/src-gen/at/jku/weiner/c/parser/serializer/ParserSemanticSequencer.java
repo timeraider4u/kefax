@@ -554,7 +554,10 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (left=ConditionalExpression_ConditionalExpression_1_0 qExpr=Expression cExpr=ConditionalExpression)
+	 *     (
+	 *         (left=ConditionalExpression_ConditionalExpression_1_0 qExpr=Expression? cExpr=ConditionalExpression) | 
+	 *         (left=ConditionalExpression_ConditionalExpression_1_0 cExpr=ConditionalExpression)
+	 *     )
 	 */
 	protected void sequence_ConditionalExpression(EObject context, ConditionalExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

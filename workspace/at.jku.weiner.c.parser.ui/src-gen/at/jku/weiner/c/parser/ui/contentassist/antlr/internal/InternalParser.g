@@ -18412,7 +18412,7 @@ rule__ConditionalExpression__Group_1__2__Impl
 
 (
 { before(grammarAccess.getConditionalExpressionAccess().getQExprAssignment_1_2()); }
-(rule__ConditionalExpression__QExprAssignment_1_2)
+(rule__ConditionalExpression__QExprAssignment_1_2)?
 { after(grammarAccess.getConditionalExpressionAccess().getQExprAssignment_1_2()); }
 )
 

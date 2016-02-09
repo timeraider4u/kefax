@@ -679,7 +679,10 @@ AssignmentOperator:
 ConditionalExpression returns Expression:
 	LogicalOrExpression
 	({ConditionalExpression.left=current}
-		SKW_QUESTION qExpr=Expression SKW_COLON
+		SKW_QUESTION 
+			// omitted qExpr is GNU c extension
+		(qExpr=Expression)?
+		SKW_COLON
 		cExpr=ConditionalExpression
 	)?
 ;

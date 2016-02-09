@@ -1,0 +1,131 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0083_ConditionalsOmittedOperands.c"
+//----------------------------------------------------------------------
+lexer-tokens
+LINE_COMMENT NEWLINE
+LINE_COMMENT NEWLINE
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE 
+	DECIMAL_LITERAL WHITESPACE SKW_QUESTION WHITESPACE
+	DECIMAL_LITERAL WHITESPACE SKW_COLON WHITESPACE
+	DECIMAL_LITERAL SKW_SEMI NEWLINE
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE 
+	DECIMAL_LITERAL WHITESPACE SKW_QUESTION WHITESPACE
+	SKW_COLON WHITESPACE
+	DECIMAL_LITERAL SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(ConditionalExpression
+								left=
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										dec++"0"
+									)
+								),
+								qExpr=
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										dec++"0"
+									)
+								),// end qExpr-expression
+								cExpr=
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										dec++"1"
+									)
+								)
+							) // end expression
+						) // end initializer
+					)
+				)
+			)
+		), // end external declaration
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"j"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(ConditionalExpression
+								left=
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										dec++"0"
+									)
+								),
+								qExpr isNull,// end qExpr-expression
+								cExpr=
+								(PrimaryExpression
+									const=
+									(common::Constant2
+										dec++"1"
+									)
+								)
+							) // end expression
+						) // end initializer
+					)
+				)
+			)
+		) // end external declaration
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0083_ConditionalsOmittedOperands.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -1,0 +1,95 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0085_BuiltinChooseExpr.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+	KW_SIZEOF SKW_LEFTPAREN
+		KW_BUILTIN_CHOOSE_EXPR SKW_LEFTPAREN 
+			DECIMAL_LITERAL SKW_COMMA WHITESPACE
+			DECIMAL_LITERAL SKW_COMMA WHITESPACE
+			FLOAT_LITERAL
+		SKW_RIGHTPAREN
+	SKW_RIGHTPAREN 
+SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"long"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"l"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(UnaryExpression
+								sizeOf++"sizeof",
+								typeName=
+								(TypeName
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											builtinChooseExpr?=true,
+											constExpr=
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"0"
+												)
+											),
+											expr1=
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													dec++"0"
+												)
+											),
+											expr2=
+											(PrimaryExpression
+												const=
+												(common::Constant2
+													float++"1.5"
+												)
+											)
+										)
+									)
+								)
+							) // end expression
+						) // end initializer
+					)
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0085_BuiltinChooseExpr.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

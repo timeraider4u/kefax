@@ -1,4 +1,4 @@
-FILE="../tests/test0081.c"
+FILE="../tests/test0085.c"
 
 CP="../libs/antlr-4.5.1-complete.jar:."
 java -cp ${CP} org.antlr.v4.Tool C.g4 && \

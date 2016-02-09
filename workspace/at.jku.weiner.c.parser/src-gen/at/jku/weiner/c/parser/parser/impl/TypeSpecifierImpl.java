@@ -32,6 +32,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getTypeOf <em>Type Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getConstExpr <em>Const Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr1 <em>Expr1</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr2 <em>Expr2</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,6 +141,46 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * @ordered
    */
   protected Expression constExpr;
+
+  /**
+   * The default value of the '{@link #isBuiltinChooseExpr() <em>Builtin Choose Expr</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltinChooseExpr()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean BUILTIN_CHOOSE_EXPR_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isBuiltinChooseExpr() <em>Builtin Choose Expr</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltinChooseExpr()
+   * @generated
+   * @ordered
+   */
+  protected boolean builtinChooseExpr = BUILTIN_CHOOSE_EXPR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpr1() <em>Expr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr1()
+   * @generated
+   * @ordered
+   */
+  protected Expression expr1;
+
+  /**
+   * The cached value of the '{@link #getExpr2() <em>Expr2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr2()
+   * @generated
+   * @ordered
+   */
+  protected Expression expr2;
 
   /**
    * <!-- begin-user-doc -->
@@ -426,6 +469,125 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isBuiltinChooseExpr()
+  {
+    return builtinChooseExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBuiltinChooseExpr(boolean newBuiltinChooseExpr)
+  {
+    boolean oldBuiltinChooseExpr = builtinChooseExpr;
+    builtinChooseExpr = newBuiltinChooseExpr;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR, oldBuiltinChooseExpr, builtinChooseExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpr1()
+  {
+    return expr1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr1(Expression newExpr1, NotificationChain msgs)
+  {
+    Expression oldExpr1 = expr1;
+    expr1 = newExpr1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__EXPR1, oldExpr1, newExpr1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr1(Expression newExpr1)
+  {
+    if (newExpr1 != expr1)
+    {
+      NotificationChain msgs = null;
+      if (expr1 != null)
+        msgs = ((InternalEObject)expr1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__EXPR1, null, msgs);
+      if (newExpr1 != null)
+        msgs = ((InternalEObject)newExpr1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__EXPR1, null, msgs);
+      msgs = basicSetExpr1(newExpr1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__EXPR1, newExpr1, newExpr1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpr2()
+  {
+    return expr2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr2(Expression newExpr2, NotificationChain msgs)
+  {
+    Expression oldExpr2 = expr2;
+    expr2 = newExpr2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__EXPR2, oldExpr2, newExpr2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr2(Expression newExpr2)
+  {
+    if (newExpr2 != expr2)
+    {
+      NotificationChain msgs = null;
+      if (expr2 != null)
+        msgs = ((InternalEObject)expr2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__EXPR2, null, msgs);
+      if (newExpr2 != null)
+        msgs = ((InternalEObject)newExpr2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__EXPR2, null, msgs);
+      msgs = basicSetExpr2(newExpr2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__EXPR2, newExpr2, newExpr2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -439,6 +601,10 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return basicSetTypeName(null, msgs);
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return basicSetConstExpr(null, msgs);
+      case ParserPackage.TYPE_SPECIFIER__EXPR1:
+        return basicSetExpr1(null, msgs);
+      case ParserPackage.TYPE_SPECIFIER__EXPR2:
+        return basicSetExpr2(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -467,6 +633,12 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return getTypeName();
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return getConstExpr();
+      case ParserPackage.TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR:
+        return isBuiltinChooseExpr();
+      case ParserPackage.TYPE_SPECIFIER__EXPR1:
+        return getExpr1();
+      case ParserPackage.TYPE_SPECIFIER__EXPR2:
+        return getExpr2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -501,6 +673,15 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return;
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         setConstExpr((Expression)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR:
+        setBuiltinChooseExpr((Boolean)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__EXPR1:
+        setExpr1((Expression)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__EXPR2:
+        setExpr2((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -537,6 +718,15 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         setConstExpr((Expression)null);
         return;
+      case ParserPackage.TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR:
+        setBuiltinChooseExpr(BUILTIN_CHOOSE_EXPR_EDEFAULT);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__EXPR1:
+        setExpr1((Expression)null);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__EXPR2:
+        setExpr2((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -565,6 +755,12 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return typeName != null;
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return constExpr != null;
+      case ParserPackage.TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR:
+        return builtinChooseExpr != BUILTIN_CHOOSE_EXPR_EDEFAULT;
+      case ParserPackage.TYPE_SPECIFIER__EXPR1:
+        return expr1 != null;
+      case ParserPackage.TYPE_SPECIFIER__EXPR2:
+        return expr2 != null;
     }
     return super.eIsSet(featureID);
   }
@@ -586,6 +782,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     result.append(extType);
     result.append(", typeOf: ");
     result.append(typeOf);
+    result.append(", builtinChooseExpr: ");
+    result.append(builtinChooseExpr);
     result.append(')');
     return result.toString();
   }

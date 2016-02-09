@@ -1136,6 +1136,36 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTypeSpecifier_BuiltinChooseExpr()
+  {
+    return (EAttribute)typeSpecifierEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSpecifier_Expr1()
+  {
+    return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSpecifier_Expr2()
+  {
+    return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypedefName()
   {
     return typedefNameEClass;
@@ -3673,6 +3703,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__TYPE_OF);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__TYPE_NAME);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__CONST_EXPR);
+    createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR);
+    createEReference(typeSpecifierEClass, TYPE_SPECIFIER__EXPR1);
+    createEReference(typeSpecifierEClass, TYPE_SPECIFIER__EXPR2);
 
     typedefNameEClass = createEClass(TYPEDEF_NAME);
     createEAttribute(typedefNameEClass, TYPEDEF_NAME__ID);
@@ -4114,6 +4147,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getTypeSpecifier_TypeOf(), theEcorePackage.getEString(), "typeOf", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_ConstExpr(), this.getExpression(), null, "constExpr", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeSpecifier_BuiltinChooseExpr(), theEcorePackage.getEBoolean(), "builtinChooseExpr", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSpecifier_Expr1(), this.getExpression(), null, "expr1", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSpecifier_Expr2(), this.getExpression(), null, "expr2", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedefNameEClass, TypedefName.class, "TypedefName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypedefName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

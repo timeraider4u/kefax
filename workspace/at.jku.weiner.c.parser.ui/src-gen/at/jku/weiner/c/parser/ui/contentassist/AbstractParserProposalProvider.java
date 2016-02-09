@@ -89,6 +89,15 @@ public class AbstractParserProposalProvider extends at.jku.weiner.c.common.ui.co
 	public void completeTypeSpecifier_ConstExpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeTypeSpecifier_BuiltinChooseExpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypeSpecifier_Expr1(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypeSpecifier_Expr2(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
 	public void completeTypedefName_Id(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
@@ -801,6 +810,9 @@ public class AbstractParserProposalProvider extends at.jku.weiner.c.common.ui.co
 		// subclasses may override
 	}
 	public void complete_KW_BREAK(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_KW_BUILTIN_CHOOSE_EXPR(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 	public void complete_KW_BUILTIN_VA_LIST(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

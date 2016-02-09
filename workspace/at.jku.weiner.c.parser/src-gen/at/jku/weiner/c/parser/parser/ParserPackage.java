@@ -447,13 +447,40 @@ public interface ParserPackage extends EPackage
   int TYPE_SPECIFIER__CONST_EXPR = 6;
 
   /**
+   * The feature id for the '<em><b>Builtin Choose Expr</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR = 7;
+
+  /**
+   * The feature id for the '<em><b>Expr1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__EXPR1 = 8;
+
+  /**
+   * The feature id for the '<em><b>Expr2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__EXPR2 = 9;
+
+  /**
    * The number of structural features of the '<em>Type Specifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER_FEATURE_COUNT = 7;
+  int TYPE_SPECIFIER_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl <em>Typedef Name</em>}' class.
@@ -4210,6 +4237,39 @@ public interface ParserPackage extends EPackage
   EReference getTypeSpecifier_ConstExpr();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Builtin Choose Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#isBuiltinChooseExpr()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EAttribute getTypeSpecifier_BuiltinChooseExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr1 <em>Expr1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr1</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr1()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EReference getTypeSpecifier_Expr1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2 <em>Expr2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr2</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EReference getTypeSpecifier_Expr2();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.TypedefName <em>Typedef Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7153,6 +7213,30 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference TYPE_SPECIFIER__CONST_EXPR = eINSTANCE.getTypeSpecifier_ConstExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Builtin Choose Expr</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR = eINSTANCE.getTypeSpecifier_BuiltinChooseExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expr1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPECIFIER__EXPR1 = eINSTANCE.getTypeSpecifier_Expr1();
+
+    /**
+     * The meta object literal for the '<em><b>Expr2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPECIFIER__EXPR2 = eINSTANCE.getTypeSpecifier_Expr2();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl <em>Typedef Name</em>}' class.

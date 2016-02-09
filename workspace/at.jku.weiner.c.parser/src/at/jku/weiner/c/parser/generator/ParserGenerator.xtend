@@ -224,6 +224,9 @@ class ParserGenerator implements IGenerator {
 			«IF spec.constExpr != null»«outputFor(spec.constExpr)»«ENDIF»
 			«IF spec.typeName != null»«outputFor(spec.typeName)»«ENDIF»
 		)«ENDIF»
+		«IF spec.builtinChooseExpr»__builtin_choose_expr(
+			«outputFor(spec.constExpr)», «outputFor(spec.expr1)», «outputFor(spec.expr2)»
+		)«ENDIF»
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''

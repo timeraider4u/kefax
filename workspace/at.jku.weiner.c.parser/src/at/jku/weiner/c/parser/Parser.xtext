@@ -198,9 +198,15 @@ TypeSpecifier:
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
 	|	typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
-			SKW_LEFTPAREN 
+			(SKW_LEFTPAREN 
 			(typeName=TypeName | constExpr=ConstantExpression) 
-			SKW_RIGHTPAREN // GCC extension
+			SKW_RIGHTPAREN) // GCC extension
+	|	builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR 
+			(SKW_LEFTPAREN 
+				constExpr=ConstantExpression SKW_COMMA
+				expr1=ConstantExpression SKW_COMMA
+				expr2=ConstantExpression
+			SKW_RIGHTPAREN) // GCC extension
 ;
 
 TypedefName:
@@ -913,6 +919,7 @@ terminal KW_ASM2: SKW_UNDERSCORE SKW_UNDERSCORE KW_ASM1;
 terminal KW_ASM3: KW_ASM2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_BOOL : SKW_UNDERSCORE 'Bool';
 terminal KW_BREAK : 'break';
+terminal KW_BUILTIN_CHOOSE_EXPR: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_choose_expr';
 terminal KW_BUILTIN_VA_LIST: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 terminal KW_BUILTIN_OFFSETOF: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
 terminal KW_BUILTIN_TYPESCOMPATIBLEP: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_types_compatible_p';

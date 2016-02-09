@@ -38,6 +38,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getARROWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEllipsisRule())
 			return getEllipsisToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_BUILTIN_CHOOSE_EXPRRule())
+			return getKW_BUILTIN_CHOOSE_EXPRToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_BUILTIN_OFFSETOFRule())
 			return getKW_BUILTIN_OFFSETOFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_BUILTIN_TYPESCOMPATIBLEPRule())
@@ -113,6 +115,15 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ".";
+	}
+	
+	/**
+	 * terminal KW_BUILTIN_CHOOSE_EXPR: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_choose_expr';
+	 */
+	protected String getKW_BUILTIN_CHOOSE_EXPRToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "_builtin_choose_expr";
 	}
 	
 	/**

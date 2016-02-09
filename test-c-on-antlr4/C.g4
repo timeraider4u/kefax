@@ -235,6 +235,8 @@ typeSpecifier
     |   enumSpecifier
     |   typedefName
     |   '__typeof__' '(' constantExpression ')' // GCC extension
+	|	'__builtin_choose_expr' '(' constantExpression ',' expression 
+			',' expression ')' // GCC extension
     ;
 
 structOrUnionSpecifier

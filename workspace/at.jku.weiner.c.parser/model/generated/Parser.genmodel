@@ -49,6 +49,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/typeOf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/typeName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/constExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/builtinChooseExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/expr1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/expr2"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypedefName/id"/>

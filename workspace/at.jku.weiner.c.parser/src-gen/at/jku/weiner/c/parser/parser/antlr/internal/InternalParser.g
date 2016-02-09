@@ -1872,9 +1872,10 @@ this_SKW_RIGHTPAREN_24=RULE_SKW_RIGHTPAREN
 )
 
 
+(
 this_SKW_LEFTPAREN_29=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_29, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_22_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_29, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_22_1_0()); 
     }
 
 
@@ -1883,7 +1884,7 @@ this_SKW_LEFTPAREN_29=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeNameTypeNameParserRuleCall_22_2_0_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeNameTypeNameParserRuleCall_22_1_1_0_0()); 
 	    }
 		lv_typeName_30_0=ruleTypeName		{
 	        if ($current==null) {
@@ -1905,7 +1906,7 @@ this_SKW_LEFTPAREN_29=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_22_2_1_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_22_1_1_1_0()); 
 	    }
 		lv_constExpr_31_0=ruleConstantExpression		{
 	        if ($current==null) {
@@ -1927,9 +1928,130 @@ this_SKW_LEFTPAREN_29=RULE_SKW_LEFTPAREN
 
 this_SKW_RIGHTPAREN_32=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_32, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_22_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_32, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_22_1_2()); 
     }
 
+
+)
+
+)
+
+
+    |
+(
+(
+(
+		lv_builtinChooseExpr_33_0=RULE_KW_BUILTIN_CHOOSE_EXPR
+		{
+			newLeafNode(lv_builtinChooseExpr_33_0, grammarAccess.getTypeSpecifierAccess().getBuiltinChooseExprKW_BUILTIN_CHOOSE_EXPRTerminalRuleCall_23_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"builtinChooseExpr",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_BUILTIN_CHOOSE_EXPR");
+	    }
+
+)
+)
+
+
+(
+this_SKW_LEFTPAREN_34=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_34, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_23_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_23_1_1_0()); 
+	    }
+		lv_constExpr_35_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"constExpr",
+        		lv_constExpr_35_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_COMMA_36=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_36, grammarAccess.getTypeSpecifierAccess().getSKW_COMMATerminalRuleCall_23_1_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getExpr1ConstantExpressionParserRuleCall_23_1_3_0()); 
+	    }
+		lv_expr1_37_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"expr1",
+        		lv_expr1_37_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_COMMA_38=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_38, grammarAccess.getTypeSpecifierAccess().getSKW_COMMATerminalRuleCall_23_1_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getExpr2ConstantExpressionParserRuleCall_23_1_5_0()); 
+	    }
+		lv_expr2_39_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"expr2",
+        		lv_expr2_39_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_40=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_40, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_23_1_6()); 
+    }
+
+
+)
 
 )
 
@@ -12816,6 +12938,8 @@ RULE_KW_ASM3 : RULE_KW_ASM2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 RULE_KW_BOOL : RULE_SKW_UNDERSCORE 'Bool';
 
 RULE_KW_BREAK : 'break';
+
+RULE_KW_BUILTIN_CHOOSE_EXPR : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_choose_expr';
 
 RULE_KW_BUILTIN_VA_LIST : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_va_list';
 

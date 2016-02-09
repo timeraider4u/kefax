@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeOf <em>Type Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getConstExpr <em>Const Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr1 <em>Expr1</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2 <em>Expr2</em>}</li>
  * </ul>
  * </p>
  *
@@ -209,5 +212,83 @@ public interface TypeSpecifier extends EObject
    * @generated
    */
   void setConstExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Builtin Choose Expr</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Builtin Choose Expr</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Builtin Choose Expr</em>' attribute.
+   * @see #setBuiltinChooseExpr(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_BuiltinChooseExpr()
+   * @model
+   * @generated
+   */
+  boolean isBuiltinChooseExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Builtin Choose Expr</em>' attribute.
+   * @see #isBuiltinChooseExpr()
+   * @generated
+   */
+  void setBuiltinChooseExpr(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Expr1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr1</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr1</em>' containment reference.
+   * @see #setExpr1(Expression)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_Expr1()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpr1();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr1 <em>Expr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr1</em>' containment reference.
+   * @see #getExpr1()
+   * @generated
+   */
+  void setExpr1(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Expr2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr2</em>' containment reference.
+   * @see #setExpr2(Expression)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_Expr2()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpr2();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2 <em>Expr2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr2</em>' containment reference.
+   * @see #getExpr2()
+   * @generated
+   */
+  void setExpr2(Expression value);
 
 } // TypeSpecifier

@@ -3,12 +3,14 @@ package at.jku.weiner.kefax.main.work;
 import java.io.File;
 
 public final class Settings {
+	public static final String TMP_WORK_DIR = "tmp-discover";
 	protected static final String HOME = System.getProperty("user.home");
 	protected static final String DEFAULT = Settings.HOME + "/Private";
 	// protected static final String DEFAULT = "/home/harry/Private";
 	// protected static final String DEFAULT_LINUX = "/usr/src/linux/";
-	protected static final String DEFAULT_LINUX = Settings.DEFAULT
-			+ "/linux-3.18/";
+	public static final String LINUX = "linux-3.18";
+	protected static final String DEFAULT_LINUX = Settings.DEFAULT + "/"
+			+ Settings.LINUX + "/";
 	protected static final String DEFAULT_OUT = Settings.DEFAULT + "/out/";
 
 	protected static final File DEFAULT_LINUX_DIR = new File(

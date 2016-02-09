@@ -1,4 +1,4 @@
-package at.jku.weiner.kefax.main;
+package at.jku.weiner.kefax.main.menu;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

@@ -14,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
@@ -90,7 +89,7 @@ public class Main {
 		final String cmdPath = cmdRes.getLocationURI().toString();
 		MyLog.log(Main.class, "cmdPath='" + cmdPath + "'");
 		// Linux project
-		final IProject linux = root.getProject("linux-3.18");
+		final IProject linux = root.getProject(Settings.LINUX);
 		if (linux == null) {
 			this.error("could not find linux project in workspace!");
 		}
@@ -161,7 +160,8 @@ public class Main {
 			discoverer.setAdditionalDirectives(additionalDirectives);
 			discoverer.setTrimPreprocessModel(true);
 
-			final SubProgressMonitor subMonitor = new SubProgressMonitor(monitor, 100);
+			final SubProgressMonitor subMonitor = new SubProgressMonitor(
+					monitor, 100);
 			// final SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			discoverer.discoverElement(inFileRes, subMonitor);
 		}

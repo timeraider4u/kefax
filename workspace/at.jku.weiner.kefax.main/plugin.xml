@@ -4,12 +4,12 @@
   <extension
         point="org.eclipse.ui.commands">
      <command
-           defaultHandler="at.jku.weiner.kefax.main.MainHandler"
+           defaultHandler="at.jku.weiner.kefax.main.menu.MainHandler"
            id="at.jku.weiner.kefax.main.command"
            name="MainCommand">
      </command>
      <command
-		      defaultHandler="at.jku.weiner.kefax.main.SetLogLevelCommand"
+		      defaultHandler="at.jku.weiner.kefax.main.menu.SetLogLevelCommand"
 		      id="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
 		      name="Set log level">
 		   <commandParameter
@@ -22,7 +22,7 @@
 		        <class class="org.eclipse.ui.handlers.RadioState">
 		        	<parameter
 		               name="default"
-		               value="LOG_LEVEL_NONE">
+		               value="LOG_LEVEL_ERROR">
 		        	</parameter>
 		        	<parameter
 		               name="persisted"
@@ -31,6 +31,11 @@
 		        </class>
 		   </state>
 	</command>
+     <command
+           defaultHandler="at.jku.weiner.kefax.main.menu.CleanUpCommand"
+           id="at.jku.weiner.kefax.main.menu.cleanup"
+           name="CleanUp">
+     </command>
   </extension>
   <extension
         point="org.eclipse.ui.menus">
@@ -97,6 +102,11 @@
 			         </parameter>
 			      </command> 
            </menu>
+           <command
+                 commandId="at.jku.weiner.kefax.main.menu.cleanup"
+                 label="Clean up tmp-discovery directory"
+                 style="push">
+           </command>
         </menu>
      </menuContribution>
   </extension>

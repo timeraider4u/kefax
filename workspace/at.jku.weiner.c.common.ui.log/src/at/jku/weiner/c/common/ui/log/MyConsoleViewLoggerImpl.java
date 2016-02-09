@@ -1,5 +1,8 @@
 package at.jku.weiner.c.common.ui.log;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
@@ -9,18 +12,38 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import at.jku.weiner.c.common.ui.log.service.MyConsoleViewLogger;
 
 public final class MyConsoleViewLoggerImpl implements MyConsoleViewLogger {
+
 	private static final String CONSOLE_NAME = "at.jku.weiner.common.ui.log";
 	private MessageConsole messageConsole = null;
 
 	@Override
-	public void log(final String msg) {
+	public void log(final String message) {
 		if (this.messageConsole == null) {
 			this.messageConsole = this
 					.findConsole(MyConsoleViewLoggerImpl.CONSOLE_NAME);
 		}
 		final MessageConsoleStream out = this.messageConsole.newMessageStream();
-		out.println(msg);
+		out.println(message);
 		this.messageConsole.activate();
+	}
+
+	@Override
+	public void error(final String message) {
+		if (this.messageConsole == null) {
+			this.messageConsole = this
+					.findConsole(MyConsoleViewLoggerImpl.CONSOLE_NAME);
+		}
+		final MessageConsoleStream out = this.messageConsole.newMessageStream();
+		Display.getDefault().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				Color red = Display.getDefault().getSystemColor(SWT.COLOR_RED);
+				out.setColor(red);
+				// out.setFontStyle(SWT.BOLD);
+				out.println(message);
+				MyConsoleViewLoggerImpl.this.messageConsole.activate();
+			}
+		});
 	}
 
 	private MessageConsole findConsole(final String name) {

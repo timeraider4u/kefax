@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isNostdinc <em>Nostdinc</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getInclude <em>Include</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getOut <em>Out</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getOption <em>Option</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getIn <em>In</em>}</li>
  * </ul>
@@ -138,6 +139,16 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * @ordered
    */
   protected PathCmd out;
+
+  /**
+   * The cached value of the '{@link #getLang() <em>Lang</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLang()
+   * @generated
+   * @ordered
+   */
+  protected PathCmd lang;
 
   /**
    * The default value of the '{@link #getOption() <em>Option</em>}' attribute.
@@ -466,6 +477,54 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
+  public PathCmd getLang()
+  {
+    return lang;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLang(PathCmd newLang, NotificationChain msgs)
+  {
+    PathCmd oldLang = lang;
+    lang = newLang;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__LANG, oldLang, newLang);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLang(PathCmd newLang)
+  {
+    if (newLang != lang)
+    {
+      NotificationChain msgs = null;
+      if (lang != null)
+        msgs = ((InternalEObject)lang).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__LANG, null, msgs);
+      if (newLang != null)
+        msgs = ((InternalEObject)newLang).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__LANG, null, msgs);
+      msgs = basicSetLang(newLang, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__LANG, newLang, newLang));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getOption()
   {
     return option;
@@ -525,6 +584,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return basicSetInclude(null, msgs);
       case CmdArgsPackage.ARGUMENT__OUT:
         return basicSetOut(null, msgs);
+      case CmdArgsPackage.ARGUMENT__LANG:
+        return basicSetLang(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -553,6 +614,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return getInclude();
       case CmdArgsPackage.ARGUMENT__OUT:
         return getOut();
+      case CmdArgsPackage.ARGUMENT__LANG:
+        return getLang();
       case CmdArgsPackage.ARGUMENT__OPTION:
         return getOption();
       case CmdArgsPackage.ARGUMENT__IN:
@@ -591,6 +654,9 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return;
       case CmdArgsPackage.ARGUMENT__OUT:
         setOut((PathCmd)newValue);
+        return;
+      case CmdArgsPackage.ARGUMENT__LANG:
+        setLang((PathCmd)newValue);
         return;
       case CmdArgsPackage.ARGUMENT__OPTION:
         setOption((String)newValue);
@@ -633,6 +699,9 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
       case CmdArgsPackage.ARGUMENT__OUT:
         setOut((PathCmd)null);
         return;
+      case CmdArgsPackage.ARGUMENT__LANG:
+        setLang((PathCmd)null);
+        return;
       case CmdArgsPackage.ARGUMENT__OPTION:
         setOption(OPTION_EDEFAULT);
         return;
@@ -667,6 +736,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return include != null;
       case CmdArgsPackage.ARGUMENT__OUT:
         return out != null;
+      case CmdArgsPackage.ARGUMENT__LANG:
+        return lang != null;
       case CmdArgsPackage.ARGUMENT__OPTION:
         return OPTION_EDEFAULT == null ? option != null : !OPTION_EDEFAULT.equals(option);
       case CmdArgsPackage.ARGUMENT__IN:

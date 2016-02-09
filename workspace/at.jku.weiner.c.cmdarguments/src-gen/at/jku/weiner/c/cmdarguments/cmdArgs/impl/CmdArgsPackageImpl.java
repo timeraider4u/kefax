@@ -272,9 +272,19 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArgument_Lang()
+  {
+    return (EReference)argumentEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getArgument_Option()
   {
-    return (EAttribute)argumentEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)argumentEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -284,7 +294,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    */
   public EAttribute getArgument_In()
   {
-    return (EAttribute)argumentEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)argumentEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -431,6 +441,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     createEAttribute(argumentEClass, ARGUMENT__NOSTDINC);
     createEReference(argumentEClass, ARGUMENT__INCLUDE);
     createEReference(argumentEClass, ARGUMENT__OUT);
+    createEReference(argumentEClass, ARGUMENT__LANG);
     createEAttribute(argumentEClass, ARGUMENT__OPTION);
     createEAttribute(argumentEClass, ARGUMENT__IN);
 
@@ -498,6 +509,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     initEAttribute(getArgument_Nostdinc(), ecorePackage.getEBoolean(), "nostdinc", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument_Include(), this.getPathCmd(), null, "include", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument_Out(), this.getPathCmd(), null, "out", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_Lang(), this.getPathCmd(), null, "lang", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument_Option(), ecorePackage.getEString(), "option", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument_In(), ecorePackage.getEString(), "in", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

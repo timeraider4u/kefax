@@ -23,6 +23,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_2_1_p;
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_4_1_p;
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_5_1_p;
+	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_6_1_p;
 	protected AbstractElementAlias match_CmdLine_WSTerminalRuleCall_1_1_0_p;
 	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_2_q;
 	
@@ -32,6 +33,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Argument_WSTerminalRuleCall_1_2_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_2_1());
 		match_Argument_WSTerminalRuleCall_1_4_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_4_1());
 		match_Argument_WSTerminalRuleCall_1_5_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_5_1());
+		match_Argument_WSTerminalRuleCall_1_6_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_6_1());
 		match_CmdLine_WSTerminalRuleCall_1_1_0_p = new TokenAlias(true, false, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_1_1_0());
 		match_Model_NEWLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_2());
 	}
@@ -46,6 +48,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getIncSysToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIncludeRule())
 			return getIncludeToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getLangRule())
+			return getLangToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNoStdIncRule())
@@ -109,6 +113,17 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "-include";
+	}
+	
+	/**
+	 * Lang:
+	 * 	KW_LANG
+	 * ;
+	 */
+	protected String getLangToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "-x";
 	}
 	
 	/**
@@ -208,6 +223,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Argument_WSTerminalRuleCall_1_4_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Argument_WSTerminalRuleCall_1_5_1_p.equals(syntax))
 				emit_Argument_WSTerminalRuleCall_1_5_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Argument_WSTerminalRuleCall_1_6_1_p.equals(syntax))
+				emit_Argument_WSTerminalRuleCall_1_6_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_CmdLine_WSTerminalRuleCall_1_1_0_p.equals(syntax))
 				emit_CmdLine_WSTerminalRuleCall_1_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Model_NEWLINETerminalRuleCall_2_q.equals(syntax))
@@ -246,6 +263,17 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) Output (ambiguity) out=PathCmd
 	 */
 	protected void emit_Argument_WSTerminalRuleCall_1_5_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) Lang (ambiguity) lang=PathCmd
+	 */
+	protected void emit_Argument_WSTerminalRuleCall_1_6_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

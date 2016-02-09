@@ -4,4 +4,6 @@ public interface MyConsoleViewLogger {
 
 	public void log(final String message);
 
+	public void error(final String message);
+
 }

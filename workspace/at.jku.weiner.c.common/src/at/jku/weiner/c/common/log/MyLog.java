@@ -43,32 +43,32 @@ public class MyLog {
 	public static void error(final Class<?> clazz, final String msg) {
 		if (MyLog.getLog_level() >= MyLog.LOG_ERROR) {
 			System.err.println(msg);
-			MyLog.writeToConsole(msg);
+			MyLog.writeToConsole(msg, true);
 		}
 	}
 
 	public static void log(final Class<?> clazz, final String msg) {
 		if (MyLog.getLog_level() >= MyLog.LOG_INFO) {
 			System.out.println(msg);
-			MyLog.writeToConsole(msg);
+			MyLog.writeToConsole(msg, false);
 		}
 	}
 
 	public static void debug(final Class<?> clazz, final String msg) {
 		if (MyLog.getLog_level() >= MyLog.LOG_DEBUG) {
 			System.out.println(msg);
-			MyLog.writeToConsole(msg);
+			MyLog.writeToConsole(msg, false);
 		}
 	}
 
 	public static void trace(final Class<?> clazz, final String msg) {
 		if (MyLog.getLog_level() >= MyLog.LOG_TRACE) {
 			System.out.println(msg);
-			MyLog.writeToConsole(msg);
+			MyLog.writeToConsole(msg, false);
 		}
 	}
 
-	private static void writeToConsole(final String msg) {
+	private static void writeToConsole(final String msg, final boolean error) {
 		if (!MyLog.tryWritingToConsoleView) {
 			return;
 		}
@@ -83,7 +83,12 @@ public class MyLog {
 			}
 		}
 		try {
-			MyLog.consoleLogger.log(msg);
+			if (error) {
+				System.out.println("MyLog.consoleLogger.error='" + msg + "'");
+				MyLog.consoleLogger.error(msg);
+			} else {
+				MyLog.consoleLogger.log(msg);
+			}
 		} catch (final Exception ex) {
 			MyLog.tryWritingToConsoleView = false;
 		}

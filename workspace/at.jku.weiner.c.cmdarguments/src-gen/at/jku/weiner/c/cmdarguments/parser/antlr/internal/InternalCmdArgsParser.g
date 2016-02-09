@@ -401,23 +401,54 @@ ruleOutput
 
 )
 ))
-    |(this_SKW_MINUS_15=RULE_SKW_MINUS
+    |(
     { 
-    newLeafNode(this_SKW_MINUS_15, grammarAccess.getArgumentAccess().getSKW_MINUSTerminalRuleCall_1_6_0()); 
+        newCompositeNode(grammarAccess.getArgumentAccess().getLangParserRuleCall_1_6_0()); 
+    }
+ruleLang
+    {
+        afterParserOrEnumRuleCall();
+    }
+(this_WS_16=RULE_WS
+    { 
+    newLeafNode(this_WS_16, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_6_1()); 
+    }
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getLangPathCmdParserRuleCall_1_6_2_0()); 
+	    }
+		lv_lang_17_0=rulePathCmd		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
+	        }
+       		set(
+       			$current, 
+       			"lang",
+        		lv_lang_17_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+    |(this_SKW_MINUS_18=RULE_SKW_MINUS
+    { 
+    newLeafNode(this_SKW_MINUS_18, grammarAccess.getArgumentAccess().getSKW_MINUSTerminalRuleCall_1_7_0()); 
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getOptionOptionParserRuleCall_1_6_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getOptionOptionParserRuleCall_1_7_1_0()); 
 	    }
-		lv_option_16_0=ruleOption		{
+		lv_option_19_0=ruleOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
        			"option",
-        		lv_option_16_0, 
+        		lv_option_19_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Option");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -427,16 +458,16 @@ ruleOutput
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getInOptionParserRuleCall_1_7_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getInOptionParserRuleCall_1_8_0()); 
 	    }
-		lv_in_17_0=ruleOption		{
+		lv_in_20_0=ruleOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
        			"in",
-        		lv_in_17_0, 
+        		lv_in_20_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Option");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -636,6 +667,35 @@ ruleOutput returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     { 
     newLeafNode(this_KW_OUTPUT_0, grammarAccess.getOutputAccess().getKW_OUTPUTTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleLang
+entryRuleLang returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getLangRule()); } 
+	 iv_ruleLang=ruleLang 
+	 { $current=$iv_ruleLang.current.getText(); }  
+	 EOF 
+;
+
+// Rule Lang
+ruleLang returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+    this_KW_LANG_0=RULE_KW_LANG    {
+		$current.merge(this_KW_LANG_0);
+    }
+
+    { 
+    newLeafNode(this_KW_LANG_0, grammarAccess.getLangAccess().getKW_LANGTerminalRuleCall()); 
     }
 
     ;

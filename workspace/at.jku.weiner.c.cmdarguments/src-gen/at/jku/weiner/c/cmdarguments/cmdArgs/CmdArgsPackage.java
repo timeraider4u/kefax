@@ -186,13 +186,22 @@ public interface CmdArgsPackage extends EPackage
   int ARGUMENT__OUT = 6;
 
   /**
+   * The feature id for the '<em><b>Lang</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__LANG = 7;
+
+  /**
    * The feature id for the '<em><b>Option</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT__OPTION = 7;
+  int ARGUMENT__OPTION = 8;
 
   /**
    * The feature id for the '<em><b>In</b></em>' attribute.
@@ -201,7 +210,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT__IN = 8;
+  int ARGUMENT__IN = 9;
 
   /**
    * The number of structural features of the '<em>Argument</em>' class.
@@ -210,7 +219,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT_FEATURE_COUNT = 9;
+  int ARGUMENT_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
@@ -510,6 +519,17 @@ public interface CmdArgsPackage extends EPackage
   EReference getArgument_Out();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getLang <em>Lang</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lang</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getLang()
+   * @see #getArgument()
+   * @generated
+   */
+  EReference getArgument_Lang();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -760,6 +780,14 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EReference ARGUMENT__OUT = eINSTANCE.getArgument_Out();
+
+    /**
+     * The meta object literal for the '<em><b>Lang</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT__LANG = eINSTANCE.getArgument_Lang();
 
     /**
      * The meta object literal for the '<em><b>Option</b></em>' attribute feature.

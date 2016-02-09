@@ -33,6 +33,8 @@ Argument:
 	|
 		(Output WS+ out=PathCmd)
 	|
+		(Lang WS+ lang=PathCmd)
+	|
 		(SKW_MINUS option=Option)
 	|
 		in=Option
@@ -61,6 +63,10 @@ Include:
 
 Output:
 	KW_OUTPUT
+;
+
+Lang:
+	KW_LANG
 ;
 
 Macro returns Macro:
@@ -132,6 +138,7 @@ terminal SKW_COMMA: ',';
 terminal KW_DEFINE: SKW_MINUS 'D';
 terminal KW_INCDIR: SKW_MINUS 'I';
 terminal KW_OUTPUT: SKW_MINUS 'o';
+terminal KW_LANG: SKW_MINUS 'x';
 terminal KW_NOSTDINC: 'nostdinc';
 terminal KW_INCSYS: 'isystem';
 terminal KW_INCLUDE: 'include';

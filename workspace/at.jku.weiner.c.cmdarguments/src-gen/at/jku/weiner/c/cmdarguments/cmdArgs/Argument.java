@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOut <em>Out</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getLang <em>Lang</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn <em>In</em>}</li>
  * </ul>
@@ -211,6 +212,32 @@ public interface Argument extends EObject
    * @generated
    */
   void setOut(PathCmd value);
+
+  /**
+   * Returns the value of the '<em><b>Lang</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lang</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lang</em>' containment reference.
+   * @see #setLang(PathCmd)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_Lang()
+   * @model containment="true"
+   * @generated
+   */
+  PathCmd getLang();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getLang <em>Lang</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lang</em>' containment reference.
+   * @see #getLang()
+   * @generated
+   */
+  void setLang(PathCmd value);
 
   /**
    * Returns the value of the '<em><b>Option</b></em>' attribute.

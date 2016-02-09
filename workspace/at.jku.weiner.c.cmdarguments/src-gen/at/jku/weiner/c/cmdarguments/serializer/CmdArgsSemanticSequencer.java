@@ -69,6 +69,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         nostdinc?=NoStdInc | 
 	 *         include=PathCmd | 
 	 *         out=PathCmd | 
+	 *         lang=PathCmd | 
 	 *         option=Option | 
 	 *         in=Option
 	 *     )

@@ -12,23 +12,24 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsLexer extends Lexer {
     public static final int RULE_SKW_MINUS=4;
-    public static final int RULE_ID=16;
-    public static final int RULE_NEWLINE=19;
+    public static final int RULE_ID=17;
+    public static final int RULE_NEWLINE=20;
     public static final int RULE_KW_INCDIR=10;
     public static final int RULE_KW_OUTPUT=11;
-    public static final int RULE_ANY_OTHER=22;
-    public static final int RULE_KW_NOSTDINC=12;
+    public static final int RULE_ANY_OTHER=23;
+    public static final int RULE_KW_NOSTDINC=13;
     public static final int EOF=-1;
-    public static final int RULE_LETTER=15;
+    public static final int RULE_LETTER=16;
     public static final int RULE_SKW_RIGHTPAREN=7;
-    public static final int RULE_KW_INCLUDE=14;
-    public static final int RULE_STRING=18;
+    public static final int RULE_KW_INCLUDE=15;
+    public static final int RULE_STRING=19;
     public static final int RULE_KW_DEFINE=9;
-    public static final int RULE_LINE_COMMENT=21;
-    public static final int RULE_KW_INCSYS=13;
-    public static final int RULE_INT=17;
+    public static final int RULE_KW_LANG=12;
+    public static final int RULE_LINE_COMMENT=22;
+    public static final int RULE_KW_INCSYS=14;
+    public static final int RULE_INT=18;
     public static final int RULE_SKW_COMMA=8;
-    public static final int RULE_WS=20;
+    public static final int RULE_WS=21;
     public static final int RULE_SKW_LEFTPAREN=6;
     public static final int RULE_SKW_ASSIGN=5;
 
@@ -208,13 +209,34 @@ public class InternalCmdArgsLexer extends Lexer {
     }
     // $ANTLR end "RULE_KW_OUTPUT"
 
+    // $ANTLR start "RULE_KW_LANG"
+    public final void mRULE_KW_LANG() throws RecognitionException {
+        try {
+            int _type = RULE_KW_LANG;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCmdArgsLexer.g:37:14: ( RULE_SKW_MINUS 'x' )
+            // InternalCmdArgsLexer.g:37:16: RULE_SKW_MINUS 'x'
+            {
+            mRULE_SKW_MINUS(); 
+            match('x'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_KW_LANG"
+
     // $ANTLR start "RULE_KW_NOSTDINC"
     public final void mRULE_KW_NOSTDINC() throws RecognitionException {
         try {
             int _type = RULE_KW_NOSTDINC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:37:18: ( 'nostdinc' )
-            // InternalCmdArgsLexer.g:37:20: 'nostdinc'
+            // InternalCmdArgsLexer.g:39:18: ( 'nostdinc' )
+            // InternalCmdArgsLexer.g:39:20: 'nostdinc'
             {
             match("nostdinc"); 
 
@@ -234,8 +256,8 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_KW_INCSYS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:39:16: ( 'isystem' )
-            // InternalCmdArgsLexer.g:39:18: 'isystem'
+            // InternalCmdArgsLexer.g:41:16: ( 'isystem' )
+            // InternalCmdArgsLexer.g:41:18: 'isystem'
             {
             match("isystem"); 
 
@@ -255,8 +277,8 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_KW_INCLUDE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:41:17: ( 'include' )
-            // InternalCmdArgsLexer.g:41:19: 'include'
+            // InternalCmdArgsLexer.g:43:17: ( 'include' )
+            // InternalCmdArgsLexer.g:43:19: 'include'
             {
             match("include"); 
 
@@ -276,11 +298,11 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:43:9: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
-            // InternalCmdArgsLexer.g:43:11: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
+            // InternalCmdArgsLexer.g:45:9: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
+            // InternalCmdArgsLexer.g:45:11: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
             {
             mRULE_LETTER(); 
-            // InternalCmdArgsLexer.g:43:23: ( RULE_LETTER | '0' .. '9' )*
+            // InternalCmdArgsLexer.g:45:23: ( RULE_LETTER | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -327,8 +349,8 @@ public class InternalCmdArgsLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalCmdArgsLexer.g:45:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
-            // InternalCmdArgsLexer.g:45:24: ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' )
+            // InternalCmdArgsLexer.g:47:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
+            // InternalCmdArgsLexer.g:47:24: ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' )
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -353,10 +375,10 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:47:10: ( ( '0' .. '9' )+ )
-            // InternalCmdArgsLexer.g:47:12: ( '0' .. '9' )+
+            // InternalCmdArgsLexer.g:49:10: ( ( '0' .. '9' )+ )
+            // InternalCmdArgsLexer.g:49:12: ( '0' .. '9' )+
             {
-            // InternalCmdArgsLexer.g:47:12: ( '0' .. '9' )+
+            // InternalCmdArgsLexer.g:49:12: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -370,7 +392,7 @@ public class InternalCmdArgsLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalCmdArgsLexer.g:47:13: '0' .. '9'
+            	    // InternalCmdArgsLexer.g:49:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -402,10 +424,10 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:49:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalCmdArgsLexer.g:49:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCmdArgsLexer.g:51:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalCmdArgsLexer.g:51:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalCmdArgsLexer.g:49:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCmdArgsLexer.g:51:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -423,10 +445,10 @@ public class InternalCmdArgsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalCmdArgsLexer.g:49:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalCmdArgsLexer.g:51:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalCmdArgsLexer.g:49:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalCmdArgsLexer.g:51:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop3:
                     do {
                         int alt3=3;
@@ -442,7 +464,7 @@ public class InternalCmdArgsLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // InternalCmdArgsLexer.g:49:21: '\\\\' .
+                    	    // InternalCmdArgsLexer.g:51:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -450,7 +472,7 @@ public class InternalCmdArgsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCmdArgsLexer.g:49:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalCmdArgsLexer.g:51:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -475,10 +497,10 @@ public class InternalCmdArgsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCmdArgsLexer.g:49:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalCmdArgsLexer.g:51:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalCmdArgsLexer.g:49:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalCmdArgsLexer.g:51:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -494,7 +516,7 @@ public class InternalCmdArgsLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalCmdArgsLexer.g:49:54: '\\\\' .
+                    	    // InternalCmdArgsLexer.g:51:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -502,7 +524,7 @@ public class InternalCmdArgsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCmdArgsLexer.g:49:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalCmdArgsLexer.g:51:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -545,8 +567,8 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:51:14: ( ( '\\n' | '\\r' ) )
-            // InternalCmdArgsLexer.g:51:16: ( '\\n' | '\\r' )
+            // InternalCmdArgsLexer.g:53:14: ( ( '\\n' | '\\r' ) )
+            // InternalCmdArgsLexer.g:53:16: ( '\\n' | '\\r' )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -573,8 +595,8 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:53:9: ( ( ' ' | '\\t' ) )
-            // InternalCmdArgsLexer.g:53:11: ( ' ' | '\\t' )
+            // InternalCmdArgsLexer.g:55:9: ( ( ' ' | '\\t' ) )
+            // InternalCmdArgsLexer.g:55:11: ( ' ' | '\\t' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -601,12 +623,12 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:55:19: ( '//' ( options {greedy=false; } : . )* RULE_NEWLINE )
-            // InternalCmdArgsLexer.g:55:21: '//' ( options {greedy=false; } : . )* RULE_NEWLINE
+            // InternalCmdArgsLexer.g:57:19: ( '//' ( options {greedy=false; } : . )* RULE_NEWLINE )
+            // InternalCmdArgsLexer.g:57:21: '//' ( options {greedy=false; } : . )* RULE_NEWLINE
             {
             match("//"); 
 
-            // InternalCmdArgsLexer.g:55:26: ( options {greedy=false; } : . )*
+            // InternalCmdArgsLexer.g:57:26: ( options {greedy=false; } : . )*
             loop6:
             do {
                 int alt6=2;
@@ -622,7 +644,7 @@ public class InternalCmdArgsLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalCmdArgsLexer.g:55:54: .
+            	    // InternalCmdArgsLexer.g:57:54: .
             	    {
             	    matchAny(); 
 
@@ -651,8 +673,8 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:57:16: ( . )
-            // InternalCmdArgsLexer.g:57:18: .
+            // InternalCmdArgsLexer.g:59:16: ( . )
+            // InternalCmdArgsLexer.g:59:18: .
             {
             matchAny(); 
 
@@ -667,8 +689,8 @@ public class InternalCmdArgsLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalCmdArgsLexer.g:1:8: ( RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_ID | RULE_INT | RULE_STRING | RULE_NEWLINE | RULE_WS | RULE_LINE_COMMENT | RULE_ANY_OTHER )
-        int alt7=18;
+        // InternalCmdArgsLexer.g:1:8: ( RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_LANG | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_ID | RULE_INT | RULE_STRING | RULE_NEWLINE | RULE_WS | RULE_LINE_COMMENT | RULE_ANY_OTHER )
+        int alt7=19;
         alt7 = dfa7.predict(input);
         switch (alt7) {
             case 1 :
@@ -728,70 +750,77 @@ public class InternalCmdArgsLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // InternalCmdArgsLexer.g:1:140: RULE_KW_NOSTDINC
+                // InternalCmdArgsLexer.g:1:140: RULE_KW_LANG
+                {
+                mRULE_KW_LANG(); 
+
+                }
+                break;
+            case 10 :
+                // InternalCmdArgsLexer.g:1:153: RULE_KW_NOSTDINC
                 {
                 mRULE_KW_NOSTDINC(); 
 
                 }
                 break;
-            case 10 :
-                // InternalCmdArgsLexer.g:1:157: RULE_KW_INCSYS
+            case 11 :
+                // InternalCmdArgsLexer.g:1:170: RULE_KW_INCSYS
                 {
                 mRULE_KW_INCSYS(); 
 
                 }
                 break;
-            case 11 :
-                // InternalCmdArgsLexer.g:1:172: RULE_KW_INCLUDE
+            case 12 :
+                // InternalCmdArgsLexer.g:1:185: RULE_KW_INCLUDE
                 {
                 mRULE_KW_INCLUDE(); 
 
                 }
                 break;
-            case 12 :
-                // InternalCmdArgsLexer.g:1:188: RULE_ID
+            case 13 :
+                // InternalCmdArgsLexer.g:1:201: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 13 :
-                // InternalCmdArgsLexer.g:1:196: RULE_INT
+            case 14 :
+                // InternalCmdArgsLexer.g:1:209: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 14 :
-                // InternalCmdArgsLexer.g:1:205: RULE_STRING
+            case 15 :
+                // InternalCmdArgsLexer.g:1:218: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 15 :
-                // InternalCmdArgsLexer.g:1:217: RULE_NEWLINE
+            case 16 :
+                // InternalCmdArgsLexer.g:1:230: RULE_NEWLINE
                 {
                 mRULE_NEWLINE(); 
 
                 }
                 break;
-            case 16 :
-                // InternalCmdArgsLexer.g:1:230: RULE_WS
+            case 17 :
+                // InternalCmdArgsLexer.g:1:243: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 17 :
-                // InternalCmdArgsLexer.g:1:238: RULE_LINE_COMMENT
+            case 18 :
+                // InternalCmdArgsLexer.g:1:251: RULE_LINE_COMMENT
                 {
                 mRULE_LINE_COMMENT(); 
 
                 }
                 break;
-            case 18 :
-                // InternalCmdArgsLexer.g:1:256: RULE_ANY_OTHER
+            case 19 :
+                // InternalCmdArgsLexer.g:1:269: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -805,52 +834,52 @@ public class InternalCmdArgsLexer extends Lexer {
 
     protected DFA7 dfa7 = new DFA7(this);
     static final String DFA7_eotS =
-        "\1\uffff\1\20\4\uffff\2\31\2\uffff\2\17\2\uffff\1\17\11\uffff\1\31\1\uffff\2\31\5\uffff\15\31\1\61\1\62\1\63\3\uffff";
+        "\1\uffff\1\20\4\uffff\2\32\2\uffff\2\17\2\uffff\1\17\12\uffff\1\32\1\uffff\2\32\5\uffff\15\32\1\62\1\63\1\64\3\uffff";
     static final String DFA7_eofS =
-        "\64\uffff";
+        "\65\uffff";
     static final String DFA7_minS =
-        "\1\0\1\104\4\uffff\1\157\1\156\2\uffff\2\0\2\uffff\1\57\11\uffff\1\163\1\uffff\1\171\1\143\5\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\44\3\uffff";
+        "\1\0\1\104\4\uffff\1\157\1\156\2\uffff\2\0\2\uffff\1\57\12\uffff\1\163\1\uffff\1\171\1\143\5\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\44\3\uffff";
     static final String DFA7_maxS =
-        "\1\uffff\1\157\4\uffff\1\157\1\163\2\uffff\2\uffff\2\uffff\1\57\11\uffff\1\163\1\uffff\1\171\1\143\5\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\172\3\uffff";
+        "\1\uffff\1\170\4\uffff\1\157\1\163\2\uffff\2\uffff\2\uffff\1\57\12\uffff\1\163\1\uffff\1\171\1\143\5\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\172\3\uffff";
     static final String DFA7_acceptS =
-        "\2\uffff\1\2\1\3\1\4\1\5\2\uffff\1\14\1\15\2\uffff\1\17\1\20\1\uffff\1\22\1\1\1\10\1\6\1\7\1\2\1\3\1\4\1\5\1\uffff\1\14\2\uffff\1\15\1\16\1\17\1\20\1\21\20\uffff\1\12\1\13\1\11";
+        "\2\uffff\1\2\1\3\1\4\1\5\2\uffff\1\15\1\16\2\uffff\1\20\1\21\1\uffff\1\23\1\1\1\6\1\10\1\7\1\11\1\2\1\3\1\4\1\5\1\uffff\1\15\2\uffff\1\16\1\17\1\20\1\21\1\22\20\uffff\1\13\1\14\1\12";
     static final String DFA7_specialS =
-        "\1\0\11\uffff\1\2\1\1\50\uffff}>";
+        "\1\2\11\uffff\1\1\1\0\51\uffff}>";
     static final String[] DFA7_transitionS = {
             "\11\17\1\15\1\14\2\17\1\14\22\17\1\15\1\17\1\12\1\17\1\10\2\17\1\13\1\3\1\4\2\17\1\5\1\1\1\17\1\16\12\11\3\17\1\2\3\17\32\10\4\17\1\10\1\17\10\10\1\7\4\10\1\6\14\10\uff85\17",
-            "\1\22\4\uffff\1\23\45\uffff\1\21",
+            "\1\21\4\uffff\1\23\45\uffff\1\22\10\uffff\1\24",
             "",
             "",
             "",
             "",
-            "\1\30",
-            "\1\33\4\uffff\1\32",
+            "\1\31",
+            "\1\34\4\uffff\1\33",
             "",
             "",
-            "\0\35",
-            "\0\35",
-            "",
-            "",
-            "\1\40",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\0\36",
+            "\0\36",
             "",
             "",
             "\1\41",
             "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\42",
+            "",
             "\1\43",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\44",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\45",
             "\1\46",
             "\1\47",
@@ -863,9 +892,10 @@ public class InternalCmdArgsLexer extends Lexer {
             "\1\56",
             "\1\57",
             "\1\60",
-            "\1\31\13\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\31\13\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\31\13\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\1\61",
+            "\1\32\13\uffff\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "\1\32\13\uffff\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "\1\32\13\uffff\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "",
             "",
             ""
@@ -901,13 +931,33 @@ public class InternalCmdArgsLexer extends Lexer {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_ID | RULE_INT | RULE_STRING | RULE_NEWLINE | RULE_WS | RULE_LINE_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_LANG | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_ID | RULE_INT | RULE_STRING | RULE_NEWLINE | RULE_WS | RULE_LINE_COMMENT | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA7_11 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA7_11>='\u0000' && LA7_11<='\uFFFF')) ) {s = 30;}
+
+                        else s = 15;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA7_10 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA7_10>='\u0000' && LA7_10<='\uFFFF')) ) {s = 30;}
+
+                        else s = 15;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA7_0 = input.LA(1);
 
                         s = -1;
@@ -940,26 +990,6 @@ public class InternalCmdArgsLexer extends Lexer {
                         else if ( (LA7_0=='/') ) {s = 14;}
 
                         else if ( ((LA7_0>='\u0000' && LA7_0<='\b')||(LA7_0>='\u000B' && LA7_0<='\f')||(LA7_0>='\u000E' && LA7_0<='\u001F')||LA7_0=='!'||LA7_0=='#'||(LA7_0>='%' && LA7_0<='&')||(LA7_0>='*' && LA7_0<='+')||LA7_0=='.'||(LA7_0>=':' && LA7_0<='<')||(LA7_0>='>' && LA7_0<='@')||(LA7_0>='[' && LA7_0<='^')||LA7_0=='`'||(LA7_0>='{' && LA7_0<='\uFFFF')) ) {s = 15;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA7_11 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA7_11>='\u0000' && LA7_11<='\uFFFF')) ) {s = 29;}
-
-                        else s = 15;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA7_10 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA7_10>='\u0000' && LA7_10<='\uFFFF')) ) {s = 29;}
-
-                        else s = 15;
 
                         if ( s>=0 ) return s;
                         break;

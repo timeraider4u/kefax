@@ -110,7 +110,8 @@ public class Main {
 		}
 		// validate resource
 		this.validateResource(injector, res);
-		MyLog.log(Main.class, "validation has been successfull!");
+		MyLog.debug(Main.class,
+				"validation of command file has been successfull!");
 		// get command arguments
 		final EObject object = res.getContents().get(0);
 		if ((object == null) || (!(object instanceof Model))) {
@@ -145,7 +146,9 @@ public class Main {
 			MyLog.debug(Main.class, "stdInclude='" + stdInclude + "'");
 			final String inFile = args.getInFile();
 			MyLog.debug(Main.class, "inFile='" + inFile + "'");
-			if (inFile == null) {
+			if (!this.isValid(inFile)) {
+				MyLog.debug(Main.class, "inFile is invalid, inFile='" + inFile
+						+ "'!");
 				continue;
 			}
 			// get discoverer resource input file
@@ -166,6 +169,17 @@ public class Main {
 			discoverer.discoverElement(inFileRes, subMonitor);
 		}
 		return Status.OK_STATUS;
+	}
+
+	private boolean isValid(final String inFile) {
+		if (inFile == null) {
+			return false;
+		} else if (inFile.endsWith(".c")) {
+			return true;
+		} else if (inFile.endsWith(".h")) {
+			return true;
+		}
+		return false;
 	}
 
 	private final Resource loadResource(final Injector injector,

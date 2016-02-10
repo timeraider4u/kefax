@@ -121,11 +121,11 @@ Option:
 ;
 
 NonOptionChar:
-	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | SKW_MINUS | ANY_OTHER
+	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
 ;
 
 OptionChar:
-	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_OUTPUT
+	SKW_MINUS | KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_LANG | KW_OUTPUT
 ;
 
 terminal SKW_MINUS: '-';
@@ -143,7 +143,7 @@ terminal KW_NOSTDINC: 'nostdinc';
 terminal KW_INCSYS: 'isystem';
 terminal KW_INCLUDE: 'include';
 
-terminal ID: LETTER (LETTER|'0'..'9')*;
+terminal ID: LETTER (LETTER|DIGIT)*;
 
 terminal fragment LETTER:
 		'$'
@@ -152,7 +152,8 @@ terminal fragment LETTER:
 	|	'_'
 ;
 
-terminal INT: ('0'..'9')+;
+terminal INT: DIGIT+;
+terminal fragment DIGIT: ('0'..'9');
 
 terminal STRING	: 
 			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |

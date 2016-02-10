@@ -10,10 +10,10 @@ package at.jku.weiner.c.cmdarguments.cmdArgs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getObjectMacro()
  * @model

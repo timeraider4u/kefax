@@ -1320,20 +1320,12 @@ ruleNonOptionChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     newLeafNode(this_SKW_COMMA_4, grammarAccess.getNonOptionCharAccess().getSKW_COMMATerminalRuleCall_4()); 
     }
 
-    |    this_SKW_MINUS_5=RULE_SKW_MINUS    {
-		$current.merge(this_SKW_MINUS_5);
+    |    this_ANY_OTHER_5=RULE_ANY_OTHER    {
+		$current.merge(this_ANY_OTHER_5);
     }
 
     { 
-    newLeafNode(this_SKW_MINUS_5, grammarAccess.getNonOptionCharAccess().getSKW_MINUSTerminalRuleCall_5()); 
-    }
-
-    |    this_ANY_OTHER_6=RULE_ANY_OTHER    {
-		$current.merge(this_ANY_OTHER_6);
-    }
-
-    { 
-    newLeafNode(this_ANY_OTHER_6, grammarAccess.getNonOptionCharAccess().getANY_OTHERTerminalRuleCall_6()); 
+    newLeafNode(this_ANY_OTHER_5, grammarAccess.getNonOptionCharAccess().getANY_OTHERTerminalRuleCall_5()); 
     }
 )
     ;
@@ -1357,52 +1349,68 @@ ruleOptionChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
     }
     @after { leaveRule();
     }:
-(    this_KW_DEFINE_0=RULE_KW_DEFINE    {
-		$current.merge(this_KW_DEFINE_0);
+(    this_SKW_MINUS_0=RULE_SKW_MINUS    {
+		$current.merge(this_SKW_MINUS_0);
     }
 
     { 
-    newLeafNode(this_KW_DEFINE_0, grammarAccess.getOptionCharAccess().getKW_DEFINETerminalRuleCall_0()); 
+    newLeafNode(this_SKW_MINUS_0, grammarAccess.getOptionCharAccess().getSKW_MINUSTerminalRuleCall_0()); 
     }
 
-    |    this_KW_INCDIR_1=RULE_KW_INCDIR    {
-		$current.merge(this_KW_INCDIR_1);
-    }
-
-    { 
-    newLeafNode(this_KW_INCDIR_1, grammarAccess.getOptionCharAccess().getKW_INCDIRTerminalRuleCall_1()); 
-    }
-
-    |    this_KW_NOSTDINC_2=RULE_KW_NOSTDINC    {
-		$current.merge(this_KW_NOSTDINC_2);
+    |    this_KW_DEFINE_1=RULE_KW_DEFINE    {
+		$current.merge(this_KW_DEFINE_1);
     }
 
     { 
-    newLeafNode(this_KW_NOSTDINC_2, grammarAccess.getOptionCharAccess().getKW_NOSTDINCTerminalRuleCall_2()); 
+    newLeafNode(this_KW_DEFINE_1, grammarAccess.getOptionCharAccess().getKW_DEFINETerminalRuleCall_1()); 
     }
 
-    |    this_KW_INCSYS_3=RULE_KW_INCSYS    {
-		$current.merge(this_KW_INCSYS_3);
-    }
-
-    { 
-    newLeafNode(this_KW_INCSYS_3, grammarAccess.getOptionCharAccess().getKW_INCSYSTerminalRuleCall_3()); 
-    }
-
-    |    this_KW_INCLUDE_4=RULE_KW_INCLUDE    {
-		$current.merge(this_KW_INCLUDE_4);
+    |    this_KW_INCDIR_2=RULE_KW_INCDIR    {
+		$current.merge(this_KW_INCDIR_2);
     }
 
     { 
-    newLeafNode(this_KW_INCLUDE_4, grammarAccess.getOptionCharAccess().getKW_INCLUDETerminalRuleCall_4()); 
+    newLeafNode(this_KW_INCDIR_2, grammarAccess.getOptionCharAccess().getKW_INCDIRTerminalRuleCall_2()); 
     }
 
-    |    this_KW_OUTPUT_5=RULE_KW_OUTPUT    {
-		$current.merge(this_KW_OUTPUT_5);
+    |    this_KW_NOSTDINC_3=RULE_KW_NOSTDINC    {
+		$current.merge(this_KW_NOSTDINC_3);
     }
 
     { 
-    newLeafNode(this_KW_OUTPUT_5, grammarAccess.getOptionCharAccess().getKW_OUTPUTTerminalRuleCall_5()); 
+    newLeafNode(this_KW_NOSTDINC_3, grammarAccess.getOptionCharAccess().getKW_NOSTDINCTerminalRuleCall_3()); 
+    }
+
+    |    this_KW_INCSYS_4=RULE_KW_INCSYS    {
+		$current.merge(this_KW_INCSYS_4);
+    }
+
+    { 
+    newLeafNode(this_KW_INCSYS_4, grammarAccess.getOptionCharAccess().getKW_INCSYSTerminalRuleCall_4()); 
+    }
+
+    |    this_KW_INCLUDE_5=RULE_KW_INCLUDE    {
+		$current.merge(this_KW_INCLUDE_5);
+    }
+
+    { 
+    newLeafNode(this_KW_INCLUDE_5, grammarAccess.getOptionCharAccess().getKW_INCLUDETerminalRuleCall_5()); 
+    }
+
+    |    this_KW_LANG_6=RULE_KW_LANG    {
+		$current.merge(this_KW_LANG_6);
+    }
+
+    { 
+    newLeafNode(this_KW_LANG_6, grammarAccess.getOptionCharAccess().getKW_LANGTerminalRuleCall_6()); 
+    }
+
+    |    this_KW_OUTPUT_7=RULE_KW_OUTPUT    {
+		$current.merge(this_KW_OUTPUT_7);
+    }
+
+    { 
+    newLeafNode(this_KW_OUTPUT_7, grammarAccess.getOptionCharAccess().getKW_OUTPUTTerminalRuleCall_7()); 
     }
 )
     ;

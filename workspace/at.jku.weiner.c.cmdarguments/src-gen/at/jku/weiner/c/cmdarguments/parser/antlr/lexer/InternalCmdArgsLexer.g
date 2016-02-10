@@ -42,11 +42,13 @@ RULE_KW_INCSYS : 'isystem';
 
 RULE_KW_INCLUDE : 'include';
 
-RULE_ID : RULE_LETTER (RULE_LETTER|'0'..'9')*;
+RULE_ID : RULE_LETTER (RULE_LETTER|RULE_DIGIT)*;
 
 fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
 
-RULE_INT : ('0'..'9')+;
+RULE_INT : RULE_DIGIT+;
+
+fragment RULE_DIGIT : '0'..'9';
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

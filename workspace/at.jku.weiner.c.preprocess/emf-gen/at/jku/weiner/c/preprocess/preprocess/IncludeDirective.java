@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getUnit <em>Unit</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#isNext <em>Next</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,31 @@ public interface IncludeDirective extends EObject
 	 * @generated
 	 */
 	void setUnit(TranslationUnit value);
+
+	/**
+	 * Returns the value of the '<em><b>Next</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next</em>' attribute.
+	 * @see #setNext(boolean)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIncludeDirective_Next()
+	 * @model
+	 * @generated
+	 */
+	boolean isNext();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#isNext <em>Next</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next</em>' attribute.
+	 * @see #isNext()
+	 * @generated
+	 */
+	void setNext(boolean value);
 
 } // IncludeDirective

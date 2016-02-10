@@ -362,6 +362,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIncludeDirective_Next()
+	{
+		return (EAttribute)includeDirectiveEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDefineDirective()
 	{
 		return defineDirectiveEClass;
@@ -915,6 +925,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		includeDirectiveEClass = createEClass(INCLUDE_DIRECTIVE);
 		createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__STRING);
 		createEReference(includeDirectiveEClass, INCLUDE_DIRECTIVE__UNIT);
+		createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__NEXT);
 
 		defineDirectiveEClass = createEClass(DEFINE_DIRECTIVE);
 		createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__ID);
@@ -1049,6 +1060,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEClass(includeDirectiveEClass, IncludeDirective.class, "IncludeDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIncludeDirective_String(), theEcorePackage.getEString(), "string", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIncludeDirective_Unit(), theCommonPackage.getTranslationUnit(), null, "unit", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIncludeDirective_Next(), theEcorePackage.getEBoolean(), "next", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defineDirectiveEClass, DefineDirective.class, "DefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDefineDirective_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -133,13 +133,22 @@ public interface PreprocessPackage extends EPackage {
 	int INCLUDE_DIRECTIVE__UNIT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDE_DIRECTIVE__NEXT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Include Directive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUDE_DIRECTIVE_FEATURE_COUNT = 2;
+	int INCLUDE_DIRECTIVE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl <em>Define Directive</em>}' class.
@@ -1021,6 +1030,17 @@ public interface PreprocessPackage extends EPackage {
 	EReference getIncludeDirective_Unit();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#isNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Next</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IncludeDirective#isNext()
+	 * @see #getIncludeDirective()
+	 * @generated
+	 */
+	EAttribute getIncludeDirective_Next();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.DefineDirective <em>Define Directive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1644,6 +1664,14 @@ public interface PreprocessPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INCLUDE_DIRECTIVE__UNIT = eINSTANCE.getIncludeDirective_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INCLUDE_DIRECTIVE__NEXT = eINSTANCE.getIncludeDirective_Next();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl <em>Define Directive</em>}' class.

@@ -2107,6 +2107,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__IncludeDirective__Alternatives_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1_0()); }
+	RULE_INCLUDE
+{ after(grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getIncludeDirectiveAccess().getNextAssignment_1_1()); }
+(rule__IncludeDirective__NextAssignment_1_1)
+{ after(grammarAccess.getIncludeDirectiveAccess().getNextAssignment_1_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__DefineDirective__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -3863,9 +3891,9 @@ rule__IncludeDirective__Group__1__Impl
 :
 
 (
-{ before(grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1()); }
-	RULE_INCLUDE
-{ after(grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1()); }
+{ before(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1()); }
+(rule__IncludeDirective__Alternatives_1)
+{ after(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1()); }
 )
 
 
@@ -10696,6 +10724,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__IncludeDirective__NextAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getIncludeDirectiveAccess().getNextINCLUDE_NEXTTerminalRuleCall_1_1_0()); }
+	RULE_INCLUDE_NEXT{ after(grammarAccess.getIncludeDirectiveAccess().getNextINCLUDE_NEXTTerminalRuleCall_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__IncludeDirective__StringAssignment_3
     @init {
 		int stackSize = keepStackSize();
@@ -11727,6 +11770,8 @@ finally {
 RULE_HASH : '#';
 
 RULE_INCLUDE : 'include';
+
+RULE_INCLUDE_NEXT : RULE_INCLUDE RULE_SKW_UNDERSCORE 'next';
 
 RULE_DEFINE : 'define';
 

@@ -302,7 +302,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputForLegacyMode(IncludeDirective obj) {
 		val String inc = obj.string;
-		val IncludeUtils includeUtils = new IncludeUtils(rs, this.currUri.peek(), inc, definitionTable);
+		val IncludeUtils includeUtils = new IncludeUtils(rs, this.currUri.peek(), inc, definitionTable, obj.next);
 		val Resource res = includeUtils.getResource();
 		//val TranslationUnit unit = this.getUnitFor(res);
 		//val String output = outputFor(unit);

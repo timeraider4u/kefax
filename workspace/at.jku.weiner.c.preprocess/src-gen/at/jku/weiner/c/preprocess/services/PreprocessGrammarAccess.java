@@ -283,23 +283,35 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IncludeDirective");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cIncludeDirectiveAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cINCLUDETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final RuleCall cINCLUDETerminalRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
+		private final Assignment cNextAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cNextINCLUDE_NEXTTerminalRuleCall_1_1_0 = (RuleCall)cNextAssignment_1_1.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cStringAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cStringMyCodeLineParserRuleCall_3_0 = (RuleCall)cStringAssignment_3.eContents().get(0);
 		
 		//IncludeDirective:
-		//	{IncludeDirective} INCLUDE WHITESPACE+ string=MyCodeLine;
+		//	{IncludeDirective} (INCLUDE | next?=INCLUDE_NEXT) WHITESPACE+ string=MyCodeLine;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IncludeDirective} INCLUDE WHITESPACE+ string=MyCodeLine
+		//{IncludeDirective} (INCLUDE | next?=INCLUDE_NEXT) WHITESPACE+ string=MyCodeLine
 		public Group getGroup() { return cGroup; }
 		
 		//{IncludeDirective}
 		public Action getIncludeDirectiveAction_0() { return cIncludeDirectiveAction_0; }
 		
+		//(INCLUDE | next?=INCLUDE_NEXT)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
 		//INCLUDE
-		public RuleCall getINCLUDETerminalRuleCall_1() { return cINCLUDETerminalRuleCall_1; }
+		public RuleCall getINCLUDETerminalRuleCall_1_0() { return cINCLUDETerminalRuleCall_1_0; }
+		
+		//next?=INCLUDE_NEXT
+		public Assignment getNextAssignment_1_1() { return cNextAssignment_1_1; }
+		
+		//INCLUDE_NEXT
+		public RuleCall getNextINCLUDE_NEXTTerminalRuleCall_1_1_0() { return cNextINCLUDE_NEXTTerminalRuleCall_1_1_0; }
 		
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
@@ -1434,6 +1446,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final TerminalRule tHASH;
 	private final TerminalRule tINCLUDE;
+	private final TerminalRule tINCLUDE_NEXT;
 	private final TerminalRule tDEFINE;
 	private final TerminalRule tERROR;
 	private final TerminalRule tWARNING;
@@ -1492,6 +1505,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HASH");
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE");
+		this.tINCLUDE_NEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE_NEXT");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.DEFINE");
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ERROR");
 		this.tWARNING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.WARNING");
@@ -1619,7 +1633,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IncludeDirective:
-	//	{IncludeDirective} INCLUDE WHITESPACE+ string=MyCodeLine;
+	//	{IncludeDirective} (INCLUDE | next?=INCLUDE_NEXT) WHITESPACE+ string=MyCodeLine;
 	public IncludeDirectiveElements getIncludeDirectiveAccess() {
 		return pIncludeDirective;
 	}
@@ -1918,6 +1932,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'include';
 	public TerminalRule getINCLUDERule() {
 		return tINCLUDE;
+	}
+	
+	//terminal INCLUDE_NEXT returns ecore::EString:
+	//	INCLUDE SKW_UNDERSCORE 'next';
+	public TerminalRule getINCLUDE_NEXTRule() {
+		return tINCLUDE_NEXT;
 	}
 	
 	//terminal DEFINE returns ecore::EString:

@@ -118,6 +118,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getIFNOTDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getINCLUDE_NEXTRule())
+			return getINCLUDE_NEXTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPRAGMARule())
@@ -259,6 +261,15 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "include";
+	}
+	
+	/**
+	 * terminal INCLUDE_NEXT: INCLUDE SKW_UNDERSCORE 'next';
+	 */
+	protected String getINCLUDE_NEXTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "include_next";
 	}
 	
 	/**
@@ -783,6 +794,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) INCLUDE (ambiguity) string=MyCodeLine
+	 *     next?=INCLUDE_NEXT (ambiguity) string=MyCodeLine
 	 */
 	protected void emit_IncludeDirective_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

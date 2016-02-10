@@ -313,7 +313,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     string=MyCodeLine
+	 *     (next?=INCLUDE_NEXT? string=MyCodeLine)
 	 */
 	protected void sequence_IncludeDirective(EObject context, IncludeDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

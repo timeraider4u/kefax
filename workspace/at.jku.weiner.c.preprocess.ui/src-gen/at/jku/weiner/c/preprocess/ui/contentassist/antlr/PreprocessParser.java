@@ -40,6 +40,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGroupOptTemp1Access().getAlternatives(), "rule__GroupOptTemp1__Alternatives");
 					put(grammarAccess.getGroupOptTemp2Access().getAlternatives(), "rule__GroupOptTemp2__Alternatives");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
+					put(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1(), "rule__IncludeDirective__Alternatives_1");
 					put(grammarAccess.getDefineDirectiveAccess().getAlternatives(), "rule__DefineDirective__Alternatives");
 					put(grammarAccess.getIdentifierListAccess().getAlternatives_1(), "rule__IdentifierList__Alternatives_1");
 					put(grammarAccess.getIdentifierListAccess().getAlternatives_1_0_3_2(), "rule__IdentifierList__Alternatives_1_0_3_2");
@@ -136,6 +137,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_5(), "rule__PreprocessorDirectives__DirectiveAssignment_4_5");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_6(), "rule__PreprocessorDirectives__DirectiveAssignment_4_6");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_7(), "rule__PreprocessorDirectives__DirectiveAssignment_4_7");
+					put(grammarAccess.getIncludeDirectiveAccess().getNextAssignment_1_1(), "rule__IncludeDirective__NextAssignment_1_1");
 					put(grammarAccess.getIncludeDirectiveAccess().getStringAssignment_3(), "rule__IncludeDirective__StringAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3(), "rule__DefineObjectMacro__IdAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");

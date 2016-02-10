@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#isNext <em>Next</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +61,26 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected TranslationUnit unit;
+
+	/**
+	 * The default value of the '{@link #isNext() <em>Next</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNext()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NEXT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNext() <em>Next</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNext()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean next = NEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,6 +172,29 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNext()
+	{
+		return next;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNext(boolean newNext)
+	{
+		boolean oldNext = next;
+		next = newNext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.INCLUDE_DIRECTIVE__NEXT, oldNext, next));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
@@ -160,6 +204,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
 				if (resolve) return getUnit();
 				return basicGetUnit();
+			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
+				return isNext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +224,9 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
 				setUnit((TranslationUnit)newValue);
+				return;
+			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
+				setNext((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,6 +247,9 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
 				setUnit((TranslationUnit)null);
 				return;
+			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
+				setNext(NEXT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,6 +267,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
 			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
 				return unit != null;
+			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
+				return next != NEXT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -232,6 +286,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (string: ");
 		result.append(string);
+		result.append(", next: ");
+		result.append(next);
 		result.append(')');
 		return result.toString();
 	}

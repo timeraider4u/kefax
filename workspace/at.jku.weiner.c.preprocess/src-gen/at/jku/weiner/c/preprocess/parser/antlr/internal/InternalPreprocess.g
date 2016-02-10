@@ -722,16 +722,41 @@ ruleIncludeDirective returns [EObject current=null]
 )
 
 
+(
 this_INCLUDE_1=RULE_INCLUDE
     { 
-    newLeafNode(this_INCLUDE_1, grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1()); 
+    newLeafNode(this_INCLUDE_1, grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1_0()); 
     }
 
 
 
-(this_WHITESPACE_2=RULE_WHITESPACE
+    |
+(
+(
+		lv_next_2_0=RULE_INCLUDE_NEXT
+		{
+			newLeafNode(lv_next_2_0, grammarAccess.getIncludeDirectiveAccess().getNextINCLUDE_NEXTTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIncludeDirectiveRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"next",
+        		true, 
+        		"at.jku.weiner.c.preprocess.Preprocess.INCLUDE_NEXT");
+	    }
+
+)
+)
+
+)
+
+
+(this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_2, grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -741,14 +766,14 @@ this_INCLUDE_1=RULE_INCLUDE
 		{ 
 	        newCompositeNode(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); 
 	    }
-		lv_string_3_0=ruleMyCodeLine		{
+		lv_string_4_0=ruleMyCodeLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIncludeDirectiveRule());
 	        }
        		set(
        			$current, 
        			"string",
-        		lv_string_3_0, 
+        		lv_string_4_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.MyCodeLine");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5464,6 +5489,8 @@ ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 RULE_HASH : '#';
 
 RULE_INCLUDE : 'include';
+
+RULE_INCLUDE_NEXT : RULE_INCLUDE RULE_SKW_UNDERSCORE 'next';
 
 RULE_DEFINE : 'define';
 

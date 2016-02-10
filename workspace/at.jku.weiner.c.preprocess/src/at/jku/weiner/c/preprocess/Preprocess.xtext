@@ -99,7 +99,7 @@ PreprocessorDirectives returns SourceCodeLine:
 
 IncludeDirective:
 	{IncludeDirective}
-	INCLUDE WHITESPACE+ string=MyCodeLine
+	(INCLUDE | next?=INCLUDE_NEXT ) WHITESPACE+ string=MyCodeLine
 ;
 
 DefineDirective:
@@ -274,6 +274,7 @@ PrimaryExpression returns Expression:
 // lexer tokens
 terminal HASH: '#';
 terminal INCLUDE: 'include';
+terminal INCLUDE_NEXT: INCLUDE SKW_UNDERSCORE 'next';
 terminal DEFINE: 'define';
 terminal ERROR: 'error';
 terminal WARNING: 'warning';

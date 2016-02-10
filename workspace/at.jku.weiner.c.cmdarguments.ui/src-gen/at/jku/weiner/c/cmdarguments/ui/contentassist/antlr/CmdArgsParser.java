@@ -80,7 +80,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentAccess().getIncludeAssignment_1_4_2(), "rule__Argument__IncludeAssignment_1_4_2");
 					put(grammarAccess.getArgumentAccess().getOutAssignment_1_5_2(), "rule__Argument__OutAssignment_1_5_2");
 					put(grammarAccess.getArgumentAccess().getLangAssignment_1_6_2(), "rule__Argument__LangAssignment_1_6_2");
-					put(grammarAccess.getArgumentAccess().getOptionAssignment_1_7_1(), "rule__Argument__OptionAssignment_1_7_1");
+					put(grammarAccess.getArgumentAccess().getOptionAssignment_1_7_2(), "rule__Argument__OptionAssignment_1_7_2");
 					put(grammarAccess.getArgumentAccess().getInAssignment_1_8(), "rule__Argument__InAssignment_1_8");
 					put(grammarAccess.getSimpleMacroAccess().getNameAssignment_1(), "rule__SimpleMacro__NameAssignment_1");
 					put(grammarAccess.getObjectMacroAccess().getNameAssignment_1(), "rule__ObjectMacro__NameAssignment_1");

@@ -35,7 +35,7 @@ Argument:
 	|
 		(Lang WS+ lang=PathCmd)
 	|
-		(SKW_MINUS (option=Option)?)
+		(SKW_MINUS (SKW_MINUS)? (option=Option)?)
 	|
 		in=Option
 	)

@@ -20,6 +20,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CmdArgsGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Argument_SKW_MINUSTerminalRuleCall_1_7_1_q;
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_2_1_p;
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_4_1_p;
 	protected AbstractElementAlias match_Argument_WSTerminalRuleCall_1_5_1_p;
@@ -30,6 +31,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CmdArgsGrammarAccess) access;
+		match_Argument_SKW_MINUSTerminalRuleCall_1_7_1_q = new TokenAlias(false, true, grammarAccess.getArgumentAccess().getSKW_MINUSTerminalRuleCall_1_7_1());
 		match_Argument_WSTerminalRuleCall_1_2_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_2_1());
 		match_Argument_WSTerminalRuleCall_1_4_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_4_1());
 		match_Argument_WSTerminalRuleCall_1_5_1_p = new TokenAlias(true, false, grammarAccess.getArgumentAccess().getWSTerminalRuleCall_1_5_1());
@@ -217,7 +219,9 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Argument_WSTerminalRuleCall_1_2_1_p.equals(syntax))
+			if(match_Argument_SKW_MINUSTerminalRuleCall_1_7_1_q.equals(syntax))
+				emit_Argument_SKW_MINUSTerminalRuleCall_1_7_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Argument_WSTerminalRuleCall_1_2_1_p.equals(syntax))
 				emit_Argument_WSTerminalRuleCall_1_2_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Argument_WSTerminalRuleCall_1_4_1_p.equals(syntax))
 				emit_Argument_WSTerminalRuleCall_1_4_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -233,6 +237,18 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     SKW_MINUS?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) SKW_MINUS (ambiguity) (rule start)
+	 *     (rule start) SKW_MINUS (ambiguity) option=Option
+	 */
+	protected void emit_Argument_SKW_MINUSTerminalRuleCall_1_7_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     WS+

@@ -436,19 +436,23 @@ ruleLang
     { 
     newLeafNode(this_SKW_MINUS_18, grammarAccess.getArgumentAccess().getSKW_MINUSTerminalRuleCall_1_7_0()); 
     }
-(
+(this_SKW_MINUS_19=RULE_SKW_MINUS
+    { 
+    newLeafNode(this_SKW_MINUS_19, grammarAccess.getArgumentAccess().getSKW_MINUSTerminalRuleCall_1_7_1()); 
+    }
+)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getOptionOptionParserRuleCall_1_7_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getOptionOptionParserRuleCall_1_7_2_0()); 
 	    }
-		lv_option_19_0=ruleOption		{
+		lv_option_20_0=ruleOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
        			"option",
-        		lv_option_19_0, 
+        		lv_option_20_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Option");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -460,14 +464,14 @@ ruleLang
 		{ 
 	        newCompositeNode(grammarAccess.getArgumentAccess().getInOptionParserRuleCall_1_8_0()); 
 	    }
-		lv_in_20_0=ruleOption		{
+		lv_in_21_0=ruleOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
        			"in",
-        		lv_in_20_0, 
+        		lv_in_21_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Option");
 	        afterParserOrEnumRuleCall();
 	    }

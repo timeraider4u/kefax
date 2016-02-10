@@ -152,27 +152,29 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLangPathCmdParserRuleCall_1_6_2_0 = (RuleCall)cLangAssignment_1_6_2.eContents().get(0);
 		private final Group cGroup_1_7 = (Group)cAlternatives_1.eContents().get(7);
 		private final RuleCall cSKW_MINUSTerminalRuleCall_1_7_0 = (RuleCall)cGroup_1_7.eContents().get(0);
-		private final Assignment cOptionAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
-		private final RuleCall cOptionOptionParserRuleCall_1_7_1_0 = (RuleCall)cOptionAssignment_1_7_1.eContents().get(0);
+		private final RuleCall cSKW_MINUSTerminalRuleCall_1_7_1 = (RuleCall)cGroup_1_7.eContents().get(1);
+		private final Assignment cOptionAssignment_1_7_2 = (Assignment)cGroup_1_7.eContents().get(2);
+		private final RuleCall cOptionOptionParserRuleCall_1_7_2_0 = (RuleCall)cOptionAssignment_1_7_2.eContents().get(0);
 		private final Assignment cInAssignment_1_8 = (Assignment)cAlternatives_1.eContents().get(8);
 		private final RuleCall cInOptionParserRuleCall_1_8_0 = (RuleCall)cInAssignment_1_8.eContents().get(0);
 		
 		//Argument:
 		//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 		//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-		//	option=Option? | in=Option);
+		//	SKW_MINUS? option=Option? | in=Option);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 		//nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-		//option=Option? | in=Option)
+		//SKW_MINUS? option=Option? | in=Option)
 		public Group getGroup() { return cGroup; }
 		
 		//{Argument}
 		public Action getArgumentAction_0() { return cArgumentAction_0; }
 		
 		//(Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd | nostdinc?=NoStdInc |
-		//Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS option=Option? | in=Option)
+		//Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS SKW_MINUS? option=Option? |
+		//in=Option)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//Define macro=Macro
@@ -271,17 +273,20 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//PathCmd
 		public RuleCall getLangPathCmdParserRuleCall_1_6_2_0() { return cLangPathCmdParserRuleCall_1_6_2_0; }
 		
-		//SKW_MINUS option=Option?
+		//SKW_MINUS SKW_MINUS? option=Option?
 		public Group getGroup_1_7() { return cGroup_1_7; }
 		
 		//SKW_MINUS
 		public RuleCall getSKW_MINUSTerminalRuleCall_1_7_0() { return cSKW_MINUSTerminalRuleCall_1_7_0; }
 		
+		//SKW_MINUS?
+		public RuleCall getSKW_MINUSTerminalRuleCall_1_7_1() { return cSKW_MINUSTerminalRuleCall_1_7_1; }
+		
 		//option=Option?
-		public Assignment getOptionAssignment_1_7_1() { return cOptionAssignment_1_7_1; }
+		public Assignment getOptionAssignment_1_7_2() { return cOptionAssignment_1_7_2; }
 		
 		//Option
-		public RuleCall getOptionOptionParserRuleCall_1_7_1_0() { return cOptionOptionParserRuleCall_1_7_1_0; }
+		public RuleCall getOptionOptionParserRuleCall_1_7_2_0() { return cOptionOptionParserRuleCall_1_7_2_0; }
 		
 		//in=Option
 		public Assignment getInAssignment_1_8() { return cInAssignment_1_8; }
@@ -891,7 +896,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//Argument:
 	//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 	//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-	//	option=Option? | in=Option);
+	//	SKW_MINUS? option=Option? | in=Option);
 	public ArgumentElements getArgumentAccess() {
 		return pArgument;
 	}

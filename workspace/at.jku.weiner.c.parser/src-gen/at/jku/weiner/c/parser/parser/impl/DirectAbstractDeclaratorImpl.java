@@ -30,12 +30,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl#getAbstractDeclaratorSuffix <em>Abstract Declarator Suffix</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

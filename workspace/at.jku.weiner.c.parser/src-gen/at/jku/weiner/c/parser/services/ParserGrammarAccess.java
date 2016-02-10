@@ -4684,10 +4684,21 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_6_4 = (RuleCall)cGroup_6.eContents().get(4);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Action cUnaryExpressionAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Assignment cAndandAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cAndandSKW_ANDANDTerminalRuleCall_7_1_0 = (RuleCall)cAndandAssignment_7_1.eContents().get(0);
-		private final Assignment cIdAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_7_2_0 = (RuleCall)cIdAssignment_7_2.eContents().get(0);
+		private final Assignment cAlignOfAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final Alternatives cAlignOfAlternatives_7_1_0 = (Alternatives)cAlignOfAssignment_7_1.eContents().get(0);
+		private final RuleCall cAlignOfKW_ALIGNOF1TerminalRuleCall_7_1_0_0 = (RuleCall)cAlignOfAlternatives_7_1_0.eContents().get(0);
+		private final RuleCall cAlignOfKW_ALIGNOF2TerminalRuleCall_7_1_0_1 = (RuleCall)cAlignOfAlternatives_7_1_0.eContents().get(1);
+		private final RuleCall cAlignOfKW_ALIGNOF3TerminalRuleCall_7_1_0_2 = (RuleCall)cAlignOfAlternatives_7_1_0.eContents().get(2);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_7_2 = (RuleCall)cGroup_7.eContents().get(2);
+		private final Assignment cExprAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_7_3_0 = (RuleCall)cExprAssignment_7_3.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_7_4 = (RuleCall)cGroup_7.eContents().get(4);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Action cUnaryExpressionAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Assignment cAndandAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cAndandSKW_ANDANDTerminalRuleCall_8_1_0 = (RuleCall)cAndandAssignment_8_1.eContents().get(0);
+		private final Assignment cIdAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_8_2_0 = (RuleCall)cIdAssignment_8_2.eContents().get(0);
 		
 		//UnaryExpression Expression:
 		//	PostfixExpression
@@ -4697,6 +4708,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| {UnaryExpression} sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 		//	| {UnaryExpression} sizeOf=KW_SIZEOF expr=UnaryExpression
 		//	| {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+		//	| {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN expr=UnaryExpression
+		//	SKW_RIGHTPAREN
 		//	| {UnaryExpression} andand=SKW_ANDAND id=ID
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4704,7 +4717,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//minusminus=SKW_MINUSMINUS expr=UnaryExpression | {UnaryExpression} op=UnaryOperator expr=CastExpression |
 		//{UnaryExpression} sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN | {UnaryExpression} sizeOf=KW_SIZEOF
 		//expr=UnaryExpression | {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN
-		//typeName=TypeName SKW_RIGHTPAREN | {UnaryExpression} andand=SKW_ANDAND id=ID
+		//typeName=TypeName SKW_RIGHTPAREN | {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN
+		//expr=UnaryExpression SKW_RIGHTPAREN | {UnaryExpression} andand=SKW_ANDAND id=ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//PostfixExpression
@@ -4839,23 +4853,56 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_6_4() { return cSKW_RIGHTPARENTerminalRuleCall_6_4; }
 		
-		//{UnaryExpression} andand=SKW_ANDAND id=ID
+		//{UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN expr=UnaryExpression SKW_RIGHTPAREN
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//{UnaryExpression}
 		public Action getUnaryExpressionAction_7_0() { return cUnaryExpressionAction_7_0; }
 		
+		//alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3)
+		public Assignment getAlignOfAssignment_7_1() { return cAlignOfAssignment_7_1; }
+		
+		//(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3)
+		public Alternatives getAlignOfAlternatives_7_1_0() { return cAlignOfAlternatives_7_1_0; }
+		
+		//KW_ALIGNOF1
+		public RuleCall getAlignOfKW_ALIGNOF1TerminalRuleCall_7_1_0_0() { return cAlignOfKW_ALIGNOF1TerminalRuleCall_7_1_0_0; }
+		
+		//KW_ALIGNOF2
+		public RuleCall getAlignOfKW_ALIGNOF2TerminalRuleCall_7_1_0_1() { return cAlignOfKW_ALIGNOF2TerminalRuleCall_7_1_0_1; }
+		
+		//KW_ALIGNOF3
+		public RuleCall getAlignOfKW_ALIGNOF3TerminalRuleCall_7_1_0_2() { return cAlignOfKW_ALIGNOF3TerminalRuleCall_7_1_0_2; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_7_2() { return cSKW_LEFTPARENTerminalRuleCall_7_2; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_7_3() { return cExprAssignment_7_3; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_7_3_0() { return cExprUnaryExpressionParserRuleCall_7_3_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_7_4() { return cSKW_RIGHTPARENTerminalRuleCall_7_4; }
+		
+		//{UnaryExpression} andand=SKW_ANDAND id=ID
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//{UnaryExpression}
+		public Action getUnaryExpressionAction_8_0() { return cUnaryExpressionAction_8_0; }
+		
 		//andand=SKW_ANDAND
-		public Assignment getAndandAssignment_7_1() { return cAndandAssignment_7_1; }
+		public Assignment getAndandAssignment_8_1() { return cAndandAssignment_8_1; }
 		
 		//SKW_ANDAND
-		public RuleCall getAndandSKW_ANDANDTerminalRuleCall_7_1_0() { return cAndandSKW_ANDANDTerminalRuleCall_7_1_0; }
+		public RuleCall getAndandSKW_ANDANDTerminalRuleCall_8_1_0() { return cAndandSKW_ANDANDTerminalRuleCall_8_1_0; }
 		
 		//id=ID
-		public Assignment getIdAssignment_7_2() { return cIdAssignment_7_2; }
+		public Assignment getIdAssignment_8_2() { return cIdAssignment_8_2; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_7_2_0() { return cIdIDTerminalRuleCall_7_2_0; }
+		public RuleCall getIdIDTerminalRuleCall_8_2_0() { return cIdIDTerminalRuleCall_8_2_0; }
 	}
 	public class UnaryOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.UnaryOperator");
@@ -6930,6 +6977,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| {UnaryExpression} sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	//	| {UnaryExpression} sizeOf=KW_SIZEOF expr=UnaryExpression
 	//	| {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	//	| {UnaryExpression} alignOf=(KW_ALIGNOF1 | KW_ALIGNOF2 | KW_ALIGNOF3) SKW_LEFTPAREN expr=UnaryExpression
+	//	SKW_RIGHTPAREN
 	//	| {UnaryExpression} andand=SKW_ANDAND id=ID
 	public UnaryExpressionElements getUnaryExpressionAccess() {
 		return pUnaryExpression;

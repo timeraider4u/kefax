@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttributeSpecifier#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttributeSpecifier#getList <em>List</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccAttributeSpecifier()
  * @model

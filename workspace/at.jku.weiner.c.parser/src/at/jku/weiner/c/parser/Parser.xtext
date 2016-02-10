@@ -790,6 +790,7 @@ UnaryExpression returns Expression:
 	|	{UnaryExpression} sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	{UnaryExpression} sizeOf=KW_SIZEOF expr=UnaryExpression 
 	|	{UnaryExpression} alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	|	{UnaryExpression} alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN expr=UnaryExpression SKW_RIGHTPAREN
 	|	{UnaryExpression} andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;

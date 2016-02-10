@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Init#getDesignation <em>Designation</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Init#getInitializer <em>Initializer</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getInit()
  * @model

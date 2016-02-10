@@ -788,11 +788,12 @@ class ParserGenerator implements IGenerator {
 		«ENDIF»
 		«IF obj.op != null»«obj.op»«outputFor(obj.expr)»
 		«ENDIF»
-		«IF obj.expr instanceof PostfixExpression»«outputFor(obj.expr)»
-		«ENDIF»
 		«IF obj.andand != null»«obj.andand»«obj.id»
 		«ENDIF»
-		«IF obj.alignOf != null»«obj.alignOf»(«outputFor(obj.typeName)»)«ENDIF»
+		«IF obj.alignOf != null»«obj.alignOf»(
+			«IF obj.typeName != null»«outputFor(obj.typeName)»
+			«ELSE»«outputFor(obj.expr)»«ENDIF»
+			)«ENDIF»
 	'''
 	
 	def String outputForPostfixExpression(PostfixExpression obj) '''

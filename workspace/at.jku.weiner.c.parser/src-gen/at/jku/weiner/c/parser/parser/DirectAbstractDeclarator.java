@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getAbstractDeclaratorSuffix <em>Abstract Declarator Suffix</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getDirectAbstractDeclarator()
  * @model

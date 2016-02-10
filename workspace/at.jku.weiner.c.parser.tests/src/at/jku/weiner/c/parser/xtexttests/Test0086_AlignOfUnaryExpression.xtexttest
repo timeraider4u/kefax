@@ -1,0 +1,160 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0086_AlignOfUnaryExpression.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE SKW_SEMI NEWLINE
+NEWLINE
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_STAR WHITESPACE ID 
+	SKW_SEMI NEWLINE
+KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE KW_ALIGNOF3 SKW_LEFTPAREN
+	ID ARROW ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"Employee",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// int id
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"id"
+												)
+											)
+										)
+									)
+								)
+							)
+						) // end struct or union specifier
+					)
+				)
+			)
+		),
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"Employee",
+							structDeclList isNull
+						)
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"emp"
+							),
+							pointer=
+							(Pointer
+								star+*"[*]"
+							)
+						),
+						initializer isNull
+					)
+				)
+			)
+		),
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"long"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"l"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(UnaryExpression
+								alignOf++"__alignof__",
+								expr=
+								(PostfixExpression
+									expr=
+									(PrimaryExpression
+										id++"emp"
+									),
+									suffix=
+									(PostfixExpressionSuffixArrow
+										id++"id"
+									)
+								)
+							),
+							list isNull,
+							lastComma ?= false
+						) // end initializer
+					)
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0086_AlignOfUnaryExpression.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

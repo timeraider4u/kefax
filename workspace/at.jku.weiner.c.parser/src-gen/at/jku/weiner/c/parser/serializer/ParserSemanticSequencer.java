@@ -1382,6 +1382,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         (sizeOf=KW_SIZEOF typeName=TypeName) | 
 	 *         (sizeOf=KW_SIZEOF expr=UnaryExpression) | 
 	 *         ((alignOf=KW_ALIGNOF1 | alignOf=KW_ALIGNOF2 | alignOf=KW_ALIGNOF3) typeName=TypeName) | 
+	 *         ((alignOf=KW_ALIGNOF1 | alignOf=KW_ALIGNOF2 | alignOf=KW_ALIGNOF3) expr=UnaryExpression) | 
 	 *         (andand=SKW_ANDAND id=ID)
 	 *     )
 	 */

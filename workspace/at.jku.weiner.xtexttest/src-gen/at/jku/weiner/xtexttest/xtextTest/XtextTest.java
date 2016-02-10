@@ -11,19 +11,20 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getLang <em>Lang</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getImports <em>Imports</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBoolean <em>Boolean</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getInput <em>Input</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTimeOut <em>Time Out</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTokens <em>Tokens</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getRoot <em>Root</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getOutput <em>Output</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getAfter <em>After</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getXtextTest()
  * @model
@@ -160,6 +161,32 @@ public interface XtextTest extends EObject
    * @generated
    */
   void setInput(Input value);
+
+  /**
+   * Returns the value of the '<em><b>Time Out</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Time Out</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Time Out</em>' attribute.
+   * @see #setTimeOut(int)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getXtextTest_TimeOut()
+   * @model
+   * @generated
+   */
+  int getTimeOut();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTimeOut <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Time Out</em>' attribute.
+   * @see #getTimeOut()
+   * @generated
+   */
+  void setTimeOut(int value);
 
   /**
    * Returns the value of the '<em><b>Tokens</b></em>' containment reference.

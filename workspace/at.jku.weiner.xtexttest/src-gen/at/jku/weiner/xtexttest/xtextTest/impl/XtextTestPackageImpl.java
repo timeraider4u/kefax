@@ -290,9 +290,9 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Tokens()
+  public EAttribute getXtextTest_TimeOut()
   {
-    return (EReference)xtextTestEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)xtextTestEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -300,7 +300,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Root()
+  public EReference getXtextTest_Tokens()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(6);
   }
@@ -310,7 +310,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Output()
+  public EReference getXtextTest_Root()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(7);
   }
@@ -320,7 +320,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Before()
+  public EReference getXtextTest_Output()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(8);
   }
@@ -330,9 +330,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_After()
+  public EReference getXtextTest_Before()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXtextTest_After()
+  {
+    return (EReference)xtextTestEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -915,6 +925,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(xtextTestEClass, XTEXT_TEST__IMPORTS);
     createEAttribute(xtextTestEClass, XTEXT_TEST__BOOLEAN);
     createEReference(xtextTestEClass, XTEXT_TEST__INPUT);
+    createEAttribute(xtextTestEClass, XTEXT_TEST__TIME_OUT);
     createEReference(xtextTestEClass, XTEXT_TEST__TOKENS);
     createEReference(xtextTestEClass, XTEXT_TEST__ROOT);
     createEReference(xtextTestEClass, XTEXT_TEST__OUTPUT);
@@ -1029,6 +1040,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getXtextTest_Imports(), ecorePackage.getEString(), "imports", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getXtextTest_Boolean(), ecorePackage.getEString(), "boolean", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Input(), this.getInput(), null, "input", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getXtextTest_TimeOut(), ecorePackage.getEInt(), "timeOut", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Tokens(), this.getTokens(), null, "tokens", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Root(), this.getElement(), null, "root", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Output(), this.getGenerator(), null, "output", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

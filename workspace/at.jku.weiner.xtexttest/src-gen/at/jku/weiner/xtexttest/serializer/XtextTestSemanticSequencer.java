@@ -275,6 +275,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         imports=ImportID? 
 	 *         boolean=Boolean? 
 	 *         input=Input 
+	 *         timeOut=INT? 
 	 *         tokens=Tokens? 
 	 *         root=Element 
 	 *         output=Generator? 

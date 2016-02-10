@@ -24,6 +24,7 @@ class MyXtextTestGenerator {
 	private XtextTest test;
 	private URI uri;
 	private String myDsl;
+	private int timeOut = TIMEOUT;
 	
 	@Accessors String fileName;
 
@@ -39,6 +40,12 @@ class MyXtextTestGenerator {
 		}
 		
 		elementCount = 0;
+		if (test.timeOut == 0) {
+			timeOut = TIMEOUT;
+		}
+		else {
+			timeOut = test.timeOut * 1000;
+		}
 		val outputForJava = outputJava();
 		setFileName(test.package.replace(".", "/") + "/" + PKG_PREFIX
 			+ "/" + getJavaClassFileName() + ".java");
@@ -219,7 +226,7 @@ class MyXtextTestGenerator {
 	
 	def tokensJUnitTest() '''
 		«IF test.tokens != null»
-		@Test (timeout=«TIMEOUT»)
+		@Test (timeout=«timeOut»)
 		public void checkLexerTokens() throws Exception{
 			final String text = this.getTextFromFile(
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
@@ -261,7 +268,7 @@ class MyXtextTestGenerator {
 	}
 	
 	def parserJUnitTest() '''
-		@Test (timeout=«TIMEOUT»)
+		@Test (timeout=«timeOut»)
 		public void checkParserResult() throws Exception {
 			final String text = this.getTextFromFile(
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
@@ -363,7 +370,7 @@ class MyXtextTestGenerator {
 	def generatorJUnitTest() '''
 		«IF test.output != null»
 		@Test
-		(timeout=«TIMEOUT»
+		(timeout=«timeOut»
 		«IF test.output.exception != null»
 		, expected = «test.output.exception».class
 		«ENDIF»

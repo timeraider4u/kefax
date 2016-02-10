@@ -79,7 +79,7 @@ ruleModel returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -141,6 +141,11 @@ ruleModel returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -161,7 +166,7 @@ ruleXtextTest returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -321,18 +326,56 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 
 
 (
+this_TIMEOUT_11=RULE_TIMEOUT
+    { 
+    newLeafNode(this_TIMEOUT_11, grammarAccess.getXtextTestAccess().getTIMEOUTTerminalRuleCall_8_0()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_12, grammarAccess.getXtextTestAccess().getASSIGNASSINGLETerminalRuleCall_8_1()); 
+    }
+
+
+
+(
+(
+		lv_timeOut_13_0=RULE_INT
+		{
+			newLeafNode(lv_timeOut_13_0, grammarAccess.getXtextTestAccess().getTimeOutINTTerminalRuleCall_8_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getXtextTestRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"timeOut",
+        		lv_timeOut_13_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
+	    }
+
+)
+)
+
+)?
+
+
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getTokensTokensParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getTokensTokensParserRuleCall_9_0()); 
 	    }
-		lv_tokens_11_0=ruleTokens		{
+		lv_tokens_14_0=ruleTokens		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"tokens",
-        		lv_tokens_11_0, 
+        		lv_tokens_14_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Tokens");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -344,16 +387,16 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getRootElementParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getRootElementParserRuleCall_10_0()); 
 	    }
-		lv_root_12_0=ruleElement		{
+		lv_root_15_0=ruleElement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"root",
-        		lv_root_12_0, 
+        		lv_root_15_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Element");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -365,16 +408,16 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getOutputGeneratorParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getOutputGeneratorParserRuleCall_11_0()); 
 	    }
-		lv_output_13_0=ruleGenerator		{
+		lv_output_16_0=ruleGenerator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"output",
-        		lv_output_13_0, 
+        		lv_output_16_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Generator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -386,16 +429,16 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_12_0()); 
 	    }
-		lv_before_14_0=ruleBefore		{
+		lv_before_17_0=ruleBefore		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"before",
-        		lv_before_14_0, 
+        		lv_before_17_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Before");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -407,16 +450,16 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_13_0()); 
 	    }
-		lv_after_15_0=ruleAfter		{
+		lv_after_18_0=ruleAfter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"after",
-        		lv_after_15_0, 
+        		lv_after_18_0, 
         		"at.jku.weiner.xtexttest.XtextTest.After");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -428,6 +471,11 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -448,7 +496,7 @@ ruleEmfTest returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -708,6 +756,11 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -728,7 +781,7 @@ ruleImport returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -800,6 +853,11 @@ this_KW_AS_3=RULE_KW_AS
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -968,7 +1026,7 @@ ruleInput returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1071,6 +1129,11 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1091,7 +1154,7 @@ ruleTokens returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1135,6 +1198,11 @@ this_LEXER_1=RULE_LEXER
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1155,7 +1223,7 @@ ruleMyTokens returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1239,6 +1307,11 @@ this_ASSIGNASDATALIST_2=RULE_ASSIGNASDATALIST
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1259,7 +1332,7 @@ ruleElement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1396,6 +1469,11 @@ this_RIGHTPAREN_8=RULE_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1416,7 +1494,7 @@ ruleInner returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1730,6 +1808,11 @@ this_ASSIGNASBOOL_12=RULE_ASSIGNASBOOL
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1750,7 +1833,7 @@ ruleGenerator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1991,6 +2074,11 @@ this_EXCEPTIONS_16=RULE_EXCEPTIONS
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2011,7 +2099,7 @@ ruleReplacePatterns returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2067,6 +2155,11 @@ this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2087,7 +2180,7 @@ ruleBefore returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2131,6 +2224,11 @@ this_BEFORE_KW_1=RULE_BEFORE_KW
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2151,7 +2249,7 @@ ruleAfter returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2195,6 +2293,11 @@ this_AFTER_KW_1=RULE_AFTER_KW
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2215,7 +2318,7 @@ ruleCodeCall returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2373,6 +2476,11 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2427,6 +2535,8 @@ RULE_ISNULL : 'isNull';
 RULE_ISNOTNULL : 'isNotNull';
 
 RULE_ISEMPTY : 'isEmpty';
+
+RULE_TIMEOUT : 'timeOut';
 
 RULE_LEFTPAREN : '(';
 

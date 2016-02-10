@@ -143,10 +143,25 @@ public final class TestUtils {
 				+ File.separator + "include");
 		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
 				+ File.separator + "include" + File.separator + "test0131");
-		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
-				+ File.separator + "include" + File.separator + "test0131");
+		// IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+		// + File.separator + "include" + File.separator + "test0131");
 		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
 				+ File.separator + "include" + File.separator + "test0131"
 				+ File.separator + "test0131");
+	}
+
+	public static void setUpTest0132() {
+		final File file = new File(""); // dummy file
+		final String prjDir = file.getAbsolutePath() + File.separator;
+		IncludeDirs.clearAllIncludeDirectories();
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+				+ File.separator + "include");
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+				+ File.separator + "include" + File.separator + "test0132");
+		// IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+		// + File.separator + "include" + File.separator + "test0132");
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+				+ File.separator + "include" + File.separator + "test0132"
+				+ File.separator + "test0132");
 	}
 }

@@ -2,41 +2,39 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.preprocess
 language preprocess
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=true
-source file="res/Test0001_Semicolons.c"
-timeOut=5
+split-lexer=false
+source file="res/Test0132_IncludeNext.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	"include" NEWLINE
-	MYCODE NEWLINE
-	MYCODE +*6 NEWLINE
-	NEWLINE
-	MYCODE +*3 NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(Model
-	units+=
-	(TranslationUnit
-		lines+=
-		(Code
-			code++";"
-		),
-		(Code
-			code++";\\\\;\\\\\\\\;"
-		),
-		(NewLineLine
-			
-		),
-		(Code
-			code++";;;"
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					next?=false,
+					string++"\\\"test0132.h\\\""
+				)
+			)
 		)
 	)
-)
+//)
+//)
 //----------------------------------------------------------------------
-output file="bin/Test0001_Semicolons.c.i"
-expected file isSameAsInputFile
+output file="bin/Test0132_IncludeNext.h.i"
+expected file="expected/Test0132_IncludeNext.h"
 //replacePatterns file="res/Patterns.txt"
+before
+	class= at.jku.weiner.c.preprocess.xtexttests.TestUtils
+	method=setUpTest0132
+	()
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo(mydemo)
-after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo(mydemo,mydemo2)

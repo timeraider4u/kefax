@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMydefault <em>Mydefault</em>}</li>
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter <em>After</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest()
  * @model

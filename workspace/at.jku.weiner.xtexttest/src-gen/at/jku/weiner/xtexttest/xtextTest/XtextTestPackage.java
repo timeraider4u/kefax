@@ -149,13 +149,22 @@ public interface XtextTestPackage extends EPackage
   int XTEXT_TEST__INPUT = 4;
 
   /**
+   * The feature id for the '<em><b>Time Out</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XTEXT_TEST__TIME_OUT = 5;
+
+  /**
    * The feature id for the '<em><b>Tokens</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__TOKENS = 5;
+  int XTEXT_TEST__TOKENS = 6;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -164,7 +173,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__ROOT = 6;
+  int XTEXT_TEST__ROOT = 7;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -173,7 +182,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__OUTPUT = 7;
+  int XTEXT_TEST__OUTPUT = 8;
 
   /**
    * The feature id for the '<em><b>Before</b></em>' containment reference.
@@ -182,7 +191,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__BEFORE = 8;
+  int XTEXT_TEST__BEFORE = 9;
 
   /**
    * The feature id for the '<em><b>After</b></em>' containment reference.
@@ -191,7 +200,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__AFTER = 9;
+  int XTEXT_TEST__AFTER = 10;
 
   /**
    * The number of structural features of the '<em>Xtext Test</em>' class.
@@ -200,7 +209,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST_FEATURE_COUNT = 10;
+  int XTEXT_TEST_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl <em>Emf Test</em>}' class.
@@ -905,6 +914,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EReference getXtextTest_Input();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTimeOut <em>Time Out</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Time Out</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTest#getTimeOut()
+   * @see #getXtextTest()
+   * @generated
+   */
+  EAttribute getXtextTest_TimeOut();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTokens <em>Tokens</em>}'.
@@ -1641,6 +1661,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference XTEXT_TEST__INPUT = eINSTANCE.getXtextTest_Input();
+
+    /**
+     * The meta object literal for the '<em><b>Time Out</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute XTEXT_TEST__TIME_OUT = eINSTANCE.getXtextTest_TimeOut();
 
     /**
      * The meta object literal for the '<em><b>Tokens</b></em>' containment reference feature.

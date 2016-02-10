@@ -13,13 +13,13 @@ public class MyLog {
 
 	// private static int log_level = MyLog.LOG_NONE;
 
-	private static int log_level = MyLog.LOG_ERROR;
+	// private static int log_level = MyLog.LOG_ERROR;
 
 	// private static int log_level = MyLog.LOG_INFO;
 
 	// private static int log_level = MyLog.LOG_DEBUG;
 
-	// private static int log_level = MyLog.LOG_TRACE;
+	private static int log_level = MyLog.LOG_TRACE;
 
 	private static MyConsoleViewLogger consoleLogger = null;
 	private static boolean tryWritingToConsoleView = true;

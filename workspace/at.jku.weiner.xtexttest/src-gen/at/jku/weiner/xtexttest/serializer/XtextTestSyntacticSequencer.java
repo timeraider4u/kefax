@@ -96,6 +96,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSPLITLEXERToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSRCTEXTRule())
 			return getSRCTEXTToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getTIMEOUTRule())
+			return getTIMEOUTToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -394,6 +396,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "text";
+	}
+	
+	/**
+	 * terminal TIMEOUT: 'timeOut';
+	 */
+	protected String getTIMEOUTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "timeOut";
 	}
 	
 	@Override

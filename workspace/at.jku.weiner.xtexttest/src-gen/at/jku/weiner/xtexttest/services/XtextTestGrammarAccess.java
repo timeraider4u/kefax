@@ -80,21 +80,26 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBooleanBooleanParserRuleCall_6_2_0 = (RuleCall)cBooleanAssignment_6_2.eContents().get(0);
 		private final Assignment cInputAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cInputInputParserRuleCall_7_0 = (RuleCall)cInputAssignment_7.eContents().get(0);
-		private final Assignment cTokensAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cTokensTokensParserRuleCall_8_0 = (RuleCall)cTokensAssignment_8.eContents().get(0);
-		private final Assignment cRootAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cRootElementParserRuleCall_9_0 = (RuleCall)cRootAssignment_9.eContents().get(0);
-		private final Assignment cOutputAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cOutputGeneratorParserRuleCall_10_0 = (RuleCall)cOutputAssignment_10.eContents().get(0);
-		private final Assignment cBeforeAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cBeforeBeforeParserRuleCall_11_0 = (RuleCall)cBeforeAssignment_11.eContents().get(0);
-		private final Assignment cAfterAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cAfterAfterParserRuleCall_12_0 = (RuleCall)cAfterAssignment_12.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final RuleCall cTIMEOUTTerminalRuleCall_8_0 = (RuleCall)cGroup_8.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final Assignment cTimeOutAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cTimeOutINTTerminalRuleCall_8_2_0 = (RuleCall)cTimeOutAssignment_8_2.eContents().get(0);
+		private final Assignment cTokensAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cTokensTokensParserRuleCall_9_0 = (RuleCall)cTokensAssignment_9.eContents().get(0);
+		private final Assignment cRootAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cRootElementParserRuleCall_10_0 = (RuleCall)cRootAssignment_10.eContents().get(0);
+		private final Assignment cOutputAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cOutputGeneratorParserRuleCall_11_0 = (RuleCall)cOutputAssignment_11.eContents().get(0);
+		private final Assignment cBeforeAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cBeforeBeforeParserRuleCall_12_0 = (RuleCall)cBeforeAssignment_12.eContents().get(0);
+		private final Assignment cAfterAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cAfterAfterParserRuleCall_13_0 = (RuleCall)cAfterAssignment_13.eContents().get(0);
 		
 		//XtextTest:
 		//	{XtextTest} PACKAGE package=PackageID
 		//	LANGUAGE lang=LangID (IMPORTS imports=ImportID)? (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
-		//	input=Input
+		//	input=Input (TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 		//	tokens=Tokens?
 		//	root=Element
 		//	output=Generator?
@@ -103,7 +108,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{XtextTest} PACKAGE package=PackageID LANGUAGE lang=LangID (IMPORTS imports=ImportID)? (SPLITLEXER ASSIGNASSINGLE
-		//boolean=Boolean)? input=Input tokens=Tokens? root=Element output=Generator? before=Before? after=After?
+		//boolean=Boolean)? input=Input (TIMEOUT ASSIGNASSINGLE timeOut=INT)? tokens=Tokens? root=Element output=Generator?
+		//before=Before? after=After?
 		public Group getGroup() { return cGroup; }
 		
 		//{XtextTest}
@@ -160,35 +166,50 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//Input
 		public RuleCall getInputInputParserRuleCall_7_0() { return cInputInputParserRuleCall_7_0; }
 		
+		//(TIMEOUT ASSIGNASSINGLE timeOut=INT)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//TIMEOUT
+		public RuleCall getTIMEOUTTerminalRuleCall_8_0() { return cTIMEOUTTerminalRuleCall_8_0; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_8_1() { return cASSIGNASSINGLETerminalRuleCall_8_1; }
+		
+		//timeOut=INT
+		public Assignment getTimeOutAssignment_8_2() { return cTimeOutAssignment_8_2; }
+		
+		//INT
+		public RuleCall getTimeOutINTTerminalRuleCall_8_2_0() { return cTimeOutINTTerminalRuleCall_8_2_0; }
+		
 		//tokens=Tokens?
-		public Assignment getTokensAssignment_8() { return cTokensAssignment_8; }
+		public Assignment getTokensAssignment_9() { return cTokensAssignment_9; }
 		
 		//Tokens
-		public RuleCall getTokensTokensParserRuleCall_8_0() { return cTokensTokensParserRuleCall_8_0; }
+		public RuleCall getTokensTokensParserRuleCall_9_0() { return cTokensTokensParserRuleCall_9_0; }
 		
 		//root=Element
-		public Assignment getRootAssignment_9() { return cRootAssignment_9; }
+		public Assignment getRootAssignment_10() { return cRootAssignment_10; }
 		
 		//Element
-		public RuleCall getRootElementParserRuleCall_9_0() { return cRootElementParserRuleCall_9_0; }
+		public RuleCall getRootElementParserRuleCall_10_0() { return cRootElementParserRuleCall_10_0; }
 		
 		//output=Generator?
-		public Assignment getOutputAssignment_10() { return cOutputAssignment_10; }
+		public Assignment getOutputAssignment_11() { return cOutputAssignment_11; }
 		
 		//Generator
-		public RuleCall getOutputGeneratorParserRuleCall_10_0() { return cOutputGeneratorParserRuleCall_10_0; }
+		public RuleCall getOutputGeneratorParserRuleCall_11_0() { return cOutputGeneratorParserRuleCall_11_0; }
 		
 		//before=Before?
-		public Assignment getBeforeAssignment_11() { return cBeforeAssignment_11; }
+		public Assignment getBeforeAssignment_12() { return cBeforeAssignment_12; }
 		
 		//Before
-		public RuleCall getBeforeBeforeParserRuleCall_11_0() { return cBeforeBeforeParserRuleCall_11_0; }
+		public RuleCall getBeforeBeforeParserRuleCall_12_0() { return cBeforeBeforeParserRuleCall_12_0; }
 		
 		//after=After?
-		public Assignment getAfterAssignment_12() { return cAfterAssignment_12; }
+		public Assignment getAfterAssignment_13() { return cAfterAssignment_13; }
 		
 		//After
-		public RuleCall getAfterAfterParserRuleCall_12_0() { return cAfterAfterParserRuleCall_12_0; }
+		public RuleCall getAfterAfterParserRuleCall_13_0() { return cAfterAfterParserRuleCall_13_0; }
 	}
 	public class EmfTestElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EmfTest");
@@ -1183,6 +1204,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tISNULL;
 	private final TerminalRule tISNOTNULL;
 	private final TerminalRule tISEMPTY;
+	private final TerminalRule tTIMEOUT;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
 	private final TerminalRule tASSIGNASBOOL;
@@ -1248,6 +1270,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tISNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNULL");
 		this.tISNOTNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNOTNULL");
 		this.tISEMPTY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISEMPTY");
+		this.tTIMEOUT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.TIMEOUT");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
 		this.tASSIGNASBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASBOOL");
@@ -1303,7 +1326,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//XtextTest:
 	//	{XtextTest} PACKAGE package=PackageID
 	//	LANGUAGE lang=LangID (IMPORTS imports=ImportID)? (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
-	//	input=Input
+	//	input=Input (TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 	//	tokens=Tokens?
 	//	root=Element
 	//	output=Generator?
@@ -1645,6 +1668,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'isEmpty';
 	public TerminalRule getISEMPTYRule() {
 		return tISEMPTY;
+	}
+	
+	//terminal TIMEOUT:
+	//	'timeOut';
+	public TerminalRule getTIMEOUTRule() {
+		return tTIMEOUT;
 	}
 	
 	//terminal LEFTPAREN:

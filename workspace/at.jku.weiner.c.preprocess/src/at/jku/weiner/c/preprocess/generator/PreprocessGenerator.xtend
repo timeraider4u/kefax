@@ -178,11 +178,11 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String getFileName(Resource input) {
-		val URI uri = input.URI;
-		var String fileName = uri.toFileString;
-		this.currUri.push(uri);
+		val URI myuri = input.URI;
+		var String fileName = myuri.toFileString;
+		this.currUri.push(myuri);
 		if (fileName == null) {
-			fileName = uri.toPlatformString(false);
+			fileName = myuri.toPlatformString(false);
 		}
 		val String path = fileName.replaceAll("^///", "/");
 		return path;

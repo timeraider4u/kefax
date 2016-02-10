@@ -15,6 +15,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Input"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" eType="#//Tokens"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Element"

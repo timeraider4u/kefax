@@ -19,6 +19,7 @@ XtextTest:
 	(IMPORTS imports=ImportID)?
 	(SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
 	input=Input
+	(TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 	(tokens=Tokens)?
 	root=Element
 	(output=Generator)?
@@ -178,6 +179,7 @@ terminal METHOD_KW: 'method';
 terminal ISNULL: 'isNull';
 terminal ISNOTNULL: 'isNotNull';
 terminal ISEMPTY: 'isEmpty';
+terminal TIMEOUT: 'timeOut';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASBOOL: '?=';

@@ -48,6 +48,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXtextTestAccess().getGroup(), "rule__XtextTest__Group__0");
 					put(grammarAccess.getXtextTestAccess().getGroup_5(), "rule__XtextTest__Group_5__0");
 					put(grammarAccess.getXtextTestAccess().getGroup_6(), "rule__XtextTest__Group_6__0");
+					put(grammarAccess.getXtextTestAccess().getGroup_8(), "rule__XtextTest__Group_8__0");
 					put(grammarAccess.getEmfTestAccess().getGroup(), "rule__EmfTest__Group__0");
 					put(grammarAccess.getEmfTestAccess().getGroup_8(), "rule__EmfTest__Group_8__0");
 					put(grammarAccess.getEmfTestAccess().getGroup_9(), "rule__EmfTest__Group_9__0");
@@ -94,11 +95,12 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXtextTestAccess().getImportsAssignment_5_1(), "rule__XtextTest__ImportsAssignment_5_1");
 					put(grammarAccess.getXtextTestAccess().getBooleanAssignment_6_2(), "rule__XtextTest__BooleanAssignment_6_2");
 					put(grammarAccess.getXtextTestAccess().getInputAssignment_7(), "rule__XtextTest__InputAssignment_7");
-					put(grammarAccess.getXtextTestAccess().getTokensAssignment_8(), "rule__XtextTest__TokensAssignment_8");
-					put(grammarAccess.getXtextTestAccess().getRootAssignment_9(), "rule__XtextTest__RootAssignment_9");
-					put(grammarAccess.getXtextTestAccess().getOutputAssignment_10(), "rule__XtextTest__OutputAssignment_10");
-					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_11(), "rule__XtextTest__BeforeAssignment_11");
-					put(grammarAccess.getXtextTestAccess().getAfterAssignment_12(), "rule__XtextTest__AfterAssignment_12");
+					put(grammarAccess.getXtextTestAccess().getTimeOutAssignment_8_2(), "rule__XtextTest__TimeOutAssignment_8_2");
+					put(grammarAccess.getXtextTestAccess().getTokensAssignment_9(), "rule__XtextTest__TokensAssignment_9");
+					put(grammarAccess.getXtextTestAccess().getRootAssignment_10(), "rule__XtextTest__RootAssignment_10");
+					put(grammarAccess.getXtextTestAccess().getOutputAssignment_11(), "rule__XtextTest__OutputAssignment_11");
+					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_12(), "rule__XtextTest__BeforeAssignment_12");
+					put(grammarAccess.getXtextTestAccess().getAfterAssignment_13(), "rule__XtextTest__AfterAssignment_13");
 					put(grammarAccess.getEmfTestAccess().getPackageAssignment_3(), "rule__EmfTest__PackageAssignment_3");
 					put(grammarAccess.getEmfTestAccess().getMydefaultAssignment_5(), "rule__EmfTest__MydefaultAssignment_5");
 					put(grammarAccess.getEmfTestAccess().getMyimportAssignment_6(), "rule__EmfTest__MyimportAssignment_6");

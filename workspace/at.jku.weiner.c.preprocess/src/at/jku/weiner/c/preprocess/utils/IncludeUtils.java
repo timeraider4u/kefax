@@ -78,6 +78,9 @@ public final class IncludeUtils {
 			if (file.canRead()) {
 				return uri;
 			}
+		} else if (this.pathState == PathState.IncludeNext) {
+			final URI uri = this.createIncludeNextURI();
+			return uri;
 		}
 		return this.createAbsoluteURI();
 	}
@@ -105,14 +108,7 @@ public final class IncludeUtils {
 		for (final String include : includeDirs) {
 			final URI uri = this.searchInDirectory(pathInURI, include);
 			if (uri != null) {
-				final String currFileStr = this.getFileName(this.currUri);
-				final String uriFileStr = this.getFileName(uri);
-				MyLog.trace(IncludeUtils.class, "currURI='" + currFileStr + "'");
-				if (this.includeNext) {
-					return uri;
-				} else {
-					return uri;
-				}
+				return uri;
 			}
 		}
 
@@ -137,4 +133,38 @@ public final class IncludeUtils {
 		return null;
 	}
 
+	public URI createIncludeNextURI() {
+		final MyPath pathInURI = new MyPath(this.fileName);
+		final List<String> includeDirs = IncludeDirs.getListCopy();
+		boolean includeCurrMatched = false;
+		final String currFileStr = this.getFileName(this.currUri);
+		MyLog.trace(IncludeUtils.class, "currUri='" + currFileStr + "'!");
+		int lastIndex = currFileStr.lastIndexOf(File.separator);
+		String pathInCurrURIPath = currFileStr.substring(0, lastIndex);
+		includeDirs.add(0, pathInCurrURIPath);
+
+		for (final String include : includeDirs) {
+			final URI uri = this.searchInDirectory(pathInURI, include);
+			if (uri != null) {
+				final String uriFileStr = this.getFileName(uri);
+				MyLog.trace(IncludeUtils.class, "currURI='" + currFileStr + "'");
+
+				if (!currFileStr.equals(uriFileStr)) {
+					if (includeCurrMatched) {
+						return uri;
+					}
+				} else {
+					MyLog.trace(IncludeUtils.class, "Found currFileStr'"
+							+ currFileStr + "'!");
+					includeCurrMatched = true;
+				}
+			}
+		}
+
+		final RuntimeException ex = new RuntimeException("Include next file ('"
+				+ this.fileName + "') not found in directories='"
+				+ includeDirs.toString() + "'!");
+		MyLog.error(IncludeUtils.class, ex);
+		return null;
+	}
 }

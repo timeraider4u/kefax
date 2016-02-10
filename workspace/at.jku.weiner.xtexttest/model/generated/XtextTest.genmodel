@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.xtexttest.editor/src" modelPluginID="at.jku.weiner.xtexttest"
     forceOverwrite="true" modelName="XtextTest" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.xtexttest.edit"
-    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.10">
   <genPackages prefix="XtextTest" basePackage="at.jku.weiner.xtexttest" disposableProviderFactory="true"
       fileExtensions="xtexttest" ecorePackage="XtextTest.ecore#/">
     <genClasses ecoreClass="XtextTest.ecore#//Model">
@@ -17,6 +17,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/boolean"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/timeOut"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/output"/>

@@ -2,7 +2,6 @@ package at.jku.weiner.c.preprocess.utils;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public final class IncludeDirs {
@@ -16,7 +15,7 @@ public final class IncludeDirs {
 		IncludeDirs.addIncludeDirectoryToList("/usr/local/include");
 		IncludeDirs.addIncludeDirectoryToList("/usr/target/include");
 		IncludeDirs
-		.addIncludeDirectoryToList("/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/include");
+				.addIncludeDirectoryToList("/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/include");
 		IncludeDirs.addIncludeDirectoryToList("/usr/include");
 
 	}
@@ -33,7 +32,12 @@ public final class IncludeDirs {
 	}
 
 	public static List<String> getListCopy() {
-		return Collections.unmodifiableList(IncludeDirs.dirs);
+		final ArrayList<String> result = new ArrayList<String>();
+		for (int i = 0; i < IncludeDirs.dirs.size(); i++) {
+			result.add(IncludeDirs.dirs.get(i));
+		}
+		// return Collections.unmodifiableList(IncludeDirs.dirs);
+		return result;
 	}
 
 }

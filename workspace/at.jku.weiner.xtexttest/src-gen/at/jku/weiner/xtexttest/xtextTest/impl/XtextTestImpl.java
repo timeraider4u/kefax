@@ -26,19 +26,20 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getBoolean <em>Boolean</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getTimeOut <em>Time Out</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getTokens <em>Tokens</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getAfter <em>After</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -133,6 +134,26 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
    * @ordered
    */
   protected Input input;
+
+  /**
+   * The default value of the '{@link #getTimeOut() <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTimeOut()
+   * @generated
+   * @ordered
+   */
+  protected static final int TIME_OUT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getTimeOut() <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTimeOut()
+   * @generated
+   * @ordered
+   */
+  protected int timeOut = TIME_OUT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference.
@@ -343,6 +364,29 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__INPUT, newInput, newInput));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getTimeOut()
+  {
+    return timeOut;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTimeOut(int newTimeOut)
+  {
+    int oldTimeOut = timeOut;
+    timeOut = newTimeOut;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__TIME_OUT, oldTimeOut, timeOut));
   }
 
   /**
@@ -631,6 +675,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return getBoolean();
       case XtextTestPackage.XTEXT_TEST__INPUT:
         return getInput();
+      case XtextTestPackage.XTEXT_TEST__TIME_OUT:
+        return getTimeOut();
       case XtextTestPackage.XTEXT_TEST__TOKENS:
         return getTokens();
       case XtextTestPackage.XTEXT_TEST__ROOT:
@@ -669,6 +715,9 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return;
       case XtextTestPackage.XTEXT_TEST__INPUT:
         setInput((Input)newValue);
+        return;
+      case XtextTestPackage.XTEXT_TEST__TIME_OUT:
+        setTimeOut((Integer)newValue);
         return;
       case XtextTestPackage.XTEXT_TEST__TOKENS:
         setTokens((Tokens)newValue);
@@ -714,6 +763,9 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
       case XtextTestPackage.XTEXT_TEST__INPUT:
         setInput((Input)null);
         return;
+      case XtextTestPackage.XTEXT_TEST__TIME_OUT:
+        setTimeOut(TIME_OUT_EDEFAULT);
+        return;
       case XtextTestPackage.XTEXT_TEST__TOKENS:
         setTokens((Tokens)null);
         return;
@@ -753,6 +805,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return BOOLEAN_EDEFAULT == null ? boolean_ != null : !BOOLEAN_EDEFAULT.equals(boolean_);
       case XtextTestPackage.XTEXT_TEST__INPUT:
         return input != null;
+      case XtextTestPackage.XTEXT_TEST__TIME_OUT:
+        return timeOut != TIME_OUT_EDEFAULT;
       case XtextTestPackage.XTEXT_TEST__TOKENS:
         return tokens != null;
       case XtextTestPackage.XTEXT_TEST__ROOT:
@@ -786,6 +840,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
     result.append(imports);
     result.append(", boolean: ");
     result.append(boolean_);
+    result.append(", timeOut: ");
+    result.append(timeOut);
     result.append(')');
     return result.toString();
   }

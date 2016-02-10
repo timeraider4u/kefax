@@ -70,7 +70,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         include=PathCmd | 
 	 *         out=PathCmd | 
 	 *         lang=PathCmd | 
-	 *         option=Option | 
+	 *         option=Option? | 
 	 *         in=Option
 	 *     )
 	 */

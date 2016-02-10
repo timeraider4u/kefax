@@ -160,19 +160,19 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//Argument:
 		//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 		//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-		//	option=Option | in=Option);
+		//	option=Option? | in=Option);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 		//nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-		//option=Option | in=Option)
+		//option=Option? | in=Option)
 		public Group getGroup() { return cGroup; }
 		
 		//{Argument}
 		public Action getArgumentAction_0() { return cArgumentAction_0; }
 		
 		//(Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd | nostdinc?=NoStdInc |
-		//Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS option=Option | in=Option)
+		//Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS option=Option? | in=Option)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//Define macro=Macro
@@ -271,13 +271,13 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//PathCmd
 		public RuleCall getLangPathCmdParserRuleCall_1_6_2_0() { return cLangPathCmdParserRuleCall_1_6_2_0; }
 		
-		//SKW_MINUS option=Option
+		//SKW_MINUS option=Option?
 		public Group getGroup_1_7() { return cGroup_1_7; }
 		
 		//SKW_MINUS
 		public RuleCall getSKW_MINUSTerminalRuleCall_1_7_0() { return cSKW_MINUSTerminalRuleCall_1_7_0; }
 		
-		//option=Option
+		//option=Option?
 		public Assignment getOptionAssignment_1_7_1() { return cOptionAssignment_1_7_1; }
 		
 		//Option
@@ -891,7 +891,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//Argument:
 	//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
 	//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | Lang WS+ lang=PathCmd | SKW_MINUS
-	//	option=Option | in=Option);
+	//	option=Option? | in=Option);
 	public ArgumentElements getArgumentAccess() {
 		return pArgument;
 	}

@@ -2024,7 +2024,7 @@ rule__Argument__Group_1_7__1__Impl
 :
 (
 { before(grammarAccess.getArgumentAccess().getOptionAssignment_1_7_1()); }
-(rule__Argument__OptionAssignment_1_7_1)
+(rule__Argument__OptionAssignment_1_7_1)?
 { after(grammarAccess.getArgumentAccess().getOptionAssignment_1_7_1()); }
 )
 

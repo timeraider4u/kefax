@@ -2166,6 +2166,13 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
 
             if ( (LA4_0==RULE_ID) ) {
                 switch ( input.LA(2) ) {
+                case EOF:
+                case RULE_NEWLINE:
+                case RULE_WS:
+                    {
+                    alt4=1;
+                    }
+                    break;
                 case RULE_SKW_LEFTPAREN:
                     {
                     alt4=3;
@@ -2174,13 +2181,6 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
                 case RULE_SKW_ASSIGN:
                     {
                     alt4=2;
-                    }
-                    break;
-                case EOF:
-                case RULE_NEWLINE:
-                case RULE_WS:
-                    {
-                    alt4=1;
                     }
                     break;
                 default:
@@ -5742,27 +5742,38 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Argument__Group_1_7__1__Impl"
-    // InternalCmdArgsParser.g:2020:1: rule__Argument__Group_1_7__1__Impl : ( ( rule__Argument__OptionAssignment_1_7_1 ) ) ;
+    // InternalCmdArgsParser.g:2020:1: rule__Argument__Group_1_7__1__Impl : ( ( rule__Argument__OptionAssignment_1_7_1 )? ) ;
     public final void rule__Argument__Group_1_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCmdArgsParser.g:2024:1: ( ( ( rule__Argument__OptionAssignment_1_7_1 ) ) )
-            // InternalCmdArgsParser.g:2025:1: ( ( rule__Argument__OptionAssignment_1_7_1 ) )
+            // InternalCmdArgsParser.g:2024:1: ( ( ( rule__Argument__OptionAssignment_1_7_1 )? ) )
+            // InternalCmdArgsParser.g:2025:1: ( ( rule__Argument__OptionAssignment_1_7_1 )? )
             {
-            // InternalCmdArgsParser.g:2025:1: ( ( rule__Argument__OptionAssignment_1_7_1 ) )
-            // InternalCmdArgsParser.g:2026:1: ( rule__Argument__OptionAssignment_1_7_1 )
+            // InternalCmdArgsParser.g:2025:1: ( ( rule__Argument__OptionAssignment_1_7_1 )? )
+            // InternalCmdArgsParser.g:2026:1: ( rule__Argument__OptionAssignment_1_7_1 )?
             {
              before(grammarAccess.getArgumentAccess().getOptionAssignment_1_7_1()); 
-            // InternalCmdArgsParser.g:2027:1: ( rule__Argument__OptionAssignment_1_7_1 )
-            // InternalCmdArgsParser.g:2027:2: rule__Argument__OptionAssignment_1_7_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Argument__OptionAssignment_1_7_1();
+            // InternalCmdArgsParser.g:2027:1: ( rule__Argument__OptionAssignment_1_7_1 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA19_0==RULE_SKW_ASSIGN||LA19_0==RULE_SKW_COMMA||(LA19_0>=RULE_ID && LA19_0<=RULE_STRING)||LA19_0==RULE_ANY_OTHER) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // InternalCmdArgsParser.g:2027:2: rule__Argument__OptionAssignment_1_7_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Argument__OptionAssignment_1_7_1();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -6981,13 +6992,13 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getFunctionMacroAccess().getGroup_3()); 
             // InternalCmdArgsParser.g:2520:1: ( rule__FunctionMacro__Group_3__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_ID) ) {
-                alt19=1;
+            if ( (LA20_0==RULE_ID) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
                     // InternalCmdArgsParser.g:2520:2: rule__FunctionMacro__Group_3__0
                     {
@@ -7387,17 +7398,17 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getFunctionMacroAccess().getGroup_3_1()); 
             // InternalCmdArgsParser.g:2677:1: ( rule__FunctionMacro__Group_3_1__0 )*
-            loop20:
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_SKW_COMMA) ) {
-                    alt20=1;
+                if ( (LA21_0==RULE_SKW_COMMA) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
             	    // InternalCmdArgsParser.g:2677:2: rule__FunctionMacro__Group_3_1__0
             	    {
@@ -7411,7 +7422,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop21;
                 }
             } while (true);
 
@@ -7719,17 +7730,17 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getOptionAccess().getAlternatives_1()); 
             // InternalCmdArgsParser.g:2799:1: ( rule__Option__Alternatives_1 )*
-            loop21:
+            loop22:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( ((LA21_0>=RULE_SKW_MINUS && LA21_0<=RULE_SKW_ASSIGN)||(LA21_0>=RULE_SKW_COMMA && LA21_0<=RULE_KW_INCLUDE)||(LA21_0>=RULE_ID && LA21_0<=RULE_STRING)||LA21_0==RULE_ANY_OTHER) ) {
-                    alt21=1;
+                if ( ((LA22_0>=RULE_SKW_MINUS && LA22_0<=RULE_SKW_ASSIGN)||(LA22_0>=RULE_SKW_COMMA && LA22_0<=RULE_KW_INCLUDE)||(LA22_0>=RULE_ID && LA22_0<=RULE_STRING)||LA22_0==RULE_ANY_OTHER) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt22) {
             	case 1 :
             	    // InternalCmdArgsParser.g:2799:2: rule__Option__Alternatives_1
             	    {
@@ -7743,7 +7754,7 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop22;
                 }
             } while (true);
 
@@ -8718,20 +8729,20 @@ public class InternalCmdArgsParser extends AbstractInternalContentAssistParser {
     static final String DFA3_eotS =
         "\13\uffff";
     static final String DFA3_eofS =
-        "\13\uffff";
+        "\3\uffff\1\10\7\uffff";
     static final String DFA3_minS =
         "\1\4\2\uffff\1\5\7\uffff";
     static final String DFA3_maxS =
         "\1\30\2\uffff\1\30\7\uffff";
     static final String DFA3_acceptS =
-        "\1\uffff\1\1\1\2\1\uffff\1\6\1\7\1\11\1\5\1\10\1\4\1\3";
+        "\1\uffff\1\1\1\2\1\uffff\1\6\1\7\1\11\1\3\1\10\1\4\1\5";
     static final String DFA3_specialS =
         "\13\uffff}>";
     static final String[] DFA3_transitionS = {
             "\1\3\1\6\2\uffff\1\6\1\1\1\2\1\4\1\5\5\uffff\3\6\3\uffff\1\6",
             "",
             "",
-            "\1\10\2\uffff\1\10\4\uffff\1\11\1\12\1\7\2\uffff\3\10\3\uffff\1\10",
+            "\1\10\2\uffff\1\10\4\uffff\1\11\1\7\1\12\2\uffff\5\10\1\uffff\1\10",
             "",
             "",
             "",

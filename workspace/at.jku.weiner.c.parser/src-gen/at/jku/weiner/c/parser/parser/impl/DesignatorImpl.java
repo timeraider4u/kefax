@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getTo <em>To</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getId <em>Id</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

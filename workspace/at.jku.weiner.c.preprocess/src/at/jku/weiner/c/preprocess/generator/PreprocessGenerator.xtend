@@ -224,7 +224,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GroupOpt group) {
-		MyLog.log(PreprocessGenerator.getClass, "outputFor path='" + path + "'");
+		MyLog.debug(PreprocessGenerator.getClass, "outputFor path='" + path + "'");
 		
 		val StringBuffer result = new StringBuffer("");
 		for (var int i = 0; i < group.lines.size; i++) {
@@ -268,7 +268,7 @@ class PreprocessGenerator implements IGenerator {
 			}
 		}
 		path.remove(path.length() - 1);
-		MyLog.log(PreprocessGenerator.getClass, "back in path='" + path + "'");
+		MyLog.debug(PreprocessGenerator.getClass, "back in path='" + path + "'");
 		return result.toString();
 	}
 

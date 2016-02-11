@@ -910,3 +910,9 @@ LineComment
     :   '//' ~[\r\n]*
         -> skip
     ;
+
+AnythingElse
+	:	.
+		-> skip
+	;
+

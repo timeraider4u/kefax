@@ -14,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -163,10 +162,7 @@ public class Main {
 			discoverer.setAdditionalDirectives(additionalDirectives);
 			discoverer.setTrimPreprocessModel(true);
 
-			final SubProgressMonitor subMonitor = new SubProgressMonitor(
-					monitor, 100);
-			// final SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-			discoverer.discoverElement(inFileRes, subMonitor);
+			discoverer.discoverElement(inFileRes, monitor);
 		}
 		return Status.OK_STATUS;
 	}

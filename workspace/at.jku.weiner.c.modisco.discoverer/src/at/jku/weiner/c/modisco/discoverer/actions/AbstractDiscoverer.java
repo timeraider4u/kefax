@@ -24,20 +24,20 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
-	
+
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
-	
+
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
 	private String additionalDirectives = "";
 	private boolean trimPreprocessModel = false;
-	
+
 	protected final boolean isApplicableOn(final IResource resource) {
 		MyLog.trace(AbstractDiscoverer.class, "isApplicableOn='" + resource
 				+ "'");
 		MyLog.trace(AbstractDiscoverer.class,
 				"isApplicableOn='" + resource.getClass() + "'");
-		
+
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
@@ -55,10 +55,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		}
 		return false;
 	}
-	
+
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
+			monitor.subTask(Messages.discover + "'"
+					+ resource.getLocationURI().toString() + "'");
 			System.err.println("clazz='" + monitor.getClass() + "'");
 			this.discover2(resource, monitor);
 		} catch (final Exception ex) {
@@ -68,9 +70,11 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			final DiscoveryException newEx = new DiscoveryException(
 					ex.getMessage());
 			throw newEx;
+		} finally {
+			monitor.done();
 		}
 	}
-	
+
 	private final void discover2(final IResource resource,
 			final IProgressMonitor monitor) throws Exception {
 		final MyStore store = this.initialize(resource, monitor);
@@ -95,7 +99,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		// done
 		store.getMonitor().setTaskName(Messages.done);
 	}
-	
+
 	/***
 	 * initialize all data values
 	 *
@@ -120,7 +124,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				this.getAdditionalDirectives(), this.trimPreprocessModel);
 		return result;
 	}
-	
+
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -149,10 +153,11 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			}
 		}
 	}
-	
+
 	private final void discoverFile(final File file, final MyStore store)
 			throws Exception {
-		
+		MyLog.log(AbstractDiscoverer.class,
+				"discovering file='" + file.getAbsolutePath() + "'...");
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
@@ -166,7 +171,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-	
+
 	/***
 	 * saving
 	 *
@@ -189,52 +194,42 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		}
 		// }
 	}
-	
+
 	public boolean isSetStdInclude() {
 		return this.setStdInclude;
 	}
-	
-	@Parameter(
-			name = "STD_INCLUDE",
-			requiresInputValue = false,
-			description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
+
+	@Parameter(name = "STD_INCLUDE", requiresInputValue = false, description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
 	public void setSetStdInclude(final boolean setStdInclude) {
 		this.setStdInclude = setStdInclude;
 	}
-	
+
 	public String getIncludeDirs() {
 		return this.includeDirs;
 	}
-	
-	@Parameter(
-			name = "INCLUDE_DIRS",
-			requiresInputValue = false,
-			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
+
+	@Parameter(name = "INCLUDE_DIRS", requiresInputValue = false, description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
 	public void setIncludeDirs(final String includeDirs) {
 		this.includeDirs = includeDirs;
 	}
-	
+
 	public String getAdditionalDirectives() {
 		return this.additionalDirectives;
 	}
-	
-	@Parameter(
-			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
-			requiresInputValue = false,
-			description = "Add additional preprocessor directives and macros"
-					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
+
+	@Parameter(name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES", requiresInputValue = false, description = "Add additional preprocessor directives and macros"
+			+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
 	public void setAdditionalDirectives(final String defines) {
 		this.additionalDirectives = defines;
 	}
-	
+
 	public boolean isTrimPreprocessModel() {
 		return this.trimPreprocessModel;
 	}
-	
-	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
-			description = "Remove code and empty lines from preprocessor model")
+
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model")
 	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		this.trimPreprocessModel = trimPreprocessModel;
 	}
-	
+
 }

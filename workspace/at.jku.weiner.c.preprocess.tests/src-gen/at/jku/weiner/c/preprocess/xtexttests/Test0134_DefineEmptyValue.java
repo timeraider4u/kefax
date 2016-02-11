@@ -46,11 +46,17 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0132_IncludeNext {
+public class Test0134_DefineEmptyValue {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -78,9 +84,8 @@ public class Test0132_IncludeNext {
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h",
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
-		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0132();
 	}
 	
 	@After
@@ -97,12 +102,47 @@ public class Test0132_IncludeNext {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0132_IncludeNext.h");
+			"res/Test0134_DefineEmptyValue.c");
 			final String[] expected = new String[] {
 				"RULE_HASH",
-				"RULE_INCLUDE",
+				"RULE_DEFINE",
 				"RULE_WHITESPACE",
-				"RULE_STRING_LITERAL",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -113,7 +153,7 @@ public class Test0132_IncludeNext {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0132_IncludeNext.h");
+			"res/Test0134_DefineEmptyValue.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -131,22 +171,66 @@ public class Test0132_IncludeNext {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(1, Lines_1_list.size());
+		Assert.assertEquals(5, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final IncludeDirective IncludeDirective_3_Var
-		 = (IncludeDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(IncludeDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertFalse(IncludeDirective_3_Var
-		.isNext());
-		Assert.assertEquals("\"test0132.h\"", IncludeDirective_3_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
+		.getId());
+		Assert.assertNull(DefineObjectMacro_3_Var
 		.getString());
+		//3
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
+		);
+		//4
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_5_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
+		);
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_5_Var
+		.getId());
+		//5
+		final IdentifierList IdentifierList_6_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_6_Var
+		);
+		Assert.assertEquals("[X, Y]", IdentifierList_6_Var
+		.getId().toString());
+		Assert.assertEquals("X ## Y", DefineFunctionLikeMacro_5_Var
+		.getString());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(2);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("FOO", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("BAR(A, FOO)", Code_8_Var
+		.getCode());
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("BAR(FOO, B)", Code_9_Var
+		.getCode());
 	}
 	
 	@Test
@@ -156,7 +240,7 @@ public class Test0132_IncludeNext {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0132_IncludeNext.h");
+			"res/Test0134_DefineEmptyValue.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -170,7 +254,7 @@ public class Test0132_IncludeNext {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0132_IncludeNext.h.i");
+				method.invoke(this.generator, "Test0134_DefineEmptyValue.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -178,9 +262,9 @@ public class Test0132_IncludeNext {
 			// do nothing
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0132_IncludeNext.h.i");
+		final String actual = this.getTextFromFile("bin/Test0134_DefineEmptyValue.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0132_IncludeNext.h"
+			"expected/Test0134_DefineEmptyValue.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 	}

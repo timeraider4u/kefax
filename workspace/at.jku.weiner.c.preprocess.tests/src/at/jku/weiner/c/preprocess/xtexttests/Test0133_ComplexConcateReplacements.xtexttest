@@ -1,0 +1,142 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0133_ComplexConcateReplacements.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	LINE_COMMENT NEWLINE
+	// # define _ARG_FOO_1
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL SKW_COMMA NEWLINE
+	// #define FOO_ENABLED(foo1)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	// #define _FOO_ENABLED(foo2
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	// #define __FOO_ENABLED(foo3)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID WHITESPACE DECIMAL_LITERAL SKW_COMMA WHITESPACE
+		DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// #define ___FOO_ENABLED(foo4)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE
+		ID SKW_COMMA WHITESPACE SKW_DOT SKW_DOT SKW_DOT SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		NEWLINE
+	NEWLINE
+	// int i = ...
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// #define 
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	// int j = ...
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// #undef
+	HASH UNDEF WHITESPACE ID NEWLINE
+	// #define
+	HASH DEFINE WHITESPACE ID NEWLINE
+	// int k = ...
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"__ARG_FOO_1",
+					string++"0,"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR_ENABLED",
+					list=
+					(IdentifierList
+						id+*"[foo1]"
+					),
+					string++"_BAR_ENABLED(foo1)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"_BAR_ENABLED",
+					list=
+					(IdentifierList
+						id+*"[foo2]"
+					),
+					string++"__BAR_ENABLED(__ARG_FOO_##foo2)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"__BAR_ENABLED",
+					list=
+					(IdentifierList
+						id+*"[foo3_or_junk]"
+					),
+					string++"___BAR_ENABLED(foo3_or_junk 1, 0)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"___BAR_ENABLED",
+					list=
+					(IdentifierList
+						id+*"[__ignored, foo4]",
+						variadic?=true
+					),
+					string++"foo4"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int i = BAR_ENABLED(FOO);"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"1"
+				)
+			),
+			(Code
+				code++"int j = BAR_ENABLED(FOO);"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"FOO"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string isNull
+				)
+			),
+			(Code
+				code++"int k = BAR_ENABLED(FOO);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0133_ComplexConcateReplacements.c.i"
+expected file="expected/Test0133_ComplexConcateReplacements.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

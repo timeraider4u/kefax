@@ -1,0 +1,67 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0134_DefineEmptyValue.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	// # define FOO
+	HASH DEFINE WHITESPACE ID NEWLINE
+	// #define BAR(X, Y) X ## Y
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		WHITESPACE ID WHITESPACE HASH HASH WHITESPACE ID NEWLINE
+	// FOO
+	ID
+	// BAR(A, FOO)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAR(FOO, B)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string isNull
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"X ## Y"
+				)
+			),
+			
+			(Code
+				code++"FOO"
+			),
+			(Code
+				code++"BAR(A, FOO)"
+			),
+			(Code
+				code++"BAR(FOO, B)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0134_DefineEmptyValue.c.i"
+expected file="expected/Test0134_DefineEmptyValue.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

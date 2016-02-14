@@ -1,0 +1,25 @@
+#define FOO1 0,
+#define BAR(X, Y) BAZ(X, Y)
+#define BAZ(X, Y, ...) X##Y
+#define FOOBAR(X, Y) foobar(X, Y)
+#define BAR2(X, Y) BAZ2(X, Y)
+#define BAZ2(X, Y, ...) X##__VA_ARGS__
+#define FOOBAR2(X) foobar2(FOO1, X)
+#define FOO2
+#define BAR3(X) BAZ3(X)
+#define BAZ3(X) foobar3(FOO##X)
+FOOBAR(0, 1)
+FOOBAR(FOO1, 1)
+FOOBAR(1, FOO1)
+BAR(0, 1)
+BAR(FOO1, 1)
+BAR(1, FOO1)
+BAR2(0, 1)
+BAR2(FOO1, 1)
+BAR2(1, FOO1)
+FOOBAR2(0)
+FOOBAR2(1)
+FOOBAR2(FOO2)
+BAR3(1)
+BAR3(2)
+BAR3(FOO2)

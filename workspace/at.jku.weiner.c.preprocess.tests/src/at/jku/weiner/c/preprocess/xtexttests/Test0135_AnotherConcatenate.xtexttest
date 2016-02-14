@@ -1,0 +1,247 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0135_AnotherConcatenate.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	// # define FOO1 WHITESPACE DECIMAL_LITERAL SKW_COMMA NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL SKW_COMMA NEWLINE
+	// #define BAR(X, Y) BAZ(X, Y)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// #define BAZ(X, Y, ...) X##Y
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID
+		SKW_COMMA WHITESPACE SKW_DOT SKW_DOT SKW_DOT
+	SKW_RIGHTPAREN 
+		WHITESPACE ID HASH HASH ID NEWLINE
+	// #define FOOBAR(X, Y) foobar(X, Y)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// #define BAR2(X, Y) BAZ2(X, Y)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// #define BAZ2(X, Y, ...) X##__VA_ARGS__
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID
+		SKW_COMMA WHITESPACE SKW_DOT SKW_DOT SKW_DOT
+	SKW_RIGHTPAREN 
+		WHITESPACE ID HASH HASH VA_ARGS NEWLINE
+	// #define FOOBAR2(X) foobar2(FOO1, Y)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// #define FOO2
+	HASH DEFINE WHITESPACE ID NEWLINE
+	// #define BAR3(X) BAZ3(X)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	// #define BAZ3(X) foobar3(FOO##X)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		WHITESPACE ID SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	// FOOBAR(0, 1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// FOOBAR(FOO1, 1)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// FOOBAR(1, FOO1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAR(0, 1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE DECIMAL_LITERAL
+		SKW_RIGHTPAREN NEWLINE
+	// BAR(FOO1, 1)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// BAR(1, FOO1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAR2(0, 1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE DECIMAL_LITERAL 
+		SKW_RIGHTPAREN NEWLINE
+	// BAR2(FOO1, 1)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// BAR2(1, FOO1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// FOOBAR2(0)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// FOOBAR2(1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// FOOBAR2(FOO2)
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	// BAZ3(1)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// BAZ3(2)
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	// BAZ3(FOO2)
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO1",
+					string++"0,"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"BAZ(X, Y)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X, Y]",
+						variadic?=true
+					),
+					string++"X##Y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOOBAR",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"foobar(X, Y)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR2",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"BAZ2(X, Y)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ2",
+					list=
+					(IdentifierList
+						id+*"[X, Y]",
+						variadic?=true
+					),
+					string++"X##__VA_ARGS__"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOOBAR2",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"foobar2(FOO1, X)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO2",
+					string isNull
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR3",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"BAZ3(X)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ3",
+					list=
+					(IdentifierList
+						id+*"[X]",
+						variadic?=false
+					),
+					string++"foobar3(FOO##X)"
+				)
+			),
+			(Code
+				code++"FOOBAR(0, 1)"
+			),
+			(Code
+				code++"FOOBAR(FOO1, 1)"
+			),
+			(Code
+				code++"FOOBAR(1, FOO1)"
+			),
+			(Code
+				code++"BAR(0, 1)"
+			),
+			(Code
+				code++"BAR(FOO1, 1)"
+			),
+			(Code
+				code++"BAR(1, FOO1)"
+			),
+			(Code
+				code++"BAR2(0, 1)"
+			),
+			(Code
+				code++"BAR2(FOO1, 1)"
+			),
+			(Code
+				code++"BAR2(1, FOO1)"
+			),
+			(Code
+				code++"FOOBAR2(0)"
+			),
+			(Code
+				code++"FOOBAR2(1)"
+			),
+			(Code
+				code++"FOOBAR2(FOO2)"
+			),
+			(Code
+				code++"BAR3(1)"
+			),
+			(Code
+				code++"BAR3(2)"
+			),
+			(Code
+				code++"BAR3(FOO2)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0135_AnotherConcatenate.c.i"
+expected file="expected/Test0135_AnotherConcatenate.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

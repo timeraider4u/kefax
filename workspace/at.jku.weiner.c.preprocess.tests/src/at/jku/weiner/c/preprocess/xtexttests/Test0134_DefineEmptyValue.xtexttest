@@ -13,12 +13,22 @@ lexer-tokens
 	// #define BAR(X, Y) X ## Y
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
 		WHITESPACE ID WHITESPACE HASH HASH WHITESPACE ID NEWLINE
+	// #define BAZ(X, Y) BAR(X##Y, X##Y)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN
+		WHITESPACE ID SKW_LEFTPAREN ID HASH HASH ID SKW_COMMA WHITESPACE
+		ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
 	// FOO
-	ID
+	ID NEWLINE
 	// BAR(A, FOO)
 	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
 	// BAR(FOO, B)
 	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAZ(A, B)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAZ(A, FOO)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	// BAZ(FOO, B)
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE	
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -45,7 +55,17 @@ lexer-tokens
 					string++"X ## Y"
 				)
 			),
-			
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"BAR(X##Y, X##Y)"
+				)
+			),
 			(Code
 				code++"FOO"
 			),
@@ -54,6 +74,15 @@ lexer-tokens
 			),
 			(Code
 				code++"BAR(FOO, B)"
+			),
+			(Code
+				code++"BAZ(A, B)"
+			),
+			(Code
+				code++"BAZ(A, FOO)"
+			),
+			(Code
+				code++"BAZ(FOO, B)"
 			)
 		)
 	)

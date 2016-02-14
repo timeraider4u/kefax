@@ -26,6 +26,19 @@ lexer-tokens
 		ID SKW_COMMA WHITESPACE SKW_DOT SKW_DOT SKW_DOT SKW_RIGHTPAREN 
 		WHITESPACE ID 
 		NEWLINE
+	// #define FOO_ENABLED2(foo1)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	// #define _FOO_ENABLED2(foo2
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	// #define FOO_ENABLED3(foo1)
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	// #define _FOO_ENABLED3(foo2
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID 
+		SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	// \n
 	NEWLINE
 	// int i = ...
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
@@ -38,6 +51,10 @@ lexer-tokens
 	// #define
 	HASH DEFINE WHITESPACE ID NEWLINE
 	// int k = ...
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// int l = ...
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// int m = ...
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
@@ -100,6 +117,50 @@ lexer-tokens
 					string++"foo4"
 				)
 			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR_ENABLED2",
+					list=
+					(IdentifierList
+						id+*"[foo1]"
+					),
+					string++"_BAR_ENABLED2(foo1)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"_BAR_ENABLED2",
+					list=
+					(IdentifierList
+						id+*"[foo2]"
+					),
+					string++"__BAR_ENABLED2(__ARG_FOO_##foo2)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR_ENABLED3",
+					list=
+					(IdentifierList
+						id+*"[foo1]"
+					),
+					string++"_BAR_ENABLED3(foo1)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"_BAR_ENABLED3",
+					list=
+					(IdentifierList
+						id+*"[foo2]"
+					),
+					string++"__BAR_ENABLED3(foo2##__ARG_FOO_)"
+				)
+			),
 			(NewLineLine),
 			(Code
 				code++"int i = BAR_ENABLED(FOO);"
@@ -128,7 +189,13 @@ lexer-tokens
 				)
 			),
 			(Code
-				code++"int k = BAR_ENABLED(FOO);"
+				code++"int k = BAR_ENABLED2(FOO);"
+			),
+			(Code
+				code++"int l = BAR_ENABLED(FOO);"
+			),
+			(Code
+				code++"int m = BAR_ENABLED3(FOO);"
 			)
 		)
 	)

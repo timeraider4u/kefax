@@ -1,5 +1,6 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.antlr.runtime.Token;
@@ -21,12 +22,19 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		this.macroID = key;
 		this.value = (replace == null) ? "" : replace;
 		this.replacement = definitionTable.lexer.getTokens(this.value);
+		if (this.replacement.size() == 0) {
+			this.replacement.add(TokenUtils.getIDTokenForText(""));
+		}
 		this.size = this.replacement.size();
 	}
 
 	@Override
 	public String getKey() {
 		return this.macroID;
+	}
+	
+	protected List<Token> getReplacementList() {
+		return Collections.synchronizedList(this.replacement);
 	}
 
 	@Override

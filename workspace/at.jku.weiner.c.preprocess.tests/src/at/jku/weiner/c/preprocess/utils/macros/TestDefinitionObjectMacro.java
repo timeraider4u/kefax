@@ -115,12 +115,13 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens("FOO  BAZ");
+		expected.add(2, TokenUtils.getIDTokenForText(""));
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(4, code.size());
+		Assert.assertEquals(5, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
 		// Assert.assertEquals(0, ranges.getCurrentIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(5, ranges.stopIndex);
+		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
 	}
 
@@ -159,13 +160,26 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens("FOO  BAZ");
+		expected.add(2, TokenUtils.getIDTokenForText(""));
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(4, code.size());
+		Assert.assertEquals(5, code.size());
 		Assert.assertEquals(2, ranges.startIndex);
 		// Assert.assertEquals(2, ranges.getCurrentIndex());
-		Assert.assertEquals(2, ranges.stopIndex);
-		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(3, ranges.stopIndex);
+		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
+	}
+
+	@Test
+	public void testSimpleReplacementEmpty() {
+		final DefinitionObjectMacro macro = new DefinitionObjectMacro(
+				this.definitionTable, "FOO", null);
+		final List<Token> tokens = macro.getReplacementList();
+		Assert.assertNotNull(tokens);
+		Assert.assertEquals(1, tokens.size());
+		final Token token = tokens.get(0);
+		Assert.assertEquals("", token.getText());
+		Assert.assertEquals(InternalPreprocessLexer.RULE_ID, token.getType());
 	}
 
 }

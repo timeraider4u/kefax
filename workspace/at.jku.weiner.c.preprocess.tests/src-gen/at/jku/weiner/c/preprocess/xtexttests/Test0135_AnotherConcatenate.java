@@ -45,7 +45,6 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
@@ -67,27 +66,32 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0133_ComplexConcateReplacements {
+public class Test0135_AnotherConcatenate {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -133,10 +137,8 @@ public class Test0133_ComplexConcateReplacements {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0133_ComplexConcateReplacements.c");
+			"res/Test0135_AnotherConcatenate.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
-				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
 				"RULE_WHITESPACE",
@@ -151,45 +153,17 @@ public class Test0133_ComplexConcateReplacements {
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_HASH",
-				"RULE_HASH",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
 				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				"RULE_HASH",
@@ -209,6 +183,89 @@ public class Test0133_ComplexConcateReplacements {
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
 				"RULE_ID",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_SKW_DOT",
+				"RULE_SKW_DOT",
+				"RULE_SKW_DOT",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_VA_ARGS",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -239,112 +296,107 @@ public class Test0133_ComplexConcateReplacements {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_HASH",
-				"RULE_HASH",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_NEWLINE",
-				"RULE_NEWLINE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
-				"RULE_ID",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
 				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
 				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_UNDEF",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_DEFINE",
-				"RULE_WHITESPACE",
-				"RULE_ID",
 				"RULE_NEWLINE",
 				"RULE_ID",
-				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
 				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
-				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
-				"RULE_NEWLINE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
-				"RULE_NEWLINE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -355,7 +407,7 @@ public class Test0133_ComplexConcateReplacements {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0133_ComplexConcateReplacements.c");
+			"res/Test0135_AnotherConcatenate.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -373,295 +425,331 @@ public class Test0133_ComplexConcateReplacements {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(19, Lines_1_list.size());
+		Assert.assertEquals(25, Lines_1_list.size());
 		//1
-		final NewLineLine NewLineLine_2_Var
-		 = (NewLineLine)Lines_1_list.get(0);
-		Assert.assertNotNull(NewLineLine_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
+		Assert.assertEquals("FOO1", DefineObjectMacro_3_Var
+		.getId());
+		Assert.assertEquals("0,", DefineObjectMacro_3_Var
+		.getString());
 		//3
-		final DefineObjectMacro DefineObjectMacro_4_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
-		Assert.assertEquals("__ARG_FOO_1", DefineObjectMacro_4_Var
-		.getId());
-		Assert.assertEquals("0,", DefineObjectMacro_4_Var
-		.getString());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(2);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_5_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_5_Var
+		.getId());
 		//5
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_6_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_5_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
+		final IdentifierList IdentifierList_6_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_6_Var
 		);
-		Assert.assertEquals("BAR_ENABLED", DefineFunctionLikeMacro_6_Var
-		.getId());
+		Assert.assertEquals("[X, Y]", IdentifierList_6_Var
+		.getId().toString());
+		Assert.assertEquals("BAZ(X, Y)", DefineFunctionLikeMacro_5_Var
+		.getString());
 		//6
-		final IdentifierList IdentifierList_7_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_7_Var
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
 		);
-		Assert.assertEquals("[foo1]", IdentifierList_7_Var
-		.getId().toString());
-		Assert.assertEquals("_BAR_ENABLED(foo1)", DefineFunctionLikeMacro_6_Var
-		.getString());
 		//7
-		final PreprocessorDirectives PreprocessorDirectives_8_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(3);
-		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_8_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_7_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
+		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_8_Var
+		.getId());
 		//8
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_9_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_8_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
-		);
-		Assert.assertEquals("_BAR_ENABLED", DefineFunctionLikeMacro_9_Var
-		.getId());
-		//9
-		final IdentifierList IdentifierList_10_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
+		final IdentifierList IdentifierList_9_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
 		.getList();
-		Assert.assertNotNull(IdentifierList_10_Var
+		Assert.assertNotNull(IdentifierList_9_Var
 		);
-		Assert.assertEquals("[foo2]", IdentifierList_10_Var
+		Assert.assertEquals("[X, Y]", IdentifierList_9_Var
 		.getId().toString());
-		Assert.assertEquals("__BAR_ENABLED(__ARG_FOO_##foo2)", DefineFunctionLikeMacro_9_Var
-		.getString());
-		//10
-		final PreprocessorDirectives PreprocessorDirectives_11_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(4);
-		Assert.assertNotNull(PreprocessorDirectives_11_Var
-		);
-		//11
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_12_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_11_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_12_Var
-		);
-		Assert.assertEquals("__BAR_ENABLED", DefineFunctionLikeMacro_12_Var
-		.getId());
-		//12
-		final IdentifierList IdentifierList_13_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_12_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_13_Var
-		);
-		Assert.assertEquals("[foo3_or_junk]", IdentifierList_13_Var
-		.getId().toString());
-		Assert.assertEquals("___BAR_ENABLED(foo3_or_junk 1, 0)", DefineFunctionLikeMacro_12_Var
-		.getString());
-		//13
-		final PreprocessorDirectives PreprocessorDirectives_14_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(5);
-		Assert.assertNotNull(PreprocessorDirectives_14_Var
-		);
-		//14
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_15_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_14_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_15_Var
-		);
-		Assert.assertEquals("___BAR_ENABLED", DefineFunctionLikeMacro_15_Var
-		.getId());
-		//15
-		final IdentifierList IdentifierList_16_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_15_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_16_Var
-		);
-		Assert.assertEquals("[__ignored, foo4]", IdentifierList_16_Var
-		.getId().toString());
-		Assert.assertTrue(IdentifierList_16_Var
+		Assert.assertTrue(IdentifierList_9_Var
 		.isVariadic());
-		Assert.assertEquals("foo4", DefineFunctionLikeMacro_15_Var
+		Assert.assertEquals("X##Y", DefineFunctionLikeMacro_8_Var
 		.getString());
+		//9
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
+		);
+		//10
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_11_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_10_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
+		);
+		Assert.assertEquals("FOOBAR", DefineFunctionLikeMacro_11_Var
+		.getId());
+		//11
+		final IdentifierList IdentifierList_12_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_12_Var
+		);
+		Assert.assertEquals("[X, Y]", IdentifierList_12_Var
+		.getId().toString());
+		Assert.assertEquals("foobar(X, Y)", DefineFunctionLikeMacro_11_Var
+		.getString());
+		//12
+		final PreprocessorDirectives PreprocessorDirectives_13_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(4);
+		Assert.assertNotNull(PreprocessorDirectives_13_Var
+		);
+		//13
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_14_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_13_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_14_Var
+		);
+		Assert.assertEquals("BAR2", DefineFunctionLikeMacro_14_Var
+		.getId());
+		//14
+		final IdentifierList IdentifierList_15_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_14_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_15_Var
+		);
+		Assert.assertEquals("[X, Y]", IdentifierList_15_Var
+		.getId().toString());
+		Assert.assertEquals("BAZ2(X, Y)", DefineFunctionLikeMacro_14_Var
+		.getString());
+		//15
+		final PreprocessorDirectives PreprocessorDirectives_16_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(5);
+		Assert.assertNotNull(PreprocessorDirectives_16_Var
+		);
 		//16
-		final PreprocessorDirectives PreprocessorDirectives_17_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(6);
-		Assert.assertNotNull(PreprocessorDirectives_17_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_17_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_16_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_17_Var
 		);
+		Assert.assertEquals("BAZ2", DefineFunctionLikeMacro_17_Var
+		.getId());
 		//17
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_18_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_17_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_18_Var
+		final IdentifierList IdentifierList_18_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_17_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_18_Var
 		);
-		Assert.assertEquals("BAR_ENABLED2", DefineFunctionLikeMacro_18_Var
-		.getId());
+		Assert.assertEquals("[X, Y]", IdentifierList_18_Var
+		.getId().toString());
+		Assert.assertTrue(IdentifierList_18_Var
+		.isVariadic());
+		Assert.assertEquals("X##__VA_ARGS__", DefineFunctionLikeMacro_17_Var
+		.getString());
 		//18
-		final IdentifierList IdentifierList_19_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_18_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_19_Var
+		final PreprocessorDirectives PreprocessorDirectives_19_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(6);
+		Assert.assertNotNull(PreprocessorDirectives_19_Var
 		);
-		Assert.assertEquals("[foo1]", IdentifierList_19_Var
-		.getId().toString());
-		Assert.assertEquals("_BAR_ENABLED2(foo1)", DefineFunctionLikeMacro_18_Var
-		.getString());
 		//19
-		final PreprocessorDirectives PreprocessorDirectives_20_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(7);
-		Assert.assertNotNull(PreprocessorDirectives_20_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_20_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_19_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_20_Var
 		);
+		Assert.assertEquals("FOOBAR2", DefineFunctionLikeMacro_20_Var
+		.getId());
 		//20
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_21_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_20_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_21_Var
+		final IdentifierList IdentifierList_21_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_20_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_21_Var
 		);
-		Assert.assertEquals("_BAR_ENABLED2", DefineFunctionLikeMacro_21_Var
-		.getId());
+		Assert.assertEquals("[X]", IdentifierList_21_Var
+		.getId().toString());
+		Assert.assertEquals("foobar2(FOO1, X)", DefineFunctionLikeMacro_20_Var
+		.getString());
 		//21
-		final IdentifierList IdentifierList_22_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_21_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_22_Var
+		final PreprocessorDirectives PreprocessorDirectives_22_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(7);
+		Assert.assertNotNull(PreprocessorDirectives_22_Var
 		);
-		Assert.assertEquals("[foo2]", IdentifierList_22_Var
-		.getId().toString());
-		Assert.assertEquals("__BAR_ENABLED2(__ARG_FOO_##foo2)", DefineFunctionLikeMacro_21_Var
-		.getString());
 		//22
-		final PreprocessorDirectives PreprocessorDirectives_23_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(8);
-		Assert.assertNotNull(PreprocessorDirectives_23_Var
+		final DefineObjectMacro DefineObjectMacro_23_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_22_Var
+		.getDirective();
+		Assert.assertNotNull(DefineObjectMacro_23_Var
 		);
+		Assert.assertEquals("FOO2", DefineObjectMacro_23_Var
+		.getId());
+		Assert.assertNull(DefineObjectMacro_23_Var
+		.getString());
 		//23
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_24_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_23_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_24_Var
+		final PreprocessorDirectives PreprocessorDirectives_24_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(8);
+		Assert.assertNotNull(PreprocessorDirectives_24_Var
 		);
-		Assert.assertEquals("BAR_ENABLED3", DefineFunctionLikeMacro_24_Var
-		.getId());
 		//24
-		final IdentifierList IdentifierList_25_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_24_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_25_Var
-		);
-		Assert.assertEquals("[foo1]", IdentifierList_25_Var
-		.getId().toString());
-		Assert.assertEquals("_BAR_ENABLED3(foo1)", DefineFunctionLikeMacro_24_Var
-		.getString());
-		//25
-		final PreprocessorDirectives PreprocessorDirectives_26_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(9);
-		Assert.assertNotNull(PreprocessorDirectives_26_Var
-		);
-		//26
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_27_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_26_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_25_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_24_Var
 		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_27_Var
+		Assert.assertNotNull(DefineFunctionLikeMacro_25_Var
 		);
-		Assert.assertEquals("_BAR_ENABLED3", DefineFunctionLikeMacro_27_Var
+		Assert.assertEquals("BAR3", DefineFunctionLikeMacro_25_Var
 		.getId());
-		//27
-		final IdentifierList IdentifierList_28_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_27_Var
+		//25
+		final IdentifierList IdentifierList_26_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_25_Var
 		.getList();
-		Assert.assertNotNull(IdentifierList_28_Var
+		Assert.assertNotNull(IdentifierList_26_Var
 		);
-		Assert.assertEquals("[foo2]", IdentifierList_28_Var
+		Assert.assertEquals("[X]", IdentifierList_26_Var
 		.getId().toString());
-		Assert.assertEquals("__BAR_ENABLED3(foo2##__ARG_FOO_)", DefineFunctionLikeMacro_27_Var
+		Assert.assertEquals("BAZ3(X)", DefineFunctionLikeMacro_25_Var
 		.getString());
-		//28
-		final NewLineLine NewLineLine_29_Var
-		 = (NewLineLine)Lines_1_list.get(10);
-		Assert.assertNotNull(NewLineLine_29_Var
+		//26
+		final PreprocessorDirectives PreprocessorDirectives_27_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(9);
+		Assert.assertNotNull(PreprocessorDirectives_27_Var
 		);
+		//27
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_28_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_27_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_28_Var
+		);
+		Assert.assertEquals("BAZ3", DefineFunctionLikeMacro_28_Var
+		.getId());
+		//28
+		final IdentifierList IdentifierList_29_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_28_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_29_Var
+		);
+		Assert.assertEquals("[X]", IdentifierList_29_Var
+		.getId().toString());
+		Assert.assertFalse(IdentifierList_29_Var
+		.isVariadic());
+		Assert.assertEquals("foobar3(FOO##X)", DefineFunctionLikeMacro_28_Var
+		.getString());
 		//29
 		final Code Code_30_Var
-		 = (Code)Lines_1_list.get(11);
+		 = (Code)Lines_1_list.get(10);
 		Assert.assertNotNull(Code_30_Var
 		);
-		Assert.assertEquals("int i = BAR_ENABLED(FOO);", Code_30_Var
+		Assert.assertEquals("FOOBAR(0, 1)", Code_30_Var
 		.getCode());
 		//30
-		final PreprocessorDirectives PreprocessorDirectives_31_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(12);
-		Assert.assertNotNull(PreprocessorDirectives_31_Var
+		final Code Code_31_Var
+		 = (Code)Lines_1_list.get(11);
+		Assert.assertNotNull(Code_31_Var
 		);
+		Assert.assertEquals("FOOBAR(FOO1, 1)", Code_31_Var
+		.getCode());
 		//31
-		final DefineObjectMacro DefineObjectMacro_32_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_31_Var
-		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_32_Var
+		final Code Code_32_Var
+		 = (Code)Lines_1_list.get(12);
+		Assert.assertNotNull(Code_32_Var
 		);
-		Assert.assertEquals("FOO", DefineObjectMacro_32_Var
-		.getId());
-		Assert.assertEquals("1", DefineObjectMacro_32_Var
-		.getString());
+		Assert.assertEquals("FOOBAR(1, FOO1)", Code_32_Var
+		.getCode());
 		//32
 		final Code Code_33_Var
 		 = (Code)Lines_1_list.get(13);
 		Assert.assertNotNull(Code_33_Var
 		);
-		Assert.assertEquals("int j = BAR_ENABLED(FOO);", Code_33_Var
+		Assert.assertEquals("BAR(0, 1)", Code_33_Var
 		.getCode());
 		//33
-		final PreprocessorDirectives PreprocessorDirectives_34_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(14);
-		Assert.assertNotNull(PreprocessorDirectives_34_Var
+		final Code Code_34_Var
+		 = (Code)Lines_1_list.get(14);
+		Assert.assertNotNull(Code_34_Var
 		);
+		Assert.assertEquals("BAR(FOO1, 1)", Code_34_Var
+		.getCode());
 		//34
-		final UnDefineDirective UnDefineDirective_35_Var
-		 = (UnDefineDirective)PreprocessorDirectives_34_Var
-		.getDirective();
-		Assert.assertNotNull(UnDefineDirective_35_Var
+		final Code Code_35_Var
+		 = (Code)Lines_1_list.get(15);
+		Assert.assertNotNull(Code_35_Var
 		);
-		Assert.assertEquals("FOO", UnDefineDirective_35_Var
-		.getId());
+		Assert.assertEquals("BAR(1, FOO1)", Code_35_Var
+		.getCode());
 		//35
-		final PreprocessorDirectives PreprocessorDirectives_36_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(15);
-		Assert.assertNotNull(PreprocessorDirectives_36_Var
+		final Code Code_36_Var
+		 = (Code)Lines_1_list.get(16);
+		Assert.assertNotNull(Code_36_Var
 		);
+		Assert.assertEquals("BAR2(0, 1)", Code_36_Var
+		.getCode());
 		//36
-		final DefineObjectMacro DefineObjectMacro_37_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_36_Var
-		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_37_Var
+		final Code Code_37_Var
+		 = (Code)Lines_1_list.get(17);
+		Assert.assertNotNull(Code_37_Var
 		);
-		Assert.assertEquals("FOO", DefineObjectMacro_37_Var
-		.getId());
-		Assert.assertNull(DefineObjectMacro_37_Var
-		.getString());
+		Assert.assertEquals("BAR2(FOO1, 1)", Code_37_Var
+		.getCode());
 		//37
 		final Code Code_38_Var
-		 = (Code)Lines_1_list.get(16);
+		 = (Code)Lines_1_list.get(18);
 		Assert.assertNotNull(Code_38_Var
 		);
-		Assert.assertEquals("int k = BAR_ENABLED2(FOO);", Code_38_Var
+		Assert.assertEquals("BAR2(1, FOO1)", Code_38_Var
 		.getCode());
 		//38
 		final Code Code_39_Var
-		 = (Code)Lines_1_list.get(17);
+		 = (Code)Lines_1_list.get(19);
 		Assert.assertNotNull(Code_39_Var
 		);
-		Assert.assertEquals("int l = BAR_ENABLED(FOO);", Code_39_Var
+		Assert.assertEquals("FOOBAR2(0)", Code_39_Var
 		.getCode());
 		//39
 		final Code Code_40_Var
-		 = (Code)Lines_1_list.get(18);
+		 = (Code)Lines_1_list.get(20);
 		Assert.assertNotNull(Code_40_Var
 		);
-		Assert.assertEquals("int m = BAR_ENABLED3(FOO);", Code_40_Var
+		Assert.assertEquals("FOOBAR2(1)", Code_40_Var
+		.getCode());
+		//40
+		final Code Code_41_Var
+		 = (Code)Lines_1_list.get(21);
+		Assert.assertNotNull(Code_41_Var
+		);
+		Assert.assertEquals("FOOBAR2(FOO2)", Code_41_Var
+		.getCode());
+		//41
+		final Code Code_42_Var
+		 = (Code)Lines_1_list.get(22);
+		Assert.assertNotNull(Code_42_Var
+		);
+		Assert.assertEquals("BAR3(1)", Code_42_Var
+		.getCode());
+		//42
+		final Code Code_43_Var
+		 = (Code)Lines_1_list.get(23);
+		Assert.assertNotNull(Code_43_Var
+		);
+		Assert.assertEquals("BAR3(2)", Code_43_Var
+		.getCode());
+		//43
+		final Code Code_44_Var
+		 = (Code)Lines_1_list.get(24);
+		Assert.assertNotNull(Code_44_Var
+		);
+		Assert.assertEquals("BAR3(FOO2)", Code_44_Var
 		.getCode());
 	}
 	
@@ -672,7 +760,7 @@ public class Test0133_ComplexConcateReplacements {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0133_ComplexConcateReplacements.c");
+			"res/Test0135_AnotherConcatenate.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -686,7 +774,7 @@ public class Test0133_ComplexConcateReplacements {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0133_ComplexConcateReplacements.c.i");
+				method.invoke(this.generator, "Test0135_AnotherConcatenate.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -694,9 +782,9 @@ public class Test0133_ComplexConcateReplacements {
 			// do nothing
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0133_ComplexConcateReplacements.c.i");
+		final String actual = this.getTextFromFile("bin/Test0135_AnotherConcatenate.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0133_ComplexConcateReplacements.c"
+			"expected/Test0135_AnotherConcatenate.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 	}

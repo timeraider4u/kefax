@@ -93,6 +93,7 @@ public class CmdArgs {
 	private final void visitFor(final SimpleMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
+		this.additionalDirectives.append(" 1");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
 

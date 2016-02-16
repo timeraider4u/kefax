@@ -162,12 +162,12 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * Constraint:
 	 *     (
-	 *         hex=HEX_LITERAL | 
-	 *         oct=OCTAL_LITERAL | 
-	 *         dec=DECIMAL_LITERAL | 
-	 *         ch=CHAR_LITERAL | 
-	 *         float=FLOAT_LITERAL | 
-	 *         bin=BIN_LITERAL
+	 *         hex=HexLiteral | 
+	 *         oct=OctalLiteral | 
+	 *         dec=DecimalLiteral | 
+	 *         ch=CharLiteral | 
+	 *         float=FloatLiteral | 
+	 *         bin=BinLiteral
 	 *     )
 	 */
 	protected void sequence_Constant2(EObject context, Constant2 semanticObject) {

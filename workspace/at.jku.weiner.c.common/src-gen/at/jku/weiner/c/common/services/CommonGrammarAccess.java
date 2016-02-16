@@ -811,47 +811,47 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	public class Constant1Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Constant1");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cHEX_LITERALTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOCTAL_LITERALTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDECIMAL_LITERALTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCHAR_LITERALTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSTRING_LITERALTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cFLOAT_LITERALTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cBIN_LITERALTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cHexLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cOctalLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDecimalLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCharLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cFloatLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cBinLiteralParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Constant1:
-		//	HEX_LITERAL
-		//	| OCTAL_LITERAL
-		//	| DECIMAL_LITERAL
-		//	| CHAR_LITERAL
-		//	| STRING_LITERAL
-		//	| FLOAT_LITERAL
-		//	| BIN_LITERAL;
+		//	HexLiteral
+		//	| OctalLiteral
+		//	| DecimalLiteral
+		//	| CharLiteral
+		//	| StringLiteral
+		//	| FloatLiteral
+		//	| BinLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | CHAR_LITERAL | STRING_LITERAL | FLOAT_LITERAL | BIN_LITERAL
+		//HexLiteral | OctalLiteral | DecimalLiteral | CharLiteral | StringLiteral | FloatLiteral | BinLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//HEX_LITERAL
-		public RuleCall getHEX_LITERALTerminalRuleCall_0() { return cHEX_LITERALTerminalRuleCall_0; }
+		//HexLiteral
+		public RuleCall getHexLiteralParserRuleCall_0() { return cHexLiteralParserRuleCall_0; }
 		
-		//OCTAL_LITERAL
-		public RuleCall getOCTAL_LITERALTerminalRuleCall_1() { return cOCTAL_LITERALTerminalRuleCall_1; }
+		//OctalLiteral
+		public RuleCall getOctalLiteralParserRuleCall_1() { return cOctalLiteralParserRuleCall_1; }
 		
-		//DECIMAL_LITERAL
-		public RuleCall getDECIMAL_LITERALTerminalRuleCall_2() { return cDECIMAL_LITERALTerminalRuleCall_2; }
+		//DecimalLiteral
+		public RuleCall getDecimalLiteralParserRuleCall_2() { return cDecimalLiteralParserRuleCall_2; }
 		
-		//CHAR_LITERAL
-		public RuleCall getCHAR_LITERALTerminalRuleCall_3() { return cCHAR_LITERALTerminalRuleCall_3; }
+		//CharLiteral
+		public RuleCall getCharLiteralParserRuleCall_3() { return cCharLiteralParserRuleCall_3; }
 		
-		//STRING_LITERAL
-		public RuleCall getSTRING_LITERALTerminalRuleCall_4() { return cSTRING_LITERALTerminalRuleCall_4; }
+		//StringLiteral
+		public RuleCall getStringLiteralParserRuleCall_4() { return cStringLiteralParserRuleCall_4; }
 		
-		//FLOAT_LITERAL
-		public RuleCall getFLOAT_LITERALTerminalRuleCall_5() { return cFLOAT_LITERALTerminalRuleCall_5; }
+		//FloatLiteral
+		public RuleCall getFloatLiteralParserRuleCall_5() { return cFloatLiteralParserRuleCall_5; }
 		
-		//BIN_LITERAL
-		public RuleCall getBIN_LITERALTerminalRuleCall_6() { return cBIN_LITERALTerminalRuleCall_6; }
+		//BinLiteral
+		public RuleCall getBinLiteralParserRuleCall_6() { return cBinLiteralParserRuleCall_6; }
 	}
 	public class Constant2Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Constant2");
@@ -859,74 +859,74 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cConstant2Action_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cHexAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cHexHEX_LITERALTerminalRuleCall_1_0_0 = (RuleCall)cHexAssignment_1_0.eContents().get(0);
+		private final RuleCall cHexHexLiteralParserRuleCall_1_0_0 = (RuleCall)cHexAssignment_1_0.eContents().get(0);
 		private final Assignment cOctAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cOctOCTAL_LITERALTerminalRuleCall_1_1_0 = (RuleCall)cOctAssignment_1_1.eContents().get(0);
+		private final RuleCall cOctOctalLiteralParserRuleCall_1_1_0 = (RuleCall)cOctAssignment_1_1.eContents().get(0);
 		private final Assignment cDecAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cDecDECIMAL_LITERALTerminalRuleCall_1_2_0 = (RuleCall)cDecAssignment_1_2.eContents().get(0);
+		private final RuleCall cDecDecimalLiteralParserRuleCall_1_2_0 = (RuleCall)cDecAssignment_1_2.eContents().get(0);
 		private final Assignment cChAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cChCHAR_LITERALTerminalRuleCall_1_3_0 = (RuleCall)cChAssignment_1_3.eContents().get(0);
+		private final RuleCall cChCharLiteralParserRuleCall_1_3_0 = (RuleCall)cChAssignment_1_3.eContents().get(0);
 		private final Assignment cFloatAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
-		private final RuleCall cFloatFLOAT_LITERALTerminalRuleCall_1_4_0 = (RuleCall)cFloatAssignment_1_4.eContents().get(0);
+		private final RuleCall cFloatFloatLiteralParserRuleCall_1_4_0 = (RuleCall)cFloatAssignment_1_4.eContents().get(0);
 		private final Assignment cBinAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
-		private final RuleCall cBinBIN_LITERALTerminalRuleCall_1_5_0 = (RuleCall)cBinAssignment_1_5.eContents().get(0);
+		private final RuleCall cBinBinLiteralParserRuleCall_1_5_0 = (RuleCall)cBinAssignment_1_5.eContents().get(0);
 		
 		//Constant2:
-		//	{Constant2} (hex=HEX_LITERAL
-		//	| oct=OCTAL_LITERAL
-		//	| dec=DECIMAL_LITERAL
-		//	| ch=CHAR_LITERAL
-		//	//|	str=STRING_LITERAL
-		//	| float=FLOAT_LITERAL
-		//	| bin=BIN_LITERAL);
+		//	{Constant2} (hex=HexLiteral
+		//	| oct=OctalLiteral
+		//	| dec=DecimalLiteral
+		//	| ch=CharLiteral
+		//	//|	str=StringLiteral
+		//	| float=FloatLiteral
+		//	| bin=BinLiteral);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Constant2} (hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
-		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
+		//{Constant2} (hex=HexLiteral | oct=OctalLiteral | dec=DecimalLiteral | ch=CharLiteral //|	str=StringLiteral
+		//| float=FloatLiteral | bin=BinLiteral)
 		public Group getGroup() { return cGroup; }
 		
 		//{Constant2}
 		public Action getConstant2Action_0() { return cConstant2Action_0; }
 		
-		//(hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
-		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
+		//(hex=HexLiteral | oct=OctalLiteral | dec=DecimalLiteral | ch=CharLiteral //|	str=StringLiteral
+		//| float=FloatLiteral | bin=BinLiteral)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//hex=HEX_LITERAL
+		//hex=HexLiteral
 		public Assignment getHexAssignment_1_0() { return cHexAssignment_1_0; }
 		
-		//HEX_LITERAL
-		public RuleCall getHexHEX_LITERALTerminalRuleCall_1_0_0() { return cHexHEX_LITERALTerminalRuleCall_1_0_0; }
+		//HexLiteral
+		public RuleCall getHexHexLiteralParserRuleCall_1_0_0() { return cHexHexLiteralParserRuleCall_1_0_0; }
 		
-		//oct=OCTAL_LITERAL
+		//oct=OctalLiteral
 		public Assignment getOctAssignment_1_1() { return cOctAssignment_1_1; }
 		
-		//OCTAL_LITERAL
-		public RuleCall getOctOCTAL_LITERALTerminalRuleCall_1_1_0() { return cOctOCTAL_LITERALTerminalRuleCall_1_1_0; }
+		//OctalLiteral
+		public RuleCall getOctOctalLiteralParserRuleCall_1_1_0() { return cOctOctalLiteralParserRuleCall_1_1_0; }
 		
-		//dec=DECIMAL_LITERAL
+		//dec=DecimalLiteral
 		public Assignment getDecAssignment_1_2() { return cDecAssignment_1_2; }
 		
-		//DECIMAL_LITERAL
-		public RuleCall getDecDECIMAL_LITERALTerminalRuleCall_1_2_0() { return cDecDECIMAL_LITERALTerminalRuleCall_1_2_0; }
+		//DecimalLiteral
+		public RuleCall getDecDecimalLiteralParserRuleCall_1_2_0() { return cDecDecimalLiteralParserRuleCall_1_2_0; }
 		
-		//ch=CHAR_LITERAL
+		//ch=CharLiteral
 		public Assignment getChAssignment_1_3() { return cChAssignment_1_3; }
 		
-		//CHAR_LITERAL
-		public RuleCall getChCHAR_LITERALTerminalRuleCall_1_3_0() { return cChCHAR_LITERALTerminalRuleCall_1_3_0; }
+		//CharLiteral
+		public RuleCall getChCharLiteralParserRuleCall_1_3_0() { return cChCharLiteralParserRuleCall_1_3_0; }
 		
-		//float=FLOAT_LITERAL
+		//float=FloatLiteral
 		public Assignment getFloatAssignment_1_4() { return cFloatAssignment_1_4; }
 		
-		//FLOAT_LITERAL
-		public RuleCall getFloatFLOAT_LITERALTerminalRuleCall_1_4_0() { return cFloatFLOAT_LITERALTerminalRuleCall_1_4_0; }
+		//FloatLiteral
+		public RuleCall getFloatFloatLiteralParserRuleCall_1_4_0() { return cFloatFloatLiteralParserRuleCall_1_4_0; }
 		
-		//bin=BIN_LITERAL
+		//bin=BinLiteral
 		public Assignment getBinAssignment_1_5() { return cBinAssignment_1_5; }
 		
-		//BIN_LITERAL
-		public RuleCall getBinBIN_LITERALTerminalRuleCall_1_5_0() { return cBinBIN_LITERALTerminalRuleCall_1_5_0; }
+		//BinLiteral
+		public RuleCall getBinBinLiteralParserRuleCall_1_5_0() { return cBinBinLiteralParserRuleCall_1_5_0; }
 	}
 	public class SpecialKeywordsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SpecialKeywords");
@@ -1152,6 +1152,83 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_DOT
 		public RuleCall getSKW_DOTTerminalRuleCall_2() { return cSKW_DOTTerminalRuleCall_2; }
 	}
+	public class HexLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HexLiteral");
+		private final RuleCall cHEX_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//HexLiteral:
+		//	HEX_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//HEX_LITERAL
+		public RuleCall getHEX_LITERALTerminalRuleCall() { return cHEX_LITERALTerminalRuleCall; }
+	}
+	public class OctalLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.OctalLiteral");
+		private final RuleCall cOCTAL_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//OctalLiteral:
+		//	OCTAL_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//OCTAL_LITERAL
+		public RuleCall getOCTAL_LITERALTerminalRuleCall() { return cOCTAL_LITERALTerminalRuleCall; }
+	}
+	public class DecimalLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.DecimalLiteral");
+		private final RuleCall cDECIMAL_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//DecimalLiteral:
+		//	DECIMAL_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DECIMAL_LITERAL
+		public RuleCall getDECIMAL_LITERALTerminalRuleCall() { return cDECIMAL_LITERALTerminalRuleCall; }
+	}
+	public class CharLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CharLiteral");
+		private final RuleCall cCHAR_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//CharLiteral:
+		//	CHAR_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CHAR_LITERAL
+		public RuleCall getCHAR_LITERALTerminalRuleCall() { return cCHAR_LITERALTerminalRuleCall; }
+	}
+	public class StringLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.StringLiteral");
+		private final RuleCall cSTRING_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//StringLiteral:
+		//	STRING_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING_LITERAL
+		public RuleCall getSTRING_LITERALTerminalRuleCall() { return cSTRING_LITERALTerminalRuleCall; }
+	}
+	public class FloatLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.FloatLiteral");
+		private final RuleCall cFLOAT_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//FloatLiteral:
+		//	FLOAT_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//FLOAT_LITERAL
+		public RuleCall getFLOAT_LITERALTerminalRuleCall() { return cFLOAT_LITERALTerminalRuleCall; }
+	}
+	public class BinLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.BinLiteral");
+		private final RuleCall cBIN_LITERALTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//BinLiteral:
+		//	BIN_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//BIN_LITERAL
+		public RuleCall getBIN_LITERALTerminalRuleCall() { return cBIN_LITERALTerminalRuleCall; }
+	}
 	
 	
 	private final ExpressionElements pExpression;
@@ -1178,6 +1255,13 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final Constant2Elements pConstant2;
 	private final SpecialKeywordsElements pSpecialKeywords;
 	private final EllipsisElements pEllipsis;
+	private final HexLiteralElements pHexLiteral;
+	private final OctalLiteralElements pOctalLiteral;
+	private final DecimalLiteralElements pDecimalLiteral;
+	private final CharLiteralElements pCharLiteral;
+	private final StringLiteralElements pStringLiteral;
+	private final FloatLiteralElements pFloatLiteral;
+	private final BinLiteralElements pBinLiteral;
 	private final TerminalRule tSKW_AND;
 	private final TerminalRule tSKW_ANDAND;
 	private final TerminalRule tSKW_ASSIGN;
@@ -1278,6 +1362,13 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConstant2 = new Constant2Elements();
 		this.pSpecialKeywords = new SpecialKeywordsElements();
 		this.pEllipsis = new EllipsisElements();
+		this.pHexLiteral = new HexLiteralElements();
+		this.pOctalLiteral = new OctalLiteralElements();
+		this.pDecimalLiteral = new DecimalLiteralElements();
+		this.pCharLiteral = new CharLiteralElements();
+		this.pStringLiteral = new StringLiteralElements();
+		this.pFloatLiteral = new FloatLiteralElements();
+		this.pBinLiteral = new BinLiteralElements();
 		this.tSKW_AND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_AND");
 		this.tSKW_ANDAND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ANDAND");
 		this.tSKW_ASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ASSIGN");
@@ -1592,13 +1683,13 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Constant1:
-	//	HEX_LITERAL
-	//	| OCTAL_LITERAL
-	//	| DECIMAL_LITERAL
-	//	| CHAR_LITERAL
-	//	| STRING_LITERAL
-	//	| FLOAT_LITERAL
-	//	| BIN_LITERAL;
+	//	HexLiteral
+	//	| OctalLiteral
+	//	| DecimalLiteral
+	//	| CharLiteral
+	//	| StringLiteral
+	//	| FloatLiteral
+	//	| BinLiteral;
 	public Constant1Elements getConstant1Access() {
 		return pConstant1;
 	}
@@ -1608,13 +1699,13 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Constant2:
-	//	{Constant2} (hex=HEX_LITERAL
-	//	| oct=OCTAL_LITERAL
-	//	| dec=DECIMAL_LITERAL
-	//	| ch=CHAR_LITERAL
-	//	//|	str=STRING_LITERAL
-	//	| float=FLOAT_LITERAL
-	//	| bin=BIN_LITERAL);
+	//	{Constant2} (hex=HexLiteral
+	//	| oct=OctalLiteral
+	//	| dec=DecimalLiteral
+	//	| ch=CharLiteral
+	//	//|	str=StringLiteral
+	//	| float=FloatLiteral
+	//	| bin=BinLiteral);
 	public Constant2Elements getConstant2Access() {
 		return pConstant2;
 	}
@@ -1679,6 +1770,76 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEllipsisRule() {
 		return getEllipsisAccess().getRule();
+	}
+	
+	//HexLiteral:
+	//	HEX_LITERAL;
+	public HexLiteralElements getHexLiteralAccess() {
+		return pHexLiteral;
+	}
+	
+	public ParserRule getHexLiteralRule() {
+		return getHexLiteralAccess().getRule();
+	}
+	
+	//OctalLiteral:
+	//	OCTAL_LITERAL;
+	public OctalLiteralElements getOctalLiteralAccess() {
+		return pOctalLiteral;
+	}
+	
+	public ParserRule getOctalLiteralRule() {
+		return getOctalLiteralAccess().getRule();
+	}
+	
+	//DecimalLiteral:
+	//	DECIMAL_LITERAL;
+	public DecimalLiteralElements getDecimalLiteralAccess() {
+		return pDecimalLiteral;
+	}
+	
+	public ParserRule getDecimalLiteralRule() {
+		return getDecimalLiteralAccess().getRule();
+	}
+	
+	//CharLiteral:
+	//	CHAR_LITERAL;
+	public CharLiteralElements getCharLiteralAccess() {
+		return pCharLiteral;
+	}
+	
+	public ParserRule getCharLiteralRule() {
+		return getCharLiteralAccess().getRule();
+	}
+	
+	//StringLiteral:
+	//	STRING_LITERAL;
+	public StringLiteralElements getStringLiteralAccess() {
+		return pStringLiteral;
+	}
+	
+	public ParserRule getStringLiteralRule() {
+		return getStringLiteralAccess().getRule();
+	}
+	
+	//FloatLiteral:
+	//	FLOAT_LITERAL;
+	public FloatLiteralElements getFloatLiteralAccess() {
+		return pFloatLiteral;
+	}
+	
+	public ParserRule getFloatLiteralRule() {
+		return getFloatLiteralAccess().getRule();
+	}
+	
+	//BinLiteral:
+	//	BIN_LITERAL;
+	public BinLiteralElements getBinLiteralAccess() {
+		return pBinLiteral;
+	}
+	
+	public ParserRule getBinLiteralRule() {
+		return getBinLiteralAccess().getRule();
 	}
 	
 	//terminal SKW_AND:

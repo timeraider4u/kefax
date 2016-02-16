@@ -191,26 +191,26 @@ PrimaryExpression returns Expression:
 
 Constant1:
 	(
-		HEX_LITERAL
-	|	OCTAL_LITERAL
-	|	DECIMAL_LITERAL
-	|	CHAR_LITERAL
-	|	STRING_LITERAL
-	|	FLOAT_LITERAL
-	|	BIN_LITERAL
+		HexLiteral
+	|	OctalLiteral
+	|	DecimalLiteral
+	|	CharLiteral
+	|	StringLiteral
+	|	FloatLiteral
+	|	BinLiteral
 	)
 ;
 
 Constant2:
 	{Constant2}
 	(
-		hex=HEX_LITERAL
-	|	oct=OCTAL_LITERAL
-	|	dec=DECIMAL_LITERAL
-	|	ch=CHAR_LITERAL
-	//|	str=STRING_LITERAL
-	|	float=FLOAT_LITERAL
-	|	bin=BIN_LITERAL
+		hex=HexLiteral
+	|	oct=OctalLiteral
+	|	dec=DecimalLiteral
+	|	ch=CharLiteral
+	//|	str=StringLiteral
+	|	float=FloatLiteral
+	|	bin=BinLiteral
 	)
 ;
 
@@ -260,6 +260,20 @@ SpecialKeywords returns ecore::EString:
 Ellipsis:
 	SKW_DOT SKW_DOT SKW_DOT
 ;
+
+HexLiteral returns ecore::EString: HEX_LITERAL;
+
+OctalLiteral returns ecore::EString: OCTAL_LITERAL;
+
+DecimalLiteral returns ecore::EString: DECIMAL_LITERAL;
+
+CharLiteral returns ecore::EString: CHAR_LITERAL;
+
+StringLiteral returns ecore::EString: STRING_LITERAL;
+
+FloatLiteral returns ecore::EString: FLOAT_LITERAL;
+
+BinLiteral returns ecore::EString: BIN_LITERAL;
 
 // special keywords
 terminal SKW_AND: '&';

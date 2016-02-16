@@ -7657,13 +7657,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Constant1:
-	//	HEX_LITERAL
-	//	| OCTAL_LITERAL
-	//	| DECIMAL_LITERAL
-	//	| CHAR_LITERAL
-	//	| STRING_LITERAL
-	//	| FLOAT_LITERAL
-	//	| BIN_LITERAL;
+	//	HexLiteral
+	//	| OctalLiteral
+	//	| DecimalLiteral
+	//	| CharLiteral
+	//	| StringLiteral
+	//	| FloatLiteral
+	//	| BinLiteral;
 	public CommonGrammarAccess.Constant1Elements getConstant1Access() {
 		return gaCommon.getConstant1Access();
 	}
@@ -7673,13 +7673,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Constant2:
-	//	{Constant2} (hex=HEX_LITERAL
-	//	| oct=OCTAL_LITERAL
-	//	| dec=DECIMAL_LITERAL
-	//	| ch=CHAR_LITERAL
-	//	//|	str=STRING_LITERAL
-	//	| float=FLOAT_LITERAL
-	//	| bin=BIN_LITERAL);
+	//	{Constant2} (hex=HexLiteral
+	//	| oct=OctalLiteral
+	//	| dec=DecimalLiteral
+	//	| ch=CharLiteral
+	//	//|	str=StringLiteral
+	//	| float=FloatLiteral
+	//	| bin=BinLiteral);
 	public CommonGrammarAccess.Constant2Elements getConstant2Access() {
 		return gaCommon.getConstant2Access();
 	}
@@ -7744,6 +7744,76 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEllipsisRule() {
 		return getEllipsisAccess().getRule();
+	}
+	
+	//HexLiteral:
+	//	HEX_LITERAL;
+	public CommonGrammarAccess.HexLiteralElements getHexLiteralAccess() {
+		return gaCommon.getHexLiteralAccess();
+	}
+	
+	public ParserRule getHexLiteralRule() {
+		return getHexLiteralAccess().getRule();
+	}
+	
+	//OctalLiteral:
+	//	OCTAL_LITERAL;
+	public CommonGrammarAccess.OctalLiteralElements getOctalLiteralAccess() {
+		return gaCommon.getOctalLiteralAccess();
+	}
+	
+	public ParserRule getOctalLiteralRule() {
+		return getOctalLiteralAccess().getRule();
+	}
+	
+	//DecimalLiteral:
+	//	DECIMAL_LITERAL;
+	public CommonGrammarAccess.DecimalLiteralElements getDecimalLiteralAccess() {
+		return gaCommon.getDecimalLiteralAccess();
+	}
+	
+	public ParserRule getDecimalLiteralRule() {
+		return getDecimalLiteralAccess().getRule();
+	}
+	
+	//CharLiteral:
+	//	CHAR_LITERAL;
+	public CommonGrammarAccess.CharLiteralElements getCharLiteralAccess() {
+		return gaCommon.getCharLiteralAccess();
+	}
+	
+	public ParserRule getCharLiteralRule() {
+		return getCharLiteralAccess().getRule();
+	}
+	
+	//StringLiteral:
+	//	STRING_LITERAL;
+	public CommonGrammarAccess.StringLiteralElements getStringLiteralAccess() {
+		return gaCommon.getStringLiteralAccess();
+	}
+	
+	public ParserRule getStringLiteralRule() {
+		return getStringLiteralAccess().getRule();
+	}
+	
+	//FloatLiteral:
+	//	FLOAT_LITERAL;
+	public CommonGrammarAccess.FloatLiteralElements getFloatLiteralAccess() {
+		return gaCommon.getFloatLiteralAccess();
+	}
+	
+	public ParserRule getFloatLiteralRule() {
+		return getFloatLiteralAccess().getRule();
+	}
+	
+	//BinLiteral:
+	//	BIN_LITERAL;
+	public CommonGrammarAccess.BinLiteralElements getBinLiteralAccess() {
+		return gaCommon.getBinLiteralAccess();
+	}
+	
+	public ParserRule getBinLiteralRule() {
+		return getBinLiteralAccess().getRule();
 	}
 	
 	//terminal SKW_AND:

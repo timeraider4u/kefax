@@ -8,7 +8,42 @@ import org.eclipse.xtext.util.Strings;
 
 import at.jku.weiner.c.common.utils.MyValueConverterCommon;
 
+/***
+ * thanks to the issue with not calling the value converter on terminal rules
+ * when called from data rules when called from data rules, we have to duplicate
+ * code!
+ *
+ */
 public class MyValueConverter extends MyValueConverterCommon {
+
+	// @Override
+	// public Object toValue(final String string, final String lexerRule,
+	// final INode node) throws ValueConverterException {
+	// System.out.println("toValue='" + string + "', lexerRule='" + lexerRule
+	// + "'");
+	// return super.toValue(string, lexerRule, node);
+	// }
+
+	@ValueConverter(rule = "MyCode")
+	public IValueConverter<String> MyCode() {
+		return new IValueConverter<String>() {
+
+			@Override
+			public String toValue(final String string, final INode node)
+					throws ValueConverterException {
+				final String temp = MyValueConverterCommon
+						.cutChar(string, node);
+				return temp;
+			}
+
+			@Override
+			public String toString(final String value)
+					throws ValueConverterException {
+				return value;
+			}
+
+		};
+	}
 
 	@ValueConverter(rule = "MyCodeLine")
 	public IValueConverter<String> MyCodeLine() {
@@ -19,10 +54,12 @@ public class MyValueConverter extends MyValueConverterCommon {
 					throws ValueConverterException {
 				if (Strings.isEmpty(string)) {
 					throw new ValueConverterException(
-							"Couldn't convert empty MyCodeLine to String",
+							"Could not convert empty MyCodeLine to String!",
 							node, null);
 				}
-				final String result = MyValueConverter.replaceNewline(string);
+				final String temp = MyValueConverterCommon
+						.cutChar(string, node);
+				final String result = MyValueConverter.replaceNewline(temp);
 				return result.trim();
 			}
 
@@ -36,13 +73,36 @@ public class MyValueConverter extends MyValueConverterCommon {
 	}
 
 	@ValueConverter(rule = "MyDefineLineObject")
+	public IValueConverter<String> MyDefineLineObject() {
+		return new IValueConverter<String>() {
+
+			@Override
+			public String toValue(final String string, final INode node)
+					throws ValueConverterException {
+				final String temp = MyValueConverterCommon
+						.cutChar(string, node);
+				return MyValueConverter.replaceAll(temp);
+			}
+
+			@Override
+			public String toString(final String value)
+					throws ValueConverterException {
+				return value;
+			}
+
+		};
+	}
+
+	@ValueConverter(rule = "MyDefineLine")
 	public IValueConverter<String> MyDefineLine() {
 		return new IValueConverter<String>() {
 
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
-				return MyValueConverter.replaceAll(string);
+				final String temp = MyValueConverterCommon
+						.cutChar(string, node);
+				return MyValueConverter.replaceAll(temp);
 			}
 
 			@Override
@@ -55,13 +115,15 @@ public class MyValueConverter extends MyValueConverterCommon {
 	}
 
 	@ValueConverter(rule = "MyDefineLineFunction")
-	public IValueConverter<String> MyDefineLine2() {
+	public IValueConverter<String> MyDefineLineFunction() {
 		return new IValueConverter<String>() {
 
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
-				return MyValueConverter.replaceAll(string);
+				final String temp = MyValueConverterCommon
+						.cutChar(string, node);
+				return MyValueConverter.replaceAll(temp);
 			}
 
 			@Override

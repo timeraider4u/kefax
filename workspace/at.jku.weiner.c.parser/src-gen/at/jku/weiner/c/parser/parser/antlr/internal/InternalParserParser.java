@@ -232,7 +232,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 	}
 	public InternalParserParser(TokenStream input, RecognizerSharedState state) {
 		super(input, state);
-		this.state.ruleMemo = new HashMap[455+1];
+		this.state.ruleMemo = new HashMap[469+1];
 
 
 	}
@@ -24860,29 +24860,29 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleConstant1"
-	// InternalParser.g:12748:1: ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) ;
+	// InternalParser.g:12748:1: ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HexLiteral_0= ruleHexLiteral |this_OctalLiteral_1= ruleOctalLiteral |this_DecimalLiteral_2= ruleDecimalLiteral |this_CharLiteral_3= ruleCharLiteral |this_StringLiteral_4= ruleStringLiteral |this_FloatLiteral_5= ruleFloatLiteral |this_BinLiteral_6= ruleBinLiteral ) ;
 	public final AntlrDatatypeRuleToken ruleConstant1() throws RecognitionException {
 		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
 		int ruleConstant1_StartIndex = input.index();
 
-		Token this_HEX_LITERAL_0=null;
-		Token this_OCTAL_LITERAL_1=null;
-		Token this_DECIMAL_LITERAL_2=null;
-		Token this_CHAR_LITERAL_3=null;
-		Token this_STRING_LITERAL_4=null;
-		Token this_FLOAT_LITERAL_5=null;
-		Token this_BIN_LITERAL_6=null;
+		AntlrDatatypeRuleToken this_HexLiteral_0 =null;
+		AntlrDatatypeRuleToken this_OctalLiteral_1 =null;
+		AntlrDatatypeRuleToken this_DecimalLiteral_2 =null;
+		AntlrDatatypeRuleToken this_CharLiteral_3 =null;
+		AntlrDatatypeRuleToken this_StringLiteral_4 =null;
+		AntlrDatatypeRuleToken this_FloatLiteral_5 =null;
+		AntlrDatatypeRuleToken this_BinLiteral_6 =null;
 
 		 enterRule(); 
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 186) ) { return current; }
 
-			// InternalParser.g:12751:28: ( (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) )
-			// InternalParser.g:12752:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
+			// InternalParser.g:12751:28: ( (this_HexLiteral_0= ruleHexLiteral |this_OctalLiteral_1= ruleOctalLiteral |this_DecimalLiteral_2= ruleDecimalLiteral |this_CharLiteral_3= ruleCharLiteral |this_StringLiteral_4= ruleStringLiteral |this_FloatLiteral_5= ruleFloatLiteral |this_BinLiteral_6= ruleBinLiteral ) )
+			// InternalParser.g:12752:5: (this_HexLiteral_0= ruleHexLiteral |this_OctalLiteral_1= ruleOctalLiteral |this_DecimalLiteral_2= ruleDecimalLiteral |this_CharLiteral_3= ruleCharLiteral |this_StringLiteral_4= ruleStringLiteral |this_FloatLiteral_5= ruleFloatLiteral |this_BinLiteral_6= ruleBinLiteral )
 			{
-			// InternalParser.g:12752:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
+			// InternalParser.g:12752:5: (this_HexLiteral_0= ruleHexLiteral |this_OctalLiteral_1= ruleOctalLiteral |this_DecimalLiteral_2= ruleDecimalLiteral |this_CharLiteral_3= ruleCharLiteral |this_StringLiteral_4= ruleStringLiteral |this_FloatLiteral_5= ruleFloatLiteral |this_BinLiteral_6= ruleBinLiteral )
 			int alt142=7;
 			switch ( input.LA(1) ) {
 			case RULE_HEX_LITERAL:
@@ -24928,86 +24928,128 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			}
 			switch (alt142) {
 				case 1 :
-					// InternalParser.g:12752:6: this_HEX_LITERAL_0= RULE_HEX_LITERAL
+					// InternalParser.g:12753:5: this_HexLiteral_0= ruleHexLiteral
 					{
-					this_HEX_LITERAL_0=(Token)match(input,RULE_HEX_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getHexLiteralParserRuleCall_0()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_HexLiteral_0=ruleHexLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_HEX_LITERAL_0);
+							current.merge(this_HexLiteral_0);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_HEX_LITERAL_0, grammarAccess.getConstant1Access().getHEX_LITERALTerminalRuleCall_0()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 2 :
-					// InternalParser.g:12760:10: this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL
+					// InternalParser.g:12765:5: this_OctalLiteral_1= ruleOctalLiteral
 					{
-					this_OCTAL_LITERAL_1=(Token)match(input,RULE_OCTAL_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getOctalLiteralParserRuleCall_1()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_OctalLiteral_1=ruleOctalLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_OCTAL_LITERAL_1);
+							current.merge(this_OctalLiteral_1);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_OCTAL_LITERAL_1, grammarAccess.getConstant1Access().getOCTAL_LITERALTerminalRuleCall_1()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 3 :
-					// InternalParser.g:12768:10: this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL
+					// InternalParser.g:12777:5: this_DecimalLiteral_2= ruleDecimalLiteral
 					{
-					this_DECIMAL_LITERAL_2=(Token)match(input,RULE_DECIMAL_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getDecimalLiteralParserRuleCall_2()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_DecimalLiteral_2=ruleDecimalLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_DECIMAL_LITERAL_2);
+							current.merge(this_DecimalLiteral_2);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_DECIMAL_LITERAL_2, grammarAccess.getConstant1Access().getDECIMAL_LITERALTerminalRuleCall_2()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 4 :
-					// InternalParser.g:12776:10: this_CHAR_LITERAL_3= RULE_CHAR_LITERAL
+					// InternalParser.g:12789:5: this_CharLiteral_3= ruleCharLiteral
 					{
-					this_CHAR_LITERAL_3=(Token)match(input,RULE_CHAR_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getCharLiteralParserRuleCall_3()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_CharLiteral_3=ruleCharLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_CHAR_LITERAL_3);
+							current.merge(this_CharLiteral_3);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_CHAR_LITERAL_3, grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 5 :
-					// InternalParser.g:12784:10: this_STRING_LITERAL_4= RULE_STRING_LITERAL
+					// InternalParser.g:12801:5: this_StringLiteral_4= ruleStringLiteral
 					{
-					this_STRING_LITERAL_4=(Token)match(input,RULE_STRING_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getStringLiteralParserRuleCall_4()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_StringLiteral_4=ruleStringLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_STRING_LITERAL_4);
+							current.merge(this_StringLiteral_4);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_STRING_LITERAL_4, grammarAccess.getConstant1Access().getSTRING_LITERALTerminalRuleCall_4()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 6 :
-					// InternalParser.g:12792:10: this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL
+					// InternalParser.g:12813:5: this_FloatLiteral_5= ruleFloatLiteral
 					{
-					this_FLOAT_LITERAL_5=(Token)match(input,RULE_FLOAT_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getFloatLiteralParserRuleCall_5()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_FloatLiteral_5=ruleFloatLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_FLOAT_LITERAL_5);
+							current.merge(this_FloatLiteral_5);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_FLOAT_LITERAL_5, grammarAccess.getConstant1Access().getFLOAT_LITERALTerminalRuleCall_5()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
 				case 7 :
-					// InternalParser.g:12800:10: this_BIN_LITERAL_6= RULE_BIN_LITERAL
+					// InternalParser.g:12825:5: this_BinLiteral_6= ruleBinLiteral
 					{
-					this_BIN_LITERAL_6=(Token)match(input,RULE_BIN_LITERAL,FOLLOW_2); if (state.failed) return current;
+					if ( state.backtracking==0 ) { 
+					        newCompositeNode(grammarAccess.getConstant1Access().getBinLiteralParserRuleCall_6()); 
+					    }
+					pushFollow(FOLLOW_2);
+					this_BinLiteral_6=ruleBinLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
-							current.merge(this_BIN_LITERAL_6);
+							current.merge(this_BinLiteral_6);
 					    }
 					if ( state.backtracking==0 ) { 
-					    newLeafNode(this_BIN_LITERAL_6, grammarAccess.getConstant1Access().getBIN_LITERALTerminalRuleCall_6()); 
+					        afterParserOrEnumRuleCall();
 					    }
 					}
 					break;
@@ -25036,7 +25078,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "entryRuleConstant2"
-	// InternalParser.g:12815:1: entryRuleConstant2 returns [EObject current=null] :iv_ruleConstant2= ruleConstant2 EOF ;
+	// InternalParser.g:12843:1: entryRuleConstant2 returns [EObject current=null] :iv_ruleConstant2= ruleConstant2 EOF ;
 	public final EObject entryRuleConstant2() throws RecognitionException {
 		EObject current = null;
 
@@ -25047,8 +25089,8 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 187) ) { return current; }
 
-			// InternalParser.g:12816:2: (iv_ruleConstant2= ruleConstant2 EOF )
-			// InternalParser.g:12817:2: iv_ruleConstant2= ruleConstant2 EOF
+			// InternalParser.g:12844:2: (iv_ruleConstant2= ruleConstant2 EOF )
+			// InternalParser.g:12845:2: iv_ruleConstant2= ruleConstant2 EOF
 			{
 			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getConstant2Rule()); }
 			pushFollow(FOLLOW_1);
@@ -25078,18 +25120,18 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleConstant2"
-	// InternalParser.g:12824:1: ruleConstant2 returns [EObject current=null] : ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) ) ) ;
+	// InternalParser.g:12852:1: ruleConstant2 returns [EObject current=null] : ( () ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) ) ) ;
 	public final EObject ruleConstant2() throws RecognitionException {
 		EObject current = null;
 
 		int ruleConstant2_StartIndex = input.index();
 
-		Token lv_hex_1_0=null;
-		Token lv_oct_2_0=null;
-		Token lv_dec_3_0=null;
-		Token lv_ch_4_0=null;
-		Token lv_float_5_0=null;
-		Token lv_bin_6_0=null;
+		AntlrDatatypeRuleToken lv_hex_1_0 =null;
+		AntlrDatatypeRuleToken lv_oct_2_0 =null;
+		AntlrDatatypeRuleToken lv_dec_3_0 =null;
+		AntlrDatatypeRuleToken lv_ch_4_0 =null;
+		AntlrDatatypeRuleToken lv_float_5_0 =null;
+		AntlrDatatypeRuleToken lv_bin_6_0 =null;
 
 		 enterRule();
 		   		/*no init found*/
@@ -25097,14 +25139,14 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 188) ) { return current; }
 
-			// InternalParser.g:12830:7: ( ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) ) ) )
-			// InternalParser.g:12832:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) ) )
+			// InternalParser.g:12858:7: ( ( () ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) ) ) )
+			// InternalParser.g:12860:2: ( () ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) ) )
 			{
-			// InternalParser.g:12832:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) ) )
-			// InternalParser.g:12833:2: () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) )
+			// InternalParser.g:12860:2: ( () ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) ) )
+			// InternalParser.g:12861:2: () ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) )
 			{
-			// InternalParser.g:12833:2: ()
-			// InternalParser.g:12834:2: 
+			// InternalParser.g:12861:2: ()
+			// InternalParser.g:12862:2: 
 			{
 			if ( state.backtracking==0 ) { 
 				  /* */ 
@@ -25116,7 +25158,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			    }
 			}
 
-			// InternalParser.g:12845:0: ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_float_5_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_6_0= RULE_BIN_LITERAL ) ) )
+			// InternalParser.g:12873:0: ( ( (lv_hex_1_0= ruleHexLiteral ) ) | ( (lv_oct_2_0= ruleOctalLiteral ) ) | ( (lv_dec_3_0= ruleDecimalLiteral ) ) | ( (lv_ch_4_0= ruleCharLiteral ) ) | ( (lv_float_5_0= ruleFloatLiteral ) ) | ( (lv_bin_6_0= ruleBinLiteral ) ) )
 			int alt143=6;
 			switch ( input.LA(1) ) {
 			case RULE_HEX_LITERAL:
@@ -25157,27 +25199,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			}
 			switch (alt143) {
 				case 1 :
-					// InternalParser.g:12846:0: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
+					// InternalParser.g:12874:0: ( (lv_hex_1_0= ruleHexLiteral ) )
 					{
-					// InternalParser.g:12846:3: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
-					// InternalParser.g:12847:3: (lv_hex_1_0= RULE_HEX_LITERAL )
+					// InternalParser.g:12874:3: ( (lv_hex_1_0= ruleHexLiteral ) )
+					// InternalParser.g:12875:3: (lv_hex_1_0= ruleHexLiteral )
 					{
-					// InternalParser.g:12847:3: (lv_hex_1_0= RULE_HEX_LITERAL )
-					// InternalParser.g:12848:3: lv_hex_1_0= RULE_HEX_LITERAL
+					// InternalParser.g:12875:3: (lv_hex_1_0= ruleHexLiteral )
+					// InternalParser.g:12876:3: lv_hex_1_0= ruleHexLiteral
 					{
-					lv_hex_1_0=(Token)match(input,RULE_HEX_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_hex_1_0, grammarAccess.getConstant2Access().getHexHEX_LITERALTerminalRuleCall_1_0_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getHexHexLiteralParserRuleCall_1_0_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_hex_1_0=ruleHexLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"hex",
 					        		lv_hex_1_0, 
-					        		"at.jku.weiner.c.common.Common.HEX_LITERAL");
+					        		"at.jku.weiner.c.common.Common.HexLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25186,27 +25232,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 2 :
-					// InternalParser.g:12868:0: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
+					// InternalParser.g:12896:0: ( (lv_oct_2_0= ruleOctalLiteral ) )
 					{
-					// InternalParser.g:12868:3: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
-					// InternalParser.g:12869:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
+					// InternalParser.g:12896:3: ( (lv_oct_2_0= ruleOctalLiteral ) )
+					// InternalParser.g:12897:3: (lv_oct_2_0= ruleOctalLiteral )
 					{
-					// InternalParser.g:12869:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
-					// InternalParser.g:12870:3: lv_oct_2_0= RULE_OCTAL_LITERAL
+					// InternalParser.g:12897:3: (lv_oct_2_0= ruleOctalLiteral )
+					// InternalParser.g:12898:3: lv_oct_2_0= ruleOctalLiteral
 					{
-					lv_oct_2_0=(Token)match(input,RULE_OCTAL_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_oct_2_0, grammarAccess.getConstant2Access().getOctOCTAL_LITERALTerminalRuleCall_1_1_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getOctOctalLiteralParserRuleCall_1_1_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_oct_2_0=ruleOctalLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"oct",
 					        		lv_oct_2_0, 
-					        		"at.jku.weiner.c.common.Common.OCTAL_LITERAL");
+					        		"at.jku.weiner.c.common.Common.OctalLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25215,27 +25265,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 3 :
-					// InternalParser.g:12890:0: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
+					// InternalParser.g:12918:0: ( (lv_dec_3_0= ruleDecimalLiteral ) )
 					{
-					// InternalParser.g:12890:3: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
-					// InternalParser.g:12891:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
+					// InternalParser.g:12918:3: ( (lv_dec_3_0= ruleDecimalLiteral ) )
+					// InternalParser.g:12919:3: (lv_dec_3_0= ruleDecimalLiteral )
 					{
-					// InternalParser.g:12891:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
-					// InternalParser.g:12892:3: lv_dec_3_0= RULE_DECIMAL_LITERAL
+					// InternalParser.g:12919:3: (lv_dec_3_0= ruleDecimalLiteral )
+					// InternalParser.g:12920:3: lv_dec_3_0= ruleDecimalLiteral
 					{
-					lv_dec_3_0=(Token)match(input,RULE_DECIMAL_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_dec_3_0, grammarAccess.getConstant2Access().getDecDECIMAL_LITERALTerminalRuleCall_1_2_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getDecDecimalLiteralParserRuleCall_1_2_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_dec_3_0=ruleDecimalLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"dec",
 					        		lv_dec_3_0, 
-					        		"at.jku.weiner.c.common.Common.DECIMAL_LITERAL");
+					        		"at.jku.weiner.c.common.Common.DecimalLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25244,27 +25298,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 4 :
-					// InternalParser.g:12912:0: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
+					// InternalParser.g:12940:0: ( (lv_ch_4_0= ruleCharLiteral ) )
 					{
-					// InternalParser.g:12912:3: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
-					// InternalParser.g:12913:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
+					// InternalParser.g:12940:3: ( (lv_ch_4_0= ruleCharLiteral ) )
+					// InternalParser.g:12941:3: (lv_ch_4_0= ruleCharLiteral )
 					{
-					// InternalParser.g:12913:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
-					// InternalParser.g:12914:3: lv_ch_4_0= RULE_CHAR_LITERAL
+					// InternalParser.g:12941:3: (lv_ch_4_0= ruleCharLiteral )
+					// InternalParser.g:12942:3: lv_ch_4_0= ruleCharLiteral
 					{
-					lv_ch_4_0=(Token)match(input,RULE_CHAR_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_ch_4_0, grammarAccess.getConstant2Access().getChCHAR_LITERALTerminalRuleCall_1_3_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getChCharLiteralParserRuleCall_1_3_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_ch_4_0=ruleCharLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"ch",
 					        		lv_ch_4_0, 
-					        		"at.jku.weiner.c.common.Common.CHAR_LITERAL");
+					        		"at.jku.weiner.c.common.Common.CharLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25273,27 +25331,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 5 :
-					// InternalParser.g:12934:0: ( (lv_float_5_0= RULE_FLOAT_LITERAL ) )
+					// InternalParser.g:12962:0: ( (lv_float_5_0= ruleFloatLiteral ) )
 					{
-					// InternalParser.g:12934:3: ( (lv_float_5_0= RULE_FLOAT_LITERAL ) )
-					// InternalParser.g:12935:3: (lv_float_5_0= RULE_FLOAT_LITERAL )
+					// InternalParser.g:12962:3: ( (lv_float_5_0= ruleFloatLiteral ) )
+					// InternalParser.g:12963:3: (lv_float_5_0= ruleFloatLiteral )
 					{
-					// InternalParser.g:12935:3: (lv_float_5_0= RULE_FLOAT_LITERAL )
-					// InternalParser.g:12936:3: lv_float_5_0= RULE_FLOAT_LITERAL
+					// InternalParser.g:12963:3: (lv_float_5_0= ruleFloatLiteral )
+					// InternalParser.g:12964:3: lv_float_5_0= ruleFloatLiteral
 					{
-					lv_float_5_0=(Token)match(input,RULE_FLOAT_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_float_5_0, grammarAccess.getConstant2Access().getFloatFLOAT_LITERALTerminalRuleCall_1_4_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getFloatFloatLiteralParserRuleCall_1_4_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_float_5_0=ruleFloatLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"float",
 					        		lv_float_5_0, 
-					        		"at.jku.weiner.c.common.Common.FLOAT_LITERAL");
+					        		"at.jku.weiner.c.common.Common.FloatLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25302,27 +25364,31 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 6 :
-					// InternalParser.g:12956:3: ( (lv_bin_6_0= RULE_BIN_LITERAL ) )
+					// InternalParser.g:12984:3: ( (lv_bin_6_0= ruleBinLiteral ) )
 					{
-					// InternalParser.g:12956:3: ( (lv_bin_6_0= RULE_BIN_LITERAL ) )
-					// InternalParser.g:12957:3: (lv_bin_6_0= RULE_BIN_LITERAL )
+					// InternalParser.g:12984:3: ( (lv_bin_6_0= ruleBinLiteral ) )
+					// InternalParser.g:12985:3: (lv_bin_6_0= ruleBinLiteral )
 					{
-					// InternalParser.g:12957:3: (lv_bin_6_0= RULE_BIN_LITERAL )
-					// InternalParser.g:12958:3: lv_bin_6_0= RULE_BIN_LITERAL
+					// InternalParser.g:12985:3: (lv_bin_6_0= ruleBinLiteral )
+					// InternalParser.g:12986:3: lv_bin_6_0= ruleBinLiteral
 					{
-					lv_bin_6_0=(Token)match(input,RULE_BIN_LITERAL,FOLLOW_2); if (state.failed) return current;
-					if ( state.backtracking==0 ) {
-								newLeafNode(lv_bin_6_0, grammarAccess.getConstant2Access().getBinBIN_LITERALTerminalRuleCall_1_5_0()); 
-							}
+					if ( state.backtracking==0 ) { 
+						        newCompositeNode(grammarAccess.getConstant2Access().getBinBinLiteralParserRuleCall_1_5_0()); 
+						    }
+					pushFollow(FOLLOW_2);
+					lv_bin_6_0=ruleBinLiteral();
+					state._fsp--;
+					if (state.failed) return current;
 					if ( state.backtracking==0 ) {
 						        if (current==null) {
-						            current = createModelElement(grammarAccess.getConstant2Rule());
+						            current = createModelElementForParent(grammarAccess.getConstant2Rule());
 						        }
-					       		setWithLastConsumed(
+					       		set(
 					       			current, 
 					       			"bin",
 					        		lv_bin_6_0, 
-					        		"at.jku.weiner.c.common.Common.BIN_LITERAL");
+					        		"at.jku.weiner.c.common.Common.BinLiteral");
+						        afterParserOrEnumRuleCall();
 						    }
 					}
 
@@ -25364,7 +25430,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "entryRuleEllipsis"
-	// InternalParser.g:12995:1: entryRuleEllipsis returns [String current=null] :iv_ruleEllipsis= ruleEllipsis EOF ;
+	// InternalParser.g:13023:1: entryRuleEllipsis returns [String current=null] :iv_ruleEllipsis= ruleEllipsis EOF ;
 	public final String entryRuleEllipsis() throws RecognitionException {
 		String current = null;
 
@@ -25375,8 +25441,8 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 189) ) { return current; }
 
-			// InternalParser.g:12996:2: (iv_ruleEllipsis= ruleEllipsis EOF )
-			// InternalParser.g:12997:2: iv_ruleEllipsis= ruleEllipsis EOF
+			// InternalParser.g:13024:2: (iv_ruleEllipsis= ruleEllipsis EOF )
+			// InternalParser.g:13025:2: iv_ruleEllipsis= ruleEllipsis EOF
 			{
 			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getEllipsisRule()); }
 			pushFollow(FOLLOW_1);
@@ -25406,7 +25472,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleEllipsis"
-	// InternalParser.g:13004:1: ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT ) ;
+	// InternalParser.g:13032:1: ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT ) ;
 	public final AntlrDatatypeRuleToken ruleEllipsis() throws RecognitionException {
 		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -25421,11 +25487,11 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 190) ) { return current; }
 
-			// InternalParser.g:13007:28: ( (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT ) )
-			// InternalParser.g:13008:6: (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT )
+			// InternalParser.g:13035:28: ( (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT ) )
+			// InternalParser.g:13036:6: (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT )
 			{
-			// InternalParser.g:13008:6: (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT )
-			// InternalParser.g:13008:6: this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT
+			// InternalParser.g:13036:6: (this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT )
+			// InternalParser.g:13036:6: this_SKW_DOT_0= RULE_SKW_DOT this_SKW_DOT_1= RULE_SKW_DOT this_SKW_DOT_2= RULE_SKW_DOT
 			{
 			this_SKW_DOT_0=(Token)match(input,RULE_SKW_DOT,FOLLOW_43); if (state.failed) return current;
 			if ( state.backtracking==0 ) {
@@ -25468,6 +25534,615 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		return current;
 	}
 	// $ANTLR end "ruleEllipsis"
+
+
+
+	// $ANTLR start "entryRuleHexLiteral"
+	// InternalParser.g:13065:1: entryRuleHexLiteral returns [String current=null] :iv_ruleHexLiteral= ruleHexLiteral EOF ;
+	public final String entryRuleHexLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleHexLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleHexLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 191) ) { return current; }
+
+			// InternalParser.g:13066:2: (iv_ruleHexLiteral= ruleHexLiteral EOF )
+			// InternalParser.g:13067:2: iv_ruleHexLiteral= ruleHexLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getHexLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleHexLiteral=ruleHexLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleHexLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 191, entryRuleHexLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleHexLiteral"
+
+
+
+	// $ANTLR start "ruleHexLiteral"
+	// InternalParser.g:13074:1: ruleHexLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_HEX_LITERAL_0= RULE_HEX_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleHexLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleHexLiteral_StartIndex = input.index();
+
+		Token this_HEX_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 192) ) { return current; }
+
+			// InternalParser.g:13077:28: (this_HEX_LITERAL_0= RULE_HEX_LITERAL )
+			// InternalParser.g:13078:5: this_HEX_LITERAL_0= RULE_HEX_LITERAL
+			{
+			this_HEX_LITERAL_0=(Token)match(input,RULE_HEX_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_HEX_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_HEX_LITERAL_0, grammarAccess.getHexLiteralAccess().getHEX_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 192, ruleHexLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleHexLiteral"
+
+
+
+	// $ANTLR start "entryRuleOctalLiteral"
+	// InternalParser.g:13093:1: entryRuleOctalLiteral returns [String current=null] :iv_ruleOctalLiteral= ruleOctalLiteral EOF ;
+	public final String entryRuleOctalLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleOctalLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleOctalLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 193) ) { return current; }
+
+			// InternalParser.g:13094:2: (iv_ruleOctalLiteral= ruleOctalLiteral EOF )
+			// InternalParser.g:13095:2: iv_ruleOctalLiteral= ruleOctalLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getOctalLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleOctalLiteral=ruleOctalLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleOctalLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 193, entryRuleOctalLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleOctalLiteral"
+
+
+
+	// $ANTLR start "ruleOctalLiteral"
+	// InternalParser.g:13102:1: ruleOctalLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_OCTAL_LITERAL_0= RULE_OCTAL_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleOctalLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleOctalLiteral_StartIndex = input.index();
+
+		Token this_OCTAL_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 194) ) { return current; }
+
+			// InternalParser.g:13105:28: (this_OCTAL_LITERAL_0= RULE_OCTAL_LITERAL )
+			// InternalParser.g:13106:5: this_OCTAL_LITERAL_0= RULE_OCTAL_LITERAL
+			{
+			this_OCTAL_LITERAL_0=(Token)match(input,RULE_OCTAL_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_OCTAL_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_OCTAL_LITERAL_0, grammarAccess.getOctalLiteralAccess().getOCTAL_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 194, ruleOctalLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleOctalLiteral"
+
+
+
+	// $ANTLR start "entryRuleDecimalLiteral"
+	// InternalParser.g:13121:1: entryRuleDecimalLiteral returns [String current=null] :iv_ruleDecimalLiteral= ruleDecimalLiteral EOF ;
+	public final String entryRuleDecimalLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleDecimalLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleDecimalLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 195) ) { return current; }
+
+			// InternalParser.g:13122:2: (iv_ruleDecimalLiteral= ruleDecimalLiteral EOF )
+			// InternalParser.g:13123:2: iv_ruleDecimalLiteral= ruleDecimalLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getDecimalLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleDecimalLiteral=ruleDecimalLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleDecimalLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 195, entryRuleDecimalLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleDecimalLiteral"
+
+
+
+	// $ANTLR start "ruleDecimalLiteral"
+	// InternalParser.g:13130:1: ruleDecimalLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_DECIMAL_LITERAL_0= RULE_DECIMAL_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleDecimalLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleDecimalLiteral_StartIndex = input.index();
+
+		Token this_DECIMAL_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 196) ) { return current; }
+
+			// InternalParser.g:13133:28: (this_DECIMAL_LITERAL_0= RULE_DECIMAL_LITERAL )
+			// InternalParser.g:13134:5: this_DECIMAL_LITERAL_0= RULE_DECIMAL_LITERAL
+			{
+			this_DECIMAL_LITERAL_0=(Token)match(input,RULE_DECIMAL_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_DECIMAL_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_DECIMAL_LITERAL_0, grammarAccess.getDecimalLiteralAccess().getDECIMAL_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 196, ruleDecimalLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleDecimalLiteral"
+
+
+
+	// $ANTLR start "entryRuleCharLiteral"
+	// InternalParser.g:13149:1: entryRuleCharLiteral returns [String current=null] :iv_ruleCharLiteral= ruleCharLiteral EOF ;
+	public final String entryRuleCharLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleCharLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleCharLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 197) ) { return current; }
+
+			// InternalParser.g:13150:2: (iv_ruleCharLiteral= ruleCharLiteral EOF )
+			// InternalParser.g:13151:2: iv_ruleCharLiteral= ruleCharLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getCharLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleCharLiteral=ruleCharLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleCharLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 197, entryRuleCharLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleCharLiteral"
+
+
+
+	// $ANTLR start "ruleCharLiteral"
+	// InternalParser.g:13158:1: ruleCharLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_CHAR_LITERAL_0= RULE_CHAR_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleCharLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleCharLiteral_StartIndex = input.index();
+
+		Token this_CHAR_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 198) ) { return current; }
+
+			// InternalParser.g:13161:28: (this_CHAR_LITERAL_0= RULE_CHAR_LITERAL )
+			// InternalParser.g:13162:5: this_CHAR_LITERAL_0= RULE_CHAR_LITERAL
+			{
+			this_CHAR_LITERAL_0=(Token)match(input,RULE_CHAR_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_CHAR_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_CHAR_LITERAL_0, grammarAccess.getCharLiteralAccess().getCHAR_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 198, ruleCharLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleCharLiteral"
+
+
+
+	// $ANTLR start "entryRuleStringLiteral"
+	// InternalParser.g:13177:1: entryRuleStringLiteral returns [String current=null] :iv_ruleStringLiteral= ruleStringLiteral EOF ;
+	public final String entryRuleStringLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleStringLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleStringLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 199) ) { return current; }
+
+			// InternalParser.g:13178:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+			// InternalParser.g:13179:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getStringLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleStringLiteral=ruleStringLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleStringLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 199, entryRuleStringLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleStringLiteral"
+
+
+
+	// $ANTLR start "ruleStringLiteral"
+	// InternalParser.g:13186:1: ruleStringLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_STRING_LITERAL_0= RULE_STRING_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleStringLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleStringLiteral_StartIndex = input.index();
+
+		Token this_STRING_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 200) ) { return current; }
+
+			// InternalParser.g:13189:28: (this_STRING_LITERAL_0= RULE_STRING_LITERAL )
+			// InternalParser.g:13190:5: this_STRING_LITERAL_0= RULE_STRING_LITERAL
+			{
+			this_STRING_LITERAL_0=(Token)match(input,RULE_STRING_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_STRING_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_STRING_LITERAL_0, grammarAccess.getStringLiteralAccess().getSTRING_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 200, ruleStringLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleStringLiteral"
+
+
+
+	// $ANTLR start "entryRuleFloatLiteral"
+	// InternalParser.g:13205:1: entryRuleFloatLiteral returns [String current=null] :iv_ruleFloatLiteral= ruleFloatLiteral EOF ;
+	public final String entryRuleFloatLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleFloatLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleFloatLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 201) ) { return current; }
+
+			// InternalParser.g:13206:2: (iv_ruleFloatLiteral= ruleFloatLiteral EOF )
+			// InternalParser.g:13207:2: iv_ruleFloatLiteral= ruleFloatLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getFloatLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleFloatLiteral=ruleFloatLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleFloatLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 201, entryRuleFloatLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleFloatLiteral"
+
+
+
+	// $ANTLR start "ruleFloatLiteral"
+	// InternalParser.g:13214:1: ruleFloatLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_FLOAT_LITERAL_0= RULE_FLOAT_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleFloatLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleFloatLiteral_StartIndex = input.index();
+
+		Token this_FLOAT_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 202) ) { return current; }
+
+			// InternalParser.g:13217:28: (this_FLOAT_LITERAL_0= RULE_FLOAT_LITERAL )
+			// InternalParser.g:13218:5: this_FLOAT_LITERAL_0= RULE_FLOAT_LITERAL
+			{
+			this_FLOAT_LITERAL_0=(Token)match(input,RULE_FLOAT_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_FLOAT_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_FLOAT_LITERAL_0, grammarAccess.getFloatLiteralAccess().getFLOAT_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 202, ruleFloatLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleFloatLiteral"
+
+
+
+	// $ANTLR start "entryRuleBinLiteral"
+	// InternalParser.g:13233:1: entryRuleBinLiteral returns [String current=null] :iv_ruleBinLiteral= ruleBinLiteral EOF ;
+	public final String entryRuleBinLiteral() throws RecognitionException {
+		String current = null;
+
+		int entryRuleBinLiteral_StartIndex = input.index();
+
+		AntlrDatatypeRuleToken iv_ruleBinLiteral =null;
+
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 203) ) { return current; }
+
+			// InternalParser.g:13234:2: (iv_ruleBinLiteral= ruleBinLiteral EOF )
+			// InternalParser.g:13235:2: iv_ruleBinLiteral= ruleBinLiteral EOF
+			{
+			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getBinLiteralRule()); }
+			pushFollow(FOLLOW_1);
+			iv_ruleBinLiteral=ruleBinLiteral();
+			state._fsp--;
+			if (state.failed) return current;
+			if ( state.backtracking==0 ) { current =iv_ruleBinLiteral.getText(); }
+			match(input,EOF,FOLLOW_2); if (state.failed) return current;
+			}
+
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 203, entryRuleBinLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "entryRuleBinLiteral"
+
+
+
+	// $ANTLR start "ruleBinLiteral"
+	// InternalParser.g:13242:1: ruleBinLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_BIN_LITERAL_0= RULE_BIN_LITERAL ;
+	public final AntlrDatatypeRuleToken ruleBinLiteral() throws RecognitionException {
+		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+		int ruleBinLiteral_StartIndex = input.index();
+
+		Token this_BIN_LITERAL_0=null;
+
+		 enterRule(); 
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 204) ) { return current; }
+
+			// InternalParser.g:13245:28: (this_BIN_LITERAL_0= RULE_BIN_LITERAL )
+			// InternalParser.g:13246:5: this_BIN_LITERAL_0= RULE_BIN_LITERAL
+			{
+			this_BIN_LITERAL_0=(Token)match(input,RULE_BIN_LITERAL,FOLLOW_2); if (state.failed) return current;
+			if ( state.backtracking==0 ) {
+					current.merge(this_BIN_LITERAL_0);
+			    }
+			if ( state.backtracking==0 ) { 
+			    newLeafNode(this_BIN_LITERAL_0, grammarAccess.getBinLiteralAccess().getBIN_LITERALTerminalRuleCall()); 
+			    }
+			}
+
+			if ( state.backtracking==0 ) { leaveRule(); }
+		}
+		 
+		    catch (RecognitionException re) { 
+		        recover(input,re); 
+		        appendSkippedTokens();
+		    } 
+
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 204, ruleBinLiteral_StartIndex); }
+
+		}
+		return current;
+	}
+	// $ANTLR end "ruleBinLiteral"
 
 	// $ANTLR start synpred3_InternalParser
 	public final void synpred3_InternalParser_fragment() throws RecognitionException {

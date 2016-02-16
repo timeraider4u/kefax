@@ -12749,60 +12749,88 @@ ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(    this_HEX_LITERAL_0=RULE_HEX_LITERAL    {
-		$current.merge(this_HEX_LITERAL_0);
+(
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getHexLiteralParserRuleCall_0()); 
+    }
+    this_HexLiteral_0=ruleHexLiteral    {
+		$current.merge(this_HexLiteral_0);
     }
 
     { 
-    newLeafNode(this_HEX_LITERAL_0, grammarAccess.getConstant1Access().getHEX_LITERALTerminalRuleCall_0()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_OCTAL_LITERAL_1=RULE_OCTAL_LITERAL    {
-		$current.merge(this_OCTAL_LITERAL_1);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getOctalLiteralParserRuleCall_1()); 
+    }
+    this_OctalLiteral_1=ruleOctalLiteral    {
+		$current.merge(this_OctalLiteral_1);
     }
 
     { 
-    newLeafNode(this_OCTAL_LITERAL_1, grammarAccess.getConstant1Access().getOCTAL_LITERALTerminalRuleCall_1()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_DECIMAL_LITERAL_2=RULE_DECIMAL_LITERAL    {
-		$current.merge(this_DECIMAL_LITERAL_2);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getDecimalLiteralParserRuleCall_2()); 
+    }
+    this_DecimalLiteral_2=ruleDecimalLiteral    {
+		$current.merge(this_DecimalLiteral_2);
     }
 
     { 
-    newLeafNode(this_DECIMAL_LITERAL_2, grammarAccess.getConstant1Access().getDECIMAL_LITERALTerminalRuleCall_2()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_CHAR_LITERAL_3=RULE_CHAR_LITERAL    {
-		$current.merge(this_CHAR_LITERAL_3);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getCharLiteralParserRuleCall_3()); 
+    }
+    this_CharLiteral_3=ruleCharLiteral    {
+		$current.merge(this_CharLiteral_3);
     }
 
     { 
-    newLeafNode(this_CHAR_LITERAL_3, grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_STRING_LITERAL_4=RULE_STRING_LITERAL    {
-		$current.merge(this_STRING_LITERAL_4);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getStringLiteralParserRuleCall_4()); 
+    }
+    this_StringLiteral_4=ruleStringLiteral    {
+		$current.merge(this_StringLiteral_4);
     }
 
     { 
-    newLeafNode(this_STRING_LITERAL_4, grammarAccess.getConstant1Access().getSTRING_LITERALTerminalRuleCall_4()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_FLOAT_LITERAL_5=RULE_FLOAT_LITERAL    {
-		$current.merge(this_FLOAT_LITERAL_5);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getFloatLiteralParserRuleCall_5()); 
+    }
+    this_FloatLiteral_5=ruleFloatLiteral    {
+		$current.merge(this_FloatLiteral_5);
     }
 
     { 
-    newLeafNode(this_FLOAT_LITERAL_5, grammarAccess.getConstant1Access().getFLOAT_LITERALTerminalRuleCall_5()); 
+        afterParserOrEnumRuleCall();
     }
 
-    |    this_BIN_LITERAL_6=RULE_BIN_LITERAL    {
-		$current.merge(this_BIN_LITERAL_6);
+    |
+    { 
+        newCompositeNode(grammarAccess.getConstant1Access().getBinLiteralParserRuleCall_6()); 
+    }
+    this_BinLiteral_6=ruleBinLiteral    {
+		$current.merge(this_BinLiteral_6);
     }
 
     { 
-    newLeafNode(this_BIN_LITERAL_6, grammarAccess.getConstant1Access().getBIN_LITERALTerminalRuleCall_6()); 
+        afterParserOrEnumRuleCall();
     }
 )
     ;
@@ -12845,19 +12873,19 @@ ruleConstant2 returns [EObject current=null]
 (
 (
 (
-		lv_hex_1_0=RULE_HEX_LITERAL
-		{
-			newLeafNode(lv_hex_1_0, grammarAccess.getConstant2Access().getHexHEX_LITERALTerminalRuleCall_1_0_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getHexHexLiteralParserRuleCall_1_0_0()); 
+	    }
+		lv_hex_1_0=ruleHexLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"hex",
         		lv_hex_1_0, 
-        		"at.jku.weiner.c.common.Common.HEX_LITERAL");
+        		"at.jku.weiner.c.common.Common.HexLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -12867,19 +12895,19 @@ ruleConstant2 returns [EObject current=null]
     |
 (
 (
-		lv_oct_2_0=RULE_OCTAL_LITERAL
-		{
-			newLeafNode(lv_oct_2_0, grammarAccess.getConstant2Access().getOctOCTAL_LITERALTerminalRuleCall_1_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getOctOctalLiteralParserRuleCall_1_1_0()); 
+	    }
+		lv_oct_2_0=ruleOctalLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"oct",
         		lv_oct_2_0, 
-        		"at.jku.weiner.c.common.Common.OCTAL_LITERAL");
+        		"at.jku.weiner.c.common.Common.OctalLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -12889,19 +12917,19 @@ ruleConstant2 returns [EObject current=null]
     |
 (
 (
-		lv_dec_3_0=RULE_DECIMAL_LITERAL
-		{
-			newLeafNode(lv_dec_3_0, grammarAccess.getConstant2Access().getDecDECIMAL_LITERALTerminalRuleCall_1_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getDecDecimalLiteralParserRuleCall_1_2_0()); 
+	    }
+		lv_dec_3_0=ruleDecimalLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"dec",
         		lv_dec_3_0, 
-        		"at.jku.weiner.c.common.Common.DECIMAL_LITERAL");
+        		"at.jku.weiner.c.common.Common.DecimalLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -12911,19 +12939,19 @@ ruleConstant2 returns [EObject current=null]
     |
 (
 (
-		lv_ch_4_0=RULE_CHAR_LITERAL
-		{
-			newLeafNode(lv_ch_4_0, grammarAccess.getConstant2Access().getChCHAR_LITERALTerminalRuleCall_1_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getChCharLiteralParserRuleCall_1_3_0()); 
+	    }
+		lv_ch_4_0=ruleCharLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"ch",
         		lv_ch_4_0, 
-        		"at.jku.weiner.c.common.Common.CHAR_LITERAL");
+        		"at.jku.weiner.c.common.Common.CharLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -12933,19 +12961,19 @@ ruleConstant2 returns [EObject current=null]
     |
 (
 (
-		lv_float_5_0=RULE_FLOAT_LITERAL
-		{
-			newLeafNode(lv_float_5_0, grammarAccess.getConstant2Access().getFloatFLOAT_LITERALTerminalRuleCall_1_4_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getFloatFloatLiteralParserRuleCall_1_4_0()); 
+	    }
+		lv_float_5_0=ruleFloatLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"float",
         		lv_float_5_0, 
-        		"at.jku.weiner.c.common.Common.FLOAT_LITERAL");
+        		"at.jku.weiner.c.common.Common.FloatLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -12955,19 +12983,19 @@ ruleConstant2 returns [EObject current=null]
     |
 (
 (
-		lv_bin_6_0=RULE_BIN_LITERAL
-		{
-			newLeafNode(lv_bin_6_0, grammarAccess.getConstant2Access().getBinBIN_LITERALTerminalRuleCall_1_5_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getConstant2Access().getBinBinLiteralParserRuleCall_1_5_0()); 
+	    }
+		lv_bin_6_0=ruleBinLiteral		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	            $current = createModelElementForParent(grammarAccess.getConstant2Rule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"bin",
         		lv_bin_6_0, 
-        		"at.jku.weiner.c.common.Common.BIN_LITERAL");
+        		"at.jku.weiner.c.common.Common.BinLiteral");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -13027,6 +13055,202 @@ ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
     newLeafNode(this_SKW_DOT_2, grammarAccess.getEllipsisAccess().getSKW_DOTTerminalRuleCall_2()); 
     }
 )
+    ;
+
+
+
+
+
+// Entry rule entryRuleHexLiteral
+entryRuleHexLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getHexLiteralRule()); } 
+	 iv_ruleHexLiteral=ruleHexLiteral 
+	 { $current=$iv_ruleHexLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule HexLiteral
+ruleHexLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_HEX_LITERAL_0=RULE_HEX_LITERAL    {
+		$current.merge(this_HEX_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_HEX_LITERAL_0, grammarAccess.getHexLiteralAccess().getHEX_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleOctalLiteral
+entryRuleOctalLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getOctalLiteralRule()); } 
+	 iv_ruleOctalLiteral=ruleOctalLiteral 
+	 { $current=$iv_ruleOctalLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule OctalLiteral
+ruleOctalLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_OCTAL_LITERAL_0=RULE_OCTAL_LITERAL    {
+		$current.merge(this_OCTAL_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_OCTAL_LITERAL_0, grammarAccess.getOctalLiteralAccess().getOCTAL_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleDecimalLiteral
+entryRuleDecimalLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDecimalLiteralRule()); } 
+	 iv_ruleDecimalLiteral=ruleDecimalLiteral 
+	 { $current=$iv_ruleDecimalLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule DecimalLiteral
+ruleDecimalLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_DECIMAL_LITERAL_0=RULE_DECIMAL_LITERAL    {
+		$current.merge(this_DECIMAL_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_DECIMAL_LITERAL_0, grammarAccess.getDecimalLiteralAccess().getDECIMAL_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleCharLiteral
+entryRuleCharLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCharLiteralRule()); } 
+	 iv_ruleCharLiteral=ruleCharLiteral 
+	 { $current=$iv_ruleCharLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule CharLiteral
+ruleCharLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_CHAR_LITERAL_0=RULE_CHAR_LITERAL    {
+		$current.merge(this_CHAR_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_CHAR_LITERAL_0, grammarAccess.getCharLiteralAccess().getCHAR_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleStringLiteral
+entryRuleStringLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getStringLiteralRule()); } 
+	 iv_ruleStringLiteral=ruleStringLiteral 
+	 { $current=$iv_ruleStringLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule StringLiteral
+ruleStringLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_STRING_LITERAL_0=RULE_STRING_LITERAL    {
+		$current.merge(this_STRING_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_STRING_LITERAL_0, grammarAccess.getStringLiteralAccess().getSTRING_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleFloatLiteral
+entryRuleFloatLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFloatLiteralRule()); } 
+	 iv_ruleFloatLiteral=ruleFloatLiteral 
+	 { $current=$iv_ruleFloatLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule FloatLiteral
+ruleFloatLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_FLOAT_LITERAL_0=RULE_FLOAT_LITERAL    {
+		$current.merge(this_FLOAT_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_FLOAT_LITERAL_0, grammarAccess.getFloatLiteralAccess().getFLOAT_LITERALTerminalRuleCall()); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleBinLiteral
+entryRuleBinLiteral returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBinLiteralRule()); } 
+	 iv_ruleBinLiteral=ruleBinLiteral 
+	 { $current=$iv_ruleBinLiteral.current.getText(); }  
+	 EOF 
+;
+
+// Rule BinLiteral
+ruleBinLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_BIN_LITERAL_0=RULE_BIN_LITERAL    {
+		$current.merge(this_BIN_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_BIN_LITERAL_0, grammarAccess.getBinLiteralAccess().getBIN_LITERALTerminalRuleCall()); 
+    }
+
     ;
 
 

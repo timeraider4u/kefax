@@ -79,7 +79,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	{
 		ArgumentExpressionList oldArgumentExpressionList = argumentExpressionList;
 		argumentExpressionList = newArgumentExpressionList;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, oldArgumentExpressionList, newArgumentExpressionList);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	 */
 	public void setArgumentExpressionList(ArgumentExpressionList newArgumentExpressionList)
 	{
-		if (newArgumentExpressionList != argumentExpressionList) {
+		if (newArgumentExpressionList != argumentExpressionList)
+		{
 			NotificationChain msgs = null;
 			if (argumentExpressionList != null)
 				msgs = ((InternalEObject)argumentExpressionList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, null, msgs);
@@ -114,7 +116,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
 				return basicSetArgumentExpressionList(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
 				return getArgumentExpressionList();
 		}
@@ -144,7 +148,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
 				setArgumentExpressionList((ArgumentExpressionList)newValue);
 				return;
@@ -160,7 +165,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
 				setArgumentExpressionList((ArgumentExpressionList)null);
 				return;
@@ -176,7 +182,8 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
 				return argumentExpressionList != null;
 		}

@@ -40,7 +40,8 @@ public class CommonSwitch<T> extends Switch<T>
 	 */
 	public CommonSwitch()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = CommonPackage.eINSTANCE;
 		}
 	}
@@ -69,175 +70,202 @@ public class CommonSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID) {
-			case CommonPackage.MODEL: {
+		switch (classifierID)
+		{
+			case CommonPackage.MODEL:
+			{
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.TRANSLATION_UNIT: {
+			case CommonPackage.TRANSLATION_UNIT:
+			{
 				TranslationUnit translationUnit = (TranslationUnit)theEObject;
 				T result = caseTranslationUnit(translationUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.PREPROCESS: {
+			case CommonPackage.PREPROCESS:
+			{
 				Preprocess preprocess = (Preprocess)theEObject;
 				T result = casePreprocess(preprocess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.PARSER: {
+			case CommonPackage.PARSER:
+			{
 				Parser parser = (Parser)theEObject;
 				T result = caseParser(parser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.EXPRESSION: {
+			case CommonPackage.EXPRESSION:
+			{
 				Expression expression = (Expression)theEObject;
 				T result = caseExpression(expression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX: {
+			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX:
+			{
 				PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
 				T result = casePostfixExpressionSuffix(postfixExpressionSuffix);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST: {
+			case CommonPackage.ARGUMENT_EXPRESSION_LIST:
+			{
 				ArgumentExpressionList argumentExpressionList = (ArgumentExpressionList)theEObject;
 				T result = caseArgumentExpressionList(argumentExpressionList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.CONSTANT2: {
+			case CommonPackage.CONSTANT2:
+			{
 				Constant2 constant2 = (Constant2)theEObject;
 				T result = caseConstant2(constant2);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.CONSTANT_EXPRESSION: {
+			case CommonPackage.CONSTANT_EXPRESSION:
+			{
 				ConstantExpression constantExpression = (ConstantExpression)theEObject;
 				T result = caseConstantExpression(constantExpression);
 				if (result == null) result = caseExpression(constantExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.CONDITIONAL_EXPRESSION: {
+			case CommonPackage.CONDITIONAL_EXPRESSION:
+			{
 				ConditionalExpression conditionalExpression = (ConditionalExpression)theEObject;
 				T result = caseConditionalExpression(conditionalExpression);
 				if (result == null) result = caseExpression(conditionalExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.LOGICAL_OR_EXPRESSION: {
+			case CommonPackage.LOGICAL_OR_EXPRESSION:
+			{
 				LogicalOrExpression logicalOrExpression = (LogicalOrExpression)theEObject;
 				T result = caseLogicalOrExpression(logicalOrExpression);
 				if (result == null) result = caseExpression(logicalOrExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.LOGICAL_AND_EXPRESSION: {
+			case CommonPackage.LOGICAL_AND_EXPRESSION:
+			{
 				LogicalAndExpression logicalAndExpression = (LogicalAndExpression)theEObject;
 				T result = caseLogicalAndExpression(logicalAndExpression);
 				if (result == null) result = caseExpression(logicalAndExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.INCLUSIVE_OR_EXPRESSION: {
+			case CommonPackage.INCLUSIVE_OR_EXPRESSION:
+			{
 				InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression)theEObject;
 				T result = caseInclusiveOrExpression(inclusiveOrExpression);
 				if (result == null) result = caseExpression(inclusiveOrExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.EXCLUSIVE_OR_EXPRESSION: {
+			case CommonPackage.EXCLUSIVE_OR_EXPRESSION:
+			{
 				ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression)theEObject;
 				T result = caseExclusiveOrExpression(exclusiveOrExpression);
 				if (result == null) result = caseExpression(exclusiveOrExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.AND_EXPRESSION: {
+			case CommonPackage.AND_EXPRESSION:
+			{
 				AndExpression andExpression = (AndExpression)theEObject;
 				T result = caseAndExpression(andExpression);
 				if (result == null) result = caseExpression(andExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.EQUALITY_EXPRESSION: {
+			case CommonPackage.EQUALITY_EXPRESSION:
+			{
 				EqualityExpression equalityExpression = (EqualityExpression)theEObject;
 				T result = caseEqualityExpression(equalityExpression);
 				if (result == null) result = caseExpression(equalityExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.RELATIONAL_EXPRESSION: {
+			case CommonPackage.RELATIONAL_EXPRESSION:
+			{
 				RelationalExpression relationalExpression = (RelationalExpression)theEObject;
 				T result = caseRelationalExpression(relationalExpression);
 				if (result == null) result = caseExpression(relationalExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.SHIFT_EXPRESSION: {
+			case CommonPackage.SHIFT_EXPRESSION:
+			{
 				ShiftExpression shiftExpression = (ShiftExpression)theEObject;
 				T result = caseShiftExpression(shiftExpression);
 				if (result == null) result = caseExpression(shiftExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.ADDITIVE_EXPRESSION: {
+			case CommonPackage.ADDITIVE_EXPRESSION:
+			{
 				AdditiveExpression additiveExpression = (AdditiveExpression)theEObject;
 				T result = caseAdditiveExpression(additiveExpression);
 				if (result == null) result = caseExpression(additiveExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.MULTIPLICATIVE_EXPRESSION: {
+			case CommonPackage.MULTIPLICATIVE_EXPRESSION:
+			{
 				MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression)theEObject;
 				T result = caseMultiplicativeExpression(multiplicativeExpression);
 				if (result == null) result = caseExpression(multiplicativeExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.CAST_EXPRESSION: {
+			case CommonPackage.CAST_EXPRESSION:
+			{
 				CastExpression castExpression = (CastExpression)theEObject;
 				T result = caseCastExpression(castExpression);
 				if (result == null) result = caseExpression(castExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.UNARY_EXPRESSION: {
+			case CommonPackage.UNARY_EXPRESSION:
+			{
 				UnaryExpression unaryExpression = (UnaryExpression)theEObject;
 				T result = caseUnaryExpression(unaryExpression);
 				if (result == null) result = caseExpression(unaryExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.POSTFIX_EXPRESSION: {
+			case CommonPackage.POSTFIX_EXPRESSION:
+			{
 				PostfixExpression postfixExpression = (PostfixExpression)theEObject;
 				T result = casePostfixExpression(postfixExpression);
 				if (result == null) result = caseExpression(postfixExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: {
+			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
+			{
 				PostfixExpressionSuffixArgument postfixExpressionSuffixArgument = (PostfixExpressionSuffixArgument)theEObject;
 				T result = casePostfixExpressionSuffixArgument(postfixExpressionSuffixArgument);
 				if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArgument);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.PRIMARY_EXPRESSION: {
+			case CommonPackage.PRIMARY_EXPRESSION:
+			{
 				PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
 				T result = casePrimaryExpression(primaryExpression);
 				if (result == null) result = caseExpression(primaryExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.CONSTANT1: {
+			case CommonPackage.CONSTANT1:
+			{
 				Constant1 constant1 = (Constant1)theEObject;
 				T result = caseConstant1(constant1);
 				if (result == null) result = caseExpression(constant1);

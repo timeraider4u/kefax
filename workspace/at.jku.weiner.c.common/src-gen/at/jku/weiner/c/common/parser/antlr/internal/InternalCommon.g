@@ -1586,7 +1586,7 @@ rulePostfixExpression returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
-       		add(
+       		set(
        			$current, 
        			"suffix",
         		lv_suffix_2_0, 
@@ -1951,12 +1951,12 @@ ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
     newLeafNode(this_DECIMAL_LITERAL_2, grammarAccess.getConstant1Access().getDECIMAL_LITERALTerminalRuleCall_2()); 
     }
 
-    |    this_CHAR_LITERAL_3=RULE_CHAR_LITERAL    {
-		$current.merge(this_CHAR_LITERAL_3);
+    |    this_CHAR_3=RULE_CHAR    {
+		$current.merge(this_CHAR_3);
     }
 
     { 
-    newLeafNode(this_CHAR_LITERAL_3, grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
+    newLeafNode(this_CHAR_3, grammarAccess.getConstant1Access().getCHARTerminalRuleCall_3()); 
     }
 
     |    this_STRING_LITERAL_4=RULE_STRING_LITERAL    {
@@ -2079,7 +2079,9 @@ fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
 fragment RULE_LETTER : (RULE_SKW_DOLLAR|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
 
-RULE_CHAR_LITERAL : RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
+RULE_CHAR : RULE_CHAR_LITERAL;
+
+fragment RULE_CHAR_LITERAL : 'L'? RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
 
 RULE_STRING_LITERAL : RULE_SKW_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_SKW_DOUBLEQUOTE)))* RULE_SKW_DOUBLEQUOTE;
 

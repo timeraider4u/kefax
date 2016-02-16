@@ -73,7 +73,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public EList<Expression> getExpr()
 	{
-		if (expr == null) {
+		if (expr == null)
+		{
 			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR);
 		}
 		return expr;
@@ -87,7 +88,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
 				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
 		}
@@ -102,7 +104,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
 				return getExpr();
 		}
@@ -118,7 +121,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
 				getExpr().clear();
 				getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -135,7 +139,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
 				getExpr().clear();
 				return;
@@ -151,7 +156,8 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
 				return expr != null && !expr.isEmpty();
 		}

@@ -122,7 +122,6 @@ public class Test0057_TypedefnameInCast {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0057_TypedefnameInCast.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -406,7 +405,6 @@ public class Test0057_TypedefnameInCast {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0057_TypedefnameInCast.c");
@@ -414,7 +412,6 @@ public class Test0057_TypedefnameInCast {
 			"res/Test0057_TypedefnameInCast.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -97,7 +97,6 @@ public class Test0014_Lang {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0014_Lang.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_LANG",
 				"RULE_WS",

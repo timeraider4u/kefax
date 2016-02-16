@@ -153,7 +153,6 @@ public class Test0040_ComplexStruct {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0040_ComplexStruct.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_STRUCT",
 				"RULE_WHITESPACE",
@@ -701,7 +700,6 @@ public class Test0040_ComplexStruct {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0040_ComplexStruct.c");
@@ -709,7 +707,6 @@ public class Test0040_ComplexStruct {
 			"res/Test0040_ComplexStruct.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

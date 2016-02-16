@@ -111,7 +111,6 @@ public class Test0059_IfElIfElse {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0059_IfElIfElse.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -350,7 +349,6 @@ public class Test0059_IfElIfElse {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0059_IfElIfElse.c.i");
@@ -358,7 +356,6 @@ public class Test0059_IfElIfElse {
 			"expected/Test0059_IfElIfElse.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -97,7 +97,6 @@ public class Test0001_Semicolons {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0001_Semicolons.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
@@ -176,7 +175,6 @@ public class Test0001_Semicolons {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0001_Semicolons.c");
@@ -184,7 +182,6 @@ public class Test0001_Semicolons {
 			"res/Test0001_Semicolons.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

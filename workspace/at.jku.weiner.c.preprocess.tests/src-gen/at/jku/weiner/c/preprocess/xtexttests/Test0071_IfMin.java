@@ -109,7 +109,6 @@ public class Test0071_IfMin {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0071_IfMin.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -294,7 +293,6 @@ public class Test0071_IfMin {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0071_IfMin.c.i");
@@ -302,7 +300,6 @@ public class Test0071_IfMin {
 			"expected/Test0071_IfMin.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

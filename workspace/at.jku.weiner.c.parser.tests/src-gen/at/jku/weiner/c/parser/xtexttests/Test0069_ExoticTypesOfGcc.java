@@ -110,7 +110,6 @@ public class Test0069_ExoticTypesOfGcc {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0069_ExoticTypesOfGcc.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_INT128_3",
 				"RULE_WHITESPACE",
@@ -293,7 +292,6 @@ public class Test0069_ExoticTypesOfGcc {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0002_TwoVariables.c");
@@ -301,7 +299,6 @@ public class Test0069_ExoticTypesOfGcc {
 			"res/Test0069_ExoticTypesOfGcc.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

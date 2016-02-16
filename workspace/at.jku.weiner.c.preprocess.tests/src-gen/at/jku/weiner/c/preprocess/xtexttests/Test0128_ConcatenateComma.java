@@ -107,7 +107,6 @@ public class Test0128_ConcatenateComma {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0128_ConcatenateComma.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -397,7 +396,6 @@ public class Test0128_ConcatenateComma {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0128_ConcatenateComma.c.i");
@@ -405,7 +403,6 @@ public class Test0128_ConcatenateComma {
 			"expected/Test0128_ConcatenateComma.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

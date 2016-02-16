@@ -106,7 +106,6 @@ public class Test0076_EmptyStruct {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0076_EmptyStruct.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -252,7 +251,6 @@ public class Test0076_EmptyStruct {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0037_Struct.c");
@@ -260,7 +258,6 @@ public class Test0076_EmptyStruct {
 			"res/Test0076_EmptyStruct.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

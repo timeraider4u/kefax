@@ -112,7 +112,6 @@ public class Test0073_ArrayTypes {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0073_ArrayTypes.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_TYPEDEF",
 				"RULE_WHITESPACE",
@@ -319,7 +318,6 @@ public class Test0073_ArrayTypes {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0073_ArrayTypes.c");
@@ -327,7 +325,6 @@ public class Test0073_ArrayTypes {
 			"res/Test0073_ArrayTypes.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

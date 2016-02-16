@@ -99,7 +99,6 @@ public class Test0030_ObjectLikeMacro {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0030_ObjectLikeMacro.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_ID",
 				"RULE_WHITESPACE",
@@ -212,7 +211,6 @@ public class Test0030_ObjectLikeMacro {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0030_ObjectLikeMacro.c.i");
@@ -220,7 +218,6 @@ public class Test0030_ObjectLikeMacro {
 			"expected/Test0030_ObjectLikeMacro.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

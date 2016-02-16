@@ -98,7 +98,6 @@ public class Test0036_ObjectLikeMacro {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0036_ObjectLikeMacro.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -194,7 +193,6 @@ public class Test0036_ObjectLikeMacro {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0036_ObjectLikeMacro.c.i");
@@ -202,7 +200,6 @@ public class Test0036_ObjectLikeMacro {
 			"expected/Test0036_ObjectLikeMacro.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

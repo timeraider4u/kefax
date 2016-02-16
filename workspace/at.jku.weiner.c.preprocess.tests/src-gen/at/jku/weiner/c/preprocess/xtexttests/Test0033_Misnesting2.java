@@ -99,7 +99,6 @@ public class Test0033_Misnesting2 {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0033_Misnesting2.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -213,7 +212,6 @@ public class Test0033_Misnesting2 {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0033_Misnesting2.c.i");
@@ -221,7 +219,6 @@ public class Test0033_Misnesting2 {
 			"expected/Test0033_Misnesting2.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

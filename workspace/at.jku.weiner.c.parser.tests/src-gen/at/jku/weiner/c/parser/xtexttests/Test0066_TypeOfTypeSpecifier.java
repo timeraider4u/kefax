@@ -122,7 +122,6 @@ public class Test0066_TypeOfTypeSpecifier {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0066_TypeOfTypeSpecifier.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_TYPEOF1",
 				"RULE_SKW_LEFTPAREN",
@@ -405,7 +404,6 @@ public class Test0066_TypeOfTypeSpecifier {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0065_TypeOf.c");
@@ -413,7 +411,6 @@ public class Test0066_TypeOfTypeSpecifier {
 			"res/Test0066_TypeOfTypeSpecifier.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

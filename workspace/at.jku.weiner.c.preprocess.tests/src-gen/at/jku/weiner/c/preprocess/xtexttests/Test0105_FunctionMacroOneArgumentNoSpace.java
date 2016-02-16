@@ -99,7 +99,6 @@ public class Test0105_FunctionMacroOneArgumentNoSpace {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0105_FunctionMacroOneArgumentNoSpace.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -215,7 +214,6 @@ public class Test0105_FunctionMacroOneArgumentNoSpace {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0105_FunctionMacroOneArgumentNoSpace.c.i");
@@ -223,7 +221,6 @@ public class Test0105_FunctionMacroOneArgumentNoSpace {
 			"expected/Test0105_FunctionMacroOneArgumentNoSpace.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -130,7 +130,6 @@ public class Test0085_BuiltinChooseExpr {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0085_BuiltinChooseExpr.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_LONG",
 				"RULE_WHITESPACE",
@@ -485,7 +484,6 @@ public class Test0085_BuiltinChooseExpr {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0085_BuiltinChooseExpr.c");
@@ -493,7 +491,6 @@ public class Test0085_BuiltinChooseExpr {
 			"res/Test0085_BuiltinChooseExpr.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

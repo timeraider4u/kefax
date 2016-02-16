@@ -100,7 +100,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.UNARY_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -114,7 +115,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr) {
+		if (newExpr != expr)
+		{
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.UNARY_EXPRESSION__EXPR, null, msgs);
@@ -158,7 +160,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 		}
@@ -173,7 +176,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.UNARY_EXPRESSION__OP:
@@ -190,7 +194,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
 				return;
@@ -209,7 +214,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
@@ -228,7 +234,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_EXPRESSION__EXPR:
 				return expr != null;
 			case CommonPackage.UNARY_EXPRESSION__OP:

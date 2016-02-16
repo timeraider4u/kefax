@@ -163,7 +163,6 @@ public class Test0036_SimpleIntArray {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0036_SimpleIntArray.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINEDIRECTIVE",
 				"RULE_NEWLINE",
@@ -763,7 +762,6 @@ public class Test0036_SimpleIntArray {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0036_SimpleIntArray.c");
@@ -771,7 +769,6 @@ public class Test0036_SimpleIntArray {
 			"res/Test0036_SimpleIntArray.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

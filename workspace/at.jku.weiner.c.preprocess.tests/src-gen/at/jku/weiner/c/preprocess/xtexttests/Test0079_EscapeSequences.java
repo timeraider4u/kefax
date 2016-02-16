@@ -104,7 +104,6 @@ public class Test0079_EscapeSequences {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0079_EscapeSequences.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_CHAR_LITERAL",
 				"RULE_NEWLINE",
@@ -244,7 +243,6 @@ public class Test0079_EscapeSequences {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0079_EscapeSequences.c.i");
@@ -252,7 +250,6 @@ public class Test0079_EscapeSequences {
 			"expected/Test0079_EscapeSequences.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

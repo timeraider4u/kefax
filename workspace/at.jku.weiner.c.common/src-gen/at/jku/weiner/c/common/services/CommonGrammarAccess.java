@@ -660,22 +660,22 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0 = (RuleCall)cSuffixAssignment_1_1.eContents().get(0);
 		
 		//PostfixExpression Expression:
-		//	PrimaryExpression ({PostfixExpression.expr=current} suffix+=PostfixExpressionSuffixArgument)*
+		//	PrimaryExpression ({PostfixExpression.expr=current} suffix=PostfixExpressionSuffixArgument)*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PrimaryExpression ({PostfixExpression.expr=current} suffix+=PostfixExpressionSuffixArgument)*
+		//PrimaryExpression ({PostfixExpression.expr=current} suffix=PostfixExpressionSuffixArgument)*
 		public Group getGroup() { return cGroup; }
 		
 		//PrimaryExpression
 		public RuleCall getPrimaryExpressionParserRuleCall_0() { return cPrimaryExpressionParserRuleCall_0; }
 		
-		//({PostfixExpression.expr=current} suffix+=PostfixExpressionSuffixArgument)*
+		//({PostfixExpression.expr=current} suffix=PostfixExpressionSuffixArgument)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{PostfixExpression.expr=current}
 		public Action getPostfixExpressionExprAction_1_0() { return cPostfixExpressionExprAction_1_0; }
 		
-		//suffix+=PostfixExpressionSuffixArgument
+		//suffix=PostfixExpressionSuffixArgument
 		public Assignment getSuffixAssignment_1_1() { return cSuffixAssignment_1_1; }
 		
 		//PostfixExpressionSuffixArgument
@@ -814,7 +814,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHEX_LITERALTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cOCTAL_LITERALTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDECIMAL_LITERALTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCHAR_LITERALTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cCHARTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cSTRING_LITERALTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cFLOAT_LITERALTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cBIN_LITERALTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
@@ -823,13 +823,13 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//	HEX_LITERAL
 		//	| OCTAL_LITERAL
 		//	| DECIMAL_LITERAL
-		//	| CHAR_LITERAL
+		//	| CHAR
 		//	| STRING_LITERAL
 		//	| FLOAT_LITERAL
 		//	| BIN_LITERAL;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | CHAR_LITERAL | STRING_LITERAL | FLOAT_LITERAL | BIN_LITERAL
+		//HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | CHAR | STRING_LITERAL | FLOAT_LITERAL | BIN_LITERAL
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//HEX_LITERAL
@@ -841,8 +841,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//DECIMAL_LITERAL
 		public RuleCall getDECIMAL_LITERALTerminalRuleCall_2() { return cDECIMAL_LITERALTerminalRuleCall_2; }
 		
-		//CHAR_LITERAL
-		public RuleCall getCHAR_LITERALTerminalRuleCall_3() { return cCHAR_LITERALTerminalRuleCall_3; }
+		//CHAR
+		public RuleCall getCHARTerminalRuleCall_3() { return cCHARTerminalRuleCall_3; }
 		
 		//STRING_LITERAL
 		public RuleCall getSTRING_LITERALTerminalRuleCall_4() { return cSTRING_LITERALTerminalRuleCall_4; }
@@ -865,7 +865,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDecAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cDecDECIMAL_LITERALTerminalRuleCall_1_2_0 = (RuleCall)cDecAssignment_1_2.eContents().get(0);
 		private final Assignment cChAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cChCHAR_LITERALTerminalRuleCall_1_3_0 = (RuleCall)cChAssignment_1_3.eContents().get(0);
+		private final RuleCall cChCHARTerminalRuleCall_1_3_0 = (RuleCall)cChAssignment_1_3.eContents().get(0);
 		private final Assignment cFloatAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
 		private final RuleCall cFloatFLOAT_LITERALTerminalRuleCall_1_4_0 = (RuleCall)cFloatAssignment_1_4.eContents().get(0);
 		private final Assignment cBinAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
@@ -875,20 +875,20 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//	{Constant2} (hex=HEX_LITERAL
 		//	| oct=OCTAL_LITERAL
 		//	| dec=DECIMAL_LITERAL
-		//	| ch=CHAR_LITERAL
+		//	| ch=CHAR
 		//	//|	str=STRING_LITERAL
 		//	| float=FLOAT_LITERAL
 		//	| bin=BIN_LITERAL);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Constant2} (hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
+		//{Constant2} (hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR //|	str=STRING_LITERAL
 		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
 		public Group getGroup() { return cGroup; }
 		
 		//{Constant2}
 		public Action getConstant2Action_0() { return cConstant2Action_0; }
 		
-		//(hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
+		//(hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR //|	str=STRING_LITERAL
 		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -910,11 +910,11 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//DECIMAL_LITERAL
 		public RuleCall getDecDECIMAL_LITERALTerminalRuleCall_1_2_0() { return cDecDECIMAL_LITERALTerminalRuleCall_1_2_0; }
 		
-		//ch=CHAR_LITERAL
+		//ch=CHAR
 		public Assignment getChAssignment_1_3() { return cChAssignment_1_3; }
 		
-		//CHAR_LITERAL
-		public RuleCall getChCHAR_LITERALTerminalRuleCall_1_3_0() { return cChCHAR_LITERALTerminalRuleCall_1_3_0; }
+		//CHAR
+		public RuleCall getChCHARTerminalRuleCall_1_3_0() { return cChCHARTerminalRuleCall_1_3_0; }
 		
 		//float=FLOAT_LITERAL
 		public Assignment getFloatAssignment_1_4() { return cFloatAssignment_1_4; }
@@ -1220,6 +1220,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tID;
 	private final TerminalRule tIDENTIFIER;
 	private final TerminalRule tLETTER;
+	private final TerminalRule tCHAR;
 	private final TerminalRule tCHAR_LITERAL;
 	private final TerminalRule tSTRING_LITERAL;
 	private final TerminalRule tHEX_LITERAL;
@@ -1320,6 +1321,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.ID");
 		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.IDENTIFIER");
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LETTER");
+		this.tCHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CHAR");
 		this.tCHAR_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CHAR_LITERAL");
 		this.tSTRING_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.STRING_LITERAL");
 		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HEX_LITERAL");
@@ -1550,7 +1552,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PostfixExpression Expression:
-	//	PrimaryExpression ({PostfixExpression.expr=current} suffix+=PostfixExpressionSuffixArgument)*
+	//	PrimaryExpression ({PostfixExpression.expr=current} suffix=PostfixExpressionSuffixArgument)*
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
@@ -1595,7 +1597,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	HEX_LITERAL
 	//	| OCTAL_LITERAL
 	//	| DECIMAL_LITERAL
-	//	| CHAR_LITERAL
+	//	| CHAR
 	//	| STRING_LITERAL
 	//	| FLOAT_LITERAL
 	//	| BIN_LITERAL;
@@ -1611,7 +1613,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Constant2} (hex=HEX_LITERAL
 	//	| oct=OCTAL_LITERAL
 	//	| dec=DECIMAL_LITERAL
-	//	| ch=CHAR_LITERAL
+	//	| ch=CHAR
 	//	//|	str=STRING_LITERAL
 	//	| float=FLOAT_LITERAL
 	//	| bin=BIN_LITERAL);
@@ -1936,8 +1938,14 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return tLETTER;
 	}
 	
+	//terminal CHAR:
+	//	CHAR_LITERAL;
+	public TerminalRule getCHARRule() {
+		return tCHAR;
+	}
+	
 	//terminal CHAR_LITERAL:
-	//	SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
+	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return tCHAR_LITERAL;
 	}

@@ -104,7 +104,6 @@ public class Test0041_IfnotDefSimple {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0041_IfnotDefSimple.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_ID",
 				"RULE_NEWLINE",
@@ -260,7 +259,6 @@ public class Test0041_IfnotDefSimple {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0041_IfnotDefSimple.c.i");
@@ -268,7 +266,6 @@ public class Test0041_IfnotDefSimple {
 			"expected/Test0041_IfnotDefSimple.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

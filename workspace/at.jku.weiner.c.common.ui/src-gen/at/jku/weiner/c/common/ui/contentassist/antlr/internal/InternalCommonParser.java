@@ -23,18 +23,19 @@ import java.util.ArrayList;
 public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BIN_LITERAL", "RULE_BLOCK_COMMENT", 
-		"RULE_CARRIAGERETURN", "RULE_CHAR_LITERAL", "RULE_DECIMAL_LITERAL", "RULE_ESCAPE_SEQUENCE", 
-		"RULE_EXPONENT", "RULE_FLOAT_LITERAL", "RULE_FLOAT_TYPE_SUFFIX", "RULE_HEX_DIGIT", 
-		"RULE_HEX_ESCAPE", "RULE_HEX_LITERAL", "RULE_ID", "RULE_IDENTIFIER", "RULE_INTEGER_TYPE_SUFFIX", 
-		"RULE_LETTER", "RULE_LINEBREAK", "RULE_LINEFEED", "RULE_LINE_COMMENT", 
-		"RULE_LINE_END", "RULE_LONG_LONG_SUFFIX", "RULE_LONG_SUFFIX", "RULE_NEWLINE", 
-		"RULE_OCTAL_ESCAPE", "RULE_OCTAL_LITERAL", "RULE_SKW_AND", "RULE_SKW_ANDAND", 
-		"RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", "RULE_SKW_COLON", 
-		"RULE_SKW_COMMA", "RULE_SKW_DIV", "RULE_SKW_DOLLAR", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", 
-		"RULE_SKW_EQUAL", "RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", 
-		"RULE_SKW_LEFTBRACKET", "RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", 
-		"RULE_SKW_LESSEQUAL", "RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", 
-		"RULE_SKW_NOT", "RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", 
+		"RULE_CARRIAGERETURN", "RULE_CHAR", "RULE_CHAR_LITERAL", "RULE_DECIMAL_LITERAL", 
+		"RULE_ESCAPE_SEQUENCE", "RULE_EXPONENT", "RULE_FLOAT_LITERAL", "RULE_FLOAT_TYPE_SUFFIX", 
+		"RULE_HEX_DIGIT", "RULE_HEX_ESCAPE", "RULE_HEX_LITERAL", "RULE_ID", "RULE_IDENTIFIER", 
+		"RULE_INTEGER_TYPE_SUFFIX", "RULE_LETTER", "RULE_LINEBREAK", "RULE_LINEFEED", 
+		"RULE_LINE_COMMENT", "RULE_LINE_END", "RULE_LONG_LONG_SUFFIX", "RULE_LONG_SUFFIX", 
+		"RULE_NEWLINE", "RULE_OCTAL_ESCAPE", "RULE_OCTAL_LITERAL", "RULE_SKW_AND", 
+		"RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", 
+		"RULE_SKW_COLON", "RULE_SKW_COMMA", "RULE_SKW_DIV", "RULE_SKW_DOLLAR", 
+		"RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", 
+		"RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", 
+		"RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", 
+		"RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", 
+		"RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", 
 		"RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", 
 		"RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", 
 		"RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_SKW_UNDERSCORE", "RULE_SPACE", 
@@ -45,73 +46,74 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	public static final int RULE_BIN_LITERAL=4;
 	public static final int RULE_BLOCK_COMMENT=5;
 	public static final int RULE_CARRIAGERETURN=6;
-	public static final int RULE_CHAR_LITERAL=7;
-	public static final int RULE_DECIMAL_LITERAL=8;
-	public static final int RULE_ESCAPE_SEQUENCE=9;
-	public static final int RULE_EXPONENT=10;
-	public static final int RULE_FLOAT_LITERAL=11;
-	public static final int RULE_FLOAT_TYPE_SUFFIX=12;
-	public static final int RULE_HEX_DIGIT=13;
-	public static final int RULE_HEX_ESCAPE=14;
-	public static final int RULE_HEX_LITERAL=15;
-	public static final int RULE_ID=16;
-	public static final int RULE_IDENTIFIER=17;
-	public static final int RULE_INTEGER_TYPE_SUFFIX=18;
-	public static final int RULE_LETTER=19;
-	public static final int RULE_LINEBREAK=20;
-	public static final int RULE_LINEFEED=21;
-	public static final int RULE_LINE_COMMENT=22;
-	public static final int RULE_LINE_END=23;
-	public static final int RULE_LONG_LONG_SUFFIX=24;
-	public static final int RULE_LONG_SUFFIX=25;
-	public static final int RULE_NEWLINE=26;
-	public static final int RULE_OCTAL_ESCAPE=27;
-	public static final int RULE_OCTAL_LITERAL=28;
-	public static final int RULE_SKW_AND=29;
-	public static final int RULE_SKW_ANDAND=30;
-	public static final int RULE_SKW_ASSIGN=31;
-	public static final int RULE_SKW_BACKSLASH=32;
-	public static final int RULE_SKW_CARET=33;
-	public static final int RULE_SKW_COLON=34;
-	public static final int RULE_SKW_COMMA=35;
-	public static final int RULE_SKW_DIV=36;
-	public static final int RULE_SKW_DOLLAR=37;
-	public static final int RULE_SKW_DOT=38;
-	public static final int RULE_SKW_DOUBLEQUOTE=39;
-	public static final int RULE_SKW_EQUAL=40;
-	public static final int RULE_SKW_GREATER=41;
-	public static final int RULE_SKW_GREATEREQUAL=42;
-	public static final int RULE_SKW_LEFTBRACE=43;
-	public static final int RULE_SKW_LEFTBRACKET=44;
-	public static final int RULE_SKW_LEFTPAREN=45;
-	public static final int RULE_SKW_LEFTSHIFT=46;
-	public static final int RULE_SKW_LESS=47;
-	public static final int RULE_SKW_LESSEQUAL=48;
-	public static final int RULE_SKW_MINUS=49;
-	public static final int RULE_SKW_MINUSMINUS=50;
-	public static final int RULE_SKW_MOD=51;
-	public static final int RULE_SKW_NOT=52;
-	public static final int RULE_SKW_NOTEQUAL=53;
-	public static final int RULE_SKW_OR=54;
-	public static final int RULE_SKW_OROR=55;
-	public static final int RULE_SKW_PLUS=56;
-	public static final int RULE_SKW_PLUSPLUS=57;
-	public static final int RULE_SKW_QUESTION=58;
-	public static final int RULE_SKW_RIGHTBRACE=59;
-	public static final int RULE_SKW_RIGHTBRACKET=60;
-	public static final int RULE_SKW_RIGHTPAREN=61;
-	public static final int RULE_SKW_RIGHTSHIFT=62;
-	public static final int RULE_SKW_SEMI=63;
-	public static final int RULE_SKW_SINGLEQUOTE=64;
-	public static final int RULE_SKW_STAR=65;
-	public static final int RULE_SKW_TILDE=66;
-	public static final int RULE_SKW_UNDERSCORE=67;
-	public static final int RULE_SPACE=68;
-	public static final int RULE_SPECIAL=69;
-	public static final int RULE_STRING_LITERAL=70;
-	public static final int RULE_TAB=71;
-	public static final int RULE_UNSIGNED_SUFFIX=72;
-	public static final int RULE_WHITESPACE=73;
+	public static final int RULE_CHAR=7;
+	public static final int RULE_CHAR_LITERAL=8;
+	public static final int RULE_DECIMAL_LITERAL=9;
+	public static final int RULE_ESCAPE_SEQUENCE=10;
+	public static final int RULE_EXPONENT=11;
+	public static final int RULE_FLOAT_LITERAL=12;
+	public static final int RULE_FLOAT_TYPE_SUFFIX=13;
+	public static final int RULE_HEX_DIGIT=14;
+	public static final int RULE_HEX_ESCAPE=15;
+	public static final int RULE_HEX_LITERAL=16;
+	public static final int RULE_ID=17;
+	public static final int RULE_IDENTIFIER=18;
+	public static final int RULE_INTEGER_TYPE_SUFFIX=19;
+	public static final int RULE_LETTER=20;
+	public static final int RULE_LINEBREAK=21;
+	public static final int RULE_LINEFEED=22;
+	public static final int RULE_LINE_COMMENT=23;
+	public static final int RULE_LINE_END=24;
+	public static final int RULE_LONG_LONG_SUFFIX=25;
+	public static final int RULE_LONG_SUFFIX=26;
+	public static final int RULE_NEWLINE=27;
+	public static final int RULE_OCTAL_ESCAPE=28;
+	public static final int RULE_OCTAL_LITERAL=29;
+	public static final int RULE_SKW_AND=30;
+	public static final int RULE_SKW_ANDAND=31;
+	public static final int RULE_SKW_ASSIGN=32;
+	public static final int RULE_SKW_BACKSLASH=33;
+	public static final int RULE_SKW_CARET=34;
+	public static final int RULE_SKW_COLON=35;
+	public static final int RULE_SKW_COMMA=36;
+	public static final int RULE_SKW_DIV=37;
+	public static final int RULE_SKW_DOLLAR=38;
+	public static final int RULE_SKW_DOT=39;
+	public static final int RULE_SKW_DOUBLEQUOTE=40;
+	public static final int RULE_SKW_EQUAL=41;
+	public static final int RULE_SKW_GREATER=42;
+	public static final int RULE_SKW_GREATEREQUAL=43;
+	public static final int RULE_SKW_LEFTBRACE=44;
+	public static final int RULE_SKW_LEFTBRACKET=45;
+	public static final int RULE_SKW_LEFTPAREN=46;
+	public static final int RULE_SKW_LEFTSHIFT=47;
+	public static final int RULE_SKW_LESS=48;
+	public static final int RULE_SKW_LESSEQUAL=49;
+	public static final int RULE_SKW_MINUS=50;
+	public static final int RULE_SKW_MINUSMINUS=51;
+	public static final int RULE_SKW_MOD=52;
+	public static final int RULE_SKW_NOT=53;
+	public static final int RULE_SKW_NOTEQUAL=54;
+	public static final int RULE_SKW_OR=55;
+	public static final int RULE_SKW_OROR=56;
+	public static final int RULE_SKW_PLUS=57;
+	public static final int RULE_SKW_PLUSPLUS=58;
+	public static final int RULE_SKW_QUESTION=59;
+	public static final int RULE_SKW_RIGHTBRACE=60;
+	public static final int RULE_SKW_RIGHTBRACKET=61;
+	public static final int RULE_SKW_RIGHTPAREN=62;
+	public static final int RULE_SKW_RIGHTSHIFT=63;
+	public static final int RULE_SKW_SEMI=64;
+	public static final int RULE_SKW_SINGLEQUOTE=65;
+	public static final int RULE_SKW_STAR=66;
+	public static final int RULE_SKW_TILDE=67;
+	public static final int RULE_SKW_UNDERSCORE=68;
+	public static final int RULE_SPACE=69;
+	public static final int RULE_SPECIAL=70;
+	public static final int RULE_STRING_LITERAL=71;
+	public static final int RULE_TAB=72;
+	public static final int RULE_UNSIGNED_SUFFIX=73;
+	public static final int RULE_WHITESPACE=74;
 
 	// delegates
 	public AbstractInternalContentAssistParser[] getDelegates() {
@@ -2202,7 +2204,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 			// InternalCommon.g:952:1: ( ( rulePostfixExpression ) | ( ( rule__UnaryExpression__Group_1__0 ) ) )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
-			if ( (LA6_0==RULE_BIN_LITERAL||(LA6_0 >= RULE_CHAR_LITERAL && LA6_0 <= RULE_DECIMAL_LITERAL)||LA6_0==RULE_FLOAT_LITERAL||(LA6_0 >= RULE_HEX_LITERAL && LA6_0 <= RULE_ID)||LA6_0==RULE_OCTAL_LITERAL||LA6_0==RULE_SKW_LEFTPAREN||LA6_0==RULE_STRING_LITERAL) ) {
+			if ( (LA6_0==RULE_BIN_LITERAL||LA6_0==RULE_CHAR||LA6_0==RULE_DECIMAL_LITERAL||LA6_0==RULE_FLOAT_LITERAL||(LA6_0 >= RULE_HEX_LITERAL && LA6_0 <= RULE_ID)||LA6_0==RULE_OCTAL_LITERAL||LA6_0==RULE_SKW_LEFTPAREN||LA6_0==RULE_STRING_LITERAL) ) {
 				alt6=1;
 			}
 			else if ( (LA6_0==RULE_SKW_AND||LA6_0==RULE_SKW_MINUS||LA6_0==RULE_SKW_NOT||LA6_0==RULE_SKW_PLUS||(LA6_0 >= RULE_SKW_STAR && LA6_0 <= RULE_SKW_TILDE)) ) {
@@ -2424,7 +2426,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 			int alt8=3;
 			switch ( input.LA(1) ) {
 			case RULE_BIN_LITERAL:
-			case RULE_CHAR_LITERAL:
+			case RULE_CHAR:
 			case RULE_DECIMAL_LITERAL:
 			case RULE_FLOAT_LITERAL:
 			case RULE_HEX_LITERAL:
@@ -2532,13 +2534,13 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Constant1__Alternatives"
-	// InternalCommon.g:1077:1: rule__Constant1__Alternatives : ( ( RULE_HEX_LITERAL ) | ( RULE_OCTAL_LITERAL ) | ( RULE_DECIMAL_LITERAL ) | ( RULE_CHAR_LITERAL ) | ( RULE_STRING_LITERAL ) | ( RULE_FLOAT_LITERAL ) | ( RULE_BIN_LITERAL ) );
+	// InternalCommon.g:1077:1: rule__Constant1__Alternatives : ( ( RULE_HEX_LITERAL ) | ( RULE_OCTAL_LITERAL ) | ( RULE_DECIMAL_LITERAL ) | ( RULE_CHAR ) | ( RULE_STRING_LITERAL ) | ( RULE_FLOAT_LITERAL ) | ( RULE_BIN_LITERAL ) );
 	public final void rule__Constant1__Alternatives() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// InternalCommon.g:1081:1: ( ( RULE_HEX_LITERAL ) | ( RULE_OCTAL_LITERAL ) | ( RULE_DECIMAL_LITERAL ) | ( RULE_CHAR_LITERAL ) | ( RULE_STRING_LITERAL ) | ( RULE_FLOAT_LITERAL ) | ( RULE_BIN_LITERAL ) )
+			// InternalCommon.g:1081:1: ( ( RULE_HEX_LITERAL ) | ( RULE_OCTAL_LITERAL ) | ( RULE_DECIMAL_LITERAL ) | ( RULE_CHAR ) | ( RULE_STRING_LITERAL ) | ( RULE_FLOAT_LITERAL ) | ( RULE_BIN_LITERAL ) )
 			int alt9=7;
 			switch ( input.LA(1) ) {
 			case RULE_HEX_LITERAL:
@@ -2556,7 +2558,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 				alt9=3;
 				}
 				break;
-			case RULE_CHAR_LITERAL:
+			case RULE_CHAR:
 				{
 				alt9=4;
 				}
@@ -2622,14 +2624,14 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 					}
 					break;
 				case 4 :
-					// InternalCommon.g:1110:1: ( RULE_CHAR_LITERAL )
+					// InternalCommon.g:1110:1: ( RULE_CHAR )
 					{
-					// InternalCommon.g:1110:1: ( RULE_CHAR_LITERAL )
-					// InternalCommon.g:1111:1: RULE_CHAR_LITERAL
+					// InternalCommon.g:1110:1: ( RULE_CHAR )
+					// InternalCommon.g:1111:1: RULE_CHAR
 					{
-					 before(grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
-					match(input,RULE_CHAR_LITERAL,FOLLOW_2); 
-					 after(grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
+					 before(grammarAccess.getConstant1Access().getCHARTerminalRuleCall_3()); 
+					match(input,RULE_CHAR,FOLLOW_2); 
+					 after(grammarAccess.getConstant1Access().getCHARTerminalRuleCall_3()); 
 					}
 
 					}
@@ -7874,7 +7876,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 			// InternalCommon.g:3417:2: ( rule__PostfixExpressionSuffixArgument__ArgumentExpressionListAssignment_2 )?
 			int alt22=2;
 			int LA22_0 = input.LA(1);
-			if ( (LA22_0==RULE_BIN_LITERAL||(LA22_0 >= RULE_CHAR_LITERAL && LA22_0 <= RULE_DECIMAL_LITERAL)||LA22_0==RULE_FLOAT_LITERAL||(LA22_0 >= RULE_HEX_LITERAL && LA22_0 <= RULE_ID)||(LA22_0 >= RULE_OCTAL_LITERAL && LA22_0 <= RULE_SKW_AND)||LA22_0==RULE_SKW_LEFTPAREN||LA22_0==RULE_SKW_MINUS||LA22_0==RULE_SKW_NOT||LA22_0==RULE_SKW_PLUS||(LA22_0 >= RULE_SKW_STAR && LA22_0 <= RULE_SKW_TILDE)||LA22_0==RULE_STRING_LITERAL) ) {
+			if ( (LA22_0==RULE_BIN_LITERAL||LA22_0==RULE_CHAR||LA22_0==RULE_DECIMAL_LITERAL||LA22_0==RULE_FLOAT_LITERAL||(LA22_0 >= RULE_HEX_LITERAL && LA22_0 <= RULE_ID)||(LA22_0 >= RULE_OCTAL_LITERAL && LA22_0 <= RULE_SKW_AND)||LA22_0==RULE_SKW_LEFTPAREN||LA22_0==RULE_SKW_MINUS||LA22_0==RULE_SKW_NOT||LA22_0==RULE_SKW_PLUS||(LA22_0 >= RULE_SKW_STAR && LA22_0 <= RULE_SKW_TILDE)||LA22_0==RULE_STRING_LITERAL) ) {
 				alt22=1;
 			}
 			switch (alt22) {
@@ -9999,35 +10001,35 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 	public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0112200030018990L,0x0000000000000046L});
-	public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0080000000000000L});
-	public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0080000000000002L});
-	public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000040000002L});
-	public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0040000000000000L});
-	public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0040000000000002L});
-	public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000200000000L});
-	public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000200000002L});
-	public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000020000002L});
-	public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0020010000000000L});
-	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0020010000000002L});
-	public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0001860000000000L});
-	public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0001860000000002L});
-	public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x4000400000000000L});
-	public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x4000400000000002L});
-	public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0102000000000000L});
-	public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0102000000000002L});
-	public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0008001000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0008001000000002L,0x0000000000000002L});
-	public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0112000020000000L,0x0000000000000006L});
-	public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000200000000002L});
-	public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x2112200030018990L,0x0000000000000046L});
-	public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x2000000000000000L});
-	public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000800000000L});
-	public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000800000002L});
-	public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000200010018990L,0x0000000000000040L});
+	public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0800000000000000L});
+	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0224400060031290L,0x000000000000008CL});
+	public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0100000000000002L});
+	public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000080000002L});
+	public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0080000000000000L});
+	public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0080000000000002L});
+	public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000400000002L});
+	public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040000002L});
+	public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0040020000000000L});
+	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0040020000000002L});
+	public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00030C0000000000L});
+	public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00030C0000000002L});
+	public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x8000800000000000L});
+	public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x8000800000000002L});
+	public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0204000000000000L});
+	public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0204000000000002L});
+	public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0010002000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0010002000000002L,0x0000000000000004L});
+	public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0224000040000000L,0x000000000000000CL});
+	public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000400000000000L});
+	public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000400000000002L});
+	public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x4224400060031290L,0x000000000000008CL});
+	public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000001000000000L});
+	public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000001000000002L});
+	public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000400020031290L,0x0000000000000080L});
 }

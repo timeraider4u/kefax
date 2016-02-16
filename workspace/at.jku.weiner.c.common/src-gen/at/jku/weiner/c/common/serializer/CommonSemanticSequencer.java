@@ -165,7 +165,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         hex=HEX_LITERAL | 
 	 *         oct=OCTAL_LITERAL | 
 	 *         dec=DECIMAL_LITERAL | 
-	 *         ch=CHAR_LITERAL | 
+	 *         ch=CHAR | 
 	 *         float=FLOAT_LITERAL | 
 	 *         bin=BIN_LITERAL
 	 *     )
@@ -280,10 +280,20 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr=PostfixExpression_PostfixExpression_1_0 suffix+=PostfixExpressionSuffixArgument)
+	 *     (expr=PostfixExpression_PostfixExpression_1_0 suffix=PostfixExpressionSuffixArgument)
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.POSTFIX_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.POSTFIX_EXPRESSION__EXPR));
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.POSTFIX_EXPRESSION__SUFFIX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.POSTFIX_EXPRESSION__SUFFIX));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPostfixExpressionAccess().getPostfixExpressionExprAction_1_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0(), semanticObject.getSuffix());
+		feeder.finish();
 	}
 	
 	

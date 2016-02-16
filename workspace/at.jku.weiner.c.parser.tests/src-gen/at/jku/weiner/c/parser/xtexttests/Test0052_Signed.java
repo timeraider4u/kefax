@@ -121,7 +121,6 @@ public class Test0052_Signed {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0052_Signed.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_SIGNED1",
 				"RULE_WHITESPACE",
@@ -396,7 +395,6 @@ public class Test0052_Signed {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0052_Signed.c");
@@ -404,7 +402,6 @@ public class Test0052_Signed {
 			"res/Test0052_Signed.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

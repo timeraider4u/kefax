@@ -99,7 +99,6 @@ public class Test0067_SimpleIncWithComment {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0067_SimpleIncWithComment.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_INCLUDE",
@@ -197,7 +196,6 @@ public class Test0067_SimpleIncWithComment {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0067_SimpleIncWithComment.c.i");
@@ -205,7 +203,6 @@ public class Test0067_SimpleIncWithComment {
 			"expected/Test0067_SimpleIncWithComment.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

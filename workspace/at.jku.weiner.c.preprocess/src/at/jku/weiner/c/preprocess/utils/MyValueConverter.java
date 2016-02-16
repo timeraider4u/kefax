@@ -1,13 +1,14 @@
 package at.jku.weiner.c.preprocess.utils;
 
-import org.eclipse.xtext.common.services.DefaultTerminalConverters;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
 import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.util.Strings;
 
-public class MyValueConverter extends DefaultTerminalConverters {
+import at.jku.weiner.c.common.utils.MyValueConverterCommon;
+
+public class MyValueConverter extends MyValueConverterCommon {
 
 	@ValueConverter(rule = "MyCodeLine")
 	public IValueConverter<String> MyCodeLine() {

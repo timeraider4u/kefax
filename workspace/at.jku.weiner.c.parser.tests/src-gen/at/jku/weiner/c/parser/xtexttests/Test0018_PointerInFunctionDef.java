@@ -145,7 +145,6 @@ public class Test0018_PointerInFunctionDef {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0018_PointerInFunctionDef.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_VOID",
 				"RULE_WHITESPACE",
@@ -621,7 +620,6 @@ public class Test0018_PointerInFunctionDef {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0018_PointerInFunctionDef.c");
@@ -629,7 +627,6 @@ public class Test0018_PointerInFunctionDef {
 			"res/Test0018_PointerInFunctionDef.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

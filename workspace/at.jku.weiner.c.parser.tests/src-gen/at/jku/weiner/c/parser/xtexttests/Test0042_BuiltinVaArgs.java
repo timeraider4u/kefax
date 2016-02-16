@@ -112,7 +112,6 @@ public class Test0042_BuiltinVaArgs {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0042_BuiltinVaArgs.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -316,7 +315,6 @@ public class Test0042_BuiltinVaArgs {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0042_BuiltinVaArgs.c");
@@ -324,7 +322,6 @@ public class Test0042_BuiltinVaArgs {
 			"res/Test0042_BuiltinVaArgs.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

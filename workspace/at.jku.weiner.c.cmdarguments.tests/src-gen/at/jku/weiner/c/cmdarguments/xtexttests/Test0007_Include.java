@@ -104,7 +104,6 @@ public class Test0007_Include {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0007_Include.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_SKW_MINUS",
 				"RULE_KW_INCLUDE",

@@ -37,7 +37,8 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 	 */
 	public CommonAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = CommonPackage.eINSTANCE;
 		}
 	}
@@ -53,10 +54,12 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -69,113 +72,141 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected CommonSwitch<Adapter> modelSwitch =
-		new CommonSwitch<Adapter>() {
+		new CommonSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseModel(Model object) {
+			public Adapter caseModel(Model object)
+			{
 				return createModelAdapter();
 			}
 			@Override
-			public Adapter caseTranslationUnit(TranslationUnit object) {
+			public Adapter caseTranslationUnit(TranslationUnit object)
+			{
 				return createTranslationUnitAdapter();
 			}
 			@Override
-			public Adapter casePreprocess(Preprocess object) {
+			public Adapter casePreprocess(Preprocess object)
+			{
 				return createPreprocessAdapter();
 			}
 			@Override
-			public Adapter caseParser(Parser object) {
+			public Adapter caseParser(Parser object)
+			{
 				return createParserAdapter();
 			}
 			@Override
-			public Adapter caseExpression(Expression object) {
+			public Adapter caseExpression(Expression object)
+			{
 				return createExpressionAdapter();
 			}
 			@Override
-			public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object) {
+			public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
+			{
 				return createPostfixExpressionSuffixAdapter();
 			}
 			@Override
-			public Adapter caseArgumentExpressionList(ArgumentExpressionList object) {
+			public Adapter caseArgumentExpressionList(ArgumentExpressionList object)
+			{
 				return createArgumentExpressionListAdapter();
 			}
 			@Override
-			public Adapter caseConstant2(Constant2 object) {
+			public Adapter caseConstant2(Constant2 object)
+			{
 				return createConstant2Adapter();
 			}
 			@Override
-			public Adapter caseConstantExpression(ConstantExpression object) {
+			public Adapter caseConstantExpression(ConstantExpression object)
+			{
 				return createConstantExpressionAdapter();
 			}
 			@Override
-			public Adapter caseConditionalExpression(ConditionalExpression object) {
+			public Adapter caseConditionalExpression(ConditionalExpression object)
+			{
 				return createConditionalExpressionAdapter();
 			}
 			@Override
-			public Adapter caseLogicalOrExpression(LogicalOrExpression object) {
+			public Adapter caseLogicalOrExpression(LogicalOrExpression object)
+			{
 				return createLogicalOrExpressionAdapter();
 			}
 			@Override
-			public Adapter caseLogicalAndExpression(LogicalAndExpression object) {
+			public Adapter caseLogicalAndExpression(LogicalAndExpression object)
+			{
 				return createLogicalAndExpressionAdapter();
 			}
 			@Override
-			public Adapter caseInclusiveOrExpression(InclusiveOrExpression object) {
+			public Adapter caseInclusiveOrExpression(InclusiveOrExpression object)
+			{
 				return createInclusiveOrExpressionAdapter();
 			}
 			@Override
-			public Adapter caseExclusiveOrExpression(ExclusiveOrExpression object) {
+			public Adapter caseExclusiveOrExpression(ExclusiveOrExpression object)
+			{
 				return createExclusiveOrExpressionAdapter();
 			}
 			@Override
-			public Adapter caseAndExpression(AndExpression object) {
+			public Adapter caseAndExpression(AndExpression object)
+			{
 				return createAndExpressionAdapter();
 			}
 			@Override
-			public Adapter caseEqualityExpression(EqualityExpression object) {
+			public Adapter caseEqualityExpression(EqualityExpression object)
+			{
 				return createEqualityExpressionAdapter();
 			}
 			@Override
-			public Adapter caseRelationalExpression(RelationalExpression object) {
+			public Adapter caseRelationalExpression(RelationalExpression object)
+			{
 				return createRelationalExpressionAdapter();
 			}
 			@Override
-			public Adapter caseShiftExpression(ShiftExpression object) {
+			public Adapter caseShiftExpression(ShiftExpression object)
+			{
 				return createShiftExpressionAdapter();
 			}
 			@Override
-			public Adapter caseAdditiveExpression(AdditiveExpression object) {
+			public Adapter caseAdditiveExpression(AdditiveExpression object)
+			{
 				return createAdditiveExpressionAdapter();
 			}
 			@Override
-			public Adapter caseMultiplicativeExpression(MultiplicativeExpression object) {
+			public Adapter caseMultiplicativeExpression(MultiplicativeExpression object)
+			{
 				return createMultiplicativeExpressionAdapter();
 			}
 			@Override
-			public Adapter caseCastExpression(CastExpression object) {
+			public Adapter caseCastExpression(CastExpression object)
+			{
 				return createCastExpressionAdapter();
 			}
 			@Override
-			public Adapter caseUnaryExpression(UnaryExpression object) {
+			public Adapter caseUnaryExpression(UnaryExpression object)
+			{
 				return createUnaryExpressionAdapter();
 			}
 			@Override
-			public Adapter casePostfixExpression(PostfixExpression object) {
+			public Adapter casePostfixExpression(PostfixExpression object)
+			{
 				return createPostfixExpressionAdapter();
 			}
 			@Override
-			public Adapter casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object) {
+			public Adapter casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
+			{
 				return createPostfixExpressionSuffixArgumentAdapter();
 			}
 			@Override
-			public Adapter casePrimaryExpression(PrimaryExpression object) {
+			public Adapter casePrimaryExpression(PrimaryExpression object)
+			{
 				return createPrimaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseConstant1(Constant1 object) {
+			public Adapter caseConstant1(Constant1 object)
+			{
 				return createConstant1Adapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};

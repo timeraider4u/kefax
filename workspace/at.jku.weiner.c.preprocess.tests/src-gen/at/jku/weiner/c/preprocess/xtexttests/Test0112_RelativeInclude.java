@@ -98,7 +98,6 @@ public class Test0112_RelativeInclude {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0112_RelativeInclude.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_INCLUDE",
@@ -175,7 +174,6 @@ public class Test0112_RelativeInclude {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0112_RelativeInclude.c");
@@ -183,7 +181,6 @@ public class Test0112_RelativeInclude {
 			"expected/Test0112_RelativeInclude.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

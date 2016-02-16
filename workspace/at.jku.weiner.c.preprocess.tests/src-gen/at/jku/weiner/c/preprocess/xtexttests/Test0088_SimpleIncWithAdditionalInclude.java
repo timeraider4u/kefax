@@ -97,7 +97,6 @@ public class Test0088_SimpleIncWithAdditionalInclude {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0088_SimpleIncWithAdditionalInclude.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -163,7 +162,6 @@ public class Test0088_SimpleIncWithAdditionalInclude {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0088_SimpleIncWithAdditionalInclude.c.i");
@@ -171,7 +169,6 @@ public class Test0088_SimpleIncWithAdditionalInclude {
 			"expected/Test0088_SimpleIncWithAdditionalInclude.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

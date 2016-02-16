@@ -8002,7 +8002,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal CHAR_LITERAL:
-	//	SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
+	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return gaCommon.getCHAR_LITERALRule();
 	}

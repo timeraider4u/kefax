@@ -2589,7 +2589,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal CHAR_LITERAL returns ecore::EString:
-	//	SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
+	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return gaCommon.getCHAR_LITERALRule();
 	}

@@ -110,7 +110,6 @@ public class Test0026_Block {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0026_Block.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_VOID",
 				"RULE_WHITESPACE",
@@ -299,7 +298,6 @@ public class Test0026_Block {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0026_Block.c");
@@ -307,7 +305,6 @@ public class Test0026_Block {
 			"res/Test0026_Block.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

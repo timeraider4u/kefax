@@ -110,7 +110,6 @@ public class Test0129_ConcatenateDouble {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0129_ConcatenateDouble.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -431,7 +430,6 @@ public class Test0129_ConcatenateDouble {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0129_ConcatenateDouble.c.i");
@@ -439,7 +437,6 @@ public class Test0129_ConcatenateDouble {
 			"expected/Test0129_ConcatenateDouble.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

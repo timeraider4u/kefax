@@ -99,7 +99,6 @@ public class Test0005_NoStdInc {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0005_NoStdInc.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_SKW_MINUS",
 				"RULE_KW_NOSTDINC",

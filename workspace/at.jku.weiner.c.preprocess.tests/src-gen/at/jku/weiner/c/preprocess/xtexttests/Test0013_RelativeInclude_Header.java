@@ -97,7 +97,6 @@ public class Test0013_RelativeInclude_Header {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"myinclude/include/printf.h");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
@@ -183,7 +182,6 @@ public class Test0013_RelativeInclude_Header {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0013_RelativeInclude.h.i");
@@ -191,7 +189,6 @@ public class Test0013_RelativeInclude_Header {
 			"expected/Test0013_RelativeInclude_Header.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

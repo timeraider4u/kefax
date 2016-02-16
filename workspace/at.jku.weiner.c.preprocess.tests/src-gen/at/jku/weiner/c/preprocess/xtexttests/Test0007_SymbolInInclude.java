@@ -97,7 +97,6 @@ public class Test0007_SymbolInInclude {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0007_SymbolInInclude.h");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_INCLUDE",
@@ -175,7 +174,6 @@ public class Test0007_SymbolInInclude {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0007_SymbolInInclude.c.i");
@@ -183,7 +181,6 @@ public class Test0007_SymbolInInclude {
 			"res/Test0007_SymbolInInclude.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

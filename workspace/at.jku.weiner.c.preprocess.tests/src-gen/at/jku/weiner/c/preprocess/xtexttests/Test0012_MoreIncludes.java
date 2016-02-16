@@ -112,7 +112,6 @@ public class Test0012_MoreIncludes {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0012_MoreIncludes.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_WHITESPACE",
@@ -316,7 +315,6 @@ public class Test0012_MoreIncludes {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0012_MoreIncludes.c.i");
@@ -324,7 +322,6 @@ public class Test0012_MoreIncludes {
 			"expected/Test0012_MoreIncludes.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

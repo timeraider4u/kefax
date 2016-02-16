@@ -104,7 +104,6 @@ public class Test0010_Outputfile {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0010_Outputfile.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_OUTPUT",
 				"RULE_WS",

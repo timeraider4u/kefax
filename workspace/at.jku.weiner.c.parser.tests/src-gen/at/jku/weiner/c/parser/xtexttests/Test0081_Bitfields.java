@@ -135,7 +135,6 @@ public class Test0081_Bitfields {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0081_Bitfields.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_STRUCT",
 				"RULE_WHITESPACE",
@@ -547,7 +546,6 @@ public class Test0081_Bitfields {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0081_Bitfields.c");
@@ -555,7 +553,6 @@ public class Test0081_Bitfields {
 			"res/Test0081_Bitfields.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

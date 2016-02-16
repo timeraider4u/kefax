@@ -117,7 +117,6 @@ public class Test0061_AttributeWithKeyword {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0061_AttributeWithKeyword.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_STATIC",
 				"RULE_WHITESPACE",
@@ -361,7 +360,6 @@ public class Test0061_AttributeWithKeyword {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0061_AttributeWithKeyword.c");
@@ -369,7 +367,6 @@ public class Test0061_AttributeWithKeyword {
 			"res/Test0061_AttributeWithKeyword.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

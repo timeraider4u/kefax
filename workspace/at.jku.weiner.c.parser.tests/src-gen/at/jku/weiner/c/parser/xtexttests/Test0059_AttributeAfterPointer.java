@@ -110,7 +110,6 @@ public class Test0059_AttributeAfterPointer {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0059_AttributeAfterPointer.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_EXTERN",
 				"RULE_WHITESPACE",
@@ -303,7 +302,6 @@ public class Test0059_AttributeAfterPointer {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0059_AttributeAfterPointer.c");
@@ -311,7 +309,6 @@ public class Test0059_AttributeAfterPointer {
 			"res/Test0059_AttributeAfterPointer.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

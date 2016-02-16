@@ -106,7 +106,6 @@ public class Test0074_TypedefSpecial {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0074_TypedefSpecial.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_TYPEDEF",
 				"RULE_WHITESPACE",
@@ -259,7 +258,6 @@ public class Test0074_TypedefSpecial {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0074_TypedefSpecial.c");
@@ -267,7 +265,6 @@ public class Test0074_TypedefSpecial {
 			"res/Test0074_TypedefSpecial.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -97,7 +97,6 @@ public class Test0003_Parentheses {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0003_Parentheses.txt");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_SKW_LEFTPAREN",
 				"RULE_DECIMAL_LITERAL",

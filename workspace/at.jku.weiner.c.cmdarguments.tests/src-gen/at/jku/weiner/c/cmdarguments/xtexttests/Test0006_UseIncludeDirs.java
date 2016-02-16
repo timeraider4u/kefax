@@ -109,7 +109,6 @@ public class Test0006_UseIncludeDirs {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0006_UseIncludeDirs.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_INCDIR",
 				"RULE_ID",

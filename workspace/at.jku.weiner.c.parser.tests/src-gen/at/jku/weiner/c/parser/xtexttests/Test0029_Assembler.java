@@ -216,7 +216,6 @@ public class Test0029_Assembler {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0029_Assembler.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_BLOCK_COMMENT",
 				"RULE_NEWLINE",
@@ -1327,7 +1326,6 @@ public class Test0029_Assembler {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0029_Assembler.c");
@@ -1335,7 +1333,6 @@ public class Test0029_Assembler {
 			"res/Test0029_Assembler.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

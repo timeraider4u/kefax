@@ -108,7 +108,6 @@ public class Test0004_FunctionDefines {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0004_FunctionDefines.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_DEFINE",
 				"RULE_ID",

@@ -32,5 +32,6 @@ Export-Package: at.jku.weiner.c.common,
  at.jku.weiner.c.common.scoping,
  at.jku.weiner.c.common.serializer,
  at.jku.weiner.c.common.services,
+ at.jku.weiner.c.common.utils,
  at.jku.weiner.c.common.validation
 Import-Package: org.apache.log4j

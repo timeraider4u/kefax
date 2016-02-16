@@ -96,7 +96,6 @@ public class Test0009_Options2 {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0009_Options2.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_SKW_MINUS",
 				"RULE_ID",

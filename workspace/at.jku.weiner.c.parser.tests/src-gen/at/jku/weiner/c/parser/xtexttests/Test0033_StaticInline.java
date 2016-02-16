@@ -104,7 +104,6 @@ public class Test0033_StaticInline {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0033_StaticInline.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_STATIC",
 				"RULE_WHITESPACE",
@@ -240,7 +239,6 @@ public class Test0033_StaticInline {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0033_StaticInline.c");
@@ -248,7 +246,6 @@ public class Test0033_StaticInline {
 			"res/Test0033_StaticInline.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

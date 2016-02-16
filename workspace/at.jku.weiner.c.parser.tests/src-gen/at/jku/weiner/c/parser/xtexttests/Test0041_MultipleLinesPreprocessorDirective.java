@@ -104,7 +104,6 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0041_MultipleLinesPreprocessorDirective.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_LINEDIRECTIVE",
 				"RULE_NEWLINE",
@@ -243,7 +242,6 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0041_MultipleLinesPreprocessorDirective.c");
@@ -251,7 +249,6 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 			"res/Test0041_MultipleLinesPreprocessorDirective.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

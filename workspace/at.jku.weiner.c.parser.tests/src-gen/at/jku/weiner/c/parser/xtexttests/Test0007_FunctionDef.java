@@ -102,7 +102,6 @@ public class Test0007_FunctionDef {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0007_FunctionDef.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_VOID",
 				"RULE_WHITESPACE",
@@ -219,7 +218,6 @@ public class Test0007_FunctionDef {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0007_FunctionDef.c");
@@ -227,7 +225,6 @@ public class Test0007_FunctionDef {
 			"res/Test0007_FunctionDef.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

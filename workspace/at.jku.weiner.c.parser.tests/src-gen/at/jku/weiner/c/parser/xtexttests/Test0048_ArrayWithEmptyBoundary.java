@@ -103,7 +103,6 @@ public class Test0048_ArrayWithEmptyBoundary {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0048_ArrayWithEmptyBoundary.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_CHAR",
 				"RULE_WHITESPACE",
@@ -236,7 +235,6 @@ public class Test0048_ArrayWithEmptyBoundary {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0048_ArrayWithEmptyBoundary.c");
@@ -244,7 +242,6 @@ public class Test0048_ArrayWithEmptyBoundary {
 			"res/Test0048_ArrayWithEmptyBoundary.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

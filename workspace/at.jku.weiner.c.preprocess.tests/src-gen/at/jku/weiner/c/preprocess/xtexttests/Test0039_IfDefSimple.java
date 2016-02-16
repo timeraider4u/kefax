@@ -103,7 +103,6 @@ public class Test0039_IfDefSimple {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0039_IfDefSimple.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_IFDEF",
@@ -252,7 +251,6 @@ public class Test0039_IfDefSimple {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0039_IfDefSimple.c.i");
@@ -260,7 +258,6 @@ public class Test0039_IfDefSimple {
 			"expected/Test0039_IfDefSimple.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

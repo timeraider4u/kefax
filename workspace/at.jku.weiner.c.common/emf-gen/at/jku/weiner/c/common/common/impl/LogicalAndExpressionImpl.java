@@ -90,7 +90,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	{
 		Expression oldLeft = left;
 		left = newLeft;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.LOGICAL_AND_EXPRESSION__LEFT, oldLeft, newLeft);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -104,7 +105,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	 */
 	public void setLeft(Expression newLeft)
 	{
-		if (newLeft != left) {
+		if (newLeft != left)
+		{
 			NotificationChain msgs = null;
 			if (left != null)
 				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.LOGICAL_AND_EXPRESSION__LEFT, null, msgs);
@@ -136,7 +138,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	{
 		Expression oldRight = right;
 		right = newRight;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.LOGICAL_AND_EXPRESSION__RIGHT, oldRight, newRight);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -150,7 +153,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	 */
 	public void setRight(Expression newRight)
 	{
-		if (newRight != right) {
+		if (newRight != right)
+		{
 			NotificationChain msgs = null;
 			if (right != null)
 				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.LOGICAL_AND_EXPRESSION__RIGHT, null, msgs);
@@ -171,7 +175,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.LOGICAL_AND_EXPRESSION__LEFT:
 				return basicSetLeft(null, msgs);
 			case CommonPackage.LOGICAL_AND_EXPRESSION__RIGHT:
@@ -188,7 +193,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.LOGICAL_AND_EXPRESSION__LEFT:
 				return getLeft();
 			case CommonPackage.LOGICAL_AND_EXPRESSION__RIGHT:
@@ -205,7 +211,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.LOGICAL_AND_EXPRESSION__LEFT:
 				setLeft((Expression)newValue);
 				return;
@@ -224,7 +231,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.LOGICAL_AND_EXPRESSION__LEFT:
 				setLeft((Expression)null);
 				return;
@@ -243,7 +251,8 @@ public class LogicalAndExpressionImpl extends ExpressionImpl implements LogicalA
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.LOGICAL_AND_EXPRESSION__LEFT:
 				return left != null;
 			case CommonPackage.LOGICAL_AND_EXPRESSION__RIGHT:

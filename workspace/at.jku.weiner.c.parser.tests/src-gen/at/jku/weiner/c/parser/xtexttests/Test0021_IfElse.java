@@ -144,7 +144,6 @@ public class Test0021_IfElse {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0021_IfElse.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_INT",
 				"RULE_WHITESPACE",
@@ -641,7 +640,6 @@ public class Test0021_IfElse {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0021_IfElse.c");
@@ -649,7 +647,6 @@ public class Test0021_IfElse {
 			"res/Test0021_IfElse.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

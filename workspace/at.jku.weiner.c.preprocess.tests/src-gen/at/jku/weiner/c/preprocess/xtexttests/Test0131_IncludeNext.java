@@ -98,7 +98,6 @@ public class Test0131_IncludeNext {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0131_IncludeNext.h");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_INCLUDE_NEXT",
@@ -177,7 +176,6 @@ public class Test0131_IncludeNext {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0131_IncludeNext.h.i");
@@ -185,7 +183,6 @@ public class Test0131_IncludeNext {
 			"expected/Test0131_IncludeNext.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

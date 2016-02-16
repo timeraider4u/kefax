@@ -104,7 +104,6 @@ public class Test0015_AbsoluteInclude {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0014_AbsoluteInclude.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_INCLUDE",
@@ -251,7 +250,6 @@ public class Test0015_AbsoluteInclude {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0015_AbsoluteInclude.c.i");
@@ -259,7 +257,6 @@ public class Test0015_AbsoluteInclude {
 			"expected/Test0014_AbsoluteInclude.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

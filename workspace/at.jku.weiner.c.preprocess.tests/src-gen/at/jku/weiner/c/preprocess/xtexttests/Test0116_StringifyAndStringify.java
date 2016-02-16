@@ -99,7 +99,6 @@ public class Test0116_StringifyAndStringify {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0116_StringifyAndStringify.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -210,7 +209,6 @@ public class Test0116_StringifyAndStringify {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0116_StringifyAndStringify.c.i");
@@ -218,7 +216,6 @@ public class Test0116_StringifyAndStringify {
 			"expected/Test0116_StringifyAndStringify.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -134,7 +134,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	{
 		Expression oldLeft = left;
 		left = newLeft;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.EQUALITY_EXPRESSION__LEFT, oldLeft, newLeft);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -148,7 +149,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	 */
 	public void setLeft(Expression newLeft)
 	{
-		if (newLeft != left) {
+		if (newLeft != left)
+		{
 			NotificationChain msgs = null;
 			if (left != null)
 				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.EQUALITY_EXPRESSION__LEFT, null, msgs);
@@ -180,7 +182,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	{
 		Expression oldRight = right;
 		right = newRight;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.EQUALITY_EXPRESSION__RIGHT, oldRight, newRight);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -194,7 +197,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	 */
 	public void setRight(Expression newRight)
 	{
-		if (newRight != right) {
+		if (newRight != right)
+		{
 			NotificationChain msgs = null;
 			if (right != null)
 				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.EQUALITY_EXPRESSION__RIGHT, null, msgs);
@@ -215,7 +219,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__LEFT:
 				return basicSetLeft(null, msgs);
 			case CommonPackage.EQUALITY_EXPRESSION__RIGHT:
@@ -232,7 +237,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__OP:
 				return getOp();
 			case CommonPackage.EQUALITY_EXPRESSION__LEFT:
@@ -251,7 +257,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__OP:
 				setOp((String)newValue);
 				return;
@@ -273,7 +280,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__OP:
 				setOp(OP_EDEFAULT);
 				return;
@@ -295,7 +303,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__OP:
 				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
 			case CommonPackage.EQUALITY_EXPRESSION__LEFT:

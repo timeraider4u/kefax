@@ -98,7 +98,6 @@ public class Test0002_Addition {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0002_Addition.txt");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_DECIMAL_LITERAL",
 				"RULE_WHITESPACE",

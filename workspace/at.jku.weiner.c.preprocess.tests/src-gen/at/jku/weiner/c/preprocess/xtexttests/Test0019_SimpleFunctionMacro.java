@@ -100,7 +100,6 @@ public class Test0019_SimpleFunctionMacro {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0019_SimpleFunctionMacro.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -223,7 +222,6 @@ public class Test0019_SimpleFunctionMacro {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0019_SimpleFunctionMacro.c.i");
@@ -231,7 +229,6 @@ public class Test0019_SimpleFunctionMacro {
 			"expected/Test0019_SimpleFunctionMacro.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

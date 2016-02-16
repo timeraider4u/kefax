@@ -103,7 +103,6 @@ public class Test0003_SimpleObjectDefine {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0003_SimpleObjectDefine.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_DEFINE",
 				"RULE_ID",

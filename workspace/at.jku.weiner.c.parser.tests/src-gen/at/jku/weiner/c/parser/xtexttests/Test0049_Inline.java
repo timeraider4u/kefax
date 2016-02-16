@@ -157,7 +157,6 @@ public class Test0049_Inline {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0049_Inline.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_INLINE1",
 				"RULE_WHITESPACE",
@@ -734,7 +733,6 @@ public class Test0049_Inline {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0005_FunctionDecls.c");
@@ -742,7 +740,6 @@ public class Test0049_Inline {
 			"res/Test0049_Inline.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

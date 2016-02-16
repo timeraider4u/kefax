@@ -102,7 +102,6 @@ public class Test0056_IfNotDefined {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0056_IfNotDefined.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_IF",
@@ -232,7 +231,6 @@ public class Test0056_IfNotDefined {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0056_IfNotDefined.c.i");
@@ -240,7 +238,6 @@ public class Test0056_IfNotDefined {
 			"expected/Test0056_IfNotDefined.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

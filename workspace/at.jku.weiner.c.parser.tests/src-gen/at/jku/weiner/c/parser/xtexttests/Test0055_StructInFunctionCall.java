@@ -157,7 +157,6 @@ public class Test0055_StructInFunctionCall {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0055_StructInFunctionCall.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_STRUCT",
 				"RULE_WHITESPACE",
@@ -716,7 +715,6 @@ public class Test0055_StructInFunctionCall {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0037_Struct.c");
@@ -724,7 +722,6 @@ public class Test0055_StructInFunctionCall {
 			"res/Test0055_StructInFunctionCall.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

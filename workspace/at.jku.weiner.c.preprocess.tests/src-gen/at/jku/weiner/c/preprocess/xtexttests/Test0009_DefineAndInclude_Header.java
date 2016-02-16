@@ -105,7 +105,6 @@ public class Test0009_DefineAndInclude_Header {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0009_DefineAndInclude.h");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -285,7 +284,6 @@ public class Test0009_DefineAndInclude_Header {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0009_DefineAndInclude.h.i");
@@ -293,7 +291,6 @@ public class Test0009_DefineAndInclude_Header {
 			"expected/Test0009_DefineAndInclude.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

@@ -28,13 +28,16 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 	 */
 	public static CommonFactory init()
 	{
-		try {
+		try
+		{
 			CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory(CommonPackage.eNS_URI);
-			if (theCommonFactory != null) {
+			if (theCommonFactory != null)
+			{
 				return theCommonFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new CommonFactoryImpl();
@@ -59,7 +62,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case CommonPackage.MODEL: return createModel();
 			case CommonPackage.TRANSLATION_UNIT: return createTranslationUnit();
 			case CommonPackage.PREPROCESS: return createPreprocess();

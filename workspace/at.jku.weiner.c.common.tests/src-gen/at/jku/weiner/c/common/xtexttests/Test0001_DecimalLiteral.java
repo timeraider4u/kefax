@@ -94,7 +94,6 @@ public class Test0001_DecimalLiteral {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0001_DecimalLiteral.txt");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_DECIMAL_LITERAL",
 				};

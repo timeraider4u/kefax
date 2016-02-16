@@ -111,7 +111,6 @@ public class Test0011_InFile {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0011_InFile.cmd");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_KW_DEFINE",
 				"RULE_ID",

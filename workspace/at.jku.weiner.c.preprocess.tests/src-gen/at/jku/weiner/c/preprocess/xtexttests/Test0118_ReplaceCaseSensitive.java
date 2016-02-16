@@ -125,7 +125,6 @@ public class Test0118_ReplaceCaseSensitive {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0118_ReplaceCaseSensitive.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -518,7 +517,6 @@ public class Test0118_ReplaceCaseSensitive {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0118_ReplaceCaseSensitive.c.i");
@@ -526,7 +524,6 @@ public class Test0118_ReplaceCaseSensitive {
 			"expected/Test0118_ReplaceCaseSensitive.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

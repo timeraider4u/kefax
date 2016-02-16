@@ -98,7 +98,6 @@ public class Test0108_PredefinedDefault {
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0108_PredefinedDefault.c");
-			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_ID",
 				"RULE_NEWLINE",
@@ -175,7 +174,6 @@ public class Test0108_PredefinedDefault {
 			| IllegalAccessException | IllegalArgumentException
 			| InvocationTargetException e) {
 			// do nothing
-			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0108_PredefinedDefault.c.i");
@@ -183,7 +181,6 @@ public class Test0108_PredefinedDefault {
 			"expected/Test0108_PredefinedDefault.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
-		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {

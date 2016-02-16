@@ -1108,9 +1108,9 @@ rule__Constant1__Alternatives
 
     |
 (
-{ before(grammarAccess.getConstant1Access().getCHARTerminalRuleCall_3()); }
-	RULE_CHAR
-{ after(grammarAccess.getConstant1Access().getCHARTerminalRuleCall_3()); }
+{ before(grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); }
+	RULE_CHAR_LITERAL
+{ after(grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); }
 )
 
 
@@ -4388,9 +4388,7 @@ fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
 fragment RULE_LETTER : (RULE_SKW_DOLLAR|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
 
-RULE_CHAR : RULE_CHAR_LITERAL;
-
-fragment RULE_CHAR_LITERAL : 'L'? RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
+RULE_CHAR_LITERAL : 'L'? RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
 
 RULE_STRING_LITERAL : RULE_SKW_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_SKW_DOUBLEQUOTE)))* RULE_SKW_DOUBLEQUOTE;
 

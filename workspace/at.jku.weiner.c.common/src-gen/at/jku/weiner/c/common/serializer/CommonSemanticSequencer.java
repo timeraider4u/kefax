@@ -165,7 +165,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         hex=HEX_LITERAL | 
 	 *         oct=OCTAL_LITERAL | 
 	 *         dec=DECIMAL_LITERAL | 
-	 *         ch=CHAR | 
+	 *         ch=CHAR_LITERAL | 
 	 *         float=FLOAT_LITERAL | 
 	 *         bin=BIN_LITERAL
 	 *     )

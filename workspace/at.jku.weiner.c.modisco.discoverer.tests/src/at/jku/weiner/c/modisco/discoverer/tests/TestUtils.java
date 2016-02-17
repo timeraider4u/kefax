@@ -15,29 +15,30 @@ import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
 
 public class TestUtils {
-	
+
 	private final IProject project;
 	private final DiscoverFromIResource discoverer;
 	private final Resource discoveredModel;
-	
+
 	public TestUtils(final IProject iProject, final String testName,
 			final boolean stdInclude, final String includeDirs,
 			final String additionalDirectives, final boolean trimPreprocessModel)
 			throws Exception {
-		this(iProject, TestUtils.getListForElement(testName), stdInclude,
-				includeDirs, additionalDirectives, trimPreprocessModel);
+		this(iProject, testName, TestUtils.getListForElement(testName),
+				stdInclude, includeDirs, additionalDirectives,
+				trimPreprocessModel);
 	}
-	
+
 	public static List<String> getListForElement(final String element) {
 		final List<String> result = new ArrayList<String>();
 		result.add(element);
 		return result;
 	}
 
-	public TestUtils(final IProject iProject, final List<String> testNames,
-			final boolean stdInclude, final String includeDirs,
-			final String additionalDirectives, final boolean trimPreprocessModel)
-			throws Exception {
+	public TestUtils(final IProject iProject, final String testName,
+			final List<String> resFiles, final boolean stdInclude,
+			final String includeDirs, final String additionalDirectives,
+			final boolean trimPreprocessModel) throws Exception {
 		this.project = iProject;
 		Assert.assertNotNull(this.project);
 
@@ -46,17 +47,17 @@ public class TestUtils {
 		this.discoverer.setIncludeDirs(includeDirs);
 		this.discoverer.setAdditionalDirectives(additionalDirectives);
 		this.discoverer.setTrimPreprocessModel(trimPreprocessModel);
-		for (final String testName : testNames) {
-			final IResource res = this.getRes(testName);
+		for (final String resName : resFiles) {
+			final IResource res = this.getRes(resName);
 			Assert.assertNotNull(res);
-			MyLog.trace(TestUtils.class, "testName='" + testName
-					+ "', includeDirs='" + includeDirs + "'");
+			MyLog.trace(TestUtils.class, "testName='" + testName + ", resName="
+					+ resName + "', includeDirs='" + includeDirs + "'");
 			this.discoverer.discoverElement(res, new NullProgressMonitor());
 		}
 		this.discoveredModel = this.discoverer.getTargetModel();
 		Assert.assertNotNull(this.discoveredModel);
 	}
-	
+
 	private IResource getRes(final String fileName) {
 		IResource res = this.project.getFile(fileName);
 		if ((res == null) || !res.exists()) {
@@ -68,7 +69,7 @@ public class TestUtils {
 				res.exists() && res.isAccessible());
 		return res;
 	}
-	
+
 	public Model getModel() {
 		Assert.assertNotNull(this.discoveredModel);
 		Assert.assertEquals(1, this.discoveredModel.getContents().size());
@@ -76,5 +77,5 @@ public class TestUtils {
 		final Model model = (Model) root;
 		return model;
 	}
-	
+
 }

@@ -56,23 +56,24 @@ public class EMFTest {
 			}
 		}
 	}
-	
+
 	public static Model emfTest2(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		final List<String> list = new ArrayList<String>();
 		list.add(sourceFile + "1");
 		list.add(sourceFile + "2");
-		return EMFTest.emfTest(pureJavaClassFileName, list);
+		return EMFTest.emfTest(pureJavaClassFileName, sourceFile, list);
 	}
 
 	public static Model emfTest(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
-		return EMFTest.emfTest(pureJavaClassFileName,
+		return EMFTest.emfTest(pureJavaClassFileName, sourceFile,
 				TestUtils.getListForElement(sourceFile));
 	}
 
-	public static Model emfTest(final String pureJavaClassFileName,
-			final List<String> sourceFile) throws Exception {
+	private static Model emfTest(final String pureJavaClassFileName,
+			final String testName, final List<String> resFiles)
+			throws Exception {
 		EMFTest.firstCall();
 		EMFTest.cleanUpOldProject();
 		final IProject iProject = EMFTest.getProject();
@@ -85,7 +86,7 @@ public class EMFTest {
 		EMFTest.additionalDirectives = null;
 		EMFTest.trimPreprocessModel = false;
 
-		final TestUtils utils = new TestUtils(iProject, sourceFile,
+		final TestUtils utils = new TestUtils(iProject, testName, resFiles,
 				myStdInclude, myIncludeDirs, myDefines, trimPreprocess);
 		final Model result = utils.getModel();
 		return result;

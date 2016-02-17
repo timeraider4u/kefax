@@ -35,6 +35,7 @@ public class Test0001_Empty {
 	
 	@Before
 	public void initialize(){
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0001();
 	}
 	
 	@After

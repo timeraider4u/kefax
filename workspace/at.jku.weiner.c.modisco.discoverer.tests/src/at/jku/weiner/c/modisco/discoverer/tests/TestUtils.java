@@ -3,6 +3,7 @@ package at.jku.weiner.c.modisco.discoverer.tests;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -22,11 +23,12 @@ public class TestUtils {
 
 	public TestUtils(final IProject iProject, final String testName,
 			final boolean stdInclude, final String includeDirs,
-			final String additionalDirectives, final boolean trimPreprocessModel)
-			throws Exception {
+			final String additionalDirectives,
+			final boolean trimPreprocessModel, final boolean isEmpty)
+					throws Exception {
 		this(iProject, testName, TestUtils.getListForElement(testName),
 				stdInclude, includeDirs, additionalDirectives,
-				trimPreprocessModel);
+				trimPreprocessModel, isEmpty);
 	}
 
 	public static List<String> getListForElement(final String element) {
@@ -38,7 +40,8 @@ public class TestUtils {
 	public TestUtils(final IProject iProject, final String testName,
 			final List<String> resFiles, final boolean stdInclude,
 			final String includeDirs, final String additionalDirectives,
-			final boolean trimPreprocessModel) throws Exception {
+			final boolean trimPreprocessModel, final boolean isEmpty)
+			throws Exception {
 		this.project = iProject;
 		Assert.assertNotNull(this.project);
 
@@ -54,6 +57,7 @@ public class TestUtils {
 					+ resName + "', includeDirs='" + includeDirs + "'");
 			this.discoverer.discoverElement(res, new NullProgressMonitor());
 		}
+		this.checkTargetModelSerialization(iProject, testName, isEmpty);
 		this.discoveredModel = this.discoverer.getTargetModel();
 		Assert.assertNotNull(this.discoveredModel);
 	}
@@ -76,6 +80,20 @@ public class TestUtils {
 		final EObject root = this.discoveredModel.getContents().get(0);
 		final Model model = (Model) root;
 		return model;
+	}
+
+	private void checkTargetModelSerialization(final IProject iProject,
+			final String testName, final boolean isEmpty) throws Exception {
+		IFolder resTmp = (IFolder) iProject.findMember("tmp-discover");
+		Assert.assertNotNull(resTmp);
+		System.err.println("resTmp='" + resTmp + "'");
+		IResource[] members = resTmp.members();
+		Assert.assertNotNull(members);
+		int size = 1;
+		if (isEmpty) {
+			size = 0;
+		}
+		Assert.assertEquals(size + 1, members.length);
 	}
 
 }

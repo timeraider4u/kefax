@@ -19,3 +19,5 @@ source file="res/Test0001_Empty"
 		)
 	)
 )
+
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0001()

@@ -21,6 +21,7 @@ import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
+	private static boolean isEmpty = false;
 	private static boolean firstCall = true;
 	private static boolean stdInclude = true;
 	private static String includeDirs = null;
@@ -81,13 +82,15 @@ public class EMFTest {
 		final boolean myStdInclude = EMFTest.stdInclude;
 		final String myDefines = EMFTest.additionalDirectives;
 		final boolean trimPreprocess = EMFTest.trimPreprocessModel;
+		final boolean myEmpty = EMFTest.isEmpty;
 		EMFTest.stdInclude = true;
 		EMFTest.includeDirs = null;
 		EMFTest.additionalDirectives = null;
 		EMFTest.trimPreprocessModel = false;
+		EMFTest.isEmpty = false;
 
 		final TestUtils utils = new TestUtils(iProject, testName, resFiles,
-				myStdInclude, myIncludeDirs, myDefines, trimPreprocess);
+				myStdInclude, myIncludeDirs, myDefines, trimPreprocess, myEmpty);
 		final Model result = utils.getModel();
 		return result;
 	}
@@ -136,6 +139,10 @@ public class EMFTest {
 	public static void doTrim() {
 		EMFTest.trimPreprocessModel = true;
 		EMFTest.stdInclude = false;
+	}
+
+	public static void test0001() {
+		EMFTest.isEmpty = true;
 	}
 
 }

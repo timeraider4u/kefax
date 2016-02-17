@@ -1439,6 +1439,58 @@ this_LINE_1=RULE_LINE
     }
 )*
 
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLineDirectiveAccess().getLineMyCodeParserRuleCall_3_0()); 
+	    }
+		lv_line_3_0=ruleMyCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLineDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"line",
+        		lv_line_3_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(this_WHITESPACE_4=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getLineDirectiveAccess().getWHITESPACETerminalRuleCall_4_0()); 
+    }
+)+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); 
+	    }
+		lv_path_5_0=ruleMyDefineLineObject		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLineDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"path",
+        		lv_path_5_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLineObject");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
+
 )
 
 

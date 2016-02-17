@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#isVariadic <em>Variadic</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getVarID <em>Var ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -113,7 +113,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getId()
 	{
-		if (id == null) {
+		if (id == null)
+		{
 			id = new EDataTypeEList<String>(String.class, this, PreprocessPackage.IDENTIFIER_LIST__ID);
 		}
 		return id;
@@ -173,7 +174,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				return getId();
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
@@ -193,7 +195,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				getId().clear();
 				getId().addAll((Collection<? extends String>)newValue);
@@ -216,7 +219,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				getId().clear();
 				return;
@@ -238,7 +242,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				return id != null && !id.isEmpty();
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:

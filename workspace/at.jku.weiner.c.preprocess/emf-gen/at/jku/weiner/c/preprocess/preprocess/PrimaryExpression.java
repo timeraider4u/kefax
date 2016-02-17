@@ -10,6 +10,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}</li>
@@ -17,7 +18,6 @@ package at.jku.weiner.c.preprocess.preprocess;
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression()
  * @model

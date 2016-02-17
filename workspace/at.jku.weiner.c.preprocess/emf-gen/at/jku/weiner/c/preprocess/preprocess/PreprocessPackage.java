@@ -24,7 +24,8 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface PreprocessPackage extends EPackage {
+public interface PreprocessPackage extends EPackage
+{
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -1679,7 +1680,8 @@ public interface PreprocessPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals
+	{
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
 		 * <!-- begin-user-doc -->

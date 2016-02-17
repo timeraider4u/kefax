@@ -37,7 +37,8 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	 */
 	public PreprocessAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = PreprocessPackage.eINSTANCE;
 		}
 	}
@@ -53,10 +54,12 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -69,125 +72,156 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected PreprocessSwitch<Adapter> modelSwitch =
-		new PreprocessSwitch<Adapter>() {
+		new PreprocessSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseGroupOpt(GroupOpt object) {
+			public Adapter caseGroupOpt(GroupOpt object)
+			{
 				return createGroupOptAdapter();
 			}
 			@Override
-			public Adapter caseSourceCodeLine(SourceCodeLine object) {
+			public Adapter caseSourceCodeLine(SourceCodeLine object)
+			{
 				return createSourceCodeLineAdapter();
 			}
 			@Override
-			public Adapter caseIncludeDirective(IncludeDirective object) {
+			public Adapter caseIncludeDirective(IncludeDirective object)
+			{
 				return createIncludeDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseDefineDirective(DefineDirective object) {
+			public Adapter caseDefineDirective(DefineDirective object)
+			{
 				return createDefineDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseIdentifierList(IdentifierList object) {
+			public Adapter caseIdentifierList(IdentifierList object)
+			{
 				return createIdentifierListAdapter();
 			}
 			@Override
-			public Adapter caseErrorDirective(ErrorDirective object) {
+			public Adapter caseErrorDirective(ErrorDirective object)
+			{
 				return createErrorDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseWarningDirective(WarningDirective object) {
+			public Adapter caseWarningDirective(WarningDirective object)
+			{
 				return createWarningDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseUnDefineDirective(UnDefineDirective object) {
+			public Adapter caseUnDefineDirective(UnDefineDirective object)
+			{
 				return createUnDefineDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseConditionalDirective(ConditionalDirective object) {
+			public Adapter caseConditionalDirective(ConditionalDirective object)
+			{
 				return createConditionalDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseIfConditional(IfConditional object) {
+			public Adapter caseIfConditional(IfConditional object)
+			{
 				return createIfConditionalAdapter();
 			}
 			@Override
-			public Adapter caseIfDefConditional(IfDefConditional object) {
+			public Adapter caseIfDefConditional(IfDefConditional object)
+			{
 				return createIfDefConditionalAdapter();
 			}
 			@Override
-			public Adapter caseIfNotDefConditional(IfNotDefConditional object) {
+			public Adapter caseIfNotDefConditional(IfNotDefConditional object)
+			{
 				return createIfNotDefConditionalAdapter();
 			}
 			@Override
-			public Adapter caseElIfConditional(ElIfConditional object) {
+			public Adapter caseElIfConditional(ElIfConditional object)
+			{
 				return createElIfConditionalAdapter();
 			}
 			@Override
-			public Adapter caseElseConditional(ElseConditional object) {
+			public Adapter caseElseConditional(ElseConditional object)
+			{
 				return createElseConditionalAdapter();
 			}
 			@Override
-			public Adapter casePragmaDirective(PragmaDirective object) {
+			public Adapter casePragmaDirective(PragmaDirective object)
+			{
 				return createPragmaDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseNullDirective(NullDirective object) {
+			public Adapter caseNullDirective(NullDirective object)
+			{
 				return createNullDirectiveAdapter();
 			}
 			@Override
-			public Adapter casePreprocess(Preprocess object) {
+			public Adapter casePreprocess(Preprocess object)
+			{
 				return createPreprocessAdapter();
 			}
 			@Override
-			public Adapter caseGroupOpt2(GroupOpt2 object) {
+			public Adapter caseGroupOpt2(GroupOpt2 object)
+			{
 				return createGroupOpt2Adapter();
 			}
 			@Override
-			public Adapter casePreprocessorDirectives(PreprocessorDirectives object) {
+			public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
+			{
 				return createPreprocessorDirectivesAdapter();
 			}
 			@Override
-			public Adapter caseDefineObjectMacro(DefineObjectMacro object) {
+			public Adapter caseDefineObjectMacro(DefineObjectMacro object)
+			{
 				return createDefineObjectMacroAdapter();
 			}
 			@Override
-			public Adapter caseDefineFunctionLikeMacro(DefineFunctionLikeMacro object) {
+			public Adapter caseDefineFunctionLikeMacro(DefineFunctionLikeMacro object)
+			{
 				return createDefineFunctionLikeMacroAdapter();
 			}
 			@Override
-			public Adapter caseNewLineLine(NewLineLine object) {
+			public Adapter caseNewLineLine(NewLineLine object)
+			{
 				return createNewLineLineAdapter();
 			}
 			@Override
-			public Adapter caseCode(Code object) {
+			public Adapter caseCode(Code object)
+			{
 				return createCodeAdapter();
 			}
 			@Override
-			public Adapter casePrimaryExpression(PrimaryExpression object) {
+			public Adapter casePrimaryExpression(PrimaryExpression object)
+			{
 				return createPrimaryExpressionAdapter();
 			}
 			@Override
-			public Adapter caseIfAbstractConditional(IfAbstractConditional object) {
+			public Adapter caseIfAbstractConditional(IfAbstractConditional object)
+			{
 				return createIfAbstractConditionalAdapter();
 			}
 			@Override
-			public Adapter caseExpression(Expression object) {
+			public Adapter caseExpression(Expression object)
+			{
 				return createExpressionAdapter();
 			}
 			@Override
-			public Adapter caseLineDirective(LineDirective object) {
+			public Adapter caseLineDirective(LineDirective object)
+			{
 				return createLineDirectiveAdapter();
 			}
 			@Override
-			public Adapter caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object) {
+			public Adapter caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object)
+			{
 				return createCommon_PreprocessAdapter();
 			}
 			@Override
-			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object) {
+			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+			{
 				return createCommon_ExpressionAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};

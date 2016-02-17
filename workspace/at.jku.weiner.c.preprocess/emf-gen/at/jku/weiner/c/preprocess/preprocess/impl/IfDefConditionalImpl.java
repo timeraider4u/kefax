@@ -2,15 +2,12 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -20,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfDefConditionalImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -101,7 +98,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				return getId();
 		}
@@ -116,7 +114,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				setId((String)newValue);
 				return;
@@ -132,7 +131,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -148,7 +148,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}

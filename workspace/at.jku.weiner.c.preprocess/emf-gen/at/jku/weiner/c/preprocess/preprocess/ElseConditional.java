@@ -15,5 +15,4 @@ package at.jku.weiner.c.preprocess.preprocess;
  */
 public interface ElseConditional extends IfAbstractConditional
 {
-
 } // ElseConditional

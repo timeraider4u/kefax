@@ -79,6 +79,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getGroup_1_0_3_2_1(), "rule__IdentifierList__Group_1_0_3_2_1__0");
 					put(grammarAccess.getIdentifierListAccess().getGroup_1_1(), "rule__IdentifierList__Group_1_1__0");
 					put(grammarAccess.getLineDirectiveAccess().getGroup(), "rule__LineDirective__Group__0");
+					put(grammarAccess.getLineDirectiveAccess().getGroup_4(), "rule__LineDirective__Group_4__0");
 					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
 					put(grammarAccess.getWarningDirectiveAccess().getGroup(), "rule__WarningDirective__Group__0");
 					put(grammarAccess.getUnDefineDirectiveAccess().getGroup(), "rule__UnDefineDirective__Group__0");
@@ -153,6 +154,8 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_0_3_2_1_1(), "rule__IdentifierList__VariadicAssignment_1_0_3_2_1_1");
 					put(grammarAccess.getIdentifierListAccess().getVarIDAssignment_1_1_0(), "rule__IdentifierList__VarIDAssignment_1_1_0");
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_1_1(), "rule__IdentifierList__VariadicAssignment_1_1_1");
+					put(grammarAccess.getLineDirectiveAccess().getLineAssignment_3(), "rule__LineDirective__LineAssignment_3");
+					put(grammarAccess.getLineDirectiveAccess().getPathAssignment_4_1(), "rule__LineDirective__PathAssignment_4_1");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");
 					put(grammarAccess.getWarningDirectiveAccess().getMsgAssignment_3(), "rule__WarningDirective__MsgAssignment_3");
 					put(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_3(), "rule__UnDefineDirective__IdAssignment_3");

@@ -28,13 +28,16 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	 */
 	public static PreprocessFactory init()
 	{
-		try {
+		try
+		{
 			PreprocessFactory thePreprocessFactory = (PreprocessFactory)EPackage.Registry.INSTANCE.getEFactory(PreprocessPackage.eNS_URI);
-			if (thePreprocessFactory != null) {
+			if (thePreprocessFactory != null)
+			{
 				return thePreprocessFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PreprocessFactoryImpl();
@@ -59,7 +62,8 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case PreprocessPackage.GROUP_OPT: return createGroupOpt();
 			case PreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
 			case PreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();

@@ -152,6 +152,10 @@ IdentifierList:
 LineDirective:
 	{LineDirective}
 	LINE WHITESPACE* 
+	line=MyCode 
+	(WHITESPACE+ 
+		path=MyDefineLineObject
+	)?
 ;
 
 ErrorDirective:

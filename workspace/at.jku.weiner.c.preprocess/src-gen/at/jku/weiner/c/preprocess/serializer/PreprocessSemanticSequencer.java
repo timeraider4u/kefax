@@ -326,7 +326,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {LineDirective}
+	 *     (line=MyCode path=MyDefineLineObject?)
 	 */
 	protected void sequence_LineDirective(EObject context, LineDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

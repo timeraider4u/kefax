@@ -346,9 +346,9 @@ public class Test0137_Line {
 		.getDirective();
 		Assert.assertNotNull(DefineObjectMacro_13_Var
 		);
-		Assert.assertEquals("NAME", DefineObjectMacro_13_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_13_Var
 		.getId());
-		Assert.assertEquals("\"Nobody\"", DefineObjectMacro_13_Var
+		Assert.assertEquals("100", DefineObjectMacro_13_Var
 		.getString());
 		//13
 		final PreprocessorDirectives PreprocessorDirectives_14_Var
@@ -361,7 +361,7 @@ public class Test0137_Line {
 		.getDirective();
 		Assert.assertNotNull(LineDirective_15_Var
 		);
-		Assert.assertEquals("25", LineDirective_15_Var
+		Assert.assertEquals("FOO", LineDirective_15_Var
 		.getLine());
 		Assert.assertNull(LineDirective_15_Var
 		.getPath());

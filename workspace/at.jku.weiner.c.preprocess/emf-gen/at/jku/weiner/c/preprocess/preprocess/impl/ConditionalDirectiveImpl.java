@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getConditional <em>Conditional</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getElifs <em>Elifs</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getElse <em>Else</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getBranchTaken <em>Branch Taken</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -122,7 +122,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	{
 		IfAbstractConditional oldConditional = conditional;
 		conditional = newConditional;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, oldConditional, newConditional);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -136,7 +137,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public void setConditional(IfAbstractConditional newConditional)
 	{
-		if (newConditional != conditional) {
+		if (newConditional != conditional)
+		{
 			NotificationChain msgs = null;
 			if (conditional != null)
 				msgs = ((InternalEObject)conditional).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, null, msgs);
@@ -156,7 +158,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public EList<ElIfConditional> getElifs()
 	{
-		if (elifs == null) {
+		if (elifs == null)
+		{
 			elifs = new EObjectContainmentEList<ElIfConditional>(ElIfConditional.class, this, PreprocessPackage.CONDITIONAL_DIRECTIVE__ELIFS);
 		}
 		return elifs;
@@ -181,7 +184,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	{
 		ElseConditional oldElse = else_;
 		else_ = newElse;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.CONDITIONAL_DIRECTIVE__ELSE, oldElse, newElse);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -195,7 +199,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public void setElse(ElseConditional newElse)
 	{
-		if (newElse != else_) {
+		if (newElse != else_)
+		{
 			NotificationChain msgs = null;
 			if (else_ != null)
 				msgs = ((InternalEObject)else_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.CONDITIONAL_DIRECTIVE__ELSE, null, msgs);
@@ -215,10 +220,12 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public IfAbstractConditional getBranchTaken()
 	{
-		if (branchTaken != null && branchTaken.eIsProxy()) {
+		if (branchTaken != null && branchTaken.eIsProxy())
+		{
 			InternalEObject oldBranchTaken = (InternalEObject)branchTaken;
 			branchTaken = (IfAbstractConditional)eResolveProxy(oldBranchTaken);
-			if (branchTaken != oldBranchTaken) {
+			if (branchTaken != oldBranchTaken)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PreprocessPackage.CONDITIONAL_DIRECTIVE__BRANCH_TAKEN, oldBranchTaken, branchTaken));
 			}
@@ -257,7 +264,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
 				return basicSetConditional(null, msgs);
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__ELIFS:
@@ -276,7 +284,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
 				return getConditional();
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__ELIFS:
@@ -299,7 +308,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
 				setConditional((IfAbstractConditional)newValue);
 				return;
@@ -325,7 +335,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
 				setConditional((IfAbstractConditional)null);
 				return;
@@ -350,7 +361,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
 				return conditional != null;
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE__ELIFS:

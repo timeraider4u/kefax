@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineObjectMacroImpl#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -98,7 +98,8 @@ public class DefineObjectMacroImpl extends DefineDirectiveImpl implements Define
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_OBJECT_MACRO__STRING:
 				return getString();
 		}
@@ -113,7 +114,8 @@ public class DefineObjectMacroImpl extends DefineDirectiveImpl implements Define
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_OBJECT_MACRO__STRING:
 				setString((String)newValue);
 				return;
@@ -129,7 +131,8 @@ public class DefineObjectMacroImpl extends DefineDirectiveImpl implements Define
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_OBJECT_MACRO__STRING:
 				setString(STRING_EDEFAULT);
 				return;
@@ -145,7 +148,8 @@ public class DefineObjectMacroImpl extends DefineDirectiveImpl implements Define
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_OBJECT_MACRO__STRING:
 				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
 		}

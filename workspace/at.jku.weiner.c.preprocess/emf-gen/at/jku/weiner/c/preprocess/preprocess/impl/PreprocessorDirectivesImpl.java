@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl#getDirective <em>Directive</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -79,7 +79,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	{
 		EObject oldDirective = directive;
 		directive = newDirective;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE, oldDirective, newDirective);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	 */
 	public void setDirective(EObject newDirective)
 	{
-		if (newDirective != directive) {
+		if (newDirective != directive)
+		{
 			NotificationChain msgs = null;
 			if (directive != null)
 				msgs = ((InternalEObject)directive).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE, null, msgs);
@@ -114,7 +116,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
 				return basicSetDirective(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
 				return getDirective();
 		}
@@ -144,7 +148,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
 				setDirective((EObject)newValue);
 				return;
@@ -160,7 +165,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
 				setDirective((EObject)null);
 				return;
@@ -176,7 +182,8 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
 				return directive != null;
 		}

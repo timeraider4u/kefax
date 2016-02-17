@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#isParentheses <em>Parentheses</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -233,7 +233,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.PRIMARY_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -247,7 +248,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr) {
+		if (newExpr != expr)
+		{
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.PRIMARY_EXPRESSION__EXPR, null, msgs);
@@ -291,7 +293,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRIMARY_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 		}
@@ -306,7 +309,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
 				return isDefined();
 			case PreprocessPackage.PRIMARY_EXPRESSION__ID:
@@ -329,7 +333,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
 				setDefined((Boolean)newValue);
 				return;
@@ -357,7 +362,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
 				setDefined(DEFINED_EDEFAULT);
 				return;
@@ -385,7 +391,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
 				return defined != DEFINED_EDEFAULT;
 			case PreprocessPackage.PRIMARY_EXPRESSION__ID:

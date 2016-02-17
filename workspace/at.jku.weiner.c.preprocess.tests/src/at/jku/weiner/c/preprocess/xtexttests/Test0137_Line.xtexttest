@@ -73,14 +73,14 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"NAME",
-					string++"\\\"Nobody\\\""
+					id++"FOO",
+					string++"100"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(LineDirective
-					line++"25",
+					line++"FOO",
 					path isNull
 				)
 			),

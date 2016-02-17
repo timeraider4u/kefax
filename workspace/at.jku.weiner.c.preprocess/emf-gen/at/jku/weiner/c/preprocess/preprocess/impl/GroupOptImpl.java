@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOptImpl#getLines <em>Lines</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -73,7 +73,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	 */
 	public EList<SourceCodeLine> getLines()
 	{
-		if (lines == null) {
+		if (lines == null)
+		{
 			lines = new EObjectContainmentEList<SourceCodeLine>(SourceCodeLine.class, this, PreprocessPackage.GROUP_OPT__LINES);
 		}
 		return lines;
@@ -87,7 +88,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.GROUP_OPT__LINES:
 				return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
 		}
@@ -102,7 +104,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.GROUP_OPT__LINES:
 				return getLines();
 		}
@@ -118,7 +121,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.GROUP_OPT__LINES:
 				getLines().clear();
 				getLines().addAll((Collection<? extends SourceCodeLine>)newValue);
@@ -135,7 +139,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.GROUP_OPT__LINES:
 				getLines().clear();
 				return;
@@ -151,7 +156,8 @@ public class GroupOptImpl extends MinimalEObjectImpl.Container implements GroupO
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.GROUP_OPT__LINES:
 				return lines != null && !lines.isEmpty();
 		}

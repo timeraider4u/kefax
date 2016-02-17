@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#isBranchTaken <em>Branch Taken</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -124,7 +124,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP, oldGroup, newGroup);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -138,7 +139,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	 */
 	public void setGroup(GroupOpt newGroup)
 	{
-		if (newGroup != group) {
+		if (newGroup != group)
+		{
 			NotificationChain msgs = null;
 			if (group != null)
 				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP, null, msgs);
@@ -159,7 +161,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP:
 				return basicSetGroup(null, msgs);
 		}
@@ -174,7 +177,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				return isBranchTaken();
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP:
@@ -191,7 +195,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				setBranchTaken((Boolean)newValue);
 				return;
@@ -210,7 +215,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				setBranchTaken(BRANCH_TAKEN_EDEFAULT);
 				return;
@@ -229,7 +235,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				return branchTaken != BRANCH_TAKEN_EDEFAULT;
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__GROUP:

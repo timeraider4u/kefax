@@ -5526,6 +5526,7 @@ rule__LineDirective__Group__2
     }
 :
 	rule__LineDirective__Group__2__Impl
+	rule__LineDirective__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5551,6 +5552,147 @@ finally {
 }
 
 
+rule__LineDirective__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LineDirective__Group__3__Impl
+	rule__LineDirective__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getLineDirectiveAccess().getLineAssignment_3()); }
+(rule__LineDirective__LineAssignment_3)
+{ after(grammarAccess.getLineDirectiveAccess().getLineAssignment_3()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LineDirective__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LineDirective__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getLineDirectiveAccess().getGroup_4()); }
+(rule__LineDirective__Group_4__0)?
+{ after(grammarAccess.getLineDirectiveAccess().getGroup_4()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+rule__LineDirective__Group_4__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LineDirective__Group_4__0__Impl
+	rule__LineDirective__Group_4__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__Group_4__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+(
+{ before(grammarAccess.getLineDirectiveAccess().getWHITESPACETerminalRuleCall_4_0()); }
+(	RULE_WHITESPACE)
+{ after(grammarAccess.getLineDirectiveAccess().getWHITESPACETerminalRuleCall_4_0()); }
+)
+(
+{ before(grammarAccess.getLineDirectiveAccess().getWHITESPACETerminalRuleCall_4_0()); }
+(	RULE_WHITESPACE)*
+{ after(grammarAccess.getLineDirectiveAccess().getWHITESPACETerminalRuleCall_4_0()); }
+)
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LineDirective__Group_4__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LineDirective__Group_4__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__Group_4__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getLineDirectiveAccess().getPathAssignment_4_1()); }
+(rule__LineDirective__PathAssignment_4_1)
+{ after(grammarAccess.getLineDirectiveAccess().getPathAssignment_4_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -11343,6 +11485,36 @@ rule__IdentifierList__VariadicAssignment_1_1_1
 (
 { before(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_1_1_0()); }
 	ruleEllipsis{ after(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__LineAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLineDirectiveAccess().getLineMyCodeParserRuleCall_3_0()); }
+	ruleMyCode{ after(grammarAccess.getLineDirectiveAccess().getLineMyCodeParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineDirective__PathAssignment_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); }
+	ruleMyDefineLineObject{ after(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); }
 )
 
 ;

@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PragmaDirectiveImpl#getPragma <em>Pragma</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -99,7 +99,8 @@ public class PragmaDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRAGMA_DIRECTIVE__PRAGMA:
 				return getPragma();
 		}
@@ -114,7 +115,8 @@ public class PragmaDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRAGMA_DIRECTIVE__PRAGMA:
 				setPragma((String)newValue);
 				return;
@@ -130,7 +132,8 @@ public class PragmaDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRAGMA_DIRECTIVE__PRAGMA:
 				setPragma(PRAGMA_EDEFAULT);
 				return;
@@ -146,7 +149,8 @@ public class PragmaDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PRAGMA_DIRECTIVE__PRAGMA:
 				return PRAGMA_EDEFAULT == null ? pragma != null : !PRAGMA_EDEFAULT.equals(pragma);
 		}

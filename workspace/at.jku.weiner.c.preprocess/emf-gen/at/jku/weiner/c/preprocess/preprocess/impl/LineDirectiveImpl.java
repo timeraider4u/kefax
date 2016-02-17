@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl#getLine <em>Line</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl#getPath <em>Path</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -143,7 +143,8 @@ public class LineDirectiveImpl extends MinimalEObjectImpl.Container implements L
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.LINE_DIRECTIVE__LINE:
 				return getLine();
 			case PreprocessPackage.LINE_DIRECTIVE__PATH:
@@ -160,7 +161,8 @@ public class LineDirectiveImpl extends MinimalEObjectImpl.Container implements L
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.LINE_DIRECTIVE__LINE:
 				setLine((String)newValue);
 				return;
@@ -179,7 +181,8 @@ public class LineDirectiveImpl extends MinimalEObjectImpl.Container implements L
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.LINE_DIRECTIVE__LINE:
 				setLine(LINE_EDEFAULT);
 				return;
@@ -198,7 +201,8 @@ public class LineDirectiveImpl extends MinimalEObjectImpl.Container implements L
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.LINE_DIRECTIVE__LINE:
 				return LINE_EDEFAULT == null ? line != null : !LINE_EDEFAULT.equals(line);
 			case PreprocessPackage.LINE_DIRECTIVE__PATH:

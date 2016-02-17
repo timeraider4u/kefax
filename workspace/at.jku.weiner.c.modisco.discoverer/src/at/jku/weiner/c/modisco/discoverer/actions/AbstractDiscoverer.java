@@ -31,6 +31,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	private String includeDirs = "";
 	private String additionalDirectives = "";
 	private boolean trimPreprocessModel = false;
+	private boolean batchMode = false;
+	private URI lastUri = null;
 
 	protected final boolean isApplicableOn(final IResource resource) {
 		MyLog.trace(AbstractDiscoverer.class, "isApplicableOn='" + resource
@@ -61,14 +63,14 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		try {
 			monitor.subTask(Messages.discover + "'"
 					+ resource.getLocationURI().toString() + "'");
-			System.err.println("clazz='" + monitor.getClass() + "'");
+			// System.err.println("clazz='" + monitor.getClass() + "'");
 			this.discover2(resource, monitor);
 		} catch (final Exception ex) {
 			if (ex instanceof DiscoveryException) {
 				throw (DiscoveryException) ex;
 			}
-			final DiscoveryException newEx = new DiscoveryException(
-					ex.getMessage());
+			final DiscoveryException newEx = new DiscoveryException("'"
+					+ ex.getClass() + "':" + ex.getMessage());
 			throw newEx;
 		} finally {
 			monitor.done();
@@ -121,7 +123,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		final Resource targetModel = this.createTargetModel();
 		final MyStore result = new MyStore(monitor, targetModel, resource,
 				this.setStdInclude, this.includeDirs,
-				this.getAdditionalDirectives(), this.trimPreprocessModel);
+				this.getAdditionalDirectives(), this.trimPreprocessModel,
+				this.batchMode);
 		return result;
 	}
 
@@ -161,11 +164,6 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
-			// final EList<TranslationUnit> units = model.getUnits();
-			// for (int i = 0; i < units.size(); i++) {
-			// final TranslationUnit unit = model.getUnits().get(i);
-			// store.getModel().getUnits().add(unit);
-			// }
 		} catch (final IOException ex) {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
@@ -188,6 +186,18 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
 			MyLog.log(DiscoverFromIFile.class, "saved to='"
 					+ this.getTargetModel().getURI().toFileString() + "'");
+			if (this.batchMode && (this.lastUri != null)) {
+				final String uri = this.lastUri.toFileString();
+				MyLog.log(DiscoverFromIFile.class,
+						"batchMode, delete previous uri='" + uri + "!");
+				final File file = new File(uri);
+				boolean wasDeleted = file.delete();
+				MyLog.log(DiscoverFromIFile.class, "wasDeleted='" + wasDeleted
+						+ "'");
+				project.refreshLocal(IResource.DEPTH_INFINITE,
+						store.getMonitor());
+			}
+			this.lastUri = this.getTargetURI();
 		} catch (final Exception ex) {
 			throw new DiscoveryException(
 					"Error saving discovery result model", ex); //$NON-NLS-1$
@@ -230,6 +240,15 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model")
 	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		this.trimPreprocessModel = trimPreprocessModel;
+	}
+
+	public boolean isBatchMode() {
+		return this.batchMode;
+	}
+
+	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations")
+	public void setBatchMode(final boolean batchMode) {
+		this.batchMode = batchMode;
 	}
 
 }

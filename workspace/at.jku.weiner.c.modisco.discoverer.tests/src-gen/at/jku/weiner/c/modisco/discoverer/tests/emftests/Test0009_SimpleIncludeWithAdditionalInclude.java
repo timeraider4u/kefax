@@ -88,7 +88,7 @@ public class Test0009_SimpleIncludeWithAdditionalInclude {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.addInclude();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0009();
 	}
 	
 	@After

@@ -179,4 +179,4 @@ source file="res/Test0010_TrimPreprocessModel"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=doTrim()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0010()

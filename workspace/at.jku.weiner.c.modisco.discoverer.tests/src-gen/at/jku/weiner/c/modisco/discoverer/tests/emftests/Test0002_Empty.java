@@ -42,7 +42,7 @@ public class Test0002_Empty {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.includeDirsStringIsEmpty();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0002();
 	}
 	
 	@After

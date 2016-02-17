@@ -34,4 +34,4 @@ source file="res/Test0002_Empty"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=includeDirsStringIsEmpty()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0002()

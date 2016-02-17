@@ -178,4 +178,4 @@ source file="res/Test0006_SimpleAbsoluteInclude"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=addIncludeDir()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0006()

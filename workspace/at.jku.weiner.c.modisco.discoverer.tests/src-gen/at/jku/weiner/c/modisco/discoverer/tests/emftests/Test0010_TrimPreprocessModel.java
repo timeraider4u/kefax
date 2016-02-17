@@ -85,7 +85,7 @@ public class Test0010_TrimPreprocessModel {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.doTrim();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0010();
 	}
 	
 	@After

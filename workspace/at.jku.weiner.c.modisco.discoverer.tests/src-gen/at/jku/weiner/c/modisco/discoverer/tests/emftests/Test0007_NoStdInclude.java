@@ -60,12 +60,12 @@ public class Test0007_NoStdInclude {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.setNoStdInclude();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0007_before();
 	}
 	
 	@After
 	public void cleanUp() {
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.includeDirsIsEmpty();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0007_after();
 	}
 	
 	private String getTextFromFile(final String fileName)

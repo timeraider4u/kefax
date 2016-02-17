@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
@@ -49,6 +50,18 @@ public class XtextUtils {
 	private void setUpPredefinedMacros() {
 		final URI uri = PredefinedMacros.getPredefinedURI(false,
 				this.store.isStdInclude());
+		if (this.store.isBatchMode()) {
+			// skip loading pre-defined macros if already in added to model
+			// by previous discover call
+			final String uriPath = uri.toString();
+			EList<TranslationUnit> units = this.store.getModel().getUnits();
+			for (TranslationUnit unit : units) {
+				final String unitPath = unit.getPath();
+				if (uriPath.equals(unitPath)) {
+					return;
+				}
+			}
+		}
 		final Preprocess preprocess = PredefinedMacros.loadPreDefinedMacros(
 				false, this.store.isStdInclude());
 		final TranslationUnit predefined = this.store.getFactory()

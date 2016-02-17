@@ -21,17 +21,10 @@ import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
-	private static boolean isEmpty = false;
-	private static boolean firstCall = true;
-	private static boolean stdInclude = true;
-	private static String includeDirs = null;
 	private static String path3 = null;
-	private static String additionalDirectives = null;
-	private static boolean trimPreprocessModel = false;
 
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
-		EMFTest.firstCall();
 		final Map<String, Object> result = new HashMap<String, Object>();
 		result.put("sourceFile", sourceFile);
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -41,21 +34,6 @@ public class EMFTest {
 		result.put("path", path2);
 		result.put("plugin_id", Activator.PLUGIN_ID);
 		return result;
-	}
-
-	private static void firstCall() {
-		EMFTest.sleep();
-	}
-
-	private static void sleep() {
-		if (EMFTest.firstCall) {
-			try {
-				EMFTest.firstCall = false;
-				// Thread.sleep(500);
-			} catch (final Exception ex) {
-				ex.printStackTrace();
-			}
-		}
 	}
 
 	public static Model emfTest2(final String pureJavaClassFileName,
@@ -69,29 +47,24 @@ public class EMFTest {
 	public static Model emfTest(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		return EMFTest.emfTest(pureJavaClassFileName, sourceFile,
-				TestUtils.getListForElement(sourceFile));
+				EMFTest.getListForElement(sourceFile));
+	}
+
+	private static List<String> getListForElement(final String element) {
+		final List<String> result = new ArrayList<String>();
+		result.add(element);
+		return result;
 	}
 
 	private static Model emfTest(final String pureJavaClassFileName,
 			final String testName, final List<String> resFiles)
-			throws Exception {
-		EMFTest.firstCall();
+					throws Exception {
 		EMFTest.cleanUpOldProject();
 		final IProject iProject = EMFTest.getProject();
-		final String myIncludeDirs = EMFTest.includeDirs;
-		final boolean myStdInclude = EMFTest.stdInclude;
-		final String myDefines = EMFTest.additionalDirectives;
-		final boolean trimPreprocess = EMFTest.trimPreprocessModel;
-		final boolean myEmpty = EMFTest.isEmpty;
-		EMFTest.stdInclude = true;
-		EMFTest.includeDirs = null;
-		EMFTest.additionalDirectives = null;
-		EMFTest.trimPreprocessModel = false;
-		EMFTest.isEmpty = false;
 
-		final TestUtils utils = new TestUtils(iProject, testName, resFiles,
-				myStdInclude, myIncludeDirs, myDefines, trimPreprocess, myEmpty);
+		final TestUtils utils = new TestUtils(iProject, testName, resFiles);
 		final Model result = utils.getModel();
+		TestUtils.reset();
 		return result;
 	}
 
@@ -109,40 +82,48 @@ public class EMFTest {
 		return project;
 	}
 
-	public static void setNoStdInclude() {
-		EMFTest.stdInclude = false;
+	public static void test0001() {
+		TestUtils.isEmpty = true;
 	}
 
-	public static void includeDirsIsEmpty() {
-		final List<String> list = IncludeDirs.getListCopy();
-		Assert.assertNotNull(list);
-		Assert.assertTrue(list.isEmpty());
+	public static void test0002() {
+		EMFTest.testIncludeDirsIsEmpty();
 	}
 
-	public static void includeDirsStringIsEmpty() {
-		Assert.assertNull(EMFTest.includeDirs);
-	}
-
-	public static void addIncludeDir() {
-		EMFTest.includeDirs = EMFTest.path3 + File.separator
+	public static void test0006() {
+		TestUtils.includeDirs = EMFTest.path3 + File.separator
 				+ Activator.PLUGIN_ID + File.separator + "res/";
 	}
 
-	public static void addDefine() {
-		EMFTest.additionalDirectives = "#define __MY_TYPE__ unsigned int";
+	public static void test0007_before() {
+		TestUtils.stdInclude = false;
 	}
 
-	public static void addInclude() {
-		EMFTest.additionalDirectives = "#include \"../include/SimpleInclude.h\"";
+	public static void test0007_after() {
+		EMFTest.testIncludeDirsIsEmpty();
 	}
 
-	public static void doTrim() {
-		EMFTest.trimPreprocessModel = true;
-		EMFTest.stdInclude = false;
+	public static void test0008() {
+		TestUtils.additionalDirectives = "#define __MY_TYPE__ unsigned int";
 	}
 
-	public static void test0001() {
-		EMFTest.isEmpty = true;
+	public static void test0009() {
+		TestUtils.additionalDirectives = "#include \"../include/SimpleInclude.h\"";
 	}
 
+	public static void test0010() {
+		TestUtils.trimPreprocessModel = true;
+		TestUtils.stdInclude = false;
+	}
+
+	public static void test0012() {
+		TestUtils.batchMode = true;
+	}
+
+	private static void testIncludeDirsIsEmpty() {
+		final List<String> list = IncludeDirs.getListCopy();
+		Assert.assertNotNull(list);
+		Assert.assertTrue(list.isEmpty());
+		Assert.assertNull(TestUtils.includeDirs);
+	}
 }

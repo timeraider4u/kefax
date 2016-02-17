@@ -67,4 +67,4 @@ source file="res/Test0008_AddDefine"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=addDefine()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0008()

@@ -185,4 +185,4 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=addInclude()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0009()

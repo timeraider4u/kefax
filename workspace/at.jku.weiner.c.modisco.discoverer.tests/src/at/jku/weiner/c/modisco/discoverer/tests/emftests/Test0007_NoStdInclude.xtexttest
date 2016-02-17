@@ -95,5 +95,5 @@ source file="res/Test0007_NoStdInclude"
 	)
 )
 
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=setNoStdInclude()
-after class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=includeDirsIsEmpty()
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0007_before()
+after class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0007_after()

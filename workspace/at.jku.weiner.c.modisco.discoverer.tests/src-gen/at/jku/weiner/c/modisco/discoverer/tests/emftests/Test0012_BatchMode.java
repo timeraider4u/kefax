@@ -56,7 +56,6 @@ import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
-import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.InitDeclaratorList;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
 import at.jku.weiner.c.parser.parser.Declarator;
@@ -76,6 +75,7 @@ public class Test0012_BatchMode {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0012();
 	}
 	
 	@After
@@ -258,7 +258,7 @@ public class Test0012_BatchMode {
 		);
 		Assert.assertEquals("0", Constant2_21_Var
 		.getDec());
-		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/res/Test0012_BatchMode/Simple.c", TranslationUnit_3_Var
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/res/Test0012_BatchMode1/Simple.c", TranslationUnit_3_Var
 		.getPath());
 		//21
 		final TranslationUnit TranslationUnit_22_Var
@@ -335,72 +335,65 @@ public class Test0012_BatchMode {
 		final EList<? extends EObject> DeclarationSpecifier_31_list = DeclarationSpecifiers_31_Var
 		.getDeclarationSpecifier();
 		Assert.assertNotNull(DeclarationSpecifier_31_list);
-		Assert.assertEquals(2, DeclarationSpecifier_31_list.size());
+		Assert.assertEquals(1, DeclarationSpecifier_31_list.size());
 		//31
 		final TypeSpecifier TypeSpecifier_32_Var
 		 = (TypeSpecifier)DeclarationSpecifier_31_list.get(0);
 		Assert.assertNotNull(TypeSpecifier_32_Var
 		);
-		Assert.assertEquals("unsigned", TypeSpecifier_32_Var
+		Assert.assertEquals("int", TypeSpecifier_32_Var
 		.getName());
-		//32
-		final TypeSpecifier TypeSpecifier_33_Var
-		 = (TypeSpecifier)DeclarationSpecifier_31_list.get(1);
-		Assert.assertNotNull(TypeSpecifier_33_Var
-		);
-		Assert.assertEquals("int", TypeSpecifier_33_Var
-		.getName());
-		final EList<? extends EObject> InitDeclaratorList_33_list = Declaration_30_Var
+		final EList<? extends EObject> InitDeclaratorList_32_list = Declaration_30_Var
 		.getInitDeclaratorList();
-		Assert.assertNotNull(InitDeclaratorList_33_list);
-		Assert.assertEquals(1, InitDeclaratorList_33_list.size());
-		//33
-		final InitDeclaratorList InitDeclaratorList_34_Var
-		 = (InitDeclaratorList)InitDeclaratorList_33_list.get(0);
-		Assert.assertNotNull(InitDeclaratorList_34_Var
+		Assert.assertNotNull(InitDeclaratorList_32_list);
+		Assert.assertEquals(1, InitDeclaratorList_32_list.size());
+		//32
+		final InitDeclaratorList InitDeclaratorList_33_Var
+		 = (InitDeclaratorList)InitDeclaratorList_32_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_33_Var
 		);
-		final EList<? extends EObject> InitDeclarator_34_list = InitDeclaratorList_34_Var
+		final EList<? extends EObject> InitDeclarator_33_list = InitDeclaratorList_33_Var
 		.getInitDeclarator();
-		Assert.assertNotNull(InitDeclarator_34_list);
-		Assert.assertEquals(1, InitDeclarator_34_list.size());
+		Assert.assertNotNull(InitDeclarator_33_list);
+		Assert.assertEquals(1, InitDeclarator_33_list.size());
+		//33
+		final InitDeclarator InitDeclarator_34_Var
+		 = (InitDeclarator)InitDeclarator_33_list.get(0);
+		Assert.assertNotNull(InitDeclarator_34_Var
+		);
 		//34
-		final InitDeclarator InitDeclarator_35_Var
-		 = (InitDeclarator)InitDeclarator_34_list.get(0);
-		Assert.assertNotNull(InitDeclarator_35_Var
+		final Declarator Declarator_35_Var
+		 = (Declarator)InitDeclarator_34_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_35_Var
 		);
 		//35
-		final Declarator Declarator_36_Var
-		 = (Declarator)InitDeclarator_35_Var
+		final DirectDeclarator DirectDeclarator_36_Var
+		 = (DirectDeclarator)Declarator_35_Var
 		.getDeclarator();
-		Assert.assertNotNull(Declarator_36_Var
+		Assert.assertNotNull(DirectDeclarator_36_Var
 		);
-		//36
-		final DirectDeclarator DirectDeclarator_37_Var
-		 = (DirectDeclarator)Declarator_36_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_37_Var
-		);
-		Assert.assertEquals("j", DirectDeclarator_37_Var
+		Assert.assertEquals("j", DirectDeclarator_36_Var
 		.getId());
-		//37
-		final Initializer Initializer_38_Var
-		 = (Initializer)InitDeclarator_35_Var
+		//36
+		final Initializer Initializer_37_Var
+		 = (Initializer)InitDeclarator_34_Var
 		.getInitializer();
-		Assert.assertNotNull(Initializer_38_Var
+		Assert.assertNotNull(Initializer_37_Var
+		);
+		//37
+		final PrimaryExpression PrimaryExpression_38_Var
+		 = (PrimaryExpression)Initializer_37_Var
+		.getExpr();
+		Assert.assertNotNull(PrimaryExpression_38_Var
 		);
 		//38
-		final PrimaryExpression PrimaryExpression_39_Var
-		 = (PrimaryExpression)Initializer_38_Var
-		.getExpr();
-		Assert.assertNotNull(PrimaryExpression_39_Var
-		);
-		//39
-		final Constant2 Constant2_40_Var
-		 = (Constant2)PrimaryExpression_39_Var
+		final Constant2 Constant2_39_Var
+		 = (Constant2)PrimaryExpression_38_Var
 		.getConst();
-		Assert.assertNotNull(Constant2_40_Var
+		Assert.assertNotNull(Constant2_39_Var
 		);
-		Assert.assertEquals("1", Constant2_40_Var
+		Assert.assertEquals("1", Constant2_39_Var
 		.getDec());
 	}
 	

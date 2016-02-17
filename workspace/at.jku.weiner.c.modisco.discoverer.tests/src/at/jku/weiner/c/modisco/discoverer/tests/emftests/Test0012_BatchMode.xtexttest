@@ -80,7 +80,7 @@ source file="res/Test0012_BatchMode"
 				)	
 			)
 		),
-		path++"${{path}}/${{plugin_id}}/res/Test0012_BatchMode/Simple.c"
+		path++"${{path}}/${{plugin_id}}/res/Test0012_BatchMode1/Simple.c"
 	),
 	// Another.c
 	(TranslationUnit
@@ -111,9 +111,6 @@ source file="res/Test0012_BatchMode"
 					specifiers=
 					(parser::DeclarationSpecifiers
 						declarationSpecifier+=
-						(parser::TypeSpecifier
-							name++"unsigned"
-						),
 						(parser::TypeSpecifier
 							name++"int"
 						)
@@ -146,3 +143,5 @@ source file="res/Test0012_BatchMode"
 		)
 	)
 )
+
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0012()

@@ -52,7 +52,7 @@ public class Test0008_AddDefine {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.addDefine();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0008();
 	}
 	
 	@After

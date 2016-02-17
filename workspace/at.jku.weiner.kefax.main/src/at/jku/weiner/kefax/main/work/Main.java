@@ -161,6 +161,7 @@ public class Main {
 			discoverer.setIncludeDirs(includeDirectories);
 			discoverer.setAdditionalDirectives(additionalDirectives);
 			discoverer.setTrimPreprocessModel(true);
+			discoverer.setBatchMode(true);
 
 			discoverer.discoverElement(inFileRes, monitor);
 		}

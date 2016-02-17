@@ -1472,9 +1472,9 @@ this_LINE_1=RULE_LINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getLineDirectiveAccess().getPathMyCodeParserRuleCall_4_1_0()); 
 	    }
-		lv_path_5_0=ruleMyDefineLineObject		{
+		lv_path_5_0=ruleMyCode		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLineDirectiveRule());
 	        }
@@ -1482,7 +1482,7 @@ this_LINE_1=RULE_LINE
        			$current, 
        			"path",
         		lv_path_5_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLineObject");
+        		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
 	        afterParserOrEnumRuleCall();
 	    }
 

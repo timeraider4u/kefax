@@ -57,6 +57,7 @@ import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
 import at.jku.weiner.c.preprocess.utils.LexerUtils
 import at.jku.weiner.c.preprocess.utils.Trimmer
 import at.jku.weiner.c.common.common.Expression
+import at.jku.weiner.c.preprocess.preprocess.LineDirective
 
 /**
  * Generates code from your model files on save.
@@ -89,12 +90,16 @@ class PreprocessGenerator implements IGenerator {
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
 	DefinitionTable definitionTable;
+	Stack<String> currFileNames;
+	Stack<String> currLineNumber;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		setUp();
 		rs = input.resourceSet;
 		uri = input.URI;
 		currUri = new Stack<URI>;
+		currFileNames = new Stack<String>;
+		currLineNumber = new Stack<String>;
 		currUri.push(uri);
 		if (stdInclude) {
 			IncludeDirs.setUp();
@@ -130,8 +135,14 @@ class PreprocessGenerator implements IGenerator {
 	def void insertPredefinedMacros() {
 		val Preprocess predefined = PredefinedMacros.loadPreDefinedMacros(standAlone, this.stdInclude);
 		path.add("/predefined/");
+		currFileNames.push("/predefined/");
+		currLineNumber.push("0");
+		registerFileName();
+		registerLineNumber();
 		val String output = outputFor(predefined);
 		output.trim();
+		currFileNames.pop();
+		currLineNumber.pop();
 	}
 	
 	def String addAdditionalPreprocessingDirectives(ResourceSet resourceSet) {
@@ -141,27 +152,44 @@ class PreprocessGenerator implements IGenerator {
 		val Preprocess additional = AdditionalPreprocessingDirectives.getAdditionalDirectivesFor(
 			additionalPreprocessingDirectives
 		);
+		currLineNumber.push("0");
+		currFileNames.push("/additionalPreprocessingDirectives/");
+		registerFileName();
+		registerLineNumber();
 		path.add("/additionalPreprocessingDirectives/");
 		val String result = outputFor(additional);
+		currFileNames.pop();
+		currLineNumber.pop();
 		return result.trim();
 	}
 	
 	def Preprocess getPreprocessFor(Resource input, boolean forceLoading) {
 		var Preprocess preprocess = null;
 		validatePreprocess(input);
-		val String fileName = getFileName(input);
+		//val String fileName = getFileName(input);
+		val tempFileName = getFileName(input);
+		currLineNumber.push("0");
+		currFileNames.push(tempFileName);
+		registerFileName();
+		registerLineNumber();
 		if (this.unit == null) {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
-			MyLog.trace(PreprocessGenerator.getClass, "unit-null: preprocess='" + preprocess + "'" + fileName + "'");
+			MyLog.trace(PreprocessGenerator.getClass, "unit-null: preprocess='" 
+				+ preprocess + "'" + currFileNames.peek() + "'"
+			);
 		}
 		else {
 			preprocess = unit.preprocess as Preprocess;
 			if (preprocess == null || forceLoading) {
-				preprocess = loadExistingPreprocess(fileName);
-				MyLog.debug(PreprocessGenerator.getClass, "force-loading: preprocess='" + preprocess + "'" + fileName + "'");
+				preprocess = loadExistingPreprocess(currFileNames.peek());
+				MyLog.debug(PreprocessGenerator.getClass, "force-loading: preprocess='" 
+					+ preprocess + "'" + currFileNames.peek() + "'"
+				);
 				if (preprocess == null) {
 					preprocess = input.allContents.filter(typeof(Preprocess)).head;
-					MyLog.debug(PreprocessGenerator.getClass, "filtering: preprocess='" + preprocess + "'" + fileName + "'");
+					MyLog.debug(PreprocessGenerator.getClass, "filtering: preprocess='" 
+						+ preprocess + "'" + currFileNames.peek() + "'"
+					);
 				}
 			}
 		}
@@ -173,7 +201,7 @@ class PreprocessGenerator implements IGenerator {
 		
 		//val TranslationUnit unit = model.getUnits().head;
 		// unit.setPath(fileName);
-		path.add("/" + fileName + "/");
+		path.add("/" + currFileNames.peek() + "/");
 		return preprocess;
 	}
 	
@@ -227,7 +255,10 @@ class PreprocessGenerator implements IGenerator {
 		MyLog.debug(PreprocessGenerator.getClass, "outputFor path='" + path + "'");
 		
 		val StringBuffer result = new StringBuffer("");
+		registerLineNumber();
 		for (var int i = 0; i < group.lines.size; i++) {
+			
+			
 			var SourceCodeLine obj = group.lines.get(i);
 			if (obj instanceof PreprocessorDirectives) {
 				result.append(outputFor(obj as PreprocessorDirectives));
@@ -266,6 +297,7 @@ class PreprocessGenerator implements IGenerator {
 				result.append(codeResult);
 				result.append(getNewLine());
 			}
+			incrementCurrLineNumber();
 		}
 		path.remove(path.length() - 1);
 		MyLog.debug(PreprocessGenerator.getClass, "back in path='" + path + "'");
@@ -275,20 +307,17 @@ class PreprocessGenerator implements IGenerator {
 	def String outputFor(PreprocessorDirectives obj) '''
 		«IF obj.directive instanceof IncludeDirective»
 			«outputFor(obj.directive as IncludeDirective)»
-		«ENDIF»
-		«IF obj.directive instanceof DefineDirective»
+		«ELSEIF obj.directive instanceof DefineDirective»
 			«outputFor(obj.directive as DefineDirective)»
-		«ENDIF»
-		«IF obj.directive instanceof UnDefineDirective»
+		«ELSEIF obj.directive instanceof UnDefineDirective»
 			«outputFor(obj.directive as UnDefineDirective)»
-		«ENDIF»
-		«IF obj.directive instanceof ConditionalDirective»
+		«ELSEIF obj.directive instanceof ConditionalDirective»
 			«outputFor(obj.directive as ConditionalDirective)»
-		«ENDIF»
-		«IF obj.directive instanceof ErrorDirective»
+		«ELSEIF obj.directive instanceof LineDirective»
+			«outputFor(obj.directive as LineDirective)»
+		«ELSEIF obj.directive instanceof ErrorDirective»
 			«outputFor(obj.directive as ErrorDirective)»
-		«ENDIF»
-		«IF obj.directive instanceof PragmaDirective»
+		«ELSEIF obj.directive instanceof PragmaDirective»
 			«outputFor(obj.directive as PragmaDirective)»
 		«ENDIF»
 	'''
@@ -323,6 +352,8 @@ class PreprocessGenerator implements IGenerator {
 		
 		
 		currUri.pop();
+		currFileNames.pop();
+		currLineNumber.pop();
 		//path.remove(path.length() -1);
 		return output;
 	}
@@ -349,10 +380,10 @@ class PreprocessGenerator implements IGenerator {
 		if (obj.conditional instanceof IfConditional) {
 			result.append(outputFor(obj, obj.conditional as IfConditional));
 		}
-		if (obj.conditional instanceof IfDefConditional) {
+		else if (obj.conditional instanceof IfDefConditional) {
 			result.append(outputFor(obj, obj.conditional as IfDefConditional)); 
 		}
-		if (obj.conditional instanceof IfNotDefConditional) {
+		else if (obj.conditional instanceof IfNotDefConditional) {
 			result.append(outputFor(obj, obj.conditional as IfNotDefConditional)); 
 		}
 		result.append(outputFor(obj, obj.getElifs()));
@@ -432,7 +463,7 @@ class PreprocessGenerator implements IGenerator {
  		if (condition != null) {
  			return "";
  		}
-		if (obj== null) {
+		else if (obj== null) {
 			return "";
 		}
 		condDirective.branchTaken = obj;
@@ -440,6 +471,23 @@ class PreprocessGenerator implements IGenerator {
 		path.add("else/");
 		return outputFor(obj.group).trim();
 	}
+	
+	def String outputFor(LineDirective obj) {
+		val String lineUnresolved = obj.line;
+		val String line = resolve(lineUnresolved);
+		this.currLineNumber.pop();
+		this.currLineNumber.push(line);
+		registerLineNumber();
+		val String pathUnresolved = obj.path;
+		if (pathUnresolved != null) {
+			val String pathPure = resolve(pathUnresolved);
+			this.currFileNames.pop();
+			this.currFileNames.push(pathPure);
+			registerFileName();
+		}
+		return "";
+	}
+
 	
 	def String outputFor(ErrorDirective obj) '''
 	'''
@@ -479,4 +527,28 @@ class PreprocessGenerator implements IGenerator {
 		Trimmer.trimPreprocess(preprocess);
 	}
 	
+	def incrementCurrLineNumber() {
+		val String tempLineNumAsStr = this.currLineNumber.pop();
+		val Integer tempLineNum = Integer.valueOf(tempLineNumAsStr);
+		val int i = tempLineNum.intValue + 1;
+		this.currLineNumber.push("" + i);
+		registerLineNumber();
+	}
+	
+	def registerLineNumber() {
+		this.definitionTable.remove(PredefinedMacros.MACRO_LINE);
+		this.definitionTable.add(PredefinedMacros.MACRO_LINE, this.currLineNumber.peek());
+	}
+	
+	def registerFileName() {
+		this.definitionTable.remove(PredefinedMacros.MACRO_FILE);
+		val String temp = this.currFileNames.peek();
+		if (temp.startsWith("\"")) {
+			this.definitionTable.add(PredefinedMacros.MACRO_FILE, this.currFileNames.peek());
+		}
+		else {
+			this.definitionTable.add(PredefinedMacros.MACRO_FILE, 
+			'"' + this.currFileNames.peek() + '"');
+		}
+	}
 }

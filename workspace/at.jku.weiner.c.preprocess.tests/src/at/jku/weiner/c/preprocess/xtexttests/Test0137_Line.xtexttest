@@ -8,6 +8,10 @@ split-lexer=false
 source file="res/Test0137_Line.c"
 //----------------------------------------------------------------------
 lexer-tokens
+	// default
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	NEWLINE
 	// line 5
 	HASH WHITESPACE LINE WHITESPACE DECIMAL_LITERAL NEWLINE
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
@@ -37,6 +41,15 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
+			// default
+			(Code
+				code++"int line0 = __LINE__;"
+			),
+			(Code
+				code++"char ** file0 = __FILE__;"
+			),
+			(NewLineLine),
+			
 			// line 5
 			(PreprocessorDirectives
 				directive=

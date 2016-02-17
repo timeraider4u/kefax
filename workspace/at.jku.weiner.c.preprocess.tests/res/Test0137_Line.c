@@ -1,3 +1,6 @@
+int line0 = __LINE__;
+char ** file0 = __FILE__;
+
 # line 5
 int line1 = __LINE__;
 char ** file1 = __FILE__;

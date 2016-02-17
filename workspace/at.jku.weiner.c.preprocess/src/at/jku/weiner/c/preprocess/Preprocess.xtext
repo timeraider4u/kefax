@@ -154,7 +154,7 @@ LineDirective:
 	LINE WHITESPACE* 
 	line=MyCode 
 	(WHITESPACE+ 
-		path=MyDefineLineObject
+		path=MyCode
 	)?
 ;
 

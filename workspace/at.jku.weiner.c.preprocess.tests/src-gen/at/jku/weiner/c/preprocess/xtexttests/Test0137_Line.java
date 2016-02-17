@@ -45,6 +45,9 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.LineDirective;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -118,6 +121,28 @@ public class Test0137_Line {
 		final String text = this.getTextFromFile(
 			"res/Test0137_Line.c");
 			final String[] expected = new String[] {
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_ASSIGN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_SKW_STAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_ASSIGN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_WHITESPACE",
 				"RULE_LINE",
@@ -266,157 +291,176 @@ public class Test0137_Line {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(17, Lines_1_list.size());
+		Assert.assertEquals(20, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final Code Code_2_Var
+		 = (Code)Lines_1_list.get(0);
+		Assert.assertNotNull(Code_2_Var
 		);
+		Assert.assertEquals("int line0 = __LINE__;", Code_2_Var
+		.getCode());
 		//2
-		final LineDirective LineDirective_3_Var
-		 = (LineDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(LineDirective_3_Var
-		);
-		Assert.assertEquals("5", LineDirective_3_Var
-		.getLine());
-		Assert.assertNull(LineDirective_3_Var
-		.getPath());
-		//3
-		final Code Code_4_Var
+		final Code Code_3_Var
 		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_4_Var
+		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals("int line1 = __LINE__;", Code_4_Var
+		Assert.assertEquals("char ** file0 = __FILE__;", Code_3_Var
 		.getCode());
+		//3
+		final NewLineLine NewLineLine_4_Var
+		 = (NewLineLine)Lines_1_list.get(2);
+		Assert.assertNotNull(NewLineLine_4_Var
+		);
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final PreprocessorDirectives PreprocessorDirectives_5_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_5_Var
 		);
-		Assert.assertEquals("char ** file1 = __FILE__;", Code_5_Var
-		.getCode());
 		//5
-		final NewLineLine NewLineLine_6_Var
-		 = (NewLineLine)Lines_1_list.get(3);
-		Assert.assertNotNull(NewLineLine_6_Var
-		);
-		//6
-		final PreprocessorDirectives PreprocessorDirectives_7_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(4);
-		Assert.assertNotNull(PreprocessorDirectives_7_Var
-		);
-		//7
-		final LineDirective LineDirective_8_Var
-		 = (LineDirective)PreprocessorDirectives_7_Var
+		final LineDirective LineDirective_6_Var
+		 = (LineDirective)PreprocessorDirectives_5_Var
 		.getDirective();
-		Assert.assertNotNull(LineDirective_8_Var
+		Assert.assertNotNull(LineDirective_6_Var
 		);
-		Assert.assertEquals("25", LineDirective_8_Var
+		Assert.assertEquals("5", LineDirective_6_Var
 		.getLine());
-		Assert.assertEquals("\"MyTest0137_Line.c_file\"", LineDirective_8_Var
+		Assert.assertNull(LineDirective_6_Var
 		.getPath());
-		//8
-		final Code Code_9_Var
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("int line1 = __LINE__;", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
 		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_9_Var
+		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("int line2 = __LINE__;", Code_9_Var
+		Assert.assertEquals("char ** file1 = __FILE__;", Code_8_Var
 		.getCode());
+		//8
+		final NewLineLine NewLineLine_9_Var
+		 = (NewLineLine)Lines_1_list.get(6);
+		Assert.assertNotNull(NewLineLine_9_Var
+		);
 		//9
-		final Code Code_10_Var
-		 = (Code)Lines_1_list.get(6);
-		Assert.assertNotNull(Code_10_Var
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(7);
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
 		);
-		Assert.assertEquals("char ** file2 = __FILE__;", Code_10_Var
-		.getCode());
 		//10
-		final NewLineLine NewLineLine_11_Var
-		 = (NewLineLine)Lines_1_list.get(7);
-		Assert.assertNotNull(NewLineLine_11_Var
-		);
-		//11
-		final PreprocessorDirectives PreprocessorDirectives_12_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(8);
-		Assert.assertNotNull(PreprocessorDirectives_12_Var
-		);
-		//12
-		final DefineObjectMacro DefineObjectMacro_13_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_12_Var
+		final LineDirective LineDirective_11_Var
+		 = (LineDirective)PreprocessorDirectives_10_Var
 		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_13_Var
+		Assert.assertNotNull(LineDirective_11_Var
 		);
-		Assert.assertEquals("FOO", DefineObjectMacro_13_Var
-		.getId());
-		Assert.assertEquals("100", DefineObjectMacro_13_Var
-		.getString());
+		Assert.assertEquals("25", LineDirective_11_Var
+		.getLine());
+		Assert.assertEquals("\"MyTest0137_Line.c_file\"", LineDirective_11_Var
+		.getPath());
+		//11
+		final Code Code_12_Var
+		 = (Code)Lines_1_list.get(8);
+		Assert.assertNotNull(Code_12_Var
+		);
+		Assert.assertEquals("int line2 = __LINE__;", Code_12_Var
+		.getCode());
+		//12
+		final Code Code_13_Var
+		 = (Code)Lines_1_list.get(9);
+		Assert.assertNotNull(Code_13_Var
+		);
+		Assert.assertEquals("char ** file2 = __FILE__;", Code_13_Var
+		.getCode());
 		//13
-		final PreprocessorDirectives PreprocessorDirectives_14_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(9);
-		Assert.assertNotNull(PreprocessorDirectives_14_Var
+		final NewLineLine NewLineLine_14_Var
+		 = (NewLineLine)Lines_1_list.get(10);
+		Assert.assertNotNull(NewLineLine_14_Var
 		);
 		//14
-		final LineDirective LineDirective_15_Var
-		 = (LineDirective)PreprocessorDirectives_14_Var
-		.getDirective();
-		Assert.assertNotNull(LineDirective_15_Var
+		final PreprocessorDirectives PreprocessorDirectives_15_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(11);
+		Assert.assertNotNull(PreprocessorDirectives_15_Var
 		);
-		Assert.assertEquals("FOO", LineDirective_15_Var
-		.getLine());
-		Assert.assertNull(LineDirective_15_Var
-		.getPath());
 		//15
-		final Code Code_16_Var
-		 = (Code)Lines_1_list.get(10);
-		Assert.assertNotNull(Code_16_Var
-		);
-		Assert.assertEquals("int line3 = __LINE__;", Code_16_Var
-		.getCode());
-		//16
-		final Code Code_17_Var
-		 = (Code)Lines_1_list.get(11);
-		Assert.assertNotNull(Code_17_Var
-		);
-		Assert.assertEquals("char ** file3 = __FILE__;", Code_17_Var
-		.getCode());
-		//17
-		final NewLineLine NewLineLine_18_Var
-		 = (NewLineLine)Lines_1_list.get(12);
-		Assert.assertNotNull(NewLineLine_18_Var
-		);
-		//18
-		final PreprocessorDirectives PreprocessorDirectives_19_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(13);
-		Assert.assertNotNull(PreprocessorDirectives_19_Var
-		);
-		//19
-		final LineDirective LineDirective_20_Var
-		 = (LineDirective)PreprocessorDirectives_19_Var
+		final DefineObjectMacro DefineObjectMacro_16_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_15_Var
 		.getDirective();
-		Assert.assertNotNull(LineDirective_20_Var
+		Assert.assertNotNull(DefineObjectMacro_16_Var
 		);
-		Assert.assertEquals("FOO", LineDirective_20_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_16_Var
+		.getId());
+		Assert.assertEquals("100", DefineObjectMacro_16_Var
+		.getString());
+		//16
+		final PreprocessorDirectives PreprocessorDirectives_17_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(12);
+		Assert.assertNotNull(PreprocessorDirectives_17_Var
+		);
+		//17
+		final LineDirective LineDirective_18_Var
+		 = (LineDirective)PreprocessorDirectives_17_Var
+		.getDirective();
+		Assert.assertNotNull(LineDirective_18_Var
+		);
+		Assert.assertEquals("FOO", LineDirective_18_Var
 		.getLine());
-		Assert.assertEquals("\"MyTest0137_Line.c_file_2\"", LineDirective_20_Var
+		Assert.assertNull(LineDirective_18_Var
 		.getPath());
-		//20
-		final Code Code_21_Var
+		//18
+		final Code Code_19_Var
+		 = (Code)Lines_1_list.get(13);
+		Assert.assertNotNull(Code_19_Var
+		);
+		Assert.assertEquals("int line3 = __LINE__;", Code_19_Var
+		.getCode());
+		//19
+		final Code Code_20_Var
 		 = (Code)Lines_1_list.get(14);
-		Assert.assertNotNull(Code_21_Var
+		Assert.assertNotNull(Code_20_Var
 		);
-		Assert.assertEquals("int line4 = __LINE__;", Code_21_Var
+		Assert.assertEquals("char ** file3 = __FILE__;", Code_20_Var
 		.getCode());
+		//20
+		final NewLineLine NewLineLine_21_Var
+		 = (NewLineLine)Lines_1_list.get(15);
+		Assert.assertNotNull(NewLineLine_21_Var
+		);
 		//21
-		final Code Code_22_Var
-		 = (Code)Lines_1_list.get(15);
-		Assert.assertNotNull(Code_22_Var
+		final PreprocessorDirectives PreprocessorDirectives_22_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(16);
+		Assert.assertNotNull(PreprocessorDirectives_22_Var
 		);
-		Assert.assertEquals("char ** file4 = __FILE__;", Code_22_Var
-		.getCode());
 		//22
-		final NewLineLine NewLineLine_23_Var
-		 = (NewLineLine)Lines_1_list.get(16);
-		Assert.assertNotNull(NewLineLine_23_Var
+		final LineDirective LineDirective_23_Var
+		 = (LineDirective)PreprocessorDirectives_22_Var
+		.getDirective();
+		Assert.assertNotNull(LineDirective_23_Var
+		);
+		Assert.assertEquals("FOO", LineDirective_23_Var
+		.getLine());
+		Assert.assertEquals("\"MyTest0137_Line.c_file_2\"", LineDirective_23_Var
+		.getPath());
+		//23
+		final Code Code_24_Var
+		 = (Code)Lines_1_list.get(17);
+		Assert.assertNotNull(Code_24_Var
+		);
+		Assert.assertEquals("int line4 = __LINE__;", Code_24_Var
+		.getCode());
+		//24
+		final Code Code_25_Var
+		 = (Code)Lines_1_list.get(18);
+		Assert.assertNotNull(Code_25_Var
+		);
+		Assert.assertEquals("char ** file4 = __FILE__;", Code_25_Var
+		.getCode());
+		//25
+		final NewLineLine NewLineLine_26_Var
+		 = (NewLineLine)Lines_1_list.get(19);
+		Assert.assertNotNull(NewLineLine_26_Var
 		);
 	}
 	

@@ -11513,8 +11513,8 @@ rule__LineDirective__PathAssignment_4_1
     }
 :
 (
-{ before(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); }
-	ruleMyDefineLineObject{ after(grammarAccess.getLineDirectiveAccess().getPathMyDefineLineObjectParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getLineDirectiveAccess().getPathMyCodeParserRuleCall_4_1_0()); }
+	ruleMyCode{ after(grammarAccess.getLineDirectiveAccess().getPathMyCodeParserRuleCall_4_1_0()); }
 )
 
 ;

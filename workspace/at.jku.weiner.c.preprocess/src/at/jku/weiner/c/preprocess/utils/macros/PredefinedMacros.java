@@ -16,7 +16,9 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import com.google.common.collect.Iterators;
 
 public class PredefinedMacros {
-
+	public static final String MACRO_FILE = "__FILE__";
+	public static final String MACRO_LINE = "__LINE__";
+	
 	private static final String BUNDLE_NAME = "at.jku.weiner.c.preprocess";
 
 	private static Preprocess predefined = null;

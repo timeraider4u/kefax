@@ -612,15 +612,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final RuleCall cWHITESPACETerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
 		private final Assignment cPathAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cPathMyDefineLineObjectParserRuleCall_4_1_0 = (RuleCall)cPathAssignment_4_1.eContents().get(0);
+		private final RuleCall cPathMyCodeParserRuleCall_4_1_0 = (RuleCall)cPathAssignment_4_1.eContents().get(0);
 		
 		//LineDirective:
 		//	{LineDirective} LINE WHITESPACE*
 		//	line=MyCode (WHITESPACE+
-		//	path=MyDefineLineObject)?;
+		//	path=MyCode)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{LineDirective} LINE WHITESPACE* line=MyCode (WHITESPACE+ path=MyDefineLineObject)?
+		//{LineDirective} LINE WHITESPACE* line=MyCode (WHITESPACE+ path=MyCode)?
 		public Group getGroup() { return cGroup; }
 		
 		//{LineDirective}
@@ -638,17 +638,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//MyCode
 		public RuleCall getLineMyCodeParserRuleCall_3_0() { return cLineMyCodeParserRuleCall_3_0; }
 		
-		//(WHITESPACE+ path=MyDefineLineObject)?
+		//(WHITESPACE+ path=MyCode)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_4_0() { return cWHITESPACETerminalRuleCall_4_0; }
 		
-		//path=MyDefineLineObject
+		//path=MyCode
 		public Assignment getPathAssignment_4_1() { return cPathAssignment_4_1; }
 		
-		//MyDefineLineObject
-		public RuleCall getPathMyDefineLineObjectParserRuleCall_4_1_0() { return cPathMyDefineLineObjectParserRuleCall_4_1_0; }
+		//MyCode
+		public RuleCall getPathMyCodeParserRuleCall_4_1_0() { return cPathMyCodeParserRuleCall_4_1_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
@@ -1764,7 +1764,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//LineDirective:
 	//	{LineDirective} LINE WHITESPACE*
 	//	line=MyCode (WHITESPACE+
-	//	path=MyDefineLineObject)?;
+	//	path=MyCode)?;
 	public LineDirectiveElements getLineDirectiveAccess() {
 		return pLineDirective;
 	}

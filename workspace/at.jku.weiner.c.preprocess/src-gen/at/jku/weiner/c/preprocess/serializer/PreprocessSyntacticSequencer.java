@@ -835,7 +835,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     line=MyCode (ambiguity) path=MyDefineLineObject
+	 *     line=MyCode (ambiguity) path=MyCode
 	 */
 	protected void emit_LineDirective_WHITESPACETerminalRuleCall_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

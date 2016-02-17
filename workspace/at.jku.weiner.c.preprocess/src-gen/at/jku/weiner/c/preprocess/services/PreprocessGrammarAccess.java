@@ -187,21 +187,24 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDirectiveAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
 		private final RuleCall cDirectiveDefineDirectiveParserRuleCall_4_1_0 = (RuleCall)cDirectiveAssignment_4_1.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_2 = (Assignment)cAlternatives_4.eContents().get(2);
-		private final RuleCall cDirectiveErrorDirectiveParserRuleCall_4_2_0 = (RuleCall)cDirectiveAssignment_4_2.eContents().get(0);
+		private final RuleCall cDirectiveLineDirectiveParserRuleCall_4_2_0 = (RuleCall)cDirectiveAssignment_4_2.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_3 = (Assignment)cAlternatives_4.eContents().get(3);
-		private final RuleCall cDirectiveWarningDirectiveParserRuleCall_4_3_0 = (RuleCall)cDirectiveAssignment_4_3.eContents().get(0);
+		private final RuleCall cDirectiveErrorDirectiveParserRuleCall_4_3_0 = (RuleCall)cDirectiveAssignment_4_3.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_4 = (Assignment)cAlternatives_4.eContents().get(4);
-		private final RuleCall cDirectiveUnDefineDirectiveParserRuleCall_4_4_0 = (RuleCall)cDirectiveAssignment_4_4.eContents().get(0);
+		private final RuleCall cDirectiveWarningDirectiveParserRuleCall_4_4_0 = (RuleCall)cDirectiveAssignment_4_4.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_5 = (Assignment)cAlternatives_4.eContents().get(5);
-		private final RuleCall cDirectiveConditionalDirectiveParserRuleCall_4_5_0 = (RuleCall)cDirectiveAssignment_4_5.eContents().get(0);
+		private final RuleCall cDirectiveUnDefineDirectiveParserRuleCall_4_5_0 = (RuleCall)cDirectiveAssignment_4_5.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_6 = (Assignment)cAlternatives_4.eContents().get(6);
-		private final RuleCall cDirectivePragmaDirectiveParserRuleCall_4_6_0 = (RuleCall)cDirectiveAssignment_4_6.eContents().get(0);
+		private final RuleCall cDirectiveConditionalDirectiveParserRuleCall_4_6_0 = (RuleCall)cDirectiveAssignment_4_6.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_7 = (Assignment)cAlternatives_4.eContents().get(7);
-		private final RuleCall cDirectiveNullDirectiveParserRuleCall_4_7_0 = (RuleCall)cDirectiveAssignment_4_7.eContents().get(0);
+		private final RuleCall cDirectivePragmaDirectiveParserRuleCall_4_7_0 = (RuleCall)cDirectiveAssignment_4_7.eContents().get(0);
+		private final Assignment cDirectiveAssignment_4_8 = (Assignment)cAlternatives_4.eContents().get(8);
+		private final RuleCall cDirectiveNullDirectiveParserRuleCall_4_8_0 = (RuleCall)cDirectiveAssignment_4_8.eContents().get(0);
 		
 		//PreprocessorDirectives SourceCodeLine:
 		//	{PreprocessorDirectives} WHITESPACE* HASH WHITESPACE* (directive=IncludeDirective
 		//	| directive=DefineDirective
+		//	| directive=LineDirective
 		//	| directive=ErrorDirective
 		//	| directive=WarningDirective
 		//	| directive=UnDefineDirective
@@ -211,8 +214,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PreprocessorDirectives} WHITESPACE* HASH WHITESPACE* (directive=IncludeDirective | directive=DefineDirective |
-		//directive=ErrorDirective | directive=WarningDirective | directive=UnDefineDirective | directive=ConditionalDirective |
-		//directive=PragmaDirective | directive=NullDirective)
+		//directive=LineDirective | directive=ErrorDirective | directive=WarningDirective | directive=UnDefineDirective |
+		//directive=ConditionalDirective | directive=PragmaDirective | directive=NullDirective)
 		public Group getGroup() { return cGroup; }
 		
 		//{PreprocessorDirectives}
@@ -227,8 +230,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_3() { return cWHITESPACETerminalRuleCall_3; }
 		
-		//(directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective | directive=WarningDirective |
-		//directive=UnDefineDirective | directive=ConditionalDirective | directive=PragmaDirective | directive=NullDirective)
+		//(directive=IncludeDirective | directive=DefineDirective | directive=LineDirective | directive=ErrorDirective |
+		//directive=WarningDirective | directive=UnDefineDirective | directive=ConditionalDirective | directive=PragmaDirective |
+		//directive=NullDirective)
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//directive=IncludeDirective
@@ -243,41 +247,47 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//DefineDirective
 		public RuleCall getDirectiveDefineDirectiveParserRuleCall_4_1_0() { return cDirectiveDefineDirectiveParserRuleCall_4_1_0; }
 		
-		//directive=ErrorDirective
+		//directive=LineDirective
 		public Assignment getDirectiveAssignment_4_2() { return cDirectiveAssignment_4_2; }
 		
-		//ErrorDirective
-		public RuleCall getDirectiveErrorDirectiveParserRuleCall_4_2_0() { return cDirectiveErrorDirectiveParserRuleCall_4_2_0; }
+		//LineDirective
+		public RuleCall getDirectiveLineDirectiveParserRuleCall_4_2_0() { return cDirectiveLineDirectiveParserRuleCall_4_2_0; }
 		
-		//directive=WarningDirective
+		//directive=ErrorDirective
 		public Assignment getDirectiveAssignment_4_3() { return cDirectiveAssignment_4_3; }
 		
-		//WarningDirective
-		public RuleCall getDirectiveWarningDirectiveParserRuleCall_4_3_0() { return cDirectiveWarningDirectiveParserRuleCall_4_3_0; }
+		//ErrorDirective
+		public RuleCall getDirectiveErrorDirectiveParserRuleCall_4_3_0() { return cDirectiveErrorDirectiveParserRuleCall_4_3_0; }
 		
-		//directive=UnDefineDirective
+		//directive=WarningDirective
 		public Assignment getDirectiveAssignment_4_4() { return cDirectiveAssignment_4_4; }
 		
-		//UnDefineDirective
-		public RuleCall getDirectiveUnDefineDirectiveParserRuleCall_4_4_0() { return cDirectiveUnDefineDirectiveParserRuleCall_4_4_0; }
+		//WarningDirective
+		public RuleCall getDirectiveWarningDirectiveParserRuleCall_4_4_0() { return cDirectiveWarningDirectiveParserRuleCall_4_4_0; }
 		
-		//directive=ConditionalDirective
+		//directive=UnDefineDirective
 		public Assignment getDirectiveAssignment_4_5() { return cDirectiveAssignment_4_5; }
 		
-		//ConditionalDirective
-		public RuleCall getDirectiveConditionalDirectiveParserRuleCall_4_5_0() { return cDirectiveConditionalDirectiveParserRuleCall_4_5_0; }
+		//UnDefineDirective
+		public RuleCall getDirectiveUnDefineDirectiveParserRuleCall_4_5_0() { return cDirectiveUnDefineDirectiveParserRuleCall_4_5_0; }
 		
-		//directive=PragmaDirective
+		//directive=ConditionalDirective
 		public Assignment getDirectiveAssignment_4_6() { return cDirectiveAssignment_4_6; }
 		
-		//PragmaDirective
-		public RuleCall getDirectivePragmaDirectiveParserRuleCall_4_6_0() { return cDirectivePragmaDirectiveParserRuleCall_4_6_0; }
+		//ConditionalDirective
+		public RuleCall getDirectiveConditionalDirectiveParserRuleCall_4_6_0() { return cDirectiveConditionalDirectiveParserRuleCall_4_6_0; }
 		
-		//directive=NullDirective
+		//directive=PragmaDirective
 		public Assignment getDirectiveAssignment_4_7() { return cDirectiveAssignment_4_7; }
 		
+		//PragmaDirective
+		public RuleCall getDirectivePragmaDirectiveParserRuleCall_4_7_0() { return cDirectivePragmaDirectiveParserRuleCall_4_7_0; }
+		
+		//directive=NullDirective
+		public Assignment getDirectiveAssignment_4_8() { return cDirectiveAssignment_4_8; }
+		
 		//NullDirective
-		public RuleCall getDirectiveNullDirectiveParserRuleCall_4_7_0() { return cDirectiveNullDirectiveParserRuleCall_4_7_0; }
+		public RuleCall getDirectiveNullDirectiveParserRuleCall_4_8_0() { return cDirectiveNullDirectiveParserRuleCall_4_8_0; }
 	}
 	public class IncludeDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IncludeDirective");
@@ -590,6 +600,29 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Ellipsis
 		public RuleCall getVariadicEllipsisParserRuleCall_1_1_1_0() { return cVariadicEllipsisParserRuleCall_1_1_1_0; }
+	}
+	public class LineDirectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.LineDirective");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLineDirectiveAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//LineDirective:
+		//	{LineDirective} LINE WHITESPACE*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{LineDirective} LINE WHITESPACE*
+		public Group getGroup() { return cGroup; }
+		
+		//{LineDirective}
+		public Action getLineDirectiveAction_0() { return cLineDirectiveAction_0; }
+		
+		//LINE
+		public RuleCall getLINETerminalRuleCall_1() { return cLINETerminalRuleCall_1; }
+		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
@@ -1116,18 +1149,19 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cELSETerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		private final RuleCall cWARNINGTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cUNDEFTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cSpecialKeywordsParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cConstant1ParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cLINETerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cSpecialKeywordsParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cConstant1ParserRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
 		
 		//MyCode ecore::EString:
 		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 		//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-		//	| ELIF | ELSE | WARNING | UNDEF
+		//	| ELIF | ELSE | WARNING | UNDEF | LINE
 		//	| SpecialKeywords | Constant1
 		@Override public ParserRule getRule() { return rule; }
 		
 		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | ELIF | ELSE | WARNING |
-		//UNDEF | SpecialKeywords | Constant1
+		//UNDEF | LINE | SpecialKeywords | Constant1
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -1175,11 +1209,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//UNDEF
 		public RuleCall getUNDEFTerminalRuleCall_14() { return cUNDEFTerminalRuleCall_14; }
 		
+		//LINE
+		public RuleCall getLINETerminalRuleCall_15() { return cLINETerminalRuleCall_15; }
+		
 		//SpecialKeywords
-		public RuleCall getSpecialKeywordsParserRuleCall_15() { return cSpecialKeywordsParserRuleCall_15; }
+		public RuleCall getSpecialKeywordsParserRuleCall_16() { return cSpecialKeywordsParserRuleCall_16; }
 		
 		//Constant1
-		public RuleCall getConstant1ParserRuleCall_16() { return cConstant1ParserRuleCall_16; }
+		public RuleCall getConstant1ParserRuleCall_17() { return cConstant1ParserRuleCall_17; }
 	}
 	public class MyDefineLineFunctionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLineFunction");
@@ -1423,6 +1460,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final DefineObjectMacroElements pDefineObjectMacro;
 	private final DefineFunctionLikeMacroElements pDefineFunctionLikeMacro;
 	private final IdentifierListElements pIdentifierList;
+	private final LineDirectiveElements pLineDirective;
 	private final ErrorDirectiveElements pErrorDirective;
 	private final WarningDirectiveElements pWarningDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
@@ -1448,6 +1486,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tINCLUDE;
 	private final TerminalRule tINCLUDE_NEXT;
 	private final TerminalRule tDEFINE;
+	private final TerminalRule tLINE;
 	private final TerminalRule tERROR;
 	private final TerminalRule tWARNING;
 	private final TerminalRule tUNDEF;
@@ -1482,6 +1521,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDefineObjectMacro = new DefineObjectMacroElements();
 		this.pDefineFunctionLikeMacro = new DefineFunctionLikeMacroElements();
 		this.pIdentifierList = new IdentifierListElements();
+		this.pLineDirective = new LineDirectiveElements();
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pWarningDirective = new WarningDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
@@ -1507,6 +1547,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE");
 		this.tINCLUDE_NEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE_NEXT");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.DEFINE");
+		this.tLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.LINE");
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ERROR");
 		this.tWARNING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.WARNING");
 		this.tUNDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UNDEF");
@@ -1618,6 +1659,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//PreprocessorDirectives SourceCodeLine:
 	//	{PreprocessorDirectives} WHITESPACE* HASH WHITESPACE* (directive=IncludeDirective
 	//	| directive=DefineDirective
+	//	| directive=LineDirective
 	//	| directive=ErrorDirective
 	//	| directive=WarningDirective
 	//	| directive=UnDefineDirective
@@ -1691,6 +1733,16 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getIdentifierListRule() {
 		return getIdentifierListAccess().getRule();
+	}
+	
+	//LineDirective:
+	//	{LineDirective} LINE WHITESPACE*;
+	public LineDirectiveElements getLineDirectiveAccess() {
+		return pLineDirective;
+	}
+	
+	public ParserRule getLineDirectiveRule() {
+		return getLineDirectiveAccess().getRule();
 	}
 	
 	//ErrorDirective:
@@ -1836,7 +1888,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//MyCode ecore::EString:
 	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 	//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-	//	| ELIF | ELSE | WARNING | UNDEF
+	//	| ELIF | ELSE | WARNING | UNDEF | LINE
 	//	| SpecialKeywords | Constant1
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
@@ -1944,6 +1996,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'define';
 	public TerminalRule getDEFINERule() {
 		return tDEFINE;
+	}
+	
+	//terminal LINE returns ecore::EString:
+	//	'line';
+	public TerminalRule getLINERule() {
+		return tLINE;
 	}
 	
 	//terminal ERROR returns ecore::EString:

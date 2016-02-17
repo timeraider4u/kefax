@@ -21,6 +21,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.LineDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
@@ -230,6 +231,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * @generated
 	 */
 	private EClass expressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineDirectiveEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -892,6 +900,36 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLineDirective()
+	{
+		return lineDirectiveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLineDirective_Line()
+	{
+		return (EAttribute)lineDirectiveEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLineDirective_Path()
+	{
+		return (EAttribute)lineDirectiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PreprocessFactory getPreprocessFactory()
 	{
 		return (PreprocessFactory)getEFactoryInstance();
@@ -1001,6 +1039,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEReference(ifAbstractConditionalEClass, IF_ABSTRACT_CONDITIONAL__GROUP);
 
 		expressionEClass = createEClass(EXPRESSION);
+
+		lineDirectiveEClass = createEClass(LINE_DIRECTIVE);
+		createEAttribute(lineDirectiveEClass, LINE_DIRECTIVE__LINE);
+		createEAttribute(lineDirectiveEClass, LINE_DIRECTIVE__PATH);
 	}
 
 	/**
@@ -1136,6 +1178,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEReference(getIfAbstractConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, IfAbstractConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(lineDirectiveEClass, LineDirective.class, "LineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLineDirective_Line(), theEcorePackage.getEString(), "line", null, 0, 1, LineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLineDirective_Path(), theEcorePackage.getEString(), "path", null, 0, 1, LineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

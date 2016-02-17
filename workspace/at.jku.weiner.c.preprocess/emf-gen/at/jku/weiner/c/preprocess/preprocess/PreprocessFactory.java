@@ -257,6 +257,15 @@ public interface PreprocessFactory extends EFactory
 	Expression createExpression();
 
 	/**
+	 * Returns a new object of class '<em>Line Directive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Directive</em>'.
+	 * @generated
+	 */
+	LineDirective createLineDirective();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

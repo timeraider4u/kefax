@@ -86,6 +86,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 			case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: return createIfAbstractConditional();
 			case PreprocessPackage.EXPRESSION: return createExpression();
+			case PreprocessPackage.LINE_DIRECTIVE: return createLineDirective();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -375,6 +376,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	{
 		ExpressionImpl expression = new ExpressionImpl();
 		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineDirective createLineDirective()
+	{
+		LineDirectiveImpl lineDirective = new LineDirectiveImpl();
+		return lineDirective;
 	}
 
 	/**

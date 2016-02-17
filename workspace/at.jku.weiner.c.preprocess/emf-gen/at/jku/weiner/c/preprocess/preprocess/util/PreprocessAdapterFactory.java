@@ -175,6 +175,10 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 				return createExpressionAdapter();
 			}
 			@Override
+			public Adapter caseLineDirective(LineDirective object) {
+				return createLineDirectiveAdapter();
+			}
+			@Override
 			public Adapter caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object) {
 				return createCommon_PreprocessAdapter();
 			}
@@ -589,6 +593,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.LineDirective <em>Line Directive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.c.preprocess.preprocess.LineDirective
+	 * @generated
+	 */
+	public Adapter createLineDirectiveAdapter()
 	{
 		return null;
 	}

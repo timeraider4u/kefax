@@ -965,6 +965,43 @@ public interface PreprocessPackage extends EPackage {
 	 */
 	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
+	/**
+	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl <em>Line Directive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl
+	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLineDirective()
+	 * @generated
+	 */
+	int LINE_DIRECTIVE = 26;
+
+	/**
+	 * The feature id for the '<em><b>Line</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_DIRECTIVE__LINE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_DIRECTIVE__PATH = 1;
+
+	/**
+	 * The number of structural features of the '<em>Line Directive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_DIRECTIVE_FEATURE_COUNT = 2;
+
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt <em>Group Opt</em>}'.
@@ -1590,6 +1627,38 @@ public interface PreprocessPackage extends EPackage {
 	EClass getExpression();
 
 	/**
+	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.LineDirective <em>Line Directive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Directive</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.LineDirective
+	 * @generated
+	 */
+	EClass getLineDirective();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.LineDirective#getLine <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.LineDirective#getLine()
+	 * @see #getLineDirective()
+	 * @generated
+	 */
+	EAttribute getLineDirective_Line();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.LineDirective#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.LineDirective#getPath()
+	 * @see #getLineDirective()
+	 * @generated
+	 */
+	EAttribute getLineDirective_Path();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2134,6 +2203,32 @@ public interface PreprocessPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
+
+		/**
+		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl <em>Line Directive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl
+		 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLineDirective()
+		 * @generated
+		 */
+		EClass LINE_DIRECTIVE = eINSTANCE.getLineDirective();
+
+		/**
+		 * The meta object literal for the '<em><b>Line</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE_DIRECTIVE__LINE = eINSTANCE.getLineDirective_Line();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE_DIRECTIVE__PATH = eINSTANCE.getLineDirective_Path();
 
 	}
 

@@ -1,0 +1,120 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0137_Line.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	// line 5
+	HASH WHITESPACE LINE WHITESPACE DECIMAL_LITERAL NEWLINE
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	NEWLINE
+	// line 25
+	HASH WHITESPACE LINE WHITESPACE DECIMAL_LITERAL WHITESPACE STRING_LITERAL NEWLINE
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	NEWLINE
+	// define FOO
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH LINE WHITESPACE ID NEWLINE
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	NEWLINE
+	// line FOO "..."
+	HASH LINE WHITESPACE ID WHITESPACE STRING_LITERAL NEWLINE
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
+	NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			// line 5
+			(PreprocessorDirectives
+				directive=
+				(LineDirective
+					line++"5",
+					path isNull
+				)
+			),
+			(Code
+				code++"int line1 = __LINE__;"
+			),
+			(Code
+				code++"char ** file1 = __FILE__;"
+			),
+			(NewLineLine),
+			
+			// line 25
+			(PreprocessorDirectives
+				directive=
+				(LineDirective
+					line++"25",
+					path++"\\\"MyTest0137_Line.c_file\\\""
+				)
+			),
+			(Code
+				code++"int line2 = __LINE__;"
+			),
+			(Code
+				code++"char ** file2 = __FILE__;"
+			),
+			(NewLineLine),
+			
+			// define FOO
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"NAME",
+					string++"\\\"Nobody\\\""
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(LineDirective
+					line++"25",
+					path isNull
+				)
+			),
+			(Code
+				code++"int line3 = __LINE__;"
+			),
+			(Code
+				code++"char ** file3 = __FILE__;"
+			),
+			(NewLineLine),
+			
+			// line FOO
+			(PreprocessorDirectives
+				directive=
+				(LineDirective
+					line++"FOO",
+					path++"\\\"MyTest0137_Line.c_file_2\\\""
+				)
+			),
+			(Code
+				code++"int line4 = __LINE__;"
+			),
+			(Code
+				code++"char ** file4 = __FILE__;"
+			),
+			(NewLineLine)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0137_Line.c.i"
+expected file="expected/Test0137_Line.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

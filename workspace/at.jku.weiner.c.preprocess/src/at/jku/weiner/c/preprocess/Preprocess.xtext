@@ -87,6 +87,7 @@ PreprocessorDirectives returns SourceCodeLine:
 	(
 			directive=IncludeDirective
 		|	directive=DefineDirective
+		|	directive=LineDirective
 		|	directive=ErrorDirective
 		|	directive=WarningDirective
 		|	directive=UnDefineDirective
@@ -146,6 +147,11 @@ IdentifierList:
 			(varID=ID)? variadic?=Ellipsis
 		)
 	)
+;
+
+LineDirective:
+	{LineDirective}
+	LINE WHITESPACE* 
 ;
 
 ErrorDirective:
@@ -230,7 +236,7 @@ Code returns SourceCodeLine:
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
 	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
-	|ELIF|ELSE|WARNING|UNDEF
+	|ELIF|ELSE|WARNING|UNDEF|LINE
 	|SpecialKeywords|Constant1
 ;
 
@@ -276,6 +282,7 @@ terminal HASH: '#';
 terminal INCLUDE: 'include';
 terminal INCLUDE_NEXT: INCLUDE SKW_UNDERSCORE 'next';
 terminal DEFINE: 'define';
+terminal LINE: 'line';
 terminal ERROR: 'error';
 terminal WARNING: 'warning';
 terminal UNDEF: 'undef';

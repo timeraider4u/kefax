@@ -35,6 +35,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.LineDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
@@ -158,6 +159,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
+				return; 
+			case PreprocessPackage.LINE_DIRECTIVE:
+				sequence_LineDirective(context, (LineDirective) semanticObject); 
 				return; 
 			case PreprocessPackage.NEW_LINE_LINE:
 				sequence_NewLineLine(context, (NewLineLine) semanticObject); 
@@ -322,6 +326,15 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     {LineDirective}
+	 */
+	protected void sequence_LineDirective(EObject context, LineDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {NewLineLine}
 	 */
 	protected void sequence_NewLineLine(EObject context, NewLineLine semanticObject) {
@@ -368,6 +381,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (
 	 *         directive=IncludeDirective | 
 	 *         directive=DefineDirective | 
+	 *         directive=LineDirective | 
 	 *         directive=ErrorDirective | 
 	 *         directive=WarningDirective | 
 	 *         directive=UnDefineDirective | 

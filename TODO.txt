@@ -1,7 +1,14 @@
 High priority:
 
-	error during validation of unit='[ERROR:no viable alternative at input 'include_next'
-	(file:/usr/include/limits.h line : 123)]'
+	- Batch-mode and trim-preprocess have to be XOR!!!
+		trim-preprocess is deleting code directives from a preprocessing
+		unit and, therefore, when this preprocessing file is going to be
+		re-used / loaded from model later on by another discoverer
+		invocation it will be missing this code lines and yield to 
+		errors during parser validation
+	
+	# error during validation of unit='[ERROR:no viable alternative at input 'include_next'
+	#(file:/usr/include/limits.h line : 123)]'
 
 
 	- http://slps.github.io/zoo/c/malton-dahn.html#attribute_spec

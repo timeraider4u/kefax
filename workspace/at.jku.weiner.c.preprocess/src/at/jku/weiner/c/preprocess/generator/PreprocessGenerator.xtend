@@ -257,16 +257,14 @@ class PreprocessGenerator implements IGenerator {
 		val StringBuffer result = new StringBuffer("");
 		registerLineNumber();
 		for (var int i = 0; i < group.lines.size; i++) {
-			
-			
 			var SourceCodeLine obj = group.lines.get(i);
 			if (obj instanceof PreprocessorDirectives) {
 				result.append(outputFor(obj as PreprocessorDirectives));
 			}
-			if (obj instanceof NewLineLine) {
+			else if (obj instanceof NewLineLine) {
 				result.append(outputFor(obj as NewLineLine));
 			}
-			if (obj instanceof Code) {
+			else if (obj instanceof Code) {
 				var boolean fullResolved = false;
 				var String codeResult = "";
 				val List<Code> codeList = new ArrayList<Code>();

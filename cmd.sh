@@ -1,11 +1,12 @@
-HELL="HelloC.c"
+#HELL="HelloC.c"
+HELL="iosf_mbi.c"
 GCC1="${HELL}.output"
 GCC2="${HELL}.output.2"
 
 CDT1="${HELL}.i"
 CDT2="${HELL}.i.2"
 
-gcc -E ${HELL} > ${GCC1}
+#gcc -E ${HELL} > ${GCC1}
 cp ${GCC1} ${GCC2}
 cp ${CDT1} ${CDT2}
 

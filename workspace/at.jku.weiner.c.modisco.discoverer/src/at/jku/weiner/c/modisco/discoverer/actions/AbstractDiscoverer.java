@@ -26,6 +26,7 @@ import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
+	private static final String EXCLUSIVE_MSG = "TRIM_PREPROCESS_MODEL and BATCH_MODE can not be used at the same time";
 
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
@@ -241,8 +242,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.trimPreprocessModel;
 	}
 
-	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model")
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model"
+			+ "(" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
 	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
+		if (this.batchMode && trimPreprocessModel) {
+			this.exclusiveBatchModeAndTrimError();
+		}
 		this.trimPreprocessModel = trimPreprocessModel;
 	}
 
@@ -250,9 +255,19 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.batchMode;
 	}
 
-	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations")
+	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations"
+			+ " (" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
 	public void setBatchMode(final boolean batchMode) {
+		if (this.trimPreprocessModel && batchMode) {
+			this.exclusiveBatchModeAndTrimError();
+		}
 		this.batchMode = batchMode;
 	}
 
+	private void exclusiveBatchModeAndTrimError() {
+		final RuntimeException ex = new IllegalArgumentException(
+				"TRIM_PREPROCESS_MODEL AND BATCH_MODE are exclusive to each other");
+		MyLog.error(AbstractDiscoverer.class, ex);
+		throw ex;
+	}
 }

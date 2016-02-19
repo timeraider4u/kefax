@@ -59,7 +59,7 @@ public class EMFTest {
 
 	private static Model emfTest(final String pureJavaClassFileName,
 			final String testName, final List<String> resFiles)
-			throws Exception {
+					throws Exception {
 		EMFTest.cleanUpOldProject();
 		final IProject iProject = EMFTest.getProject();
 		iProject.refreshLocal(IResource.DEPTH_INFINITE,
@@ -125,7 +125,7 @@ public class EMFTest {
 
 	public static void test0013() {
 		TestUtils.batchMode = true;
-		TestUtils.trimPreprocessModel = true;
+		// TestUtils.trimPreprocessModel = true;
 	}
 
 	private static void testIncludeDirsIsEmpty() {

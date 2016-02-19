@@ -160,7 +160,9 @@ public class Main {
 			discoverer.setSetStdInclude(stdInclude);
 			discoverer.setIncludeDirs(includeDirectories);
 			discoverer.setAdditionalDirectives(additionalDirectives);
-			discoverer.setTrimPreprocessModel(true);
+			// batch mode and trim preprocess are exclusive to each other
+			discoverer.setTrimPreprocessModel(false);
+			// discoverer.setTrimPreprocessModel(true);
 			discoverer.setBatchMode(true);
 			// discoverer.setBatchMode(false);
 

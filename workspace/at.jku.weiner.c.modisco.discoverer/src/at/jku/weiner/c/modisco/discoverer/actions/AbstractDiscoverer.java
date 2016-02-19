@@ -182,20 +182,24 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		try {
 			this.saveTargetModel();
 			// update project
+			final URI currUri = this.getTargetModel().getURI();
+			final String currUriStr = currUri.toFileString();
 			final IProject project = store.getResource().getProject();
 			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
-			MyLog.log(DiscoverFromIFile.class, "saved to='"
-					+ this.getTargetModel().getURI().toFileString() + "'");
+			MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
 			if (this.batchMode && (this.lastUri != null)) {
-				final String uri = this.lastUri.toFileString();
-				MyLog.log(DiscoverFromIFile.class,
-						"batchMode, delete previous uri='" + uri + "!");
-				final File file = new File(uri);
-				boolean wasDeleted = file.delete();
-				MyLog.log(DiscoverFromIFile.class, "wasDeleted='" + wasDeleted
-						+ "'");
-				project.refreshLocal(IResource.DEPTH_INFINITE,
-						store.getMonitor());
+				final String lastUriStr = this.lastUri.toFileString();
+				if (!(lastUriStr.equals(currUriStr))) {
+					MyLog.log(DiscoverFromIFile.class,
+							"batchMode, delete previous uri='" + lastUriStr
+							+ "!");
+					final File file = new File(lastUriStr);
+					boolean wasDeleted = file.delete();
+					MyLog.log(DiscoverFromIFile.class, "wasDeleted='"
+							+ wasDeleted + "'");
+					project.refreshLocal(IResource.DEPTH_INFINITE,
+							store.getMonitor());
+				}
 			}
 			this.lastUri = this.getTargetURI();
 		} catch (final Exception ex) {

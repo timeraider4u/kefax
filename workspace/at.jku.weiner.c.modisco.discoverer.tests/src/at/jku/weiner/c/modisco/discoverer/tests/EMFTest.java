@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -36,7 +37,7 @@ public class EMFTest {
 		return result;
 	}
 
-	public static Model emfTest2(final String pureJavaClassFileName,
+	public static Model emfTestB(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		final List<String> list = new ArrayList<String>();
 		list.add(sourceFile + "1");
@@ -58,9 +59,11 @@ public class EMFTest {
 
 	private static Model emfTest(final String pureJavaClassFileName,
 			final String testName, final List<String> resFiles)
-					throws Exception {
+			throws Exception {
 		EMFTest.cleanUpOldProject();
 		final IProject iProject = EMFTest.getProject();
+		iProject.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
 
 		final TestUtils utils = new TestUtils(iProject, testName, resFiles);
 		final Model result = utils.getModel();
@@ -118,6 +121,11 @@ public class EMFTest {
 
 	public static void test0012() {
 		TestUtils.batchMode = true;
+	}
+
+	public static void test0013() {
+		TestUtils.batchMode = true;
+		TestUtils.trimPreprocessModel = true;
 	}
 
 	private static void testIncludeDirsIsEmpty() {

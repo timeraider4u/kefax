@@ -1,0 +1,202 @@
+emftest
+package at.jku.weiner.c.modisco.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTestB()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0013_BatchMode"
+
+(Model
+	units+=
+	// Predefined
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	// A.c
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/Test0013_TypeDef.h\\\""
+					)
+				),
+				(preprocess::Code
+					code++"NUMBER i;"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			// comes from Test0013_TypeDef.h
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"typedef"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"NUMBER"
+								)
+							)
+						)
+					)
+				)	
+			),
+			// comes from A.c
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							type=
+							(parser::TypedefName
+								id++"NUMBER"
+							)
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"i"
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		path++"${{path}}/${{plugin_id}}/res/Test0013_BatchMode1/A.c"
+	),
+	// TypeDef.h
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::Code
+					code++"typedef int NUMBER;"
+				)
+			)
+		),
+		parser isNull,
+		path++"${{path}}/${{plugin_id}}/res/include/Test0013_TypeDef.h"
+	),
+	// B.c
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/Test0013_BatchMode2/B.c",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/Test0013_TypeDef.h\\\""
+					)
+				),
+				(preprocess::Code
+					code++"NUMBER j;"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			// comes from Test0013_TypeDef.h
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"typedef"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"NUMBER"
+								)
+							)
+						)
+					)
+				)	
+			),
+			// comes from A.c
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							type=
+							(parser::TypedefName
+								id++"NUMBER"
+							)
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"j"
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0013()

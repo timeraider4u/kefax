@@ -92,7 +92,7 @@ public class Test0012_BatchMode {
 				
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
-		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTest2(
+		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTestB(
 			this.pureJavaClassFileName, this.sourceFile
 		);
 		Assert.assertNotNull(obj);

@@ -122,7 +122,7 @@ public class Test0069_IfValueDefinedOrLineBreak {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_LINEBREAK",
+				"RULE_IGNORED",
 				"RULE_WHITESPACE",
 				"RULE_WHITESPACE",
 				"RULE_SKW_OROR",

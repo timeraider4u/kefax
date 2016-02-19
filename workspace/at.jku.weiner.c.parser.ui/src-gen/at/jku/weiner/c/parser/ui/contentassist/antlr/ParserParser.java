@@ -604,7 +604,7 @@ public class ParserParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_LINEDIRECTIVE", "RULE_LINE_COMMENT", "RULE_BLOCK_COMMENT", "RULE_NEWLINE", "RULE_WHITESPACE", "RULE_SPECIAL" };
+		return new String[] { "RULE_WHITESPACE", "RULE_NEWLINE", "RULE_LINEDIRECTIVE", "RULE_IGNORED", "RULE_SPECIAL" };
 	}
 	
 	public ParserGrammarAccess getGrammarAccess() {

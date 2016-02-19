@@ -162,7 +162,7 @@ public class Test0004_SimpleDef {
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",

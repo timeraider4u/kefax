@@ -1,0 +1,112 @@
+emftest
+package at.jku.weiner.c.modisco.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0014_InvalidChar"
+
+(Model
+	units+=
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Simple.c",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::Code
+					code++"extern int foo_bar();"
+				),
+				(preprocess::NewLineLine),
+				(preprocess::Code
+					code++"extern int baz();"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"extern"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"foo_bar",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										lastSuffix=
+										(parser::DirectDeclaratorLastSuffix
+											
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			),
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"extern"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"baz",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										lastSuffix=
+										(parser::DirectDeclaratorLastSuffix
+											
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)

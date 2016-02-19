@@ -111,9 +111,9 @@ public class Test0058_IfElIfElse {
 		final String text = this.getTextFromFile(
 			"res/Test0058_IfElIfElse.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_IF",

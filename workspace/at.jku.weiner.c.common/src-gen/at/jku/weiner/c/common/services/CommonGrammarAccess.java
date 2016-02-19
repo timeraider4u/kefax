@@ -27,7 +27,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionalExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		////generate common "http://www.jku.at/weiner/c/common/Common"
-		/// *** expressions *** / Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+		/// *** expressions *** / Expression hidden(WHITESPACE, IGNORED):
 		//	ConditionalExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -38,7 +38,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.ConstantExpression");
 		private final RuleCall cConditionalExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//ConstantExpression Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+		//ConstantExpression Expression hidden(WHITESPACE, IGNORED):
 		//	ConditionalExpression
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1331,6 +1331,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tWHITESPACE;
 	private final TerminalRule tBLOCK_COMMENT;
 	private final TerminalRule tLINE_COMMENT;
+	private final TerminalRule tFORM_FEED;
+	private final TerminalRule tIGNORED;
 	private final TerminalRule tSPECIAL;
 	
 	private final Grammar grammar;
@@ -1438,6 +1440,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tWHITESPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.WHITESPACE");
 		this.tBLOCK_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.BLOCK_COMMENT");
 		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINE_COMMENT");
+		this.tFORM_FEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.FORM_FEED");
+		this.tIGNORED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.IGNORED");
 		this.tSPECIAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SPECIAL");
 	}
 	
@@ -1465,7 +1469,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	////generate common "http://www.jku.at/weiner/c/common/Common"
-	/// *** expressions *** / Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+	/// *** expressions *** / Expression hidden(WHITESPACE, IGNORED):
 	//	ConditionalExpression;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
@@ -1475,7 +1479,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
-	//ConstantExpression Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+	//ConstantExpression Expression hidden(WHITESPACE, IGNORED):
 	//	ConditionalExpression
 	public ConstantExpressionElements getConstantExpressionAccess() {
 		return pConstantExpression;
@@ -2224,7 +2228,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return tLINE_END;
 	}
 	
-	//terminal LINEBREAK:
+	//terminal fragment LINEBREAK:
 	//	SKW_BACKSLASH LINE_END;
 	public TerminalRule getLINEBREAKRule() {
 		return tLINEBREAK;
@@ -2254,16 +2258,28 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return tWHITESPACE;
 	}
 	
-	//terminal BLOCK_COMMENT:
+	//terminal fragment BLOCK_COMMENT:
 	//	'/ *'->'* /';
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return tBLOCK_COMMENT;
 	}
 	
-	//terminal LINE_COMMENT:
+	//terminal fragment LINE_COMMENT:
 	//	'//' !LINE_END*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return tLINE_COMMENT;
+	}
+	
+	//terminal fragment FORM_FEED:
+	//	'\u000c';
+	public TerminalRule getFORM_FEEDRule() {
+		return tFORM_FEED;
+	}
+	
+	//terminal IGNORED:
+	//	LINEBREAK | BLOCK_COMMENT | LINE_COMMENT | FORM_FEED;
+	public TerminalRule getIGNOREDRule() {
+		return tIGNORED;
 	}
 	
 	//terminal SPECIAL:

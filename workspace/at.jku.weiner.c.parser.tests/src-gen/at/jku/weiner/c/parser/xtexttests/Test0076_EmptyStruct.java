@@ -107,9 +107,9 @@ public class Test0076_EmptyStruct {
 		final String text = this.getTextFromFile(
 			"res/Test0076_EmptyStruct.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_STRUCT",
 				"RULE_WHITESPACE",

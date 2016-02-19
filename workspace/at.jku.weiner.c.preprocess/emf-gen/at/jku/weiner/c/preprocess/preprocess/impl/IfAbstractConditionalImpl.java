@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#isBranchTaken <em>Branch Taken</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

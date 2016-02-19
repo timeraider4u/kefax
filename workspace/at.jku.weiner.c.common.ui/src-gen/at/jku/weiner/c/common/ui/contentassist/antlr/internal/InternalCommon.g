@@ -61,7 +61,7 @@ import at.jku.weiner.c.common.services.CommonGrammarAccess;
 // Entry rule entryRuleExpression
 entryRuleExpression 
 @init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_IGNORED");
 }
 :
 { before(grammarAccess.getExpressionRule()); }
@@ -76,7 +76,7 @@ finally {
 // Rule Expression
 ruleExpression
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_IGNORED");
 		int stackSize = keepStackSize();
 		/*no init found*/
     }
@@ -4673,7 +4673,7 @@ fragment RULE_CARRIAGERETURN : '\r';
 
 fragment RULE_LINE_END : (RULE_CARRIAGERETURN|RULE_LINEFEED);
 
-RULE_LINEBREAK : RULE_SKW_BACKSLASH RULE_LINE_END;
+fragment RULE_LINEBREAK : RULE_SKW_BACKSLASH RULE_LINE_END;
 
 RULE_NEWLINE : RULE_LINE_END;
 
@@ -4683,9 +4683,13 @@ fragment RULE_TAB : '\t';
 
 RULE_WHITESPACE : (RULE_SPACE|RULE_TAB);
 
-RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
+fragment RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-RULE_LINE_COMMENT : '//' ~(RULE_LINE_END)*;
+fragment RULE_LINE_COMMENT : '//' ~(RULE_LINE_END)*;
+
+fragment RULE_FORM_FEED : '\f';
+
+RULE_IGNORED : (RULE_LINEBREAK|RULE_BLOCK_COMMENT|RULE_LINE_COMMENT|RULE_FORM_FEED);
 
 RULE_SPECIAL : .;
 

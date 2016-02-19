@@ -36,11 +36,11 @@ import "http://www.jku.at/weiner/c/common/Common"
 //generate common "http://www.jku.at/weiner/c/common/Common"
 
 /*** expressions ***/
-Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+Expression hidden(WHITESPACE,IGNORED):
 	ConditionalExpression
 ;
 
-ConstantExpression returns Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+ConstantExpression returns Expression hidden(WHITESPACE,IGNORED):
 	ConditionalExpression
 ;
 
@@ -404,14 +404,18 @@ terminal fragment HEX_ESCAPE:
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal LINE_END: (CARRIAGERETURN | LINEFEED) ;
-terminal LINEBREAK: (SKW_BACKSLASH LINE_END);
+terminal fragment LINEBREAK: (SKW_BACKSLASH LINE_END);
 terminal NEWLINE: LINE_END;
 terminal fragment SPACE: ' ';
 terminal fragment TAB: '\t';
 terminal WHITESPACE: (SPACE | TAB);
 
-terminal BLOCK_COMMENT: '/*' -> '*/';
-terminal LINE_COMMENT: '//' (!LINE_END)*;
+terminal fragment BLOCK_COMMENT: '/*' -> '*/';
+terminal fragment LINE_COMMENT: '//' (!LINE_END)*;
+
+terminal fragment FORM_FEED: '\u000c';
+
+terminal IGNORED: LINEBREAK | BLOCK_COMMENT | LINE_COMMENT | FORM_FEED;
 
 // for anything else:
 terminal SPECIAL: .;

@@ -126,7 +126,7 @@ public class Test0087_InvalidChar {
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
-				"RULE_SPECIAL",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_EXTERN",
 				"RULE_WHITESPACE",

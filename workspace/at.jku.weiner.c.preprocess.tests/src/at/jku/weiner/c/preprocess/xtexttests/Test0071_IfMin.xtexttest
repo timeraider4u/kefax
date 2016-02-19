@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0071_IfMin.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	LINE_COMMENT NEWLINE
+	IGNORED NEWLINE
 	HASH IF WHITESPACE ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA DECIMAL_LITERAL
 		 	SKW_RIGHTPAREN 
 			WHITESPACE SKW_GREATEREQUAL WHITESPACE DECIMAL_LITERAL NEWLINE

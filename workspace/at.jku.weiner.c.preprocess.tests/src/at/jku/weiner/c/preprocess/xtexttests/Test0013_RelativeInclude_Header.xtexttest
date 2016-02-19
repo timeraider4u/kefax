@@ -9,7 +9,7 @@ source file="myinclude/include/printf.h"
 //----------------------------------------------------------------------
 lexer-tokens
 	//SPECIAL +*2 WHITESPACE ID SPECIAL ID NEWLINE
-	LINE_COMMENT NEWLINE
+	IGNORED NEWLINE
 	ID WHITESPACE ID SKW_LEFTPAREN ID WHITESPACE SKW_STAR +*2 WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model

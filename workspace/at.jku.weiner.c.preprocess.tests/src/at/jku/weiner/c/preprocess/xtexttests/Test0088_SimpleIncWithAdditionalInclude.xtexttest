@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0088_SimpleIncWithAdditionalInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	LINE_COMMENT NEWLINE
+	IGNORED NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=

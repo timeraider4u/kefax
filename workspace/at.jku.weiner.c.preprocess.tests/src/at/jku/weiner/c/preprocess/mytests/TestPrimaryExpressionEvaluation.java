@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
@@ -37,6 +38,7 @@ public class TestPrimaryExpressionEvaluation {
 
 	@Before
 	public void setUp() throws Exception {
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
 				this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(lexerUtils);

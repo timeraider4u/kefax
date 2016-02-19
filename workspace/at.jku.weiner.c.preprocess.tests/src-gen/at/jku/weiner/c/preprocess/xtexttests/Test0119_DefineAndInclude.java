@@ -114,7 +114,7 @@ public class Test0119_DefineAndInclude {
 		final String text = this.getTextFromFile(
 			"res/Test0119_DefineAndInclude.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",

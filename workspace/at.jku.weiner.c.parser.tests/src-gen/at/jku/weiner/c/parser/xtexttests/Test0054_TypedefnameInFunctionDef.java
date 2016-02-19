@@ -118,7 +118,7 @@ public class Test0054_TypedefnameInFunctionDef {
 		final String text = this.getTextFromFile(
 			"res/Test0054_TypedefnameInFunctionDef.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_TYPEDEF",
 				"RULE_WHITESPACE",

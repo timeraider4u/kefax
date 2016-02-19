@@ -98,7 +98,7 @@ public class Test0013_RelativeInclude_Header {
 		final String text = this.getTextFromFile(
 			"myinclude/include/printf.h");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WHITESPACE",

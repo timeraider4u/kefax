@@ -8198,7 +8198,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return gaCommon.getLINE_ENDRule();
 	}
 	
-	//terminal LINEBREAK:
+	//terminal fragment LINEBREAK:
 	//	SKW_BACKSLASH LINE_END;
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
@@ -8222,16 +8222,28 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return gaCommon.getTABRule();
 	}
 	
-	//terminal BLOCK_COMMENT:
+	//terminal fragment BLOCK_COMMENT:
 	//	'/ *'->'* /';
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return gaCommon.getBLOCK_COMMENTRule();
 	}
 	
-	//terminal LINE_COMMENT:
+	//terminal fragment LINE_COMMENT:
 	//	'//' !LINE_END*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
+	}
+	
+	//terminal fragment FORM_FEED:
+	//	'\u000c';
+	public TerminalRule getFORM_FEEDRule() {
+		return gaCommon.getFORM_FEEDRule();
+	}
+	
+	//terminal IGNORED:
+	//	LINEBREAK | BLOCK_COMMENT | LINE_COMMENT | FORM_FEED;
+	public TerminalRule getIGNOREDRule() {
+		return gaCommon.getIGNOREDRule();
 	}
 	
 	//terminal SPECIAL:

@@ -8,7 +8,8 @@ source file="res/Test0087_InvalidChar.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
-SPECIAL NEWLINE
+//SPECIAL NEWLINE
+IGNORED NEWLINE
 KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=

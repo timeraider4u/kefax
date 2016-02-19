@@ -113,7 +113,7 @@ class PreprocessGenerator implements IGenerator {
 		
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
-		val String result = additional + output;
+		val String result = additional + removeInvalid(output);
 		MyLog.debug(PreprocessGenerator.getClass, "generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, result);
 		trimPreprocess(preprocess);
@@ -516,6 +516,13 @@ class PreprocessGenerator implements IGenerator {
 
 	def DefinitionTable getDefinitionTable() {
 		return this.definitionTable;
+	}
+	
+	def String removeInvalid(String my) {
+//		val char c000c = '\u000c';
+//		val String result = my.replace("" + c000c, "");
+		// return result;
+		return my;
 	}
 	
 	def trimPreprocess(Preprocess preprocess) {

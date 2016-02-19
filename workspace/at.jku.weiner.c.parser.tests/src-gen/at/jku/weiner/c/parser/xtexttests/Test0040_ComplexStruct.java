@@ -177,7 +177,7 @@ public class Test0040_ComplexStruct {
 				"RULE_SKW_LEFTBRACE",
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_KW_STRUCT",

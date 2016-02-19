@@ -53,6 +53,11 @@ public class TestPredefined {
 	@Inject
 	private ValidationTestHelper valHelper;
 
+	@Before
+	public void setUp() {
+		MyLog.setLog_level(MyLog.LOG_NONE);
+	}
+
 	@Test(timeout = 1000)
 	public void loadPredefined() throws Exception {
 		// load the resource
@@ -66,12 +71,12 @@ public class TestPredefined {
 		// parse helper
 		final String text = this.getTextFromFile("res/predefined/gcc_4.8.4.h");
 		final Preprocess preprocess = this.parseHelper.parse(text);
-		
+
 		this.parseHelper.parse(text);
 		this.valHelper.assertNoErrors(preprocess);
 		Assert.assertNotNull(preprocess);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testGenerator() throws Exception {
 		// load the resource
@@ -82,7 +87,7 @@ public class TestPredefined {
 		final List<Issue> list = this.validator.validate(resource,
 				CheckMode.ALL, CancelIndicator.NullImpl);
 		Assert.assertTrue(list.isEmpty());
-		
+
 		// configure and start the generator
 		this.fileAccessSystem.setOutputPath("bin");
 		this.generator.setFileName("Test0000_Empty.c.i");
@@ -96,7 +101,7 @@ public class TestPredefined {
 				true, true);
 		Assert.assertNotNull(predefined);
 		Assert.assertNotNull(predefined.getGroup());
-		
+
 		unitPredefined.setPreprocess(predefined);
 		model.getUnits().add(unitPredefined);
 		Assert.assertNotNull(predefined);
@@ -118,7 +123,7 @@ public class TestPredefined {
 		Assert.assertTrue(this.generator.getDefinitionTable()
 				.containsAKey(text));
 	}
-	
+
 	@Before
 	public void initialize() {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
@@ -126,20 +131,20 @@ public class TestPredefined {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h",
 				this.resourceFactory);
 	}
-	
+
 	private String getTextFromFile(final String fileName) throws Exception {
 		final Path path = Paths.get(fileName);
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}
-	
+
 	private String preprocess(String string) throws Exception {
 		string = this.preprocessForPatterns(string);
 		return string;
 	}
-	
+
 	private String preprocessForPatterns(final String string) {
 		return string;
 	}
-	
+
 }

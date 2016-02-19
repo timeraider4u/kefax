@@ -15,7 +15,7 @@ public class PreprocessParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		tokenStream.setInitialHiddenTokens("RULE_IGNORED");
 	}
 	
 	@Override

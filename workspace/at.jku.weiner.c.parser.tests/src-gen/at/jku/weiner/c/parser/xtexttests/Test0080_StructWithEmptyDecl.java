@@ -125,7 +125,7 @@ public class Test0080_StructWithEmptyDecl {
 				"RULE_WHITESPACE",
 				"RULE_SKW_SEMI",
 				"RULE_WHITESPACE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_SKW_RIGHTBRACE",
 				"RULE_SKW_SEMI",

@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
@@ -31,6 +32,7 @@ public class TestStringReplaceSymbolsHelper {
 
 	@Before
 	public void setUp() {
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
 				this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(lexerUtils);

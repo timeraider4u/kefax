@@ -125,9 +125,9 @@ public class Test0083_ConditionalsOmittedOperands {
 		final String text = this.getTextFromFile(
 			"res/Test0083_ConditionalsOmittedOperands.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_INT",
 				"RULE_WHITESPACE",

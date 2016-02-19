@@ -119,7 +119,7 @@ public class Test0060_IfElIfElse {
 				"RULE_WHITESPACE",
 				"RULE_DECIMAL_LITERAL",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_IF",

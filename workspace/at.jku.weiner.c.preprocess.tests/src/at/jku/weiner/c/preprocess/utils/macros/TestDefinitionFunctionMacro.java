@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
@@ -24,19 +25,20 @@ import com.google.inject.Inject;
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestDefinitionFunctionMacro {
-	
+
 	@Inject
 	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	
+
 	private DefinitionTable definitionTable;
 	private LexerUtils lexerUtils;
 	private IdentifierList idList;
 	private IdentifierList idList2;
-	
+
 	@Before
 	public void setUp() throws Exception {
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		this.lexerUtils = new LexerUtils(this.lexer, this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(this.lexerUtils);
 		this.definitionTable.reset();
@@ -46,7 +48,7 @@ public class TestDefinitionFunctionMacro {
 		this.idList2 = factory.createIdentifierList();
 		this.idList2.getId().add("X");
 	}
-	
+
 	@Test
 	public void testSimpleReplacement1() {
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "#X");
@@ -69,7 +71,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(4, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void testSimpleReplacement2() {
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "#X");
@@ -92,7 +94,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void testSimpleReplacement3() {
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "#X");
@@ -114,7 +116,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(4, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement1() {
 		this.idList.getId().add("Y");
@@ -143,7 +145,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(30, ranges.addedElements);
 		Assert.assertEquals(36, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement2() {
 		this.idList.getId().add("Y");
@@ -169,7 +171,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement3() {
 		this.idList.getId().add("Y");
@@ -195,7 +197,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement4() {
 		this.idList.getId().add("Y");
@@ -220,7 +222,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(7, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement5() {
 		this.idList.getId().add("Y");
@@ -246,7 +248,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement6() {
 		this.idList.getId().add("Y");
@@ -280,7 +282,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement7() {
 		this.idList.getId().add("Y");
@@ -313,7 +315,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(7, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement8() {
 		this.idList.getId().add("Y");
@@ -339,7 +341,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement9() {
 		this.idList.getId().add("Y");
@@ -365,7 +367,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement10() {
 		this.idList.getId().add("Y");
@@ -390,7 +392,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(7, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexReplacement11() {
 		this.idList.getId().add("Y");
@@ -415,7 +417,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(7, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexDoubleReplacement1() {
 		this.idList.getId().add("Y");
@@ -452,7 +454,7 @@ public class TestDefinitionFunctionMacro {
 				InternalPreprocessLexer.RULE_DECIMAL_LITERAL, "5"));
 		expected.add(new CommonToken(
 				InternalPreprocessLexer.RULE_SKW_RIGHTPAREN, ")"));
-		
+
 		TestUtils.assertEqualsList(expected, code);
 		Assert.assertEquals(11, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
@@ -461,7 +463,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(6, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void complexDoubleReplacement2() {
 		this.idList.getId().add("Y");
@@ -506,7 +508,7 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(10, ranges.addedElements);
 		Assert.assertEquals(12, ranges.removedElements);
 	}
-	
+
 	@Test
 	public void testConcatenation1() {
 		this.idList.getId().add("Y");
@@ -528,7 +530,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation2() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "foo_ ## X");
@@ -546,7 +548,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation3() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -566,7 +568,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation4() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -586,7 +588,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation5() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -606,7 +608,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation6() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -626,7 +628,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation7() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -646,7 +648,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation8() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
@@ -672,12 +674,12 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenation9() {
 		this.definitionTable
-		.addFunctionMacro("FOO", this.idList,
-				"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
+				.addFunctionMacro("FOO", this.idList,
+						"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -711,15 +713,15 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVar1() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-				.addFunctionMacro(
-						"FOO",
-						this.idList,
-						"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -749,25 +751,25 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myiam"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
 				","));
-		
+
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
 				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
 				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
-		
+
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVar2() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-				.addFunctionMacro(
-						"FOO",
-						this.idList,
-						"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(foo) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -797,7 +799,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "fooiam"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
 				","));
-		
+
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
 				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
@@ -806,7 +808,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVarWithComma1() {
 		// see
@@ -837,7 +839,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVarWithComma2() {
 		this.idList.setVariadic(true);
@@ -866,7 +868,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVarWithComma3() {
 		this.idList.setVariadic(true);
@@ -891,7 +893,7 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 	@Test
 	public void testConcatenationVarWithComma4() {
 		this.idList.setVariadic(true);
@@ -919,5 +921,5 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
-	
+
 }

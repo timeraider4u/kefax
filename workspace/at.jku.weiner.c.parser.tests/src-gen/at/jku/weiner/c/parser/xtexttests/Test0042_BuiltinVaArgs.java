@@ -113,11 +113,11 @@ public class Test0042_BuiltinVaArgs {
 		final String text = this.getTextFromFile(
 			"res/Test0042_BuiltinVaArgs.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_TYPEDEF",
 				"RULE_WHITESPACE",

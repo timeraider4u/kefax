@@ -61,6 +61,7 @@ public class Main {
 			result = this.run2(monitor);
 		} catch (final Exception ex) {
 			ex.printStackTrace();
+			MyLog.errorNoThrows(Main.class, ex);
 			result = Status.CANCEL_STATUS;
 		} finally {
 			monitor.done();

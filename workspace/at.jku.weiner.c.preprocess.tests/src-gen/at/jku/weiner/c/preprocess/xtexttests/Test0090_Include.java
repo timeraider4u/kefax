@@ -98,7 +98,7 @@ public class Test0090_Include {
 		final String text = this.getTextFromFile(
 			"res/Test0090_Include.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

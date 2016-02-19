@@ -112,7 +112,7 @@ public class Test0059_IfElIfElse {
 		final String text = this.getTextFromFile(
 			"res/Test0059_IfElIfElse.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -143,7 +143,7 @@ public class Test0059_IfElIfElse {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
@@ -156,7 +156,7 @@ public class Test0059_IfElIfElse {
 				"RULE_HASH",
 				"RULE_ELSE",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",

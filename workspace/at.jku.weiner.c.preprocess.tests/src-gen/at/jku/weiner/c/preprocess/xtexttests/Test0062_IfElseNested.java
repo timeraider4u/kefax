@@ -127,9 +127,9 @@ public class Test0062_IfElseNested {
 		final String text = this.getTextFromFile(
 			"res/Test0062_IfElseNested.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_IF",
@@ -217,13 +217,13 @@ public class Test0062_IfElseNested {
 				"RULE_HASH",
 				"RULE_ENDIF",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_HASH",
 				"RULE_ENDIF",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_ELSE",

@@ -111,7 +111,7 @@ public class Test0117_Replacement {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_LINEBREAK",
+				"RULE_IGNORED",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",

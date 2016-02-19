@@ -7,7 +7,8 @@ imports at.jku.weiner.c.common.common
 source file="res/Test0054_TypedefnameInFunctionDef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-LINE_COMMENT NEWLINE
+//LINE_COMMENT NEWLINE
+IGNORED NEWLINE
 KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 NEWLINE
 ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE

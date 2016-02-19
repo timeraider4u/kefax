@@ -12,11 +12,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.google.inject.Inject;
-
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
+
+import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -26,11 +27,12 @@ public class TestLexerCall {
 	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	
+
 	private LexerUtils utils;
 
 	@Before
 	public void setUp() {
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		Assert.assertNotNull(this.lexer);
 		Assert.assertNotNull(this.tokenDefProvider);
 		this.utils = new LexerUtils(this.lexer, this.tokenDefProvider);
@@ -68,7 +70,7 @@ public class TestLexerCall {
 		Assert.assertEquals(InternalPreprocessLexer.RULE_SKW_SEMI,
 				semi.getType());
 	}
-	
+
 	@Test
 	public void createToken() {
 		final Token token = new CommonToken(

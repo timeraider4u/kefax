@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ErrorDirectiveImpl#getMsg <em>Msg</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

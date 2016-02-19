@@ -68,10 +68,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			this.discover2(resource, monitor);
 		} catch (final Exception ex) {
 			if (ex instanceof DiscoveryException) {
+				MyLog.errorNoThrows(AbstractDiscoverer.class, ex);
 				throw (DiscoveryException) ex;
 			}
 			final DiscoveryException newEx = new DiscoveryException("'"
 					+ ex.getClass() + "':" + ex.getMessage());
+			MyLog.errorNoThrows(AbstractDiscoverer.class, ex);
 			throw newEx;
 		} finally {
 			monitor.done();

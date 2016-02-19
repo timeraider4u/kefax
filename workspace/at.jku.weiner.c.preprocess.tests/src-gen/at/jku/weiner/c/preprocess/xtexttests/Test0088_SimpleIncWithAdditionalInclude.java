@@ -98,7 +98,7 @@ public class Test0088_SimpleIncWithAdditionalInclude {
 		final String text = this.getTextFromFile(
 			"res/Test0088_SimpleIncWithAdditionalInclude.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

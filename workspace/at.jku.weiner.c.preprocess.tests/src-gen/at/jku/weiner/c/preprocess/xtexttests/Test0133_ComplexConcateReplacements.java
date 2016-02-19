@@ -135,7 +135,7 @@ public class Test0133_ComplexConcateReplacements {
 		final String text = this.getTextFromFile(
 			"res/Test0133_ComplexConcateReplacements.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",

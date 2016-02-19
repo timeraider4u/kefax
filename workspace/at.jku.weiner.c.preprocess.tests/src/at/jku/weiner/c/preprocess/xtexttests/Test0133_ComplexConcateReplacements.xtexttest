@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0133_ComplexConcateReplacements.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	LINE_COMMENT NEWLINE
+	IGNORED NEWLINE
 	// # define _ARG_FOO_1
 	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL SKW_COMMA NEWLINE
 	// #define FOO_ENABLED(foo1)

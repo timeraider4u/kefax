@@ -111,7 +111,7 @@ public class Test0005_Undef {
 		final String text = this.getTextFromFile(
 			"res/Test0005_Undef.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -171,7 +171,7 @@ public class Test0005_Undef {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WHITESPACE",

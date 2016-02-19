@@ -177,7 +177,7 @@ public class Test0006_FunctionDecls {
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

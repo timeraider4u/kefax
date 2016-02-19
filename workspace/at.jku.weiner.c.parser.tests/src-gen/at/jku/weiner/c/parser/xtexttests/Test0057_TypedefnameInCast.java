@@ -123,7 +123,7 @@ public class Test0057_TypedefnameInCast {
 		final String text = this.getTextFromFile(
 			"res/Test0057_TypedefnameInCast.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_KW_TYPEDEF",
 				"RULE_WHITESPACE",

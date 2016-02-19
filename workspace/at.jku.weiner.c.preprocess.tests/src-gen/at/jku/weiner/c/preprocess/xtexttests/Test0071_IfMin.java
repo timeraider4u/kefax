@@ -110,7 +110,7 @@ public class Test0071_IfMin {
 		final String text = this.getTextFromFile(
 			"res/Test0071_IfMin.c");
 			final String[] expected = new String[] {
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_IF",

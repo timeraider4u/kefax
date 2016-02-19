@@ -17,7 +17,8 @@ KW_CHAR SKW_COMMA WHITESPACE
 KW_FLOAT SKW_COMMA WHITESPACE
 KW_INT
 SKW_RIGHTPAREN SKW_SEMI NEWLINE
-LINE_COMMENT NEWLINE
+// LINE_COMMENT NEWLINE
+IGNORED NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
 	//(common::TranslationUnit 

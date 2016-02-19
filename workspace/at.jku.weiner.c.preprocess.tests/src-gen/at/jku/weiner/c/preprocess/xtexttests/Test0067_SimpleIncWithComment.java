@@ -105,13 +105,13 @@ public class Test0067_SimpleIncWithComment {
 				"RULE_WHITESPACE",
 				"RULE_STRING_LITERAL",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_INCLUDE",
 				"RULE_WHITESPACE",
 				"RULE_STRING_LITERAL",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

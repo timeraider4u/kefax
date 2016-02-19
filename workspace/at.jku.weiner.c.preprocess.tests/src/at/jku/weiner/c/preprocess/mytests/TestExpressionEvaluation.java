@@ -23,6 +23,7 @@ import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
@@ -76,6 +77,7 @@ public class TestExpressionEvaluation {
 
 	@Before
 	public void setUp() throws Exception {
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
 				this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(lexerUtils);

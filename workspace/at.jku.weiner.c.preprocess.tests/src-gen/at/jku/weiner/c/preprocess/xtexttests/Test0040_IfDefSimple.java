@@ -139,7 +139,7 @@ public class Test0040_IfDefSimple {
 				"RULE_HASH",
 				"RULE_ENDIF",
 				"RULE_WHITESPACE",
-				"RULE_BLOCK_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_NEWLINE",

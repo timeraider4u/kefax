@@ -144,7 +144,7 @@ public class Test0009_DefineAndInclude_Header {
 				"RULE_WHITESPACE",
 				"RULE_DECIMAL_LITERAL",
 				"RULE_NEWLINE",
-				"RULE_LINE_COMMENT",
+				"RULE_IGNORED",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WHITESPACE",

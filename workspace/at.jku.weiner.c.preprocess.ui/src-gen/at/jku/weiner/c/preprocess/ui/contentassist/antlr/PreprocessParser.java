@@ -236,7 +236,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK" };
+		return new String[] { "RULE_IGNORED" };
 	}
 	
 	public PreprocessGrammarAccess getGrammarAccess() {

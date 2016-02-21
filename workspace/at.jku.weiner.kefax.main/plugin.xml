@@ -22,7 +22,7 @@
 		        <class class="org.eclipse.ui.handlers.RadioState">
 		        	<parameter
 		               name="default"
-		               value="LOG_LEVEL_ERROR">
+		               value="LOG_LEVEL_INFO">
 		        	</parameter>
 		        	<parameter
 		               name="persisted"

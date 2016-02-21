@@ -41,7 +41,7 @@ public final class DefinitionTable {
 		final String val = replaceWith;
 		MyLog.trace(DefinitionTable.class,
 				"add new object-like macro with key='" + id
-						+ "' and replaceWith='" + replaceWith + "'");
+				+ "' and replaceWith='" + replaceWith + "'");
 		final DefinitionMacro newMacro = new DefinitionObjectMacro(this, key,
 				val);
 		this.checkForExistence(key, newMacro);
@@ -120,6 +120,7 @@ public final class DefinitionTable {
 					+ list.size() + "'");
 			final Token next = list.get(i);
 			final String text = next.getText();
+
 			MyLog.trace(DefinitionTable.class, "resolve-loop1('" + parenID
 					+ "'), token('" + i + "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
@@ -127,6 +128,8 @@ public final class DefinitionTable {
 				final DefinitionMacro macro = this.macros.get(text);
 				final MacroRanges newRange = new MacroRanges(i,
 						ranges.stopIndex);
+				// this.debug(list, text, newRange);
+				this.debugB(list, text, newRange);
 				macro.resolve(parenID, list, newRange);
 				MyLog.trace(DefinitionTable.class, "resolve-loop2('" + parenID
 						+ "'), ranges=" + ranges.toString() + ", newRanges='"
@@ -134,6 +137,7 @@ public final class DefinitionTable {
 						+ "', size='" + list.size() + "'");
 
 				i = ranges.update(newRange, true);
+				// this.debug2(list, text, newRange);
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
 				MyLog.trace(
@@ -146,6 +150,66 @@ public final class DefinitionTable {
 		}
 		TokenUtils.print("resolve-end('" + parenID + "'), " + ranges.toString()
 				+ ", list='", list);
+	}
+	
+	private void debug(final List<Token> code, final String text,
+			final MacroRanges newRange) {
+		if (!"_ASM_INC".equals(text)) {
+			return;
+		}
+
+		System.err.println("newRange=		" + newRange.toString());
+		System.err.println(TokenUtils.print("Code=		", code));
+		final DefinitionObjectMacro asmInc = (DefinitionObjectMacro) this.macros
+				.get("_ASM_INC");
+		final List<Token> tokens1 = asmInc.getReplacementList();
+		System.err.println(TokenUtils.print("_ASM_INC=		", tokens1));
+		
+		final DefinitionFunctionMacro asmSize = (DefinitionFunctionMacro) this.macros
+				.get("__ASM_SIZE");
+		final List<Token> tokens2 = asmSize.getReplacementList();
+		System.err.println(TokenUtils.print("__ASM_SIZE=		", tokens2));
+
+		final DefinitionFunctionMacro asmSel = (DefinitionFunctionMacro) this.macros
+				.get("__ASM_SEL");
+		final List<Token> tokens3 = asmSel.getReplacementList();
+		System.err.println(TokenUtils.print("__ASM_SEL=		", tokens3));
+
+		final DefinitionFunctionMacro asmForm = (DefinitionFunctionMacro) this.macros
+				.get("__ASM_FORM");
+		final List<Token> tokens4 = asmForm.getReplacementList();
+		System.err.println(TokenUtils.print("__ASM_FORM=		", tokens4));
+		
+		System.err.println("inc=		" + this.macros.get("inc"));
+		System.err.println("b=		" + this.macros.get("b"));
+		System.err.println("l=		" + this.macros.get("l"));
+		System.err.println("q=		" + this.macros.get("q"));
+		System.err.println("inst=		" + this.macros.get("inst"));
+		System.err.println("x=		" + this.macros.get("x"));
+		System.err.println("__VA_ARGS__=		" + this.macros.get("__VA_ARGS__"));
+	}
+
+	private void debugB(final List<Token> code, final String text,
+			final MacroRanges newRange) {
+		if (!"_ASM_INC".equals(text) && !"__ASM_SIZE".equals(text)
+				&& !"__ASM_SEL".equals(text) && !"__ASM_FORM".equals(text)) {
+			return;
+		}
+
+		System.err.println("macro=		" + text);
+		System.err.println("newRange=		" + newRange.toString());
+		System.err.println(TokenUtils.print("Code=		", code));
+		System.err.println("");
+	}
+
+	private void debug2(final List<Token> code, final String text,
+			final MacroRanges newRange) {
+		if (!"_ASM_INC".equals(text)) {
+			return;
+		}
+
+		System.err.println("newRange=		" + newRange.toString());
+		System.err.println(TokenUtils.print("Code=		", code));
 	}
 
 	@SuppressWarnings("unused")

@@ -1,0 +1,381 @@
+emftest
+package at.jku.weiner.c.modisco.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTestB()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0016_Include"
+
+(Model
+	units+=
+	// Predefined
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	// A.c
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/Test0016_Include1/A.c",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/Test0016_Include.h\\\""
+					)
+				),
+				(preprocess::Code
+					code++"BAR(a)"
+				),
+				(preprocess::Code
+					code++"BAR(b, c)"
+				),
+				(preprocess::Code
+					code++"BAR(d, e, f)"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			// comes from A.c
+			// BAR(a)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"a",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"\\\"]"
+								)
+							)
+						)
+					)
+				)
+			), // end external declaration
+			// BAR(b, c)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"b",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"c\\\"]"
+								)
+							)
+						)
+					)
+				)
+			), // end external declaration
+			// BAR(d, e, f)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"d",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"e, f\\\"]"
+								)
+							)
+						)
+					)
+				)
+			) // end external declaration
+		)
+	),
+	// Test0016_Include.h
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/include/Test0016_Include.h",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineFunctionLikeMacro
+						id++"FOO",
+						list =
+						(preprocess::IdentifierList
+							id+*"[X, Y]",
+							variadic?=false,
+							varID isNull
+						),
+						string++"char X[255] = Y;"
+					)
+				),
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineFunctionLikeMacro
+						id++"BAR",
+						list =
+						(preprocess::IdentifierList
+							id+*"[X]",
+							variadic?=true,
+							varID isNull
+						),
+						string++"FOO(X, #__VA_ARGS__)"
+					)
+				)
+			)	
+		),
+		parser isNull
+	),
+	// B.c
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/Test0016_Include2/B.c",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/Test0016_Include.h\\\""
+					)
+				),
+				(preprocess::Code
+					code++"BAR(g)"
+				),
+				(preprocess::Code
+					code++"BAR(h, i)"
+				),
+				(preprocess::Code
+					code++"BAR(j, k, l)"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			// comes from B.c
+			// BAR(g)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"g",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"\\\"]"
+								)
+							)
+						)
+					)
+				)
+			), // end external declaration
+			// BAR(h, i)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"h",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"i\\\"]"
+								)
+							)
+						)
+					)
+				)
+			), // end external declaration
+			// BAR(j, k, l)
+			(parser::ExternalDeclaration
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"char"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"j",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										expr=
+										(parser::PrimaryExpression
+											const=
+											(Constant2
+												dec++"255"
+											)
+										)
+									)
+								)
+							), // end declarator
+							initializer=
+							(parser::Initializer
+								expr=
+								(parser::PrimaryExpression
+									string+*"[\\\"k, l\\\"]"
+								)
+							)
+						)
+					)
+				)
+			) // end external declaration
+		)
+	)
+)
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0016()

@@ -1,0 +1,117 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0138_LineInDefine.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN LINE SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE 
+		LINE WHITESPACE CHAR_LITERAL WHITESPACE ID NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE LINE SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE LINE WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH IFDEF WHITESPACE LINE NEWLINE
+		WHITESPACE ID SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+	HASH IFNOTDEF WHITESPACE LINE NEWLINE
+		WHITESPACE ID SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+	HASH IF WHITESPACE LINE NEWLINE
+		WHITESPACE ID SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE 
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[line, val]"
+					),
+					//replacement+=
+					//(ReplaceLine
+						string++"line ':' val"
+					//)
+				)
+			),
+			(Code
+				code++"FOO(1, line)"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"line",
+					string++"1"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfDefConditional
+						id++"line",
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	MY_LINE;"
+							)
+						)
+					)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfNotDefConditional
+						id++"line",
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	NO_LINE;"
+							)
+						)
+					)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(PrimaryExpression
+							id++"line"
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	MY_LINE2;"
+							)
+						)
+					)
+				)
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0138_LineInDefine.c.i"
+expected file="expected/Test0138_LineInDefine.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -479,13 +479,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Assignment cIdAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_0_0 = (RuleCall)cIdAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_1_0_0_0 = (RuleCall)cIdAssignment_1_0_0.eContents().get(0);
 		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_0 = (RuleCall)cGroup_1_0_1.eContents().get(0);
 		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_1_1 = (RuleCall)cGroup_1_0_1.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_2 = (RuleCall)cGroup_1_0_1.eContents().get(2);
 		private final Assignment cIdAssignment_1_0_1_3 = (Assignment)cGroup_1_0_1.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_1_3_0 = (RuleCall)cIdAssignment_1_0_1_3.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_1_0_1_3_0 = (RuleCall)cIdAssignment_1_0_1_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
 		private final Group cGroup_1_0_3 = (Group)cGroup_1_0.eContents().get(3);
 		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_3_0 = (RuleCall)cGroup_1_0_3.eContents().get(0);
@@ -495,44 +495,44 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariadicEllipsisParserRuleCall_1_0_3_2_0_0 = (RuleCall)cVariadicAssignment_1_0_3_2_0.eContents().get(0);
 		private final Group cGroup_1_0_3_2_1 = (Group)cAlternatives_1_0_3_2.eContents().get(1);
 		private final Assignment cVarIDAssignment_1_0_3_2_1_0 = (Assignment)cGroup_1_0_3_2_1.eContents().get(0);
-		private final RuleCall cVarIDIDTerminalRuleCall_1_0_3_2_1_0_0 = (RuleCall)cVarIDAssignment_1_0_3_2_1_0.eContents().get(0);
+		private final RuleCall cVarIDPP_IDParserRuleCall_1_0_3_2_1_0_0 = (RuleCall)cVarIDAssignment_1_0_3_2_1_0.eContents().get(0);
 		private final Assignment cVariadicAssignment_1_0_3_2_1_1 = (Assignment)cGroup_1_0_3_2_1.eContents().get(1);
 		private final RuleCall cVariadicEllipsisParserRuleCall_1_0_3_2_1_1_0 = (RuleCall)cVariadicAssignment_1_0_3_2_1_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cVarIDAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cVarIDIDTerminalRuleCall_1_1_0_0 = (RuleCall)cVarIDAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cVarIDPP_IDParserRuleCall_1_1_0_0 = (RuleCall)cVarIDAssignment_1_1_0.eContents().get(0);
 		private final Assignment cVariadicAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cVariadicEllipsisParserRuleCall_1_1_1_0 = (RuleCall)cVariadicAssignment_1_1_1.eContents().get(0);
 		
 		//IdentifierList:
-		//	{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
+		//	{IdentifierList} (id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)*
 		//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis
-		//	| varID=ID variadic?=Ellipsis))?
-		//	| varID=ID? variadic?=Ellipsis);
+		//	| varID=PP_ID variadic?=Ellipsis))?
+		//	| varID=PP_ID? variadic?=Ellipsis);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE*
-		//(variadic?=Ellipsis | varID=ID variadic?=Ellipsis))? | varID=ID? variadic?=Ellipsis)
+		//{IdentifierList} (id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)* WHITESPACE* (SKW_COMMA WHITESPACE*
+		//(variadic?=Ellipsis | varID=PP_ID variadic?=Ellipsis))? | varID=PP_ID? variadic?=Ellipsis)
 		public Group getGroup() { return cGroup; }
 		
 		//{IdentifierList}
 		public Action getIdentifierListAction_0() { return cIdentifierListAction_0; }
 		
-		//(id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
-		//variadic?=Ellipsis))? | varID=ID? variadic?=Ellipsis)
+		//(id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis |
+		//varID=PP_ID variadic?=Ellipsis))? | varID=PP_ID? variadic?=Ellipsis)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
-		//variadic?=Ellipsis))?
+		//id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis |
+		//varID=PP_ID variadic?=Ellipsis))?
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//id+=ID
+		//id+=PP_ID
 		public Assignment getIdAssignment_1_0_0() { return cIdAssignment_1_0_0; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0_0_0() { return cIdIDTerminalRuleCall_1_0_0_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_1_0_0_0() { return cIdPP_IDParserRuleCall_1_0_0_0; }
 		
-		//(WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
+		//(WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)*
 		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
 		
 		//WHITESPACE*
@@ -544,16 +544,16 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_1_0_1_2() { return cWHITESPACETerminalRuleCall_1_0_1_2; }
 		
-		//id+=ID
+		//id+=PP_ID
 		public Assignment getIdAssignment_1_0_1_3() { return cIdAssignment_1_0_1_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0_1_3_0() { return cIdIDTerminalRuleCall_1_0_1_3_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_1_0_1_3_0() { return cIdPP_IDParserRuleCall_1_0_1_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_1_0_2() { return cWHITESPACETerminalRuleCall_1_0_2; }
 		
-		//(SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID variadic?=Ellipsis))?
+		//(SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=PP_ID variadic?=Ellipsis))?
 		public Group getGroup_1_0_3() { return cGroup_1_0_3; }
 		
 		//SKW_COMMA
@@ -562,7 +562,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_1_0_3_1() { return cWHITESPACETerminalRuleCall_1_0_3_1; }
 		
-		//(variadic?=Ellipsis | varID=ID variadic?=Ellipsis)
+		//(variadic?=Ellipsis | varID=PP_ID variadic?=Ellipsis)
 		public Alternatives getAlternatives_1_0_3_2() { return cAlternatives_1_0_3_2; }
 		
 		//variadic?=Ellipsis
@@ -571,14 +571,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Ellipsis
 		public RuleCall getVariadicEllipsisParserRuleCall_1_0_3_2_0_0() { return cVariadicEllipsisParserRuleCall_1_0_3_2_0_0; }
 		
-		//varID=ID variadic?=Ellipsis
+		//varID=PP_ID variadic?=Ellipsis
 		public Group getGroup_1_0_3_2_1() { return cGroup_1_0_3_2_1; }
 		
-		//varID=ID
+		//varID=PP_ID
 		public Assignment getVarIDAssignment_1_0_3_2_1_0() { return cVarIDAssignment_1_0_3_2_1_0; }
 		
-		//ID
-		public RuleCall getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0() { return cVarIDIDTerminalRuleCall_1_0_3_2_1_0_0; }
+		//PP_ID
+		public RuleCall getVarIDPP_IDParserRuleCall_1_0_3_2_1_0_0() { return cVarIDPP_IDParserRuleCall_1_0_3_2_1_0_0; }
 		
 		//variadic?=Ellipsis
 		public Assignment getVariadicAssignment_1_0_3_2_1_1() { return cVariadicAssignment_1_0_3_2_1_1; }
@@ -586,14 +586,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Ellipsis
 		public RuleCall getVariadicEllipsisParserRuleCall_1_0_3_2_1_1_0() { return cVariadicEllipsisParserRuleCall_1_0_3_2_1_1_0; }
 		
-		//varID=ID? variadic?=Ellipsis
+		//varID=PP_ID? variadic?=Ellipsis
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//varID=ID?
+		//varID=PP_ID?
 		public Assignment getVarIDAssignment_1_1_0() { return cVarIDAssignment_1_1_0; }
 		
-		//ID
-		public RuleCall getVarIDIDTerminalRuleCall_1_1_0_0() { return cVarIDIDTerminalRuleCall_1_1_0_0; }
+		//PP_ID
+		public RuleCall getVarIDPP_IDParserRuleCall_1_1_0_0() { return cVarIDPP_IDParserRuleCall_1_1_0_0; }
 		
 		//variadic?=Ellipsis
 		public Assignment getVariadicAssignment_1_1_1() { return cVariadicAssignment_1_1_1; }
@@ -719,14 +719,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUNDEFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//UnDefineDirective:
-		//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*;
+		//	{UnDefineDirective} UNDEF WHITESPACE+ id=PP_ID WHITESPACE*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*
+		//{UnDefineDirective} UNDEF WHITESPACE+ id=PP_ID WHITESPACE*
 		public Group getGroup() { return cGroup; }
 		
 		//{UnDefineDirective}
@@ -738,11 +738,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//id=ID
+		//id=PP_ID
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_3_0() { return cIdPP_IDParserRuleCall_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
@@ -878,18 +878,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIFDEFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfDefConditional:
-		//	{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+		//	{IfDefConditional} IFDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE group=GroupOpt
+		//{IfDefConditional} IFDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfDefConditional}
@@ -901,11 +901,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//id=ID
+		//id=PP_ID
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_3_0() { return cIdPP_IDParserRuleCall_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
@@ -926,18 +926,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIFNOTDEFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfNotDefConditional:
-		//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+		//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE group=GroupOpt
+		//{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfNotDefConditional}
@@ -949,11 +949,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//id=ID
+		//id=PP_ID
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_3_0() { return cIdPP_IDParserRuleCall_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
@@ -1157,10 +1157,29 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//MyCodeLineExtended
 		public RuleCall getCodeMyCodeLineExtendedParserRuleCall_1_0() { return cCodeMyCodeLineExtendedParserRuleCall_1_0; }
 	}
+	public class PP_IDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLINETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PP_ID ecore::EString:
+		//	ID | LINE
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID | LINE
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//LINE
+		public RuleCall getLINETerminalRuleCall_1() { return cLINETerminalRuleCall_1; }
+	}
 	public class MyCodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyCode");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPP_IDParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSPECIALTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cINCLUDETerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDEFINETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
@@ -1175,23 +1194,21 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cELSETerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		private final RuleCall cWARNINGTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cUNDEFTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cLINETerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cSpecialKeywordsParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
-		private final RuleCall cConstant1ParserRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
+		private final RuleCall cSpecialKeywordsParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cConstant1ParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
 		
 		//MyCode ecore::EString:
-		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
+		//	PP_ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 		//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-		//	| ELIF | ELSE | WARNING | UNDEF | LINE
-		//	| SpecialKeywords | Constant1
+		//	| ELIF | ELSE | WARNING | UNDEF | SpecialKeywords | Constant1
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | ELIF | ELSE | WARNING |
-		//UNDEF | LINE | SpecialKeywords | Constant1
+		//PP_ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | ELIF | ELSE | WARNING |
+		//UNDEF | SpecialKeywords | Constant1
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		//PP_ID
+		public RuleCall getPP_IDParserRuleCall_0() { return cPP_IDParserRuleCall_0; }
 		
 		//SPECIAL
 		public RuleCall getSPECIALTerminalRuleCall_1() { return cSPECIALTerminalRuleCall_1; }
@@ -1235,14 +1252,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//UNDEF
 		public RuleCall getUNDEFTerminalRuleCall_14() { return cUNDEFTerminalRuleCall_14; }
 		
-		//LINE
-		public RuleCall getLINETerminalRuleCall_15() { return cLINETerminalRuleCall_15; }
-		
 		//SpecialKeywords
-		public RuleCall getSpecialKeywordsParserRuleCall_16() { return cSpecialKeywordsParserRuleCall_16; }
+		public RuleCall getSpecialKeywordsParserRuleCall_15() { return cSpecialKeywordsParserRuleCall_15; }
 		
 		//Constant1
-		public RuleCall getConstant1ParserRuleCall_17() { return cConstant1ParserRuleCall_17; }
+		public RuleCall getConstant1ParserRuleCall_16() { return cConstant1ParserRuleCall_16; }
 	}
 	public class MyDefineLineFunctionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLineFunction");
@@ -1376,13 +1390,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDefinedAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
 		private final RuleCall cDefinedDEFINEDTerminalRuleCall_1_0_0_0 = (RuleCall)cDefinedAssignment_1_0_0.eContents().get(0);
 		private final Assignment cIdAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_1_0 = (RuleCall)cIdAssignment_1_0_1.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_1_0_1_0 = (RuleCall)cIdAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cDefinedAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
 		private final RuleCall cDefinedDEFINEDTerminalRuleCall_1_1_0_0 = (RuleCall)cDefinedAssignment_1_1_0.eContents().get(0);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
 		private final Assignment cIdAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_1_1_2_0 = (RuleCall)cIdAssignment_1_1_2.eContents().get(0);
+		private final RuleCall cIdPP_IDParserRuleCall_1_1_2_0 = (RuleCall)cIdAssignment_1_1_2.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
 		private final Assignment cConstAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cConstConstant1ParserRuleCall_1_2_0 = (RuleCall)cConstAssignment_1_2.eContents().get(0);
@@ -1395,25 +1409,26 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// expressions
 		//PrimaryExpression Expression:
-		//	{PrimaryExpression} (defined?=DEFINED? id=ID
-		//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
+		//	{PrimaryExpression} (defined?=DEFINED? id=PP_ID
+		//	| defined?=DEFINED? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN
 		//	| const=Constant1
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 		//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PrimaryExpression} (defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
+		//{PrimaryExpression} (defined?=DEFINED? id=PP_ID | defined?=DEFINED? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN |
+		//const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
-		//(defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
+		//(defined?=DEFINED? id=PP_ID | defined?=DEFINED? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//defined?=DEFINED? id=ID
+		//defined?=DEFINED? id=PP_ID
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//defined?=DEFINED?
@@ -1422,13 +1437,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//DEFINED
 		public RuleCall getDefinedDEFINEDTerminalRuleCall_1_0_0_0() { return cDefinedDEFINEDTerminalRuleCall_1_0_0_0; }
 		
-		//id=ID
+		//id=PP_ID
 		public Assignment getIdAssignment_1_0_1() { return cIdAssignment_1_0_1; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0_1_0() { return cIdIDTerminalRuleCall_1_0_1_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_1_0_1_0() { return cIdPP_IDParserRuleCall_1_0_1_0; }
 		
-		//defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
+		//defined?=DEFINED? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//defined?=DEFINED?
@@ -1440,11 +1455,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_LEFTPAREN
 		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_1_1() { return cSKW_LEFTPARENTerminalRuleCall_1_1_1; }
 		
-		//id=ID
+		//id=PP_ID
 		public Assignment getIdAssignment_1_1_2() { return cIdAssignment_1_1_2; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_1_2_0() { return cIdIDTerminalRuleCall_1_1_2_0; }
+		//PP_ID
+		public RuleCall getIdPP_IDParserRuleCall_1_1_2_0() { return cIdPP_IDParserRuleCall_1_1_2_0; }
 		
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_1_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_1_3; }
@@ -1500,6 +1515,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final NullDirectiveElements pNullDirective;
 	private final NewLineLineElements pNewLineLine;
 	private final CodeElements pCode;
+	private final PP_IDElements pPP_ID;
 	private final MyCodeElements pMyCode;
 	private final MyDefineLineFunctionElements pMyDefineLineFunction;
 	private final MyDefineLineObjectElements pMyDefineLineObject;
@@ -1561,6 +1577,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNullDirective = new NullDirectiveElements();
 		this.pNewLineLine = new NewLineLineElements();
 		this.pCode = new CodeElements();
+		this.pPP_ID = new PP_IDElements();
 		this.pMyCode = new MyCodeElements();
 		this.pMyDefineLineFunction = new MyDefineLineFunctionElements();
 		this.pMyDefineLineObject = new MyDefineLineObjectElements();
@@ -1749,10 +1766,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IdentifierList:
-	//	{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
+	//	{IdentifierList} (id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)*
 	//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis
-	//	| varID=ID variadic?=Ellipsis))?
-	//	| varID=ID? variadic?=Ellipsis);
+	//	| varID=PP_ID variadic?=Ellipsis))?
+	//	| varID=PP_ID? variadic?=Ellipsis);
 	public IdentifierListElements getIdentifierListAccess() {
 		return pIdentifierList;
 	}
@@ -1794,7 +1811,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnDefineDirective:
-	//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*;
+	//	{UnDefineDirective} UNDEF WHITESPACE+ id=PP_ID WHITESPACE*;
 	public UnDefineDirectiveElements getUnDefineDirectiveAccess() {
 		return pUnDefineDirective;
 	}
@@ -1829,7 +1846,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfDefConditional:
-	//	{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+	//	{IfDefConditional} IFDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfDefConditionalElements getIfDefConditionalAccess() {
 		return pIfDefConditional;
@@ -1840,7 +1857,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfNotDefConditional:
-	//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+	//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfNotDefConditionalElements getIfNotDefConditionalAccess() {
 		return pIfNotDefConditional;
@@ -1913,11 +1930,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getCodeAccess().getRule();
 	}
 	
+	//PP_ID ecore::EString:
+	//	ID | LINE
+	public PP_IDElements getPP_IDAccess() {
+		return pPP_ID;
+	}
+	
+	public ParserRule getPP_IDRule() {
+		return getPP_IDAccess().getRule();
+	}
+	
 	//MyCode ecore::EString:
-	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
+	//	PP_ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 	//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-	//	| ELIF | ELSE | WARNING | UNDEF | LINE
-	//	| SpecialKeywords | Constant1
+	//	| ELIF | ELSE | WARNING | UNDEF | SpecialKeywords | Constant1
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -1989,8 +2015,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// expressions
 	//PrimaryExpression Expression:
-	//	{PrimaryExpression} (defined?=DEFINED? id=ID
-	//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
+	//	{PrimaryExpression} (defined?=DEFINED? id=PP_ID
+	//	| defined?=DEFINED? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN
 	//	| const=Constant1
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
@@ -2528,7 +2554,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[39]->TerminalRule'SKW_DOLLAR'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
@@ -2712,7 +2738,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[69]->TerminalRule'SKW_UNDERSCORE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
@@ -2728,7 +2754,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[71]->TerminalRule'IDENTIFIER'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
@@ -2738,7 +2764,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'LETTER'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
@@ -2784,7 +2810,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[79]->TerminalRule'HEX_DIGIT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
@@ -2794,7 +2820,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'INTEGER_TYPE_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
@@ -2804,7 +2830,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'UNSIGNED_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
@@ -2814,7 +2840,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'LONG_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
@@ -2824,7 +2850,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_LONG_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
@@ -2843,7 +2869,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[85]->TerminalRule'EXPONENT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
@@ -2853,7 +2879,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'FLOAT_TYPE_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
@@ -2863,7 +2889,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'ESCAPE_SEQUENCE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
@@ -2873,7 +2899,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'OCTAL_ESCAPE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
@@ -2883,7 +2909,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'HEX_ESCAPE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
@@ -2893,7 +2919,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'LINEFEED'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
@@ -2903,7 +2929,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'CARRIAGERETURN'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
@@ -2919,7 +2945,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[93]->TerminalRule'LINEBREAK'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
@@ -2935,7 +2961,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[95]->TerminalRule'SPACE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
@@ -2945,7 +2971,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'TAB'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();
@@ -2961,7 +2987,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[98]->TerminalRule'BLOCK_COMMENT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return gaCommon.getBLOCK_COMMENTRule();
@@ -2971,7 +2997,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'LINE_COMMENT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
@@ -2981,7 +3007,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'FORM_FEED'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFORM_FEEDRule() {
 		return gaCommon.getFORM_FEEDRule();

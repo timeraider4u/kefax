@@ -281,7 +281,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id+=ID id+=ID* (variadic?=Ellipsis | (varID=ID variadic?=Ellipsis))?) | (varID=ID? variadic?=Ellipsis))
+	 *     ((id+=PP_ID id+=PP_ID* (variadic?=Ellipsis | (varID=PP_ID variadic?=Ellipsis))?) | (varID=PP_ID? variadic?=Ellipsis))
 	 */
 	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -299,7 +299,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID group=GroupOpt)
+	 *     (id=PP_ID group=GroupOpt)
 	 */
 	protected void sequence_IfDefConditional(EObject context, IfDefConditional semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -308,7 +308,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID group=GroupOpt)
+	 *     (id=PP_ID group=GroupOpt)
 	 */
 	protected void sequence_IfNotDefConditional(EObject context, IfNotDefConditional semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -397,7 +397,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((defined?=DEFINED? id=ID) | (defined?=DEFINED? id=ID) | const=Constant1 | (parentheses?=SKW_LEFTPAREN expr=Expression))
+	 *     ((defined?=DEFINED? id=PP_ID) | (defined?=DEFINED? id=PP_ID) | const=Constant1 | (parentheses?=SKW_LEFTPAREN expr=Expression))
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -406,7 +406,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     id=PP_ID
 	 */
 	protected void sequence_UnDefineDirective(EObject context, UnDefineDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -415,7 +415,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdPP_IDParserRuleCall_3_0(), semanticObject.getId());
 		feeder.finish();
 	}
 	

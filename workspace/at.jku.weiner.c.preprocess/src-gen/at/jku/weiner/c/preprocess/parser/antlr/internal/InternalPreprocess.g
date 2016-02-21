@@ -1174,19 +1174,19 @@ ruleIdentifierList returns [EObject current=null]
 (
 (
 (
-		lv_id_1_0=RULE_ID
-		{
-			newLeafNode(lv_id_1_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_0_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_0_0()); 
+	    }
+		lv_id_1_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1217,19 +1217,19 @@ this_SKW_COMMA_3=RULE_SKW_COMMA
 
 (
 (
-		lv_id_5_0=RULE_ID
-		{
-			newLeafNode(lv_id_5_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_1_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_1_3_0()); 
+	    }
+		lv_id_5_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
        			"id",
         		lv_id_5_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1286,19 +1286,19 @@ this_SKW_COMMA_7=RULE_SKW_COMMA
 (
 (
 (
-		lv_varID_10_0=RULE_ID
-		{
-			newLeafNode(lv_varID_10_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getVarIDPP_IDParserRuleCall_1_0_3_2_1_0_0()); 
+	    }
+		lv_varID_10_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"varID",
         		lv_varID_10_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1338,19 +1338,19 @@ this_SKW_COMMA_7=RULE_SKW_COMMA
 (
 (
 (
-		lv_varID_12_0=RULE_ID
-		{
-			newLeafNode(lv_varID_12_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_1_0_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getVarIDPP_IDParserRuleCall_1_1_0_0()); 
+	    }
+		lv_varID_12_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"varID",
         		lv_varID_12_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1710,19 +1710,19 @@ this_UNDEF_1=RULE_UNDEF
 
 (
 (
-		lv_id_3_0=RULE_ID
-		{
-			newLeafNode(lv_id_3_0, grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getUnDefineDirectiveAccess().getIdPP_IDParserRuleCall_3_0()); 
+	    }
+		lv_id_3_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUnDefineDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getUnDefineDirectiveRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2085,19 +2085,19 @@ this_IFDEF_1=RULE_IFDEF
 
 (
 (
-		lv_id_3_0=RULE_ID
-		{
-			newLeafNode(lv_id_3_0, grammarAccess.getIfDefConditionalAccess().getIdIDTerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+	    }
+		lv_id_3_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIfDefConditionalRule());
+	            $current = createModelElementForParent(grammarAccess.getIfDefConditionalRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2199,19 +2199,19 @@ this_IFNOTDEF_1=RULE_IFNOTDEF
 
 (
 (
-		lv_id_3_0=RULE_ID
-		{
-			newLeafNode(lv_id_3_0, grammarAccess.getIfNotDefConditionalAccess().getIdIDTerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+	    }
+		lv_id_3_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIfNotDefConditionalRule());
+	            $current = createModelElementForParent(grammarAccess.getIfNotDefConditionalRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2737,6 +2737,42 @@ finally {
 
 
 
+// Entry rule entryRulePP_ID
+entryRulePP_ID returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPP_IDRule()); } 
+	 iv_rulePP_ID=rulePP_ID 
+	 { $current=$iv_rulePP_ID.current.getText(); }  
+	 EOF 
+;
+
+// Rule PP_ID
+rulePP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getPP_IDAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |    this_LINE_1=RULE_LINE    {
+		$current.merge(this_LINE_1);
+    }
+
+    { 
+    newLeafNode(this_LINE_1, grammarAccess.getPP_IDAccess().getLINETerminalRuleCall_1()); 
+    }
+)
+    ;
+
+
+
+
+
 // Entry rule entryRuleMyCode
 entryRuleMyCode returns [String current=null] 
 	:
@@ -2751,12 +2787,16 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(    this_ID_0=RULE_ID    {
-		$current.merge(this_ID_0);
+(
+    { 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getPP_IDParserRuleCall_0()); 
+    }
+    this_PP_ID_0=rulePP_ID    {
+		$current.merge(this_PP_ID_0);
     }
 
     { 
-    newLeafNode(this_ID_0, grammarAccess.getMyCodeAccess().getIDTerminalRuleCall_0()); 
+        afterParserOrEnumRuleCall();
     }
 
     |    this_SPECIAL_1=RULE_SPECIAL    {
@@ -2871,20 +2911,12 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     newLeafNode(this_UNDEF_14, grammarAccess.getMyCodeAccess().getUNDEFTerminalRuleCall_14()); 
     }
 
-    |    this_LINE_15=RULE_LINE    {
-		$current.merge(this_LINE_15);
-    }
-
-    { 
-    newLeafNode(this_LINE_15, grammarAccess.getMyCodeAccess().getLINETerminalRuleCall_15()); 
-    }
-
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_16()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_15()); 
     }
-    this_SpecialKeywords_16=ruleSpecialKeywords    {
-		$current.merge(this_SpecialKeywords_16);
+    this_SpecialKeywords_15=ruleSpecialKeywords    {
+		$current.merge(this_SpecialKeywords_15);
     }
 
     { 
@@ -2893,10 +2925,10 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_17()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_16()); 
     }
-    this_Constant1_17=ruleConstant1    {
-		$current.merge(this_Constant1_17);
+    this_Constant1_16=ruleConstant1    {
+		$current.merge(this_Constant1_16);
     }
 
     { 
@@ -3223,19 +3255,19 @@ rulePrimaryExpression returns [EObject current=null]
 
 (
 (
-		lv_id_2_0=RULE_ID
-		{
-			newLeafNode(lv_id_2_0, grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_0_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_0_1_0()); 
+	    }
+		lv_id_2_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_2_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -3276,19 +3308,19 @@ this_SKW_LEFTPAREN_4=RULE_SKW_LEFTPAREN
 
 (
 (
-		lv_id_5_0=RULE_ID
-		{
-			newLeafNode(lv_id_5_0, grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_1_2_0()); 
+	    }
+		lv_id_5_0=rulePP_ID		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_5_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )

@@ -133,18 +133,18 @@ IdentifierList:
 	{IdentifierList}
 	(	
 		(
-			id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
+			id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)*
 			WHITESPACE*
 			(SKW_COMMA WHITESPACE* 
 				(
 					variadic?=Ellipsis
-					| varID=ID variadic?=Ellipsis
+					| varID=PP_ID variadic?=Ellipsis
 				)
 			)?
 		)
 		|
 		(
-			(varID=ID)? variadic?=Ellipsis
+			(varID=PP_ID)? variadic?=Ellipsis
 		)
 	)
 ;
@@ -170,7 +170,7 @@ WarningDirective:
 
 UnDefineDirective:
 	{UnDefineDirective}
-	UNDEF WHITESPACE+ id=ID WHITESPACE*
+	UNDEF WHITESPACE+ id=PP_ID WHITESPACE*
 ;
 
 ConditionalDirective:
@@ -194,13 +194,13 @@ IfConditional:
 
 IfDefConditional:
 	{IfDefConditional}
-	IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+	IFDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
 IfNotDefConditional:
 	{IfNotDefConditional}
-	IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
+	IFNOTDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
@@ -237,11 +237,15 @@ Code returns SourceCodeLine:
 	//(NEWLINE)
 ;
 
+PP_ID returns ecore::EString:
+	ID|LINE
+;
+
 MyCode returns ecore::EString:
-	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
+	PP_ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
 	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
-	|ELIF|ELSE|WARNING|UNDEF|LINE
-	|SpecialKeywords|Constant1
+	|ELIF|ELSE|WARNING|UNDEF|
+	SpecialKeywords|Constant1
 ;
 
 MyDefineLineFunction returns ecore::EString:
@@ -273,8 +277,8 @@ MyCodeLineExtendedNormal returns ecore::EString:
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(
-		(defined?=DEFINED)? id=ID
-	|	(defined?=DEFINED)? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
+		(defined?=DEFINED)? id=PP_ID
+	|	(defined?=DEFINED)? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN
 	|	const=Constant1
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN

@@ -127,12 +127,14 @@ public class Main {
 		// iterate command lines
 		final DiscoverFromIResource discoverer = new DiscoverFromIResource();
 		monitor.beginTask("iterating modules", cmdLines.size());
+		final int total = cmdLines.size() + 1;
 		for (int i = 0; i < cmdLines.size(); i++) {
 			if (monitor.isCanceled()) {
 				return Status.CANCEL_STATUS;
 			}
 			monitor.worked(i);
-			MyLog.log(Main.class, "cmdLine=" + i + "/" + cmdLines.size() + "!");
+			final int num = i + 1;
+			MyLog.log(Main.class, "cmdLine=" + num + "/" + total + "!");
 			final CmdLine cmdLine = cmdLines.get(i);
 			final CmdArgs args = new CmdArgs(cmdPath, cmdLine, linux);
 			final String additionalDirectives = args

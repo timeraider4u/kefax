@@ -12,42 +12,42 @@ import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 
 public final class DefinitionTable {
-
+	
 	private long id = -1;
 	private final Map<String, DefinitionMacro> macros = new HashMap<String, DefinitionMacro>();
 	protected final LexerUtils lexer;
-
+	
 	public DefinitionTable(final LexerUtils lexer) {
 		this.lexer = lexer;
 	}
-
+	
 	public void reset() {
 		this.macros.clear();
 		MyLog.trace(DefinitionTable.class, "DefinitionTable.reset()");
 	}
-
+	
 	public int size() {
 		return this.macros.size();
 	}
-
+	
 	public boolean isDefined(final String macroName) {
 		boolean result = false;
 		result = this.macros.containsKey(macroName);
 		return result;
 	}
-
+	
 	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
 		MyLog.trace(DefinitionTable.class,
 				"add new object-like macro with key='" + id
-				+ "' and replaceWith='" + replaceWith + "'");
+						+ "' and replaceWith='" + replaceWith + "'");
 		final DefinitionMacro newMacro = new DefinitionObjectMacro(this, key,
 				val);
 		this.checkForExistence(key, newMacro);
 		this.macros.put(id, newMacro);
 	}
-
+	
 	private void checkForExistence(final String key,
 			final DefinitionMacro newMacro) {
 		if (this.macros.containsKey(key)) {
@@ -61,21 +61,21 @@ public final class DefinitionTable {
 			}
 		}
 	}
-
+	
 	public void addFunctionMacro(final String id, final IdentifierList list,
 			final String replaceWith) {
 		final String key = id;
 		final DefinitionMacro newMacro = new DefinitionFunctionMacro(this, key,
 				list, replaceWith);
 		this.checkForExistence(key, newMacro);
-
+		
 		this.macros.put(id, newMacro);
 	}
-
+	
 	public void remove(final String key) {
 		this.macros.remove(key);
 	}
-
+	
 	public boolean containsAKey(final String code) {
 		final boolean result = false;
 		final List<Token> list = this.lexer.getTokens(code);
@@ -91,7 +91,7 @@ public final class DefinitionTable {
 		}
 		return result;
 	}
-
+	
 	public String fullResolve(final String code) {
 		final StringBuffer result = new StringBuffer("");
 		final List<Token> list = this.lexer.getTokens(code);
@@ -109,7 +109,7 @@ public final class DefinitionTable {
 				+ "'), code='" + code + "', result='" + resultStr + "'");
 		return resultStr;
 	}
-
+	
 	protected void resolve(final long parenID, final List<Token> list,
 			final MacroRanges ranges) {
 		TokenUtils.print(
@@ -120,7 +120,7 @@ public final class DefinitionTable {
 					+ list.size() + "'");
 			final Token next = list.get(i);
 			final String text = next.getText();
-
+			
 			MyLog.trace(DefinitionTable.class, "resolve-loop1('" + parenID
 					+ "'), token('" + i + "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
@@ -128,16 +128,13 @@ public final class DefinitionTable {
 				final DefinitionMacro macro = this.macros.get(text);
 				final MacroRanges newRange = new MacroRanges(i,
 						ranges.stopIndex);
-				// this.debug(list, text, newRange);
-				this.debugB(list, text, newRange);
 				macro.resolve(parenID, list, newRange);
 				MyLog.trace(DefinitionTable.class, "resolve-loop2('" + parenID
 						+ "'), ranges=" + ranges.toString() + ", newRanges='"
 						+ newRange.toString() + "', macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
-
+				
 				i = ranges.update(newRange, true);
-				// this.debug2(list, text, newRange);
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
 				MyLog.trace(
@@ -152,66 +149,17 @@ public final class DefinitionTable {
 				+ ", list='", list);
 	}
 	
-	private void debug(final List<Token> code, final String text,
-			final MacroRanges newRange) {
-		if (!"_ASM_INC".equals(text)) {
-			return;
-		}
-
-		System.err.println("newRange=		" + newRange.toString());
-		System.err.println(TokenUtils.print("Code=		", code));
-		final DefinitionObjectMacro asmInc = (DefinitionObjectMacro) this.macros
-				.get("_ASM_INC");
-		final List<Token> tokens1 = asmInc.getReplacementList();
-		System.err.println(TokenUtils.print("_ASM_INC=		", tokens1));
-		
-		final DefinitionFunctionMacro asmSize = (DefinitionFunctionMacro) this.macros
-				.get("__ASM_SIZE");
-		final List<Token> tokens2 = asmSize.getReplacementList();
-		System.err.println(TokenUtils.print("__ASM_SIZE=		", tokens2));
-
-		final DefinitionFunctionMacro asmSel = (DefinitionFunctionMacro) this.macros
-				.get("__ASM_SEL");
-		final List<Token> tokens3 = asmSel.getReplacementList();
-		System.err.println(TokenUtils.print("__ASM_SEL=		", tokens3));
-
-		final DefinitionFunctionMacro asmForm = (DefinitionFunctionMacro) this.macros
-				.get("__ASM_FORM");
-		final List<Token> tokens4 = asmForm.getReplacementList();
-		System.err.println(TokenUtils.print("__ASM_FORM=		", tokens4));
-		
-		System.err.println("inc=		" + this.macros.get("inc"));
-		System.err.println("b=		" + this.macros.get("b"));
-		System.err.println("l=		" + this.macros.get("l"));
-		System.err.println("q=		" + this.macros.get("q"));
-		System.err.println("inst=		" + this.macros.get("inst"));
-		System.err.println("x=		" + this.macros.get("x"));
-		System.err.println("__VA_ARGS__=		" + this.macros.get("__VA_ARGS__"));
-	}
-
-	private void debugB(final List<Token> code, final String text,
-			final MacroRanges newRange) {
-		if (!"_ASM_INC".equals(text) && !"__ASM_SIZE".equals(text)
-				&& !"__ASM_SEL".equals(text) && !"__ASM_FORM".equals(text)) {
-			return;
-		}
-
-		System.err.println("macro=		" + text);
-		System.err.println("newRange=		" + newRange.toString());
-		System.err.println(TokenUtils.print("Code=		", code));
-		System.err.println("");
-	}
-
+	@SuppressWarnings("unused")
 	private void debug2(final List<Token> code, final String text,
 			final MacroRanges newRange) {
 		if (!"_ASM_INC".equals(text)) {
 			return;
 		}
-
+		
 		System.err.println("newRange=		" + newRange.toString());
 		System.err.println(TokenUtils.print("Code=		", code));
 	}
-
+	
 	@SuppressWarnings("unused")
 	private void addWhitespaceIfFunctionMacro(final DefinitionMacro macro,
 			final List<Token> code, final int currIndex,
@@ -241,5 +189,5 @@ public final class DefinitionTable {
 		code.add(currIndex + 1, ws);
 		ranges.addElement();
 	}
-
+	
 }

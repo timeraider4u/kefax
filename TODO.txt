@@ -1,5 +1,8 @@
 High priority:
 
+	/home/harry/workspace/runtime-EclipseApplication/linux-3.18/crypto/gf128mul.c
+		line 100:	#define xx(p, q)	0x##p##q
+
 	https://gcc.gnu.org/onlinedocs/gcc/Restricted-Pointers.html
 
 

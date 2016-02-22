@@ -1,3 +1,12 @@
 #define NAME	"Nobody\n\
-Somebody"
+\
+\
+Somebody\
+"
 NAME
+
+void foo() {
+	printf("Nobody\n\
+\nSomething\
+");
+}

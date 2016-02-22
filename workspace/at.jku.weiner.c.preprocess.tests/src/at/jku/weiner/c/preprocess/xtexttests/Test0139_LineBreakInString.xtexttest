@@ -10,6 +10,10 @@ source file="res/Test0139_LineBreakInString.c"
 lexer-tokens
 	HASH DEFINE WHITESPACE ID WHITESPACE STRING_LITERAL NEWLINE
 	ID NEWLINE
+	NEWLINE
+	ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+		WHITESPACE ID SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE 
+	SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -22,20 +26,29 @@ lexer-tokens
 				directive=
 				(DefineObjectMacro
 					id++"NAME",
-					string++"\\\"Nobody\\nSomebody\\\""
+					string++"\\\"Nobody\\\\nSomebody\\\""
 				)
 			),
 			(Code
 				code++"NAME"
+			),
+			(NewLineLine),
+			(Code
+				code++"void foo() {"
+			),
+			(Code
+				code++"	printf(\\\"Nobody\\\\n\\\\nSomething\\\");"
+			),
+			(Code
+				code++"}"
 			)
-			
 		)
 	)
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0004_SimpleDef.c.i"
-expected file="expected/Test0004_SimpleDef.c"
+output file="bin/Test0139_LineBreakInString.c.i"
+expected file="expected/Test0139_LineBreakInString.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

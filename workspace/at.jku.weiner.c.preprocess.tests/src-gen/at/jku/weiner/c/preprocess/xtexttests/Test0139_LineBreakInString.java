@@ -48,6 +48,10 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -108,6 +112,24 @@ public class Test0139_LineBreakInString {
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -135,7 +157,7 @@ public class Test0139_LineBreakInString {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(6, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -149,7 +171,7 @@ public class Test0139_LineBreakInString {
 		);
 		Assert.assertEquals("NAME", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("\"Nobody\nSomebody\"", DefineObjectMacro_3_Var
+		Assert.assertEquals("\"Nobody\\nSomebody\"", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final Code Code_4_Var
@@ -157,6 +179,32 @@ public class Test0139_LineBreakInString {
 		Assert.assertNotNull(Code_4_Var
 		);
 		Assert.assertEquals("NAME", Code_4_Var
+		.getCode());
+		//4
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_1_list.get(2);
+		Assert.assertNotNull(NewLineLine_5_Var
+		);
+		//5
+		final Code Code_6_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_6_Var
+		);
+		Assert.assertEquals("void foo() {", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("	printf(\"Nobody\\n\\nSomething\");", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("}", Code_8_Var
 		.getCode());
 	}
 	
@@ -181,7 +229,7 @@ public class Test0139_LineBreakInString {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0004_SimpleDef.c.i");
+				method.invoke(this.generator, "Test0139_LineBreakInString.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -189,9 +237,9 @@ public class Test0139_LineBreakInString {
 			// do nothing
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0004_SimpleDef.c.i");
+		final String actual = this.getTextFromFile("bin/Test0139_LineBreakInString.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0004_SimpleDef.c"
+			"expected/Test0139_LineBreakInString.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 	}

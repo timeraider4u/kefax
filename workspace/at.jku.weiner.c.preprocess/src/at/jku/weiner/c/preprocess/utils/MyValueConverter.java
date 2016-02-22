@@ -32,7 +32,7 @@ public class MyValueConverter extends MyValueConverterCommon {
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				final String temp = MyValueConverterCommon
-						.cutChar(string, node);
+						.updateCharSequence(string);
 				return temp;
 			}
 
@@ -58,9 +58,57 @@ public class MyValueConverter extends MyValueConverterCommon {
 							node, null);
 				}
 				final String temp = MyValueConverterCommon
-						.cutChar(string, node);
+						.updateCharSequence(string);
 				final String result = MyValueConverter.replaceNewline(temp);
 				return result.trim();
+			}
+
+			@Override
+			public String toString(final String value)
+					throws ValueConverterException {
+				return " " + value;
+			}
+
+		};
+	}
+
+	@ValueConverter(rule = "MyCodeLineExtended")
+	public IValueConverter<String> MyCodeLineExtended() {
+		return new IValueConverter<String>() {
+
+			@Override
+			public String toValue(final String string, final INode node)
+					throws ValueConverterException {
+				if (Strings.isEmpty(string)) {
+					return "";
+				}
+				final String result = MyValueConverterCommon
+						.updateCharSequence(string);
+				return result;
+			}
+
+			@Override
+			public String toString(final String value)
+					throws ValueConverterException {
+				return " " + value;
+			}
+
+		};
+	}
+
+	@ValueConverter(rule = "MyCodeLineExtendedNormal")
+	public IValueConverter<String> MyCodeLineExtendedNormal() {
+		return new IValueConverter<String>() {
+
+			@Override
+			public String toValue(final String string, final INode node)
+					throws ValueConverterException {
+				if (Strings.isEmpty(string)) {
+					return "";
+				}
+				final String result = MyValueConverterCommon
+						.updateCharSequence(string);
+				return result;
 			}
 
 			@Override
@@ -80,7 +128,7 @@ public class MyValueConverter extends MyValueConverterCommon {
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				final String temp = MyValueConverterCommon
-						.cutChar(string, node);
+						.updateCharSequence(string);
 				return MyValueConverter.replaceAll(temp);
 			}
 
@@ -101,7 +149,7 @@ public class MyValueConverter extends MyValueConverterCommon {
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				final String temp = MyValueConverterCommon
-						.cutChar(string, node);
+						.updateCharSequence(string);
 				return MyValueConverter.replaceAll(temp);
 			}
 
@@ -122,7 +170,7 @@ public class MyValueConverter extends MyValueConverterCommon {
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				final String temp = MyValueConverterCommon
-						.cutChar(string, node);
+						.updateCharSequence(string);
 				return MyValueConverter.replaceAll(temp);
 			}
 
@@ -138,7 +186,8 @@ public class MyValueConverter extends MyValueConverterCommon {
 		if (Strings.isEmpty(input)) {
 			return "";
 		}
-		final String replace1 = MyValueConverter.replaceNewline(input);
+		final String replace0 = MyValueConverterCommon.removeLineBreak(input);
+		final String replace1 = MyValueConverter.replaceNewline(replace0);
 		final String replace2 = MyValueConverter.replaceTabs(replace1);
 		final String replace3 = MyValueConverter.replaceDoubleWS(replace2);
 		final String replace4 = replace3.trim();

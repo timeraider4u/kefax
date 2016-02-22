@@ -17,8 +17,8 @@ public class MyValueConverterCommon extends
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
-				final String result = MyValueConverterCommon.cutChar(string,
-						node);
+				final String result = MyValueConverterCommon
+						.updateCharSequence(string);
 				return result;
 			}
 
@@ -38,8 +38,8 @@ public class MyValueConverterCommon extends
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
-				final String result = MyValueConverterCommon.cutChar(string,
-						node);
+				final String result = MyValueConverterCommon
+						.updateCharSequence(string);
 				return result;
 			}
 
@@ -52,12 +52,21 @@ public class MyValueConverterCommon extends
 		};
 	}
 
-	protected static String cutChar(final String string, final INode node) {
+	protected static String updateCharSequence(final String string) {
 		if (Strings.isEmpty(string)) {
-			// throw new ValueConverterException(
-			// "Couldn't convert empty Constant1 to String", node, null);
 			return "";
 		}
+		final String result = MyValueConverterCommon.removeLineBreak(string);
+		return result;
+	}
+
+	protected static String removeLineBreak(final String string) {
+		final String temp = MyValueConverterCommon.cutChar(string);
+		final String result = temp.replace("\\\n", "");
+		return result;
+	}
+
+	protected static String cutChar(final String string) {
 		if (string.startsWith("L'") && string.endsWith("'")) {
 			return string.substring(1);
 		}

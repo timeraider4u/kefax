@@ -998,8 +998,8 @@ public class InternalCommonLexer extends Lexer {
 		try {
 			int _type = RULE_CHAR_LITERAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCommon.g:2306:19: ( ( 'L' )? RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE )
-			// InternalCommon.g:2306:21: ( 'L' )? RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE
+			// InternalCommon.g:2306:19: ( ( 'L' )? RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) | RULE_LINEBREAK ) RULE_SKW_SINGLEQUOTE )
+			// InternalCommon.g:2306:21: ( 'L' )? RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) | RULE_LINEBREAK ) RULE_SKW_SINGLEQUOTE
 			{
 			// InternalCommon.g:2306:21: ( 'L' )?
 			int alt2=2;
@@ -1019,11 +1019,30 @@ public class InternalCommonLexer extends Lexer {
 
 			mRULE_SKW_SINGLEQUOTE(); 
 
-			// InternalCommon.g:2306:47: ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) )
-			int alt3=2;
+			// InternalCommon.g:2306:47: ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) | RULE_LINEBREAK )
+			int alt3=3;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='\\') ) {
-				alt3=1;
+				int LA3_1 = input.LA(2);
+				if ( (LA3_1=='\"'||LA3_1=='\''||(LA3_1 >= '0' && LA3_1 <= '7')||LA3_1=='\\'||LA3_1=='b'||LA3_1=='f'||LA3_1=='n'||LA3_1=='r'||LA3_1=='t'||LA3_1=='x') ) {
+					alt3=1;
+				}
+				else if ( (LA3_1=='\n'||LA3_1=='\r') ) {
+					alt3=3;
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 3, 1, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
 			}
 			else if ( ((LA3_0 >= '\u0000' && LA3_0 <= '&')||(LA3_0 >= '(' && LA3_0 <= '[')||(LA3_0 >= ']' && LA3_0 <= '\uFFFF')) ) {
 				alt3=2;
@@ -1056,6 +1075,13 @@ public class InternalCommonLexer extends Lexer {
 					}
 					}
 					break;
+				case 3 :
+					// InternalCommon.g:2306:114: RULE_LINEBREAK
+					{
+					mRULE_LINEBREAK(); 
+
+					}
+					break;
 
 			}
 
@@ -1077,18 +1103,25 @@ public class InternalCommonLexer extends Lexer {
 		try {
 			int _type = RULE_STRING_LITERAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCommon.g:2308:21: ( RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE )
-			// InternalCommon.g:2308:23: RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE
+			// InternalCommon.g:2308:21: ( RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) | RULE_LINEBREAK )* RULE_SKW_DOUBLEQUOTE )
+			// InternalCommon.g:2308:23: RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) | RULE_LINEBREAK )* RULE_SKW_DOUBLEQUOTE
 			{
 			mRULE_SKW_DOUBLEQUOTE(); 
 
-			// InternalCommon.g:2308:44: ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )*
+			// InternalCommon.g:2308:44: ( RULE_ESCAPE_SEQUENCE |~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) | RULE_LINEBREAK )*
 			loop4:
 			while (true) {
-				int alt4=3;
+				int alt4=4;
 				int LA4_0 = input.LA(1);
 				if ( (LA4_0=='\\') ) {
-					alt4=1;
+					int LA4_2 = input.LA(2);
+					if ( (LA4_2=='\"'||LA4_2=='\''||(LA4_2 >= '0' && LA4_2 <= '7')||LA4_2=='\\'||LA4_2=='b'||LA4_2=='f'||LA4_2=='n'||LA4_2=='r'||LA4_2=='t'||LA4_2=='x') ) {
+						alt4=1;
+					}
+					else if ( (LA4_2=='\n'||LA4_2=='\r') ) {
+						alt4=3;
+					}
+
 				}
 				else if ( ((LA4_0 >= '\u0000' && LA4_0 <= '!')||(LA4_0 >= '#' && LA4_0 <= '[')||(LA4_0 >= ']' && LA4_0 <= '\uFFFF')) ) {
 					alt4=2;
@@ -1113,6 +1146,13 @@ public class InternalCommonLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
+					}
+					break;
+				case 3 :
+					// InternalCommon.g:2308:111: RULE_LINEBREAK
+					{
+					mRULE_LINEBREAK(); 
+
 					}
 					break;
 

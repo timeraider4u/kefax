@@ -13,6 +13,7 @@ package at.jku.weiner.c.parser.parser;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#isExtension <em>Extension</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,31 @@ public interface CastExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Extension</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extension</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extension</em>' attribute.
+   * @see #setExtension(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getCastExpression_Extension()
+   * @model
+   * @generated
+   */
+  boolean isExtension();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.CastExpression#isExtension <em>Extension</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extension</em>' attribute.
+   * @see #isExtension()
+   * @generated
+   */
+  void setExtension(boolean value);
 
 } // CastExpression

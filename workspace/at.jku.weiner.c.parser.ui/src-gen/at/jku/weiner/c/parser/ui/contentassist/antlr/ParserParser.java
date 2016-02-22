@@ -246,6 +246,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getGroup(), "rule__MultiplicativeExpression__Group__0");
 					put(grammarAccess.getMultiplicativeExpressionAccess().getGroup_1(), "rule__MultiplicativeExpression__Group_1__0");
 					put(grammarAccess.getCastExpressionAccess().getGroup_0(), "rule__CastExpression__Group_0__0");
+					put(grammarAccess.getCastExpressionAccess().getGroup_2(), "rule__CastExpression__Group_2__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1(), "rule__UnaryExpression__Group_1__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_2(), "rule__UnaryExpression__Group_2__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_3(), "rule__UnaryExpression__Group_3__0");
@@ -537,6 +538,9 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getRightAssignment_1_2(), "rule__MultiplicativeExpression__RightAssignment_1_2");
 					put(grammarAccess.getCastExpressionAccess().getTypeAssignment_0_2(), "rule__CastExpression__TypeAssignment_0_2");
 					put(grammarAccess.getCastExpressionAccess().getExprAssignment_0_4(), "rule__CastExpression__ExprAssignment_0_4");
+					put(grammarAccess.getCastExpressionAccess().getExtensionAssignment_2_1(), "rule__CastExpression__ExtensionAssignment_2_1");
+					put(grammarAccess.getCastExpressionAccess().getTypeAssignment_2_3(), "rule__CastExpression__TypeAssignment_2_3");
+					put(grammarAccess.getCastExpressionAccess().getExprAssignment_2_5(), "rule__CastExpression__ExprAssignment_2_5");
 					put(grammarAccess.getUnaryExpressionAccess().getPlusplusAssignment_1_1(), "rule__UnaryExpression__PlusplusAssignment_1_1");
 					put(grammarAccess.getUnaryExpressionAccess().getExprAssignment_1_2(), "rule__UnaryExpression__ExprAssignment_1_2");
 					put(grammarAccess.getUnaryExpressionAccess().getMinusminusAssignment_2_1(), "rule__UnaryExpression__MinusminusAssignment_2_1");

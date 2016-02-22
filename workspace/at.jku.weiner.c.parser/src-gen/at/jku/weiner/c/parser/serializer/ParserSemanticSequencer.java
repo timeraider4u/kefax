@@ -540,7 +540,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=TypeName expr=CastExpression)
+	 *     ((type=TypeName expr=CastExpression) | (extension?=KW_EXTENSION type=TypeName expr=CastExpression))
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

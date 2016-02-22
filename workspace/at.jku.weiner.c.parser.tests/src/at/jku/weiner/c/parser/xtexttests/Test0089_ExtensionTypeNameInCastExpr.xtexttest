@@ -1,0 +1,80 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0089_ExtensionTypeNameInCastExpr.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE 
+	KW_EXTENSION SKW_LEFTPAREN KW_INT SKW_RIGHTPAREN
+	SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN
+SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(CastExpression
+								extension?=true,
+								type=
+								(TypeName
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									)
+								),
+								expr=
+								(PrimaryExpression
+									parentheses?=true,
+									expr=
+									(PrimaryExpression
+										const=
+										(common::Constant2
+											dec++"5"
+										)
+									)
+								)
+							) // end expression
+						) // end initializer
+					)
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0089_ExtensionTypeNameInCastExpr.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

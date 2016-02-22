@@ -4598,14 +4598,28 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
 		private final RuleCall cExprCastExpressionParserRuleCall_0_4_0 = (RuleCall)cExprAssignment_0_4.eContents().get(0);
 		private final RuleCall cUnaryExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cCastExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cExtensionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExtensionKW_EXTENSIONTerminalRuleCall_2_1_0 = (RuleCall)cExtensionAssignment_2_1.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Assignment cTypeAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cTypeTypeNameParserRuleCall_2_3_0 = (RuleCall)cTypeAssignment_2_3.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_2_4 = (RuleCall)cGroup_2.eContents().get(4);
+		private final Assignment cExprAssignment_2_5 = (Assignment)cGroup_2.eContents().get(5);
+		private final RuleCall cExprCastExpressionParserRuleCall_2_5_0 = (RuleCall)cExprAssignment_2_5.eContents().get(0);
 		
 		//CastExpression Expression:
 		//	{CastExpression} SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
 		//	expr=CastExpression
 		//	| UnaryExpression
+		//	| {CastExpression} extension?=KW_EXTENSION
+		//	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
+		//	expr=CastExpression
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CastExpression} SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression | UnaryExpression
+		//{CastExpression} SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression | UnaryExpression | {CastExpression}
+		//extension?=KW_EXTENSION SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{CastExpression} SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
@@ -4634,6 +4648,36 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UnaryExpression
 		public RuleCall getUnaryExpressionParserRuleCall_1() { return cUnaryExpressionParserRuleCall_1; }
+		
+		//{CastExpression} extension?=KW_EXTENSION SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{CastExpression}
+		public Action getCastExpressionAction_2_0() { return cCastExpressionAction_2_0; }
+		
+		//extension?=KW_EXTENSION
+		public Assignment getExtensionAssignment_2_1() { return cExtensionAssignment_2_1; }
+		
+		//KW_EXTENSION
+		public RuleCall getExtensionKW_EXTENSIONTerminalRuleCall_2_1_0() { return cExtensionKW_EXTENSIONTerminalRuleCall_2_1_0; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_2_2() { return cSKW_LEFTPARENTerminalRuleCall_2_2; }
+		
+		//type=TypeName
+		public Assignment getTypeAssignment_2_3() { return cTypeAssignment_2_3; }
+		
+		//TypeName
+		public RuleCall getTypeTypeNameParserRuleCall_2_3_0() { return cTypeTypeNameParserRuleCall_2_3_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_2_4() { return cSKW_RIGHTPARENTerminalRuleCall_2_4; }
+		
+		//expr=CastExpression
+		public Assignment getExprAssignment_2_5() { return cExprAssignment_2_5; }
+		
+		//CastExpression
+		public RuleCall getExprCastExpressionParserRuleCall_2_5_0() { return cExprCastExpressionParserRuleCall_2_5_0; }
 	}
 	public class UnaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.UnaryExpression");
@@ -7003,6 +7047,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	{CastExpression} SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
 	//	expr=CastExpression
 	//	| UnaryExpression
+	//	| {CastExpression} extension?=KW_EXTENSION
+	//	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
+	//	expr=CastExpression
 	public CastExpressionElements getCastExpressionAccess() {
 		return pCastExpression;
 	}
@@ -8115,13 +8162,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal CHAR_LITERAL:
-	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
+	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH) | LINEBREAK) SKW_SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return gaCommon.getCHAR_LITERALRule();
 	}
 	
 	//terminal STRING_LITERAL:
-	//	SKW_DOUBLEQUOTE (ESCAPE_SEQUENCE | !(SKW_BACKSLASH | SKW_DOUBLEQUOTE))* SKW_DOUBLEQUOTE;
+	//	SKW_DOUBLEQUOTE (ESCAPE_SEQUENCE | !(SKW_BACKSLASH | SKW_DOUBLEQUOTE) | LINEBREAK)* SKW_DOUBLEQUOTE;
 	public TerminalRule getSTRING_LITERALRule() {
 		return gaCommon.getSTRING_LITERALRule();
 	}

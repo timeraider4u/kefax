@@ -3379,13 +3379,22 @@ public interface ParserPackage extends EPackage
   int CAST_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Extension</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__EXTENSION = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Cast Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int CAST_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.
@@ -6543,6 +6552,17 @@ public interface ParserPackage extends EPackage
   EReference getCastExpression_Expr();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.CastExpression#isExtension <em>Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Extension</em>'.
+   * @see at.jku.weiner.c.parser.parser.CastExpression#isExtension()
+   * @see #getCastExpression()
+   * @generated
+   */
+  EAttribute getCastExpression_Extension();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.UnaryExpression <em>Unary Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9128,6 +9148,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference CAST_EXPRESSION__EXPR = eINSTANCE.getCastExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Extension</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CAST_EXPRESSION__EXTENSION = eINSTANCE.getCastExpression_Extension();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#isExtension <em>Extension</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +51,26 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #isExtension() <em>Extension</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExtension()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean EXTENSION_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isExtension() <em>Extension</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExtension()
+   * @generated
+   * @ordered
+   */
+  protected boolean extension = EXTENSION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -173,6 +194,29 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isExtension()
+  {
+    return extension;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtension(boolean newExtension)
+  {
+    boolean oldExtension = extension;
+    extension = newExtension;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.CAST_EXPRESSION__EXTENSION, oldExtension, extension));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -200,6 +244,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
         return getType();
       case ParserPackage.CAST_EXPRESSION__EXPR:
         return getExpr();
+      case ParserPackage.CAST_EXPRESSION__EXTENSION:
+        return isExtension();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -219,6 +265,9 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
         return;
       case ParserPackage.CAST_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.CAST_EXPRESSION__EXTENSION:
+        setExtension((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -240,6 +289,9 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
       case ParserPackage.CAST_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case ParserPackage.CAST_EXPRESSION__EXTENSION:
+        setExtension(EXTENSION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -258,8 +310,27 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
         return type != null;
       case ParserPackage.CAST_EXPRESSION__EXPR:
         return expr != null;
+      case ParserPackage.CAST_EXPRESSION__EXTENSION:
+        return extension != EXTENSION_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (extension: ");
+    result.append(extension);
+    result.append(')');
+    return result.toString();
   }
 
 } //CastExpressionImpl

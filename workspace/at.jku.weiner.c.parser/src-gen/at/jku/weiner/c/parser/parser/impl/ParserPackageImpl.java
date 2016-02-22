@@ -3254,6 +3254,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCastExpression_Extension()
+  {
+    return (EAttribute)castExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUnaryExpression()
   {
     return unaryExpressionEClass;
@@ -4022,6 +4032,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     castExpressionEClass = createEClass(CAST_EXPRESSION);
     createEReference(castExpressionEClass, CAST_EXPRESSION__TYPE);
     createEReference(castExpressionEClass, CAST_EXPRESSION__EXPR);
+    createEAttribute(castExpressionEClass, CAST_EXPRESSION__EXTENSION);
 
     unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__PLUSPLUS);
@@ -4471,6 +4482,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(castExpressionEClass, CastExpression.class, "CastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCastExpression_Type(), this.getTypeName(), null, "type", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCastExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCastExpression_Extension(), theEcorePackage.getEBoolean(), "extension", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

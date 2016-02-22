@@ -10615,6 +10615,99 @@ this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
     }
 
 
+
+    |
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getCastExpressionAccess().getCastExpressionAction_2_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_extension_7_0=RULE_KW_EXTENSION
+		{
+			newLeafNode(lv_extension_7_0, grammarAccess.getCastExpressionAccess().getExtensionKW_EXTENSIONTerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCastExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"extension",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_EXTENSION");
+	    }
+
+)
+)
+
+
+this_SKW_LEFTPAREN_8=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_8, grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_2_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_2_3_0()); 
+	    }
+		lv_type_9_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_9_0, 
+        		"at.jku.weiner.c.parser.Parser.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_10, grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_2_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_2_5_0()); 
+	    }
+		lv_expr_11_0=ruleCastExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_11_0, 
+        		"at.jku.weiner.c.parser.Parser.CastExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
 )
 
 
@@ -13605,9 +13698,9 @@ fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
 fragment RULE_LETTER : (RULE_SKW_DOLLAR|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
 
-RULE_CHAR_LITERAL : 'L'? RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
+RULE_CHAR_LITERAL : 'L'? RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))|RULE_LINEBREAK) RULE_SKW_SINGLEQUOTE;
 
-RULE_STRING_LITERAL : RULE_SKW_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_SKW_DOUBLEQUOTE)))* RULE_SKW_DOUBLEQUOTE;
+RULE_STRING_LITERAL : RULE_SKW_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_SKW_DOUBLEQUOTE))|RULE_LINEBREAK)* RULE_SKW_DOUBLEQUOTE;
 
 RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
 

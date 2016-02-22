@@ -739,6 +739,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputForCastExpression(CastExpression obj) '''
+		«IF obj.isExtension()»__extension__«ENDIF»
 		(«outputFor(obj.type)»)
 		«outputFor(obj.expr)»
 	'''

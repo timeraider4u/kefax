@@ -323,6 +323,7 @@
     <genClasses ecoreClass="Parser.ecore#//CastExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//CastExpression/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//CastExpression/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//CastExpression/extension"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//UnaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//UnaryExpression/plusplus"/>

@@ -772,11 +772,17 @@ MultiplicativeExpression returns Expression:
 ;
 
 CastExpression returns Expression:
-	({CastExpression}
-		SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
-			expr=CastExpression
+	(	(	
+			{CastExpression}
+			SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
+			expr=CastExpression	
+		)
 	|	UnaryExpression
-	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
+	|	(
+			{CastExpression}extension?=KW_EXTENSION 
+			SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN 
+			expr=CastExpression
+		)
 	)
 ;
 

@@ -22,6 +22,7 @@ import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
+import at.jku.weiner.c.parser.parser.ConstantExpression;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.Declarator;
@@ -169,6 +170,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.CONDITIONAL_EXPRESSION:
 				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
+				return; 
+			case ParserPackage.CONSTANT_EXPRESSION:
+				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
 				return; 
 			case ParserPackage.DECLARATION:
 				sequence_Declaration(context, (Declaration) semanticObject); 
@@ -566,6 +570,15 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     ((restrict=KW_RESTRICT | restrict=KW_RESTRICT2 | restrict=KW_RESTRICT3) expr=ConditionalExpression?)
+	 */
+	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         declarationSpecifier+=StorageClassSpecifier | 
 	 *         declarationSpecifier+=TypeSpecifier | 
@@ -589,7 +602,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((expr=AssignmentExpression | lastSuffix=DirectDeclaratorLastSuffix)?)
+	 *     ((expr=ConstantExpression | lastSuffix=DirectDeclaratorLastSuffix)?)
 	 */
 	protected void sequence_DeclaratorSuffix(EObject context, DeclaratorSuffix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

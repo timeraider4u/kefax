@@ -370,5 +370,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/builtin_typescompatiblep"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/typeName2"/>
     </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//ConstantExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//ConstantExpression/restrict"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ConstantExpression/expr"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

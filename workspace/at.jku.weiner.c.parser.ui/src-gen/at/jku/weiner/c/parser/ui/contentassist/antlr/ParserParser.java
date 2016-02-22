@@ -91,6 +91,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_0(), "rule__PostfixExpression__Alternatives_0");
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_1_1(), "rule__PostfixExpression__Alternatives_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
+					put(grammarAccess.getConstantExpressionAccess().getAlternatives(), "rule__ConstantExpression__Alternatives");
+					put(grammarAccess.getConstantExpressionAccess().getRestrictAlternatives_1_1_0(), "rule__ConstantExpression__RestrictAlternatives_1_1_0");
 					put(grammarAccess.getParserKeywordsAccess().getAlternatives(), "rule__ParserKeywords__Alternatives");
 					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
 					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
@@ -269,6 +271,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_4(), "rule__PrimaryExpression__Group_1_4__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_5(), "rule__PrimaryExpression__Group_1_5__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_6(), "rule__PrimaryExpression__Group_1_6__0");
+					put(grammarAccess.getConstantExpressionAccess().getGroup_1(), "rule__ConstantExpression__Group_1__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
 					put(grammarAccess.getEllipsisAccess().getGroup(), "rule__Ellipsis__Group__0");
 					put(grammarAccess.getParserAccess().getExternalAssignment_1(), "rule__Parser__ExternalAssignment_1");
@@ -579,6 +582,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getBuiltin_typescompatiblepAssignment_1_6_0(), "rule__PrimaryExpression__Builtin_typescompatiblepAssignment_1_6_0");
 					put(grammarAccess.getPrimaryExpressionAccess().getTypeNameAssignment_1_6_2(), "rule__PrimaryExpression__TypeNameAssignment_1_6_2");
 					put(grammarAccess.getPrimaryExpressionAccess().getTypeName2Assignment_1_6_4(), "rule__PrimaryExpression__TypeName2Assignment_1_6_4");
+					put(grammarAccess.getConstantExpressionAccess().getRestrictAssignment_1_1(), "rule__ConstantExpression__RestrictAssignment_1_1");
+					put(grammarAccess.getConstantExpressionAccess().getExprAssignment_1_2(), "rule__ConstantExpression__ExprAssignment_1_2");
 					put(grammarAccess.getConstant2Access().getHexAssignment_1_0(), "rule__Constant2__HexAssignment_1_0");
 					put(grammarAccess.getConstant2Access().getOctAssignment_1_1(), "rule__Constant2__OctAssignment_1_1");
 					put(grammarAccess.getConstant2Access().getDecAssignment_1_2(), "rule__Constant2__DecAssignment_1_2");

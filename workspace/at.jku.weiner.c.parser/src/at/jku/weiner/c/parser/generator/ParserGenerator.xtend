@@ -94,6 +94,7 @@ import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
 import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
 import at.jku.weiner.c.parser.parser.Init
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix
+import at.jku.weiner.c.parser.parser.ConstantExpression
 
 /**
  * Generates code from your model files on save.
@@ -617,6 +618,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(Expression obj) '''
+		«IF obj instanceof ConstantExpression»«outputForConstantExpression(obj as ConstantExpression)»«ELSE»
 		«IF obj instanceof AssignmentExpression»«outputForAssignmentExpression(obj as AssignmentExpression)»«ELSE»
 		«IF obj instanceof ConditionalExpression»«outputForConditionalExpression(obj as ConditionalExpression)»«ELSE»
 		«IF obj instanceof LogicalOrExpression»«outputForLogicalOrExpression(obj as LogicalOrExpression)»«ELSE»
@@ -650,10 +652,16 @@ class ParserGenerator implements IGenerator {
 		«ENDIF»
 		«ENDIF»
 		«ENDIF»
+		«ENDIF»
 	'''
 	
 	def String outputForRoot(Expression obj) '''
 		«outputFor(obj.left)»«IF obj.right != null»,«outputFor(obj.right)»«ENDIF»
+	'''
+	
+	def String outputForConstantExpression(ConstantExpression obj) '''
+		«IF obj.restrict != null»«obj.restrict»«ENDIF»
+		«IF obj.expr != null»«outputFor(obj.expr)»«ENDIF»
 	'''
 	
 	def String outputForAssignmentExpression(AssignmentExpression obj) '''

@@ -153,6 +153,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS: return createPostfixExpressionSuffixPlusPlus();
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return createPostfixExpressionSuffixMinusMinus();
       case ParserPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+      case ParserPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -1135,6 +1136,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstantExpression createConstantExpression()
+  {
+    ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
+    return constantExpression;
   }
 
   /**

@@ -3882,6 +3882,61 @@ public interface ParserPackage extends EPackage
    */
   int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 11;
 
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl
+   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
+   * @generated
+   */
+  int CONSTANT_EXPRESSION = 89;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Restrict</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__RESTRICT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Constant Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ExternalDeclaration <em>External Declaration</em>}'.
@@ -6908,6 +6963,38 @@ public interface ParserPackage extends EPackage
   EReference getPrimaryExpression_TypeName2();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ConstantExpression <em>Constant Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constant Expression</em>'.
+   * @see at.jku.weiner.c.parser.parser.ConstantExpression
+   * @generated
+   */
+  EClass getConstantExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.ConstantExpression#getRestrict <em>Restrict</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Restrict</em>'.
+   * @see at.jku.weiner.c.parser.parser.ConstantExpression#getRestrict()
+   * @see #getConstantExpression()
+   * @generated
+   */
+  EAttribute getConstantExpression_Restrict();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.ConstantExpression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.ConstantExpression#getExpr()
+   * @see #getConstantExpression()
+   * @generated
+   */
+  EReference getConstantExpression_Expr();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9371,6 +9458,32 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__TYPE_NAME2 = eINSTANCE.getPrimaryExpression_TypeName2();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl
+     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
+     * @generated
+     */
+    EClass CONSTANT_EXPRESSION = eINSTANCE.getConstantExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Restrict</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTANT_EXPRESSION__RESTRICT = eINSTANCE.getConstantExpression_Restrict();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTANT_EXPRESSION__EXPR = eINSTANCE.getConstantExpression_Expr();
 
   }
 

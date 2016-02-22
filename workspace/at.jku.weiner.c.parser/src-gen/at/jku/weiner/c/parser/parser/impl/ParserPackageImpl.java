@@ -20,6 +20,7 @@ import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
+import at.jku.weiner.c.parser.parser.ConstantExpression;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
@@ -734,6 +735,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass primaryExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constantExpressionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -3636,6 +3644,36 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConstantExpression()
+  {
+    return constantExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConstantExpression_Restrict()
+  {
+    return (EAttribute)constantExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstantExpression_Expr()
+  {
+    return (EReference)constantExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ParserFactory getParserFactory()
   {
     return (ParserFactory)getEFactoryInstance();
@@ -4032,6 +4070,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME2);
+
+    constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
+    createEAttribute(constantExpressionEClass, CONSTANT_EXPRESSION__RESTRICT);
+    createEReference(constantExpressionEClass, CONSTANT_EXPRESSION__EXPR);
   }
 
   /**
@@ -4103,6 +4145,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     postfixExpressionSuffixPlusPlusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     postfixExpressionSuffixMinusMinusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
+    constantExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(externalDeclarationEClass, ExternalDeclaration.class, "ExternalDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4476,6 +4519,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getPrimaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Builtin_typescompatiblep(), theEcorePackage.getEBoolean(), "builtin_typescompatiblep", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_TypeName2(), this.getTypeName(), null, "typeName2", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConstantExpression_Restrict(), theEcorePackage.getEString(), "restrict", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstantExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -753,6 +753,15 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ParserPackage.CONSTANT_EXPRESSION:
+      {
+        ConstantExpression constantExpression = (ConstantExpression)theEObject;
+        T result = caseConstantExpression(constantExpression);
+        if (result == null) result = caseExpression(constantExpression);
+        if (result == null) result = caseCommon_Expression(constantExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -2177,6 +2186,22 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePrimaryExpression(PrimaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstantExpression(ConstantExpression object)
   {
     return null;
   }

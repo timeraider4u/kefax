@@ -7,16 +7,29 @@ imports at.jku.weiner.c.common.common
 source file="res/Test0088_Restrict.c"
 //----------------------------------------------------------------------
 lexer-tokens
+// do1
 KW_VOID WHITESPACE ID SKW_LEFTPAREN
 	KW_INT WHITESPACE SKW_STAR WHITESPACE KW_RESTRICT WHITESPACE ID SKW_COMMA WHITESPACE
 	KW_CHAR WHITESPACE SKW_STAR SKW_STAR WHITESPACE KW_RESTRICT2 WHITESPACE ID SKW_COMMA WHITESPACE
 	KW_INT WHITESPACE SKW_STAR WHITESPACE KW_RESTRICT3 WHITESPACE ID
+SKW_RIGHTPAREN SKW_SEMI NEWLINE
+// do2
+KW_VOID WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_COMMA WHITESPACE
+	KW_INT WHITESPACE ID SKW_COMMA WHITESPACE
+	KW_INT WHITESPACE ID SKW_LEFTBRACKET KW_RESTRICT WHITESPACE ID SKW_RIGHTBRACKET 
+		SKW_LEFTBRACKET ID SKW_RIGHTBRACKET
+SKW_RIGHTPAREN SKW_SEMI NEWLINE
+// do3
+KW_VOID WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_LEFTBRACKET KW_RESTRICT2 SKW_RIGHTBRACKET 
 SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
 	//(common::TranslationUnit 
 	(Parser
 		external+=
+		// do1
 		(ExternalDeclaration 
 			declaration=
 			(Declaration
@@ -114,8 +127,189 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 					)
 				)
 			)
+		),
+		// do2
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"a"
+														),
+														pointer=
+														(Pointer 
+															star isEmpty
+														)
+													)
+												),
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"b"
+														),
+														pointer=
+														(Pointer 
+															star isEmpty
+														)
+													)
+												),
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"array",
+															declaratorSuffix+=
+															(DeclaratorSuffix
+																expr=
+																(ConstantExpression
+																	restrict++"restrict",
+																	expr=
+																	(PrimaryExpression
+																		id++"a"	
+																	)
+																)
+															),
+															(DeclaratorSuffix
+																expr=
+																(PrimaryExpression
+																	id++"b"
+																)
+															)
+														),
+														pointer=
+														(Pointer 
+															star isEmpty
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		// do3
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do3",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"array",
+															declaratorSuffix+=
+															(DeclaratorSuffix
+																expr=
+																(ConstantExpression
+																	restrict++"__restrict"
+																)
+															)
+														),
+														pointer=
+														(Pointer 
+															star isEmpty
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
 		)
-		
 	)
 //)
 //)

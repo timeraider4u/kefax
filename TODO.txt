@@ -1,10 +1,12 @@
 High priority:
 
+	preprocess:
 	/home/harry/workspace/runtime-EclipseApplication/linux-3.18/crypto/gf128mul.c
 		line 100:	#define xx(p, q)	0x##p##q
 
-	https://gcc.gnu.org/onlinedocs/gcc/Restricted-Pointers.html
-
+	preprocess::
+	./linux-3.18/scripts/conmakehash.c
+		line 248: printf("\
 	
 Low priority:
 	- Fixes for failing JUnit tests in at.jku.weiner.c.preprocess.tests

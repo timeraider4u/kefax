@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.common.common;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getParser()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface Parser extends EObject
+public interface Parser extends PersistentEObject
 {
 } // Parser

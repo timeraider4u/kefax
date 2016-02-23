@@ -1,101 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.common/emf-gen" editDirectory="/at.jku.weiner.c.common.edit/src"
-    editorDirectory="/at.jku.weiner.c.common.editor/src" modelPluginID="at.jku.weiner.c.common"
-    forceOverwrite="true" modelName="Common" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.common.edit"
-    editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
-  <genPackages prefix="Common" basePackage="at.jku.weiner.c.common" disposableProviderFactory="true"
-      fileExtensions="cdt.common" ecorePackage="Common.ecore#/">
-    <genClasses ecoreClass="Common.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//Model/unit"/>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.common/emf-gen" editDirectory="/at.jku.weiner.c.common.edit/src" editorDirectory="/at.jku.weiner.c.common.editor/src" modelPluginID="at.jku.weiner.c.common" forceOverwrite="true" modelName="Common" updateClasspath="false" rootExtendsInterface="fr.inria.atlanmod.neoemf.core.PersistentEObject" rootExtendsClass="fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl" reflectiveDelegation="true" featureDelegation="Reflective" complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.common.edit" editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.10">
+  <modelPluginVariables>NEOEMF=fr.inria.atlanmod.neoemf.core</modelPluginVariables>
+  <genPackages prefix="Common" basePackage="at.jku.weiner.c.common" disposableProviderFactory="true" fileExtensions="cdt.common">
+    <ecorePackage href="Common.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//Model"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//Model/unit"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//TranslationUnit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//TranslationUnit/preprocess"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//TranslationUnit/parser"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//TranslationUnit"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//TranslationUnit/preprocess"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//TranslationUnit/parser"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//Preprocess"/>
-    <genClasses ecoreClass="Common.ecore#//Parser"/>
-    <genClasses ecoreClass="Common.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//Expression/expression"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//Preprocess"/>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//UnaryOperator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//UnaryOperator/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//Parser"/>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//PostfixExpressionSuffix"/>
-    <genClasses ecoreClass="Common.ecore#//ArgumentExpressionList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ArgumentExpressionList/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//Expression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//Expression/expression"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//Constant2">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/hex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/oct"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/dec"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/ch"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/str"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/float"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//Constant2/bin"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//UnaryOperator"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//UnaryOperator/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//ConstantExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ConstantExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//PostfixExpressionSuffix"/>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//ConditionalExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ConditionalExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ConditionalExpression/qExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ConditionalExpression/cExpr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//ArgumentExpressionList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ArgumentExpressionList/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//LogicalOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//LogicalOrExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//Constant2"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/hex"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/oct"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/dec"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/ch"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/str"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/float"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//Constant2/bin"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//LogicalAndExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//LogicalAndExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//ConstantExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ConstantExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//InclusiveOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//InclusiveOrExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//ConditionalExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ConditionalExpression/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ConditionalExpression/qExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ConditionalExpression/cExpr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//ExclusiveOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ExclusiveOrExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//LogicalOrExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//LogicalOrExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//AndExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//AndExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//LogicalAndExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//LogicalAndExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//EqualityExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//EqualityExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//EqualityExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//InclusiveOrExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//InclusiveOrExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//RelationalExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//RelationalExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//RelationalExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//ExclusiveOrExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ExclusiveOrExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//ShiftExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//ShiftExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//ShiftExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//AndExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//AndExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//AdditiveExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//AdditiveExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//AdditiveExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//EqualityExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//EqualityExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//EqualityExpression/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//MultiplicativeExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//MultiplicativeExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//MultiplicativeExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//RelationalExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//RelationalExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//RelationalExpression/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//CastExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//CastExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//ShiftExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//ShiftExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//ShiftExpression/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//UnaryExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//UnaryExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//UnaryExpression/op"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//AdditiveExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//AdditiveExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//AdditiveExpression/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//PostfixExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//PostfixExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//PostfixExpression/suffix"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//MultiplicativeExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//MultiplicativeExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//MultiplicativeExpression/op"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//PostfixExpressionSuffixArgument">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//CastExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//CastExpression/expr"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Common.ecore#//PrimaryExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//PrimaryExpression/const"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Common.ecore#//PrimaryExpression/id"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//PrimaryExpression/expr"/>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//UnaryExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//UnaryExpression/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//UnaryExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//PostfixExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//PostfixExpression/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//PostfixExpression/suffix"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//PostfixExpressionSuffixArgument"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Common.ecore#//PrimaryExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//PrimaryExpression/const"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Common.ecore#//PrimaryExpression/id"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Common.ecore#//PrimaryExpression/expr"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
+  <usedGenPackages href="../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
 </genmodel:GenModel>

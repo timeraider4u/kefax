@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.common.common;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,9 +21,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface TranslationUnit extends EObject
+public interface TranslationUnit extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Preprocess</b></em>' containment reference.

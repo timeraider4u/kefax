@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.common.common;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getExpression()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface Expression extends EObject
+public interface Expression extends PersistentEObject
 {
 } // Expression

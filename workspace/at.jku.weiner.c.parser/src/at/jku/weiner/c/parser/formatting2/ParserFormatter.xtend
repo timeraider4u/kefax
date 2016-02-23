@@ -19,6 +19,7 @@ import at.jku.weiner.c.parser.parser.BodyStatement
 import at.jku.weiner.c.parser.parser.CastExpression
 import at.jku.weiner.c.parser.parser.CompoundStatement
 import at.jku.weiner.c.parser.parser.ConditionalExpression
+import at.jku.weiner.c.parser.parser.ConstantExpression
 import at.jku.weiner.c.parser.parser.Declaration
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers
 import at.jku.weiner.c.parser.parser.Declarator
@@ -161,6 +162,8 @@ class ParserFormatter extends CommonFormatter {
 		format(typeSpecifier.getType(), document);
 		format(typeSpecifier.getTypeName(), document);
 		format(typeSpecifier.getConstExpr(), document);
+		format(typeSpecifier.getExpr1(), document);
+		format(typeSpecifier.getExpr2(), document);
 	}
 
 	def dispatch void format(StructOrUnionSpecifier structOrUnionSpecifier, extension IFormattableDocument document) {
@@ -610,5 +613,10 @@ class ParserFormatter extends CommonFormatter {
 		format(primaryExpression.getCompoundStmt(), document);
 		format(primaryExpression.getTypeName(), document);
 		format(primaryExpression.getTypeName2(), document);
+	}
+
+	def dispatch void format(ConstantExpression constantExpression, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(constantExpression.getExpr(), document);
 	}
 }

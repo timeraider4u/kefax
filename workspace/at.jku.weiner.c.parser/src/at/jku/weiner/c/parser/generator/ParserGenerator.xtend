@@ -797,7 +797,7 @@ class ParserGenerator implements IGenerator {
 		«ENDIF»
 		«IF obj.op != null»«obj.op»«outputFor(obj.expr)»
 		«ENDIF»
-		«IF obj.andand != null»«obj.andand»«obj.id»
+		«IF obj.andand != null»«obj.andand»«obj.getId()»
 		«ENDIF»
 		«IF obj.alignOf != null»«obj.alignOf»(
 			«IF obj.typeName != null»«outputFor(obj.typeName)»
@@ -847,11 +847,11 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixDot obj) '''
-		.«obj.id»
+		.«obj.getId()»
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixArrow obj) '''
-		->«obj.id»
+		->«obj.getId()»
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixPlusPlus obj) '''
@@ -870,7 +870,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputForPrimaryExpression(PrimaryExpression obj) '''
-		«IF obj.id != null»«obj.id»«ENDIF»
+		«IF obj.getId() != null»«obj.getId()»«ENDIF»
 		«IF obj.const != null»«outputFor(obj.const)»«ENDIF»
 		«IF obj.string != null»«outputForString(obj.string)»«ENDIF»
 		«IF obj.parentheses»(«outputFor(obj.expr)»)«ENDIF»

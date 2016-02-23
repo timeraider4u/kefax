@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.common.common;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,9 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getConstant2()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface Constant2 extends EObject
+public interface Constant2 extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Hex</b></em>' attribute.

@@ -5,9 +5,9 @@ package at.jku.weiner.c.common.common.impl;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 
-import org.eclipse.emf.ecore.EClass;
+import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class PostfixExpressionSuffixImpl extends MinimalEObjectImpl.Container implements PostfixExpressionSuffix
+public class PostfixExpressionSuffixImpl extends PersistentEObjectImpl implements PostfixExpressionSuffix
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +39,17 @@ public class PostfixExpressionSuffixImpl extends MinimalEObjectImpl.Container im
 	protected EClass eStaticClass()
 	{
 		return CommonPackage.Literals.POSTFIX_EXPRESSION_SUFFIX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
 	}
 
 } //PostfixExpressionSuffixImpl

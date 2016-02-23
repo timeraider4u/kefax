@@ -6,19 +6,11 @@ import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Expression;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
+import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,18 +25,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container implements ArgumentExpressionList
+public class ArgumentExpressionListImpl extends PersistentEObjectImpl implements ArgumentExpressionList
 {
-	/**
-	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpr()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Expression> expr;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,45 +53,10 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Expression> getExpr()
-	{
-		if (expr == null)
-		{
-			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR);
-		}
-		return expr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	protected int eStaticFeatureCount()
 	{
-		switch (featureID)
-		{
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
-				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
-				return getExpr();
-		}
-		return super.eGet(featureID, resolve, coreType);
+		return 0;
 	}
 
 	/**
@@ -118,50 +65,9 @@ public class ArgumentExpressionListImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue)
+	public EList<Expression> getExpr()
 	{
-		switch (featureID)
-		{
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
-				getExpr().clear();
-				getExpr().addAll((Collection<? extends Expression>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
-				getExpr().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR:
-				return expr != null && !expr.isEmpty();
-		}
-		return super.eIsSet(featureID);
+		return (EList<Expression>)eGet(CommonPackage.Literals.ARGUMENT_EXPRESSION_LIST__EXPR, true);
 	}
 
 } //ArgumentExpressionListImpl

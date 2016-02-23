@@ -64,32 +64,32 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case CommonPackage.MODEL: return createModel();
-			case CommonPackage.TRANSLATION_UNIT: return createTranslationUnit();
-			case CommonPackage.PREPROCESS: return createPreprocess();
-			case CommonPackage.PARSER: return createParser();
-			case CommonPackage.EXPRESSION: return createExpression();
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
-			case CommonPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
-			case CommonPackage.CONSTANT2: return createConstant2();
-			case CommonPackage.CONSTANT_EXPRESSION: return createConstantExpression();
-			case CommonPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
-			case CommonPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
-			case CommonPackage.LOGICAL_AND_EXPRESSION: return createLogicalAndExpression();
-			case CommonPackage.INCLUSIVE_OR_EXPRESSION: return createInclusiveOrExpression();
-			case CommonPackage.EXCLUSIVE_OR_EXPRESSION: return createExclusiveOrExpression();
-			case CommonPackage.AND_EXPRESSION: return createAndExpression();
-			case CommonPackage.EQUALITY_EXPRESSION: return createEqualityExpression();
-			case CommonPackage.RELATIONAL_EXPRESSION: return createRelationalExpression();
-			case CommonPackage.SHIFT_EXPRESSION: return createShiftExpression();
-			case CommonPackage.ADDITIVE_EXPRESSION: return createAdditiveExpression();
-			case CommonPackage.MULTIPLICATIVE_EXPRESSION: return createMultiplicativeExpression();
-			case CommonPackage.CAST_EXPRESSION: return createCastExpression();
-			case CommonPackage.UNARY_EXPRESSION: return createUnaryExpression();
-			case CommonPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: return createPostfixExpressionSuffixArgument();
-			case CommonPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
-			case CommonPackage.CONSTANT1: return createConstant1();
+			case CommonPackage.MODEL: return (EObject)createModel();
+			case CommonPackage.TRANSLATION_UNIT: return (EObject)createTranslationUnit();
+			case CommonPackage.PREPROCESS: return (EObject)createPreprocess();
+			case CommonPackage.PARSER: return (EObject)createParser();
+			case CommonPackage.EXPRESSION: return (EObject)createExpression();
+			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX: return (EObject)createPostfixExpressionSuffix();
+			case CommonPackage.ARGUMENT_EXPRESSION_LIST: return (EObject)createArgumentExpressionList();
+			case CommonPackage.CONSTANT2: return (EObject)createConstant2();
+			case CommonPackage.CONSTANT_EXPRESSION: return (EObject)createConstantExpression();
+			case CommonPackage.CONDITIONAL_EXPRESSION: return (EObject)createConditionalExpression();
+			case CommonPackage.LOGICAL_OR_EXPRESSION: return (EObject)createLogicalOrExpression();
+			case CommonPackage.LOGICAL_AND_EXPRESSION: return (EObject)createLogicalAndExpression();
+			case CommonPackage.INCLUSIVE_OR_EXPRESSION: return (EObject)createInclusiveOrExpression();
+			case CommonPackage.EXCLUSIVE_OR_EXPRESSION: return (EObject)createExclusiveOrExpression();
+			case CommonPackage.AND_EXPRESSION: return (EObject)createAndExpression();
+			case CommonPackage.EQUALITY_EXPRESSION: return (EObject)createEqualityExpression();
+			case CommonPackage.RELATIONAL_EXPRESSION: return (EObject)createRelationalExpression();
+			case CommonPackage.SHIFT_EXPRESSION: return (EObject)createShiftExpression();
+			case CommonPackage.ADDITIVE_EXPRESSION: return (EObject)createAdditiveExpression();
+			case CommonPackage.MULTIPLICATIVE_EXPRESSION: return (EObject)createMultiplicativeExpression();
+			case CommonPackage.CAST_EXPRESSION: return (EObject)createCastExpression();
+			case CommonPackage.UNARY_EXPRESSION: return (EObject)createUnaryExpression();
+			case CommonPackage.POSTFIX_EXPRESSION: return (EObject)createPostfixExpression();
+			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: return (EObject)createPostfixExpressionSuffixArgument();
+			case CommonPackage.PRIMARY_EXPRESSION: return (EObject)createPrimaryExpression();
+			case CommonPackage.CONSTANT1: return (EObject)createConstant1();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

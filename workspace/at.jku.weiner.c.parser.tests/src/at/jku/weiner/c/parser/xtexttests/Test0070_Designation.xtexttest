@@ -133,7 +133,9 @@ SKW_RIGHTBRACE NEWLINE
 												),
 												pointer=
 												(Pointer
-													star isEmpty
+													//star isEmpty
+													//star isNull
+													star+*"[]"
 												)
 											)
 										) 

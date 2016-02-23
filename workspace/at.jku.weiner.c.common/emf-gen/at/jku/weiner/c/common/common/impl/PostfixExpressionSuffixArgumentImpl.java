@@ -6,13 +6,7 @@ import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,16 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffixImpl implements PostfixExpressionSuffixArgument
 {
-	/**
-	 * The cached value of the '{@link #getArgumentExpressionList() <em>Argument Expression List</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArgumentExpressionList()
-	 * @generated
-	 * @ordered
-	 */
-	protected ArgumentExpressionList argumentExpressionList;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,24 +51,7 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	 */
 	public ArgumentExpressionList getArgumentExpressionList()
 	{
-		return argumentExpressionList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetArgumentExpressionList(ArgumentExpressionList newArgumentExpressionList, NotificationChain msgs)
-	{
-		ArgumentExpressionList oldArgumentExpressionList = argumentExpressionList;
-		argumentExpressionList = newArgumentExpressionList;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, oldArgumentExpressionList, newArgumentExpressionList);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return (ArgumentExpressionList)eGet(CommonPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, true);
 	}
 
 	/**
@@ -94,100 +61,7 @@ public class PostfixExpressionSuffixArgumentImpl extends PostfixExpressionSuffix
 	 */
 	public void setArgumentExpressionList(ArgumentExpressionList newArgumentExpressionList)
 	{
-		if (newArgumentExpressionList != argumentExpressionList)
-		{
-			NotificationChain msgs = null;
-			if (argumentExpressionList != null)
-				msgs = ((InternalEObject)argumentExpressionList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, null, msgs);
-			if (newArgumentExpressionList != null)
-				msgs = ((InternalEObject)newArgumentExpressionList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, null, msgs);
-			msgs = basicSetArgumentExpressionList(newArgumentExpressionList, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, newArgumentExpressionList, newArgumentExpressionList));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
-				return basicSetArgumentExpressionList(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
-				return getArgumentExpressionList();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
-				setArgumentExpressionList((ArgumentExpressionList)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
-				setArgumentExpressionList((ArgumentExpressionList)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
-			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST:
-				return argumentExpressionList != null;
-		}
-		return super.eIsSet(featureID);
+		eSet(CommonPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST, newArgumentExpressionList);
 	}
 
 } //PostfixExpressionSuffixArgumentImpl

@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.parser/emf-gen" editDirectory="/at.jku.weiner.c.parser.edit/src" editorDirectory="/at.jku.weiner.c.parser.editor/src" modelPluginID="at.jku.weiner.c.parser" forceOverwrite="true" modelName="Parser" updateClasspath="false" rootExtendsInterface="fr.inria.atlanmod.neoemf.core.PersistentEObject" rootExtendsClass="fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl" reflectiveDelegation="true" featureDelegation="Reflective" complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.parser.edit" editorPluginID="at.jku.weiner.c.parser.editor" runtimeVersion="2.10">
+  <modelPluginVariables>NEOEMF=fr.inria.atlanmod.neoemf.core</modelPluginVariables>
+  <genPackages prefix="Parser" basePackage="at.jku.weiner.c.parser" disposableProviderFactory="true" fileExtensions="cdt.i">
+    <ecorePackage href="Parser.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ExternalDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ExternalDeclaration/functiondefHead"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ExternalDeclaration/functionDefinition"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ExternalDeclaration/declaration"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//ExternalDeclaration/semi"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//FunctionDefHead"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionDefHead/funDeclSpecifiers"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionDefHead/funDeclarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionDefHead/funDeclaration"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//FunctionDefinition"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionDefinition/body"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Declaration"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declaration/specifiers"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declaration/initDeclaratorList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//FunctionDeclarationSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionDeclarationSpecifiers/declarationSpecifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DeclarationSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//InitDeclaratorList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//InitDeclaratorList/initDeclarator"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//InitDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//InitDeclarator/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//InitDeclarator/initializer"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StorageClassSpecifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//StorageClassSpecifier/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//TypeSpecifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypeSpecifier/name"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypeSpecifier/extType"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/specifier"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/type"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypeSpecifier/typeOf"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/typeName"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/constExpr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypeSpecifier/builtinChooseExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/expr1"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeSpecifier/expr2"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//TypedefName"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypedefName/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DeclarationSpecifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//DeclarationSpecifier/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructOrUnion"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//StructOrUnion/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructDeclarationList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclarationList/structDeclaration"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclaration/list"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclaration/structDeclarationList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//SpecifierQualifierList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SpecifierQualifierList/typeSpecifier"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SpecifierQualifierList/typeQualifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructDeclaratorList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclaratorList/structDeclarator"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclarator/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructDeclarator/constExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//EnumeratorList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//EnumeratorList/enumerator"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//EnumeratorList/lastComma"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Enumerator"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//Enumerator/id"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Enumerator/expr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//TypeQualifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//TypeQualifier/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//FunctionSpecifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//FunctionSpecifier/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//FunctionSpecifier/gccAttributeSpecifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Declarator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declarator/pointer"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declarator/gccDeclExt1"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declarator/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Declarator/gccDeclExt2"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DirectDeclarator"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//DirectDeclarator/id"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectDeclarator/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectDeclarator/declaratorSuffix"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DeclaratorSuffix"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DeclaratorSuffix/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DeclaratorSuffix/lastSuffix"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DirectDeclaratorLastSuffix"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectDeclaratorLastSuffix/parameterTypeList"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//GccDeclaratorExtension"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccDeclaratorExtension/asm"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccDeclaratorExtension/string"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//GccDeclaratorExtension/gccAttributeSpecifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//GccAttributeSpecifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccAttributeSpecifier/attribute"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//GccAttributeSpecifier/list"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//GccAttributeList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//GccAttributeList/gccAttribute"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//GccAttribute"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccAttribute/id"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccAttribute/const"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//GccAttribute/keyword"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//GccAttribute/list"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Pointer"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//Pointer/star"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//Pointer/caret"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Pointer/typeQualifierList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//TypeQualifierList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeQualifierList/typeQualifier"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ParameterTypeList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ParameterTypeList/list"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//ParameterTypeList/ellipsis"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ParameterList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ParameterList/parameterDeclaration"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ParameterDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ParameterDeclaration/declSpecifiers"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ParameterDeclaration/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ParameterDeclaration/abstractDeclator"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//IdentifierList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IdentifierList/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//MyIdentifier"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//MyIdentifier/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//TypeName"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeName/list"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//TypeName/abstractDeclarator"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AbstractDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclarator/pointer"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclarator/directAbstractDeclarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclarator/gccDeclExtAbstract"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DirectAbstractDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectAbstractDeclarator/declarator"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectAbstractDeclarator/gccDeclExt"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DirectAbstractDeclarator/abstractDeclaratorSuffix"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AbstractDeclaratorSuffix"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclaratorSuffix/typeQualifierList"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclaratorSuffix/assignmentExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclaratorSuffix/typeQualifierListOrig"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclaratorSuffix/parameterTypeList"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AbstractDeclaratorSuffix/gccDeclExt"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Initializer"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Initializer/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Initializer/list"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//Initializer/lastComma"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//InitializerList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//InitializerList/init"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Init"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Init/designation"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Init/initializer"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//BlockList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//BlockList/declaration"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//BlockList/statement"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Statement"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Statement/stmt"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AsmLine"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmLine/sym"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmLine/expr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AsmSymbolicName"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AsmSymbolicName/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AsmLineWithColon"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmLineWithColon/asmLine"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AsmLineWithoutColon"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmLineWithoutColon/asmLines"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Designation"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Designation/list"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//DesignatorList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//DesignatorList/designator"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Designator"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Designator/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Designator/to"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//Designator/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Expression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Expression/left"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Expression/right"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffix"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ArgumentExpressionList"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//Parser"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//Parser/external"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//StructOrUnionSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructOrUnionSpecifier/type"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//StructOrUnionSpecifier/braces"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//StructOrUnionSpecifier/structDeclList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//EnumSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//EnumSpecifier/enumList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//LabeledStatement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//LabeledStatement/id"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//LabeledStatement/lStmt"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//LabeledStatement/case"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//LabeledStatement/lower"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//LabeledStatement/higher"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//LabeledStatement/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//LabeledStatement/mydefault"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//CompoundStatement"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//CompoundStatement/body"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//BodyStatement"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//BodyStatement/blockList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ExpressionStatement"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ExpressionStatement/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//SelectionStatement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//SelectionStatement/if"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SelectionStatement/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SelectionStatement/ifStatement"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//SelectionStatement/else"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SelectionStatement/elseStatement"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//SelectionStatement/switch"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//SelectionStatement/switchStatement"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//IterationStatement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//IterationStatement/while"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IterationStatement/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IterationStatement/statement"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//IterationStatement/do"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//IterationStatement/semi"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//IterationStatement/for"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IterationStatement/initExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IterationStatement/incExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//IterationStatement/initDecl"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//JumpStatement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//JumpStatement/continue"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//JumpStatement/break"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//JumpStatement/return"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//JumpStatement/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//JumpStatement/goto"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AsmStatement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AsmStatement/asm"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AsmStatement/volatile"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmStatement/asmLine1"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AsmStatement/asmLines"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AsmStatement/lastComma"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AssignmentExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AssignmentExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AssignmentExpression/op"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//AssignmentExpression/assignmentExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ConditionalExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ConditionalExpression/qExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ConditionalExpression/cExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//LogicalOrExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//LogicalAndExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//InclusiveOrExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ExclusiveOrExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AndExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//EqualityExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//EqualityExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//RelationalExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//RelationalExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ShiftExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//ShiftExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//AdditiveExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//AdditiveExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//MultiplicativeExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//MultiplicativeExpression/op"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//CastExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//CastExpression/type"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//CastExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//CastExpression/extension"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//UnaryExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/plusplus"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//UnaryExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/minusminus"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/op"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/sizeOf"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//UnaryExpression/typeName"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/alignOf"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/andand"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//UnaryExpression/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PostfixExpression/ext"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpression/typeName"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpression/initializerList"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PostfixExpression/comma"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpression/expr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpression/suffix"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixArray"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpressionSuffixArray/arrayExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixArgument"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixDot"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PostfixExpressionSuffixDot/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixArrow"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PostfixExpressionSuffixArrow/id"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixPlusPlus"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PostfixExpressionSuffixMinusMinus"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//PrimaryExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/id"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PrimaryExpression/const"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/string"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/parentheses"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PrimaryExpression/expr"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/ext"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PrimaryExpression/compoundStmt"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/builtin_offsetof"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PrimaryExpression/typeName"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//PrimaryExpression/builtin_typescompatiblep"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//PrimaryExpression/typeName2"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="Parser.ecore#//ConstantExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Parser.ecore#//ConstantExpression/restrict"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Parser.ecore#//ConstantExpression/expr"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+  <usedGenPackages href="../../../at.jku.weiner.c.common/model/custom/Common.genmodel#//common"/>
+  <usedGenPackages href="../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
+</genmodel:GenModel>

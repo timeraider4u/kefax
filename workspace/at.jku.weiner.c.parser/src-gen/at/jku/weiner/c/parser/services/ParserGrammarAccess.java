@@ -4022,7 +4022,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cXORASSIGNTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cORASSIGNTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
-		//AssignmentOperator:
+		//AssignmentOperator ecore::EString:
 		//	SKW_ASSIGN
 		//	| STARASSIGN
 		//	| DIVASSIGN
@@ -4033,7 +4033,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| RIGHTSHIFTASSIGN
 		//	| ANDASSIGN
 		//	| XORASSIGN
-		//	| ORASSIGN;
+		//	| ORASSIGN
 		@Override public ParserRule getRule() { return rule; }
 		
 		//SKW_ASSIGN | STARASSIGN | DIVASSIGN | MODASSIGN | PLUSASSIGN | MINUSASSIGN | LEFTSHIFTASSIGN | RIGHTSHIFTASSIGN |
@@ -4958,13 +4958,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_TILDETerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cSKW_NOTTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
-		//UnaryOperator:
+		//UnaryOperator ecore::EString:
 		//	SKW_AND
 		//	| SKW_STAR
 		//	| SKW_PLUS
 		//	| SKW_MINUS
 		//	| SKW_TILDE
-		//	| SKW_NOT;
+		//	| SKW_NOT
 		@Override public ParserRule getRule() { return rule; }
 		
 		//SKW_AND | SKW_STAR | SKW_PLUS | SKW_MINUS | SKW_TILDE | SKW_NOT
@@ -5612,7 +5612,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	(typeName | DEFAULT) COLON
 		//	(assignmentExpression=assignmentExpression)
 		//;
-		// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords:
+		// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords ecore::EString:
 		//	KW_ATOMIC | KW_AUTO
 		//	| KW_BOOL | KW_CONST
 		//	| KW_CHAR | KW_DOUBLE
@@ -5622,7 +5622,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| KW_LONG
 		//	| KW_RESTRICT
 		//	| KW_SHORT | KW_SIGNED1 | KW_SIGNED2
-		//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED;
+		//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED
 		@Override public ParserRule getRule() { return rule; }
 		
 		//KW_ATOMIC | KW_AUTO | KW_BOOL | KW_CONST | KW_CHAR | KW_DOUBLE | KW_EXTERN | KW_FLOAT | KW_INT | KW_LONG | KW_RESTRICT |
@@ -6907,7 +6907,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getLvalueAccess().getRule();
 	}
 	
-	//AssignmentOperator:
+	//AssignmentOperator ecore::EString:
 	//	SKW_ASSIGN
 	//	| STARASSIGN
 	//	| DIVASSIGN
@@ -6918,7 +6918,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| RIGHTSHIFTASSIGN
 	//	| ANDASSIGN
 	//	| XORASSIGN
-	//	| ORASSIGN;
+	//	| ORASSIGN
 	public AssignmentOperatorElements getAssignmentOperatorAccess() {
 		return pAssignmentOperator;
 	}
@@ -7077,13 +7077,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryExpressionAccess().getRule();
 	}
 	
-	//UnaryOperator:
+	//UnaryOperator ecore::EString:
 	//	SKW_AND
 	//	| SKW_STAR
 	//	| SKW_PLUS
 	//	| SKW_MINUS
 	//	| SKW_TILDE
-	//	| SKW_NOT;
+	//	| SKW_NOT
 	public UnaryOperatorElements getUnaryOperatorAccess() {
 		return pUnaryOperator;
 	}
@@ -7217,7 +7217,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	(typeName | DEFAULT) COLON
 	//	(assignmentExpression=assignmentExpression)
 	//;
-	// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords:
+	// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords ecore::EString:
 	//	KW_ATOMIC | KW_AUTO
 	//	| KW_BOOL | KW_CONST
 	//	| KW_CHAR | KW_DOUBLE
@@ -7227,7 +7227,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| KW_LONG
 	//	| KW_RESTRICT
 	//	| KW_SHORT | KW_SIGNED1 | KW_SIGNED2
-	//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED;
+	//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED
 	public ParserKeywordsElements getParserKeywordsAccess() {
 		return pParserKeywords;
 	}
@@ -7236,524 +7236,524 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getParserKeywordsAccess().getRule();
 	}
 	
-	//terminal KW_ATOMIC:
+	//terminal KW_ATOMIC returns ecore::EString:
 	//	SKW_UNDERSCORE 'Atomic';
 	public TerminalRule getKW_ATOMICRule() {
 		return tKW_ATOMIC;
 	}
 	
-	//terminal KW_ATTRIBUTE2:
+	//terminal KW_ATTRIBUTE2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'attribute';
 	public TerminalRule getKW_ATTRIBUTE2Rule() {
 		return tKW_ATTRIBUTE2;
 	}
 	
-	//terminal KW_ATTRIBUTE3:
+	//terminal KW_ATTRIBUTE3 returns ecore::EString:
 	//	KW_ATTRIBUTE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_ATTRIBUTE3Rule() {
 		return tKW_ATTRIBUTE3;
 	}
 	
-	//terminal KW_AUTO:
+	//terminal KW_AUTO returns ecore::EString:
 	//	'auto';
 	public TerminalRule getKW_AUTORule() {
 		return tKW_AUTO;
 	}
 	
-	//terminal KW_ALIGNAS:
+	//terminal KW_ALIGNAS returns ecore::EString:
 	//	SKW_UNDERSCORE 'Alignas';
 	public TerminalRule getKW_ALIGNASRule() {
 		return tKW_ALIGNAS;
 	}
 	
-	//terminal KW_ALIGNOF1:
+	//terminal KW_ALIGNOF1 returns ecore::EString:
 	//	'alignof';
 	public TerminalRule getKW_ALIGNOF1Rule() {
 		return tKW_ALIGNOF1;
 	}
 	
-	//terminal KW_ALIGNOF2:
+	//terminal KW_ALIGNOF2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_ALIGNOF1;
 	public TerminalRule getKW_ALIGNOF2Rule() {
 		return tKW_ALIGNOF2;
 	}
 	
-	//terminal KW_ALIGNOF3:
+	//terminal KW_ALIGNOF3 returns ecore::EString:
 	//	KW_ALIGNOF2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_ALIGNOF3Rule() {
 		return tKW_ALIGNOF3;
 	}
 	
-	//terminal KW_ASM1:
+	//terminal KW_ASM1 returns ecore::EString:
 	//	'asm';
 	public TerminalRule getKW_ASM1Rule() {
 		return tKW_ASM1;
 	}
 	
-	//terminal KW_ASM2:
+	//terminal KW_ASM2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_ASM1;
 	public TerminalRule getKW_ASM2Rule() {
 		return tKW_ASM2;
 	}
 	
-	//terminal KW_ASM3:
+	//terminal KW_ASM3 returns ecore::EString:
 	//	KW_ASM2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_ASM3Rule() {
 		return tKW_ASM3;
 	}
 	
-	//terminal KW_BOOL:
+	//terminal KW_BOOL returns ecore::EString:
 	//	SKW_UNDERSCORE 'Bool';
 	public TerminalRule getKW_BOOLRule() {
 		return tKW_BOOL;
 	}
 	
-	//terminal KW_BREAK:
+	//terminal KW_BREAK returns ecore::EString:
 	//	'break';
 	public TerminalRule getKW_BREAKRule() {
 		return tKW_BREAK;
 	}
 	
-	//terminal KW_BUILTIN_CHOOSE_EXPR:
+	//terminal KW_BUILTIN_CHOOSE_EXPR returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_choose_expr';
 	public TerminalRule getKW_BUILTIN_CHOOSE_EXPRRule() {
 		return tKW_BUILTIN_CHOOSE_EXPR;
 	}
 	
-	//terminal KW_BUILTIN_VA_LIST:
+	//terminal KW_BUILTIN_VA_LIST returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 	public TerminalRule getKW_BUILTIN_VA_LISTRule() {
 		return tKW_BUILTIN_VA_LIST;
 	}
 	
-	//terminal KW_BUILTIN_OFFSETOF:
+	//terminal KW_BUILTIN_OFFSETOF returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
 	public TerminalRule getKW_BUILTIN_OFFSETOFRule() {
 		return tKW_BUILTIN_OFFSETOF;
 	}
 	
-	//terminal KW_BUILTIN_TYPESCOMPATIBLEP:
+	//terminal KW_BUILTIN_TYPESCOMPATIBLEP returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_types_compatible_p';
 	public TerminalRule getKW_BUILTIN_TYPESCOMPATIBLEPRule() {
 		return tKW_BUILTIN_TYPESCOMPATIBLEP;
 	}
 	
-	//terminal KW_CASE:
+	//terminal KW_CASE returns ecore::EString:
 	//	'case';
 	public TerminalRule getKW_CASERule() {
 		return tKW_CASE;
 	}
 	
-	//terminal KW_CHAR:
+	//terminal KW_CHAR returns ecore::EString:
 	//	'char';
 	public TerminalRule getKW_CHARRule() {
 		return tKW_CHAR;
 	}
 	
-	//terminal KW_COMPLEX:
+	//terminal KW_COMPLEX returns ecore::EString:
 	//	SKW_UNDERSCORE 'Complex';
 	public TerminalRule getKW_COMPLEXRule() {
 		return tKW_COMPLEX;
 	}
 	
-	//terminal KW_CONST:
+	//terminal KW_CONST returns ecore::EString:
 	//	'const';
 	public TerminalRule getKW_CONSTRule() {
 		return tKW_CONST;
 	}
 	
-	//terminal KW_CONTINUE:
+	//terminal KW_CONTINUE returns ecore::EString:
 	//	'continue';
 	public TerminalRule getKW_CONTINUERule() {
 		return tKW_CONTINUE;
 	}
 	
-	//terminal KW_DEFAULT:
+	//terminal KW_DEFAULT returns ecore::EString:
 	//	'default';
 	public TerminalRule getKW_DEFAULTRule() {
 		return tKW_DEFAULT;
 	}
 	
-	//terminal KW_DO:
+	//terminal KW_DO returns ecore::EString:
 	//	'do';
 	public TerminalRule getKW_DORule() {
 		return tKW_DO;
 	}
 	
-	//terminal KW_DOUBLE:
+	//terminal KW_DOUBLE returns ecore::EString:
 	//	'double';
 	public TerminalRule getKW_DOUBLERule() {
 		return tKW_DOUBLE;
 	}
 	
-	//terminal KW_ELSE:
+	//terminal KW_ELSE returns ecore::EString:
 	//	'else';
 	public TerminalRule getKW_ELSERule() {
 		return tKW_ELSE;
 	}
 	
-	//terminal KW_EXTENSION:
+	//terminal KW_EXTENSION returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'extension' SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_EXTENSIONRule() {
 		return tKW_EXTENSION;
 	}
 	
-	//terminal KW_ENUM:
+	//terminal KW_ENUM returns ecore::EString:
 	//	'enum';
 	public TerminalRule getKW_ENUMRule() {
 		return tKW_ENUM;
 	}
 	
-	//terminal KW_EXTERN:
+	//terminal KW_EXTERN returns ecore::EString:
 	//	'extern';
 	public TerminalRule getKW_EXTERNRule() {
 		return tKW_EXTERN;
 	}
 	
-	//terminal KW_FLOAT:
+	//terminal KW_FLOAT returns ecore::EString:
 	//	'float';
 	public TerminalRule getKW_FLOATRule() {
 		return tKW_FLOAT;
 	}
 	
-	//terminal KW_FOR:
+	//terminal KW_FOR returns ecore::EString:
 	//	'for';
 	public TerminalRule getKW_FORRule() {
 		return tKW_FOR;
 	}
 	
-	//terminal KW_GENERIC:
+	//terminal KW_GENERIC returns ecore::EString:
 	//	SKW_UNDERSCORE 'Generic';
 	public TerminalRule getKW_GENERICRule() {
 		return tKW_GENERIC;
 	}
 	
-	//terminal KW_GOTO:
+	//terminal KW_GOTO returns ecore::EString:
 	//	'goto';
 	public TerminalRule getKW_GOTORule() {
 		return tKW_GOTO;
 	}
 	
-	//terminal KW_IF:
+	//terminal KW_IF returns ecore::EString:
 	//	'if';
 	public TerminalRule getKW_IFRule() {
 		return tKW_IF;
 	}
 	
-	//terminal KW_IMAGINARY:
+	//terminal KW_IMAGINARY returns ecore::EString:
 	//	SKW_UNDERSCORE 'Imaginary';
 	public TerminalRule getKW_IMAGINARYRule() {
 		return tKW_IMAGINARY;
 	}
 	
-	//terminal KW_INLINE1:
+	//terminal KW_INLINE1 returns ecore::EString:
 	//	'inline';
 	public TerminalRule getKW_INLINE1Rule() {
 		return tKW_INLINE1;
 	}
 	
-	//terminal KW_INLINE2:
+	//terminal KW_INLINE2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
 	public TerminalRule getKW_INLINE2Rule() {
 		return tKW_INLINE2;
 	}
 	
-	//terminal KW_INLINE3:
+	//terminal KW_INLINE3 returns ecore::EString:
 	//	KW_INLINE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_INLINE3Rule() {
 		return tKW_INLINE3;
 	}
 	
-	//terminal KW_INT:
+	//terminal KW_INT returns ecore::EString:
 	//	'int';
 	public TerminalRule getKW_INTRule() {
 		return tKW_INT;
 	}
 	
-	//terminal KW_INT128_3:
+	//terminal KW_INT128_3 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'int128';
 	public TerminalRule getKW_INT128_3Rule() {
 		return tKW_INT128_3;
 	}
 	
-	//terminal KW_LABEL3:
+	//terminal KW_LABEL3 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'label' SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_LABEL3Rule() {
 		return tKW_LABEL3;
 	}
 	
-	//terminal KW_LONG:
+	//terminal KW_LONG returns ecore::EString:
 	//	'long';
 	public TerminalRule getKW_LONGRule() {
 		return tKW_LONG;
 	}
 	
-	//terminal KW_M128:
+	//terminal KW_M128 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'm128';
 	public TerminalRule getKW_M128Rule() {
 		return tKW_M128;
 	}
 	
-	//terminal KW_M128D:
+	//terminal KW_M128D returns ecore::EString:
 	//	KW_M128 'd';
 	public TerminalRule getKW_M128DRule() {
 		return tKW_M128D;
 	}
 	
-	//terminal KW_M128I:
+	//terminal KW_M128I returns ecore::EString:
 	//	KW_M128 'i';
 	public TerminalRule getKW_M128IRule() {
 		return tKW_M128I;
 	}
 	
-	//terminal KW_NORETURN:
+	//terminal KW_NORETURN returns ecore::EString:
 	//	SKW_UNDERSCORE 'Noreturn';
 	public TerminalRule getKW_NORETURNRule() {
 		return tKW_NORETURN;
 	}
 	
-	//terminal KW_PRAGMA:
+	//terminal KW_PRAGMA returns ecore::EString:
 	//	'pragma';
 	public TerminalRule getKW_PRAGMARule() {
 		return tKW_PRAGMA;
 	}
 	
-	//terminal KW_REGISTER:
+	//terminal KW_REGISTER returns ecore::EString:
 	//	'register';
 	public TerminalRule getKW_REGISTERRule() {
 		return tKW_REGISTER;
 	}
 	
-	//terminal KW_RESTRICT:
+	//terminal KW_RESTRICT returns ecore::EString:
 	//	'restrict';
 	public TerminalRule getKW_RESTRICTRule() {
 		return tKW_RESTRICT;
 	}
 	
-	//terminal KW_RESTRICT2:
+	//terminal KW_RESTRICT2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_RESTRICT;
 	public TerminalRule getKW_RESTRICT2Rule() {
 		return tKW_RESTRICT2;
 	}
 	
-	//terminal KW_RESTRICT3:
+	//terminal KW_RESTRICT3 returns ecore::EString:
 	//	KW_RESTRICT2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_RESTRICT3Rule() {
 		return tKW_RESTRICT3;
 	}
 	
-	//terminal KW_RETURN:
+	//terminal KW_RETURN returns ecore::EString:
 	//	'return';
 	public TerminalRule getKW_RETURNRule() {
 		return tKW_RETURN;
 	}
 	
-	//terminal KW_SHORT:
+	//terminal KW_SHORT returns ecore::EString:
 	//	'short';
 	public TerminalRule getKW_SHORTRule() {
 		return tKW_SHORT;
 	}
 	
-	//terminal KW_SIGNED1:
+	//terminal KW_SIGNED1 returns ecore::EString:
 	//	'signed';
 	public TerminalRule getKW_SIGNED1Rule() {
 		return tKW_SIGNED1;
 	}
 	
-	//terminal KW_SIGNED2:
+	//terminal KW_SIGNED2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_SIGNED1;
 	public TerminalRule getKW_SIGNED2Rule() {
 		return tKW_SIGNED2;
 	}
 	
-	//terminal KW_SIGNED3:
+	//terminal KW_SIGNED3 returns ecore::EString:
 	//	KW_SIGNED2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_SIGNED3Rule() {
 		return tKW_SIGNED3;
 	}
 	
-	//terminal KW_SIZEOF:
+	//terminal KW_SIZEOF returns ecore::EString:
 	//	'sizeof';
 	public TerminalRule getKW_SIZEOFRule() {
 		return tKW_SIZEOF;
 	}
 	
-	//terminal KW_STATIC:
+	//terminal KW_STATIC returns ecore::EString:
 	//	'static';
 	public TerminalRule getKW_STATICRule() {
 		return tKW_STATIC;
 	}
 	
-	//terminal KW_STATICASSERT:
+	//terminal KW_STATICASSERT returns ecore::EString:
 	//	SKW_UNDERSCORE 'Static_assert';
 	public TerminalRule getKW_STATICASSERTRule() {
 		return tKW_STATICASSERT;
 	}
 	
-	//terminal KW_STRUCT:
+	//terminal KW_STRUCT returns ecore::EString:
 	//	'struct';
 	public TerminalRule getKW_STRUCTRule() {
 		return tKW_STRUCT;
 	}
 	
-	//terminal KW_SWITCH:
+	//terminal KW_SWITCH returns ecore::EString:
 	//	'switch';
 	public TerminalRule getKW_SWITCHRule() {
 		return tKW_SWITCH;
 	}
 	
-	//terminal KW_THREADLOCAL:
+	//terminal KW_THREADLOCAL returns ecore::EString:
 	//	SKW_UNDERSCORE 'Thread_local';
 	public TerminalRule getKW_THREADLOCALRule() {
 		return tKW_THREADLOCAL;
 	}
 	
-	//terminal KW_TYPEDEF:
+	//terminal KW_TYPEDEF returns ecore::EString:
 	//	'typedef';
 	public TerminalRule getKW_TYPEDEFRule() {
 		return tKW_TYPEDEF;
 	}
 	
-	//terminal KW_TYPEOF1:
+	//terminal KW_TYPEOF1 returns ecore::EString:
 	//	'typeof';
 	public TerminalRule getKW_TYPEOF1Rule() {
 		return tKW_TYPEOF1;
 	}
 	
-	//terminal KW_TYPEOF2:
+	//terminal KW_TYPEOF2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_TYPEOF1;
 	public TerminalRule getKW_TYPEOF2Rule() {
 		return tKW_TYPEOF2;
 	}
 	
-	//terminal KW_TYPEOF3:
+	//terminal KW_TYPEOF3 returns ecore::EString:
 	//	KW_TYPEOF2 SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_TYPEOF3Rule() {
 		return tKW_TYPEOF3;
 	}
 	
-	//terminal KW_UNION:
+	//terminal KW_UNION returns ecore::EString:
 	//	'union';
 	public TerminalRule getKW_UNIONRule() {
 		return tKW_UNION;
 	}
 	
-	//terminal KW_UNSIGNED:
+	//terminal KW_UNSIGNED returns ecore::EString:
 	//	'unsigned';
 	public TerminalRule getKW_UNSIGNEDRule() {
 		return tKW_UNSIGNED;
 	}
 	
-	//terminal KW_VOID:
+	//terminal KW_VOID returns ecore::EString:
 	//	'void';
 	public TerminalRule getKW_VOIDRule() {
 		return tKW_VOID;
 	}
 	
-	//terminal KW_VOLATILE:
+	//terminal KW_VOLATILE returns ecore::EString:
 	//	'volatile';
 	public TerminalRule getKW_VOLATILERule() {
 		return tKW_VOLATILE;
 	}
 	
-	//terminal KW_VOLATILE2:
+	//terminal KW_VOLATILE2 returns ecore::EString:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_VOLATILE SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_VOLATILE2Rule() {
 		return tKW_VOLATILE2;
 	}
 	
-	//terminal KW_WHILE:
+	//terminal KW_WHILE returns ecore::EString:
 	//	'while';
 	public TerminalRule getKW_WHILERule() {
 		return tKW_WHILE;
 	}
 	
-	//terminal STARASSIGN:
+	//terminal STARASSIGN returns ecore::EString:
 	//	SKW_STAR SKW_ASSIGN;
 	public TerminalRule getSTARASSIGNRule() {
 		return tSTARASSIGN;
 	}
 	
-	//terminal DIVASSIGN:
+	//terminal DIVASSIGN returns ecore::EString:
 	//	SKW_DIV SKW_ASSIGN;
 	public TerminalRule getDIVASSIGNRule() {
 		return tDIVASSIGN;
 	}
 	
-	//terminal MODASSIGN:
+	//terminal MODASSIGN returns ecore::EString:
 	//	SKW_MOD SKW_ASSIGN;
 	public TerminalRule getMODASSIGNRule() {
 		return tMODASSIGN;
 	}
 	
-	//terminal PLUSASSIGN:
+	//terminal PLUSASSIGN returns ecore::EString:
 	//	SKW_PLUS SKW_ASSIGN;
 	public TerminalRule getPLUSASSIGNRule() {
 		return tPLUSASSIGN;
 	}
 	
-	//terminal MINUSASSIGN:
+	//terminal MINUSASSIGN returns ecore::EString:
 	//	SKW_MINUS SKW_ASSIGN;
 	public TerminalRule getMINUSASSIGNRule() {
 		return tMINUSASSIGN;
 	}
 	
-	//terminal LEFTSHIFTASSIGN:
+	//terminal LEFTSHIFTASSIGN returns ecore::EString:
 	//	SKW_LEFTSHIFT SKW_ASSIGN;
 	public TerminalRule getLEFTSHIFTASSIGNRule() {
 		return tLEFTSHIFTASSIGN;
 	}
 	
-	//terminal RIGHTSHIFTASSIGN:
+	//terminal RIGHTSHIFTASSIGN returns ecore::EString:
 	//	SKW_RIGHTSHIFT SKW_ASSIGN;
 	public TerminalRule getRIGHTSHIFTASSIGNRule() {
 		return tRIGHTSHIFTASSIGN;
 	}
 	
-	//terminal ANDASSIGN:
+	//terminal ANDASSIGN returns ecore::EString:
 	//	SKW_AND SKW_ASSIGN;
 	public TerminalRule getANDASSIGNRule() {
 		return tANDASSIGN;
 	}
 	
-	//terminal XORASSIGN:
+	//terminal XORASSIGN returns ecore::EString:
 	//	SKW_CARET SKW_ASSIGN;
 	public TerminalRule getXORASSIGNRule() {
 		return tXORASSIGN;
 	}
 	
-	//terminal ORASSIGN:
+	//terminal ORASSIGN returns ecore::EString:
 	//	SKW_OR SKW_ASSIGN;
 	public TerminalRule getORASSIGNRule() {
 		return tORASSIGN;
 	}
 	
-	//terminal ARROW:
+	//terminal ARROW returns ecore::EString:
 	//	SKW_MINUS SKW_GREATER;
 	public TerminalRule getARROWRule() {
 		return tARROW;
 	}
 	
-	//terminal LINEDIRECTIVE:
+	//terminal LINEDIRECTIVE returns ecore::EString:
 	//	'#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
 	public TerminalRule getLINEDIRECTIVERule() {
 		return tLINEDIRECTIVE;
 	}
 	
-	//terminal WHITESPACE:
+	//terminal WHITESPACE returns ecore::EString:
 	//	' ' | '\t'+;
 	public TerminalRule getWHITESPACERule() {
 		return tWHITESPACE;
 	}
 	
-	//Constant1:
+	//Constant1 ecore::EString:
 	//	HexLiteral
 	//	| OctalLiteral
 	//	| DecimalLiteral
 	//	| CharLiteral
 	//	| StringLiteral
 	//	| FloatLiteral
-	//	| BinLiteral;
+	//	| BinLiteral
 	public CommonGrammarAccess.Constant1Elements getConstant1Access() {
 		return gaCommon.getConstant1Access();
 	}
@@ -7780,7 +7780,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// keywords
 	//// special keywords
-	//SpecialKeywords:
+	//SpecialKeywords ecore::EString:
 	//	SKW_AND
 	//	| SKW_ANDAND
 	//	| SKW_ASSIGN
@@ -7817,7 +7817,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| SKW_SEMI
 	//	| SKW_SINGLEQUOTE
 	//	| SKW_STAR
-	//	| SKW_TILDE;
+	//	| SKW_TILDE
 	public CommonGrammarAccess.SpecialKeywordsElements getSpecialKeywordsAccess() {
 		return gaCommon.getSpecialKeywordsAccess();
 	}
@@ -7826,8 +7826,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getSpecialKeywordsAccess().getRule();
 	}
 	
-	//Ellipsis:
-	//	SKW_DOT SKW_DOT SKW_DOT;
+	//Ellipsis ecore::EString:
+	//	SKW_DOT SKW_DOT SKW_DOT
 	public CommonGrammarAccess.EllipsisElements getEllipsisAccess() {
 		return gaCommon.getEllipsisAccess();
 	}
@@ -7836,8 +7836,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getEllipsisAccess().getRule();
 	}
 	
-	//HexLiteral:
-	//	HEX_LITERAL;
+	//HexLiteral ecore::EString:
+	//	HEX_LITERAL
 	public CommonGrammarAccess.HexLiteralElements getHexLiteralAccess() {
 		return gaCommon.getHexLiteralAccess();
 	}
@@ -7846,8 +7846,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getHexLiteralAccess().getRule();
 	}
 	
-	//OctalLiteral:
-	//	OCTAL_LITERAL;
+	//OctalLiteral ecore::EString:
+	//	OCTAL_LITERAL
 	public CommonGrammarAccess.OctalLiteralElements getOctalLiteralAccess() {
 		return gaCommon.getOctalLiteralAccess();
 	}
@@ -7856,8 +7856,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getOctalLiteralAccess().getRule();
 	}
 	
-	//DecimalLiteral:
-	//	DECIMAL_LITERAL;
+	//DecimalLiteral ecore::EString:
+	//	DECIMAL_LITERAL
 	public CommonGrammarAccess.DecimalLiteralElements getDecimalLiteralAccess() {
 		return gaCommon.getDecimalLiteralAccess();
 	}
@@ -7866,8 +7866,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getDecimalLiteralAccess().getRule();
 	}
 	
-	//CharLiteral:
-	//	CHAR_LITERAL;
+	//CharLiteral ecore::EString:
+	//	CHAR_LITERAL
 	public CommonGrammarAccess.CharLiteralElements getCharLiteralAccess() {
 		return gaCommon.getCharLiteralAccess();
 	}
@@ -7876,8 +7876,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getCharLiteralAccess().getRule();
 	}
 	
-	//StringLiteral:
-	//	STRING_LITERAL;
+	//StringLiteral ecore::EString:
+	//	STRING_LITERAL
 	public CommonGrammarAccess.StringLiteralElements getStringLiteralAccess() {
 		return gaCommon.getStringLiteralAccess();
 	}
@@ -7886,8 +7886,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getStringLiteralAccess().getRule();
 	}
 	
-	//FloatLiteral:
-	//	FLOAT_LITERAL;
+	//FloatLiteral ecore::EString:
+	//	FLOAT_LITERAL
 	public CommonGrammarAccess.FloatLiteralElements getFloatLiteralAccess() {
 		return gaCommon.getFloatLiteralAccess();
 	}
@@ -7896,8 +7896,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatLiteralAccess().getRule();
 	}
 	
-	//BinLiteral:
-	//	BIN_LITERAL;
+	//BinLiteral ecore::EString:
+	//	BIN_LITERAL
 	public CommonGrammarAccess.BinLiteralElements getBinLiteralAccess() {
 		return gaCommon.getBinLiteralAccess();
 	}
@@ -7906,331 +7906,361 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getBinLiteralAccess().getRule();
 	}
 	
-	//terminal SKW_AND:
+	//terminal SKW_AND returns ecore::EString:
 	//	'&';
 	public TerminalRule getSKW_ANDRule() {
 		return gaCommon.getSKW_ANDRule();
 	}
 	
-	//terminal SKW_ANDAND:
+	//terminal SKW_ANDAND returns ecore::EString:
 	//	SKW_AND SKW_AND;
 	public TerminalRule getSKW_ANDANDRule() {
 		return gaCommon.getSKW_ANDANDRule();
 	}
 	
-	//terminal SKW_ASSIGN:
+	//terminal SKW_ASSIGN returns ecore::EString:
 	//	'=';
 	public TerminalRule getSKW_ASSIGNRule() {
 		return gaCommon.getSKW_ASSIGNRule();
 	}
 	
-	//terminal SKW_BACKSLASH:
+	//terminal SKW_BACKSLASH returns ecore::EString:
 	//	'\\';
 	public TerminalRule getSKW_BACKSLASHRule() {
 		return gaCommon.getSKW_BACKSLASHRule();
 	}
 	
-	//terminal SKW_CARET:
+	//terminal SKW_CARET returns ecore::EString:
 	//	'^';
 	public TerminalRule getSKW_CARETRule() {
 		return gaCommon.getSKW_CARETRule();
 	}
 	
-	//terminal SKW_COMMA:
+	//terminal SKW_COMMA returns ecore::EString:
 	//	',';
 	public TerminalRule getSKW_COMMARule() {
 		return gaCommon.getSKW_COMMARule();
 	}
 	
-	//terminal SKW_COLON:
+	//terminal SKW_COLON returns ecore::EString:
 	//	':';
 	public TerminalRule getSKW_COLONRule() {
 		return gaCommon.getSKW_COLONRule();
 	}
 	
-	//terminal SKW_DIV:
+	//terminal SKW_DIV returns ecore::EString:
 	//	'/';
 	public TerminalRule getSKW_DIVRule() {
 		return gaCommon.getSKW_DIVRule();
 	}
 	
-	//terminal fragment SKW_DOLLAR:
-	//	'$';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[39]->TerminalRule'SKW_DOLLAR'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
 	}
 	
-	//terminal SKW_DOT:
+	//terminal SKW_DOT returns ecore::EString:
 	//	'.';
 	public TerminalRule getSKW_DOTRule() {
 		return gaCommon.getSKW_DOTRule();
 	}
 	
-	//terminal SKW_DOUBLEQUOTE:
+	//terminal SKW_DOUBLEQUOTE returns ecore::EString:
 	//	'"';
 	public TerminalRule getSKW_DOUBLEQUOTERule() {
 		return gaCommon.getSKW_DOUBLEQUOTERule();
 	}
 	
-	//terminal SKW_EQUAL:
+	//terminal SKW_EQUAL returns ecore::EString:
 	//	SKW_ASSIGN SKW_ASSIGN;
 	public TerminalRule getSKW_EQUALRule() {
 		return gaCommon.getSKW_EQUALRule();
 	}
 	
-	//terminal SKW_GREATER:
+	//terminal SKW_GREATER returns ecore::EString:
 	//	'>';
 	public TerminalRule getSKW_GREATERRule() {
 		return gaCommon.getSKW_GREATERRule();
 	}
 	
-	//terminal SKW_GREATEREQUAL:
+	//terminal SKW_GREATEREQUAL returns ecore::EString:
 	//	SKW_GREATER SKW_ASSIGN;
 	public TerminalRule getSKW_GREATEREQUALRule() {
 		return gaCommon.getSKW_GREATEREQUALRule();
 	}
 	
-	//terminal SKW_LEFTBRACE:
+	//terminal SKW_LEFTBRACE returns ecore::EString:
 	//	'{';
 	public TerminalRule getSKW_LEFTBRACERule() {
 		return gaCommon.getSKW_LEFTBRACERule();
 	}
 	
-	//terminal SKW_LEFTBRACKET:
+	//terminal SKW_LEFTBRACKET returns ecore::EString:
 	//	'[';
 	public TerminalRule getSKW_LEFTBRACKETRule() {
 		return gaCommon.getSKW_LEFTBRACKETRule();
 	}
 	
-	//terminal SKW_LEFTPAREN:
+	//terminal SKW_LEFTPAREN returns ecore::EString:
 	//	'(';
 	public TerminalRule getSKW_LEFTPARENRule() {
 		return gaCommon.getSKW_LEFTPARENRule();
 	}
 	
-	//terminal SKW_LEFTSHIFT:
+	//terminal SKW_LEFTSHIFT returns ecore::EString:
 	//	SKW_LESS SKW_LESS;
 	public TerminalRule getSKW_LEFTSHIFTRule() {
 		return gaCommon.getSKW_LEFTSHIFTRule();
 	}
 	
-	//terminal SKW_LESS:
+	//terminal SKW_LESS returns ecore::EString:
 	//	'<';
 	public TerminalRule getSKW_LESSRule() {
 		return gaCommon.getSKW_LESSRule();
 	}
 	
-	//terminal SKW_LESSEQUAL:
+	//terminal SKW_LESSEQUAL returns ecore::EString:
 	//	SKW_LESS SKW_ASSIGN;
 	public TerminalRule getSKW_LESSEQUALRule() {
 		return gaCommon.getSKW_LESSEQUALRule();
 	}
 	
-	//terminal SKW_MINUS:
+	//terminal SKW_MINUS returns ecore::EString:
 	//	'-';
 	public TerminalRule getSKW_MINUSRule() {
 		return gaCommon.getSKW_MINUSRule();
 	}
 	
-	//terminal SKW_MINUSMINUS:
+	//terminal SKW_MINUSMINUS returns ecore::EString:
 	//	SKW_MINUS SKW_MINUS;
 	public TerminalRule getSKW_MINUSMINUSRule() {
 		return gaCommon.getSKW_MINUSMINUSRule();
 	}
 	
-	//terminal SKW_MOD:
+	//terminal SKW_MOD returns ecore::EString:
 	//	'%';
 	public TerminalRule getSKW_MODRule() {
 		return gaCommon.getSKW_MODRule();
 	}
 	
-	//terminal SKW_NOT:
+	//terminal SKW_NOT returns ecore::EString:
 	//	'!';
 	public TerminalRule getSKW_NOTRule() {
 		return gaCommon.getSKW_NOTRule();
 	}
 	
-	//terminal SKW_NOTEQUAL:
+	//terminal SKW_NOTEQUAL returns ecore::EString:
 	//	SKW_NOT SKW_ASSIGN;
 	public TerminalRule getSKW_NOTEQUALRule() {
 		return gaCommon.getSKW_NOTEQUALRule();
 	}
 	
-	//terminal SKW_OR:
+	//terminal SKW_OR returns ecore::EString:
 	//	'|';
 	public TerminalRule getSKW_ORRule() {
 		return gaCommon.getSKW_ORRule();
 	}
 	
-	//terminal SKW_OROR:
+	//terminal SKW_OROR returns ecore::EString:
 	//	SKW_OR SKW_OR;
 	public TerminalRule getSKW_ORORRule() {
 		return gaCommon.getSKW_ORORRule();
 	}
 	
-	//terminal SKW_PLUS:
+	//terminal SKW_PLUS returns ecore::EString:
 	//	'+';
 	public TerminalRule getSKW_PLUSRule() {
 		return gaCommon.getSKW_PLUSRule();
 	}
 	
-	//terminal SKW_PLUSPLUS:
+	//terminal SKW_PLUSPLUS returns ecore::EString:
 	//	SKW_PLUS SKW_PLUS;
 	public TerminalRule getSKW_PLUSPLUSRule() {
 		return gaCommon.getSKW_PLUSPLUSRule();
 	}
 	
-	//terminal SKW_QUESTION:
+	//terminal SKW_QUESTION returns ecore::EString:
 	//	'?';
 	public TerminalRule getSKW_QUESTIONRule() {
 		return gaCommon.getSKW_QUESTIONRule();
 	}
 	
-	//terminal SKW_RIGHTBRACE:
+	//terminal SKW_RIGHTBRACE returns ecore::EString:
 	//	'}';
 	public TerminalRule getSKW_RIGHTBRACERule() {
 		return gaCommon.getSKW_RIGHTBRACERule();
 	}
 	
-	//terminal SKW_RIGHTBRACKET:
+	//terminal SKW_RIGHTBRACKET returns ecore::EString:
 	//	']';
 	public TerminalRule getSKW_RIGHTBRACKETRule() {
 		return gaCommon.getSKW_RIGHTBRACKETRule();
 	}
 	
-	//terminal SKW_RIGHTPAREN:
+	//terminal SKW_RIGHTPAREN returns ecore::EString:
 	//	')';
 	public TerminalRule getSKW_RIGHTPARENRule() {
 		return gaCommon.getSKW_RIGHTPARENRule();
 	}
 	
-	//terminal SKW_RIGHTSHIFT:
+	//terminal SKW_RIGHTSHIFT returns ecore::EString:
 	//	SKW_GREATER SKW_GREATER;
 	public TerminalRule getSKW_RIGHTSHIFTRule() {
 		return gaCommon.getSKW_RIGHTSHIFTRule();
 	}
 	
-	//terminal SKW_SEMI:
+	//terminal SKW_SEMI returns ecore::EString:
 	//	';';
 	public TerminalRule getSKW_SEMIRule() {
 		return gaCommon.getSKW_SEMIRule();
 	}
 	
-	//terminal SKW_SINGLEQUOTE:
+	//terminal SKW_SINGLEQUOTE returns ecore::EString:
 	//	'\'';
 	public TerminalRule getSKW_SINGLEQUOTERule() {
 		return gaCommon.getSKW_SINGLEQUOTERule();
 	}
 	
-	//terminal SKW_STAR:
+	//terminal SKW_STAR returns ecore::EString:
 	//	'*';
 	public TerminalRule getSKW_STARRule() {
 		return gaCommon.getSKW_STARRule();
 	}
 	
-	//terminal SKW_TILDE:
+	//terminal SKW_TILDE returns ecore::EString:
 	//	'~';
 	public TerminalRule getSKW_TILDERule() {
 		return gaCommon.getSKW_TILDERule();
 	}
 	
-	//terminal fragment SKW_UNDERSCORE:
-	//	'_';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[69]->TerminalRule'SKW_UNDERSCORE'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
 	}
 	
-	//terminal ID:
+	//terminal ID returns ecore::EString:
 	//	IDENTIFIER;
 	public TerminalRule getIDRule() {
 		return gaCommon.getIDRule();
 	}
 	
-	//terminal fragment IDENTIFIER:
-	//	LETTER (LETTER | '0'..'9')*;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[71]->TerminalRule'IDENTIFIER'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
 	}
 	
-	//terminal fragment LETTER:
-	//	SKW_DOLLAR
-	//	| 'A'..'Z'
-	//	| 'a'..'z'
-	//	| SKW_UNDERSCORE;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'LETTER'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
 	}
 	
-	//terminal CHAR_LITERAL:
+	//terminal CHAR_LITERAL returns ecore::EString:
 	//	'L'? SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH) | LINEBREAK) SKW_SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return gaCommon.getCHAR_LITERALRule();
 	}
 	
-	//terminal STRING_LITERAL:
+	//terminal STRING_LITERAL returns ecore::EString:
 	//	SKW_DOUBLEQUOTE (ESCAPE_SEQUENCE | !(SKW_BACKSLASH | SKW_DOUBLEQUOTE) | LINEBREAK)* SKW_DOUBLEQUOTE;
 	public TerminalRule getSTRING_LITERALRule() {
 		return gaCommon.getSTRING_LITERALRule();
 	}
 	
-	//terminal HEX_LITERAL:
+	//terminal HEX_LITERAL returns ecore::EString:
 	//	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
 	public TerminalRule getHEX_LITERALRule() {
 		return gaCommon.getHEX_LITERALRule();
 	}
 	
-	//terminal DECIMAL_LITERAL:
+	//terminal DECIMAL_LITERAL returns ecore::EString:
 	//	('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX?;
 	public TerminalRule getDECIMAL_LITERALRule() {
 		return gaCommon.getDECIMAL_LITERALRule();
 	}
 	
-	//terminal OCTAL_LITERAL:
+	//terminal OCTAL_LITERAL returns ecore::EString:
 	//	'0' '0'..'7'+ INTEGER_TYPE_SUFFIX?;
 	public TerminalRule getOCTAL_LITERALRule() {
 		return gaCommon.getOCTAL_LITERALRule();
 	}
 	
-	//terminal BIN_LITERAL:
+	//terminal BIN_LITERAL returns ecore::EString:
 	//	('0b' | '0B') '0'..'1'+;
 	public TerminalRule getBIN_LITERALRule() {
 		return gaCommon.getBIN_LITERALRule();
 	}
 	
-	//terminal fragment HEX_DIGIT:
-	//	'0'..'9' | 'a'..'f' | 'A'..'F';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[79]->TerminalRule'HEX_DIGIT'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
 	}
 	
-	//terminal fragment INTEGER_TYPE_SUFFIX:
-	//	UNSIGNED_SUFFIX LONG_SUFFIX?
-	//	| UNSIGNED_SUFFIX LONG_LONG_SUFFIX
-	//	| LONG_SUFFIX UNSIGNED_SUFFIX?
-	//	| LONG_LONG_SUFFIX UNSIGNED_SUFFIX?;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'INTEGER_TYPE_SUFFIX'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
 	}
 	
-	//terminal fragment UNSIGNED_SUFFIX:
-	//	'u' | 'U';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'UNSIGNED_SUFFIX'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
 	}
 	
-	//terminal fragment LONG_SUFFIX:
-	//	'l' | 'L';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'LONG_SUFFIX'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
 	}
 	
-	//terminal fragment LONG_LONG_SUFFIX:
-	//	'll' | 'LL';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_LONG_SUFFIX'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
 	}
 	
-	//terminal FLOAT_LITERAL:
+	//terminal FLOAT_LITERAL returns ecore::EString:
 	//	'0'..'9'+ SKW_DOT '0'..'9'* EXPONENT? FLOAT_TYPE_SUFFIX?
 	//	| SKW_DOT '0'..'9'+ EXPONENT? FLOAT_TYPE_SUFFIX?
 	//	| '0'..'9'+ EXPONENT FLOAT_TYPE_SUFFIX?
@@ -8239,104 +8269,155 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return gaCommon.getFLOAT_LITERALRule();
 	}
 	
-	//terminal fragment EXPONENT:
-	//	('e' | 'E') ('+' | '-')? '0'..'9'+;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[85]->TerminalRule'EXPONENT'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
 	}
 	
-	//terminal fragment FLOAT_TYPE_SUFFIX:
-	//	'f' | 'F' | 'd' | 'D';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'FLOAT_TYPE_SUFFIX'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
 	}
 	
-	//terminal fragment ESCAPE_SEQUENCE:
-	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE
-	//	| HEX_ESCAPE;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'ESCAPE_SEQUENCE'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
 	}
 	
-	//terminal fragment OCTAL_ESCAPE:
-	//	SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'OCTAL_ESCAPE'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
 	}
 	
-	//terminal fragment HEX_ESCAPE:
-	//	SKW_BACKSLASH 'x' HEX_DIGIT+;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'HEX_ESCAPE'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
 	}
 	
-	//terminal fragment LINEFEED:
-	//	'\n';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'LINEFEED'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
 	}
 	
-	//terminal fragment CARRIAGERETURN:
-	//	'\r';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'CARRIAGERETURN'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
 	}
 	
-	//terminal LINE_END:
+	//terminal LINE_END returns ecore::EString:
 	//	CARRIAGERETURN | LINEFEED;
 	public TerminalRule getLINE_ENDRule() {
 		return gaCommon.getLINE_ENDRule();
 	}
 	
-	//terminal fragment LINEBREAK:
-	//	SKW_BACKSLASH LINE_END;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[93]->TerminalRule'LINEBREAK'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
 	}
 	
-	//terminal NEWLINE:
+	//terminal NEWLINE returns ecore::EString:
 	//	LINE_END;
 	public TerminalRule getNEWLINERule() {
 		return gaCommon.getNEWLINERule();
 	}
 	
-	//terminal fragment SPACE:
-	//	' ';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[95]->TerminalRule'SPACE'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
 	}
 	
-	//terminal fragment TAB:
-	//	'\t';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'TAB'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();
 	}
 	
-	//terminal fragment BLOCK_COMMENT:
-	//	'/ *'->'* /';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[98]->TerminalRule'BLOCK_COMMENT'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return gaCommon.getBLOCK_COMMENTRule();
 	}
 	
-	//terminal fragment LINE_COMMENT:
-	//	'//' !LINE_END*;
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'LINE_COMMENT'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
 	}
 	
-	//terminal fragment FORM_FEED:
-	//	'\u000c';
+	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'FORM_FEED'
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//Context: AbstractRule
 	public TerminalRule getFORM_FEEDRule() {
 		return gaCommon.getFORM_FEEDRule();
 	}
 	
-	//terminal IGNORED:
+	//terminal IGNORED returns ecore::EString:
 	//	LINEBREAK | BLOCK_COMMENT | LINE_COMMENT | FORM_FEED;
 	public TerminalRule getIGNOREDRule() {
 		return gaCommon.getIGNOREDRule();
 	}
 	
-	//terminal SPECIAL:
+	//terminal SPECIAL returns ecore::EString:
 	//	.;
 	public TerminalRule getSPECIALRule() {
 		return gaCommon.getSPECIALRule();

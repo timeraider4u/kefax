@@ -5,9 +5,9 @@ package at.jku.weiner.c.common.common.impl;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Preprocess;
 
-import org.eclipse.emf.ecore.EClass;
+import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class PreprocessImpl extends MinimalEObjectImpl.Container implements Preprocess
+public class PreprocessImpl extends PersistentEObjectImpl implements Preprocess
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +39,17 @@ public class PreprocessImpl extends MinimalEObjectImpl.Container implements Prep
 	protected EClass eStaticClass()
 	{
 		return CommonPackage.Literals.PREPROCESS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
 	}
 
 } //PreprocessImpl

@@ -8,7 +8,7 @@
 		<package
 			uri="http://www.jku.at/weiner/c/parser/Parser"
 			class="at.jku.weiner.c.parser.parser.ParserPackage"
-			genModel="model/generated/Parser.genmodel"/>
+			genModel="model/custom/Parser.genmodel"/>
    </extension>
 
 </plugin>

@@ -488,8 +488,8 @@ public class Test0070_Designation {
 		.getPointer();
 		Assert.assertNotNull(Pointer_36_Var
 		);
-		Assert.assertTrue(Pointer_36_Var
-		.getStar().isEmpty());
+		Assert.assertEquals("[]", Pointer_36_Var
+		.getStar().toString());
 		//36
 		final FunctionDefinition FunctionDefinition_37_Var
 		 = (FunctionDefinition)ExternalDeclaration_20_Var

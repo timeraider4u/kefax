@@ -4,9 +4,9 @@ High priority:
 	/home/harry/workspace/runtime-EclipseApplication/linux-3.18/crypto/gf128mul.c
 		line 100:	#define xx(p, q)	0x##p##q
 
-	preprocess::
-	./linux-3.18/scripts/conmakehash.c
-		line 248: printf("\
+	MoDisco: Neo4EMF as persistence layer:
+	https://github.com/atlanmod/NeoEMF/blob/master/bench/fr.inria.atlanmod.neoemf.benchmarks/src/fr/inria/atlanmod/kyanos/benchmarks/KyanosMapCreator.java
+	https://github.com/amine-ben/NeoModisco/blob/master/org.eclipse.modisco.java.discoverer.neo4emf/src/org/eclipse/modisco/java/discoverer/neo4emf/JavaModelDiscovererNeo4emf.java
 	
 Low priority:
 	- Fixes for failing JUnit tests in at.jku.weiner.c.preprocess.tests

@@ -946,13 +946,13 @@ public interface CommonPackage extends EPackage
 	int PRIMARY_EXPRESSION__CONST = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 1;
+	int PRIMARY_EXPRESSION__IDENT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1778,15 +1778,15 @@ public interface CommonPackage extends EPackage
 	EAttribute getPrimaryExpression_Const();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.PrimaryExpression#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.PrimaryExpression#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.common.common.PrimaryExpression#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.common.common.PrimaryExpression#getIdent()
 	 * @see #getPrimaryExpression()
 	 * @generated
 	 */
-	EAttribute getPrimaryExpression_Id();
+	EAttribute getPrimaryExpression_Ident();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.common.common.PrimaryExpression#getExpr <em>Expr</em>}'.
@@ -2481,12 +2481,12 @@ public interface CommonPackage extends EPackage
 		EAttribute PRIMARY_EXPRESSION__CONST = eINSTANCE.getPrimaryExpression_Const();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRIMARY_EXPRESSION__ID = eINSTANCE.getPrimaryExpression_Id();
+		EAttribute PRIMARY_EXPRESSION__IDENT = eINSTANCE.getPrimaryExpression_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.

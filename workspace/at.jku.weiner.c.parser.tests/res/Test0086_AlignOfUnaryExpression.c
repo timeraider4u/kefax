@@ -1,6 +1,6 @@
 struct Employee {
-	int id;
+	int ident;
 };
 
 struct Employee * emp;
-long l = __alignof__(emp->id);
+long l = __alignof__(emp->ident);

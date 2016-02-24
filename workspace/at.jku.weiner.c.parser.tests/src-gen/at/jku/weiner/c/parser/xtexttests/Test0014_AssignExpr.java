@@ -243,7 +243,7 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -322,7 +322,7 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(DirectDeclarator_16_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_16_Var
-		.getId());
+		.getIdent());
 		//16
 		final Initializer Initializer_17_Var
 		 = (Initializer)InitDeclarator_14_Var
@@ -396,7 +396,7 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(DirectDeclarator_26_Var
 		);
 		Assert.assertEquals("b", DirectDeclarator_26_Var
-		.getId());
+		.getIdent());
 		//26
 		final Initializer Initializer_27_Var
 		 = (Initializer)InitDeclarator_24_Var
@@ -451,7 +451,7 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_34_Var
 		);
 		Assert.assertEquals("a", PrimaryExpression_34_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_33_Var
 		.getOp());
 		//34
@@ -481,7 +481,7 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_38_Var
 		);
 		Assert.assertEquals("b", PrimaryExpression_38_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_37_Var
 		.getOp());
 		//38

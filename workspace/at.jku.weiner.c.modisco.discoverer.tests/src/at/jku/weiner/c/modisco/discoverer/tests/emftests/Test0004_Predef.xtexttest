@@ -62,7 +62,7 @@ source file="res/Test0004_Predef"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"myVar1"
+									ident++"myVar1"
 								)
 							)
 						)
@@ -90,7 +90,7 @@ source file="res/Test0004_Predef"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"anotherVar2"
+									ident++"anotherVar2"
 								)
 							)
 						)

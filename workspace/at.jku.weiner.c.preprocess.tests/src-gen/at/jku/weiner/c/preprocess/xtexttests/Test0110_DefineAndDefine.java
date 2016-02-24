@@ -212,7 +212,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -227,7 +227,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
 		Assert.assertEquals("BAR", DefineFunctionLikeMacro_5_Var
-		.getId());
+		.getIdent());
 		//5
 		final IdentifierList IdentifierList_6_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
@@ -235,7 +235,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(IdentifierList_6_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_6_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("#X", DefineFunctionLikeMacro_5_Var
 		.getString());
 		//6
@@ -250,7 +250,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
 		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final IdentifierList IdentifierList_9_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
@@ -258,7 +258,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(IdentifierList_9_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_9_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("BAR(X##FOO)", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9
@@ -273,7 +273,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
 		);
 		Assert.assertEquals("FOOBAR", DefineFunctionLikeMacro_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final IdentifierList IdentifierList_12_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
@@ -281,7 +281,7 @@ public class Test0110_DefineAndDefine {
 		Assert.assertNotNull(IdentifierList_12_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_12_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("BAZ(X)", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12

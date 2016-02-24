@@ -69,7 +69,7 @@ source file="res/Test0011_SimpleIncludeInternal/SimpleInclude.c"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"getValue",
+									ident++"getValue",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										lastSuffix=
@@ -98,7 +98,7 @@ source file="res/Test0011_SimpleIncludeInternal/SimpleInclude.c"
 					(parser::Declarator
 						declarator=
 						(parser::DirectDeclarator
-							id++"main",
+							ident++"main",
 							declaratorSuffix+=
 							(parser::DeclaratorSuffix
 								lastSuffix=
@@ -139,7 +139,7 @@ source file="res/Test0011_SimpleIncludeInternal/SimpleInclude.c"
 									(parser::PostfixExpression
 										expr=
 										(parser::PrimaryExpression
-											id++"getValue"
+											ident++"getValue"
 										),
 										suffix=
 										(parser::PostfixExpressionSuffixArgument
@@ -167,7 +167,7 @@ source file="res/Test0011_SimpleIncludeInternal/SimpleInclude.c"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"NUMBER",
+						ident++"NUMBER",
 						string++"int"
 					)
 				),

@@ -55,7 +55,7 @@ source file="res/Test0008_AddDefine"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"var1"
+									ident++"var1"
 								)
 							)
 						)

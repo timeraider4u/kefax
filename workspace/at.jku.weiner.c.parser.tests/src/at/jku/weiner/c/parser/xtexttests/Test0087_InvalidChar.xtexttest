@@ -37,7 +37,7 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI 
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"foo_bar",
+								ident++"foo_bar",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -72,7 +72,7 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI 
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"baz",
+								ident++"baz",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=

@@ -43,7 +43,7 @@ IGNORED NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do1",
+								ident++"do1",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -65,7 +65,7 @@ IGNORED NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												),
@@ -81,7 +81,7 @@ IGNORED NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"f"
+															ident++"f"
 														)
 													)
 												),
@@ -97,7 +97,7 @@ IGNORED NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"i"
+															ident++"i"
 														)
 													)
 												)
@@ -130,7 +130,7 @@ IGNORED NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do2",
+								ident++"do2",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=

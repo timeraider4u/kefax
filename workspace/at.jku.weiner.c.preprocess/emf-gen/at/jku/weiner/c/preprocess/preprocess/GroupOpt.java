@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.common.util.EList;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,9 +20,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getGroupOpt()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface GroupOpt extends EObject
+public interface GroupOpt extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Lines</b></em>' containment reference list.

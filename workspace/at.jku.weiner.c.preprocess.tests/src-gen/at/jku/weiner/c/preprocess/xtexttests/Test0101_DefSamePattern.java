@@ -150,7 +150,7 @@ public class Test0101_DefSamePattern {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
 		.getString());
 		//3

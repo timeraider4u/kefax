@@ -36,7 +36,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do2",
+								ident++"do2",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -69,7 +69,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do3",
+								ident++"do3",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -102,7 +102,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do4",
+								ident++"do4",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -135,7 +135,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do5",
+								ident++"do5",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -168,7 +168,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do6",
+								ident++"do6",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=

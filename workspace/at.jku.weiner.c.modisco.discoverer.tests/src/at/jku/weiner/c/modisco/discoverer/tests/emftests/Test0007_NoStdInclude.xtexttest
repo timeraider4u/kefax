@@ -46,7 +46,7 @@ source file="res/Test0007_NoStdInclude"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"i",
+									ident++"i",
 									declaratorSuffix isEmpty
 								)
 							),
@@ -82,7 +82,7 @@ source file="res/Test0007_NoStdInclude"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"_STDC_PREDEF_H",
+									ident++"_STDC_PREDEF_H",
 									declaratorSuffix isEmpty
 								)
 							)

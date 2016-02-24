@@ -182,7 +182,7 @@ public class Test0084_If {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("__FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1234", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -197,7 +197,7 @@ public class Test0084_If {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("__BAR", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("4321", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -232,7 +232,7 @@ public class Test0084_If {
 		Assert.assertNotNull(PrimaryExpression_10_Var
 		);
 		Assert.assertEquals("__FOO", PrimaryExpression_10_Var
-		.getId());
+		.getIdent());
 		//10
 		final PrimaryExpression PrimaryExpression_11_Var
 		 = (PrimaryExpression)EqualityExpression_9_Var
@@ -240,7 +240,7 @@ public class Test0084_If {
 		Assert.assertNotNull(PrimaryExpression_11_Var
 		);
 		Assert.assertEquals("__BAR", PrimaryExpression_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final GroupOpt GroupOpt_12_Var
 		 = (GroupOpt)IfConditional_8_Var

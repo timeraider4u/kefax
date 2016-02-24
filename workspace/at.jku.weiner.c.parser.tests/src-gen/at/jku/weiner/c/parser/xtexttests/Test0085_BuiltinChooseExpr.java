@@ -250,7 +250,7 @@ public class Test0085_BuiltinChooseExpr {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("l", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final Initializer Initializer_9_Var
 		 = (Initializer)InitDeclarator_6_Var
@@ -454,7 +454,7 @@ public class Test0085_BuiltinChooseExpr {
 		Assert.assertNotNull(DirectDeclarator_36_Var
 		);
 		Assert.assertEquals("m", DirectDeclarator_36_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

@@ -43,7 +43,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"foo",
+							ident++"foo",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -64,7 +64,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -82,7 +82,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"bar"
+								ident++"bar"
 							)
 						)
 					)
@@ -99,7 +99,7 @@ SKW_RIGHTBRACE NEWLINE
 					(TypeSpecifier
 						type=
 						(TypedefName
-							id++"bar"
+							ident++"bar"
 						)
 					)
 				),
@@ -107,7 +107,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"my",
+						ident++"my",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -129,7 +129,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"arg"
+													ident++"arg"
 												),
 												pointer=
 												(Pointer
@@ -168,7 +168,7 @@ SKW_RIGHTBRACE NEWLINE
 											(TypeSpecifier
 												type=
 												(TypedefName
-													id++"bar"
+													ident++"bar"
 												)
 											)
 										)
@@ -183,7 +183,7 @@ SKW_RIGHTBRACE NEWLINE
 												(DesignatorList
 													designator+=
 													(Designator
-														id++"i"
+														ident++"i"
 													)
 												)
 											),
@@ -191,7 +191,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Initializer
 												expr=
 												(PrimaryExpression
-													id++"arg"
+													ident++"arg"
 												)
 											)
 										)

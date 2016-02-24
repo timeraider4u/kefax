@@ -260,7 +260,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -330,7 +330,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final Pointer Pointer_16_Var
 		 = (Pointer)Declarator_14_Var
@@ -374,7 +374,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("argv", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final Pointer Pointer_22_Var
 		 = (Pointer)Declarator_20_Var
@@ -418,7 +418,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(DirectDeclarator_27_Var
 		);
 		Assert.assertEquals("f", DirectDeclarator_27_Var
-		.getId());
+		.getIdent());
 		//27
 		final ParameterDeclaration ParameterDeclaration_28_Var
 		 = (ParameterDeclaration)ParameterDeclaration_10_list.get(3);
@@ -454,7 +454,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(DirectDeclarator_32_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_32_Var
-		.getId());
+		.getIdent());
 		//32
 		final FunctionDefinition FunctionDefinition_33_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -518,7 +518,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(PrimaryExpression_41_Var
 		);
 		Assert.assertEquals("argv", PrimaryExpression_41_Var
-		.getId());
+		.getIdent());
 		//41
 		final PostfixExpressionSuffixArray PostfixExpressionSuffixArray_42_Var
 		 = (PostfixExpressionSuffixArray)PostfixExpression_40_Var
@@ -560,7 +560,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(PrimaryExpression_47_Var
 		);
 		Assert.assertEquals("argv", PrimaryExpression_47_Var
-		.getId());
+		.getIdent());
 		//47
 		final PostfixExpressionSuffixArray PostfixExpressionSuffixArray_48_Var
 		 = (PostfixExpressionSuffixArray)PostfixExpression_46_Var
@@ -574,7 +574,7 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(PrimaryExpression_49_Var
 		);
 		Assert.assertEquals("i", PrimaryExpression_49_Var
-		.getId());
+		.getIdent());
 		//49
 		final PrimaryExpression PrimaryExpression_50_Var
 		 = (PrimaryExpression)AdditiveExpression_45_Var

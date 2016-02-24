@@ -181,7 +181,7 @@ public class Test0048_IfDefined {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("64", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -216,7 +216,7 @@ public class Test0048_IfDefined {
 		Assert.assertTrue(PrimaryExpression_8_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final RelationalExpression RelationalExpression_9_Var
 		 = (RelationalExpression)LogicalAndExpression_7_Var
@@ -232,7 +232,7 @@ public class Test0048_IfDefined {
 		Assert.assertNotNull(PrimaryExpression_10_Var
 		);
 		Assert.assertEquals("FOO", PrimaryExpression_10_Var
-		.getId());
+		.getIdent());
 		//10
 		final PrimaryExpression PrimaryExpression_11_Var
 		 = (PrimaryExpression)RelationalExpression_9_Var

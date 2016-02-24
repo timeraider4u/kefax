@@ -474,7 +474,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("errno", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -516,7 +516,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("funcname", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_15_list = DirectDeclarator_15_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_15_list);
@@ -586,7 +586,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("arg1", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final ParameterDeclaration ParameterDeclaration_25_Var
 		 = (ParameterDeclaration)ParameterDeclaration_19_list.get(1);
@@ -622,7 +622,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_29_Var
 		);
 		Assert.assertEquals("arg2", DirectDeclarator_29_Var
-		.getId());
+		.getIdent());
 		//29
 		final Pointer Pointer_30_Var
 		 = (Pointer)Declarator_28_Var
@@ -666,7 +666,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_35_Var
 		);
 		Assert.assertEquals("arg3", DirectDeclarator_35_Var
-		.getId());
+		.getIdent());
 		//35
 		final FunctionDefinition FunctionDefinition_36_Var
 		 = (FunctionDefinition)ExternalDeclaration_10_Var
@@ -745,7 +745,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(DirectDeclarator_45_Var
 		);
 		Assert.assertEquals("res", DirectDeclarator_45_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> Statement_45_list = BlockList_38_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_45_list);
@@ -835,7 +835,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_57_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_57_Var
-		.getId());
+		.getIdent());
 		//57
 		final AsmLine AsmLine_58_Var
 		 = (AsmLine)AsmLines_51_list.get(1);
@@ -877,7 +877,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_63_Var
 		);
 		Assert.assertEquals("arg1", PrimaryExpression_63_Var
-		.getId());
+		.getIdent());
 		//63
 		final AsmLine AsmLine_64_Var
 		 = (AsmLine)AsmLines_51_list.get(2);
@@ -919,7 +919,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_69_Var
 		);
 		Assert.assertEquals("arg2", PrimaryExpression_69_Var
-		.getId());
+		.getIdent());
 		//69
 		final AsmLine AsmLine_70_Var
 		 = (AsmLine)AsmLines_51_list.get(3);
@@ -961,7 +961,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_75_Var
 		);
 		Assert.assertEquals("arg3", PrimaryExpression_75_Var
-		.getId());
+		.getIdent());
 		//75
 		final AsmLineWithColon AsmLineWithColon_76_Var
 		 = (AsmLineWithColon)AsmLines_49_list.get(1);
@@ -1122,7 +1122,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_98_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_98_Var
-		.getId());
+		.getIdent());
 		//98
 		final RelationalExpression RelationalExpression_99_Var
 		 = (RelationalExpression)LogicalAndExpression_93_Var
@@ -1138,7 +1138,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_100_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_100_Var
-		.getId());
+		.getIdent());
 		//100
 		final PrimaryExpression PrimaryExpression_101_Var
 		 = (PrimaryExpression)RelationalExpression_99_Var
@@ -1208,7 +1208,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_110_Var
 		);
 		Assert.assertEquals("errno", PrimaryExpression_110_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_109_Var
 		.getOp());
 		//110
@@ -1226,7 +1226,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_112_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_112_Var
-		.getId());
+		.getIdent());
 		//112
 		final Statement Statement_113_Var
 		 = (Statement)Statement_106_list.get(1);
@@ -1251,7 +1251,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_116_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_116_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_115_Var
 		.getOp());
 		//116
@@ -1294,7 +1294,7 @@ public class Test0029_Assembler {
 		Assert.assertNotNull(PrimaryExpression_122_Var
 		);
 		Assert.assertEquals("res", PrimaryExpression_122_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("return", JumpStatement_121_Var
 		.getReturn());
 	}

@@ -184,7 +184,7 @@ public class Test0056_IfNotDefined {
 		Assert.assertTrue(PrimaryExpression_6_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final GroupOpt GroupOpt_7_Var
 		 = (GroupOpt)IfConditional_4_Var

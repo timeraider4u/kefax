@@ -233,7 +233,7 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -303,7 +303,7 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final ParameterDeclaration ParameterDeclaration_16_Var
 		 = (ParameterDeclaration)ParameterDeclaration_10_list.get(1);
@@ -339,7 +339,7 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(DirectDeclarator_20_Var
 		);
 		Assert.assertEquals("argv", DirectDeclarator_20_Var
-		.getId());
+		.getIdent());
 		//20
 		final Pointer Pointer_21_Var
 		 = (Pointer)Declarator_19_Var
@@ -397,7 +397,7 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(PrimaryExpression_28_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_28_Var
-		.getId());
+		.getIdent());
 		//28
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_29_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_27_Var

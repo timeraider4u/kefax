@@ -32,7 +32,7 @@ KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a"
+								ident++"a"
 							),
 							pointer=
 							(Pointer
@@ -69,7 +69,7 @@ KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"b"
+								ident++"b"
 							),
 							pointer=
 							(Pointer

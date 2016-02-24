@@ -33,7 +33,7 @@ SKW_RIGHTBRACE WHITESPACE ID SKW_SEMI NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"mystruct",
+							ident++"mystruct",
 							braces?=true,
 							structDeclList isNull
 						) // end struct or union specifier
@@ -47,7 +47,7 @@ SKW_RIGHTBRACE WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"my"
+								ident++"my"
 							)
 						)
 					)

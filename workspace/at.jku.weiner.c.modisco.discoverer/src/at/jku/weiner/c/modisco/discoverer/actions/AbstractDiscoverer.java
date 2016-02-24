@@ -14,11 +14,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
@@ -34,6 +36,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	private boolean trimPreprocessModel = false;
 	private boolean batchMode = false;
 	private URI lastUri = null;
+	private boolean useNeoEMF = false;
 
 	protected final boolean isApplicableOn(final IResource resource) {
 		MyLog.trace(AbstractDiscoverer.class, "isApplicableOn='" + resource
@@ -64,6 +67,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		try {
 			monitor.subTask(Messages.discover + "'"
 					+ resource.getLocationURI().toString() + "'");
+			// NeoEMFDiscoverUtils.test();
 			// System.err.println("clazz='" + monitor.getClass() + "'");
 			this.discover2(resource, monitor);
 		} catch (final Exception ex) {
@@ -121,14 +125,44 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		}
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
 		this.checkParameterValues();
-		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor);
+		if (this.useNeoEMF) {
+			ResourceSet resSet = NeoEMFDiscoverUtils.getResSet();
+			this.setResourceSet(resSet);
+		}
+		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor,
+				this.useNeoEMF);
 		this.setTargetURI(targetURI);
+		MyLog.log(AbstractDiscoverer.class, "creating target model!");
 		final Resource targetModel = this.createTargetModel();
+		if (this.useNeoEMF) {
+			try {
+				MyLog.log(AbstractDiscoverer.class,
+						"saving target model - first!");
+				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
+			} catch (IOException ex) {
+				throw new DiscoveryException(ex);
+			}
+		}
 		final MyStore result = new MyStore(monitor, targetModel, resource,
 				this.setStdInclude, this.includeDirs,
 				this.getAdditionalDirectives(), this.trimPreprocessModel,
 				this.batchMode);
 		return result;
+	}
+
+	@Override
+	protected Resource createTargetModel() {
+		if (this.useNeoEMF) {
+			URI targetURI = this.getTargetURI();
+			Resource targetModel = NeoEMFDiscoverUtils
+					.createTargetModel(targetURI);
+
+			this.setTargetModel(targetModel);
+			return targetModel;
+		} else {
+			final Resource res = super.createTargetModel();
+			return res;
+		}
 	}
 
 	/**
@@ -167,6 +201,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
+			MyLog.log(AbstractDiscoverer.class, "discovering file done!");
+
 		} catch (final IOException ex) {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
@@ -181,12 +217,18 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	 */
 	private final void save(final MyStore store) throws DiscoveryException {
 		store.getMonitor().setTaskName(Messages.saving);
+		MyLog.log(AbstractDiscoverer.class, "save target model!");
 		// if (this.isTargetSerializationChosen()) {
 		try {
-			this.saveTargetModel();
+			URI targetURI = this.getTargetURI();
+			Resource targetModel = this.getTargetModel();
+			if (this.useNeoEMF) {
+				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
+			} else {
+				this.saveTargetModel();
+			}
 			// update project
-			final URI currUri = this.getTargetModel().getURI();
-			final String currUriStr = currUri.toFileString();
+			final String currUriStr = targetURI.toFileString();
 			final IProject project = store.getResource().getProject();
 			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
 			MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
@@ -204,7 +246,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 							store.getMonitor());
 				}
 			}
-			this.lastUri = this.getTargetURI();
+			this.lastUri = targetURI;
 		} catch (final Exception ex) {
 			throw new DiscoveryException(
 					"Error saving discovery result model", ex); //$NON-NLS-1$
@@ -271,5 +313,14 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				"TRIM_PREPROCESS_MODEL AND BATCH_MODE are exclusive to each other");
 		MyLog.error(AbstractDiscoverer.class, ex);
 		throw ex;
+	}
+
+	@Parameter(name = "USENEOEMF", requiresInputValue = false, description = "Use NeoEMF persistence layer instead of default one (XMI serialization)")
+	public void setUseNeoEMF(final boolean setUseNeoEMF) {
+		this.useNeoEMF = setUseNeoEMF;
+	}
+
+	public boolean isUseNeoEMF() {
+		return this.useNeoEMF;
 	}
 }

@@ -192,7 +192,7 @@ public class Test0046_IfDefined {
 		Assert.assertTrue(PrimaryExpression_6_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final RelationalExpression RelationalExpression_7_Var
 		 = (RelationalExpression)LogicalAndExpression_5_Var
@@ -208,7 +208,7 @@ public class Test0046_IfDefined {
 		Assert.assertNotNull(PrimaryExpression_8_Var
 		);
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final PrimaryExpression PrimaryExpression_9_Var
 		 = (PrimaryExpression)RelationalExpression_7_Var

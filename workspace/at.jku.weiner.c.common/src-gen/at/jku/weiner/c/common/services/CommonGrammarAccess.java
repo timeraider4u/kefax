@@ -754,8 +754,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cConstAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cConstConstant1ParserRuleCall_1_0_0 = (RuleCall)cConstAssignment_1_0.eContents().get(0);
-		private final Assignment cIdAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_1_0 = (RuleCall)cIdAssignment_1_1.eContents().get(0);
+		private final Assignment cIdentAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cIdentIDTerminalRuleCall_1_1_0 = (RuleCall)cIdentAssignment_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Assignment cParenthesesAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
 		private final RuleCall cParenthesesSKW_LEFTPARENTerminalRuleCall_1_2_0_0 = (RuleCall)cParenthesesAssignment_1_2_0.eContents().get(0);
@@ -765,17 +765,17 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PrimaryExpression Expression:
 		//	{PrimaryExpression} (const=Constant1
-		//	| id=ID
+		//	| ident=ID
 		//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PrimaryExpression} (const=Constant1 | id=ID | parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//{PrimaryExpression} (const=Constant1 | ident=ID | parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
-		//(const=Constant1 | id=ID | parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//(const=Constant1 | ident=ID | parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//const=Constant1
@@ -784,11 +784,11 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//Constant1
 		public RuleCall getConstConstant1ParserRuleCall_1_0_0() { return cConstConstant1ParserRuleCall_1_0_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1_1() { return cIdAssignment_1_1; }
+		//ident=ID
+		public Assignment getIdentAssignment_1_1() { return cIdentAssignment_1_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_1_0() { return cIdIDTerminalRuleCall_1_1_0; }
+		public RuleCall getIdentIDTerminalRuleCall_1_1_0() { return cIdentIDTerminalRuleCall_1_1_0; }
 		
 		//parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 		public Group getGroup_1_2() { return cGroup_1_2; }
@@ -1676,7 +1676,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//PrimaryExpression Expression:
 	//	{PrimaryExpression} (const=Constant1
-	//	| id=ID
+	//	| ident=ID
 	//	| parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;

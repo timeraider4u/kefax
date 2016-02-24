@@ -23,10 +23,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list=
 					(IdentifierList
-						id+*"[bar]"
+						ident+*"[bar]"
 					),
 					string isNull
 				)
@@ -39,7 +39,7 @@ lexer-tokens
 						expression=
 						(PrimaryExpression
 							defined?=true,
-							id++"FOO"
+							ident++"FOO"
 						),
 						group=
 						(GroupOpt

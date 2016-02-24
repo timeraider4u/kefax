@@ -41,7 +41,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do1",
+								ident++"do1",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -70,7 +70,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)

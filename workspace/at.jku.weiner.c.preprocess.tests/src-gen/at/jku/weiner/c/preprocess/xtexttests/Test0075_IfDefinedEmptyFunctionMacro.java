@@ -173,7 +173,7 @@ public class Test0075_IfDefinedEmptyFunctionMacro {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -181,7 +181,7 @@ public class Test0075_IfDefinedEmptyFunctionMacro {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[bar]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertNull(DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
@@ -210,7 +210,7 @@ public class Test0075_IfDefinedEmptyFunctionMacro {
 		Assert.assertTrue(PrimaryExpression_8_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final GroupOpt GroupOpt_9_Var
 		 = (GroupOpt)IfConditional_7_Var

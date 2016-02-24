@@ -35,7 +35,7 @@ lexer-tokens
 							(common::PostfixExpression
 								expr=
 								(PrimaryExpression
-									id++"MIN"
+									ident++"MIN"
 								),
 								suffix=
 								(common::PostfixExpressionSuffixArgument

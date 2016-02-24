@@ -1,5 +1,5 @@
 struct Employee {
-	int id;
+	int ident;
 };
 
 struct Employee emp = { };

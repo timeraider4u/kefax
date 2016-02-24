@@ -152,7 +152,7 @@ public class Test0008_SymbolDefineAndInclude {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("abc", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("\"Test0002b_Code.c\"", DefineObjectMacro_3_Var
 		.getString());
 		//3

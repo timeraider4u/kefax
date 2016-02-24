@@ -32,7 +32,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"my"
+						ident++"my"
 					)
 				)
 			),

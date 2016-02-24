@@ -181,7 +181,7 @@ public class Test0054_IfDefined {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("0", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -216,7 +216,7 @@ public class Test0054_IfDefined {
 		Assert.assertTrue(PrimaryExpression_8_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final PrimaryExpression PrimaryExpression_9_Var
 		 = (PrimaryExpression)LogicalOrExpression_7_Var
@@ -226,7 +226,7 @@ public class Test0054_IfDefined {
 		Assert.assertTrue(PrimaryExpression_9_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final GroupOpt GroupOpt_10_Var
 		 = (GroupOpt)IfConditional_6_Var

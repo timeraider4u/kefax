@@ -48,7 +48,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do1",
+								ident++"do1",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -70,7 +70,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"argc"
+															ident++"argc"
 														),
 														pointer=
 														(Pointer 
@@ -90,7 +90,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"argv"
+															ident++"argv"
 														),
 														pointer=
 														(Pointer 
@@ -110,7 +110,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"num"
+															ident++"num"
 														),
 														pointer=
 														(Pointer 
@@ -147,7 +147,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do2",
+								ident++"do2",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -169,7 +169,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"a"
+															ident++"a"
 														),
 														pointer=
 														(Pointer 
@@ -189,7 +189,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"b"
+															ident++"b"
 														),
 														pointer=
 														(Pointer 
@@ -209,7 +209,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"array",
+															ident++"array",
 															declaratorSuffix+=
 															(DeclaratorSuffix
 																expr=
@@ -217,14 +217,14 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 																	restrict++"restrict",
 																	expr=
 																	(PrimaryExpression
-																		id++"a"	
+																		ident++"a"	
 																	)
 																)
 															),
 															(DeclaratorSuffix
 																expr=
 																(PrimaryExpression
-																	id++"b"
+																	ident++"b"
 																)
 															)
 														),
@@ -263,7 +263,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do3",
+								ident++"do3",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -285,7 +285,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"array",
+															ident++"array",
 															declaratorSuffix+=
 															(DeclaratorSuffix
 																expr=

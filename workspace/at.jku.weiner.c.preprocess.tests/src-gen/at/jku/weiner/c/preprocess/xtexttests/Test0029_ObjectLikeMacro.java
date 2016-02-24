@@ -185,7 +185,7 @@ public class Test0029_ObjectLikeMacro {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("ARRAY", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("5, 6, 7, 8", DefineObjectMacro_3_Var
 		.getString());
 		//3

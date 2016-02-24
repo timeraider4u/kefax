@@ -30,14 +30,14 @@ lexer-tokens
 				(ConditionalDirective
 					conditional=
 					(IfNotDefConditional
-						id++"FOOBAR",
+						ident++"FOOBAR",
 						group=
 						(GroupOpt
 							lines+=
 							(PreprocessorDirectives
 								directive=
 								(DefineObjectMacro
-									id++"FOO",
+									ident++"FOO",
 									string++"BAR"
 								)
 							),

@@ -231,7 +231,7 @@ public class Test0052_Signed {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -298,7 +298,7 @@ public class Test0052_Signed {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -365,7 +365,7 @@ public class Test0052_Signed {
 		Assert.assertNotNull(DirectDeclarator_27_Var
 		);
 		Assert.assertEquals("k", DirectDeclarator_27_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

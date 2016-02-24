@@ -40,7 +40,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a"
+								ident++"a"
 							)
 						)
 					)
@@ -69,7 +69,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"NUMBER1"
+								ident++"NUMBER1"
 							)
 						)
 					)
@@ -96,7 +96,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"b"
+								ident++"b"
 							)
 						)
 					)
@@ -113,7 +113,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 					(TypeSpecifier
 						type=
 							(TypedefName
-								id++"NUMBER1"
+								ident++"NUMBER1"
 							)
 					)
 				)
@@ -126,7 +126,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"c"
+								ident++"c"
 							)
 						)
 					)
@@ -155,7 +155,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"NUMBER2"
+								ident++"NUMBER2"
 							)
 						)
 					)
@@ -172,7 +172,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 					(TypeSpecifier
 						type=
 							(TypedefName
-								id++"NUMBER2"
+								ident++"NUMBER2"
 							)
 					)
 				)
@@ -185,7 +185,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"d"
+								ident++"d"
 							)
 						)
 					)
@@ -202,7 +202,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 					(TypeSpecifier
 						type=
 							(TypedefName
-								id++"NUMBER1"
+								ident++"NUMBER1"
 							)
 					)
 				)
@@ -215,7 +215,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"e"
+								ident++"e"
 							)
 						)
 					)
@@ -232,7 +232,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 					(TypeSpecifier
 						type=
 							(TypedefName
-								id++"NUMBER2"
+								ident++"NUMBER2"
 							)
 					)
 				)
@@ -245,7 +245,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"f"
+								ident++"f"
 							)
 						)
 					)
@@ -271,7 +271,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"g"
+								ident++"g"
 							)
 						)
 					)

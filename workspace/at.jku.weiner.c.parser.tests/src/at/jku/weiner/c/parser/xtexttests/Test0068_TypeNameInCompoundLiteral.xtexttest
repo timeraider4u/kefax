@@ -41,7 +41,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"abc"
+								ident++"abc"
 							)
 						)
 					)
@@ -62,7 +62,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething2"
+						ident++"doSomething2"
 					)
 				)
 			),
@@ -87,7 +87,7 @@ SKW_RIGHTBRACE NEWLINE
 											(TypeSpecifier
 												type=
 												(TypedefName
-													id++"abc"
+													ident++"abc"
 												)
 											)
 										)

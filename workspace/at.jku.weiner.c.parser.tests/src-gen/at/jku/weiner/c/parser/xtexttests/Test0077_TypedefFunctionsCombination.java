@@ -258,7 +258,7 @@ public class Test0077_TypedefFunctionsCombination {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("abc", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -300,7 +300,7 @@ public class Test0077_TypedefFunctionsCombination {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_15_list = DirectDeclarator_15_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_15_list);
@@ -370,7 +370,7 @@ public class Test0077_TypedefFunctionsCombination {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("def", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final FunctionDefinition FunctionDefinition_25_Var
 		 = (FunctionDefinition)ExternalDeclaration_10_Var
@@ -442,7 +442,7 @@ public class Test0077_TypedefFunctionsCombination {
 		Assert.assertNotNull(DirectDeclarator_34_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_34_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_34_list = DirectDeclarator_34_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_34_list);
@@ -512,7 +512,7 @@ public class Test0077_TypedefFunctionsCombination {
 		Assert.assertNotNull(DirectDeclarator_43_Var
 		);
 		Assert.assertEquals("def", DirectDeclarator_43_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

@@ -246,7 +246,7 @@ public class Test0028_SplittedDefine {
 		Assert.assertNotNull(DefineObjectMacro_13_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_13_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1024", DefineObjectMacro_13_Var
 		.getString());
 		//13

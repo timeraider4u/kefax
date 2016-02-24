@@ -197,11 +197,11 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_Code(EObject context, Code semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.CODE__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.CODE__CODE));
+			if(transientValues.isValueTransient((EObject)semanticObject, PreprocessPackage.Literals.CODE__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, PreprocessPackage.Literals.CODE__CODE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
 		feeder.accept(grammarAccess.getCodeAccess().getCodeMyCodeLineExtendedParserRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
@@ -212,25 +212,25 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     ((conditional=IfConditional | conditional=IfDefConditional | conditional=IfNotDefConditional) elifs+=ElIfConditional* else=ElseConditional?)
 	 */
 	protected void sequence_ConditionalDirective(EObject context, ConditionalDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=MyCode list=IdentifierList? string=MyDefineLineFunction?)
+	 *     (ident=MyCode list=IdentifierList? string=MyDefineLineFunction?)
 	 */
 	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=MyCode string=MyDefineLineObject?)
+	 *     (ident=MyCode string=MyDefineLineObject?)
 	 */
 	protected void sequence_DefineObjectMacro(EObject context, DefineObjectMacro semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -239,7 +239,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expression=Expression group=GroupOpt)
 	 */
 	protected void sequence_ElIfConditional(EObject context, ElIfConditional semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -248,7 +248,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     group=GroupOpt
 	 */
 	protected void sequence_ElseConditional(EObject context, ElseConditional semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -257,7 +257,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (msg=MyCodeLine?)
 	 */
 	protected void sequence_ErrorDirective(EObject context, ErrorDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -266,7 +266,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (lines+=GroupOptTemp1* lines+=GroupOptTemp2?)
 	 */
 	protected void sequence_GroupOpt2(EObject context, GroupOpt2 semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -275,16 +275,16 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (lines+=GroupOptTemp1*)
 	 */
 	protected void sequence_GroupOpt(EObject context, GroupOpt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     ((id+=PP_ID id+=PP_ID* (variadic?=Ellipsis | (varID=PP_ID variadic?=Ellipsis))?) | (varID=PP_ID? variadic?=Ellipsis))
+	 *     ((ident+=PP_ID ident+=PP_ID* (variadic?=Ellipsis | (varID=PP_ID variadic?=Ellipsis))?) | (varID=PP_ID? variadic?=Ellipsis))
 	 */
 	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -293,25 +293,25 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expression=Expression group=GroupOpt)
 	 */
 	protected void sequence_IfConditional(EObject context, IfConditional semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=PP_ID group=GroupOpt)
+	 *     (ident=PP_ID group=GroupOpt)
 	 */
 	protected void sequence_IfDefConditional(EObject context, IfDefConditional semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=PP_ID group=GroupOpt)
+	 *     (ident=PP_ID group=GroupOpt)
 	 */
 	protected void sequence_IfNotDefConditional(EObject context, IfNotDefConditional semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -320,7 +320,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (next?=INCLUDE_NEXT? string=MyCodeLine)
 	 */
 	protected void sequence_IncludeDirective(EObject context, IncludeDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -329,7 +329,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (line=MyCode path=MyCode?)
 	 */
 	protected void sequence_LineDirective(EObject context, LineDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -338,7 +338,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     {NewLineLine}
 	 */
 	protected void sequence_NewLineLine(EObject context, NewLineLine semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -347,7 +347,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     {NullDirective}
 	 */
 	protected void sequence_NullDirective(EObject context, NullDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -356,7 +356,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (pragma=MyCodeLine?)
 	 */
 	protected void sequence_PragmaDirective(EObject context, PragmaDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
@@ -366,11 +366,11 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_Preprocess(EObject context, Preprocess semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP));
+			if(transientValues.isValueTransient((EObject)semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
 		feeder.accept(grammarAccess.getPreprocessAccess().getGroupGroupOpt2ParserRuleCall_1_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
@@ -391,31 +391,31 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_PreprocessorDirectives(EObject context, PreprocessorDirectives semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     ((defined?=DEFINED? id=PP_ID) | (defined?=DEFINED? id=PP_ID) | const=Constant1 | (parentheses?=SKW_LEFTPAREN expr=Expression))
+	 *     ((defined?=DEFINED? ident=PP_ID) | (defined?=DEFINED? ident=PP_ID) | const=Constant1 | (parentheses?=SKW_LEFTPAREN expr=Expression))
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     id=PP_ID
+	 *     ident=PP_ID
 	 */
 	protected void sequence_UnDefineDirective(EObject context, UnDefineDirective semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, PreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, PreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__IDENT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdPP_IDParserRuleCall_3_0(), semanticObject.getId());
+		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
+		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdentPP_IDParserRuleCall_3_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
@@ -425,6 +425,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (msg=MyCodeLine?)
 	 */
 	protected void sequence_WarningDirective(EObject context, WarningDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 }

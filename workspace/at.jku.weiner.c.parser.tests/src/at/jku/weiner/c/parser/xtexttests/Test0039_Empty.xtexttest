@@ -32,7 +32,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"doSomething",
+								ident++"doSomething",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=

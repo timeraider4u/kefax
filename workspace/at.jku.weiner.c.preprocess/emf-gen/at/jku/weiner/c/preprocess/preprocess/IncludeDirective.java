@@ -4,7 +4,7 @@ package at.jku.weiner.c.preprocess.preprocess;
 
 import at.jku.weiner.c.common.common.TranslationUnit;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,9 +22,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIncludeDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface IncludeDirective extends EObject
+public interface IncludeDirective extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>String</b></em>' attribute.

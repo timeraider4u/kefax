@@ -216,7 +216,7 @@ class ParserGenerator implements IGenerator {
 			«ENDIF»
 		«ENDIF»
 		«IF spec.type != null»
-			«spec.type.id»
+			«spec.type.ident»
 		«ENDIF»
 		«IF spec.name != null»
 			«spec.name»
@@ -231,7 +231,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''
-		«obj.type.name» «IF obj.id != null»«obj.id»«ENDIF»
+		«obj.type.name» «IF obj.ident != null»«obj.ident»«ENDIF»
 		«IF obj.braces»{«IF obj.structDeclList != null»«outputFor(obj.structDeclList)»«ENDIF»}«ENDIF»
 	'''
 	
@@ -263,7 +263,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(EnumSpecifier obj) '''
-		enum «IF obj.id != null»«obj.id»«ENDIF»
+		enum «IF obj.ident != null»«obj.ident»«ENDIF»
 		«IF obj.enumList != null»
 			{
 				«outputFor(obj.enumList)»
@@ -279,7 +279,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(Enumerator obj) '''
-		«obj.id»
+		«obj.ident»
 		«IF obj.expr != null»
 			=
 			«outputFor(obj.expr)»
@@ -308,8 +308,8 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(DirectDeclarator decl) '''
-		«IF decl.id != null»
-		«decl.id»
+		«IF decl.ident != null»
+		«decl.ident»
 		«ELSE»
 		(«outputFor(decl.declarator)»)
 		«ENDIF»
@@ -385,9 +385,9 @@ class ParserGenerator implements IGenerator {
 	''' 
 	
 	def String outputFor(IdentifierList obj) '''
-		«FOR i : obj.id»
-			«IF obj.id.indexOf(i) > 0», «ENDIF»
-			«i.id»
+		«FOR i : obj.ident»
+			«IF obj.ident.indexOf(i) > 0», «ENDIF»
+			«i.ident»
 		«ENDFOR»
 	'''
 	
@@ -425,7 +425,7 @@ class ParserGenerator implements IGenerator {
 		«IF obj.expr != null»[«outputFor(obj.expr)»
 			«IF obj.to != null»...«outputFor(obj.to)»«ENDIF»
 			]«ENDIF»
-		«IF obj.id != null».«obj.id»«ENDIF»
+		«IF obj.ident != null».«obj.ident»«ENDIF»
 	'''
 	
 	def String outputFor(EList<GccDeclaratorExtension> obj) {
@@ -476,7 +476,7 @@ class ParserGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GccAttribute attr) '''
-		«IF attr.id != null»«attr.id»«ENDIF»
+		«IF attr.ident != null»«attr.ident»«ENDIF»
 		«IF attr.const != null»«attr.const»«ENDIF»
 		«IF attr.keyword != null»«attr.keyword»«ENDIF»
 		«IF attr.list != null»(«outputFor(attr.list)»)«ENDIF»
@@ -496,7 +496,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputForLabeledStatement(LabeledStatement obj) '''
-		«IF obj.id != null»«obj.id»:«outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.ident != null»«obj.ident»:«outputFor(obj.LStmt)»«ENDIF»
 		«IF obj.getCase() != null»case 
 			«IF obj.expr != null»«outputFor(obj.expr)»
 			«ELSE»«obj.lower»...«obj.higher»«ENDIF»
@@ -603,7 +603,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(AsmSymbolicName obj) '''
-		[«obj.id»]
+		[«obj.ident»]
 	'''
 	
 	def String outputFor(AsmLineWithColon obj) '''
@@ -797,7 +797,7 @@ class ParserGenerator implements IGenerator {
 		«ENDIF»
 		«IF obj.op != null»«obj.op»«outputFor(obj.expr)»
 		«ENDIF»
-		«IF obj.andand != null»«obj.andand»«obj.getId()»
+		«IF obj.andand != null»«obj.andand»«obj.getIdent()»
 		«ENDIF»
 		«IF obj.alignOf != null»«obj.alignOf»(
 			«IF obj.typeName != null»«outputFor(obj.typeName)»
@@ -847,11 +847,11 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixDot obj) '''
-		.«obj.getId()»
+		.«obj.getIdent()»
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixArrow obj) '''
-		->«obj.getId()»
+		->«obj.getIdent()»
 	'''
 	
 	def String outputFor(PostfixExpressionSuffixPlusPlus obj) '''
@@ -870,7 +870,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputForPrimaryExpression(PrimaryExpression obj) '''
-		«IF obj.getId() != null»«obj.getId()»«ENDIF»
+		«IF obj.getIdent() != null»«obj.getIdent()»«ENDIF»
 		«IF obj.const != null»«outputFor(obj.const)»«ENDIF»
 		«IF obj.string != null»«outputForString(obj.string)»«ENDIF»
 		«IF obj.parentheses»(«outputFor(obj.expr)»)«ENDIF»

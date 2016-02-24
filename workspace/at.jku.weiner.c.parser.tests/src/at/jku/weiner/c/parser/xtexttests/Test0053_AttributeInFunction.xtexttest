@@ -38,7 +38,7 @@ SKW_RIGHTBRACE NEWLINE
 							(GccAttributeList
 								gccAttribute+=
 								(GccAttribute
-									id++"no_instrument_function"
+									ident++"no_instrument_function"
 								)
 							)
 						)
@@ -51,7 +51,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"foo",
+						ident++"foo",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -73,7 +73,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"bar"
+													ident++"bar"
 												)
 											)
 										)

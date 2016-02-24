@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.c.parser
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
+import at.jku.weiner.c.parser.parser.ParserPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -13,4 +16,10 @@ class ParserStandaloneSetup extends ParserStandaloneSetupGenerated {
 		new ParserStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.jku.at/weiner/c/parser/Parser")) {
+            EPackage.Registry.INSTANCE.put("http://www.jku.at/weiner/c/parser/Parser", ParserPackage.eINSTANCE);
+        }
+		super.register(injector)
+	}
 }

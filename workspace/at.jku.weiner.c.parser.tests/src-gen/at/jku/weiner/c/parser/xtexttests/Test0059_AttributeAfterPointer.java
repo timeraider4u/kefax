@@ -249,7 +249,7 @@ public class Test0059_AttributeAfterPointer {
 		Assert.assertNotNull(GccAttribute_13_Var
 		);
 		Assert.assertEquals("warn_unused_result", GccAttribute_13_Var
-		.getId());
+		.getIdent());
 		//13
 		final DirectDeclarator DirectDeclarator_14_Var
 		 = (DirectDeclarator)Declarator_8_Var
@@ -257,7 +257,7 @@ public class Test0059_AttributeAfterPointer {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_14_list = DirectDeclarator_14_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_14_list);

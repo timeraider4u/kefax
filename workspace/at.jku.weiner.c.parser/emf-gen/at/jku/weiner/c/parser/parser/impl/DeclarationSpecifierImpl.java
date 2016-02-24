@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationSpecifierImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationSpecifierImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,9 +61,9 @@ public class DeclarationSpecifierImpl extends PersistentEObjectImpl implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.DECLARATION_SPECIFIER__ID, true);
+		return (String)eGet(ParserPackage.Literals.DECLARATION_SPECIFIER__IDENT, true);
 	}
 
 	/**
@@ -71,9 +71,9 @@ public class DeclarationSpecifierImpl extends PersistentEObjectImpl implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.DECLARATION_SPECIFIER__ID, newId);
+		eSet(ParserPackage.Literals.DECLARATION_SPECIFIER__IDENT, newIdent);
 	}
 
 } //DeclarationSpecifierImpl

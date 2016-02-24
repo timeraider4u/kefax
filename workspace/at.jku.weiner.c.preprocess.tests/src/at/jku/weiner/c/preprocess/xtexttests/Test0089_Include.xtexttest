@@ -29,14 +29,14 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"foo",
+					ident++"foo",
 					string++"1"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"LIN",
+					ident++"LIN",
 					string++"<include/file-foo.h>"
 				)
 			),
@@ -49,7 +49,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"LIN2",
+					ident++"LIN2",
 					string++"\\\"../myinclude/include/foo.h\\\""
 				)
 			),

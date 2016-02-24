@@ -64,7 +64,7 @@ public class TestMacroParentheseHelper {
 	public void test01() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
+		params.getIdent().add("X");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -78,8 +78,8 @@ public class TestMacroParentheseHelper {
 	public void test02() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -93,9 +93,9 @@ public class TestMacroParentheseHelper {
 	public void test03Params() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
-		params.getId().add("Z");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
+		params.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -109,7 +109,7 @@ public class TestMacroParentheseHelper {
 	public void test03() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
+		params.getIdent().add("X");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -121,8 +121,8 @@ public class TestMacroParentheseHelper {
 	public void test04() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -136,7 +136,7 @@ public class TestMacroParentheseHelper {
 	public void testA() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
+		params.getIdent().add("X");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -150,8 +150,8 @@ public class TestMacroParentheseHelper {
 	public void testB() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -165,7 +165,7 @@ public class TestMacroParentheseHelper {
 	public void testC() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
+		params.getIdent().add("X");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -179,8 +179,8 @@ public class TestMacroParentheseHelper {
 	public void testD() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -194,8 +194,8 @@ public class TestMacroParentheseHelper {
 	public void testE() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -209,7 +209,7 @@ public class TestMacroParentheseHelper {
 	public void testF() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
+		params.getIdent().add("X");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -223,8 +223,8 @@ public class TestMacroParentheseHelper {
 	public void testG() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -238,8 +238,8 @@ public class TestMacroParentheseHelper {
 	public void testH() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -253,8 +253,8 @@ public class TestMacroParentheseHelper {
 	public void testI() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -268,9 +268,9 @@ public class TestMacroParentheseHelper {
 	public void testJ() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
-		params.getId().add("Z");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
+		params.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
@@ -284,9 +284,9 @@ public class TestMacroParentheseHelper {
 	public void testK() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
-		params.getId().add("X");
-		params.getId().add("Y");
-		params.getId().add("Z");
+		params.getIdent().add("X");
+		params.getIdent().add("Y");
+		params.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
 		final String code = "pre;"

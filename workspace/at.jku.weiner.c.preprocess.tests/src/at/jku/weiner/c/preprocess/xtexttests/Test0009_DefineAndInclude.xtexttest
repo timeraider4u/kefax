@@ -28,14 +28,14 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"INT",
+					ident++"INT",
 					string++"int"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"MAIN",
+					ident++"MAIN",
 					string++"main"
 				)
 			),

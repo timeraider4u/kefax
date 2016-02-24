@@ -427,7 +427,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("fooA", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -461,7 +461,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_14_Var
 		);
 		Assert.assertEquals("fooA", TypedefName_14_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_14_list = Declaration_11_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_14_list);
@@ -493,7 +493,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("barA_1", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -535,7 +535,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final FunctionDefinition FunctionDefinition_25_Var
 		 = (FunctionDefinition)ExternalDeclaration_19_Var
@@ -621,7 +621,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_35_Var
 		);
 		Assert.assertEquals("fooB", DirectDeclarator_35_Var
-		.getId());
+		.getIdent());
 		//35
 		final Declaration Declaration_36_Var
 		 = (Declaration)Declaration_27_list.get(1);
@@ -649,7 +649,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_39_Var
 		);
 		Assert.assertEquals("fooA", TypedefName_39_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_39_list = Declaration_36_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_39_list);
@@ -681,7 +681,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_43_Var
 		);
 		Assert.assertEquals("barA_2", DirectDeclarator_43_Var
-		.getId());
+		.getIdent());
 		//43
 		final Declaration Declaration_44_Var
 		 = (Declaration)Declaration_27_list.get(2);
@@ -709,7 +709,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_47_Var
 		);
 		Assert.assertEquals("fooB", TypedefName_47_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_47_list = Declaration_44_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_47_list);
@@ -741,7 +741,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_51_Var
 		);
 		Assert.assertEquals("barB_1", DirectDeclarator_51_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> Statement_51_list = BlockList_27_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_51_list);
@@ -836,7 +836,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_63_Var
 		);
 		Assert.assertEquals("fooC", DirectDeclarator_63_Var
-		.getId());
+		.getIdent());
 		//63
 		final Declaration Declaration_64_Var
 		 = (Declaration)Declaration_55_list.get(1);
@@ -864,7 +864,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_67_Var
 		);
 		Assert.assertEquals("fooA", TypedefName_67_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_67_list = Declaration_64_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_67_list);
@@ -896,7 +896,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_71_Var
 		);
 		Assert.assertEquals("barA_3", DirectDeclarator_71_Var
-		.getId());
+		.getIdent());
 		//71
 		final Declaration Declaration_72_Var
 		 = (Declaration)Declaration_55_list.get(2);
@@ -924,7 +924,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_75_Var
 		);
 		Assert.assertEquals("fooB", TypedefName_75_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_75_list = Declaration_72_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_75_list);
@@ -956,7 +956,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_79_Var
 		);
 		Assert.assertEquals("barB_2", DirectDeclarator_79_Var
-		.getId());
+		.getIdent());
 		//79
 		final Declaration Declaration_80_Var
 		 = (Declaration)Declaration_55_list.get(3);
@@ -984,7 +984,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_83_Var
 		);
 		Assert.assertEquals("fooC", TypedefName_83_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_83_list = Declaration_80_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_83_list);
@@ -1016,7 +1016,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_87_Var
 		);
 		Assert.assertEquals("barC_1", DirectDeclarator_87_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> Statement_87_list = BlockList_55_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_87_list);
@@ -1111,7 +1111,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_99_Var
 		);
 		Assert.assertEquals("fooD", DirectDeclarator_99_Var
-		.getId());
+		.getIdent());
 		//99
 		final Declaration Declaration_100_Var
 		 = (Declaration)Declaration_91_list.get(1);
@@ -1139,7 +1139,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_103_Var
 		);
 		Assert.assertEquals("fooA", TypedefName_103_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_103_list = Declaration_100_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_103_list);
@@ -1171,7 +1171,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_107_Var
 		);
 		Assert.assertEquals("barA_4", DirectDeclarator_107_Var
-		.getId());
+		.getIdent());
 		//107
 		final Declaration Declaration_108_Var
 		 = (Declaration)Declaration_91_list.get(2);
@@ -1199,7 +1199,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_111_Var
 		);
 		Assert.assertEquals("fooB", TypedefName_111_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_111_list = Declaration_108_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_111_list);
@@ -1231,7 +1231,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_115_Var
 		);
 		Assert.assertEquals("barB_3", DirectDeclarator_115_Var
-		.getId());
+		.getIdent());
 		//115
 		final Declaration Declaration_116_Var
 		 = (Declaration)Declaration_91_list.get(3);
@@ -1259,7 +1259,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_119_Var
 		);
 		Assert.assertEquals("fooC", TypedefName_119_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_119_list = Declaration_116_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_119_list);
@@ -1291,7 +1291,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_123_Var
 		);
 		Assert.assertEquals("barC_2", DirectDeclarator_123_Var
-		.getId());
+		.getIdent());
 		//123
 		final Declaration Declaration_124_Var
 		 = (Declaration)Declaration_91_list.get(4);
@@ -1319,7 +1319,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(TypedefName_127_Var
 		);
 		Assert.assertEquals("fooD", TypedefName_127_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_127_list = Declaration_124_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_127_list);
@@ -1351,7 +1351,7 @@ public class Test0072_TypedefScopes {
 		Assert.assertNotNull(DirectDeclarator_131_Var
 		);
 		Assert.assertEquals("barD_1", DirectDeclarator_131_Var
-		.getId());
+		.getIdent());
 		Assert.assertTrue(BlockList_91_Var
 		.getStatement().isEmpty());
 	}

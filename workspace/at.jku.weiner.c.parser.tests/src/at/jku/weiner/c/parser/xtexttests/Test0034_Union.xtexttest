@@ -63,7 +63,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"union"
 							),
-							id++"num",
+							ident++"num",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -84,7 +84,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"numChar"
+													ident++"numChar"
 												)
 											)
 										)
@@ -107,7 +107,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"numFloat"
+													ident++"numFloat"
 												)
 											)
 										)
@@ -133,7 +133,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"union"
 							),
-							id++"num"
+							ident++"num"
 						)
 					)
 				),
@@ -145,7 +145,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"number"
+								ident++"number"
 							)
 						)
 					)
@@ -167,7 +167,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -220,7 +220,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"size"
+											ident++"size"
 										)
 									),
 									initializer=
@@ -247,7 +247,7 @@ SKW_RIGHTBRACE NEWLINE
 												(PrimaryExpression
 													expr=
 													(PrimaryExpression
-														id++"number"
+														ident++"number"
 													)
 												)
 											)
@@ -265,7 +265,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -276,7 +276,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"sizeof(number)=%lu\\\\n\\\"]"
 											), // end expression
 											(PrimaryExpression
-												id++"size"
+												ident++"size"
 											) // end primary expression
 										)
 									)
@@ -291,7 +291,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -311,11 +311,11 @@ SKW_RIGHTBRACE NEWLINE
 													(PostfixExpression
 														expr=
 														(PrimaryExpression
-															id++"number"
+															ident++"number"
 														),
 														suffix=
 														(PostfixExpressionSuffixDot
-															id++"numChar"
+															ident++"numChar"
 														)
 													)
 												) // end primary expression
@@ -333,7 +333,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -371,11 +371,11 @@ SKW_RIGHTBRACE NEWLINE
 									(PostfixExpression
 										expr=
 										(PrimaryExpression
-											id++"number"
+											ident++"number"
 										),
 										suffix=
 										(PostfixExpressionSuffixDot
-											id++"numChar"
+											ident++"numChar"
 										)
 									), // end  expression
 									op++"=",
@@ -397,7 +397,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -410,11 +410,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"number"
+													ident++"number"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"numChar"
+													ident++"numChar"
 												)
 											)
 										)
@@ -430,7 +430,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -443,11 +443,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"number"
+													ident++"number"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"numChar"
+													ident++"numChar"
 												)
 											)
 										)
@@ -463,7 +463,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -476,11 +476,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"number"
+													ident++"number"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"numFloat"
+													ident++"numFloat"
 												)
 											)
 										)
@@ -498,11 +498,11 @@ SKW_RIGHTBRACE NEWLINE
 									(PostfixExpression
 										expr=
 										(PrimaryExpression
-											id++"number"
+											ident++"number"
 										),
 										suffix=
 										(PostfixExpressionSuffixDot
-											id++"numFloat"
+											ident++"numFloat"
 										)
 									), // end postfix expression
 									op++"=",
@@ -524,7 +524,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -537,11 +537,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"number"
+													ident++"number"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"numChar"
+													ident++"numChar"
 												)
 											)
 										)
@@ -557,7 +557,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -570,11 +570,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"number"
+													ident++"number"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"numFloat"
+													ident++"numFloat"
 												)
 											)
 										)

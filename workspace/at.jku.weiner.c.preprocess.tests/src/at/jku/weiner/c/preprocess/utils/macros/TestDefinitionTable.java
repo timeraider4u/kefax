@@ -99,8 +99,8 @@ public class TestDefinitionTable {
 	public void test04() {
 		final String paramName = "paramName";
 
-		this.list1.getId().add(paramName);
-		this.list2.getId().add(paramName);
+		this.list1.getIdent().add(paramName);
+		this.list2.getIdent().add(paramName);
 
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
 				this.replaceLine1);
@@ -138,7 +138,7 @@ public class TestDefinitionTable {
 
 	@Test(expected = IllegalArgumentException.class, timeout = 1000)
 	public void test08() {
-		this.list2.getId().add("aParam");
+		this.list2.getIdent().add("aParam");
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
 				this.replaceLine1);
 		Assert.assertEquals(1, this.definitionTable.size());
@@ -148,8 +148,8 @@ public class TestDefinitionTable {
 
 	@Test(expected = IllegalArgumentException.class, timeout = 1000)
 	public void test09() {
-		this.list1.getId().add("aParam");
-		this.list2.getId().add("bParam");
+		this.list1.getIdent().add("aParam");
+		this.list2.getIdent().add("bParam");
 
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
 				this.replaceLine1);
@@ -160,12 +160,12 @@ public class TestDefinitionTable {
 
 	@Test(timeout = 1000)
 	public void test10() {
-		this.list1.getId().add("aParam");
-		this.list2.getId().add("aParam");
-		this.list1.getId().add("bParam");
-		this.list2.getId().add("bParam");
-		this.list1.getId().add("cParam");
-		this.list2.getId().add("cParam");
+		this.list1.getIdent().add("aParam");
+		this.list2.getIdent().add("aParam");
+		this.list1.getIdent().add("bParam");
+		this.list2.getIdent().add("bParam");
+		this.list1.getIdent().add("cParam");
+		this.list2.getIdent().add("cParam");
 
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
 				this.replaceLine1);
@@ -351,7 +351,7 @@ public class TestDefinitionTable {
 		final String code = "a little \"penguin(firefox)\" looks at you!";
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("x");
+		list.getIdent().add("x");
 		this.replaceLine1 = "x";
 		this.definitionTable.addFunctionMacro("penguin", list,
 				this.replaceLine1);
@@ -365,7 +365,7 @@ public class TestDefinitionTable {
 		final String code = "a little penguin(firefox) looks at you!";
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("x");
+		list.getIdent().add("x");
 		this.replaceLine1 = "x \"penguin()\"";
 		this.definitionTable.addFunctionMacro("penguin", list,
 				this.replaceLine1);
@@ -381,7 +381,7 @@ public class TestDefinitionTable {
 		final String code = "a little \"penguin()\" penguin(firefox) \"penguin\" looks at you!";
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("x");
+		list.getIdent().add("x");
 		this.replaceLine1 = "x \"x\"";
 		this.definitionTable.addFunctionMacro("penguin", list,
 				this.replaceLine1);

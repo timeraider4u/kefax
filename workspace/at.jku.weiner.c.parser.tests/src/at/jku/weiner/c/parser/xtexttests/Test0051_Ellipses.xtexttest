@@ -34,7 +34,7 @@ KW_INT WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"average",
+								ident++"average",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -56,7 +56,7 @@ KW_INT WHITESPACE ID SKW_LEFTPAREN
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"d"
+															ident++"d"
 														)
 													)
 												)

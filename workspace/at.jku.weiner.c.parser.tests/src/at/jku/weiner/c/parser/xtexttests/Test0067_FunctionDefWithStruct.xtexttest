@@ -34,7 +34,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"foo",
+							ident++"foo",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -55,7 +55,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -81,7 +81,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"foo"
+							ident++"foo"
 						)
 					)
 				),
@@ -89,7 +89,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"do1",
+						ident++"do1",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=

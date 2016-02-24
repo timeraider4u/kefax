@@ -29,10 +29,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"if",
+					ident++"if",
 					list =
 					(IdentifierList
-						id isEmpty,
+						ident isEmpty,
 						variadic?=true
 					),
 //					replacement+=
@@ -44,7 +44,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"endif",
+					ident++"endif",
 					string++"foo"
 				)			
 			),

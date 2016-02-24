@@ -31,24 +31,24 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"xyz",
+					ident++"xyz",
 					string++"4"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"bar",
+					ident++"bar",
 					string++"1"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"__foo",
+					ident++"__foo",
 					list=
 					(IdentifierList
-						id+*"[x]"
+						ident+*"[x]"
 					),
 					string++"#x"
 				)
@@ -56,10 +56,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"_foo",
+					ident++"_foo",
 					list=
 					(IdentifierList
-						id+*"[x]"
+						ident+*"[x]"
 					),
 					string++"__foo(../myinclude/include/bar/baz##x.h)"
 				)
@@ -67,10 +67,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					ident++"foo",
 					list=
 					(IdentifierList
-						id+*"[x]"
+						ident+*"[x]"
 					),
 					string++"_foo(x)"
 				)

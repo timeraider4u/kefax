@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.ui,
  at.jku.weiner.c.preprocess.ui;bundle-version="1.0.0",
  at.jku.weiner.c.parser.ui,
  at.jku.weiner.c.parser,
- org.eclipse.cdt.core
+ org.eclipse.cdt.core,
+ at.jku.weiner.c.modisco.discoverer.neoemf;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor

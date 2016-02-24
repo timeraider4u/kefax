@@ -242,7 +242,7 @@ public class Test0083_ConditionalsOmittedOperands {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final Initializer Initializer_9_Var
 		 = (Initializer)InitDeclarator_6_Var
@@ -356,7 +356,7 @@ public class Test0083_ConditionalsOmittedOperands {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final Initializer Initializer_25_Var
 		 = (Initializer)InitDeclarator_22_Var

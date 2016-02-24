@@ -29,7 +29,7 @@ lexer-tokens
 							op++">=",
 							left=
 							(PrimaryExpression
-								id++"VERSION"
+								ident++"VERSION"
 							),
 							right=
 							(PrimaryExpression

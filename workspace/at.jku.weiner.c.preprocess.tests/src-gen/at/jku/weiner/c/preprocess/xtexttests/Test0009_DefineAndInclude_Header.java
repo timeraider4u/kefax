@@ -195,7 +195,7 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("X", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("x", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -210,7 +210,7 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("Y", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("y", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -225,7 +225,7 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
 		Assert.assertEquals("DECLARATION", DefineObjectMacro_7_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("INT X = 4", DefineObjectMacro_7_Var
 		.getString());
 		//7
@@ -240,7 +240,7 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
 		Assert.assertEquals("Z", DefineObjectMacro_9_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1 + 1", DefineObjectMacro_9_Var
 		.getString());
 		//9

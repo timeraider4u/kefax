@@ -178,7 +178,7 @@ public class Test0018_EmptyInc {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("EMPTY", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -205,7 +205,7 @@ public class Test0018_EmptyInc {
 		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
 		Assert.assertEquals("EMPTY2", DefineObjectMacro_7_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineObjectMacro_7_Var
 		.getString());
 		//7

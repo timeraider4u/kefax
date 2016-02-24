@@ -57,7 +57,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								ident++"j"
 							)
 						)
 					)
@@ -103,7 +103,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"k"
+								ident++"k"
 							)
 						)
 					)

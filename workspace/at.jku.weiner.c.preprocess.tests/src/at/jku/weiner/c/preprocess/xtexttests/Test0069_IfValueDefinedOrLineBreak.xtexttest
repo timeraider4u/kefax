@@ -25,7 +25,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"__STDC_VERSION__",
+					ident++"__STDC_VERSION__",
 					string++"201300UL"
 				)
 			),
@@ -42,12 +42,12 @@ lexer-tokens
 								left=
 								(PrimaryExpression
 									defined?=true,
-									id++"__STDC_VERSION__"
+									ident++"__STDC_VERSION__"
 								),
 								right=
 								(PrimaryExpression
 									defined?=true,
-									id++"__GCC_VERSION__"
+									ident++"__GCC_VERSION__"
 								)
 							)
 						),

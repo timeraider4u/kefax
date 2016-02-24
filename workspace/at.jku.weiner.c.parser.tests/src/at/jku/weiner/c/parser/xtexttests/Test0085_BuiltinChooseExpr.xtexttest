@@ -47,7 +47,7 @@ KW_TYPEOF2 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"l"
+								ident++"l"
 							)
 						),
 						initializer=
@@ -141,7 +141,7 @@ KW_TYPEOF2 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"m"
+								ident++"m"
 							)
 						)
 					)

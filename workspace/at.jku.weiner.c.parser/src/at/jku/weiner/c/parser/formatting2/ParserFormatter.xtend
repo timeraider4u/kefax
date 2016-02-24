@@ -323,8 +323,8 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(IdentifierList identifierList, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (MyIdentifier id : identifierList.getId()) {
-			format(id, document);
+		for (MyIdentifier ident : identifierList.getIdent()) {
+			format(ident, document);
 		}
 	}
 

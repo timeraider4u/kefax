@@ -493,13 +493,13 @@ public interface ParserPackage extends EPackage
 	int TYPEDEF_NAME = 10;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPEDEF_NAME__ID = 0;
+	int TYPEDEF_NAME__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Typedef Name</em>' class.
@@ -521,13 +521,13 @@ public interface ParserPackage extends EPackage
 	int DECLARATION_SPECIFIER = 11;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION_SPECIFIER__ID = 0;
+	int DECLARATION_SPECIFIER__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Declaration Specifier</em>' class.
@@ -781,13 +781,13 @@ public interface ParserPackage extends EPackage
 	int ENUMERATOR = 19;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATOR__ID = 0;
+	int ENUMERATOR__IDENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -938,13 +938,13 @@ public interface ParserPackage extends EPackage
 	int DIRECT_DECLARATOR = 23;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIRECT_DECLARATOR__ID = 0;
+	int DIRECT_DECLARATOR__IDENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Declarator</b></em>' containment reference.
@@ -1169,13 +1169,13 @@ public interface ParserPackage extends EPackage
 	int GCC_ATTRIBUTE = 29;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GCC_ATTRIBUTE__ID = 0;
+	int GCC_ATTRIBUTE__IDENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Const</b></em>' attribute.
@@ -1409,13 +1409,13 @@ public interface ParserPackage extends EPackage
 	int IDENTIFIER_LIST = 35;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Ident</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIER_LIST__ID = 0;
+	int IDENTIFIER_LIST__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Identifier List</em>' class.
@@ -1437,13 +1437,13 @@ public interface ParserPackage extends EPackage
 	int MY_IDENTIFIER = 36;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MY_IDENTIFIER__ID = 0;
+	int MY_IDENTIFIER__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>My Identifier</em>' class.
@@ -1871,13 +1871,13 @@ public interface ParserPackage extends EPackage
 	int ASM_SYMBOLIC_NAME = 47;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_SYMBOLIC_NAME__ID = 0;
+	int ASM_SYMBOLIC_NAME__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Asm Symbolic Name</em>' class.
@@ -2029,13 +2029,13 @@ public interface ParserPackage extends EPackage
 	int DESIGNATOR__TO = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGNATOR__ID = 2;
+	int DESIGNATOR__IDENT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Designator</em>' class.
@@ -2169,13 +2169,13 @@ public interface ParserPackage extends EPackage
 	int STRUCT_OR_UNION_SPECIFIER = 57;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_OR_UNION_SPECIFIER__ID = DECLARATION_SPECIFIER__ID;
+	int STRUCT_OR_UNION_SPECIFIER__IDENT = DECLARATION_SPECIFIER__IDENT;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2224,13 +2224,13 @@ public interface ParserPackage extends EPackage
 	int ENUM_SPECIFIER = 58;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_SPECIFIER__ID = DECLARATION_SPECIFIER__ID;
+	int ENUM_SPECIFIER__IDENT = DECLARATION_SPECIFIER__IDENT;
 
 	/**
 	 * The feature id for the '<em><b>Enum List</b></em>' containment reference.
@@ -2270,13 +2270,13 @@ public interface ParserPackage extends EPackage
 	int LABELED_STATEMENT__STMT = STATEMENT__STMT;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABELED_STATEMENT__ID = STATEMENT_FEATURE_COUNT + 0;
+	int LABELED_STATEMENT__IDENT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>LStmt</b></em>' containment reference.
@@ -3497,13 +3497,13 @@ public interface ParserPackage extends EPackage
 	int UNARY_EXPRESSION__ANDAND = EXPRESSION_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 8;
+	int UNARY_EXPRESSION__IDENT = EXPRESSION_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Unary Expression</em>' class.
@@ -3672,13 +3672,13 @@ public interface ParserPackage extends EPackage
 	int POSTFIX_EXPRESSION_SUFFIX_DOT = 84;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSTFIX_EXPRESSION_SUFFIX_DOT__ID = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+	int POSTFIX_EXPRESSION_SUFFIX_DOT__IDENT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Postfix Expression Suffix Dot</em>' class.
@@ -3700,13 +3700,13 @@ public interface ParserPackage extends EPackage
 	int POSTFIX_EXPRESSION_SUFFIX_ARROW = 85;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSTFIX_EXPRESSION_SUFFIX_ARROW__ID = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+	int POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Postfix Expression Suffix Arrow</em>' class.
@@ -3784,13 +3784,13 @@ public interface ParserPackage extends EPackage
 	int PRIMARY_EXPRESSION__RIGHT = EXPRESSION__RIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 0;
+	int PRIMARY_EXPRESSION__IDENT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Const</b></em>' containment reference.
@@ -4344,15 +4344,15 @@ public interface ParserPackage extends EPackage
 	EClass getTypedefName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.TypedefName#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.TypedefName#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.TypedefName#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.TypedefName#getIdent()
 	 * @see #getTypedefName()
 	 * @generated
 	 */
-	EAttribute getTypedefName_Id();
+	EAttribute getTypedefName_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.DeclarationSpecifier <em>Declaration Specifier</em>}'.
@@ -4365,15 +4365,15 @@ public interface ParserPackage extends EPackage
 	EClass getDeclarationSpecifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DeclarationSpecifier#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DeclarationSpecifier#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.DeclarationSpecifier#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.DeclarationSpecifier#getIdent()
 	 * @see #getDeclarationSpecifier()
 	 * @generated
 	 */
-	EAttribute getDeclarationSpecifier_Id();
+	EAttribute getDeclarationSpecifier_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.StructOrUnion <em>Struct Or Union</em>}'.
@@ -4577,15 +4577,15 @@ public interface ParserPackage extends EPackage
 	EClass getEnumerator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Enumerator#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Enumerator#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.Enumerator#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.Enumerator#getIdent()
 	 * @see #getEnumerator()
 	 * @generated
 	 */
-	EAttribute getEnumerator_Id();
+	EAttribute getEnumerator_Ident();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.Enumerator#getExpr <em>Expr</em>}'.
@@ -4716,15 +4716,15 @@ public interface ParserPackage extends EPackage
 	EClass getDirectDeclarator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.DirectDeclarator#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.DirectDeclarator#getIdent()
 	 * @see #getDirectDeclarator()
 	 * @generated
 	 */
-	EAttribute getDirectDeclarator_Id();
+	EAttribute getDirectDeclarator_Ident();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getDeclarator <em>Declarator</em>}'.
@@ -4919,15 +4919,15 @@ public interface ParserPackage extends EPackage
 	EClass getGccAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAttribute#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAttribute#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.GccAttribute#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.GccAttribute#getIdent()
 	 * @see #getGccAttribute()
 	 * @generated
 	 */
-	EAttribute getGccAttribute_Id();
+	EAttribute getGccAttribute_Ident();
 
 	/**
 	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAttribute#getConst <em>Const</em>}'.
@@ -5133,15 +5133,15 @@ public interface ParserPackage extends EPackage
 	EClass getIdentifierList();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.IdentifierList#getId <em>Id</em>}'.
+	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.IdentifierList#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.IdentifierList#getId()
+	 * @return the meta object for the containment reference list '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.IdentifierList#getIdent()
 	 * @see #getIdentifierList()
 	 * @generated
 	 */
-	EReference getIdentifierList_Id();
+	EReference getIdentifierList_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.MyIdentifier <em>My Identifier</em>}'.
@@ -5154,15 +5154,15 @@ public interface ParserPackage extends EPackage
 	EClass getMyIdentifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.MyIdentifier#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.MyIdentifier#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.MyIdentifier#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.MyIdentifier#getIdent()
 	 * @see #getMyIdentifier()
 	 * @generated
 	 */
-	EAttribute getMyIdentifier_Id();
+	EAttribute getMyIdentifier_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.TypeName <em>Type Name</em>}'.
@@ -5539,15 +5539,15 @@ public interface ParserPackage extends EPackage
 	EClass getAsmSymbolicName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.AsmSymbolicName#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.AsmSymbolicName#getIdent()
 	 * @see #getAsmSymbolicName()
 	 * @generated
 	 */
-	EAttribute getAsmSymbolicName_Id();
+	EAttribute getAsmSymbolicName_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon <em>Asm Line With Colon</em>}'.
@@ -5666,15 +5666,15 @@ public interface ParserPackage extends EPackage
 	EReference getDesignator_To();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Designator#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Designator#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.Designator#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.Designator#getIdent()
 	 * @see #getDesignator()
 	 * @generated
 	 */
-	EAttribute getDesignator_Id();
+	EAttribute getDesignator_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.Expression <em>Expression</em>}'.
@@ -5824,15 +5824,15 @@ public interface ParserPackage extends EPackage
 	EClass getLabeledStatement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.LabeledStatement#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.LabeledStatement#getIdent()
 	 * @see #getLabeledStatement()
 	 * @generated
 	 */
-	EAttribute getLabeledStatement_Id();
+	EAttribute getLabeledStatement_Ident();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLStmt <em>LStmt</em>}'.
@@ -6661,15 +6661,15 @@ public interface ParserPackage extends EPackage
 	EAttribute getUnaryExpression_Andand();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.UnaryExpression#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.UnaryExpression#getIdent()
 	 * @see #getUnaryExpression()
 	 * @generated
 	 */
-	EAttribute getUnaryExpression_Id();
+	EAttribute getUnaryExpression_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.PostfixExpression <em>Postfix Expression</em>}'.
@@ -6800,15 +6800,15 @@ public interface ParserPackage extends EPackage
 	EClass getPostfixExpressionSuffixDot();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getIdent()
 	 * @see #getPostfixExpressionSuffixDot()
 	 * @generated
 	 */
-	EAttribute getPostfixExpressionSuffixDot_Id();
+	EAttribute getPostfixExpressionSuffixDot_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow <em>Postfix Expression Suffix Arrow</em>}'.
@@ -6821,15 +6821,15 @@ public interface ParserPackage extends EPackage
 	EClass getPostfixExpressionSuffixArrow();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow#getIdent()
 	 * @see #getPostfixExpressionSuffixArrow()
 	 * @generated
 	 */
-	EAttribute getPostfixExpressionSuffixArrow_Id();
+	EAttribute getPostfixExpressionSuffixArrow_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixPlusPlus <em>Postfix Expression Suffix Plus Plus</em>}'.
@@ -6862,15 +6862,15 @@ public interface ParserPackage extends EPackage
 	EClass getPrimaryExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getIdent()
 	 * @see #getPrimaryExpression()
 	 * @generated
 	 */
-	EAttribute getPrimaryExpression_Id();
+	EAttribute getPrimaryExpression_Ident();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}'.
@@ -7356,12 +7356,12 @@ public interface ParserPackage extends EPackage
 		EClass TYPEDEF_NAME = eINSTANCE.getTypedefName();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPEDEF_NAME__ID = eINSTANCE.getTypedefName_Id();
+		EAttribute TYPEDEF_NAME__IDENT = eINSTANCE.getTypedefName_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.DeclarationSpecifierImpl <em>Declaration Specifier</em>}' class.
@@ -7374,12 +7374,12 @@ public interface ParserPackage extends EPackage
 		EClass DECLARATION_SPECIFIER = eINSTANCE.getDeclarationSpecifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DECLARATION_SPECIFIER__ID = eINSTANCE.getDeclarationSpecifier_Id();
+		EAttribute DECLARATION_SPECIFIER__IDENT = eINSTANCE.getDeclarationSpecifier_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionImpl <em>Struct Or Union</em>}' class.
@@ -7550,12 +7550,12 @@ public interface ParserPackage extends EPackage
 		EClass ENUMERATOR = eINSTANCE.getEnumerator();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ENUMERATOR__ID = eINSTANCE.getEnumerator_Id();
+		EAttribute ENUMERATOR__IDENT = eINSTANCE.getEnumerator_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -7662,12 +7662,12 @@ public interface ParserPackage extends EPackage
 		EClass DIRECT_DECLARATOR = eINSTANCE.getDirectDeclarator();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIRECT_DECLARATOR__ID = eINSTANCE.getDirectDeclarator_Id();
+		EAttribute DIRECT_DECLARATOR__IDENT = eINSTANCE.getDirectDeclarator_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Declarator</b></em>' containment reference feature.
@@ -7826,12 +7826,12 @@ public interface ParserPackage extends EPackage
 		EClass GCC_ATTRIBUTE = eINSTANCE.getGccAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GCC_ATTRIBUTE__ID = eINSTANCE.getGccAttribute_Id();
+		EAttribute GCC_ATTRIBUTE__IDENT = eINSTANCE.getGccAttribute_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Const</b></em>' attribute feature.
@@ -7998,12 +7998,12 @@ public interface ParserPackage extends EPackage
 		EClass IDENTIFIER_LIST = eINSTANCE.getIdentifierList();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IDENTIFIER_LIST__ID = eINSTANCE.getIdentifierList_Id();
+		EReference IDENTIFIER_LIST__IDENT = eINSTANCE.getIdentifierList_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.MyIdentifierImpl <em>My Identifier</em>}' class.
@@ -8016,12 +8016,12 @@ public interface ParserPackage extends EPackage
 		EClass MY_IDENTIFIER = eINSTANCE.getMyIdentifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MY_IDENTIFIER__ID = eINSTANCE.getMyIdentifier_Id();
+		EAttribute MY_IDENTIFIER__IDENT = eINSTANCE.getMyIdentifier_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.TypeNameImpl <em>Type Name</em>}' class.
@@ -8326,12 +8326,12 @@ public interface ParserPackage extends EPackage
 		EClass ASM_SYMBOLIC_NAME = eINSTANCE.getAsmSymbolicName();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASM_SYMBOLIC_NAME__ID = eINSTANCE.getAsmSymbolicName_Id();
+		EAttribute ASM_SYMBOLIC_NAME__IDENT = eINSTANCE.getAsmSymbolicName_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl <em>Asm Line With Colon</em>}' class.
@@ -8432,12 +8432,12 @@ public interface ParserPackage extends EPackage
 		EReference DESIGNATOR__TO = eINSTANCE.getDesignator_To();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DESIGNATOR__ID = eINSTANCE.getDesignator_Id();
+		EAttribute DESIGNATOR__IDENT = eINSTANCE.getDesignator_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -8566,12 +8566,12 @@ public interface ParserPackage extends EPackage
 		EClass LABELED_STATEMENT = eINSTANCE.getLabeledStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LABELED_STATEMENT__ID = eINSTANCE.getLabeledStatement_Id();
+		EAttribute LABELED_STATEMENT__IDENT = eINSTANCE.getLabeledStatement_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>LStmt</b></em>' containment reference feature.
@@ -9232,12 +9232,12 @@ public interface ParserPackage extends EPackage
 		EAttribute UNARY_EXPRESSION__ANDAND = eINSTANCE.getUnaryExpression_Andand();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UNARY_EXPRESSION__ID = eINSTANCE.getUnaryExpression_Id();
+		EAttribute UNARY_EXPRESSION__IDENT = eINSTANCE.getUnaryExpression_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -9344,12 +9344,12 @@ public interface ParserPackage extends EPackage
 		EClass POSTFIX_EXPRESSION_SUFFIX_DOT = eINSTANCE.getPostfixExpressionSuffixDot();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POSTFIX_EXPRESSION_SUFFIX_DOT__ID = eINSTANCE.getPostfixExpressionSuffixDot_Id();
+		EAttribute POSTFIX_EXPRESSION_SUFFIX_DOT__IDENT = eINSTANCE.getPostfixExpressionSuffixDot_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixArrowImpl <em>Postfix Expression Suffix Arrow</em>}' class.
@@ -9362,12 +9362,12 @@ public interface ParserPackage extends EPackage
 		EClass POSTFIX_EXPRESSION_SUFFIX_ARROW = eINSTANCE.getPostfixExpressionSuffixArrow();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POSTFIX_EXPRESSION_SUFFIX_ARROW__ID = eINSTANCE.getPostfixExpressionSuffixArrow_Id();
+		EAttribute POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT = eINSTANCE.getPostfixExpressionSuffixArrow_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixPlusPlusImpl <em>Postfix Expression Suffix Plus Plus</em>}' class.
@@ -9400,12 +9400,12 @@ public interface ParserPackage extends EPackage
 		EClass PRIMARY_EXPRESSION = eINSTANCE.getPrimaryExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRIMARY_EXPRESSION__ID = eINSTANCE.getPrimaryExpression_Id();
+		EAttribute PRIMARY_EXPRESSION__IDENT = eINSTANCE.getPrimaryExpression_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Const</b></em>' containment reference feature.

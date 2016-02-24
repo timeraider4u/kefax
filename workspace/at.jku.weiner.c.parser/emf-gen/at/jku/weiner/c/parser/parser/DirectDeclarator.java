@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getDeclaratorSuffix <em>Declarator Suffix</em>}</li>
  * </ul>
@@ -28,30 +28,30 @@ import org.eclipse.emf.common.util.EList;
 public interface DirectDeclarator extends PersistentEObject
 {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getDirectDeclarator_Id()
+	 * @return the value of the '<em>Ident</em>' attribute.
+	 * @see #setIdent(String)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getDirectDeclarator_Ident()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getIdent();
 
 	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.DirectDeclarator#getIdent <em>Ident</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Ident</em>' attribute.
+	 * @see #getIdent()
 	 * @generated
 	 */
-	void setId(String value);
+	void setIdent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Declarator</b></em>' containment reference.

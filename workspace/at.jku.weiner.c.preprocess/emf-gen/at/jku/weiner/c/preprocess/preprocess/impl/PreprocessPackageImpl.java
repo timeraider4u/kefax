@@ -390,7 +390,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDefineDirective_Id()
+	public EAttribute getDefineDirective_Ident()
 	{
 		return (EAttribute)defineDirectiveEClass.getEStructuralFeatures().get(0);
 	}
@@ -410,7 +410,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIdentifierList_Id()
+	public EAttribute getIdentifierList_Ident()
 	{
 		return (EAttribute)identifierListEClass.getEStructuralFeatures().get(0);
 	}
@@ -490,7 +490,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUnDefineDirective_Id()
+	public EAttribute getUnDefineDirective_Ident()
 	{
 		return (EAttribute)unDefineDirectiveEClass.getEStructuralFeatures().get(0);
 	}
@@ -580,7 +580,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIfDefConditional_Id()
+	public EAttribute getIfDefConditional_Ident()
 	{
 		return (EAttribute)ifDefConditionalEClass.getEStructuralFeatures().get(0);
 	}
@@ -600,7 +600,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIfNotDefConditional_Id()
+	public EAttribute getIfNotDefConditional_Ident()
 	{
 		return (EAttribute)ifNotDefConditionalEClass.getEStructuralFeatures().get(0);
 	}
@@ -820,7 +820,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPrimaryExpression_Id()
+	public EAttribute getPrimaryExpression_Ident()
 	{
 		return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(1);
 	}
@@ -966,10 +966,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__NEXT);
 
 		defineDirectiveEClass = createEClass(DEFINE_DIRECTIVE);
-		createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__ID);
+		createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__IDENT);
 
 		identifierListEClass = createEClass(IDENTIFIER_LIST);
-		createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID);
+		createEAttribute(identifierListEClass, IDENTIFIER_LIST__IDENT);
 		createEAttribute(identifierListEClass, IDENTIFIER_LIST__VARIADIC);
 		createEAttribute(identifierListEClass, IDENTIFIER_LIST__VAR_ID);
 
@@ -980,7 +980,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEAttribute(warningDirectiveEClass, WARNING_DIRECTIVE__MSG);
 
 		unDefineDirectiveEClass = createEClass(UN_DEFINE_DIRECTIVE);
-		createEAttribute(unDefineDirectiveEClass, UN_DEFINE_DIRECTIVE__ID);
+		createEAttribute(unDefineDirectiveEClass, UN_DEFINE_DIRECTIVE__IDENT);
 
 		conditionalDirectiveEClass = createEClass(CONDITIONAL_DIRECTIVE);
 		createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__CONDITIONAL);
@@ -992,10 +992,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEReference(ifConditionalEClass, IF_CONDITIONAL__EXPRESSION);
 
 		ifDefConditionalEClass = createEClass(IF_DEF_CONDITIONAL);
-		createEAttribute(ifDefConditionalEClass, IF_DEF_CONDITIONAL__ID);
+		createEAttribute(ifDefConditionalEClass, IF_DEF_CONDITIONAL__IDENT);
 
 		ifNotDefConditionalEClass = createEClass(IF_NOT_DEF_CONDITIONAL);
-		createEAttribute(ifNotDefConditionalEClass, IF_NOT_DEF_CONDITIONAL__ID);
+		createEAttribute(ifNotDefConditionalEClass, IF_NOT_DEF_CONDITIONAL__IDENT);
 
 		elIfConditionalEClass = createEClass(EL_IF_CONDITIONAL);
 		createEReference(elIfConditionalEClass, EL_IF_CONDITIONAL__EXPRESSION);
@@ -1029,7 +1029,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__DEFINED);
-		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
+		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__IDENT);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
 		createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__EXPR);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__PARENTHESES);
@@ -1105,10 +1105,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEAttribute(getIncludeDirective_Next(), theEcorePackage.getEBoolean(), "next", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defineDirectiveEClass, DefineDirective.class, "DefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDefineDirective_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDefineDirective_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIdentifierList_Id(), theEcorePackage.getEString(), "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdentifierList_Ident(), theEcorePackage.getEString(), "ident", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdentifierList_Variadic(), theEcorePackage.getEBoolean(), "variadic", null, 0, 1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdentifierList_VarID(), theEcorePackage.getEString(), "varID", null, 0, 1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1119,7 +1119,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEAttribute(getWarningDirective_Msg(), theEcorePackage.getEString(), "msg", null, 0, 1, WarningDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unDefineDirectiveEClass, UnDefineDirective.class, "UnDefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUnDefineDirective_Id(), theEcorePackage.getEString(), "id", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnDefineDirective_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalDirectiveEClass, ConditionalDirective.class, "ConditionalDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConditionalDirective_Conditional(), this.getIfAbstractConditional(), null, "conditional", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1131,10 +1131,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEReference(getIfConditional_Expression(), theCommonPackage.getExpression(), null, "expression", null, 0, 1, IfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifDefConditionalEClass, IfDefConditional.class, "IfDefConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIfDefConditional_Id(), theEcorePackage.getEString(), "id", null, 0, 1, IfDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIfDefConditional_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, IfDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifNotDefConditionalEClass, IfNotDefConditional.class, "IfNotDefConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIfNotDefConditional_Id(), theEcorePackage.getEString(), "id", null, 0, 1, IfNotDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIfNotDefConditional_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, IfNotDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elIfConditionalEClass, ElIfConditional.class, "ElIfConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElIfConditional_Expression(), theCommonPackage.getExpression(), null, "expression", null, 0, 1, ElIfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1168,7 +1168,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPrimaryExpression_Defined(), theEcorePackage.getEBoolean(), "defined", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimaryExpression_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPrimaryExpression_Const(), theEcorePackage.getEString(), "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimaryExpression_Expr(), theCommonPackage.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPrimaryExpression_Parentheses(), theEcorePackage.getEBoolean(), "parentheses", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

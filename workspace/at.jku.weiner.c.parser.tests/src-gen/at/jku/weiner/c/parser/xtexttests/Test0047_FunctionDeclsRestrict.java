@@ -245,7 +245,7 @@ public class Test0047_FunctionDeclsRestrict {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -330,7 +330,7 @@ public class Test0047_FunctionDeclsRestrict {
 		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_19_Var
-		.getId());
+		.getIdent());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_0_list.get(1);

@@ -205,7 +205,7 @@ public class Test0074_TypedefSpecial {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_9_list = DirectDeclarator_9_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_9_list);

@@ -62,7 +62,7 @@ public class TestPrimaryExpressionEvaluation {
 	public void testIDWhichIsEmpty() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
-		expression.setId("FOO");
+		expression.setIdent("FOO");
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
@@ -71,7 +71,7 @@ public class TestPrimaryExpressionEvaluation {
 	public void testIDWhichIsDefined() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
-		expression.setId("FOO");
+		expression.setIdent("FOO");
 		this.definitionTable.add("FOO", "1");
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
@@ -81,7 +81,7 @@ public class TestPrimaryExpressionEvaluation {
 	public void testIDWhichIsEmpty2() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
-		expression.setId("FOO");
+		expression.setIdent("FOO");
 		this.definitionTable.add("FOO", "BAR");
 		this.definitionTable.add("BAR", "0");
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
@@ -92,7 +92,7 @@ public class TestPrimaryExpressionEvaluation {
 	public void testIDWhichIsDefined2() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
-		expression.setId("FOO");
+		expression.setIdent("FOO");
 		this.definitionTable.add("FOO", "BAR");
 		this.definitionTable.add("BAR", "1");
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,

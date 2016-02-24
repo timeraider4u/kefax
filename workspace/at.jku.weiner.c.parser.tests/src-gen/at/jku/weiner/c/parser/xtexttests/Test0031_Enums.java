@@ -618,7 +618,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("W_MONDAY", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final Initializer Initializer_10_Var
 		 = (Initializer)InitDeclarator_7_Var
@@ -657,7 +657,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("W_TUESDAY", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final Initializer Initializer_16_Var
 		 = (Initializer)InitDeclarator_13_Var
@@ -696,7 +696,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("W_WEDNESDAY", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final Initializer Initializer_22_Var
 		 = (Initializer)InitDeclarator_19_Var
@@ -735,7 +735,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_27_Var
 		);
 		Assert.assertEquals("W_THURSDAY", DirectDeclarator_27_Var
-		.getId());
+		.getIdent());
 		//27
 		final Initializer Initializer_28_Var
 		 = (Initializer)InitDeclarator_25_Var
@@ -774,7 +774,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_33_Var
 		);
 		Assert.assertEquals("W_FRIDAY", DirectDeclarator_33_Var
-		.getId());
+		.getIdent());
 		//33
 		final Initializer Initializer_34_Var
 		 = (Initializer)InitDeclarator_31_Var
@@ -813,7 +813,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_39_Var
 		);
 		Assert.assertEquals("W_SATURDAY", DirectDeclarator_39_Var
-		.getId());
+		.getIdent());
 		//39
 		final Initializer Initializer_40_Var
 		 = (Initializer)InitDeclarator_37_Var
@@ -852,7 +852,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_45_Var
 		);
 		Assert.assertEquals("W_SUNDAY", DirectDeclarator_45_Var
-		.getId());
+		.getIdent());
 		//45
 		final Initializer Initializer_46_Var
 		 = (Initializer)InitDeclarator_43_Var
@@ -921,7 +921,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_55_Var
 		);
 		Assert.assertEquals("MONDAY", Enumerator_55_Var
-		.getId());
+		.getIdent());
 		//55
 		final PrimaryExpression PrimaryExpression_56_Var
 		 = (PrimaryExpression)Enumerator_55_Var
@@ -942,42 +942,42 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_58_Var
 		);
 		Assert.assertEquals("TUESDAY", Enumerator_58_Var
-		.getId());
+		.getIdent());
 		//58
 		final Enumerator Enumerator_59_Var
 		 = (Enumerator)Enumerator_54_list.get(2);
 		Assert.assertNotNull(Enumerator_59_Var
 		);
 		Assert.assertEquals("WEDNESDAY", Enumerator_59_Var
-		.getId());
+		.getIdent());
 		//59
 		final Enumerator Enumerator_60_Var
 		 = (Enumerator)Enumerator_54_list.get(3);
 		Assert.assertNotNull(Enumerator_60_Var
 		);
 		Assert.assertEquals("THURSDAY", Enumerator_60_Var
-		.getId());
+		.getIdent());
 		//60
 		final Enumerator Enumerator_61_Var
 		 = (Enumerator)Enumerator_54_list.get(4);
 		Assert.assertNotNull(Enumerator_61_Var
 		);
 		Assert.assertEquals("FRIDAY", Enumerator_61_Var
-		.getId());
+		.getIdent());
 		//61
 		final Enumerator Enumerator_62_Var
 		 = (Enumerator)Enumerator_54_list.get(5);
 		Assert.assertNotNull(Enumerator_62_Var
 		);
 		Assert.assertEquals("SATURDAY", Enumerator_62_Var
-		.getId());
+		.getIdent());
 		//62
 		final Enumerator Enumerator_63_Var
 		 = (Enumerator)Enumerator_54_list.get(6);
 		Assert.assertNotNull(Enumerator_63_Var
 		);
 		Assert.assertEquals("SUNDAY", Enumerator_63_Var
-		.getId());
+		.getIdent());
 		//63
 		final ExternalDeclaration ExternalDeclaration_64_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -1026,7 +1026,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_70_Var
 		);
 		Assert.assertEquals("I_MONDAY", Enumerator_70_Var
-		.getId());
+		.getIdent());
 		//70
 		final PrimaryExpression PrimaryExpression_71_Var
 		 = (PrimaryExpression)Enumerator_70_Var
@@ -1047,42 +1047,42 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_73_Var
 		);
 		Assert.assertEquals("I_TUESDAY", Enumerator_73_Var
-		.getId());
+		.getIdent());
 		//73
 		final Enumerator Enumerator_74_Var
 		 = (Enumerator)Enumerator_69_list.get(2);
 		Assert.assertNotNull(Enumerator_74_Var
 		);
 		Assert.assertEquals("I_WEDNESDAY", Enumerator_74_Var
-		.getId());
+		.getIdent());
 		//74
 		final Enumerator Enumerator_75_Var
 		 = (Enumerator)Enumerator_69_list.get(3);
 		Assert.assertNotNull(Enumerator_75_Var
 		);
 		Assert.assertEquals("I_THURSDAY", Enumerator_75_Var
-		.getId());
+		.getIdent());
 		//75
 		final Enumerator Enumerator_76_Var
 		 = (Enumerator)Enumerator_69_list.get(4);
 		Assert.assertNotNull(Enumerator_76_Var
 		);
 		Assert.assertEquals("I_FRIDAY", Enumerator_76_Var
-		.getId());
+		.getIdent());
 		//76
 		final Enumerator Enumerator_77_Var
 		 = (Enumerator)Enumerator_69_list.get(5);
 		Assert.assertNotNull(Enumerator_77_Var
 		);
 		Assert.assertEquals("I_SATURDAY", Enumerator_77_Var
-		.getId());
+		.getIdent());
 		//77
 		final Enumerator Enumerator_78_Var
 		 = (Enumerator)Enumerator_69_list.get(6);
 		Assert.assertNotNull(Enumerator_78_Var
 		);
 		Assert.assertEquals("I_SUNDAY", Enumerator_78_Var
-		.getId());
+		.getIdent());
 		//78
 		final ExternalDeclaration ExternalDeclaration_79_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -1116,7 +1116,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(EnumSpecifier_83_Var
 		);
 		Assert.assertEquals("weekdays", EnumSpecifier_83_Var
-		.getId());
+		.getIdent());
 		//83
 		final EnumeratorList EnumeratorList_84_Var
 		 = (EnumeratorList)EnumSpecifier_83_Var
@@ -1133,7 +1133,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_85_Var
 		);
 		Assert.assertEquals("M_MONDAY", Enumerator_85_Var
-		.getId());
+		.getIdent());
 		//85
 		final PrimaryExpression PrimaryExpression_86_Var
 		 = (PrimaryExpression)Enumerator_85_Var
@@ -1154,42 +1154,42 @@ public class Test0031_Enums {
 		Assert.assertNotNull(Enumerator_88_Var
 		);
 		Assert.assertEquals("M_TUESDAY", Enumerator_88_Var
-		.getId());
+		.getIdent());
 		//88
 		final Enumerator Enumerator_89_Var
 		 = (Enumerator)Enumerator_84_list.get(2);
 		Assert.assertNotNull(Enumerator_89_Var
 		);
 		Assert.assertEquals("M_WEDNESDAY", Enumerator_89_Var
-		.getId());
+		.getIdent());
 		//89
 		final Enumerator Enumerator_90_Var
 		 = (Enumerator)Enumerator_84_list.get(3);
 		Assert.assertNotNull(Enumerator_90_Var
 		);
 		Assert.assertEquals("M_THURSDAY", Enumerator_90_Var
-		.getId());
+		.getIdent());
 		//90
 		final Enumerator Enumerator_91_Var
 		 = (Enumerator)Enumerator_84_list.get(4);
 		Assert.assertNotNull(Enumerator_91_Var
 		);
 		Assert.assertEquals("M_FRIDAY", Enumerator_91_Var
-		.getId());
+		.getIdent());
 		//91
 		final Enumerator Enumerator_92_Var
 		 = (Enumerator)Enumerator_84_list.get(5);
 		Assert.assertNotNull(Enumerator_92_Var
 		);
 		Assert.assertEquals("M_SATURDAY", Enumerator_92_Var
-		.getId());
+		.getIdent());
 		//92
 		final Enumerator Enumerator_93_Var
 		 = (Enumerator)Enumerator_84_list.get(6);
 		Assert.assertNotNull(Enumerator_93_Var
 		);
 		Assert.assertEquals("M_SUNDAY", Enumerator_93_Var
-		.getId());
+		.getIdent());
 		//93
 		final ExternalDeclaration ExternalDeclaration_94_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -1223,7 +1223,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(EnumSpecifier_98_Var
 		);
 		Assert.assertEquals("weekdays", EnumSpecifier_98_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_98_list = Declaration_95_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_98_list);
@@ -1255,7 +1255,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_102_Var
 		);
 		Assert.assertEquals("my_weekday", DirectDeclarator_102_Var
-		.getId());
+		.getIdent());
 		//102
 		final Initializer Initializer_103_Var
 		 = (Initializer)InitDeclarator_100_Var
@@ -1269,7 +1269,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_104_Var
 		);
 		Assert.assertEquals("M_FRIDAY", PrimaryExpression_104_Var
-		.getId());
+		.getIdent());
 		//104
 		final ExternalDeclaration ExternalDeclaration_105_Var
 		 = (ExternalDeclaration)External_0_list.get(5);
@@ -1311,7 +1311,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(DirectDeclarator_110_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_110_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_110_list = DirectDeclarator_110_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_110_list);
@@ -1417,7 +1417,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_124_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_124_Var
-		.getId());
+		.getIdent());
 		//124
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_125_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_123_Var
@@ -1447,7 +1447,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_128_Var
 		);
 		Assert.assertEquals("W_MONDAY", PrimaryExpression_128_Var
-		.getId());
+		.getIdent());
 		//128
 		final Statement Statement_129_Var
 		 = (Statement)Statement_120_list.get(1);
@@ -1472,7 +1472,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_132_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_132_Var
-		.getId());
+		.getIdent());
 		//132
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_133_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_131_Var
@@ -1502,7 +1502,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_136_Var
 		);
 		Assert.assertEquals("MONDAY", PrimaryExpression_136_Var
-		.getId());
+		.getIdent());
 		//136
 		final Statement Statement_137_Var
 		 = (Statement)Statement_120_list.get(2);
@@ -1527,7 +1527,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_140_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_140_Var
-		.getId());
+		.getIdent());
 		//140
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_141_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_139_Var
@@ -1557,7 +1557,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_144_Var
 		);
 		Assert.assertEquals("W_SUNDAY", PrimaryExpression_144_Var
-		.getId());
+		.getIdent());
 		//144
 		final Statement Statement_145_Var
 		 = (Statement)Statement_120_list.get(3);
@@ -1582,7 +1582,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_148_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_148_Var
-		.getId());
+		.getIdent());
 		//148
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_149_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_147_Var
@@ -1612,7 +1612,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_152_Var
 		);
 		Assert.assertEquals("SUNDAY", PrimaryExpression_152_Var
-		.getId());
+		.getIdent());
 		//152
 		final Statement Statement_153_Var
 		 = (Statement)Statement_120_list.get(4);
@@ -1637,7 +1637,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_156_Var
 		);
 		Assert.assertEquals("iAmInLove", PrimaryExpression_156_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_155_Var
 		.getOp());
 		//156
@@ -1647,7 +1647,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_157_Var
 		);
 		Assert.assertEquals("I_FRIDAY", PrimaryExpression_157_Var
-		.getId());
+		.getIdent());
 		//157
 		final Statement Statement_158_Var
 		 = (Statement)Statement_120_list.get(5);
@@ -1672,7 +1672,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_161_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_161_Var
-		.getId());
+		.getIdent());
 		//161
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_162_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_160_Var
@@ -1702,7 +1702,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_165_Var
 		);
 		Assert.assertEquals("iAmInLove", PrimaryExpression_165_Var
-		.getId());
+		.getIdent());
 		//165
 		final Statement Statement_166_Var
 		 = (Statement)Statement_120_list.get(6);
@@ -1727,7 +1727,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_169_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_169_Var
-		.getId());
+		.getIdent());
 		//169
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_170_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_168_Var
@@ -1757,7 +1757,7 @@ public class Test0031_Enums {
 		Assert.assertNotNull(PrimaryExpression_173_Var
 		);
 		Assert.assertEquals("my_weekday", PrimaryExpression_173_Var
-		.getId());
+		.getIdent());
 		//173
 		final Statement Statement_174_Var
 		 = (Statement)Statement_120_list.get(7);

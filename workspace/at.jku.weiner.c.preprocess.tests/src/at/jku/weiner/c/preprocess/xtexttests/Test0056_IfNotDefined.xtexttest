@@ -23,7 +23,7 @@ lexer-tokens
 //			(PreprocessorDirectives
 //				directive=
 //				(DefineObjectMacro
-//					id++"FOO",
+//					ident++"FOO",
 //					string++"32"
 //				)
 //			),
@@ -39,7 +39,7 @@ lexer-tokens
 							expr=
 							(PrimaryExpression
 								defined?=true,
-								id++"FOO"
+								ident++"FOO"
 							)
 						),
 						group=

@@ -181,7 +181,7 @@ public class Test0121_ParameterOrder {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("bar bar", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -196,7 +196,7 @@ public class Test0121_ParameterOrder {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("BAZ", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("(FOO baz FOO baz FOO BAR FOO)", DefineObjectMacro_5_Var
 		.getString());
 		//5

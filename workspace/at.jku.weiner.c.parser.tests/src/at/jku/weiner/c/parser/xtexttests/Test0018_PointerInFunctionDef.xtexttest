@@ -38,7 +38,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"do1",
+						ident++"do1",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -60,7 +60,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argc"
+													ident++"argc"
 												),
 												// this is no pointer
 												// so our array of pointers is empty ;-)
@@ -82,7 +82,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argv"
+													ident++"argv"
 												),
 												pointer=
 												(Pointer 
@@ -102,7 +102,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"f"
+													ident++"f"
 												)
 											)
 										),
@@ -118,7 +118,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -149,7 +149,7 @@ SKW_RIGHTBRACE NEWLINE
 										(PostfixExpression
 											expr=
 											(PrimaryExpression
-												id++"argv"
+												ident++"argv"
 											),
 											// [9]
 											suffix=
@@ -171,14 +171,14 @@ SKW_RIGHTBRACE NEWLINE
 										(PostfixExpression
 											expr=
 											(PrimaryExpression
-												id++"argv"
+												ident++"argv"
 											),
 											// [i]
 											suffix=
 											(PostfixExpressionSuffixArray
 												arrayExpr=
 												(PrimaryExpression
-													id++"i"
+													ident++"i"
 												)
 											)
 										),

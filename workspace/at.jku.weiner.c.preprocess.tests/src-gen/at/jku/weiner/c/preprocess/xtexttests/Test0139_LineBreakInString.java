@@ -170,7 +170,7 @@ public class Test0139_LineBreakInString {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("NAME", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("\"Nobody\\nSomebody\"", DefineObjectMacro_3_Var
 		.getString());
 		//3

@@ -270,7 +270,7 @@ public class Test0066_TypeOfTypeSpecifier {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -374,7 +374,7 @@ public class Test0066_TypeOfTypeSpecifier {
 		Assert.assertNotNull(DirectDeclarator_28_Var
 		);
 		Assert.assertEquals("k", DirectDeclarator_28_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

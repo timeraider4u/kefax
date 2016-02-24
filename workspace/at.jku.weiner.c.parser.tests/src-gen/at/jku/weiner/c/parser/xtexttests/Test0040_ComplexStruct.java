@@ -281,7 +281,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("temp", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -342,7 +342,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -384,7 +384,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertEquals("struct", StructOrUnion_20_Var
 		.getName());
 		Assert.assertEquals("outer", StructOrUnionSpecifier_19_Var
-		.getId());
+		.getIdent());
 		//20
 		final StructDeclarationList StructDeclarationList_21_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_19_Var
@@ -430,7 +430,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertEquals("struct", StructOrUnion_26_Var
 		.getName());
 		Assert.assertEquals("temp", StructOrUnionSpecifier_25_Var
-		.getId());
+		.getIdent());
 		//26
 		final StructDeclaratorList StructDeclaratorList_27_Var
 		 = (StructDeclaratorList)StructDeclaration_22_Var
@@ -467,7 +467,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
 		Assert.assertEquals("in1", DirectDeclarator_31_Var
-		.getId());
+		.getIdent());
 		//31
 		final StructDeclaration StructDeclaration_32_Var
 		 = (StructDeclaration)StructDeclaration_21_list.get(1);
@@ -503,7 +503,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertEquals("struct", StructOrUnion_36_Var
 		.getName());
 		Assert.assertEquals("temp", StructOrUnionSpecifier_35_Var
-		.getId());
+		.getIdent());
 		//36
 		final StructDeclaratorList StructDeclaratorList_37_Var
 		 = (StructDeclaratorList)StructDeclaration_32_Var
@@ -532,7 +532,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DirectDeclarator_40_Var
 		);
 		Assert.assertEquals("in2", DirectDeclarator_40_Var
-		.getId());
+		.getIdent());
 		//40
 		final StructDeclaration StructDeclaration_41_Var
 		 = (StructDeclaration)StructDeclaration_21_list.get(2);
@@ -612,7 +612,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertEquals("struct", StructOrUnion_51_Var
 		.getName());
 		Assert.assertEquals("temp", StructOrUnionSpecifier_50_Var
-		.getId());
+		.getIdent());
 		//51
 		final StructDeclaratorList StructDeclaratorList_52_Var
 		 = (StructDeclaratorList)StructDeclaration_47_Var
@@ -641,7 +641,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DirectDeclarator_55_Var
 		);
 		Assert.assertEquals("in3", DirectDeclarator_55_Var
-		.getId());
+		.getIdent());
 		//55
 		final StructDeclaratorList StructDeclaratorList_56_Var
 		 = (StructDeclaratorList)StructDeclaration_41_Var
@@ -670,7 +670,7 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DirectDeclarator_59_Var
 		);
 		Assert.assertEquals("inner4", DirectDeclarator_59_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

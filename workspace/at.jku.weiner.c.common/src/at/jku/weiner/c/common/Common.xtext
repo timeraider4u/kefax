@@ -184,7 +184,7 @@ PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(	
 			const=Constant1
-		|	id=ID
+		|	ident=ID
 		|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	)
 ;

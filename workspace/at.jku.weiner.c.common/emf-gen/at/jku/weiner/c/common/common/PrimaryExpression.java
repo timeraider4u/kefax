@@ -12,7 +12,7 @@ package at.jku.weiner.c.common.common;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getConst <em>Const</em>}</li>
- *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
  * </ul>
@@ -51,30 +51,30 @@ public interface PrimaryExpression extends Expression
 	void setConst(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see at.jku.weiner.c.common.common.CommonPackage#getPrimaryExpression_Id()
+	 * @return the value of the '<em>Ident</em>' attribute.
+	 * @see #setIdent(String)
+	 * @see at.jku.weiner.c.common.common.CommonPackage#getPrimaryExpression_Ident()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getIdent();
 
 	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.common.common.PrimaryExpression#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link at.jku.weiner.c.common.common.PrimaryExpression#getIdent <em>Ident</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Ident</em>' attribute.
+	 * @see #getIdent()
 	 * @generated
 	 */
-	void setId(String value);
+	void setIdent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Expr</b></em>' containment reference.

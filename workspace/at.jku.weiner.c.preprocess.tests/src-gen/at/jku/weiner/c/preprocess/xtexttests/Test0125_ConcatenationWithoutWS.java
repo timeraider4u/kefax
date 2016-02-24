@@ -236,7 +236,7 @@ public class Test0125_ConcatenationWithoutWS {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("__FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -244,7 +244,7 @@ public class Test0125_ConcatenationWithoutWS {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("(X##Y)", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
@@ -259,7 +259,7 @@ public class Test0125_ConcatenationWithoutWS {
 		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
 		);
 		Assert.assertEquals("_FOO", DefineFunctionLikeMacro_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final IdentifierList IdentifierList_7_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
@@ -267,7 +267,7 @@ public class Test0125_ConcatenationWithoutWS {
 		Assert.assertNotNull(IdentifierList_7_Var
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_7_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("__FOO(X,Y)", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7

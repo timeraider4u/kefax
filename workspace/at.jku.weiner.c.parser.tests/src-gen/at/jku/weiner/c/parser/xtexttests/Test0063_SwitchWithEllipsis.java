@@ -296,7 +296,7 @@ public class Test0063_SwitchWithEllipsis {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -366,7 +366,7 @@ public class Test0063_SwitchWithEllipsis {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final FunctionDefinition FunctionDefinition_16_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -412,7 +412,7 @@ public class Test0063_SwitchWithEllipsis {
 		Assert.assertNotNull(PrimaryExpression_21_Var
 		);
 		Assert.assertEquals("argc", PrimaryExpression_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final Statement Statement_22_Var
 		 = (Statement)SelectionStatement_20_Var

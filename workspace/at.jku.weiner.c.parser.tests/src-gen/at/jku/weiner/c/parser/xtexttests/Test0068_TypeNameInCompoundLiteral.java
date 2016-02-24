@@ -245,7 +245,7 @@ public class Test0068_TypeNameInCompoundLiteral {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("abc", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -287,7 +287,7 @@ public class Test0068_TypeNameInCompoundLiteral {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("doSomething2", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final FunctionDefinition FunctionDefinition_16_Var
 		 = (FunctionDefinition)ExternalDeclaration_10_Var
@@ -360,7 +360,7 @@ public class Test0068_TypeNameInCompoundLiteral {
 		Assert.assertNotNull(TypedefName_25_Var
 		);
 		Assert.assertEquals("abc", TypedefName_25_Var
-		.getId());
+		.getIdent());
 		//25
 		final InitializerList InitializerList_26_Var
 		 = (InitializerList)PostfixExpression_21_Var

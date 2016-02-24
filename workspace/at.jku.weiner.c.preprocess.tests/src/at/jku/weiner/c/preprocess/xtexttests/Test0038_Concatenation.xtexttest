@@ -31,10 +31,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list=
 					(IdentifierList
-						id+*"[x, y]"
+						ident+*"[x, y]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -43,30 +43,30 @@ lexer-tokens
 //					),
 //					(ReplaceLine
 //						string++" y, ",
-//						id++"x"
+//						ident++"x"
 //					),
 //					(ReplaceLine
 //						string++" ",
-//						id++"y"
+//						ident++"y"
 //					)
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"BAR",
+					ident++"BAR",
 					list=
 					(IdentifierList
-						id+*"[x, y]"
+						ident+*"[x, y]"
 					),
 //					replacement+=
 //					(ReplaceLine
 						string++"#x #y, x ## y"
-//						id++"x"
+//						ident++"x"
 //					),
 //					(ReplaceLine
 //						string++" ",
-//						id++"y"
+//						ident++"y"
 //					),
 //					(ReplaceLine
 //						concatenate?=true,

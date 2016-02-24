@@ -35,7 +35,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"a",
+						ident++"a",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -57,7 +57,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"num"
+													ident++"num"
 												)
 											)
 										) 
@@ -85,7 +85,7 @@ SKW_RIGHTBRACE NEWLINE
 									op++"=",
 									expr=
 									(PrimaryExpression
-										id++"num"
+										ident++"num"
 									),
 									assignmentExpr=
 									(PrimaryExpression
@@ -102,7 +102,7 @@ SKW_RIGHTBRACE NEWLINE
 									left=
 								
 									(PrimaryExpression
-										id++"num"
+										ident++"num"
 									),
 									right=
 									(PrimaryExpression
@@ -117,7 +117,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"num"
+										ident++"num"
 									),
 									suffix=
 									(PostfixExpressionSuffixPlusPlus
@@ -140,7 +140,7 @@ SKW_RIGHTBRACE NEWLINE
 														(PostfixExpression
 															expr=
 															(PrimaryExpression
-																id++"num"
+																ident++"num"
 															),
 															suffix=
 															(PostfixExpressionSuffixMinusMinus

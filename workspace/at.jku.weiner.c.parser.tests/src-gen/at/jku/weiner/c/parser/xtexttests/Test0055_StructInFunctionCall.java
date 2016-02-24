@@ -274,7 +274,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -335,7 +335,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -402,7 +402,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(DirectDeclarator_23_Var
 		);
 		Assert.assertEquals("myprintf", DirectDeclarator_23_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_23_list = DirectDeclarator_23_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_23_list);
@@ -472,7 +472,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertEquals("struct", StructOrUnion_32_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_31_Var
-		.getId());
+		.getIdent());
 		//32
 		final Declarator Declarator_33_Var
 		 = (Declarator)ParameterDeclaration_28_Var
@@ -486,7 +486,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(DirectDeclarator_34_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_34_Var
-		.getId());
+		.getIdent());
 		//34
 		final ExternalDeclaration ExternalDeclaration_35_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -528,7 +528,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(DirectDeclarator_40_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_40_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_40_list = DirectDeclarator_40_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_40_list);
@@ -598,7 +598,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertEquals("struct", StructOrUnion_49_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_48_Var
-		.getId());
+		.getIdent());
 		//49
 		final Declarator Declarator_50_Var
 		 = (Declarator)ParameterDeclaration_45_Var
@@ -612,7 +612,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(DirectDeclarator_51_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_51_Var
-		.getId());
+		.getIdent());
 		//51
 		final FunctionDefinition FunctionDefinition_52_Var
 		 = (FunctionDefinition)ExternalDeclaration_35_Var
@@ -662,7 +662,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(PrimaryExpression_58_Var
 		);
 		Assert.assertEquals("myprintf", PrimaryExpression_58_Var
-		.getId());
+		.getIdent());
 		//58
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_59_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_57_Var
@@ -685,7 +685,7 @@ public class Test0055_StructInFunctionCall {
 		Assert.assertNotNull(PrimaryExpression_61_Var
 		);
 		Assert.assertEquals("foobar", PrimaryExpression_61_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

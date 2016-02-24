@@ -225,7 +225,7 @@ public class Test0087_InvalidChar {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("foo_bar", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_9_list = DirectDeclarator_9_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_9_list);
@@ -307,7 +307,7 @@ public class Test0087_InvalidChar {
 		Assert.assertNotNull(DirectDeclarator_20_Var
 		);
 		Assert.assertEquals("baz", DirectDeclarator_20_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_20_list = DirectDeclarator_20_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_20_list);

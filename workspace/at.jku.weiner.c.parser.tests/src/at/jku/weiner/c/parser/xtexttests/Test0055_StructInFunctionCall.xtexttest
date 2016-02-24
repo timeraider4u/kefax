@@ -41,7 +41,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"foo",
+							ident++"foo",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -62,7 +62,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -95,7 +95,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"myprintf",
+								ident++"myprintf",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -116,7 +116,7 @@ SKW_RIGHTBRACE NEWLINE
 																(StructOrUnion
 																	name++"struct"
 																),
-																id++"foo"
+																ident++"foo"
 															)
 														)
 													),
@@ -124,7 +124,7 @@ SKW_RIGHTBRACE NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"foobar"
+															ident++"foobar"
 														)
 													)
 												)
@@ -153,7 +153,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"bar",
+						ident++"bar",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -174,7 +174,7 @@ SKW_RIGHTBRACE NEWLINE
 														(StructOrUnion
 															name++"struct"
 														),
-														id++"foo"
+														ident++"foo"
 													)
 												)
 											),
@@ -182,7 +182,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"foobar"
+													ident++"foobar"
 												)
 											)
 										) 
@@ -208,7 +208,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"myprintf"
+										ident++"myprintf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -216,7 +216,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												id++"foobar"
+												ident++"foobar"
 											)
 										)
 									)

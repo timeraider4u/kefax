@@ -2900,13 +2900,13 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__PrimaryExpression__Alternatives_1"
-	// InternalCommon.g:1285:1: rule__PrimaryExpression__Alternatives_1 : ( ( ( rule__PrimaryExpression__ConstAssignment_1_0 ) ) | ( ( rule__PrimaryExpression__IdAssignment_1_1 ) ) | ( ( rule__PrimaryExpression__Group_1_2__0 ) ) );
+	// InternalCommon.g:1285:1: rule__PrimaryExpression__Alternatives_1 : ( ( ( rule__PrimaryExpression__ConstAssignment_1_0 ) ) | ( ( rule__PrimaryExpression__IdentAssignment_1_1 ) ) | ( ( rule__PrimaryExpression__Group_1_2__0 ) ) );
 	public final void rule__PrimaryExpression__Alternatives_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// InternalCommon.g:1289:1: ( ( ( rule__PrimaryExpression__ConstAssignment_1_0 ) ) | ( ( rule__PrimaryExpression__IdAssignment_1_1 ) ) | ( ( rule__PrimaryExpression__Group_1_2__0 ) ) )
+			// InternalCommon.g:1289:1: ( ( ( rule__PrimaryExpression__ConstAssignment_1_0 ) ) | ( ( rule__PrimaryExpression__IdentAssignment_1_1 ) ) | ( ( rule__PrimaryExpression__Group_1_2__0 ) ) )
 			int alt8=3;
 			switch ( input.LA(1) ) {
 			case RULE_BIN_LITERAL:
@@ -2958,22 +2958,22 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 					}
 					break;
 				case 2 :
-					// InternalCommon.g:1300:1: ( ( rule__PrimaryExpression__IdAssignment_1_1 ) )
+					// InternalCommon.g:1300:1: ( ( rule__PrimaryExpression__IdentAssignment_1_1 ) )
 					{
-					// InternalCommon.g:1300:1: ( ( rule__PrimaryExpression__IdAssignment_1_1 ) )
-					// InternalCommon.g:1301:1: ( rule__PrimaryExpression__IdAssignment_1_1 )
+					// InternalCommon.g:1300:1: ( ( rule__PrimaryExpression__IdentAssignment_1_1 ) )
+					// InternalCommon.g:1301:1: ( rule__PrimaryExpression__IdentAssignment_1_1 )
 					{
-					 before(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1()); 
-					// InternalCommon.g:1302:2: ( rule__PrimaryExpression__IdAssignment_1_1 )
-					// InternalCommon.g:1302:2: rule__PrimaryExpression__IdAssignment_1_1
+					 before(grammarAccess.getPrimaryExpressionAccess().getIdentAssignment_1_1()); 
+					// InternalCommon.g:1302:2: ( rule__PrimaryExpression__IdentAssignment_1_1 )
+					// InternalCommon.g:1302:2: rule__PrimaryExpression__IdentAssignment_1_1
 					{
 					pushFollow(FOLLOW_2);
-					rule__PrimaryExpression__IdAssignment_1_1();
+					rule__PrimaryExpression__IdentAssignment_1_1();
 					state._fsp--;
 
 					}
 
-					 after(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1()); 
+					 after(grammarAccess.getPrimaryExpressionAccess().getIdentAssignment_1_1()); 
 					}
 
 					}
@@ -10391,9 +10391,9 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 
 
-	// $ANTLR start "rule__PrimaryExpression__IdAssignment_1_1"
-	// InternalCommon.g:4500:1: rule__PrimaryExpression__IdAssignment_1_1 : ( RULE_ID ) ;
-	public final void rule__PrimaryExpression__IdAssignment_1_1() throws RecognitionException {
+	// $ANTLR start "rule__PrimaryExpression__IdentAssignment_1_1"
+	// InternalCommon.g:4500:1: rule__PrimaryExpression__IdentAssignment_1_1 : ( RULE_ID ) ;
+	public final void rule__PrimaryExpression__IdentAssignment_1_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
@@ -10404,9 +10404,9 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 			// InternalCommon.g:4505:1: ( RULE_ID )
 			// InternalCommon.g:4506:1: RULE_ID
 			{
-			 before(grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); 
+			 before(grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_1_0()); 
 			match(input,RULE_ID,FOLLOW_2); 
-			 after(grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); 
+			 after(grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_1_0()); 
 			}
 
 			}
@@ -10423,7 +10423,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 		}
 	}
-	// $ANTLR end "rule__PrimaryExpression__IdAssignment_1_1"
+	// $ANTLR end "rule__PrimaryExpression__IdentAssignment_1_1"
 
 
 

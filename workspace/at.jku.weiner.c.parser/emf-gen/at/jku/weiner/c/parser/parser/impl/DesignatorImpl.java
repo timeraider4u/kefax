@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EClass;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getTo <em>To</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,9 +104,9 @@ public class DesignatorImpl extends PersistentEObjectImpl implements Designator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.DESIGNATOR__ID, true);
+		return (String)eGet(ParserPackage.Literals.DESIGNATOR__IDENT, true);
 	}
 
 	/**
@@ -114,9 +114,9 @@ public class DesignatorImpl extends PersistentEObjectImpl implements Designator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.DESIGNATOR__ID, newId);
+		eSet(ParserPackage.Literals.DESIGNATOR__IDENT, newIdent);
 	}
 
 } //DesignatorImpl

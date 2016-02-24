@@ -219,7 +219,7 @@ public class Test0017_PointerInFunctionDecl {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -289,7 +289,7 @@ public class Test0017_PointerInFunctionDecl {
 		Assert.assertNotNull(DirectDeclarator_17_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_17_Var
-		.getId());
+		.getIdent());
 		//17
 		final Pointer Pointer_18_Var
 		 = (Pointer)Declarator_16_Var
@@ -333,7 +333,7 @@ public class Test0017_PointerInFunctionDecl {
 		Assert.assertNotNull(DirectDeclarator_23_Var
 		);
 		Assert.assertEquals("argv", DirectDeclarator_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final Pointer Pointer_24_Var
 		 = (Pointer)Declarator_22_Var

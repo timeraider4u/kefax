@@ -193,7 +193,7 @@ public class Test0080_StructWithEmptyDecl {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("temp", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -254,7 +254,7 @@ public class Test0080_StructWithEmptyDecl {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final StructDeclaration StructDeclaration_15_Var
 		 = (StructDeclaration)StructDeclaration_7_list.get(1);

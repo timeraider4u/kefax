@@ -29,7 +29,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					ident++"foo",
 					//replacement+=
 					//(ReplaceLine
 						string++"bar()"

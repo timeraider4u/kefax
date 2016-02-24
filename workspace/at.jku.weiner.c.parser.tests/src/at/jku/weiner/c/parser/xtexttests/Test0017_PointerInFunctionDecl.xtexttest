@@ -34,7 +34,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do1",
+								ident++"do1",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -56,7 +56,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"argc"
+															ident++"argc"
 														),
 														pointer=
 														(Pointer 
@@ -76,7 +76,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"argv"
+															ident++"argv"
 														),
 														pointer=
 														(Pointer 

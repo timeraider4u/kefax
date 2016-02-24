@@ -36,7 +36,7 @@ KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"mytype"
+								ident++"mytype"
 							)
 						)
 					)
@@ -61,7 +61,7 @@ KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a",
+								ident++"a",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									expr isNull,

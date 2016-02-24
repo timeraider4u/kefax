@@ -40,7 +40,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTBRACKET
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"__my_array",
+								ident++"__my_array",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									expr=

@@ -33,7 +33,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"STRUCT",
+							ident++"STRUCT",
 							structDeclList isNull
 						)
 					)
@@ -59,7 +59,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do2",
+								ident++"do2",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -80,7 +80,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 																(StructOrUnion
 																	name++"struct"
 																),
-																id++"STRUCT",
+																ident++"STRUCT",
 																structDeclList isNull
 															)
 														)
@@ -93,7 +93,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 														),
 														declarator=
 														(DirectDeclarator
-															id++"s"
+															ident++"s"
 														)
 													)
 												)
@@ -126,7 +126,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do3",
+								ident++"do3",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -147,7 +147,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 																(StructOrUnion
 																	name++"struct"
 																),
-																id++"STRUCT",
+																ident++"STRUCT",
 																structDeclList isNull
 															)
 														)
@@ -160,7 +160,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 														),
 														declarator=
 														(DirectDeclarator
-															id++"s"
+															ident++"s"
 														)
 													)
 												)
@@ -193,7 +193,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do4",
+								ident++"do4",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -214,7 +214,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 																(StructOrUnion
 																	name++"struct"
 																),
-																id++"STRUCT",
+																ident++"STRUCT",
 																structDeclList isNull
 															)
 														)

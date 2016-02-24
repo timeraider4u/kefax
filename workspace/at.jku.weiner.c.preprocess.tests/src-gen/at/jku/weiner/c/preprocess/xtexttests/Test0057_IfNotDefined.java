@@ -172,7 +172,7 @@ public class Test0057_IfNotDefined {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("64", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -209,7 +209,7 @@ public class Test0057_IfNotDefined {
 		Assert.assertTrue(PrimaryExpression_8_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final GroupOpt GroupOpt_9_Var
 		 = (GroupOpt)IfConditional_6_Var

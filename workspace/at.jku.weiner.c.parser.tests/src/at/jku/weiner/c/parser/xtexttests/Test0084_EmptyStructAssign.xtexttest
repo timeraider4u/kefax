@@ -31,11 +31,11 @@ KW_STRUCT WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"Employee",
+							ident++"Employee",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
-								// int id
+								// int ident
 								(StructDeclaration
 									list=
 									(SpecifierQualifierList
@@ -52,7 +52,7 @@ KW_STRUCT WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"id"
+													ident++"ident"
 												)
 											)
 										)
@@ -77,7 +77,7 @@ KW_STRUCT WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"Employee",
+							ident++"Employee",
 							structDeclList isNull
 						)
 					)
@@ -90,7 +90,7 @@ KW_STRUCT WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"emp"
+								ident++"emp"
 							)
 						),
 						initializer=

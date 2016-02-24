@@ -25,7 +25,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"__STDC_VERSION__",
+					ident++"__STDC_VERSION__",
 					string++"201300UL"
 				)
 			),
@@ -37,20 +37,20 @@ lexer-tokens
 						expression=
 						(PrimaryExpression
 							parentheses?=true,
-							//id++"__STDC_VERSION__"
+							//ident++"__STDC_VERSION__"
 							expr=
 							(common::LogicalAndExpression
 								left=
 								(PrimaryExpression
 									defined?=true,
-									id++"__STDC_VERSION__"
+									ident++"__STDC_VERSION__"
 								),
 								right=
 								(common::RelationalExpression
 									op++">=",
 									left=
 									(PrimaryExpression
-										id++"__STDC_VERSION__"
+										ident++"__STDC_VERSION__"
 									),
 									right=
 									(PrimaryExpression

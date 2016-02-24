@@ -210,7 +210,7 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1024", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -225,7 +225,7 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("FOO", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -254,7 +254,7 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(UnDefineDirective_9_Var
 		);
 		Assert.assertEquals("FOO", UnDefineDirective_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final PreprocessorDirectives PreprocessorDirectives_10_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(5);
@@ -267,7 +267,7 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(DefineObjectMacro_11_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_11_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("64", DefineObjectMacro_11_Var
 		.getString());
 		//11

@@ -182,7 +182,7 @@ public class Test0009_SimpleStmt {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var

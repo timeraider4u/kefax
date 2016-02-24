@@ -335,7 +335,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -405,7 +405,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_17_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_17_Var
-		.getId());
+		.getIdent());
 		//17
 		final Pointer Pointer_18_Var
 		 = (Pointer)Declarator_16_Var
@@ -449,7 +449,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_23_Var
 		);
 		Assert.assertEquals("argv", DirectDeclarator_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final Pointer Pointer_24_Var
 		 = (Pointer)Declarator_22_Var
@@ -493,7 +493,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_29_Var
 		);
 		Assert.assertEquals("num", DirectDeclarator_29_Var
-		.getId());
+		.getIdent());
 		//29
 		final Pointer Pointer_30_Var
 		 = (Pointer)Declarator_28_Var
@@ -561,7 +561,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_38_Var
 		);
 		Assert.assertEquals("do2", DirectDeclarator_38_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_38_list = DirectDeclarator_38_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_38_list);
@@ -631,7 +631,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_47_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_47_Var
-		.getId());
+		.getIdent());
 		//47
 		final Pointer Pointer_48_Var
 		 = (Pointer)Declarator_46_Var
@@ -675,7 +675,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_53_Var
 		);
 		Assert.assertEquals("b", DirectDeclarator_53_Var
-		.getId());
+		.getIdent());
 		//53
 		final Pointer Pointer_54_Var
 		 = (Pointer)Declarator_52_Var
@@ -719,7 +719,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_59_Var
 		);
 		Assert.assertEquals("array", DirectDeclarator_59_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_59_list = DirectDeclarator_59_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_59_list);
@@ -744,7 +744,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(PrimaryExpression_62_Var
 		);
 		Assert.assertEquals("a", PrimaryExpression_62_Var
-		.getId());
+		.getIdent());
 		//62
 		final DeclaratorSuffix DeclaratorSuffix_63_Var
 		 = (DeclaratorSuffix)DeclaratorSuffix_59_list.get(1);
@@ -757,7 +757,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(PrimaryExpression_64_Var
 		);
 		Assert.assertEquals("b", PrimaryExpression_64_Var
-		.getId());
+		.getIdent());
 		//64
 		final Pointer Pointer_65_Var
 		 = (Pointer)Declarator_58_Var
@@ -825,7 +825,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_73_Var
 		);
 		Assert.assertEquals("do3", DirectDeclarator_73_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_73_list = DirectDeclarator_73_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_73_list);
@@ -895,7 +895,7 @@ public class Test0088_Restrict {
 		Assert.assertNotNull(DirectDeclarator_82_Var
 		);
 		Assert.assertEquals("array", DirectDeclarator_82_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_82_list = DirectDeclarator_82_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_82_list);

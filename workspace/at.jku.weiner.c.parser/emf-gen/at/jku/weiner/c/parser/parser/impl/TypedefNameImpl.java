@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,9 +61,9 @@ public class TypedefNameImpl extends PersistentEObjectImpl implements TypedefNam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.TYPEDEF_NAME__ID, true);
+		return (String)eGet(ParserPackage.Literals.TYPEDEF_NAME__IDENT, true);
 	}
 
 	/**
@@ -71,9 +71,9 @@ public class TypedefNameImpl extends PersistentEObjectImpl implements TypedefNam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.TYPEDEF_NAME__ID, newId);
+		eSet(ParserPackage.Literals.TYPEDEF_NAME__IDENT, newIdent);
 	}
 
 } //TypedefNameImpl

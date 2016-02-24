@@ -163,7 +163,7 @@ public class Test0126_ImportantWS {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("foo", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("foo bar", DefineObjectMacro_3_Var
 		.getString());
 		//3

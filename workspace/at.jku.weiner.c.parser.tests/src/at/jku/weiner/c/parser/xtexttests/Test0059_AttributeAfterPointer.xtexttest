@@ -48,14 +48,14 @@ KW_EXTERN WHITESPACE KW_VOID WHITESPACE SKW_STAR WHITESPACE
 									(GccAttributeList
 										gccAttribute+=
 										(GccAttribute
-											id++"warn_unused_result"
+											ident++"warn_unused_result"
 										)
 									)
 								)
 							),
 							declarator=
 							(DirectDeclarator
-								id++"doSomething",
+								ident++"doSomething",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=

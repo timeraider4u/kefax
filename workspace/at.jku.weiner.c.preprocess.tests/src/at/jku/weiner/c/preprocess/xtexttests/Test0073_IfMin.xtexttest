@@ -30,10 +30,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"MIN",
+					ident++"MIN",
 					list=
 					(IdentifierList
-						id+*"[X, Y]"
+						ident+*"[X, Y]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -53,7 +53,7 @@ lexer-tokens
 							(common::PostfixExpression
 								expr=
 								(PrimaryExpression
-									id++"MIN"
+									ident++"MIN"
 								),
 								suffix=
 								(common::PostfixExpressionSuffixArgument

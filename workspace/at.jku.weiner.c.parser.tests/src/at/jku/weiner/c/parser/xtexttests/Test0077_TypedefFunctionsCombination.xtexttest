@@ -41,7 +41,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"abc"
+								ident++"abc"
 							)
 						)
 					)
@@ -63,7 +63,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"foobar",
+						ident++"foobar",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -85,7 +85,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"def"
+													ident++"def"
 												)
 											)
 										)
@@ -123,7 +123,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"foobar",
+								ident++"foobar",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -145,7 +145,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"def"
+															ident++"def"
 														)
 													)
 												)

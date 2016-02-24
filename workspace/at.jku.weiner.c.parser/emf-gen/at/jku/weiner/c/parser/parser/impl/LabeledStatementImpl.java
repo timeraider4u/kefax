@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getCase <em>Case</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLower <em>Lower</em>}</li>
@@ -56,9 +56,9 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.LABELED_STATEMENT__ID, true);
+		return (String)eGet(ParserPackage.Literals.LABELED_STATEMENT__IDENT, true);
 	}
 
 	/**
@@ -66,9 +66,9 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.LABELED_STATEMENT__ID, newId);
+		eSet(ParserPackage.Literals.LABELED_STATEMENT__IDENT, newIdent);
 	}
 
 	/**

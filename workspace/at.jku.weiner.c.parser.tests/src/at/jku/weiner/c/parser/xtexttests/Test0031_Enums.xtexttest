@@ -74,7 +74,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_MONDAY"
+								ident++"W_MONDAY"
 							)
 						),
 						initializer=
@@ -93,7 +93,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_TUESDAY"
+								ident++"W_TUESDAY"
 							)
 						),
 						initializer=
@@ -112,7 +112,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_WEDNESDAY"
+								ident++"W_WEDNESDAY"
 							)
 						),
 						initializer=
@@ -131,7 +131,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_THURSDAY"
+								ident++"W_THURSDAY"
 							)
 						),
 						initializer=
@@ -150,7 +150,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_FRIDAY"
+								ident++"W_FRIDAY"
 							)
 						),
 						initializer=
@@ -169,7 +169,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_SATURDAY"
+								ident++"W_SATURDAY"
 							)
 						),
 						initializer=
@@ -188,7 +188,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"W_SUNDAY"
+								ident++"W_SUNDAY"
 							)
 						),
 						initializer=
@@ -220,7 +220,7 @@ SKW_RIGHTBRACE NEWLINE
 								enumerator+=
 								// MONDAY = ...
 								(Enumerator
-									id++"MONDAY",
+									ident++"MONDAY",
 									expr=
 									(PrimaryExpression
 										const=
@@ -231,27 +231,27 @@ SKW_RIGHTBRACE NEWLINE
 								), // end enumerator
 								// TUESDAY = ...
 								(Enumerator
-									id++"TUESDAY"
+									ident++"TUESDAY"
 								), // end enumerator
 								// WEDNESDAY = ...
 								(Enumerator
-									id++"WEDNESDAY"
+									ident++"WEDNESDAY"
 								), // end enumerator
 								// THURSDAY = ...
 								(Enumerator
-									id++"THURSDAY"
+									ident++"THURSDAY"
 								), // end enumerator
 								// FRIDAY = ...
 								(Enumerator
-									id++"FRIDAY"
+									ident++"FRIDAY"
 								), // end enumerator
 								// SATURDAY = ...
 								(Enumerator
-									id++"SATURDAY"
+									ident++"SATURDAY"
 								), // end enumerator
 								// SUNDAY = ...
 								(Enumerator
-									id++"SUNDAY"
+									ident++"SUNDAY"
 								) // end enumerator
 							)
 						)
@@ -275,7 +275,7 @@ SKW_RIGHTBRACE NEWLINE
 								enumerator+=
 								// I_MONDAY = ...
 								(Enumerator
-									id++"I_MONDAY",
+									ident++"I_MONDAY",
 									expr=
 									(PrimaryExpression
 										const=
@@ -286,27 +286,27 @@ SKW_RIGHTBRACE NEWLINE
 								), // end enumerator
 								// I_TUESDAY = ...
 								(Enumerator
-									id++"I_TUESDAY"
+									ident++"I_TUESDAY"
 								), // end enumerator
 								// I_WEDNESDAY = ...
 								(Enumerator
-									id++"I_WEDNESDAY"
+									ident++"I_WEDNESDAY"
 								), // end enumerator
 								// I_THURSDAY = ...
 								(Enumerator
-									id++"I_THURSDAY"
+									ident++"I_THURSDAY"
 								), // end enumerator
 								// I_FRIDAY = ...
 								(Enumerator
-									id++"I_FRIDAY"
+									ident++"I_FRIDAY"
 								), // end enumerator
 								// I_SATURDAY = ...
 								(Enumerator
-									id++"I_SATURDAY"
+									ident++"I_SATURDAY"
 								), // end enumerator
 								// I_SUNDAY = ...
 								(Enumerator
-									id++"I_SUNDAY"
+									ident++"I_SUNDAY"
 								) // end enumerator
 							)
 						)
@@ -325,13 +325,13 @@ SKW_RIGHTBRACE NEWLINE
 					(TypeSpecifier
 						specifier=
 						(EnumSpecifier
-							id++"weekdays",
+							ident++"weekdays",
 							enumList=
 							(EnumeratorList
 								enumerator+=
 								// M_MONDAY = ...
 								(Enumerator
-									id++"M_MONDAY",
+									ident++"M_MONDAY",
 									expr=
 									(PrimaryExpression
 										const=
@@ -342,27 +342,27 @@ SKW_RIGHTBRACE NEWLINE
 								), // end enumerator
 								// M_TUESDAY = ...
 								(Enumerator
-									id++"M_TUESDAY"
+									ident++"M_TUESDAY"
 								), // end enumerator
 								// M_WEDNESDAY = ...
 								(Enumerator
-									id++"M_WEDNESDAY"
+									ident++"M_WEDNESDAY"
 								), // end enumerator
 								// M_THURSDAY = ...
 								(Enumerator
-									id++"M_THURSDAY"
+									ident++"M_THURSDAY"
 								), // end enumerator
 								// M_FRIDAY = ...
 								(Enumerator
-									id++"M_FRIDAY"
+									ident++"M_FRIDAY"
 								), // end enumerator
 								// M_SATURDAY = ...
 								(Enumerator
-									id++"M_SATURDAY"
+									ident++"M_SATURDAY"
 								), // end enumerator
 								// M_SUNDAY = ...
 								(Enumerator
-									id++"M_SUNDAY"
+									ident++"M_SUNDAY"
 								) // end enumerator
 							)
 						)
@@ -381,7 +381,7 @@ SKW_RIGHTBRACE NEWLINE
 					(TypeSpecifier
 						specifier=
 						(EnumSpecifier
-							id++"weekdays"
+							ident++"weekdays"
 						)
 					)
 				),
@@ -393,14 +393,14 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"my_weekday"
+								ident++"my_weekday"
 							)
 						),
 						initializer=
 						(Initializer
 							expr=
 							(PrimaryExpression
-								id++"M_FRIDAY"
+								ident++"M_FRIDAY"
 							)
 						) // end initializer
 					) // end init declarator
@@ -422,7 +422,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -462,7 +462,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -473,7 +473,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"Monday is %d. day of week\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"W_MONDAY"
+												ident++"W_MONDAY"
 											)
 										)
 									)
@@ -487,7 +487,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -498,7 +498,7 @@ SKW_RIGHTBRACE NEWLINE
 													string+*"[\\\"Monday is %d. day of week\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"MONDAY"
+												ident++"MONDAY"
 											)
 										)
 									)
@@ -512,7 +512,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -523,7 +523,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"Sunday is %d. day of week\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"W_SUNDAY"
+												ident++"W_SUNDAY"
 											)
 										)
 									)
@@ -537,7 +537,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -548,7 +548,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"Sunday is %d. day of week\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"SUNDAY"
+												ident++"SUNDAY"
 											)
 										)
 									)
@@ -562,12 +562,12 @@ SKW_RIGHTBRACE NEWLINE
 								(AssignmentExpression
 									expr=
 									(PrimaryExpression
-										id++"iAmInLove"
+										ident++"iAmInLove"
 									),
 									op++"=",
 									assignmentExpr=
 									(PrimaryExpression
-										id++"I_FRIDAY"
+										ident++"I_FRIDAY"
 									)
 								) // end assignment expression
 							)
@@ -579,7 +579,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -590,7 +590,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"The %d. day of the week is my favourite!\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"iAmInLove"
+												ident++"iAmInLove"
 											)
 										)
 									)
@@ -604,7 +604,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -615,7 +615,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"The %d. day of the week is my favourite!\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"my_weekday"
+												ident++"my_weekday"
 											)
 										)
 									)

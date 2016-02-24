@@ -51,7 +51,7 @@ public class TestStringification {
 	public void testStringification1() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("X");
+		list.getIdent().add("X");
 		this.replaceLine = "X #X";
 		this.definitionTable.addFunctionMacro("FOO", list, this.replaceLine);
 		final String code = "FOO(5)";
@@ -63,7 +63,7 @@ public class TestStringification {
 	public void testStringification2() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("X");
+		list.getIdent().add("X");
 		// define FOO(X) X #X X #X X #X
 		this.replaceLine = "X #X X #X X #X";
 		this.definitionTable.addFunctionMacro("FOO", list, this.replaceLine);
@@ -76,7 +76,7 @@ public class TestStringification {
 	public void testStringification3() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
-		list.getId().add("AB");
+		list.getIdent().add("AB");
 		this.replaceLine = "AB # AB AB #AB  ";
 		this.definitionTable.addFunctionMacro("FOO", list, this.replaceLine);
 		final String code = "FOO(57)";
@@ -87,7 +87,7 @@ public class TestStringification {
 	@Test(timeout = 1000)
 	public void testStringification4() {
 		final IdentifierList list = this.factory.createIdentifierList();
-		list.getId().add("AB");
+		list.getIdent().add("AB");
 		// AB##AB, AB-#AB (AB##AB), #AB, "# AB, AB ## AB", AB # AB, AB ## AB
 		this.replaceLine = " AB##AB, AB-#AB (AB##AB), #AB, \"# AB, AB ## AB\", AB # AB, AB ## AB";
 		this.definitionTable.addFunctionMacro("FOO", list, this.replaceLine);

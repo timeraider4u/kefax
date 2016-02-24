@@ -25,28 +25,28 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"A01",
+					ident++"A01",
 					string++"a01"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"BIG_NUMBER",
+					ident++"BIG_NUMBER",
 					string++"5"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"__INT__",
+					ident++"__INT__",
 					string++"int"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"_NUMBER",
+					ident++"_NUMBER",
 					string++"15"
 				)
 			),

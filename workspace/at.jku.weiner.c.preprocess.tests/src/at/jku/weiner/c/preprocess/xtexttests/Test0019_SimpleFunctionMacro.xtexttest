@@ -23,7 +23,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"halt",
+					ident++"halt",
 					list isNull,
 					string++"stop()"
 				)

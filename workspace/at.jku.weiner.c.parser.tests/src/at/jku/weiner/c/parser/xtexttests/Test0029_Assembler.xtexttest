@@ -88,7 +88,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"errno"
+								ident++"errno"
 							)
 						)
 					)
@@ -109,7 +109,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"funcname",
+						ident++"funcname",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -131,7 +131,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"arg1"
+													ident++"arg1"
 												)
 											)
 										),
@@ -147,7 +147,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"arg2"
+													ident++"arg2"
 												),
 												pointer=
 												(Pointer 
@@ -167,7 +167,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"arg3"
+													ident++"arg3"
 												)
 											)
 										)
@@ -201,7 +201,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"res"
+											ident++"res"
 										)
 									)
 								)
@@ -240,7 +240,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"res"
+															ident++"res"
 														)
 													)
 												)
@@ -260,7 +260,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"arg1"
+															ident++"arg1"
 														)
 													)
 												)
@@ -281,7 +281,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"arg2"
+															ident++"arg2"
 														) // end  expression
 													)
 												)
@@ -305,7 +305,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"arg3"
+															ident++"arg3"
 														) // end  expression
 													)
 												)
@@ -391,7 +391,7 @@ SKW_RIGHTBRACE NEWLINE
 										),
 										right=
 										(PrimaryExpression
-											id++"res"
+											ident++"res"
 										)
 									),
 									right=
@@ -399,7 +399,7 @@ SKW_RIGHTBRACE NEWLINE
 										op++"<",
 										left=
 										(PrimaryExpression
-											id++"res"
+											ident++"res"
 										),
 										right=
 										(PrimaryExpression
@@ -428,7 +428,7 @@ SKW_RIGHTBRACE NEWLINE
 														(AssignmentExpression
 															expr=
 															(PrimaryExpression
-																id++"errno"
+																ident++"errno"
 															),
 															op++"=",
 															assignmentExpr=
@@ -436,7 +436,7 @@ SKW_RIGHTBRACE NEWLINE
 																op++"-",
 																expr=
 																(PrimaryExpression
-																	id++"res"
+																	ident++"res"
 																)
 															)
 														) // end assignment expression
@@ -450,7 +450,7 @@ SKW_RIGHTBRACE NEWLINE
 														(AssignmentExpression
 															expr=
 															(PrimaryExpression
-																id++"res"
+																ident++"res"
 															),
 															op++"=",
 															assignmentExpr=
@@ -479,7 +479,7 @@ SKW_RIGHTBRACE NEWLINE
 							(JumpStatement
 								expr=
 								(PrimaryExpression
-									id++"res"
+									ident++"res"
 								), // end expression
 							return++"return"
 							) // end jump statement

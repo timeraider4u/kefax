@@ -928,16 +928,16 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getIdentMyCodeParserRuleCall_3_0()); 
 	    }
-		lv_id_3_0=ruleMyCode		{
+		lv_ident_3_0=ruleMyCode		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineObjectMacroRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1045,16 +1045,16 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getIdentMyCodeParserRuleCall_3_0()); 
 	    }
-		lv_id_3_0=ruleMyCode		{
+		lv_ident_3_0=ruleMyCode		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1175,16 +1175,16 @@ ruleIdentifierList returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_0_0()); 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentPP_IDParserRuleCall_1_0_0_0()); 
 	    }
-		lv_id_1_0=rulePP_ID		{
+		lv_ident_1_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
        		add(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1218,16 +1218,16 @@ this_SKW_COMMA_3=RULE_SKW_COMMA
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_1_3_0()); 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentPP_IDParserRuleCall_1_0_1_3_0()); 
 	    }
-		lv_id_5_0=rulePP_ID		{
+		lv_ident_5_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
        		add(
        			$current, 
-       			"id",
-        		lv_id_5_0, 
+       			"ident",
+        		lv_ident_5_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1711,16 +1711,16 @@ this_UNDEF_1=RULE_UNDEF
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnDefineDirectiveAccess().getIdPP_IDParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getUnDefineDirectiveAccess().getIdentPP_IDParserRuleCall_3_0()); 
 	    }
-		lv_id_3_0=rulePP_ID		{
+		lv_ident_3_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnDefineDirectiveRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2086,16 +2086,16 @@ this_IFDEF_1=RULE_IFDEF
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getIdentPP_IDParserRuleCall_3_0()); 
 	    }
-		lv_id_3_0=rulePP_ID		{
+		lv_ident_3_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfDefConditionalRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2200,16 +2200,16 @@ this_IFNOTDEF_1=RULE_IFNOTDEF
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getIdentPP_IDParserRuleCall_3_0()); 
 	    }
-		lv_id_3_0=rulePP_ID		{
+		lv_ident_3_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfNotDefConditionalRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3256,16 +3256,16 @@ rulePrimaryExpression returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdentPP_IDParserRuleCall_1_0_1_0()); 
 	    }
-		lv_id_2_0=rulePP_ID		{
+		lv_ident_2_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3309,16 +3309,16 @@ this_SKW_LEFTPAREN_4=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdentPP_IDParserRuleCall_1_1_2_0()); 
 	    }
-		lv_id_5_0=rulePP_ID		{
+		lv_ident_5_0=rulePP_ID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
        		set(
        			$current, 
-       			"id",
-        		lv_id_5_0, 
+       			"ident",
+        		lv_ident_5_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
 	        afterParserOrEnumRuleCall();
 	    }

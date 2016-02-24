@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.common.util.EList;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,9 +23,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConditionalDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface ConditionalDirective extends EObject
+public interface ConditionalDirective extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Conditional</b></em>' containment reference.

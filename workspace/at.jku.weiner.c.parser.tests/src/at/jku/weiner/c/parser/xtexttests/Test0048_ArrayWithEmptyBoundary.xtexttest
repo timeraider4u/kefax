@@ -32,7 +32,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"out",
+								ident++"out",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									// typeQualifierList isNull,

@@ -25,19 +25,19 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list=
 					(IdentifierList
-						id+*"[A, B]"
+						ident+*"[A, B]"
 					),
 //					replacement+=
 //					(ReplaceLine
 						string++"#A #B"
-//						id++"A"
+//						ident++"A"
 //					),
 //					(ReplaceLine
 //						string++" ",
-//						id++"B"
+//						ident++"B"
 //					)
 				)
 			),

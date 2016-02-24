@@ -208,7 +208,7 @@ public class Test0051_Ellipses {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("average", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -278,7 +278,7 @@ public class Test0051_Ellipses {
 		Assert.assertNotNull(DirectDeclarator_17_Var
 		);
 		Assert.assertEquals("d", DirectDeclarator_17_Var
-		.getId());
+		.getIdent());
 		Assert.assertTrue(ParameterTypeList_11_Var
 		.isEllipsis());
 	}

@@ -226,7 +226,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -234,7 +234,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[line, val]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("line ':' val", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
@@ -256,7 +256,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
 		Assert.assertEquals("line", DefineObjectMacro_7_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_7_Var
 		.getString());
 		//7
@@ -277,7 +277,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(IfDefConditional_10_Var
 		);
 		Assert.assertEquals("line", IfDefConditional_10_Var
-		.getId());
+		.getIdent());
 		//10
 		final GroupOpt GroupOpt_11_Var
 		 = (GroupOpt)IfDefConditional_10_Var
@@ -313,7 +313,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(IfNotDefConditional_15_Var
 		);
 		Assert.assertEquals("line", IfNotDefConditional_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final GroupOpt GroupOpt_16_Var
 		 = (GroupOpt)IfNotDefConditional_15_Var
@@ -355,7 +355,7 @@ public class Test0138_LineInDefine {
 		Assert.assertNotNull(PrimaryExpression_21_Var
 		);
 		Assert.assertEquals("line", PrimaryExpression_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final GroupOpt GroupOpt_22_Var
 		 = (GroupOpt)IfConditional_20_Var

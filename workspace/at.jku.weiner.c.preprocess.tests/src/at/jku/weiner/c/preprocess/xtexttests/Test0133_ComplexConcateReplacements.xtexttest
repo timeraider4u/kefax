@@ -68,17 +68,17 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"__ARG_FOO_1",
+					ident++"__ARG_FOO_1",
 					string++"0,"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"BAR_ENABLED",
+					ident++"BAR_ENABLED",
 					list=
 					(IdentifierList
-						id+*"[foo1]"
+						ident+*"[foo1]"
 					),
 					string++"_BAR_ENABLED(foo1)"
 				)
@@ -86,10 +86,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"_BAR_ENABLED",
+					ident++"_BAR_ENABLED",
 					list=
 					(IdentifierList
-						id+*"[foo2]"
+						ident+*"[foo2]"
 					),
 					string++"__BAR_ENABLED(__ARG_FOO_##foo2)"
 				)
@@ -97,10 +97,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"__BAR_ENABLED",
+					ident++"__BAR_ENABLED",
 					list=
 					(IdentifierList
-						id+*"[foo3_or_junk]"
+						ident+*"[foo3_or_junk]"
 					),
 					string++"___BAR_ENABLED(foo3_or_junk 1, 0)"
 				)
@@ -108,10 +108,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"___BAR_ENABLED",
+					ident++"___BAR_ENABLED",
 					list=
 					(IdentifierList
-						id+*"[__ignored, foo4]",
+						ident+*"[__ignored, foo4]",
 						variadic?=true
 					),
 					string++"foo4"
@@ -120,10 +120,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"BAR_ENABLED2",
+					ident++"BAR_ENABLED2",
 					list=
 					(IdentifierList
-						id+*"[foo1]"
+						ident+*"[foo1]"
 					),
 					string++"_BAR_ENABLED2(foo1)"
 				)
@@ -131,10 +131,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"_BAR_ENABLED2",
+					ident++"_BAR_ENABLED2",
 					list=
 					(IdentifierList
-						id+*"[foo2]"
+						ident+*"[foo2]"
 					),
 					string++"__BAR_ENABLED2(__ARG_FOO_##foo2)"
 				)
@@ -142,10 +142,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"BAR_ENABLED3",
+					ident++"BAR_ENABLED3",
 					list=
 					(IdentifierList
-						id+*"[foo1]"
+						ident+*"[foo1]"
 					),
 					string++"_BAR_ENABLED3(foo1)"
 				)
@@ -153,10 +153,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"_BAR_ENABLED3",
+					ident++"_BAR_ENABLED3",
 					list=
 					(IdentifierList
-						id+*"[foo2]"
+						ident+*"[foo2]"
 					),
 					string++"__BAR_ENABLED3(foo2##__ARG_FOO_)"
 				)
@@ -168,7 +168,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"FOO",
+					ident++"FOO",
 					string++"1"
 				)
 			),
@@ -178,13 +178,13 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(UnDefineDirective
-					id++"FOO"
+					ident++"FOO"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"FOO",
+					ident++"FOO",
 					string isNull
 				)
 			),

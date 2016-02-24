@@ -172,7 +172,7 @@ public class Test0030_ObjectLikeMacro {
 		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_4_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("0", DefineObjectMacro_4_Var
 		.getString());
 		//4

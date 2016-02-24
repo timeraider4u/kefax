@@ -31,11 +31,11 @@
 grammar at.jku.weiner.c.parser.Parser
 with at.jku.weiner.c.common.Common 
 hidden(WHITESPACE,NEWLINE,LINEDIRECTIVE,IGNORED,SPECIAL)
-
-import "http://www.jku.at/weiner/c/common/Common" as common
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.jku.at/weiner/c/common/Common" as common
+import "http://www.jku.at/weiner/c/parser/Parser"
 
-generate parser "http://www.jku.at/weiner/c/parser/Parser"
+//generate parser "http://www.jku.at/weiner/c/parser/Parser"
 
 /*** handled by discoverer  ***/
 //Model returns common::Model: 
@@ -211,7 +211,7 @@ TypeSpecifier:
 
 TypedefName:
 	{TypedefName}
-	id=ID
+	ident=ID
 		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) }? }
 ;
 
@@ -226,11 +226,11 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	:
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
-	(	(id=ID)?
+	(	(ident=ID)?
 			braces?=SKW_LEFTBRACE 
 				(structDeclList=StructDeclarationList)? // empty structs permitted by GNU gcc 
 			SKW_RIGHTBRACE
-	|	id=ID
+	|	ident=ID
 	)
 ;
 
@@ -265,7 +265,7 @@ EnumSpecifier returns DeclarationSpecifier:
 	(	
 		KW_ENUM
 		(	SKW_LEFTBRACE enumList=EnumeratorList SKW_RIGHTBRACE
-		|	id=ID (SKW_LEFTBRACE enumList=EnumeratorList SKW_RIGHTBRACE)?
+		|	ident=ID (SKW_LEFTBRACE enumList=EnumeratorList SKW_RIGHTBRACE)?
 		)
 	)
 ;
@@ -277,7 +277,7 @@ EnumeratorList: enumerator+=Enumerator
 
 Enumerator:
 	{Enumerator} 
-	id=ID
+	ident=ID
 	(SKW_ASSIGN expr=ConstantExpression)?
 ;
 
@@ -328,7 +328,7 @@ Declarator:
 
 DirectDeclarator:
 	{DirectDeclarator}
-	(id=ID
+	(ident=ID
 //		preAction{ {
 //			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 //		}? }
@@ -388,7 +388,7 @@ GccAttributeList:
 
 GccAttribute: {GccAttribute}
 	(
-			id=ID
+			ident=ID
 		|	const = Constant1
 		|	keyword = ParserKeywords
 	)
@@ -428,12 +428,12 @@ ParameterDeclaration:
 
 IdentifierList:
 	{IdentifierList} 
-	id+=MyIdentifier (SKW_COMMA id+=MyIdentifier)*
+	ident+=MyIdentifier (SKW_COMMA ident+=MyIdentifier)*
 ;
 
 MyIdentifier:
 	{MyIdentifier}
-	id=ID
+	ident=ID
 ;
 
 TypeName:
@@ -480,7 +480,7 @@ Initializer:
 		expr=AssignmentExpression
 	|	SKW_LEFTBRACE
 			// empty initializer list is a GNU C extension
-			// see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53196
+			// see https://gcc.gnu.org/bugzilla/show_bug.cgi?ident=53196
 			(list=InitializerList)? 
 			lastComma?=SKW_COMMA? SKW_RIGHTBRACE
 	)
@@ -523,7 +523,7 @@ Statement:
 LabeledStatement returns Statement:
 	{LabeledStatement}
 	(
-		id=ID SKW_COLON lStmt=Statement
+		ident=ID SKW_COLON lStmt=Statement
 	|	case=KW_CASE
 			(
 				(lower=Constant1 Ellipsis higher=Constant1) // gcc extension
@@ -587,7 +587,7 @@ JumpStatement returns Statement:
 	|	break=KW_BREAK SKW_SEMI
 	|	return=KW_RETURN expr=Expression? SKW_SEMI
 	|	goto=KW_GOTO expr=UnaryExpression SKW_SEMI // GCC extension
-	//|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
+	//|	KW_GOTO ident=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 	)
 ;
 
@@ -613,7 +613,7 @@ AsmLine:
 
 AsmSymbolicName: // GCC assembler extension
 	{AsmSymbolicName}
-	SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET
+	SKW_LEFTBRACKET ident=ID SKW_RIGHTBRACKET
 ;
 
 AsmLineWithColon:
@@ -640,7 +640,7 @@ Designator:
 	{Designator}
 	(
 			SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET
-		|	SKW_DOT id=ID
+		|	SKW_DOT ident=ID
 	)
 ;
 
@@ -797,7 +797,7 @@ UnaryExpression returns Expression:
 	|	{UnaryExpression} sizeOf=KW_SIZEOF expr=UnaryExpression 
 	|	{UnaryExpression} alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	{UnaryExpression} alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN expr=UnaryExpression SKW_RIGHTPAREN
-	|	{UnaryExpression} andand=SKW_ANDAND id=ID // GCC extension address of label
+	|	{UnaryExpression} andand=SKW_ANDAND ident=ID // GCC extension address of label
 	)
 ;
 
@@ -845,12 +845,12 @@ PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
 
 PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixDot}
-	SKW_DOT id=ID
+	SKW_DOT ident=ID
 ;
 
 PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArrow}
-	ARROW id=ID
+	ARROW ident=ID
 ;
 
 PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
@@ -867,7 +867,7 @@ ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentEx
 
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
-	(	id=ID
+	(	ident=ID
 	|	const=Constant2
 	|	string+=STRING_LITERAL+
 	|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN

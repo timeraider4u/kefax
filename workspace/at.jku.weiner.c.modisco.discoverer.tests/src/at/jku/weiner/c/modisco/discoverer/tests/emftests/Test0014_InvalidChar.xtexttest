@@ -58,7 +58,7 @@ source file="res/Test0014_InvalidChar"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"foo_bar",
+									ident++"foo_bar",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										lastSuffix=
@@ -93,7 +93,7 @@ source file="res/Test0014_InvalidChar"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"baz",
+									ident++"baz",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										lastSuffix=

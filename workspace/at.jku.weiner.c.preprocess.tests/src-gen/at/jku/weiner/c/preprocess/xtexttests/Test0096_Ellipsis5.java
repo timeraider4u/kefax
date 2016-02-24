@@ -175,7 +175,7 @@ public class Test0096_Ellipsis5 {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -183,7 +183,7 @@ public class Test0096_Ellipsis5 {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[x, y]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertTrue(IdentifierList_4_Var
 		.isVariadic());
 		Assert.assertEquals("fprintf(stdout, __VA_ARGS__)", DefineFunctionLikeMacro_3_Var

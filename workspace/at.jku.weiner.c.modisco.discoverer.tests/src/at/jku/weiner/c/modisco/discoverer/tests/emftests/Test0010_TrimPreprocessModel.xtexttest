@@ -31,7 +31,7 @@ source file="res/Test0010_TrimPreprocessModel"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"FOO",
+						ident++"FOO",
 						string++"bar"
 					)
 				),
@@ -40,14 +40,14 @@ source file="res/Test0010_TrimPreprocessModel"
 					(preprocess::ConditionalDirective
 						conditional=
 						(preprocess::IfDefConditional
-							id++"FOO",
+							ident++"FOO",
 							group=
 							(preprocess::GroupOpt
 								lines+=
 								(preprocess::PreprocessorDirectives
 									directive=
 									(preprocess::DefineObjectMacro
-										id++"SOMETHING",
+										ident++"SOMETHING",
 										string++"baz"
 									)
 								)
@@ -89,7 +89,7 @@ source file="res/Test0010_TrimPreprocessModel"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"getValue",
+									ident++"getValue",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										lastSuffix=
@@ -122,7 +122,7 @@ source file="res/Test0010_TrimPreprocessModel"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"bar"
+									ident++"bar"
 								)
 							)
 						)
@@ -148,7 +148,7 @@ source file="res/Test0010_TrimPreprocessModel"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"foobar"
+									ident++"foobar"
 								)
 							)
 						)
@@ -169,7 +169,7 @@ source file="res/Test0010_TrimPreprocessModel"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"NUMBER",
+						ident++"NUMBER",
 						string++"int"
 					)
 				)

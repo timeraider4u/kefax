@@ -210,7 +210,7 @@ public class Test0082_BuiltinTypesCompatibleP {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final Initializer Initializer_9_Var
 		 = (Initializer)InitDeclarator_6_Var

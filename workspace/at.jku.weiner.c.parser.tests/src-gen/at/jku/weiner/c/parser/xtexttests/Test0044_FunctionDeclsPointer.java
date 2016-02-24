@@ -233,7 +233,7 @@ public class Test0044_FunctionDeclsPointer {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do2", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -311,7 +311,7 @@ public class Test0044_FunctionDeclsPointer {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -371,7 +371,7 @@ public class Test0044_FunctionDeclsPointer {
 		Assert.assertNotNull(DirectDeclarator_26_Var
 		);
 		Assert.assertEquals("do3", DirectDeclarator_26_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_26_list = DirectDeclarator_26_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_26_list);

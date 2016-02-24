@@ -7,13 +7,9 @@ import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,58 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implements IncludeDirective
+public class IncludeDirectiveImpl extends PersistentEObjectImpl implements IncludeDirective
 {
-	/**
-	 * The default value of the '{@link #getString() <em>String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getString()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String STRING_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getString() <em>String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getString()
-	 * @generated
-	 * @ordered
-	 */
-	protected String string = STRING_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected TranslationUnit unit;
-
-	/**
-	 * The default value of the '{@link #isNext() <em>Next</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isNext()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean NEXT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isNext() <em>Next</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isNext()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean next = NEXT_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,9 +54,20 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getString()
 	{
-		return string;
+		return (String)eGet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__STRING, true);
 	}
 
 	/**
@@ -120,10 +77,7 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public void setString(String newString)
 	{
-		String oldString = string;
-		string = newString;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.INCLUDE_DIRECTIVE__STRING, oldString, string));
+		eSet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__STRING, newString);
 	}
 
 	/**
@@ -133,27 +87,7 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public TranslationUnit getUnit()
 	{
-		if (unit != null && unit.eIsProxy())
-		{
-			InternalEObject oldUnit = (InternalEObject)unit;
-			unit = (TranslationUnit)eResolveProxy(oldUnit);
-			if (unit != oldUnit)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PreprocessPackage.INCLUDE_DIRECTIVE__UNIT, oldUnit, unit));
-			}
-		}
-		return unit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TranslationUnit basicGetUnit()
-	{
-		return unit;
+		return (TranslationUnit)eGet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__UNIT, true);
 	}
 
 	/**
@@ -163,10 +97,7 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public void setUnit(TranslationUnit newUnit)
 	{
-		TranslationUnit oldUnit = unit;
-		unit = newUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.INCLUDE_DIRECTIVE__UNIT, oldUnit, unit));
+		eSet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__UNIT, newUnit);
 	}
 
 	/**
@@ -176,7 +107,7 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public boolean isNext()
 	{
-		return next;
+		return (Boolean)eGet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__NEXT, true);
 	}
 
 	/**
@@ -186,116 +117,7 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public void setNext(boolean newNext)
 	{
-		boolean oldNext = next;
-		next = newNext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.INCLUDE_DIRECTIVE__NEXT, oldNext, next));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
-			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
-				return getString();
-			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
-				if (resolve) return getUnit();
-				return basicGetUnit();
-			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
-				return isNext();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
-			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
-				setString((String)newValue);
-				return;
-			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
-				setUnit((TranslationUnit)newValue);
-				return;
-			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
-				setNext((Boolean)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
-				setString(STRING_EDEFAULT);
-				return;
-			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
-				setUnit((TranslationUnit)null);
-				return;
-			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
-				setNext(NEXT_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
-			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
-				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
-			case PreprocessPackage.INCLUDE_DIRECTIVE__UNIT:
-				return unit != null;
-			case PreprocessPackage.INCLUDE_DIRECTIVE__NEXT:
-				return next != NEXT_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (string: ");
-		result.append(string);
-		result.append(", next: ");
-		result.append(next);
-		result.append(')');
-		return result.toString();
+		eSet(PreprocessPackage.Literals.INCLUDE_DIRECTIVE__NEXT, newNext);
 	}
 
 } //IncludeDirectiveImpl

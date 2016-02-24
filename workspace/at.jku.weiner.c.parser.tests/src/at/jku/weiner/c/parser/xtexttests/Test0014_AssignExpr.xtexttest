@@ -32,7 +32,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething"
+						ident++"doSomething"
 					)
 				)
 			),
@@ -60,7 +60,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"a"
+											ident++"a"
 										)
 									),
 									initializer=
@@ -93,7 +93,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"b"
+											ident++"b"
 										)
 									),
 									initializer=
@@ -121,7 +121,7 @@ SKW_RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(PrimaryExpression
-											id++"a"
+											ident++"a"
 										),
 										op++"=",
 										assignmentExpr=
@@ -137,7 +137,7 @@ SKW_RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(PrimaryExpression
-											id++"b"
+											ident++"b"
 										),
 										op++"=",
 										assignmentExpr=

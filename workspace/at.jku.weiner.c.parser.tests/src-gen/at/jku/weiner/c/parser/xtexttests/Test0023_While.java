@@ -225,7 +225,7 @@ public class Test0023_While {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -295,7 +295,7 @@ public class Test0023_While {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("num", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final FunctionDefinition FunctionDefinition_16_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -349,7 +349,7 @@ public class Test0023_While {
 		Assert.assertNotNull(PrimaryExpression_22_Var
 		);
 		Assert.assertEquals("num", PrimaryExpression_22_Var
-		.getId());
+		.getIdent());
 		//22
 		final PrimaryExpression PrimaryExpression_23_Var
 		 = (PrimaryExpression)RelationalExpression_21_Var
@@ -419,7 +419,7 @@ public class Test0023_While {
 		Assert.assertNotNull(PrimaryExpression_32_Var
 		);
 		Assert.assertEquals("num", PrimaryExpression_32_Var
-		.getId());
+		.getIdent());
 		//32
 		final PostfixExpressionSuffixMinusMinus PostfixExpressionSuffixMinusMinus_33_Var
 		 = (PostfixExpressionSuffixMinusMinus)PostfixExpression_31_Var

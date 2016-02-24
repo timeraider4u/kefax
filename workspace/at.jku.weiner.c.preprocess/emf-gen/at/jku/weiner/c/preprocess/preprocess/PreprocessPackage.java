@@ -162,13 +162,13 @@ public interface PreprocessPackage extends EPackage
 	int DEFINE_DIRECTIVE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINE_DIRECTIVE__ID = 0;
+	int DEFINE_DIRECTIVE__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Define Directive</em>' class.
@@ -190,13 +190,13 @@ public interface PreprocessPackage extends EPackage
 	int IDENTIFIER_LIST = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute list.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIER_LIST__ID = 0;
+	int IDENTIFIER_LIST__IDENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Variadic</b></em>' attribute.
@@ -292,13 +292,13 @@ public interface PreprocessPackage extends EPackage
 	int UN_DEFINE_DIRECTIVE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UN_DEFINE_DIRECTIVE__ID = 0;
+	int UN_DEFINE_DIRECTIVE__IDENT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Un Define Directive</em>' class.
@@ -476,13 +476,13 @@ public interface PreprocessPackage extends EPackage
 	int IF_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_DEF_CONDITIONAL__ID = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
+	int IF_DEF_CONDITIONAL__IDENT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>If Def Conditional</em>' class.
@@ -522,13 +522,13 @@ public interface PreprocessPackage extends EPackage
 	int IF_NOT_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_NOT_DEF_CONDITIONAL__ID = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
+	int IF_NOT_DEF_CONDITIONAL__IDENT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>If Not Def Conditional</em>' class.
@@ -764,13 +764,13 @@ public interface PreprocessPackage extends EPackage
 	int DEFINE_OBJECT_MACRO = 19;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINE_OBJECT_MACRO__ID = DEFINE_DIRECTIVE__ID;
+	int DEFINE_OBJECT_MACRO__IDENT = DEFINE_DIRECTIVE__IDENT;
 
 	/**
 	 * The feature id for the '<em><b>String</b></em>' attribute.
@@ -801,13 +801,13 @@ public interface PreprocessPackage extends EPackage
 	int DEFINE_FUNCTION_LIKE_MACRO = 20;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINE_FUNCTION_LIKE_MACRO__ID = DEFINE_DIRECTIVE__ID;
+	int DEFINE_FUNCTION_LIKE_MACRO__IDENT = DEFINE_DIRECTIVE__IDENT;
 
 	/**
 	 * The feature id for the '<em><b>List</b></em>' containment reference.
@@ -922,13 +922,13 @@ public interface PreprocessPackage extends EPackage
 	int PRIMARY_EXPRESSION__DEFINED = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 1;
+	int PRIMARY_EXPRESSION__IDENT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Const</b></em>' attribute.
@@ -1089,15 +1089,15 @@ public interface PreprocessPackage extends EPackage
 	EClass getDefineDirective();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.DefineDirective#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.DefineDirective#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.DefineDirective#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.DefineDirective#getIdent()
 	 * @see #getDefineDirective()
 	 * @generated
 	 */
-	EAttribute getDefineDirective_Id();
+	EAttribute getDefineDirective_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList <em>Identifier List</em>}'.
@@ -1110,15 +1110,15 @@ public interface PreprocessPackage extends EPackage
 	EClass getIdentifierList();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IdentifierList#getId()
+	 * @return the meta object for the attribute list '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IdentifierList#getIdent()
 	 * @see #getIdentifierList()
 	 * @generated
 	 */
-	EAttribute getIdentifierList_Id();
+	EAttribute getIdentifierList_Ident();
 
 	/**
 	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}'.
@@ -1195,15 +1195,15 @@ public interface PreprocessPackage extends EPackage
 	EClass getUnDefineDirective();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.UnDefineDirective#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.UnDefineDirective#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.UnDefineDirective#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.UnDefineDirective#getIdent()
 	 * @see #getUnDefineDirective()
 	 * @generated
 	 */
-	EAttribute getUnDefineDirective_Id();
+	EAttribute getUnDefineDirective_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective <em>Conditional Directive</em>}'.
@@ -1291,15 +1291,15 @@ public interface PreprocessPackage extends EPackage
 	EClass getIfDefConditional();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getIdent()
 	 * @see #getIfDefConditional()
 	 * @generated
 	 */
-	EAttribute getIfDefConditional_Id();
+	EAttribute getIfDefConditional_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional <em>If Not Def Conditional</em>}'.
@@ -1312,15 +1312,15 @@ public interface PreprocessPackage extends EPackage
 	EClass getIfNotDefConditional();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getIdent()
 	 * @see #getIfNotDefConditional()
 	 * @generated
 	 */
-	EAttribute getIfNotDefConditional_Id();
+	EAttribute getIfNotDefConditional_Ident();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional <em>El If Conditional</em>}'.
@@ -1542,15 +1542,15 @@ public interface PreprocessPackage extends EPackage
 	EAttribute getPrimaryExpression_Defined();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getIdent <em>Ident</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId()
+	 * @return the meta object for the attribute '<em>Ident</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getIdent()
 	 * @see #getPrimaryExpression()
 	 * @generated
 	 */
-	EAttribute getPrimaryExpression_Id();
+	EAttribute getPrimaryExpression_Ident();
 
 	/**
 	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getConst <em>Const</em>}'.
@@ -1755,12 +1755,12 @@ public interface PreprocessPackage extends EPackage
 		EClass DEFINE_DIRECTIVE = eINSTANCE.getDefineDirective();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DEFINE_DIRECTIVE__ID = eINSTANCE.getDefineDirective_Id();
+		EAttribute DEFINE_DIRECTIVE__IDENT = eINSTANCE.getDefineDirective_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl <em>Identifier List</em>}' class.
@@ -1773,12 +1773,12 @@ public interface PreprocessPackage extends EPackage
 		EClass IDENTIFIER_LIST = eINSTANCE.getIdentifierList();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IDENTIFIER_LIST__ID = eINSTANCE.getIdentifierList_Id();
+		EAttribute IDENTIFIER_LIST__IDENT = eINSTANCE.getIdentifierList_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Variadic</b></em>' attribute feature.
@@ -1843,12 +1843,12 @@ public interface PreprocessPackage extends EPackage
 		EClass UN_DEFINE_DIRECTIVE = eINSTANCE.getUnDefineDirective();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UN_DEFINE_DIRECTIVE__ID = eINSTANCE.getUnDefineDirective_Id();
+		EAttribute UN_DEFINE_DIRECTIVE__IDENT = eINSTANCE.getUnDefineDirective_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl <em>Conditional Directive</em>}' class.
@@ -1921,12 +1921,12 @@ public interface PreprocessPackage extends EPackage
 		EClass IF_DEF_CONDITIONAL = eINSTANCE.getIfDefConditional();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IF_DEF_CONDITIONAL__ID = eINSTANCE.getIfDefConditional_Id();
+		EAttribute IF_DEF_CONDITIONAL__IDENT = eINSTANCE.getIfDefConditional_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfNotDefConditionalImpl <em>If Not Def Conditional</em>}' class.
@@ -1939,12 +1939,12 @@ public interface PreprocessPackage extends EPackage
 		EClass IF_NOT_DEF_CONDITIONAL = eINSTANCE.getIfNotDefConditional();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IF_NOT_DEF_CONDITIONAL__ID = eINSTANCE.getIfNotDefConditional_Id();
+		EAttribute IF_NOT_DEF_CONDITIONAL__IDENT = eINSTANCE.getIfNotDefConditional_Ident();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ElIfConditionalImpl <em>El If Conditional</em>}' class.
@@ -2139,12 +2139,12 @@ public interface PreprocessPackage extends EPackage
 		EAttribute PRIMARY_EXPRESSION__DEFINED = eINSTANCE.getPrimaryExpression_Defined();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ident</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRIMARY_EXPRESSION__ID = eINSTANCE.getPrimaryExpression_Id();
+		EAttribute PRIMARY_EXPRESSION__IDENT = eINSTANCE.getPrimaryExpression_Ident();
 
 		/**
 		 * The meta object literal for the '<em><b>Const</b></em>' attribute feature.

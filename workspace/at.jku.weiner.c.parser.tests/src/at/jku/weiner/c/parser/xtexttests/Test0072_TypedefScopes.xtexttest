@@ -57,7 +57,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"fooA"
+								ident++"fooA"
 							)
 						)
 					)
@@ -74,7 +74,7 @@ SKW_RIGHTBRACE NEWLINE
 					(TypeSpecifier
 						type=
 						(TypedefName
-							id++"fooA"
+							ident++"fooA"
 						)
 					)
 				)
@@ -87,7 +87,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"barA_1"
+								ident++"barA_1"
 							)
 						)
 					)
@@ -108,7 +108,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"foobar"
+						ident++"foobar"
 					)
 				)
 			),
@@ -139,7 +139,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"fooB"
+											ident++"fooB"
 										)
 									)
 								)
@@ -152,7 +152,7 @@ SKW_RIGHTBRACE NEWLINE
 								(TypeSpecifier
 									type=
 									(TypedefName
-										id++"fooA"
+										ident++"fooA"
 									)
 								)
 							), // end declarationSpecifiers
@@ -164,7 +164,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"barA_2"
+											ident++"barA_2"
 										)
 									)
 								)
@@ -177,7 +177,7 @@ SKW_RIGHTBRACE NEWLINE
 								(TypeSpecifier
 									type=
 									(TypedefName
-										id++"fooB"
+										ident++"fooB"
 									)
 								)
 							), // end declarationSpecifiers
@@ -189,7 +189,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"barB_1"
+											ident++"barB_1"
 										)
 									)
 								)
@@ -224,7 +224,7 @@ SKW_RIGHTBRACE NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"fooC"
+															ident++"fooC"
 														)
 													)
 												)
@@ -237,7 +237,7 @@ SKW_RIGHTBRACE NEWLINE
 												(TypeSpecifier
 													type=
 													(TypedefName
-														id++"fooA"
+														ident++"fooA"
 													)
 												)
 											), // end declarationSpecifiers
@@ -249,7 +249,7 @@ SKW_RIGHTBRACE NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"barA_3"
+															ident++"barA_3"
 														)
 													)
 												)
@@ -262,7 +262,7 @@ SKW_RIGHTBRACE NEWLINE
 												(TypeSpecifier
 													type=
 													(TypedefName
-														id++"fooB"
+														ident++"fooB"
 													)
 												)
 											), // end declarationSpecifiers
@@ -274,7 +274,7 @@ SKW_RIGHTBRACE NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"barB_2"
+															ident++"barB_2"
 														)
 													)
 												)
@@ -287,7 +287,7 @@ SKW_RIGHTBRACE NEWLINE
 												(TypeSpecifier
 													type=
 													(TypedefName
-														id++"fooC"
+														ident++"fooC"
 													)
 												)
 											), // end declarationSpecifiers
@@ -299,7 +299,7 @@ SKW_RIGHTBRACE NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"barC_1"
+															ident++"barC_1"
 														)
 													)
 												)
@@ -334,7 +334,7 @@ SKW_RIGHTBRACE NEWLINE
 																	(Declarator
 																		declarator=
 																		(DirectDeclarator
-																			id++"fooD"
+																			ident++"fooD"
 																		)
 																	)
 																)
@@ -347,7 +347,7 @@ SKW_RIGHTBRACE NEWLINE
 																(TypeSpecifier
 																	type=
 																	(TypedefName
-																		id++"fooA"
+																		ident++"fooA"
 																	)
 																)
 															), // end declarationSpecifiers
@@ -359,7 +359,7 @@ SKW_RIGHTBRACE NEWLINE
 																	(Declarator
 																		declarator=
 																		(DirectDeclarator
-																			id++"barA_4"
+																			ident++"barA_4"
 																		)
 																	)
 																)
@@ -372,7 +372,7 @@ SKW_RIGHTBRACE NEWLINE
 																(TypeSpecifier
 																	type=
 																	(TypedefName
-																		id++"fooB"
+																		ident++"fooB"
 																	)
 																)
 															), // end declarationSpecifiers
@@ -384,7 +384,7 @@ SKW_RIGHTBRACE NEWLINE
 																	(Declarator
 																		declarator=
 																		(DirectDeclarator
-																			id++"barB_3"
+																			ident++"barB_3"
 																		)
 																	)
 																)
@@ -397,7 +397,7 @@ SKW_RIGHTBRACE NEWLINE
 																(TypeSpecifier
 																	type=
 																	(TypedefName
-																		id++"fooC"
+																		ident++"fooC"
 																	)
 																)
 															), // end declarationSpecifiers
@@ -409,7 +409,7 @@ SKW_RIGHTBRACE NEWLINE
 																	(Declarator
 																		declarator=
 																		(DirectDeclarator
-																			id++"barC_2"
+																			ident++"barC_2"
 																		)
 																	)
 																)
@@ -422,7 +422,7 @@ SKW_RIGHTBRACE NEWLINE
 																(TypeSpecifier
 																	type=
 																	(TypedefName
-																		id++"fooD"
+																		ident++"fooD"
 																	)
 																)
 															), // end declarationSpecifiers
@@ -434,7 +434,7 @@ SKW_RIGHTBRACE NEWLINE
 																	(Declarator
 																		declarator=
 																		(DirectDeclarator
-																			id++"barD_1"
+																			ident++"barD_1"
 																		)
 																	)
 																)

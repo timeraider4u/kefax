@@ -53,7 +53,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"do1",
+						ident++"do1",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -75,7 +75,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"c"
+													ident++"c"
 												)
 											)
 										),
@@ -91,7 +91,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"f"
+													ident++"f"
 												)
 											)
 										),
@@ -107,7 +107,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -140,22 +140,22 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"do3",
+						ident++"do3",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
 							(DirectDeclaratorLastSuffix
 								identifierList=
 								(IdentifierList
-									id+=
+									ident+=
 									(MyIdentifier
-										id++"c"
+										ident++"c"
 									),
 									(MyIdentifier
-										id++"f"
+										ident++"f"
 									),
 									(MyIdentifier
-										id++"i"
+										ident++"i"
 									)
 								)
 							)
@@ -179,7 +179,7 @@ SKW_RIGHTBRACE NEWLINE
 							(Declarator
 								declarator=
 								(DirectDeclarator
-									id++"c"
+									ident++"c"
 								)
 							)
 						)
@@ -201,7 +201,7 @@ SKW_RIGHTBRACE NEWLINE
 							(Declarator
 								declarator=
 								(DirectDeclarator
-									id++"f"
+									ident++"f"
 								)
 							)
 						)
@@ -223,7 +223,7 @@ SKW_RIGHTBRACE NEWLINE
 							(Declarator
 								declarator=
 								(DirectDeclarator
-									id++"i"
+									ident++"i"
 								)
 							)
 						)

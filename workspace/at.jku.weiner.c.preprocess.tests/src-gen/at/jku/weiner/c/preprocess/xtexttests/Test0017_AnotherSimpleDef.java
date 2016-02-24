@@ -188,7 +188,7 @@ public class Test0017_AnotherSimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("A01", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("a01", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -203,7 +203,7 @@ public class Test0017_AnotherSimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("BIG_NUMBER", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("5", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -218,7 +218,7 @@ public class Test0017_AnotherSimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
 		Assert.assertEquals("__INT__", DefineObjectMacro_7_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("int", DefineObjectMacro_7_Var
 		.getString());
 		//7
@@ -233,7 +233,7 @@ public class Test0017_AnotherSimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
 		Assert.assertEquals("_NUMBER", DefineObjectMacro_9_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("15", DefineObjectMacro_9_Var
 		.getString());
 		//9

@@ -38,7 +38,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						)
 					)
@@ -55,7 +55,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						typeOf++"typeof",
 						constExpr=
 						(PrimaryExpression
-							id++"i"
+							ident++"i"
 						)
 					)
 				)
@@ -68,7 +68,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								ident++"j"
 							)
 						)
 					)
@@ -86,7 +86,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						typeOf++"__typeof",
 						constExpr=
 						(PrimaryExpression
-							id++"j"
+							ident++"j"
 						)
 					)
 				),
@@ -98,7 +98,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"k"
+								ident++"k"
 							)
 						)
 					)
@@ -115,7 +115,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						typeOf++"__typeof__",
 						constExpr=
 						(PrimaryExpression
-							id++"k"
+							ident++"k"
 						)
 					)
 				),
@@ -127,7 +127,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"m"
+								ident++"m"
 							)
 						)
 					)

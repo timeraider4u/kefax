@@ -56,7 +56,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"out",
+								ident++"out",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									expr=
@@ -94,7 +94,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -135,7 +135,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -146,7 +146,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"%s\\\\n\\\"]"
 											), // end  expression
 											(PrimaryExpression
-												id++"out"
+												ident++"out"
 											)
 										)	
 									)
@@ -161,7 +161,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"strcpy"
+										ident++"strcpy"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -169,7 +169,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												id++"out"
+												ident++"out"
 											),
 											(PrimaryExpression
 												string+*"[\\\"Hello World!\\\"]"
@@ -187,7 +187,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -198,7 +198,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"%s\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"out"
+												ident++"out"
 											)
 										)
 									)
@@ -215,7 +215,7 @@ SKW_RIGHTBRACE NEWLINE
 									(PostfixExpression
 										expr=
 										(PrimaryExpression
-											id++"out"
+											ident++"out"
 										),
 										suffix=
 										(PostfixExpressionSuffixArray
@@ -248,7 +248,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -259,7 +259,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"%s\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"out"
+												ident++"out"
 											)
 										
 										)

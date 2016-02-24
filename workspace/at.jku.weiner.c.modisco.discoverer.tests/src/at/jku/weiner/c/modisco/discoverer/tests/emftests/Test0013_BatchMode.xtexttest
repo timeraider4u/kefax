@@ -62,7 +62,7 @@ source file="res/Test0013_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"NUMBER"
+									ident++"NUMBER"
 								)
 							)
 						)
@@ -79,7 +79,7 @@ source file="res/Test0013_BatchMode"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"NUMBER"
+								ident++"NUMBER"
 							)
 						)
 					),
@@ -91,7 +91,7 @@ source file="res/Test0013_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"i"
+									ident++"i"
 								)
 							)
 						)
@@ -160,7 +160,7 @@ source file="res/Test0013_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"NUMBER"
+									ident++"NUMBER"
 								)
 							)
 						)
@@ -177,7 +177,7 @@ source file="res/Test0013_BatchMode"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"NUMBER"
+								ident++"NUMBER"
 							)
 						)
 					),
@@ -189,7 +189,7 @@ source file="res/Test0013_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"j"
+									ident++"j"
 								)
 							)
 						)

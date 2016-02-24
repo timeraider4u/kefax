@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAlignOf <em>Align Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAndand <em>Andand</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,9 +218,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.UNARY_EXPRESSION__ID, true);
+		return (String)eGet(ParserPackage.Literals.UNARY_EXPRESSION__IDENT, true);
 	}
 
 	/**
@@ -228,9 +228,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.UNARY_EXPRESSION__ID, newId);
+		eSet(ParserPackage.Literals.UNARY_EXPRESSION__IDENT, newIdent);
 	}
 
 } //UnaryExpressionImpl

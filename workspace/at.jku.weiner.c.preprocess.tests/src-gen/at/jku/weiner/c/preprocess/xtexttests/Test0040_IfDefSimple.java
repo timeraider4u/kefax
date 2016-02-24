@@ -183,7 +183,7 @@ public class Test0040_IfDefSimple {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOOBAR", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("foobar", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -204,7 +204,7 @@ public class Test0040_IfDefSimple {
 		Assert.assertNotNull(IfDefConditional_6_Var
 		);
 		Assert.assertEquals("FOOBAR", IfDefConditional_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final GroupOpt GroupOpt_7_Var
 		 = (GroupOpt)IfDefConditional_6_Var
@@ -227,7 +227,7 @@ public class Test0040_IfDefSimple {
 		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_9_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("BAR", DefineObjectMacro_9_Var
 		.getString());
 		//9

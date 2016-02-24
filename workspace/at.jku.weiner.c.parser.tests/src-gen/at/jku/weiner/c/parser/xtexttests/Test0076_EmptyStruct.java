@@ -185,7 +185,7 @@ public class Test0076_EmptyStruct {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("mystruct", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertTrue(StructOrUnionSpecifier_5_Var
 		.isBraces());
 		Assert.assertNull(StructOrUnionSpecifier_5_Var
@@ -221,7 +221,7 @@ public class Test0076_EmptyStruct {
 		Assert.assertNotNull(DirectDeclarator_10_Var
 		);
 		Assert.assertEquals("my", DirectDeclarator_10_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

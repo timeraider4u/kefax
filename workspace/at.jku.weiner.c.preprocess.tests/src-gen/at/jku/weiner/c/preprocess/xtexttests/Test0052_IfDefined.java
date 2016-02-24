@@ -192,7 +192,7 @@ public class Test0052_IfDefined {
 		Assert.assertTrue(PrimaryExpression_6_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final PrimaryExpression PrimaryExpression_7_Var
 		 = (PrimaryExpression)LogicalOrExpression_5_Var
@@ -202,7 +202,7 @@ public class Test0052_IfDefined {
 		Assert.assertTrue(PrimaryExpression_7_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_7_Var
-		.getId());
+		.getIdent());
 		//7
 		final GroupOpt GroupOpt_8_Var
 		 = (GroupOpt)IfConditional_4_Var

@@ -223,7 +223,7 @@ public class Test0058_IfElIfElse {
 		Assert.assertTrue(PrimaryExpression_7_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_7_Var
-		.getId());
+		.getIdent());
 		//7
 		final GroupOpt GroupOpt_8_Var
 		 = (GroupOpt)IfConditional_6_Var
@@ -259,7 +259,7 @@ public class Test0058_IfElIfElse {
 		Assert.assertTrue(PrimaryExpression_11_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final GroupOpt GroupOpt_12_Var
 		 = (GroupOpt)ElIfConditional_10_Var

@@ -256,7 +256,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("REQ_MAJOR", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("3", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -271,7 +271,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("REQ_MINOR", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("2", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -291,7 +291,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(DefineObjectMacro_8_Var
 		);
 		Assert.assertEquals("MAJOR", DefineObjectMacro_8_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_8_Var
 		.getString());
 		//8
@@ -306,7 +306,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(DefineObjectMacro_10_Var
 		);
 		Assert.assertEquals("MINOR", DefineObjectMacro_10_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("4", DefineObjectMacro_10_Var
 		.getString());
 		//10
@@ -326,7 +326,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(DefineFunctionLikeMacro_13_Var
 		);
 		Assert.assertEquals("REQ", DefineFunctionLikeMacro_13_Var
-		.getId());
+		.getIdent());
 		//13
 		final IdentifierList IdentifierList_14_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_13_Var
@@ -334,7 +334,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(IdentifierList_14_Var
 		);
 		Assert.assertEquals("[major, minor]", IdentifierList_14_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))", DefineFunctionLikeMacro_13_Var
 		.getString());
 		//14
@@ -372,7 +372,7 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(PrimaryExpression_20_Var
 		);
 		Assert.assertEquals("REQ", PrimaryExpression_20_Var
-		.getId());
+		.getIdent());
 		//20
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_21_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_19_Var
@@ -395,14 +395,14 @@ public class Test0076_IfComplexExpression {
 		Assert.assertNotNull(PrimaryExpression_23_Var
 		);
 		Assert.assertEquals("MAJOR", PrimaryExpression_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final PrimaryExpression PrimaryExpression_24_Var
 		 = (PrimaryExpression)Expr_22_list.get(1);
 		Assert.assertNotNull(PrimaryExpression_24_Var
 		);
 		Assert.assertEquals("MINOR", PrimaryExpression_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final GroupOpt GroupOpt_25_Var
 		 = (GroupOpt)IfConditional_18_Var

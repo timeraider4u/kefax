@@ -184,7 +184,7 @@ public class Test0049_IfDefined {
 		Assert.assertNotNull(PrimaryExpression_6_Var
 		);
 		Assert.assertEquals("FOO", PrimaryExpression_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final PrimaryExpression PrimaryExpression_7_Var
 		 = (PrimaryExpression)RelationalExpression_5_Var

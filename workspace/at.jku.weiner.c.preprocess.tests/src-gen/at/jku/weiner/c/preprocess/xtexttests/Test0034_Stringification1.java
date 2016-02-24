@@ -182,7 +182,7 @@ public class Test0034_Stringification1 {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("DEBUG", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -190,7 +190,7 @@ public class Test0034_Stringification1 {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("printf(#X \"=%d\\n\", X)", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4

@@ -41,7 +41,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"temp",
+							ident++"temp",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -61,7 +61,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											)
 										)
@@ -87,7 +87,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"outer",
+							ident++"outer",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -102,7 +102,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												(StructOrUnion
 													name++"struct"
 												),
-												id++"temp"
+												ident++"temp"
 											)
 										)
 									),
@@ -118,7 +118,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												),
 												declarator=
 												(DirectDeclarator
-													id++"in1"
+													ident++"in1"
 												)
 											)
 										)
@@ -136,7 +136,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 												(StructOrUnion
 													name++"struct"
 												),
-												id++"temp"
+												ident++"temp"
 											)
 										//	typeSpecifier+=
 										//	(TypeSpecifier
@@ -152,7 +152,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"in2"
+													ident++"in2"
 												)
 											)
 										)
@@ -184,7 +184,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 																	(StructOrUnion
 																		name++"struct"
 																	),
-																	id++"temp"
+																	ident++"temp"
 																)
 															) // end type specifier
 														),
@@ -196,7 +196,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 																(Declarator
 																	declarator=
 																	(DirectDeclarator
-																		id++"in3"
+																		ident++"in3"
 																	)
 																)														
 															)
@@ -214,7 +214,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"inner4"
+													ident++"inner4"
 												)
 											)
 										)

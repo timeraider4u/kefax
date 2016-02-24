@@ -270,7 +270,7 @@ public class Test0070_Designation {
 		Assert.assertEquals("struct", StructOrUnion_7_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_6_Var
-		.getId());
+		.getIdent());
 		//7
 		final StructDeclarationList StructDeclarationList_8_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_6_Var
@@ -331,7 +331,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_15_list = Declaration_2_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_15_list);
@@ -363,7 +363,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_19_Var
-		.getId());
+		.getIdent());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -397,7 +397,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(TypedefName_24_Var
 		);
 		Assert.assertEquals("bar", TypedefName_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final Declarator Declarator_25_Var
 		 = (Declarator)FunctionDefHead_21_Var
@@ -411,7 +411,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(DirectDeclarator_26_Var
 		);
 		Assert.assertEquals("my", DirectDeclarator_26_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_26_list = DirectDeclarator_26_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_26_list);
@@ -481,7 +481,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(DirectDeclarator_35_Var
 		);
 		Assert.assertEquals("arg", DirectDeclarator_35_Var
-		.getId());
+		.getIdent());
 		//35
 		final Pointer Pointer_36_Var
 		 = (Pointer)Declarator_34_Var
@@ -564,7 +564,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(TypedefName_46_Var
 		);
 		Assert.assertEquals("bar", TypedefName_46_Var
-		.getId());
+		.getIdent());
 		//46
 		final InitializerList InitializerList_47_Var
 		 = (InitializerList)PostfixExpression_42_Var
@@ -602,7 +602,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(Designator_51_Var
 		);
 		Assert.assertEquals("i", Designator_51_Var
-		.getId());
+		.getIdent());
 		//51
 		final Initializer Initializer_52_Var
 		 = (Initializer)Init_48_Var
@@ -616,7 +616,7 @@ public class Test0070_Designation {
 		Assert.assertNotNull(PrimaryExpression_53_Var
 		);
 		Assert.assertEquals("arg", PrimaryExpression_53_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("return", JumpStatement_41_Var
 		.getReturn());
 	}

@@ -208,7 +208,7 @@ public class Test0071_IfMin {
 		Assert.assertNotNull(PrimaryExpression_8_Var
 		);
 		Assert.assertEquals("MIN", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_9_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_7_Var

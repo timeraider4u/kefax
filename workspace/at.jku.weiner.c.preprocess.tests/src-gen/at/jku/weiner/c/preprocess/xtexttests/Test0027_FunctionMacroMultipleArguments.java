@@ -486,7 +486,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("foo0", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineFunctionLikeMacro_3_Var
 		.getList());
 		Assert.assertEquals("bar_foo", DefineFunctionLikeMacro_3_Var
@@ -503,7 +503,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
 		Assert.assertEquals("foo1", DefineFunctionLikeMacro_5_Var
-		.getId());
+		.getIdent());
 		//5
 		final IdentifierList IdentifierList_6_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
@@ -511,7 +511,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(IdentifierList_6_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_6_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("{X}", DefineFunctionLikeMacro_5_Var
 		.getString());
 		//6
@@ -526,7 +526,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
 		Assert.assertEquals("foo2", DefineFunctionLikeMacro_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final IdentifierList IdentifierList_9_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
@@ -534,7 +534,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(IdentifierList_9_Var
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_9_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("X + Y", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9
@@ -549,7 +549,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
 		);
 		Assert.assertEquals("foo3", DefineFunctionLikeMacro_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final IdentifierList IdentifierList_12_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
@@ -557,7 +557,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(IdentifierList_12_Var
 		);
 		Assert.assertEquals("[X, Y, Z]", IdentifierList_12_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("X * Y - Z", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12
@@ -572,7 +572,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(UnDefineDirective_14_Var
 		);
 		Assert.assertEquals("foo0", UnDefineDirective_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final PreprocessorDirectives PreprocessorDirectives_15_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(5);
@@ -585,7 +585,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_16_Var
 		);
 		Assert.assertEquals("foo0", DefineFunctionLikeMacro_16_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineFunctionLikeMacro_16_Var
 		.getList());
 		Assert.assertEquals("foo_bar", DefineFunctionLikeMacro_16_Var

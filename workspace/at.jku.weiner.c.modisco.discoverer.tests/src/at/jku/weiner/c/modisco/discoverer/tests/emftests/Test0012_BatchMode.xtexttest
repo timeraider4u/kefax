@@ -29,7 +29,7 @@ source file="res/Test0012_BatchMode"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"INT",
+						ident++"INT",
 						string++"int"
 					)
 				),
@@ -62,7 +62,7 @@ source file="res/Test0012_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"i"
+									ident++"i"
 								)
 							),
 							initializer=
@@ -93,7 +93,7 @@ source file="res/Test0012_BatchMode"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"ANOTHER",
+						ident++"ANOTHER",
 						string++"1"
 					)
 				),
@@ -123,7 +123,7 @@ source file="res/Test0012_BatchMode"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"j"
+									ident++"j"
 								)
 							),
 							initializer=

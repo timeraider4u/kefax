@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,9 +19,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getLineDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface LineDirective extends EObject
+public interface LineDirective extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Line</b></em>' attribute.

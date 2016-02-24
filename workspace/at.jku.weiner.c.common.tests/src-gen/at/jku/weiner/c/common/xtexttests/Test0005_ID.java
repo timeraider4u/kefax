@@ -115,7 +115,7 @@ public class Test0005_ID {
 		Assert.assertNotNull(PrimaryExpression_0_Var
 		);
 		Assert.assertEquals("foobar", PrimaryExpression_0_Var
-		.getId());
+		.getIdent());
 	}
 	
 	

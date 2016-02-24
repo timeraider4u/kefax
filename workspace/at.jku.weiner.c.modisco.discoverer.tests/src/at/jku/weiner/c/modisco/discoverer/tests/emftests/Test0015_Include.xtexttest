@@ -30,7 +30,7 @@ source file="res/Test0015_Include"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"FOO",
+						ident++"FOO",
 						string++"1"
 					)
 				),
@@ -70,7 +70,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"TYPE_FOO"
+									ident++"TYPE_FOO"
 								)
 							)
 						)
@@ -87,7 +87,7 @@ source file="res/Test0015_Include"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"TYPE_FOO"
+								ident++"TYPE_FOO"
 							)
 						)
 					),
@@ -99,7 +99,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"i"
+									ident++"i"
 								)
 							)
 						)
@@ -124,7 +124,7 @@ source file="res/Test0015_Include"
 							expression=
 							(preprocess::PrimaryExpression
 								defined?=false,
-								id++"FOOBAR"
+								ident++"FOOBAR"
 							),
 							group=
 							(preprocess::GroupOpt
@@ -139,7 +139,7 @@ source file="res/Test0015_Include"
 							expression=
 							(preprocess::PrimaryExpression
 								defined?=false,
-								id++"FOO"
+								ident++"FOO"
 							),
 							group=
 							(preprocess::GroupOpt
@@ -153,7 +153,7 @@ source file="res/Test0015_Include"
 							expression=
 							(preprocess::PrimaryExpression
 								defined?=false,
-								id++"BAR"
+								ident++"BAR"
 							),
 							group=
 							(preprocess::GroupOpt
@@ -200,7 +200,7 @@ source file="res/Test0015_Include"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"BAR",
+						ident++"BAR",
 						string++"1"
 					)
 				),
@@ -243,7 +243,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"TYPE_BAZ"
+									ident++"TYPE_BAZ"
 								)
 							)
 						)
@@ -260,7 +260,7 @@ source file="res/Test0015_Include"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"TYPE_BAZ"
+								ident++"TYPE_BAZ"
 							)
 						)
 					),
@@ -272,7 +272,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"j"
+									ident++"j"
 								)
 							)
 						)
@@ -301,7 +301,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"TYPE_BAR"
+									ident++"TYPE_BAR"
 								)
 							)
 						)
@@ -318,7 +318,7 @@ source file="res/Test0015_Include"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"TYPE_BAZ"
+								ident++"TYPE_BAZ"
 							)
 						)
 					),
@@ -330,7 +330,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"k"
+									ident++"k"
 								)
 							)
 						)
@@ -346,7 +346,7 @@ source file="res/Test0015_Include"
 						(parser::TypeSpecifier
 							type=
 							(parser::TypedefName
-								id++"TYPE_BAR"
+								ident++"TYPE_BAR"
 							)
 						)
 					),
@@ -358,7 +358,7 @@ source file="res/Test0015_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"l"
+									ident++"l"
 								)
 							)
 						)

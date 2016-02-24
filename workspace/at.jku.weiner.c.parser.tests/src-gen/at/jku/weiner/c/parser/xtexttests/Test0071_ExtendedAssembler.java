@@ -377,7 +377,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final Initializer Initializer_10_Var
 		 = (Initializer)InitDeclarator_7_Var
@@ -464,7 +464,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final ExternalDeclaration ExternalDeclaration_22_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -539,7 +539,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
 		Assert.assertEquals("k", DirectDeclarator_31_Var
-		.getId());
+		.getIdent());
 		//31
 		final Initializer Initializer_32_Var
 		 = (Initializer)InitDeclarator_28_Var
@@ -561,7 +561,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(PrimaryExpression_34_Var
 		);
 		Assert.assertEquals("i", PrimaryExpression_34_Var
-		.getId());
+		.getIdent());
 		//34
 		final ExternalDeclaration ExternalDeclaration_35_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -603,7 +603,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(DirectDeclarator_40_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_40_Var
-		.getId());
+		.getIdent());
 		//40
 		final FunctionDefinition FunctionDefinition_41_Var
 		 = (FunctionDefinition)ExternalDeclaration_35_Var
@@ -687,7 +687,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(AsmSymbolicName_51_Var
 		);
 		Assert.assertEquals("d", AsmSymbolicName_51_Var
-		.getId());
+		.getIdent());
 		//51
 		final PostfixExpression PostfixExpression_52_Var
 		 = (PostfixExpression)AsmLine_50_Var
@@ -724,7 +724,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(PrimaryExpression_56_Var
 		);
 		Assert.assertEquals("i", PrimaryExpression_56_Var
-		.getId());
+		.getIdent());
 		//56
 		final AsmLineWithColon AsmLineWithColon_57_Var
 		 = (AsmLineWithColon)AsmLines_47_list.get(1);
@@ -752,7 +752,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(AsmSymbolicName_60_Var
 		);
 		Assert.assertEquals("e", AsmSymbolicName_60_Var
-		.getId());
+		.getIdent());
 		//60
 		final PostfixExpression PostfixExpression_61_Var
 		 = (PostfixExpression)AsmLine_59_Var
@@ -797,7 +797,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(PrimaryExpression_66_Var
 		);
 		Assert.assertEquals("k", PrimaryExpression_66_Var
-		.getId());
+		.getIdent());
 		//66
 		final AsmLine AsmLine_67_Var
 		 = (AsmLine)AsmLines_58_list.get(1);
@@ -810,7 +810,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(AsmSymbolicName_68_Var
 		);
 		Assert.assertEquals("f", AsmSymbolicName_68_Var
-		.getId());
+		.getIdent());
 		//68
 		final PostfixExpression PostfixExpression_69_Var
 		 = (PostfixExpression)AsmLine_67_Var
@@ -897,7 +897,7 @@ public class Test0071_ExtendedAssembler {
 		Assert.assertNotNull(PrimaryExpression_80_Var
 		);
 		Assert.assertEquals("j", PrimaryExpression_80_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

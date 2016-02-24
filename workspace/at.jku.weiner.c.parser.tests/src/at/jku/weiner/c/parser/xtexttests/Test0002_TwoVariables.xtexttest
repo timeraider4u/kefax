@@ -32,7 +32,7 @@ KW_INT WHITESPACE ID SKW_SEMI
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						)
 					)
@@ -58,7 +58,7 @@ KW_INT WHITESPACE ID SKW_SEMI
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								ident++"j"
 							)
 						)
 					)

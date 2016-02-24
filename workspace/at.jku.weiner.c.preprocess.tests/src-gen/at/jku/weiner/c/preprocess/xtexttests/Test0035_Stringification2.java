@@ -187,7 +187,7 @@ public class Test0035_Stringification2 {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("BAR", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -195,7 +195,7 @@ public class Test0035_Stringification2 {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("BAZ(X)", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
@@ -210,7 +210,7 @@ public class Test0035_Stringification2 {
 		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
 		);
 		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final IdentifierList IdentifierList_7_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
@@ -218,7 +218,7 @@ public class Test0035_Stringification2 {
 		Assert.assertNotNull(IdentifierList_7_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_7_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("#X", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
@@ -233,7 +233,7 @@ public class Test0035_Stringification2 {
 		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_9_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("64", DefineObjectMacro_9_Var
 		.getString());
 		//9

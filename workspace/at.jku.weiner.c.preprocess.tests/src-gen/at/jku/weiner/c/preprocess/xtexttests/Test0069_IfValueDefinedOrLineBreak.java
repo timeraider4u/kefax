@@ -183,7 +183,7 @@ public class Test0069_IfValueDefinedOrLineBreak {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("__STDC_VERSION__", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("201300UL", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -226,7 +226,7 @@ public class Test0069_IfValueDefinedOrLineBreak {
 		Assert.assertTrue(PrimaryExpression_9_Var
 		.isDefined());
 		Assert.assertEquals("__STDC_VERSION__", PrimaryExpression_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final PrimaryExpression PrimaryExpression_10_Var
 		 = (PrimaryExpression)LogicalOrExpression_8_Var
@@ -236,7 +236,7 @@ public class Test0069_IfValueDefinedOrLineBreak {
 		Assert.assertTrue(PrimaryExpression_10_Var
 		.isDefined());
 		Assert.assertEquals("__GCC_VERSION__", PrimaryExpression_10_Var
-		.getId());
+		.getIdent());
 		//10
 		final GroupOpt GroupOpt_11_Var
 		 = (GroupOpt)IfConditional_6_Var

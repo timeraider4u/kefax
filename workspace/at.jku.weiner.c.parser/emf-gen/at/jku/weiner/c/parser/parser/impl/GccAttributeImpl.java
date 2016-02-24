@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getList <em>List</em>}</li>
@@ -65,9 +65,9 @@ public class GccAttributeImpl extends PersistentEObjectImpl implements GccAttrib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.GCC_ATTRIBUTE__ID, true);
+		return (String)eGet(ParserPackage.Literals.GCC_ATTRIBUTE__IDENT, true);
 	}
 
 	/**
@@ -75,9 +75,9 @@ public class GccAttributeImpl extends PersistentEObjectImpl implements GccAttrib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.GCC_ATTRIBUTE__ID, newId);
+		eSet(ParserPackage.Literals.GCC_ATTRIBUTE__IDENT, newIdent);
 	}
 
 	/**

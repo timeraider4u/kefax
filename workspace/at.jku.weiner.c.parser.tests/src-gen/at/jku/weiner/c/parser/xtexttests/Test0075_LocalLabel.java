@@ -232,7 +232,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -311,7 +311,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(DirectDeclarator_16_Var
 		);
 		Assert.assertEquals("target", DirectDeclarator_16_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> Statement_16_list = BlockList_9_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_16_list);
@@ -334,7 +334,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(PrimaryExpression_19_Var
 		);
 		Assert.assertEquals("target", PrimaryExpression_19_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("goto", JumpStatement_18_Var
 		.getGoto());
 		//19
@@ -361,7 +361,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(PrimaryExpression_23_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_24_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_22_Var
@@ -397,7 +397,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(LabeledStatement_28_Var
 		);
 		Assert.assertEquals("target", LabeledStatement_28_Var
-		.getId());
+		.getIdent());
 		//28
 		final Statement Statement_29_Var
 		 = (Statement)LabeledStatement_28_Var
@@ -423,7 +423,7 @@ public class Test0075_LocalLabel {
 		Assert.assertNotNull(PrimaryExpression_32_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_32_Var
-		.getId());
+		.getIdent());
 		//32
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_33_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_31_Var

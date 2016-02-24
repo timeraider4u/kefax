@@ -34,14 +34,14 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"REQ_MAJOR",
+					ident++"REQ_MAJOR",
 					string++"3"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"REQ_MINOR",
+					ident++"REQ_MINOR",
 					string++"2"
 				)
 			),
@@ -49,14 +49,14 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"MAJOR",
+					ident++"MAJOR",
 					string++"1"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"MINOR",
+					ident++"MINOR",
 					string++"4"
 				)
 			),
@@ -64,10 +64,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"REQ",
+					ident++"REQ",
 					list=
 					(IdentifierList
-						id+*"[major, minor]"
+						ident+*"[major, minor]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -85,7 +85,7 @@ lexer-tokens
 						(common::PostfixExpression
 							expr=
 							(PrimaryExpression
-								id++"REQ"
+								ident++"REQ"
 							),
 							suffix=
 							(common::PostfixExpressionSuffixArgument
@@ -93,10 +93,10 @@ lexer-tokens
 								(common::ArgumentExpressionList
 									expr+=
 									(PrimaryExpression
-										id++"MAJOR"
+										ident++"MAJOR"
 									),
 									(PrimaryExpression
-										id++"MINOR"
+										ident++"MINOR"
 									)
 								) // end argument expression list
 							) // end post-fix expression suffix argument

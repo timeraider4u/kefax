@@ -12,7 +12,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined <em>Defined</em>}</li>
- *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
@@ -52,30 +52,30 @@ public interface PrimaryExpression extends Expression
 	void setDefined(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression_Id()
+	 * @return the value of the '<em>Ident</em>' attribute.
+	 * @see #setIdent(String)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression_Ident()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getIdent();
 
 	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getIdent <em>Ident</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Ident</em>' attribute.
+	 * @see #getIdent()
 	 * @generated
 	 */
-	void setId(String value);
+	void setIdent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Const</b></em>' attribute.

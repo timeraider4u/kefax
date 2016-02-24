@@ -159,7 +159,7 @@ public class Test0115_StupidReplacements {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("bar", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -174,7 +174,7 @@ public class Test0115_StupidReplacements {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("FOO bar", DefineObjectMacro_5_Var
 		.getString());
 		//5

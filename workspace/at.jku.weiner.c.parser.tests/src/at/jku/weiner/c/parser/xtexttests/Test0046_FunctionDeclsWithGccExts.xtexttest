@@ -66,7 +66,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do2",
+								ident++"do2",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -92,7 +92,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)
@@ -110,10 +110,10 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									(GccAttributeList
 										gccAttribute+=
 										(GccAttribute
-											id++"__nothrow__"											
+											ident++"__nothrow__"											
 										),
 										(GccAttribute
-											id++"__leaf__"
+											ident++"__leaf__"
 										)
 									)
 								)
@@ -142,7 +142,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do1",
+								ident++"do1",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -168,7 +168,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)
@@ -186,7 +186,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									(GccAttributeList
 										gccAttribute+=
 										(GccAttribute
-											id++"__nothrow__"											
+											ident++"__nothrow__"											
 										)
 									)
 								)
@@ -215,7 +215,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do3",
+								ident++"do3",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -241,7 +241,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)
@@ -279,7 +279,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do4",
+								ident++"do4",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -305,7 +305,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)
@@ -343,7 +343,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"do5",
+								ident++"do5",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									lastSuffix=
@@ -369,7 +369,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 														),
 														declarator=
 														(DirectDeclarator
-															id++"c"
+															ident++"c"
 														)
 													)
 												)

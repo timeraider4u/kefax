@@ -21,7 +21,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"abc",
+					ident++"abc",
 					string++"\\\"Test0002b_Code.c\\\""
 				)
 			),

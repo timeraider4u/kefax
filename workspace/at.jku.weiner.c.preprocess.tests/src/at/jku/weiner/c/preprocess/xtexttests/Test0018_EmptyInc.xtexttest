@@ -24,7 +24,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"EMPTY",
+					ident++"EMPTY",
 					string isNull
 				)
 			),
@@ -35,7 +35,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"EMPTY2",
+					ident++"EMPTY2",
 					string isNull
 				)
 			),

@@ -391,7 +391,7 @@ public class Test0137_Line {
 		Assert.assertNotNull(DefineObjectMacro_16_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_16_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("100", DefineObjectMacro_16_Var
 		.getString());
 		//16

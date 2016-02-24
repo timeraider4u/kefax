@@ -42,7 +42,7 @@ KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						),
 						initializer=
@@ -94,7 +94,7 @@ KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								ident++"j"
 							)
 						),
 						initializer=

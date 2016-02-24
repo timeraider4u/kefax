@@ -239,7 +239,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
 		Assert.assertEquals("xyz", DefineObjectMacro_4_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("4", DefineObjectMacro_4_Var
 		.getString());
 		//4
@@ -254,7 +254,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(DefineObjectMacro_6_Var
 		);
 		Assert.assertEquals("bar", DefineObjectMacro_6_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_6_Var
 		.getString());
 		//6
@@ -269,7 +269,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
 		Assert.assertEquals("__foo", DefineFunctionLikeMacro_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final IdentifierList IdentifierList_9_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
@@ -277,7 +277,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(IdentifierList_9_Var
 		);
 		Assert.assertEquals("[x]", IdentifierList_9_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("#x", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9
@@ -292,7 +292,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
 		);
 		Assert.assertEquals("_foo", DefineFunctionLikeMacro_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final IdentifierList IdentifierList_12_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
@@ -300,7 +300,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(IdentifierList_12_Var
 		);
 		Assert.assertEquals("[x]", IdentifierList_12_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("__foo(../myinclude/include/bar/baz##x.h)", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12
@@ -315,7 +315,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(DefineFunctionLikeMacro_14_Var
 		);
 		Assert.assertEquals("foo", DefineFunctionLikeMacro_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final IdentifierList IdentifierList_15_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_14_Var
@@ -323,7 +323,7 @@ public class Test0119_DefineAndInclude {
 		Assert.assertNotNull(IdentifierList_15_Var
 		);
 		Assert.assertEquals("[x]", IdentifierList_15_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("_foo(x)", DefineFunctionLikeMacro_14_Var
 		.getString());
 		//15

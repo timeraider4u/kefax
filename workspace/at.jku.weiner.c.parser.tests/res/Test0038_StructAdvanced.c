@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct empStruct {
-	int id;
+	int ident;
 	char name[250];
 } employee;
 
@@ -11,7 +11,7 @@ struct empStruct joe = {0x007, "Joe Nobody"};
 employee phil = {0x008, "Phil Morrison"};
 
 void print(employee *emp) {
-	printf("(*employee).id=%d\n", (*emp).id);
+	printf("(*employee).ident=%d\n", (*emp).ident);
 	printf("employee->name=%s\n", emp->name);
 }
 
@@ -23,7 +23,7 @@ int main(void) {
 	}
 	print(&joe);
 	print(&phil);
-	newEmployee->id = 0x009;
+	newEmployee->ident = 0x009;
 	strcpy(newEmployee->name, "Billy The Kid");
 	print(newEmployee);
 	free(newEmployee);

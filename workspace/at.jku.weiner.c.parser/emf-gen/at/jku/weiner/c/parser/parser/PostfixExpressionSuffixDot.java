@@ -11,7 +11,7 @@ package at.jku.weiner.c.parser.parser;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,29 +22,29 @@ package at.jku.weiner.c.parser.parser;
 public interface PostfixExpressionSuffixDot extends PostfixExpressionSuffix
 {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpressionSuffixDot_Id()
+	 * @return the value of the '<em>Ident</em>' attribute.
+	 * @see #setIdent(String)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpressionSuffixDot_Ident()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getIdent();
 
 	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getIdent <em>Ident</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Ident</em>' attribute.
+	 * @see #getIdent()
 	 * @generated
 	 */
-	void setId(String value);
+	void setIdent(String value);
 
 } // PostfixExpressionSuffixDot

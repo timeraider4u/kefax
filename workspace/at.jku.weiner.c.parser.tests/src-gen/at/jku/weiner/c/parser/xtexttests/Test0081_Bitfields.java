@@ -246,7 +246,7 @@ public class Test0081_Bitfields {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -307,7 +307,7 @@ public class Test0081_Bitfields {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> ConstExpr_14_list = StructDeclarator_12_Var
 		.getConstExpr();
 		Assert.assertNotNull(ConstExpr_14_list);
@@ -375,7 +375,7 @@ public class Test0081_Bitfields {
 		Assert.assertNotNull(DirectDeclarator_23_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_23_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> ConstExpr_23_list = StructDeclarator_21_Var
 		.getConstExpr();
 		Assert.assertNotNull(ConstExpr_23_list);
@@ -443,7 +443,7 @@ public class Test0081_Bitfields {
 		Assert.assertNotNull(DirectDeclarator_32_Var
 		);
 		Assert.assertEquals("k", DirectDeclarator_32_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> ConstExpr_32_list = StructDeclarator_30_Var
 		.getConstExpr();
 		Assert.assertNotNull(ConstExpr_32_list);

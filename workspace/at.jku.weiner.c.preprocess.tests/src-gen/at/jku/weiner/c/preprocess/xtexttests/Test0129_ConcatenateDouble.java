@@ -296,7 +296,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -304,7 +304,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X, Y, Z]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertFalse(IdentifierList_4_Var
 		.isVariadic());
 		Assert.assertEquals("printf(X##Y ## Z)", DefineFunctionLikeMacro_3_Var
@@ -321,7 +321,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
 		);
 		Assert.assertEquals("BAR", DefineFunctionLikeMacro_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final IdentifierList IdentifierList_7_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
@@ -329,7 +329,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(IdentifierList_7_Var
 		);
 		Assert.assertEquals("[X, Y, Z]", IdentifierList_7_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertFalse(IdentifierList_7_Var
 		.isVariadic());
 		Assert.assertEquals("printf(X ## Y##Z)", DefineFunctionLikeMacro_6_Var
@@ -346,7 +346,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
 		);
 		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final IdentifierList IdentifierList_10_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
@@ -354,7 +354,7 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertNotNull(IdentifierList_10_Var
 		);
 		Assert.assertEquals("[X, Y, Z]", IdentifierList_10_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertFalse(IdentifierList_10_Var
 		.isVariadic());
 		Assert.assertEquals("printf(X##Y##Z)", DefineFunctionLikeMacro_9_Var

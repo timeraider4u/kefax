@@ -169,7 +169,7 @@ public class Test0019_SimpleFunctionMacro {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("halt", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineFunctionLikeMacro_3_Var
 		.getList());
 		Assert.assertEquals("stop()", DefineFunctionLikeMacro_3_Var

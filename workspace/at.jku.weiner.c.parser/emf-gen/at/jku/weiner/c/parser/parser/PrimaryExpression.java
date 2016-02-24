@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isParentheses <em>Parentheses</em>}</li>
@@ -35,30 +35,30 @@ import org.eclipse.emf.common.util.EList;
 public interface PrimaryExpression extends Expression
 {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Id()
+	 * @return the value of the '<em>Ident</em>' attribute.
+	 * @see #setIdent(String)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Ident()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getIdent();
 
 	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getIdent <em>Ident</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Ident</em>' attribute.
+	 * @see #getIdent()
 	 * @generated
 	 */
-	void setId(String value);
+	void setIdent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Const</b></em>' containment reference.

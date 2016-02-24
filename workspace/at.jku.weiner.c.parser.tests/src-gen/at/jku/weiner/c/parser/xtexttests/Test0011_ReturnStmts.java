@@ -305,7 +305,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething1", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -399,7 +399,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
 		Assert.assertEquals("doSomething2", DirectDeclarator_19_Var
-		.getId());
+		.getIdent());
 		//19
 		final FunctionDefinition FunctionDefinition_20_Var
 		 = (FunctionDefinition)ExternalDeclaration_14_Var
@@ -501,7 +501,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(DirectDeclarator_33_Var
 		);
 		Assert.assertEquals("doSomething3", DirectDeclarator_33_Var
-		.getId());
+		.getIdent());
 		//33
 		final FunctionDefinition FunctionDefinition_34_Var
 		 = (FunctionDefinition)ExternalDeclaration_28_Var
@@ -595,7 +595,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(DirectDeclarator_46_Var
 		);
 		Assert.assertEquals("doSomething4", DirectDeclarator_46_Var
-		.getId());
+		.getIdent());
 		//46
 		final FunctionDefinition FunctionDefinition_47_Var
 		 = (FunctionDefinition)ExternalDeclaration_41_Var
@@ -689,7 +689,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(DirectDeclarator_59_Var
 		);
 		Assert.assertEquals("doSomething5", DirectDeclarator_59_Var
-		.getId());
+		.getIdent());
 		//59
 		final FunctionDefinition FunctionDefinition_60_Var
 		 = (FunctionDefinition)ExternalDeclaration_54_Var

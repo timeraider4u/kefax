@@ -291,7 +291,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -361,7 +361,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final ParameterDeclaration ParameterDeclaration_16_Var
 		 = (ParameterDeclaration)ParameterDeclaration_10_list.get(1);
@@ -397,7 +397,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_20_Var
 		);
 		Assert.assertEquals("f", DirectDeclarator_20_Var
-		.getId());
+		.getIdent());
 		//20
 		final ParameterDeclaration ParameterDeclaration_21_Var
 		 = (ParameterDeclaration)ParameterDeclaration_10_list.get(2);
@@ -433,7 +433,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_25_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_25_Var
-		.getId());
+		.getIdent());
 		//25
 		final ExternalDeclaration ExternalDeclaration_26_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -487,7 +487,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_33_Var
 		);
 		Assert.assertEquals("do3", DirectDeclarator_33_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_33_list = DirectDeclarator_33_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_33_list);
@@ -509,31 +509,31 @@ public class Test0008_FunctionDef {
 		.getIdentifierList();
 		Assert.assertNotNull(IdentifierList_36_Var
 		);
-		final EList<? extends EObject> Id_36_list = IdentifierList_36_Var
-		.getId();
-		Assert.assertNotNull(Id_36_list);
-		Assert.assertEquals(3, Id_36_list.size());
+		final EList<? extends EObject> Ident_36_list = IdentifierList_36_Var
+		.getIdent();
+		Assert.assertNotNull(Ident_36_list);
+		Assert.assertEquals(3, Ident_36_list.size());
 		//36
 		final MyIdentifier MyIdentifier_37_Var
-		 = (MyIdentifier)Id_36_list.get(0);
+		 = (MyIdentifier)Ident_36_list.get(0);
 		Assert.assertNotNull(MyIdentifier_37_Var
 		);
 		Assert.assertEquals("c", MyIdentifier_37_Var
-		.getId());
+		.getIdent());
 		//37
 		final MyIdentifier MyIdentifier_38_Var
-		 = (MyIdentifier)Id_36_list.get(1);
+		 = (MyIdentifier)Ident_36_list.get(1);
 		Assert.assertNotNull(MyIdentifier_38_Var
 		);
 		Assert.assertEquals("f", MyIdentifier_38_Var
-		.getId());
+		.getIdent());
 		//38
 		final MyIdentifier MyIdentifier_39_Var
-		 = (MyIdentifier)Id_36_list.get(2);
+		 = (MyIdentifier)Ident_36_list.get(2);
 		Assert.assertNotNull(MyIdentifier_39_Var
 		);
 		Assert.assertEquals("i", MyIdentifier_39_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> FunDeclaration_39_list = FunctionDefHead_29_Var
 		.getFunDeclaration();
 		Assert.assertNotNull(FunDeclaration_39_list);
@@ -591,7 +591,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_46_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_46_Var
-		.getId());
+		.getIdent());
 		//46
 		final Declaration Declaration_47_Var
 		 = (Declaration)FunDeclaration_39_list.get(1);
@@ -645,7 +645,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_53_Var
 		);
 		Assert.assertEquals("f", DirectDeclarator_53_Var
-		.getId());
+		.getIdent());
 		//53
 		final Declaration Declaration_54_Var
 		 = (Declaration)FunDeclaration_39_list.get(2);
@@ -699,7 +699,7 @@ public class Test0008_FunctionDef {
 		Assert.assertNotNull(DirectDeclarator_60_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_60_Var
-		.getId());
+		.getIdent());
 		//60
 		final FunctionDefinition FunctionDefinition_61_Var
 		 = (FunctionDefinition)ExternalDeclaration_26_Var

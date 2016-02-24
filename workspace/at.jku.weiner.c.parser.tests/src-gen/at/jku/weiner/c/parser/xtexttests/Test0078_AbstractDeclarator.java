@@ -275,7 +275,7 @@ public class Test0078_AbstractDeclarator {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -342,7 +342,7 @@ public class Test0078_AbstractDeclarator {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_18_list = DirectDeclarator_18_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_18_list);
@@ -404,7 +404,7 @@ public class Test0078_AbstractDeclarator {
 		Assert.assertNotNull(TypedefName_26_Var
 		);
 		Assert.assertEquals("foo", TypedefName_26_Var
-		.getId());
+		.getIdent());
 		//26
 		final AbstractDeclarator AbstractDeclarator_27_Var
 		 = (AbstractDeclarator)ParameterDeclaration_23_Var
@@ -504,7 +504,7 @@ public class Test0078_AbstractDeclarator {
 		Assert.assertNotNull(TypedefName_40_Var
 		);
 		Assert.assertEquals("foo", TypedefName_40_Var
-		.getId());
+		.getIdent());
 		//40
 		final AbstractDeclarator AbstractDeclarator_41_Var
 		 = (AbstractDeclarator)ParameterDeclaration_37_Var
@@ -591,7 +591,7 @@ public class Test0078_AbstractDeclarator {
 		Assert.assertEquals("struct", StructOrUnion_52_Var
 		.getName());
 		Assert.assertEquals("foobar", StructOrUnionSpecifier_51_Var
-		.getId());
+		.getIdent());
 		Assert.assertFalse(StructOrUnionSpecifier_51_Var
 		.isBraces());
 		Assert.assertNull(StructOrUnionSpecifier_51_Var

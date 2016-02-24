@@ -197,7 +197,7 @@ public class Test0033_StaticInline {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final FunctionDefinition FunctionDefinition_9_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var

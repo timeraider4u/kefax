@@ -184,7 +184,7 @@ public class Test0083_EmptyStringification {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -192,7 +192,7 @@ public class Test0083_EmptyStringification {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[A, B]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("#A #B", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4

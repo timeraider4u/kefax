@@ -5,9 +5,9 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine;
 
-import org.eclipse.emf.ecore.EClass;
+import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class SourceCodeLineImpl extends MinimalEObjectImpl.Container implements SourceCodeLine
+public class SourceCodeLineImpl extends PersistentEObjectImpl implements SourceCodeLine
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +39,17 @@ public class SourceCodeLineImpl extends MinimalEObjectImpl.Container implements 
 	protected EClass eStaticClass()
 	{
 		return PreprocessPackage.Literals.SOURCE_CODE_LINE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
 	}
 
 } //SourceCodeLineImpl

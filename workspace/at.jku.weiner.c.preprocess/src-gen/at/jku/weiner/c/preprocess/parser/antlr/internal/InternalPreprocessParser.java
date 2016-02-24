@@ -2055,7 +2055,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefineObjectMacro"
-    // InternalPreprocess.g:893:1: ruleDefineObjectMacro returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* ) ;
+    // InternalPreprocess.g:893:1: ruleDefineObjectMacro returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* ) ;
     public final EObject ruleDefineObjectMacro() throws RecognitionException {
         EObject current = null;
 
@@ -2063,7 +2063,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_WHITESPACE_2=null;
         Token this_WHITESPACE_4=null;
         Token this_WHITESPACE_6=null;
-        AntlrDatatypeRuleToken lv_id_3_0 = null;
+        AntlrDatatypeRuleToken lv_ident_3_0 = null;
 
         AntlrDatatypeRuleToken lv_string_5_0 = null;
 
@@ -2072,11 +2072,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:899:7: ( ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* ) )
-            // InternalPreprocess.g:901:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* )
+            // InternalPreprocess.g:899:7: ( ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:901:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:901:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* )
-            // InternalPreprocess.g:902:1: () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )*
+            // InternalPreprocess.g:901:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )* )
+            // InternalPreprocess.g:902:1: () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) ( (this_WHITESPACE_4= RULE_WHITESPACE )+ ( (lv_string_5_0= ruleMyDefineLineObject ) ) )? (this_WHITESPACE_6= RULE_WHITESPACE )*
             {
             // InternalPreprocess.g:902:1: ()
             // InternalPreprocess.g:903:2: 
@@ -2138,19 +2138,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                 cnt12++;
             } while (true);
 
-            // InternalPreprocess.g:928:1: ( (lv_id_3_0= ruleMyCode ) )
-            // InternalPreprocess.g:929:1: (lv_id_3_0= ruleMyCode )
+            // InternalPreprocess.g:928:1: ( (lv_ident_3_0= ruleMyCode ) )
+            // InternalPreprocess.g:929:1: (lv_ident_3_0= ruleMyCode )
             {
-            // InternalPreprocess.g:929:1: (lv_id_3_0= ruleMyCode )
-            // InternalPreprocess.g:930:3: lv_id_3_0= ruleMyCode
+            // InternalPreprocess.g:929:1: (lv_ident_3_0= ruleMyCode )
+            // InternalPreprocess.g:930:3: lv_ident_3_0= ruleMyCode
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getIdentMyCodeParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_10);
-            lv_id_3_0=ruleMyCode();
+            lv_ident_3_0=ruleMyCode();
 
             state._fsp--;
             if (state.failed) return current;
@@ -2161,8 +2161,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"id",
-                      		lv_id_3_0, 
+                     			"ident",
+                      		lv_ident_3_0, 
                       		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
               	        afterParserOrEnumRuleCall();
               	    
@@ -2378,7 +2378,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefineFunctionLikeMacro"
-    // InternalPreprocess.g:1010:1: ruleDefineFunctionLikeMacro returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? ) ;
+    // InternalPreprocess.g:1010:1: ruleDefineFunctionLikeMacro returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? ) ;
     public final EObject ruleDefineFunctionLikeMacro() throws RecognitionException {
         EObject current = null;
 
@@ -2387,7 +2387,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_SKW_LEFTPAREN_4=null;
         Token this_WHITESPACE_5=null;
         Token this_SKW_RIGHTPAREN_7=null;
-        AntlrDatatypeRuleToken lv_id_3_0 = null;
+        AntlrDatatypeRuleToken lv_ident_3_0 = null;
 
         EObject lv_list_6_0 = null;
 
@@ -2398,11 +2398,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:1016:7: ( ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? ) )
-            // InternalPreprocess.g:1018:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? )
+            // InternalPreprocess.g:1016:7: ( ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? ) )
+            // InternalPreprocess.g:1018:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? )
             {
-            // InternalPreprocess.g:1018:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? )
-            // InternalPreprocess.g:1019:1: () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )?
+            // InternalPreprocess.g:1018:1: ( () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )? )
+            // InternalPreprocess.g:1019:1: () this_DEFINE_1= RULE_DEFINE (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= ruleMyCode ) ) this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN (this_WHITESPACE_5= RULE_WHITESPACE )* ( (lv_list_6_0= ruleIdentifierList ) )? this_SKW_RIGHTPAREN_7= RULE_SKW_RIGHTPAREN ( (lv_string_8_0= ruleMyDefineLineFunction ) )?
             {
             // InternalPreprocess.g:1019:1: ()
             // InternalPreprocess.g:1020:2: 
@@ -2464,19 +2464,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                 cnt16++;
             } while (true);
 
-            // InternalPreprocess.g:1045:1: ( (lv_id_3_0= ruleMyCode ) )
-            // InternalPreprocess.g:1046:1: (lv_id_3_0= ruleMyCode )
+            // InternalPreprocess.g:1045:1: ( (lv_ident_3_0= ruleMyCode ) )
+            // InternalPreprocess.g:1046:1: (lv_ident_3_0= ruleMyCode )
             {
-            // InternalPreprocess.g:1046:1: (lv_id_3_0= ruleMyCode )
-            // InternalPreprocess.g:1047:3: lv_id_3_0= ruleMyCode
+            // InternalPreprocess.g:1046:1: (lv_ident_3_0= ruleMyCode )
+            // InternalPreprocess.g:1047:3: lv_ident_3_0= ruleMyCode
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getIdentMyCodeParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_11);
-            lv_id_3_0=ruleMyCode();
+            lv_ident_3_0=ruleMyCode();
 
             state._fsp--;
             if (state.failed) return current;
@@ -2487,8 +2487,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"id",
-                      		lv_id_3_0, 
+                     			"ident",
+                      		lv_ident_3_0, 
                       		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
               	        afterParserOrEnumRuleCall();
               	    
@@ -2703,7 +2703,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIdentifierList"
-    // InternalPreprocess.g:1152:1: ruleIdentifierList returns [EObject current=null] : ( () ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) ) ;
+    // InternalPreprocess.g:1152:1: ruleIdentifierList returns [EObject current=null] : ( () ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) ) ;
     public final EObject ruleIdentifierList() throws RecognitionException {
         EObject current = null;
 
@@ -2713,9 +2713,9 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_WHITESPACE_6=null;
         Token this_SKW_COMMA_7=null;
         Token this_WHITESPACE_8=null;
-        AntlrDatatypeRuleToken lv_id_1_0 = null;
+        AntlrDatatypeRuleToken lv_ident_1_0 = null;
 
-        AntlrDatatypeRuleToken lv_id_5_0 = null;
+        AntlrDatatypeRuleToken lv_ident_5_0 = null;
 
         AntlrDatatypeRuleToken lv_variadic_9_0 = null;
 
@@ -2732,11 +2732,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:1158:7: ( ( () ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) ) )
-            // InternalPreprocess.g:1160:1: ( () ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) )
+            // InternalPreprocess.g:1158:7: ( ( () ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) ) )
+            // InternalPreprocess.g:1160:1: ( () ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) )
             {
-            // InternalPreprocess.g:1160:1: ( () ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) )
-            // InternalPreprocess.g:1161:1: () ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) )
+            // InternalPreprocess.g:1160:1: ( () ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) ) )
+            // InternalPreprocess.g:1161:1: () ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) )
             {
             // InternalPreprocess.g:1161:1: ()
             // InternalPreprocess.g:1162:2: 
@@ -2756,7 +2756,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPreprocess.g:1173:1: ( ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) )
+            // InternalPreprocess.g:1173:1: ( ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? ) | ( ( (lv_varID_12_0= rulePP_ID ) )? ( (lv_variadic_13_0= ruleEllipsis ) ) ) )
             int alt28=2;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -2812,24 +2812,24 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
             switch (alt28) {
                 case 1 :
-                    // InternalPreprocess.g:1174:1: ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? )
+                    // InternalPreprocess.g:1174:1: ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? )
                     {
-                    // InternalPreprocess.g:1174:1: ( ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? )
-                    // InternalPreprocess.g:1175:1: ( (lv_id_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )?
+                    // InternalPreprocess.g:1174:1: ( ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )? )
+                    // InternalPreprocess.g:1175:1: ( (lv_ident_1_0= rulePP_ID ) ) ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )* (this_WHITESPACE_6= RULE_WHITESPACE )* (this_SKW_COMMA_7= RULE_SKW_COMMA (this_WHITESPACE_8= RULE_WHITESPACE )* ( ( (lv_variadic_9_0= ruleEllipsis ) ) | ( ( (lv_varID_10_0= rulePP_ID ) ) ( (lv_variadic_11_0= ruleEllipsis ) ) ) ) )?
                     {
-                    // InternalPreprocess.g:1175:1: ( (lv_id_1_0= rulePP_ID ) )
-                    // InternalPreprocess.g:1176:1: (lv_id_1_0= rulePP_ID )
+                    // InternalPreprocess.g:1175:1: ( (lv_ident_1_0= rulePP_ID ) )
+                    // InternalPreprocess.g:1176:1: (lv_ident_1_0= rulePP_ID )
                     {
-                    // InternalPreprocess.g:1176:1: (lv_id_1_0= rulePP_ID )
-                    // InternalPreprocess.g:1177:3: lv_id_1_0= rulePP_ID
+                    // InternalPreprocess.g:1176:1: (lv_ident_1_0= rulePP_ID )
+                    // InternalPreprocess.g:1177:3: lv_ident_1_0= rulePP_ID
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_0_0()); 
+                      	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentPP_IDParserRuleCall_1_0_0_0()); 
                       	    
                     }
                     pushFollow(FOLLOW_15);
-                    lv_id_1_0=rulePP_ID();
+                    lv_ident_1_0=rulePP_ID();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -2840,8 +2840,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                       	        }
                              		add(
                              			current, 
-                             			"id",
-                              		lv_id_1_0, 
+                             			"ident",
+                              		lv_ident_1_0, 
                               		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
                       	        afterParserOrEnumRuleCall();
                       	    
@@ -2852,14 +2852,14 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPreprocess.g:1196:1: ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )*
+                    // InternalPreprocess.g:1196:1: ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )*
                     loop22:
                     do {
                         int alt22=2;
                         alt22 = dfa22.predict(input);
                         switch (alt22) {
                     	case 1 :
-                    	    // InternalPreprocess.g:1197:1: (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) )
+                    	    // InternalPreprocess.g:1197:1: (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) )
                     	    {
                     	    // InternalPreprocess.g:1197:1: (this_WHITESPACE_2= RULE_WHITESPACE )*
                     	    loop20:
@@ -2927,19 +2927,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                     	        }
                     	    } while (true);
 
-                    	    // InternalPreprocess.g:1218:1: ( (lv_id_5_0= rulePP_ID ) )
-                    	    // InternalPreprocess.g:1219:1: (lv_id_5_0= rulePP_ID )
+                    	    // InternalPreprocess.g:1218:1: ( (lv_ident_5_0= rulePP_ID ) )
+                    	    // InternalPreprocess.g:1219:1: (lv_ident_5_0= rulePP_ID )
                     	    {
-                    	    // InternalPreprocess.g:1219:1: (lv_id_5_0= rulePP_ID )
-                    	    // InternalPreprocess.g:1220:3: lv_id_5_0= rulePP_ID
+                    	    // InternalPreprocess.g:1219:1: (lv_ident_5_0= rulePP_ID )
+                    	    // InternalPreprocess.g:1220:3: lv_ident_5_0= rulePP_ID
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
-                    	      	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdPP_IDParserRuleCall_1_0_1_3_0()); 
+                    	      	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentPP_IDParserRuleCall_1_0_1_3_0()); 
                     	      	    
                     	    }
                     	    pushFollow(FOLLOW_15);
-                    	    lv_id_5_0=rulePP_ID();
+                    	    lv_ident_5_0=rulePP_ID();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -2950,8 +2950,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                     	      	        }
                     	             		add(
                     	             			current, 
-                    	             			"id",
-                    	              		lv_id_5_0, 
+                    	             			"ident",
+                    	              		lv_ident_5_0, 
                     	              		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
                     	      	        afterParserOrEnumRuleCall();
                     	      	    
@@ -4029,25 +4029,25 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnDefineDirective"
-    // InternalPreprocess.g:1676:1: ruleUnDefineDirective returns [EObject current=null] : ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* ) ;
+    // InternalPreprocess.g:1676:1: ruleUnDefineDirective returns [EObject current=null] : ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* ) ;
     public final EObject ruleUnDefineDirective() throws RecognitionException {
         EObject current = null;
 
         Token this_UNDEF_1=null;
         Token this_WHITESPACE_2=null;
         Token this_WHITESPACE_4=null;
-        AntlrDatatypeRuleToken lv_id_3_0 = null;
+        AntlrDatatypeRuleToken lv_ident_3_0 = null;
 
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:1682:7: ( ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* ) )
-            // InternalPreprocess.g:1684:1: ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* )
+            // InternalPreprocess.g:1682:7: ( ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:1684:1: ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:1684:1: ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* )
-            // InternalPreprocess.g:1685:1: () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )*
+            // InternalPreprocess.g:1684:1: ( () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* )
+            // InternalPreprocess.g:1685:1: () this_UNDEF_1= RULE_UNDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )*
             {
             // InternalPreprocess.g:1685:1: ()
             // InternalPreprocess.g:1686:2: 
@@ -4109,19 +4109,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                 cnt36++;
             } while (true);
 
-            // InternalPreprocess.g:1711:1: ( (lv_id_3_0= rulePP_ID ) )
-            // InternalPreprocess.g:1712:1: (lv_id_3_0= rulePP_ID )
+            // InternalPreprocess.g:1711:1: ( (lv_ident_3_0= rulePP_ID ) )
+            // InternalPreprocess.g:1712:1: (lv_ident_3_0= rulePP_ID )
             {
-            // InternalPreprocess.g:1712:1: (lv_id_3_0= rulePP_ID )
-            // InternalPreprocess.g:1713:3: lv_id_3_0= rulePP_ID
+            // InternalPreprocess.g:1712:1: (lv_ident_3_0= rulePP_ID )
+            // InternalPreprocess.g:1713:3: lv_ident_3_0= rulePP_ID
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getUnDefineDirectiveAccess().getIdPP_IDParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getUnDefineDirectiveAccess().getIdentPP_IDParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_10);
-            lv_id_3_0=rulePP_ID();
+            lv_ident_3_0=rulePP_ID();
 
             state._fsp--;
             if (state.failed) return current;
@@ -4132,8 +4132,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"id",
-                      		lv_id_3_0, 
+                     			"ident",
+                      		lv_ident_3_0, 
                       		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
               	        afterParserOrEnumRuleCall();
               	    
@@ -4941,7 +4941,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfDefConditional"
-    // InternalPreprocess.g:2051:1: ruleIfDefConditional returns [EObject current=null] : ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) ;
+    // InternalPreprocess.g:2051:1: ruleIfDefConditional returns [EObject current=null] : ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) ;
     public final EObject ruleIfDefConditional() throws RecognitionException {
         EObject current = null;
 
@@ -4949,7 +4949,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_WHITESPACE_2=null;
         Token this_WHITESPACE_4=null;
         Token this_NEWLINE_5=null;
-        AntlrDatatypeRuleToken lv_id_3_0 = null;
+        AntlrDatatypeRuleToken lv_ident_3_0 = null;
 
         EObject lv_group_6_0 = null;
 
@@ -4958,11 +4958,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:2057:7: ( ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) )
-            // InternalPreprocess.g:2059:1: ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
+            // InternalPreprocess.g:2057:7: ( ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) )
+            // InternalPreprocess.g:2059:1: ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
             {
-            // InternalPreprocess.g:2059:1: ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
-            // InternalPreprocess.g:2060:1: () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) )
+            // InternalPreprocess.g:2059:1: ( () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
+            // InternalPreprocess.g:2060:1: () this_IFDEF_1= RULE_IFDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) )
             {
             // InternalPreprocess.g:2060:1: ()
             // InternalPreprocess.g:2061:2: 
@@ -5024,19 +5024,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                 cnt46++;
             } while (true);
 
-            // InternalPreprocess.g:2086:1: ( (lv_id_3_0= rulePP_ID ) )
-            // InternalPreprocess.g:2087:1: (lv_id_3_0= rulePP_ID )
+            // InternalPreprocess.g:2086:1: ( (lv_ident_3_0= rulePP_ID ) )
+            // InternalPreprocess.g:2087:1: (lv_ident_3_0= rulePP_ID )
             {
-            // InternalPreprocess.g:2087:1: (lv_id_3_0= rulePP_ID )
-            // InternalPreprocess.g:2088:3: lv_id_3_0= rulePP_ID
+            // InternalPreprocess.g:2087:1: (lv_ident_3_0= rulePP_ID )
+            // InternalPreprocess.g:2088:3: lv_ident_3_0= rulePP_ID
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getIdentPP_IDParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_21);
-            lv_id_3_0=rulePP_ID();
+            lv_ident_3_0=rulePP_ID();
 
             state._fsp--;
             if (state.failed) return current;
@@ -5047,8 +5047,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"id",
-                      		lv_id_3_0, 
+                     			"ident",
+                      		lv_ident_3_0, 
                       		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
               	        afterParserOrEnumRuleCall();
               	    
@@ -5200,7 +5200,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfNotDefConditional"
-    // InternalPreprocess.g:2165:1: ruleIfNotDefConditional returns [EObject current=null] : ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) ;
+    // InternalPreprocess.g:2165:1: ruleIfNotDefConditional returns [EObject current=null] : ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) ;
     public final EObject ruleIfNotDefConditional() throws RecognitionException {
         EObject current = null;
 
@@ -5208,7 +5208,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_WHITESPACE_2=null;
         Token this_WHITESPACE_4=null;
         Token this_NEWLINE_5=null;
-        AntlrDatatypeRuleToken lv_id_3_0 = null;
+        AntlrDatatypeRuleToken lv_ident_3_0 = null;
 
         EObject lv_group_6_0 = null;
 
@@ -5217,11 +5217,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:2171:7: ( ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) )
-            // InternalPreprocess.g:2173:1: ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
+            // InternalPreprocess.g:2171:7: ( ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) ) )
+            // InternalPreprocess.g:2173:1: ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
             {
-            // InternalPreprocess.g:2173:1: ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
-            // InternalPreprocess.g:2174:1: () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_id_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) )
+            // InternalPreprocess.g:2173:1: ( () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) ) )
+            // InternalPreprocess.g:2174:1: () this_IFNOTDEF_1= RULE_IFNOTDEF (this_WHITESPACE_2= RULE_WHITESPACE )+ ( (lv_ident_3_0= rulePP_ID ) ) (this_WHITESPACE_4= RULE_WHITESPACE )* this_NEWLINE_5= RULE_NEWLINE ( (lv_group_6_0= ruleGroupOpt ) )
             {
             // InternalPreprocess.g:2174:1: ()
             // InternalPreprocess.g:2175:2: 
@@ -5283,19 +5283,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                 cnt48++;
             } while (true);
 
-            // InternalPreprocess.g:2200:1: ( (lv_id_3_0= rulePP_ID ) )
-            // InternalPreprocess.g:2201:1: (lv_id_3_0= rulePP_ID )
+            // InternalPreprocess.g:2200:1: ( (lv_ident_3_0= rulePP_ID ) )
+            // InternalPreprocess.g:2201:1: (lv_ident_3_0= rulePP_ID )
             {
-            // InternalPreprocess.g:2201:1: (lv_id_3_0= rulePP_ID )
-            // InternalPreprocess.g:2202:3: lv_id_3_0= rulePP_ID
+            // InternalPreprocess.g:2201:1: (lv_ident_3_0= rulePP_ID )
+            // InternalPreprocess.g:2202:3: lv_ident_3_0= rulePP_ID
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getIdPP_IDParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getIdentPP_IDParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_21);
-            lv_id_3_0=rulePP_ID();
+            lv_ident_3_0=rulePP_ID();
 
             state._fsp--;
             if (state.failed) return current;
@@ -5306,8 +5306,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"id",
-                      		lv_id_3_0, 
+                     			"ident",
+                      		lv_ident_3_0, 
                       		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
               	        afterParserOrEnumRuleCall();
               	    
@@ -8216,7 +8216,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryExpression"
-    // InternalPreprocess.g:3212:1: rulePrimaryExpression returns [EObject current=null] : ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) ) ;
+    // InternalPreprocess.g:3212:1: rulePrimaryExpression returns [EObject current=null] : ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) ) ;
     public final EObject rulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8226,9 +8226,9 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token this_SKW_RIGHTPAREN_6=null;
         Token lv_parentheses_8_0=null;
         Token this_SKW_RIGHTPAREN_10=null;
-        AntlrDatatypeRuleToken lv_id_2_0 = null;
+        AntlrDatatypeRuleToken lv_ident_2_0 = null;
 
-        AntlrDatatypeRuleToken lv_id_5_0 = null;
+        AntlrDatatypeRuleToken lv_ident_5_0 = null;
 
         AntlrDatatypeRuleToken lv_const_7_0 = null;
 
@@ -8239,11 +8239,11 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalPreprocess.g:3218:7: ( ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) ) )
-            // InternalPreprocess.g:3220:1: ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) )
+            // InternalPreprocess.g:3218:7: ( ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) ) )
+            // InternalPreprocess.g:3220:1: ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) )
             {
-            // InternalPreprocess.g:3220:1: ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) )
-            // InternalPreprocess.g:3221:1: () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )
+            // InternalPreprocess.g:3220:1: ( () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) ) )
+            // InternalPreprocess.g:3221:1: () ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )
             {
             // InternalPreprocess.g:3221:1: ()
             // InternalPreprocess.g:3222:2: 
@@ -8263,15 +8263,15 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPreprocess.g:3233:1: ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )
+            // InternalPreprocess.g:3233:1: ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )
             int alt71=4;
             alt71 = dfa71.predict(input);
             switch (alt71) {
                 case 1 :
-                    // InternalPreprocess.g:3234:1: ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) )
+                    // InternalPreprocess.g:3234:1: ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) )
                     {
-                    // InternalPreprocess.g:3234:1: ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) )
-                    // InternalPreprocess.g:3235:1: ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) )
+                    // InternalPreprocess.g:3234:1: ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) )
+                    // InternalPreprocess.g:3235:1: ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) )
                     {
                     // InternalPreprocess.g:3235:1: ( (lv_defined_1_0= RULE_DEFINED ) )?
                     int alt69=2;
@@ -8314,19 +8314,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPreprocess.g:3256:1: ( (lv_id_2_0= rulePP_ID ) )
-                    // InternalPreprocess.g:3257:1: (lv_id_2_0= rulePP_ID )
+                    // InternalPreprocess.g:3256:1: ( (lv_ident_2_0= rulePP_ID ) )
+                    // InternalPreprocess.g:3257:1: (lv_ident_2_0= rulePP_ID )
                     {
-                    // InternalPreprocess.g:3257:1: (lv_id_2_0= rulePP_ID )
-                    // InternalPreprocess.g:3258:3: lv_id_2_0= rulePP_ID
+                    // InternalPreprocess.g:3257:1: (lv_ident_2_0= rulePP_ID )
+                    // InternalPreprocess.g:3258:3: lv_ident_2_0= rulePP_ID
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_0_1_0()); 
+                      	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdentPP_IDParserRuleCall_1_0_1_0()); 
                       	    
                     }
                     pushFollow(FOLLOW_2);
-                    lv_id_2_0=rulePP_ID();
+                    lv_ident_2_0=rulePP_ID();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -8337,8 +8337,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                       	        }
                              		set(
                              			current, 
-                             			"id",
-                              		lv_id_2_0, 
+                             			"ident",
+                              		lv_ident_2_0, 
                               		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
                       	        afterParserOrEnumRuleCall();
                       	    
@@ -8356,10 +8356,10 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
+                    // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
                     {
-                    // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
-                    // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN
+                    // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
+                    // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN
                     {
                     // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )?
                     int alt70=2;
@@ -8408,19 +8408,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                           newLeafNode(this_SKW_LEFTPAREN_4, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_1()); 
                           
                     }
-                    // InternalPreprocess.g:3309:1: ( (lv_id_5_0= rulePP_ID ) )
-                    // InternalPreprocess.g:3310:1: (lv_id_5_0= rulePP_ID )
+                    // InternalPreprocess.g:3309:1: ( (lv_ident_5_0= rulePP_ID ) )
+                    // InternalPreprocess.g:3310:1: (lv_ident_5_0= rulePP_ID )
                     {
-                    // InternalPreprocess.g:3310:1: (lv_id_5_0= rulePP_ID )
-                    // InternalPreprocess.g:3311:3: lv_id_5_0= rulePP_ID
+                    // InternalPreprocess.g:3310:1: (lv_ident_5_0= rulePP_ID )
+                    // InternalPreprocess.g:3311:3: lv_ident_5_0= rulePP_ID
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_1_2_0()); 
+                      	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdentPP_IDParserRuleCall_1_1_2_0()); 
                       	    
                     }
                     pushFollow(FOLLOW_13);
-                    lv_id_5_0=rulePP_ID();
+                    lv_ident_5_0=rulePP_ID();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -8431,8 +8431,8 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
                       	        }
                              		set(
                              			current, 
-                             			"id",
-                              		lv_id_5_0, 
+                             			"ident",
+                              		lv_ident_5_0, 
                               		"at.jku.weiner.c.preprocess.Preprocess.PP_ID");
                       	        afterParserOrEnumRuleCall();
                       	    
@@ -14789,14 +14789,14 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         Token lv_defined_3_0=null;
         Token this_SKW_LEFTPAREN_4=null;
         Token this_SKW_RIGHTPAREN_6=null;
-        AntlrDatatypeRuleToken lv_id_5_0 = null;
+        AntlrDatatypeRuleToken lv_ident_5_0 = null;
 
 
-        // InternalPreprocess.g:3280:1: ( ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) )
-        // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
+        // InternalPreprocess.g:3280:1: ( ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) )
+        // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
         {
-        // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
-        // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN
+        // InternalPreprocess.g:3280:1: ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN )
+        // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN
         {
         // InternalPreprocess.g:3281:1: ( (lv_defined_3_0= RULE_DEFINED ) )?
         int alt109=2;
@@ -14823,19 +14823,19 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
         }
 
         this_SKW_LEFTPAREN_4=(Token)match(input,RULE_SKW_LEFTPAREN,FOLLOW_25); if (state.failed) return ;
-        // InternalPreprocess.g:3309:1: ( (lv_id_5_0= rulePP_ID ) )
-        // InternalPreprocess.g:3310:1: (lv_id_5_0= rulePP_ID )
+        // InternalPreprocess.g:3309:1: ( (lv_ident_5_0= rulePP_ID ) )
+        // InternalPreprocess.g:3310:1: (lv_ident_5_0= rulePP_ID )
         {
-        // InternalPreprocess.g:3310:1: (lv_id_5_0= rulePP_ID )
-        // InternalPreprocess.g:3311:3: lv_id_5_0= rulePP_ID
+        // InternalPreprocess.g:3310:1: (lv_ident_5_0= rulePP_ID )
+        // InternalPreprocess.g:3311:3: lv_ident_5_0= rulePP_ID
         {
         if ( state.backtracking==0 ) {
            
-          	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdPP_IDParserRuleCall_1_1_2_0()); 
+          	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getIdentPP_IDParserRuleCall_1_1_2_0()); 
           	    
         }
         pushFollow(FOLLOW_13);
-        lv_id_5_0=rulePP_ID();
+        lv_ident_5_0=rulePP_ID();
 
         state._fsp--;
         if (state.failed) return ;
@@ -16432,7 +16432,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
             this.transition = DFA22_transition;
         }
         public String getDescription() {
-            return "()* loopback of 1196:1: ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_id_5_0= rulePP_ID ) ) )*";
+            return "()* loopback of 1196:1: ( (this_WHITESPACE_2= RULE_WHITESPACE )* this_SKW_COMMA_3= RULE_SKW_COMMA (this_WHITESPACE_4= RULE_WHITESPACE )* ( (lv_ident_5_0= rulePP_ID ) ) )*";
         }
     }
     static final String DFA39_eotS =
@@ -19750,7 +19750,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
             this.transition = DFA71_transition;
         }
         public String getDescription() {
-            return "3233:1: ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_id_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_id_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )";
+            return "3233:1: ( ( ( (lv_defined_1_0= RULE_DEFINED ) )? ( (lv_ident_2_0= rulePP_ID ) ) ) | ( ( (lv_defined_3_0= RULE_DEFINED ) )? this_SKW_LEFTPAREN_4= RULE_SKW_LEFTPAREN ( (lv_ident_5_0= rulePP_ID ) ) this_SKW_RIGHTPAREN_6= RULE_SKW_RIGHTPAREN ) | ( (lv_const_7_0= ruleConstant1 ) ) | ( ( (lv_parentheses_8_0= RULE_SKW_LEFTPAREN ) ) ( (lv_expr_9_0= ruleExpression ) ) this_SKW_RIGHTPAREN_10= RULE_SKW_RIGHTPAREN ) )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;

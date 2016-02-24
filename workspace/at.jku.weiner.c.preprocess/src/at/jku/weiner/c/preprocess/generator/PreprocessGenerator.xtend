@@ -358,16 +358,16 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(DefineDirective obj) {
 		if (obj instanceof DefineObjectMacro) {
-			definitionTable.add(obj.id, obj.string);
+			definitionTable.add(obj.ident, obj.string);
 		}
 		else if (obj instanceof DefineFunctionLikeMacro) {
-			definitionTable.addFunctionMacro(obj.id, obj.list, obj.string);
+			definitionTable.addFunctionMacro(obj.ident, obj.list, obj.string);
 		}
 		return "";
 	}
 	
 	def String outputFor(UnDefineDirective obj) {
-		definitionTable.remove(obj.id);
+		definitionTable.remove(obj.ident);
 		return "";
 	}
 	
@@ -390,7 +390,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective condDirective, IfDefConditional obj) {
-		if (definitionTable.isDefined(obj.id)) {
+		if (definitionTable.isDefined(obj.ident)) {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			
@@ -401,7 +401,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective condDirective, IfNotDefConditional obj) {
-		if (!(definitionTable.isDefined(obj.id))) {
+		if (!(definitionTable.isDefined(obj.ident))) {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			

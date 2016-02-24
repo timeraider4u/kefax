@@ -35,7 +35,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -57,7 +57,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argc"
+													ident++"argc"
 												)
 											)
 										),
@@ -73,7 +73,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argv"
+													ident++"argv"
 												),
 												pointer=
 												(Pointer 
@@ -102,7 +102,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument

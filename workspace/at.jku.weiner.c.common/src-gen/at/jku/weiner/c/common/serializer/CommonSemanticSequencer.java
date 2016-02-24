@@ -299,7 +299,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (const=Constant1 | id=ID | (parentheses?=SKW_LEFTPAREN expr=Expression))
+	 *     (const=Constant1 | ident=ID | (parentheses?=SKW_LEFTPAREN expr=Expression))
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);

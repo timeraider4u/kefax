@@ -43,7 +43,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"foo",
+								ident++"foo",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									expr isNull

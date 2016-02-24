@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
- *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#isParentheses <em>Parentheses</em>}</li>
  * </ul>
@@ -72,9 +72,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(CommonPackage.Literals.PRIMARY_EXPRESSION__ID, true);
+		return (String)eGet(CommonPackage.Literals.PRIMARY_EXPRESSION__IDENT, true);
 	}
 
 	/**
@@ -82,9 +82,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(CommonPackage.Literals.PRIMARY_EXPRESSION__ID, newId);
+		eSet(CommonPackage.Literals.PRIMARY_EXPRESSION__IDENT, newIdent);
 	}
 
 	/**

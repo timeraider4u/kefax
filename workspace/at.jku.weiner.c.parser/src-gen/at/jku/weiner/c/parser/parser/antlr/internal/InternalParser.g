@@ -2118,9 +2118,9 @@ ruleTypedefName returns [EObject current=null]
 
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getTypedefNameAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getTypedefNameAccess().getIdentIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2128,8 +2128,8 @@ ruleTypedefName returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -2206,9 +2206,9 @@ ruleStructOrUnionSpecifier returns [EObject current=null]
 (
 (
 (
-		lv_id_2_0=RULE_ID
+		lv_ident_2_0=RULE_ID
 		{
-			newLeafNode(lv_id_2_0, grammarAccess.getStructOrUnionSpecifierAccess().getIdIDTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_ident_2_0, grammarAccess.getStructOrUnionSpecifierAccess().getIdentIDTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2216,8 +2216,8 @@ ruleStructOrUnionSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -2279,9 +2279,9 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
     |
 (
 (
-		lv_id_6_0=RULE_ID
+		lv_ident_6_0=RULE_ID
 		{
-			newLeafNode(lv_id_6_0, grammarAccess.getStructOrUnionSpecifierAccess().getIdIDTerminalRuleCall_2_1_0()); 
+			newLeafNode(lv_ident_6_0, grammarAccess.getStructOrUnionSpecifierAccess().getIdentIDTerminalRuleCall_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2289,8 +2289,8 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_6_0, 
+       			"ident",
+        		lv_ident_6_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -2924,9 +2924,9 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
 (
 (
 (
-		lv_id_5_0=RULE_ID
+		lv_ident_5_0=RULE_ID
 		{
-			newLeafNode(lv_id_5_0, grammarAccess.getEnumSpecifierAccess().getIdIDTerminalRuleCall_1_1_1_0_0()); 
+			newLeafNode(lv_ident_5_0, grammarAccess.getEnumSpecifierAccess().getIdentIDTerminalRuleCall_1_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2934,8 +2934,8 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_5_0, 
+       			"ident",
+        		lv_ident_5_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -3138,9 +3138,9 @@ ruleEnumerator returns [EObject current=null]
 
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getEnumeratorAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getEnumeratorAccess().getIdentIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3148,8 +3148,8 @@ ruleEnumerator returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -3701,9 +3701,9 @@ ruleDirectDeclarator returns [EObject current=null]
 
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getDirectDeclaratorAccess().getIdIDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getDirectDeclaratorAccess().getIdentIDTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3711,8 +3711,8 @@ ruleDirectDeclarator returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -4436,9 +4436,9 @@ ruleGccAttribute returns [EObject current=null]
 (
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getGccAttributeAccess().getIdIDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getGccAttributeAccess().getIdentIDTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4446,8 +4446,8 @@ ruleGccAttribute returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -5068,16 +5068,16 @@ ruleIdentifierList returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdMyIdentifierParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentMyIdentifierParserRuleCall_1_0()); 
 	    }
-		lv_id_1_0=ruleMyIdentifier		{
+		lv_ident_1_0=ruleMyIdentifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
        		add(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.parser.Parser.MyIdentifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5097,16 +5097,16 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdMyIdentifierParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getIdentifierListAccess().getIdentMyIdentifierParserRuleCall_2_1_0()); 
 	    }
-		lv_id_3_0=ruleMyIdentifier		{
+		lv_ident_3_0=ruleMyIdentifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
        		add(
        			$current, 
-       			"id",
-        		lv_id_3_0, 
+       			"ident",
+        		lv_ident_3_0, 
         		"at.jku.weiner.c.parser.Parser.MyIdentifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5163,9 +5163,9 @@ ruleMyIdentifier returns [EObject current=null]
 
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getMyIdentifierAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getMyIdentifierAccess().getIdentIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5173,8 +5173,8 @@ ruleMyIdentifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -6525,9 +6525,9 @@ ruleLabeledStatement returns [EObject current=null]
 (
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getLabeledStatementAccess().getIdIDTerminalRuleCall_1_0_0_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getLabeledStatementAccess().getIdentIDTerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6535,8 +6535,8 @@ ruleLabeledStatement returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -8343,9 +8343,9 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 
 (
 (
-		lv_id_2_0=RULE_ID
+		lv_ident_2_0=RULE_ID
 		{
-			newLeafNode(lv_id_2_0, grammarAccess.getAsmSymbolicNameAccess().getIdIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_ident_2_0, grammarAccess.getAsmSymbolicNameAccess().getIdentIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8353,8 +8353,8 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -8827,9 +8827,9 @@ this_SKW_DOT_6=RULE_SKW_DOT
 
 (
 (
-		lv_id_7_0=RULE_ID
+		lv_ident_7_0=RULE_ID
 		{
-			newLeafNode(lv_id_7_0, grammarAccess.getDesignatorAccess().getIdIDTerminalRuleCall_1_1_1_0()); 
+			newLeafNode(lv_ident_7_0, grammarAccess.getDesignatorAccess().getIdentIDTerminalRuleCall_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8837,8 +8837,8 @@ this_SKW_DOT_6=RULE_SKW_DOT
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_7_0, 
+       			"ident",
+        		lv_ident_7_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -11307,9 +11307,9 @@ this_SKW_RIGHTPAREN_27=RULE_SKW_RIGHTPAREN
 
 (
 (
-		lv_id_30_0=RULE_ID
+		lv_ident_30_0=RULE_ID
 		{
-			newLeafNode(lv_id_30_0, grammarAccess.getUnaryExpressionAccess().getIdIDTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_ident_30_0, grammarAccess.getUnaryExpressionAccess().getIdentIDTerminalRuleCall_8_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -11317,8 +11317,8 @@ this_SKW_RIGHTPAREN_27=RULE_SKW_RIGHTPAREN
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_30_0, 
+       			"ident",
+        		lv_ident_30_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -11937,9 +11937,9 @@ this_SKW_DOT_1=RULE_SKW_DOT
 
 (
 (
-		lv_id_2_0=RULE_ID
+		lv_ident_2_0=RULE_ID
 		{
-			newLeafNode(lv_id_2_0, grammarAccess.getPostfixExpressionSuffixDotAccess().getIdIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_ident_2_0, grammarAccess.getPostfixExpressionSuffixDotAccess().getIdentIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -11947,8 +11947,8 @@ this_SKW_DOT_1=RULE_SKW_DOT
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -12009,9 +12009,9 @@ this_ARROW_1=RULE_ARROW
 
 (
 (
-		lv_id_2_0=RULE_ID
+		lv_ident_2_0=RULE_ID
 		{
-			newLeafNode(lv_id_2_0, grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_ident_2_0, grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdentIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -12019,8 +12019,8 @@ this_ARROW_1=RULE_ARROW
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -12261,9 +12261,9 @@ rulePrimaryExpression returns [EObject current=null]
 (
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_ident_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_ident_1_0, grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -12271,8 +12271,8 @@ rulePrimaryExpression returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"ident",
+        		lv_ident_1_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 

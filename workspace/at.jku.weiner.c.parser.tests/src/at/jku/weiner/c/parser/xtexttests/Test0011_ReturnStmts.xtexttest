@@ -41,7 +41,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething1"
+						ident++"doSomething1"
 					)
 				)
 			),
@@ -83,7 +83,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething2"
+						ident++"doSomething2"
 					)
 				)
 			),
@@ -129,7 +129,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething3"
+						ident++"doSomething3"
 					)
 				)
 			),
@@ -171,7 +171,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething4"
+						ident++"doSomething4"
 					)
 				)
 			),
@@ -213,7 +213,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething5"
+						ident++"doSomething5"
 					)
 				)
 			),

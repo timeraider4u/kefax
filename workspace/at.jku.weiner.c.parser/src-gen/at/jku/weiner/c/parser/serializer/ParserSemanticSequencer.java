@@ -497,16 +497,16 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     ident=ID
 	 */
 	protected void sequence_AsmSymbolicName(EObject context, AsmSymbolicName semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__IDENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
-		feeder.accept(grammarAccess.getAsmSymbolicNameAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAsmSymbolicNameAccess().getIdentIDTerminalRuleCall_2_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
@@ -645,7 +645,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((expr=ConstantExpression to=ConstantExpression?) | id=ID)
+	 *     ((expr=ConstantExpression to=ConstantExpression?) | ident=ID)
 	 */
 	protected void sequence_Designator(EObject context, Designator semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -675,7 +675,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id=ID | declarator=Declarator) declaratorSuffix+=DeclaratorSuffix*)
+	 *     ((ident=ID | declarator=Declarator) declaratorSuffix+=DeclaratorSuffix*)
 	 */
 	protected void sequence_DirectDeclarator(EObject context, DirectDeclarator semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -684,7 +684,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (enumList=EnumeratorList | (id=ID enumList=EnumeratorList?))
+	 *     (enumList=EnumeratorList | (ident=ID enumList=EnumeratorList?))
 	 */
 	protected void sequence_EnumSpecifier(EObject context, EnumSpecifier semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -702,7 +702,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID expr=ConstantExpression?)
+	 *     (ident=ID expr=ConstantExpression?)
 	 */
 	protected void sequence_Enumerator(EObject context, Enumerator semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -842,7 +842,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id=ID | const=Constant1 | keyword=ParserKeywords) list=ArgumentExpressionList?)
+	 *     ((ident=ID | const=Constant1 | keyword=ParserKeywords) list=ArgumentExpressionList?)
 	 */
 	protected void sequence_GccAttribute(EObject context, GccAttribute semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -860,7 +860,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id+=MyIdentifier id+=MyIdentifier*)
+	 *     (ident+=MyIdentifier ident+=MyIdentifier*)
 	 */
 	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -957,7 +957,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (id=ID lStmt=Statement) | 
+	 *         (ident=ID lStmt=Statement) | 
 	 *         (case=KW_CASE ((lower=Constant1 higher=Constant1) | expr=ConstantExpression) lStmt=Statement) | 
 	 *         (mydefault?=KW_DEFAULT lStmt=Statement)
 	 *     )
@@ -1016,16 +1016,16 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     ident=ID
 	 */
 	protected void sequence_MyIdentifier(EObject context, MyIdentifier semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.MY_IDENTIFIER__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.MY_IDENTIFIER__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.MY_IDENTIFIER__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.MY_IDENTIFIER__IDENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
-		feeder.accept(grammarAccess.getMyIdentifierAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getMyIdentifierAccess().getIdentIDTerminalRuleCall_1_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
@@ -1102,32 +1102,32 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     ident=ID
 	 */
 	protected void sequence_PostfixExpressionSuffixArrow(EObject context, PostfixExpressionSuffixArrow semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
-		feeder.accept(grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdentIDTerminalRuleCall_2_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     ident=ID
 	 */
 	protected void sequence_PostfixExpressionSuffixDot(EObject context, PostfixExpressionSuffixDot semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__IDENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
-		feeder.accept(grammarAccess.getPostfixExpressionSuffixDotAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getPostfixExpressionSuffixDotAccess().getIdentIDTerminalRuleCall_2_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
@@ -1175,7 +1175,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID | 
+	 *         ident=ID | 
 	 *         const=Constant2 | 
 	 *         string+=STRING_LITERAL+ | 
 	 *         (parentheses?=SKW_LEFTPAREN expr=Expression) | 
@@ -1304,7 +1304,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=StructOrUnion ((id=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList?) | id=ID))
+	 *     (type=StructOrUnion ((ident=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList?) | ident=ID))
 	 */
 	protected void sequence_StructOrUnionSpecifier(EObject context, StructOrUnionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -1372,16 +1372,16 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     ident=ID
 	 */
 	protected void sequence_TypedefName(EObject context, TypedefName semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.TYPEDEF_NAME__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.TYPEDEF_NAME__ID));
+			if(transientValues.isValueTransient((EObject)semanticObject, ParserPackage.Literals.TYPEDEF_NAME__IDENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject)semanticObject, ParserPackage.Literals.TYPEDEF_NAME__IDENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider((EObject)semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder((EObject)semanticObject, nodes);
-		feeder.accept(grammarAccess.getTypedefNameAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getTypedefNameAccess().getIdentIDTerminalRuleCall_1_0(), semanticObject.getIdent());
 		feeder.finish();
 	}
 	
@@ -1396,7 +1396,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         (sizeOf=KW_SIZEOF expr=UnaryExpression) | 
 	 *         ((alignOf=KW_ALIGNOF1 | alignOf=KW_ALIGNOF2 | alignOf=KW_ALIGNOF3) typeName=TypeName) | 
 	 *         ((alignOf=KW_ALIGNOF1 | alignOf=KW_ALIGNOF2 | alignOf=KW_ALIGNOF3) expr=UnaryExpression) | 
-	 *         (andand=SKW_ANDAND id=ID)
+	 *         (andand=SKW_ANDAND ident=ID)
 	 *     )
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {

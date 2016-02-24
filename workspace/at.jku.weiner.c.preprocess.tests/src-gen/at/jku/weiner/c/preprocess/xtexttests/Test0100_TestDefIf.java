@@ -195,7 +195,7 @@ public class Test0100_TestDefIf {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("if", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -203,7 +203,7 @@ public class Test0100_TestDefIf {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertTrue(IdentifierList_4_Var
-		.getId().isEmpty());
+		.getIdent().isEmpty());
 		Assert.assertTrue(IdentifierList_4_Var
 		.isVariadic());
 		Assert.assertEquals("trace_if(__VA_ARGS__)", DefineFunctionLikeMacro_3_Var
@@ -220,7 +220,7 @@ public class Test0100_TestDefIf {
 		Assert.assertNotNull(DefineObjectMacro_6_Var
 		);
 		Assert.assertEquals("endif", DefineObjectMacro_6_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("foo", DefineObjectMacro_6_Var
 		.getString());
 		//6

@@ -37,7 +37,7 @@ SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a"
+								ident++"a"
 							)
 						),
 						initializer=

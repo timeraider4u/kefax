@@ -291,7 +291,7 @@ public class Test0065_IfElseNested {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("64", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -306,7 +306,7 @@ public class Test0065_IfElseNested {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("0", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -335,7 +335,7 @@ public class Test0065_IfElseNested {
 		Assert.assertTrue(PrimaryExpression_9_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final GroupOpt GroupOpt_10_Var
 		 = (GroupOpt)IfConditional_8_Var
@@ -379,7 +379,7 @@ public class Test0065_IfElseNested {
 		Assert.assertTrue(PrimaryExpression_15_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final GroupOpt GroupOpt_16_Var
 		 = (GroupOpt)IfConditional_14_Var
@@ -452,7 +452,7 @@ public class Test0065_IfElseNested {
 		Assert.assertNotNull(PrimaryExpression_25_Var
 		);
 		Assert.assertEquals("FOO", PrimaryExpression_25_Var
-		.getId());
+		.getIdent());
 		//25
 		final PrimaryExpression PrimaryExpression_26_Var
 		 = (PrimaryExpression)RelationalExpression_24_Var

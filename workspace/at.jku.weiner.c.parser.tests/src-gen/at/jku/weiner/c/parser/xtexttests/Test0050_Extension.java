@@ -201,7 +201,7 @@ public class Test0050_Extension {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

@@ -110,14 +110,14 @@ DefineDirective:
 
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
-	DEFINE WHITESPACE+ id=MyCode
+	DEFINE WHITESPACE+ ident=MyCode
 	(WHITESPACE+ string=MyDefineLineObject)?
 	WHITESPACE*
 ;
 
 DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
-	DEFINE WHITESPACE+ id=MyCode 
+	DEFINE WHITESPACE+ ident=MyCode 
 	SKW_LEFTPAREN WHITESPACE*
 		(list=IdentifierList
 		)?
@@ -133,7 +133,7 @@ IdentifierList:
 	{IdentifierList}
 	(	
 		(
-			id+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=PP_ID)*
+			ident+=PP_ID (WHITESPACE* SKW_COMMA WHITESPACE* ident+=PP_ID)*
 			WHITESPACE*
 			(SKW_COMMA WHITESPACE* 
 				(
@@ -170,7 +170,7 @@ WarningDirective:
 
 UnDefineDirective:
 	{UnDefineDirective}
-	UNDEF WHITESPACE+ id=PP_ID WHITESPACE*
+	UNDEF WHITESPACE+ ident=PP_ID WHITESPACE*
 ;
 
 ConditionalDirective:
@@ -194,13 +194,13 @@ IfConditional:
 
 IfDefConditional:
 	{IfDefConditional}
-	IFDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
+	IFDEF WHITESPACE+ ident=PP_ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
 IfNotDefConditional:
 	{IfNotDefConditional}
-	IFNOTDEF WHITESPACE+ id=PP_ID WHITESPACE* NEWLINE
+	IFNOTDEF WHITESPACE+ ident=PP_ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
@@ -277,8 +277,8 @@ MyCodeLineExtendedNormal returns ecore::EString:
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(
-		(defined?=DEFINED)? id=PP_ID
-	|	(defined?=DEFINED)? SKW_LEFTPAREN id=PP_ID SKW_RIGHTPAREN
+		(defined?=DEFINED)? ident=PP_ID
+	|	(defined?=DEFINED)? SKW_LEFTPAREN ident=PP_ID SKW_RIGHTPAREN
 	|	const=Constant1
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	|	parentheses?=SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN

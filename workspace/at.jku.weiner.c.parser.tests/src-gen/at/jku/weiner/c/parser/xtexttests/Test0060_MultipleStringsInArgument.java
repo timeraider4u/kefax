@@ -195,7 +195,7 @@ public class Test0060_MultipleStringsInArgument {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -262,7 +262,7 @@ public class Test0060_MultipleStringsInArgument {
 		Assert.assertNotNull(PrimaryExpression_15_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_16_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_14_Var

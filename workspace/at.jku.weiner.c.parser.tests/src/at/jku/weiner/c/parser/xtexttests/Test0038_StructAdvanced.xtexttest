@@ -82,11 +82,11 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"empStruct",
+							ident++"empStruct",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
-								// int id
+								// int ident
 								(StructDeclaration
 									list=
 									(SpecifierQualifierList
@@ -103,7 +103,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"id"
+													ident++"ident"
 												)
 											)
 										)
@@ -126,7 +126,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"name",
+													ident++"name",
 													declaratorSuffix+=
 													(DeclaratorSuffix
 														expr=
@@ -154,7 +154,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"employee"
+								ident++"employee"
 							)
 						)
 					)
@@ -175,7 +175,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"empStruct"
+							ident++"empStruct"
 						) // end struct or union specifier
 					)
 				), // end declaration specifiers
@@ -187,7 +187,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"joe"
+								ident++"joe"
 							)
 						), // end declarator
 						initializer=
@@ -233,7 +233,7 @@ SKW_RIGHTBRACE NEWLINE
 					(TypeSpecifier
 						type=
 						(TypedefName
-							id++"employee"
+							ident++"employee"
 						)
 					)
 				), // end declaration specifiers
@@ -245,7 +245,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"phil"
+								ident++"phil"
 							)
 						), // end declarator
 						initializer=
@@ -296,7 +296,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"print",
+						ident++"print",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -313,7 +313,7 @@ SKW_RIGHTBRACE NEWLINE
 												(TypeSpecifier
 													type=
 													(TypedefName
-														id++"employee"
+														ident++"employee"
 													)
 												)
 											), // end declaration specifiers
@@ -321,7 +321,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"emp"
+													ident++"emp"
 												),
 												pointer=
 												(Pointer
@@ -351,7 +351,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -359,7 +359,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												string+*"[\\\"(*employee).id=%d\\\\n\\\"]"
+												string+*"[\\\"(*employee).ident=%d\\\\n\\\"]"
 											),
 											(PostfixExpression
 												expr=
@@ -371,13 +371,13 @@ SKW_RIGHTBRACE NEWLINE
 														op++"*",
 														expr=
 														(PrimaryExpression
-															id++"emp"
+															ident++"emp"
 														)
 													)
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"id"
+													ident++"ident"
 												)
 												)
 										)
@@ -393,7 +393,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -406,11 +406,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"emp"
+													ident++"emp"
 												),
 												suffix=
 												(PostfixExpressionSuffixArrow
-													id++"name"
+													ident++"name"
 												)
 											)
 										)
@@ -437,7 +437,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -478,7 +478,7 @@ SKW_RIGHTBRACE NEWLINE
 								(TypeSpecifier
 									type=
 									(TypedefName
-										id++"employee"
+										ident++"employee"
 									)
 								)
 							), // end declarationSpecifiers
@@ -494,7 +494,7 @@ SKW_RIGHTBRACE NEWLINE
 										), // end pointer
 										declarator=
 										(DirectDeclarator
-											id++"newEmployee"
+											ident++"newEmployee"
 										)
 									), // end declarator
 									initializer=
@@ -504,7 +504,7 @@ SKW_RIGHTBRACE NEWLINE
 										(PostfixExpression
 											expr=
 											(PrimaryExpression
-												id++"malloc"
+												ident++"malloc"
 											),
 											suffix=
 											(PostfixExpressionSuffixArgument
@@ -521,7 +521,7 @@ SKW_RIGHTBRACE NEWLINE
 																(TypeSpecifier
 																	type=
 																	(TypedefName
-																		id++"employee"
+																		ident++"employee"
 																	)
 																)
 															)
@@ -544,12 +544,12 @@ SKW_RIGHTBRACE NEWLINE
 								(EqualityExpression
 									left=
 									(PrimaryExpression
-										id++"newEmployee"
+										ident++"newEmployee"
 									),
 									op++"==",
 									right=
 									(PrimaryExpression
-										id++"NULL"
+										ident++"NULL"
 									)
 								), // end expression
 								ifStatement=
@@ -569,7 +569,7 @@ SKW_RIGHTBRACE NEWLINE
 														(PostfixExpression
 															expr=
 															(PrimaryExpression
-																id++"printf"
+																ident++"printf"
 															),
 															suffix=
 															(PostfixExpressionSuffixArgument
@@ -616,7 +616,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"print"
+										ident++"print"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -627,7 +627,7 @@ SKW_RIGHTBRACE NEWLINE
 												op++"&",
 												expr=
 												(PrimaryExpression
-													id++"joe"
+													ident++"joe"
 												)
 											)
 										)
@@ -643,7 +643,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"print"
+										ident++"print"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -654,7 +654,7 @@ SKW_RIGHTBRACE NEWLINE
 												op++"&",
 												expr=
 												(PrimaryExpression
-													id++"phil"
+													ident++"phil"
 												)
 											)
 										)
@@ -662,7 +662,7 @@ SKW_RIGHTBRACE NEWLINE
 								) // end expression
 							) // end expression statement
 						),
-						// newEmployee->id = ...;
+						// newEmployee->ident = ...;
 						(Statement
 							stmt=
 							(ExpressionStatement
@@ -672,11 +672,11 @@ SKW_RIGHTBRACE NEWLINE
 									(PostfixExpression
 										expr=
 										(PrimaryExpression
-											id++"newEmployee"
+											ident++"newEmployee"
 										),
 										suffix=
 										(PostfixExpressionSuffixArrow
-											id++"id"
+											ident++"ident"
 										)
 									),
 									op++"=",
@@ -698,7 +698,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"strcpy"
+										ident++"strcpy"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -708,11 +708,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"newEmployee"
+													ident++"newEmployee"
 												),
 												suffix=
 												(PostfixExpressionSuffixArrow
-													id++"name"
+													ident++"name"
 												)
 											),
 											(PrimaryExpression
@@ -731,7 +731,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"print"
+										ident++"print"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -739,7 +739,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												id++"newEmployee"
+												ident++"newEmployee"
 											)
 										)
 									)
@@ -754,7 +754,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"free"
+										ident++"free"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -762,7 +762,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												id++"newEmployee"
+												ident++"newEmployee"
 											)
 										)
 									)

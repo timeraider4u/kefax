@@ -45,7 +45,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething",
+						ident++"doSomething",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -67,7 +67,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argc"
+													ident++"argc"
 												)
 											)
 										)
@@ -91,7 +91,7 @@ SKW_RIGHTBRACE NEWLINE
 								switch++"switch",
 								expr=
 								(PrimaryExpression
-									id++"argc"
+									ident++"argc"
 								), // end expression
 								switchStatement=
 								(Statement

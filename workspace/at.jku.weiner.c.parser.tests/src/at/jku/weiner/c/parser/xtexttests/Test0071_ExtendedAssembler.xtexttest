@@ -57,7 +57,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						),
 						initializer=
@@ -95,7 +95,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								ident++"j"
 							)
 						)
 					)
@@ -127,7 +127,7 @@ SKW_RIGHTBRACE NEWLINE
 							),
 							declarator=
 							(DirectDeclarator
-								id++"k"
+								ident++"k"
 							)
 						),
 						initializer=
@@ -137,7 +137,7 @@ SKW_RIGHTBRACE NEWLINE
 								op++"&",
 								expr=
 								(PrimaryExpression
-									id++"i"
+									ident++"i"
 								)
 							) // end expression
 						) // end initializer
@@ -160,7 +160,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"foo"
+						ident++"foo"
 					)
 				)
 			),
@@ -193,7 +193,7 @@ SKW_RIGHTBRACE NEWLINE
 										(AsmLine
 											sym=
 											(AsmSymbolicName
-												id++"d"
+												ident++"d"
 											),
 											expr=
 											(PostfixExpression
@@ -207,7 +207,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"i"
+															ident++"i"
 														)
 													)
 												)
@@ -223,7 +223,7 @@ SKW_RIGHTBRACE NEWLINE
 										(AsmLine
 											sym=
 											(AsmSymbolicName
-												id++"e"
+												ident++"e"
 											),
 											expr=
 											(PostfixExpression
@@ -240,7 +240,7 @@ SKW_RIGHTBRACE NEWLINE
 															op++"*",
 															expr=
 															(PrimaryExpression
-																id++"k"
+																ident++"k"
 															)
 														)
 													)
@@ -251,7 +251,7 @@ SKW_RIGHTBRACE NEWLINE
 										(AsmLine
 											sym=
 											(AsmSymbolicName
-												id++"f"
+												ident++"f"
 											),
 											expr=
 											(PostfixExpression
@@ -292,7 +292,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"j"
+															ident++"j"
 														)
 													)
 												)

@@ -242,7 +242,7 @@ public class Test0064_BlocksInExpressions {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var

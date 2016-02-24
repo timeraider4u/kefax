@@ -312,7 +312,7 @@ public class Test0036_SimpleIntArray {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("array", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -543,7 +543,7 @@ public class Test0036_SimpleIntArray {
 		Assert.assertNotNull(DirectDeclarator_43_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_43_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_43_list = DirectDeclarator_43_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_43_list);
@@ -649,7 +649,7 @@ public class Test0036_SimpleIntArray {
 		Assert.assertNotNull(PrimaryExpression_57_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_57_Var
-		.getId());
+		.getIdent());
 		//57
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_58_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_56_Var
@@ -685,7 +685,7 @@ public class Test0036_SimpleIntArray {
 		Assert.assertNotNull(PrimaryExpression_62_Var
 		);
 		Assert.assertEquals("array", PrimaryExpression_62_Var
-		.getId());
+		.getIdent());
 		//62
 		final PostfixExpressionSuffixArray PostfixExpressionSuffixArray_63_Var
 		 = (PostfixExpressionSuffixArray)PostfixExpression_61_Var

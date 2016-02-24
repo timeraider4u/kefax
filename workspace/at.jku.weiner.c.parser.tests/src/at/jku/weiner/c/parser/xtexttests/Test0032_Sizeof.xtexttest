@@ -39,7 +39,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"sizeOfInt"
+						ident++"sizeOfInt"
 					)
 				)
 			),
@@ -92,7 +92,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"sizeOfInt2"
+						ident++"sizeOfInt2"
 					)
 				)
 			),

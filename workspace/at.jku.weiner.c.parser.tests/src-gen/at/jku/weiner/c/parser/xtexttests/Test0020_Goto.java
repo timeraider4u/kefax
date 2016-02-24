@@ -219,7 +219,7 @@ public class Test0020_Goto {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -263,7 +263,7 @@ public class Test0020_Goto {
 		Assert.assertNotNull(PrimaryExpression_12_Var
 		);
 		Assert.assertEquals("target", PrimaryExpression_12_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("goto", JumpStatement_11_Var
 		.getGoto());
 		//12
@@ -290,7 +290,7 @@ public class Test0020_Goto {
 		Assert.assertNotNull(PrimaryExpression_16_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_16_Var
-		.getId());
+		.getIdent());
 		//16
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_17_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_15_Var
@@ -326,7 +326,7 @@ public class Test0020_Goto {
 		Assert.assertNotNull(LabeledStatement_21_Var
 		);
 		Assert.assertEquals("target", LabeledStatement_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final Statement Statement_22_Var
 		 = (Statement)LabeledStatement_21_Var
@@ -352,7 +352,7 @@ public class Test0020_Goto {
 		Assert.assertNotNull(PrimaryExpression_25_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_25_Var
-		.getId());
+		.getIdent());
 		//25
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_26_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_24_Var

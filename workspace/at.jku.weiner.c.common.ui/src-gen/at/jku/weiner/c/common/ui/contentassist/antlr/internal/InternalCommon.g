@@ -1298,9 +1298,9 @@ rule__PrimaryExpression__Alternatives_1
 
     |
 (
-{ before(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1()); }
-(rule__PrimaryExpression__IdAssignment_1_1)
-{ after(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getIdentAssignment_1_1()); }
+(rule__PrimaryExpression__IdentAssignment_1_1)
+{ after(grammarAccess.getPrimaryExpressionAccess().getIdentAssignment_1_1()); }
 )
 
 
@@ -4497,14 +4497,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PrimaryExpression__IdAssignment_1_1
+rule__PrimaryExpression__IdentAssignment_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); }
-	RULE_ID{ after(grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_1_0()); }
+	RULE_ID{ after(grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_1_0()); }
 )
 
 ;

@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPragmaDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface PragmaDirective extends EObject
+public interface PragmaDirective extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Pragma</b></em>' attribute.

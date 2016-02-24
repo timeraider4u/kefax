@@ -67,7 +67,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"a",
+									ident++"a",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=
@@ -110,7 +110,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"b",
+									ident++"b",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=
@@ -153,7 +153,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"d",
+									ident++"d",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=
@@ -190,10 +190,10 @@ source file="res/Test0016_Include"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineFunctionLikeMacro
-						id++"FOO",
+						ident++"FOO",
 						list =
 						(preprocess::IdentifierList
-							id+*"[X, Y]",
+							ident+*"[X, Y]",
 							variadic?=false,
 							varID isNull
 						),
@@ -203,10 +203,10 @@ source file="res/Test0016_Include"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineFunctionLikeMacro
-						id++"BAR",
+						ident++"BAR",
 						list =
 						(preprocess::IdentifierList
-							id+*"[X]",
+							ident+*"[X]",
 							variadic?=true,
 							varID isNull
 						),
@@ -265,7 +265,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"g",
+									ident++"g",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=
@@ -308,7 +308,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"h",
+									ident++"h",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=
@@ -351,7 +351,7 @@ source file="res/Test0016_Include"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"j",
+									ident++"j",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										expr=

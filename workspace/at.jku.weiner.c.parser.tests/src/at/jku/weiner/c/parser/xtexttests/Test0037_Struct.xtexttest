@@ -60,11 +60,11 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"employee",
+							ident++"employee",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
-								// int id
+								// int ident
 								(StructDeclaration
 									list=
 									(SpecifierQualifierList
@@ -81,7 +81,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"id"
+													ident++"ident"
 												)
 											)
 										)
@@ -104,7 +104,7 @@ SKW_RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"name",
+													ident++"name",
 													declaratorSuffix+=
 													(DeclaratorSuffix
 														expr=
@@ -132,7 +132,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"phil"
+								ident++"phil"
 							)
 						)
 					)
@@ -153,7 +153,7 @@ SKW_RIGHTBRACE NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"employee"
+							ident++"employee"
 						)
 					)
 				), // end declaration specifiers
@@ -165,7 +165,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"joe"
+								ident++"joe"
 							)
 						), // end declarator
 						initializer=
@@ -219,7 +219,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -252,7 +252,7 @@ SKW_RIGHTBRACE NEWLINE
 					blockList+=
 					(BlockList
 						statement+=
-						// printf(..., sizeof(joe.id));
+						// printf(..., sizeof(joe.ident));
 						(Statement
 							stmt=
 							(ExpressionStatement
@@ -260,7 +260,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -268,7 +268,7 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												string+*"[\\\"sizeof(joe.id)=%lu\\\\n\\\"]"
+												string+*"[\\\"sizeof(joe.ident)=%lu\\\\n\\\"]"
 											),
 											(UnaryExpression
 												sizeOf++"sizeof",
@@ -280,11 +280,11 @@ SKW_RIGHTBRACE NEWLINE
 													(PostfixExpression
 														expr=
 														(PrimaryExpression
-															id++"joe"
+															ident++"joe"
 														),
 														suffix=
 														(PostfixExpressionSuffixDot
-															id++"id"
+															ident++"ident"
 														)
 													)
 													
@@ -303,7 +303,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -322,11 +322,11 @@ SKW_RIGHTBRACE NEWLINE
 													(PostfixExpression
 														expr=
 														(PrimaryExpression
-															id++"joe"
+															ident++"joe"
 														),
 														suffix=
 														(PostfixExpressionSuffixDot
-															id++"name"
+															ident++"name"
 														)
 													)
 												)
@@ -344,7 +344,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -362,7 +362,7 @@ SKW_RIGHTBRACE NEWLINE
 													// (...)
 													expr=
 													(PrimaryExpression
-														id++"joe"
+														ident++"joe"
 													)
 												)
 											)
@@ -372,7 +372,7 @@ SKW_RIGHTBRACE NEWLINE
 							) // end expression statement
 						), // end statement
 						
-						// phil.id = ...;
+						// phil.ident = ...;
 						// number.numChar = 65;
 						(Statement
 							stmt=
@@ -383,11 +383,11 @@ SKW_RIGHTBRACE NEWLINE
 									(PostfixExpression
 										expr=
 										(PrimaryExpression
-											id++"phil"
+											ident++"phil"
 										),
 										suffix=
 										(PostfixExpressionSuffixDot
-											id++"id"
+											ident++"ident"
 										)
 									),
 									op++"=",
@@ -409,7 +409,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"strcpy"
+										ident++"strcpy"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -419,11 +419,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"phil"
+													ident++"phil"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"name"
+													ident++"name"
 												)
 											),
 											(PrimaryExpression
@@ -435,7 +435,7 @@ SKW_RIGHTBRACE NEWLINE
 							) // end expression statement
 						), // end statement
 						
-						// printf(..., joe.id);
+						// printf(..., joe.ident);
 						(Statement
 							stmt=
 							(ExpressionStatement
@@ -443,7 +443,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -451,16 +451,16 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												string+*"[\\\"joe.id=%d\\\\n\\\"]"
+												string+*"[\\\"joe.ident=%d\\\\n\\\"]"
 											),
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"joe"
+													ident++"joe"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"id"
+													ident++"ident"
 												)
 											)
 										)
@@ -476,7 +476,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -489,11 +489,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"joe"
+													ident++"joe"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"name"
+													ident++"name"
 												)
 											)
 										)
@@ -501,7 +501,7 @@ SKW_RIGHTBRACE NEWLINE
 								) // end expression
 							) // end expression statement
 						), // end statement
-						// printf(..., phil.id);
+						// printf(..., phil.ident);
 						(Statement
 							stmt=
 							(ExpressionStatement
@@ -509,7 +509,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -517,16 +517,16 @@ SKW_RIGHTBRACE NEWLINE
 										(ArgumentExpressionList
 											expr+=
 											(PrimaryExpression
-												string+*"[\\\"phil.id=%d\\\\n\\\"]"
+												string+*"[\\\"phil.ident=%d\\\\n\\\"]"
 											),
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"phil"
+													ident++"phil"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"id"
+													ident++"ident"
 												)
 											)
 										)
@@ -542,7 +542,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -555,11 +555,11 @@ SKW_RIGHTBRACE NEWLINE
 											(PostfixExpression
 												expr=
 												(PrimaryExpression
-													id++"phil"
+													ident++"phil"
 												),
 												suffix=
 												(PostfixExpressionSuffixDot
-													id++"name"
+													ident++"name"
 												)
 											)
 										)

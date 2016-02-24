@@ -32,7 +32,7 @@ KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE KW_ALIGNOF3 SKW_LEFTPAREN
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"l"
+								ident++"l"
 							)
 						),
 						initializer=

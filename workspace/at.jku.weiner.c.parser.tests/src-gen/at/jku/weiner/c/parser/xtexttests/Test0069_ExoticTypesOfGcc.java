@@ -202,7 +202,7 @@ public class Test0069_ExoticTypesOfGcc {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final ExternalDeclaration ExternalDeclaration_9_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -262,7 +262,7 @@ public class Test0069_ExoticTypesOfGcc {
 		Assert.assertNotNull(DirectDeclarator_16_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_16_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

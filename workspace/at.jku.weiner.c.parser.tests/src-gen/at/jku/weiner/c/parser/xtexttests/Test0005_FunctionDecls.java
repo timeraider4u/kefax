@@ -261,7 +261,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do2", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -336,7 +336,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("do3", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_18_list = DirectDeclarator_18_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_18_list);
@@ -411,7 +411,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DirectDeclarator_28_Var
 		);
 		Assert.assertEquals("do4", DirectDeclarator_28_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_28_list = DirectDeclarator_28_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_28_list);
@@ -486,7 +486,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DirectDeclarator_38_Var
 		);
 		Assert.assertEquals("do5", DirectDeclarator_38_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_38_list = DirectDeclarator_38_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_38_list);
@@ -561,7 +561,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DirectDeclarator_48_Var
 		);
 		Assert.assertEquals("do6", DirectDeclarator_48_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_48_list = DirectDeclarator_48_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_48_list);

@@ -216,7 +216,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				name = constant;
 				isConst = true;
 			} else {
-				name = primExpr.getId();
+				name = primExpr.getIdent();
 				isConst = false;
 			}
 		} else {
@@ -226,7 +226,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				name = constant;
 				isConst = true;
 			} else {
-				name = primExpr.getId();
+				name = primExpr.getIdent();
 				isConst = false;
 			}
 		}
@@ -240,7 +240,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			final at.jku.weiner.c.common.common.PrimaryExpression expression) {
 		final Expression expr = expression.getExpr();
 		final String constant = expression.getConst();
-		final String id = expression.getId();
+		final String id = expression.getIdent();
 		T result = this.walkTo(constant, id, expr, false);
 		return result;
 	}
@@ -249,7 +249,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 	public T walkTo(final PrimaryExpression expression) {
 		boolean isDefined = expression.isDefined();
 		final String constant = expression.getConst();
-		final String id = expression.getId();
+		final String id = expression.getIdent();
 		final Expression expr = expression.getExpr();
 		final T result = this.walkTo(constant, id, expr, isDefined);
 		return result;

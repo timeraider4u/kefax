@@ -240,7 +240,7 @@ public class Test0057_TypedefnameInCast {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -274,7 +274,7 @@ public class Test0057_TypedefnameInCast {
 		Assert.assertNotNull(TypedefName_14_Var
 		);
 		Assert.assertEquals("foo", TypedefName_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final Declarator Declarator_15_Var
 		 = (Declarator)FunctionDefHead_11_Var
@@ -288,7 +288,7 @@ public class Test0057_TypedefnameInCast {
 		Assert.assertNotNull(DirectDeclarator_16_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_16_Var
-		.getId());
+		.getIdent());
 		//16
 		final FunctionDefinition FunctionDefinition_17_Var
 		 = (FunctionDefinition)ExternalDeclaration_10_Var
@@ -359,7 +359,7 @@ public class Test0057_TypedefnameInCast {
 		Assert.assertNotNull(TypedefName_26_Var
 		);
 		Assert.assertEquals("foo", TypedefName_26_Var
-		.getId());
+		.getIdent());
 		//26
 		final PrimaryExpression PrimaryExpression_27_Var
 		 = (PrimaryExpression)CastExpression_22_Var

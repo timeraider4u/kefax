@@ -180,7 +180,7 @@ public class Test0120_ParameterOrder {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("bar", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -195,7 +195,7 @@ public class Test0120_ParameterOrder {
 		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
 		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_5_Var
-		.getId());
+		.getIdent());
 		//5
 		final IdentifierList IdentifierList_6_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
@@ -203,7 +203,7 @@ public class Test0120_ParameterOrder {
 		Assert.assertNotNull(IdentifierList_6_Var
 		);
 		Assert.assertEquals("[x, y]", IdentifierList_6_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("x y", DefineFunctionLikeMacro_5_Var
 		.getString());
 		//6

@@ -1184,7 +1184,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTypedefName_Id()
+	public EAttribute getTypedefName_Ident()
 	{
 		return (EAttribute)typedefNameEClass.getEStructuralFeatures().get(0);
 	}
@@ -1204,7 +1204,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclarationSpecifier_Id()
+	public EAttribute getDeclarationSpecifier_Ident()
 	{
 		return (EAttribute)declarationSpecifierEClass.getEStructuralFeatures().get(0);
 	}
@@ -1404,7 +1404,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEnumerator_Id()
+	public EAttribute getEnumerator_Ident()
 	{
 		return (EAttribute)enumeratorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1534,7 +1534,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDirectDeclarator_Id()
+	public EAttribute getDirectDeclarator_Ident()
 	{
 		return (EAttribute)directDeclaratorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1724,7 +1724,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGccAttribute_Id()
+	public EAttribute getGccAttribute_Ident()
 	{
 		return (EAttribute)gccAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1924,7 +1924,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIdentifierList_Id()
+	public EReference getIdentifierList_Ident()
 	{
 		return (EReference)identifierListEClass.getEStructuralFeatures().get(0);
 	}
@@ -1944,7 +1944,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMyIdentifier_Id()
+	public EAttribute getMyIdentifier_Ident()
 	{
 		return (EAttribute)myIdentifierEClass.getEStructuralFeatures().get(0);
 	}
@@ -2304,7 +2304,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAsmSymbolicName_Id()
+	public EAttribute getAsmSymbolicName_Ident()
 	{
 		return (EAttribute)asmSymbolicNameEClass.getEStructuralFeatures().get(0);
 	}
@@ -2424,7 +2424,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDesignator_Id()
+	public EAttribute getDesignator_Ident()
 	{
 		return (EAttribute)designatorEClass.getEStructuralFeatures().get(2);
 	}
@@ -2574,7 +2574,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLabeledStatement_Id()
+	public EAttribute getLabeledStatement_Ident()
 	{
 		return (EAttribute)labeledStatementEClass.getEStructuralFeatures().get(0);
 	}
@@ -3354,7 +3354,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUnaryExpression_Id()
+	public EAttribute getUnaryExpression_Ident()
 	{
 		return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(8);
 	}
@@ -3484,7 +3484,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPostfixExpressionSuffixDot_Id()
+	public EAttribute getPostfixExpressionSuffixDot_Ident()
 	{
 		return (EAttribute)postfixExpressionSuffixDotEClass.getEStructuralFeatures().get(0);
 	}
@@ -3504,7 +3504,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPostfixExpressionSuffixArrow_Id()
+	public EAttribute getPostfixExpressionSuffixArrow_Ident()
 	{
 		return (EAttribute)postfixExpressionSuffixArrowEClass.getEStructuralFeatures().get(0);
 	}
@@ -3544,7 +3544,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPrimaryExpression_Id()
+	public EAttribute getPrimaryExpression_Ident()
 	{
 		return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
@@ -3756,10 +3756,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(typeSpecifierEClass, TYPE_SPECIFIER__EXPR2);
 
 		typedefNameEClass = createEClass(TYPEDEF_NAME);
-		createEAttribute(typedefNameEClass, TYPEDEF_NAME__ID);
+		createEAttribute(typedefNameEClass, TYPEDEF_NAME__IDENT);
 
 		declarationSpecifierEClass = createEClass(DECLARATION_SPECIFIER);
-		createEAttribute(declarationSpecifierEClass, DECLARATION_SPECIFIER__ID);
+		createEAttribute(declarationSpecifierEClass, DECLARATION_SPECIFIER__IDENT);
 
 		structOrUnionEClass = createEClass(STRUCT_OR_UNION);
 		createEAttribute(structOrUnionEClass, STRUCT_OR_UNION__NAME);
@@ -3787,7 +3787,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEAttribute(enumeratorListEClass, ENUMERATOR_LIST__LAST_COMMA);
 
 		enumeratorEClass = createEClass(ENUMERATOR);
-		createEAttribute(enumeratorEClass, ENUMERATOR__ID);
+		createEAttribute(enumeratorEClass, ENUMERATOR__IDENT);
 		createEReference(enumeratorEClass, ENUMERATOR__EXPR);
 
 		typeQualifierEClass = createEClass(TYPE_QUALIFIER);
@@ -3804,7 +3804,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(declaratorEClass, DECLARATOR__GCC_DECL_EXT2);
 
 		directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
-		createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ID);
+		createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__IDENT);
 		createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DECLARATOR);
 		createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DECLARATOR_SUFFIX);
 
@@ -3829,7 +3829,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(gccAttributeListEClass, GCC_ATTRIBUTE_LIST__GCC_ATTRIBUTE);
 
 		gccAttributeEClass = createEClass(GCC_ATTRIBUTE);
-		createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__ID);
+		createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__IDENT);
 		createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__CONST);
 		createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__KEYWORD);
 		createEReference(gccAttributeEClass, GCC_ATTRIBUTE__LIST);
@@ -3855,10 +3855,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(parameterDeclarationEClass, PARAMETER_DECLARATION__ABSTRACT_DECLATOR);
 
 		identifierListEClass = createEClass(IDENTIFIER_LIST);
-		createEReference(identifierListEClass, IDENTIFIER_LIST__ID);
+		createEReference(identifierListEClass, IDENTIFIER_LIST__IDENT);
 
 		myIdentifierEClass = createEClass(MY_IDENTIFIER);
-		createEAttribute(myIdentifierEClass, MY_IDENTIFIER__ID);
+		createEAttribute(myIdentifierEClass, MY_IDENTIFIER__IDENT);
 
 		typeNameEClass = createEClass(TYPE_NAME);
 		createEReference(typeNameEClass, TYPE_NAME__LIST);
@@ -3905,7 +3905,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(asmLineEClass, ASM_LINE__EXPR);
 
 		asmSymbolicNameEClass = createEClass(ASM_SYMBOLIC_NAME);
-		createEAttribute(asmSymbolicNameEClass, ASM_SYMBOLIC_NAME__ID);
+		createEAttribute(asmSymbolicNameEClass, ASM_SYMBOLIC_NAME__IDENT);
 
 		asmLineWithColonEClass = createEClass(ASM_LINE_WITH_COLON);
 		createEReference(asmLineWithColonEClass, ASM_LINE_WITH_COLON__ASM_LINE);
@@ -3922,7 +3922,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		designatorEClass = createEClass(DESIGNATOR);
 		createEReference(designatorEClass, DESIGNATOR__EXPR);
 		createEReference(designatorEClass, DESIGNATOR__TO);
-		createEAttribute(designatorEClass, DESIGNATOR__ID);
+		createEAttribute(designatorEClass, DESIGNATOR__IDENT);
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEReference(expressionEClass, EXPRESSION__LEFT);
@@ -3944,7 +3944,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(enumSpecifierEClass, ENUM_SPECIFIER__ENUM_LIST);
 
 		labeledStatementEClass = createEClass(LABELED_STATEMENT);
-		createEAttribute(labeledStatementEClass, LABELED_STATEMENT__ID);
+		createEAttribute(labeledStatementEClass, LABELED_STATEMENT__IDENT);
 		createEReference(labeledStatementEClass, LABELED_STATEMENT__LSTMT);
 		createEAttribute(labeledStatementEClass, LABELED_STATEMENT__CASE);
 		createEAttribute(labeledStatementEClass, LABELED_STATEMENT__LOWER);
@@ -4043,7 +4043,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(unaryExpressionEClass, UNARY_EXPRESSION__TYPE_NAME);
 		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ALIGN_OF);
 		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ANDAND);
-		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ID);
+		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__IDENT);
 
 		postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
 		createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__EXT);
@@ -4060,17 +4060,17 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(postfixExpressionSuffixArgumentEClass, POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST);
 
 		postfixExpressionSuffixDotEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_DOT);
-		createEAttribute(postfixExpressionSuffixDotEClass, POSTFIX_EXPRESSION_SUFFIX_DOT__ID);
+		createEAttribute(postfixExpressionSuffixDotEClass, POSTFIX_EXPRESSION_SUFFIX_DOT__IDENT);
 
 		postfixExpressionSuffixArrowEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_ARROW);
-		createEAttribute(postfixExpressionSuffixArrowEClass, POSTFIX_EXPRESSION_SUFFIX_ARROW__ID);
+		createEAttribute(postfixExpressionSuffixArrowEClass, POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT);
 
 		postfixExpressionSuffixPlusPlusEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS);
 
 		postfixExpressionSuffixMinusMinusEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS);
 
 		primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
-		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
+		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__IDENT);
 		createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__STRING);
 		createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__PARENTHESES);
@@ -4206,10 +4206,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getTypeSpecifier_Expr2(), this.getExpression(), null, "expr2", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typedefNameEClass, TypedefName.class, "TypedefName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTypedefName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypedefName_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declarationSpecifierEClass, DeclarationSpecifier.class, "DeclarationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclarationSpecifier_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DeclarationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeclarationSpecifier_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, DeclarationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structOrUnionEClass, StructOrUnion.class, "StructOrUnion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStructOrUnion_Name(), theEcorePackage.getEString(), "name", null, 0, 1, StructOrUnion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4237,7 +4237,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEAttribute(getEnumeratorList_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, EnumeratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumeratorEClass, Enumerator.class, "Enumerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnumerator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Enumerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnumerator_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, Enumerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumerator_Expr(), this.getExpression(), null, "expr", null, 0, 1, Enumerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeQualifierEClass, TypeQualifier.class, "TypeQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4254,7 +4254,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getDeclarator_GccDeclExt2(), this.getGccDeclaratorExtension(), null, "gccDeclExt2", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDirectDeclarator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDirectDeclarator_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDirectDeclarator_Declarator(), this.getDeclarator(), null, "declarator", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDirectDeclarator_DeclaratorSuffix(), this.getDeclaratorSuffix(), null, "declaratorSuffix", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4279,7 +4279,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getGccAttributeList_GccAttribute(), this.getGccAttribute(), null, "gccAttribute", null, 0, -1, GccAttributeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gccAttributeEClass, GccAttribute.class, "GccAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGccAttribute_Id(), theEcorePackage.getEString(), "id", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGccAttribute_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGccAttribute_Const(), theEcorePackage.getEString(), "const", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGccAttribute_Keyword(), theEcorePackage.getEString(), "keyword", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGccAttribute_List(), this.getArgumentExpressionList(), null, "list", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4305,10 +4305,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getParameterDeclaration_AbstractDeclator(), this.getAbstractDeclarator(), null, "abstractDeclator", null, 0, 1, ParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIdentifierList_Id(), this.getMyIdentifier(), null, "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIdentifierList_Ident(), this.getMyIdentifier(), null, "ident", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(myIdentifierEClass, MyIdentifier.class, "MyIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMyIdentifier_Id(), theEcorePackage.getEString(), "id", null, 0, 1, MyIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMyIdentifier_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, MyIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeNameEClass, TypeName.class, "TypeName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeName_List(), this.getSpecifierQualifierList(), null, "list", null, 0, 1, TypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4355,7 +4355,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getAsmLine_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(asmSymbolicNameEClass, AsmSymbolicName.class, "AsmSymbolicName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAsmSymbolicName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, AsmSymbolicName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAsmSymbolicName_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, AsmSymbolicName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(asmLineWithColonEClass, AsmLineWithColon.class, "AsmLineWithColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAsmLineWithColon_AsmLine(), this.getAsmLineWithoutColon(), null, "asmLine", null, 0, 1, AsmLineWithColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4372,7 +4372,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEClass(designatorEClass, Designator.class, "Designator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDesignator_Expr(), this.getExpression(), null, "expr", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDesignator_To(), this.getExpression(), null, "to", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDesignator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDesignator_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4394,7 +4394,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getEnumSpecifier_EnumList(), this.getEnumeratorList(), null, "enumList", null, 0, 1, EnumSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(labeledStatementEClass, LabeledStatement.class, "LabeledStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLabeledStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabeledStatement_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLabeledStatement_LStmt(), this.getStatement(), null, "lStmt", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabeledStatement_Case(), theEcorePackage.getEString(), "case", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabeledStatement_Lower(), theEcorePackage.getEString(), "lower", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4493,7 +4493,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getUnaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUnaryExpression_AlignOf(), theEcorePackage.getEString(), "alignOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUnaryExpression_Andand(), theEcorePackage.getEString(), "andand", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUnaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnaryExpression_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPostfixExpression_Ext(), theEcorePackage.getEBoolean(), "ext", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4510,17 +4510,17 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getPostfixExpressionSuffixArgument_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, 1, PostfixExpressionSuffixArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(postfixExpressionSuffixDotEClass, PostfixExpressionSuffixDot.class, "PostfixExpressionSuffixDot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPostfixExpressionSuffixDot_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PostfixExpressionSuffixDot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPostfixExpressionSuffixDot_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, PostfixExpressionSuffixDot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(postfixExpressionSuffixArrowEClass, PostfixExpressionSuffixArrow.class, "PostfixExpressionSuffixArrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPostfixExpressionSuffixArrow_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PostfixExpressionSuffixArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPostfixExpressionSuffixArrow_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, PostfixExpressionSuffixArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(postfixExpressionSuffixPlusPlusEClass, PostfixExpressionSuffixPlusPlus.class, "PostfixExpressionSuffixPlusPlus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(postfixExpressionSuffixMinusMinusEClass, PostfixExpressionSuffixMinusMinus.class, "PostfixExpressionSuffixMinusMinus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimaryExpression_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimaryExpression_Const(), theCommonPackage.getConstant2(), null, "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPrimaryExpression_String(), theEcorePackage.getEString(), "string", null, 0, -1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPrimaryExpression_Parentheses(), theEcorePackage.getEBoolean(), "parentheses", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

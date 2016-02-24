@@ -191,7 +191,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -199,7 +199,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("int X;", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
@@ -214,7 +214,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		Assert.assertNotNull(DefineObjectMacro_6_Var
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_6_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("unsigned FOO", DefineObjectMacro_6_Var
 		.getString());
 		//6
@@ -229,7 +229,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
 		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final IdentifierList IdentifierList_9_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
@@ -237,7 +237,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		Assert.assertNotNull(IdentifierList_9_Var
 		);
 		Assert.assertEquals("[X]", IdentifierList_9_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("BAR(X)", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9

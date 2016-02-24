@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.common.util.EList;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID <em>Var ID</em>}</li>
  * </ul>
@@ -22,25 +22,26 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface IdentifierList extends EObject
+public interface IdentifierList extends PersistentEObject
 {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Ident</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Ident</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute list.
-	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList_Id()
+	 * @return the value of the '<em>Ident</em>' attribute list.
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList_Ident()
 	 * @model unique="false"
 	 * @generated
 	 */
-	EList<String> getId();
+	EList<String> getIdent();
 
 	/**
 	 * Returns the value of the '<em><b>Variadic</b></em>' attribute.

@@ -44,9 +44,9 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.reset();
 		final PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 		this.idList = factory.createIdentifierList();
-		this.idList.getId().add("X");
+		this.idList.getIdent().add("X");
 		this.idList2 = factory.createIdentifierList();
-		this.idList2.getId().add("X");
+		this.idList2.getIdent().add("X");
 	}
 
 	@Test
@@ -119,8 +119,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement1() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "X Y Z");
 		final List<Token> code = this.lexerUtils
 				.getTokens("pre;BAR((3), ((5), (3)), (3, (3), ((5))) );post");
@@ -148,8 +148,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement2() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z)BAR(X,5,Z)");
@@ -174,8 +174,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement3() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z)BAR(X,5,Z)");
@@ -200,8 +200,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement4() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z)BAR(X,5,Z)");
@@ -225,8 +225,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement5() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
@@ -251,8 +251,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement6() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
@@ -285,8 +285,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement7() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
@@ -318,8 +318,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement8() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
@@ -344,8 +344,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement9() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
@@ -370,8 +370,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement10() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
@@ -395,8 +395,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexReplacement11() {
-		this.idList.getId().add("Y");
-		this.idList.getId().add("Z");
+		this.idList.getIdent().add("Y");
+		this.idList.getIdent().add("Z");
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
@@ -420,8 +420,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexDoubleReplacement1() {
-		this.idList.getId().add("Y");
-		this.idList2.getId().add("Y");
+		this.idList.getIdent().add("Y");
+		this.idList2.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "(X##Y)");
 		this.definitionTable.addFunctionMacro("BAR", this.idList2, "FOO(X,Y))");
 		final List<Token> code = this.lexerUtils.getTokens("FOO(5,R) BAR(5,5)");
@@ -466,8 +466,8 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void complexDoubleReplacement2() {
-		this.idList.getId().add("Y");
-		this.idList2.getId().add("Y");
+		this.idList.getIdent().add("Y");
+		this.idList2.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "(X##Y)");
 		this.definitionTable.addFunctionMacro("BAR", this.idList2, "FOO(X,Y)");
 		final List<Token> code = this.lexerUtils.getTokens("FOO(5,R) BAR(5,5)");
@@ -511,7 +511,7 @@ public class TestDefinitionFunctionMacro {
 
 	@Test
 	public void testConcatenation1() {
-		this.idList.getId().add("Y");
+		this.idList.getIdent().add("Y");
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "X:X ## Y");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(foo, bar) myend");
@@ -678,8 +678,8 @@ public class TestDefinitionFunctionMacro {
 	@Test
 	public void testConcatenation9() {
 		this.definitionTable
-				.addFunctionMacro("FOO", this.idList,
-						"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
+		.addFunctionMacro("FOO", this.idList,
+				"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -718,10 +718,10 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenationVar1() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-		.addFunctionMacro(
-				"FOO",
-				this.idList,
-				"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
+				.addFunctionMacro(
+						"FOO",
+						this.idList,
+						"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -766,10 +766,10 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenationVar2() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-		.addFunctionMacro(
-				"FOO",
-				this.idList,
-				"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
+				.addFunctionMacro(
+						"FOO",
+						this.idList,
+						"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(foo) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());

@@ -270,7 +270,7 @@ public class Test0024_FunctionMacroTwoArguments {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("MIN", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -278,7 +278,7 @@ public class Test0024_FunctionMacroTwoArguments {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4

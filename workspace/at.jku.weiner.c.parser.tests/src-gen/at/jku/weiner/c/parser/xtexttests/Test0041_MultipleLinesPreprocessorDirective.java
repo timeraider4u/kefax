@@ -198,7 +198,7 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final Initializer Initializer_9_Var
 		 = (Initializer)InitDeclarator_6_Var
@@ -212,7 +212,7 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 		Assert.assertNotNull(PrimaryExpression_10_Var
 		);
 		Assert.assertEquals("MYDEF", PrimaryExpression_10_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

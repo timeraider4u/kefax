@@ -391,7 +391,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
 		Assert.assertEquals("__ARG_FOO_1", DefineObjectMacro_4_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("0,", DefineObjectMacro_4_Var
 		.getString());
 		//4
@@ -406,7 +406,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
 		);
 		Assert.assertEquals("BAR_ENABLED", DefineFunctionLikeMacro_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final IdentifierList IdentifierList_7_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
@@ -414,7 +414,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_7_Var
 		);
 		Assert.assertEquals("[foo1]", IdentifierList_7_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("_BAR_ENABLED(foo1)", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
@@ -429,7 +429,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
 		);
 		Assert.assertEquals("_BAR_ENABLED", DefineFunctionLikeMacro_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final IdentifierList IdentifierList_10_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
@@ -437,7 +437,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_10_Var
 		);
 		Assert.assertEquals("[foo2]", IdentifierList_10_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("__BAR_ENABLED(__ARG_FOO_##foo2)", DefineFunctionLikeMacro_9_Var
 		.getString());
 		//10
@@ -452,7 +452,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_12_Var
 		);
 		Assert.assertEquals("__BAR_ENABLED", DefineFunctionLikeMacro_12_Var
-		.getId());
+		.getIdent());
 		//12
 		final IdentifierList IdentifierList_13_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_12_Var
@@ -460,7 +460,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_13_Var
 		);
 		Assert.assertEquals("[foo3_or_junk]", IdentifierList_13_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("___BAR_ENABLED(foo3_or_junk 1, 0)", DefineFunctionLikeMacro_12_Var
 		.getString());
 		//13
@@ -475,7 +475,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_15_Var
 		);
 		Assert.assertEquals("___BAR_ENABLED", DefineFunctionLikeMacro_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final IdentifierList IdentifierList_16_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_15_Var
@@ -483,7 +483,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_16_Var
 		);
 		Assert.assertEquals("[__ignored, foo4]", IdentifierList_16_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertTrue(IdentifierList_16_Var
 		.isVariadic());
 		Assert.assertEquals("foo4", DefineFunctionLikeMacro_15_Var
@@ -500,7 +500,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_18_Var
 		);
 		Assert.assertEquals("BAR_ENABLED2", DefineFunctionLikeMacro_18_Var
-		.getId());
+		.getIdent());
 		//18
 		final IdentifierList IdentifierList_19_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_18_Var
@@ -508,7 +508,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_19_Var
 		);
 		Assert.assertEquals("[foo1]", IdentifierList_19_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("_BAR_ENABLED2(foo1)", DefineFunctionLikeMacro_18_Var
 		.getString());
 		//19
@@ -523,7 +523,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_21_Var
 		);
 		Assert.assertEquals("_BAR_ENABLED2", DefineFunctionLikeMacro_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final IdentifierList IdentifierList_22_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_21_Var
@@ -531,7 +531,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_22_Var
 		);
 		Assert.assertEquals("[foo2]", IdentifierList_22_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("__BAR_ENABLED2(__ARG_FOO_##foo2)", DefineFunctionLikeMacro_21_Var
 		.getString());
 		//22
@@ -546,7 +546,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_24_Var
 		);
 		Assert.assertEquals("BAR_ENABLED3", DefineFunctionLikeMacro_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final IdentifierList IdentifierList_25_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_24_Var
@@ -554,7 +554,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_25_Var
 		);
 		Assert.assertEquals("[foo1]", IdentifierList_25_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("_BAR_ENABLED3(foo1)", DefineFunctionLikeMacro_24_Var
 		.getString());
 		//25
@@ -569,7 +569,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineFunctionLikeMacro_27_Var
 		);
 		Assert.assertEquals("_BAR_ENABLED3", DefineFunctionLikeMacro_27_Var
-		.getId());
+		.getIdent());
 		//27
 		final IdentifierList IdentifierList_28_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_27_Var
@@ -577,7 +577,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(IdentifierList_28_Var
 		);
 		Assert.assertEquals("[foo2]", IdentifierList_28_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("__BAR_ENABLED3(foo2##__ARG_FOO_)", DefineFunctionLikeMacro_27_Var
 		.getString());
 		//28
@@ -604,7 +604,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineObjectMacro_32_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_32_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_32_Var
 		.getString());
 		//32
@@ -626,7 +626,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(UnDefineDirective_35_Var
 		);
 		Assert.assertEquals("FOO", UnDefineDirective_35_Var
-		.getId());
+		.getIdent());
 		//35
 		final PreprocessorDirectives PreprocessorDirectives_36_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(15);
@@ -639,7 +639,7 @@ public class Test0133_ComplexConcateReplacements {
 		Assert.assertNotNull(DefineObjectMacro_37_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_37_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(DefineObjectMacro_37_Var
 		.getString());
 		//37

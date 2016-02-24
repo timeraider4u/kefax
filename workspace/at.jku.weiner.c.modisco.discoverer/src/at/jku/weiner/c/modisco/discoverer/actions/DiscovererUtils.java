@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 
 final class DiscovererUtils {
@@ -104,7 +105,8 @@ final class DiscovererUtils {
 	}
 
 	public static URI getTargetModel(final IResource res,
-			final IProgressMonitor monitor) throws DiscoveryException {
+			final IProgressMonitor monitor, final boolean useNeoEMF)
+					throws DiscoveryException {
 		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
 		MyLog.trace(DiscovererUtils.class, "targetPath='" + path + "'");
 		final Date dNow = new Date();
@@ -112,9 +114,22 @@ final class DiscovererUtils {
 		final String prefix = ft.format(dNow);
 		MyLog.trace(DiscovererUtils.class, "prefix='" + prefix + "'");
 		final String model = path + IPath.SEPARATOR + "discover-" + prefix
-				+ Messages.modelFileSuffix;
+				+ DiscovererUtils.getBackendExtension(useNeoEMF);
 		MyLog.trace(DiscovererUtils.class, "modelURI='" + model + "'");
 		final URI uri = URI.createFileURI(model);
+		if (useNeoEMF) {
+			final URI result = NeoEMFDiscoverUtils.createNeo4emfURI(uri);
+			MyLog.trace(DiscovererUtils.class, "resultURI='" + result + "'");
+			return result;
+		}
 		return uri;
 	}
+
+	private static String getBackendExtension(final boolean useNeoEMF) {
+		if (useNeoEMF) {
+			return NeoEMFDiscoverUtils.getBackendExtension();
+		}
+		return Messages.modelFileSuffix;
+	}
+
 }

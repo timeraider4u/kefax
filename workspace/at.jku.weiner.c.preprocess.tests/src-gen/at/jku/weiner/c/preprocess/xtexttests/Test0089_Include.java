@@ -210,7 +210,7 @@ public class Test0089_Include {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("foo", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("1", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -225,7 +225,7 @@ public class Test0089_Include {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("LIN", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("<include/file-foo.h>", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -253,7 +253,7 @@ public class Test0089_Include {
 		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
 		Assert.assertEquals("LIN2", DefineObjectMacro_9_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("\"../myinclude/include/foo.h\"", DefineObjectMacro_9_Var
 		.getString());
 		//9

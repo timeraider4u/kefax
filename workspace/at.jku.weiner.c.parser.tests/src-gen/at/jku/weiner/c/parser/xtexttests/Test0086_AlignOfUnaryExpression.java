@@ -235,7 +235,7 @@ public class Test0086_AlignOfUnaryExpression {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("Employee", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -295,8 +295,8 @@ public class Test0086_AlignOfUnaryExpression {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
-		Assert.assertEquals("id", DirectDeclarator_14_Var
-		.getId());
+		Assert.assertEquals("ident", DirectDeclarator_14_Var
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -338,7 +338,7 @@ public class Test0086_AlignOfUnaryExpression {
 		Assert.assertEquals("struct", StructOrUnion_20_Var
 		.getName());
 		Assert.assertEquals("Employee", StructOrUnionSpecifier_19_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(StructOrUnionSpecifier_19_Var
 		.getStructDeclList());
 		final EList<? extends EObject> InitDeclaratorList_20_list = Declaration_16_Var
@@ -372,7 +372,7 @@ public class Test0086_AlignOfUnaryExpression {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("emp", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final Pointer Pointer_25_Var
 		 = (Pointer)Declarator_23_Var
@@ -442,7 +442,7 @@ public class Test0086_AlignOfUnaryExpression {
 		Assert.assertNotNull(DirectDeclarator_33_Var
 		);
 		Assert.assertEquals("l", DirectDeclarator_33_Var
-		.getId());
+		.getIdent());
 		//33
 		final Initializer Initializer_34_Var
 		 = (Initializer)InitDeclarator_31_Var
@@ -470,15 +470,15 @@ public class Test0086_AlignOfUnaryExpression {
 		Assert.assertNotNull(PrimaryExpression_37_Var
 		);
 		Assert.assertEquals("emp", PrimaryExpression_37_Var
-		.getId());
+		.getIdent());
 		//37
 		final PostfixExpressionSuffixArrow PostfixExpressionSuffixArrow_38_Var
 		 = (PostfixExpressionSuffixArrow)PostfixExpression_36_Var
 		.getSuffix();
 		Assert.assertNotNull(PostfixExpressionSuffixArrow_38_Var
 		);
-		Assert.assertEquals("id", PostfixExpressionSuffixArrow_38_Var
-		.getId());
+		Assert.assertEquals("ident", PostfixExpressionSuffixArrow_38_Var
+		.getIdent());
 		Assert.assertNull(Initializer_34_Var
 		.getList());
 		Assert.assertFalse(Initializer_34_Var

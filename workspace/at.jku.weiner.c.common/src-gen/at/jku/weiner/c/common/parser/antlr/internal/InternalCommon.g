@@ -1826,9 +1826,9 @@ rulePrimaryExpression returns [EObject current=null]
     |
 (
 (
-		lv_id_2_0=RULE_ID
+		lv_ident_2_0=RULE_ID
 		{
-			newLeafNode(lv_id_2_0, grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_ident_2_0, grammarAccess.getPrimaryExpressionAccess().getIdentIDTerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1836,8 +1836,8 @@ rulePrimaryExpression returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
+       			"ident",
+        		lv_ident_2_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 

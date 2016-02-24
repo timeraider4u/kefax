@@ -64,33 +64,33 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	{
 		switch (eClass.getClassifierID())
 		{
-			case PreprocessPackage.GROUP_OPT: return createGroupOpt();
-			case PreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
-			case PreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
-			case PreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
-			case PreprocessPackage.IDENTIFIER_LIST: return createIdentifierList();
-			case PreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
-			case PreprocessPackage.WARNING_DIRECTIVE: return createWarningDirective();
-			case PreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
-			case PreprocessPackage.CONDITIONAL_DIRECTIVE: return createConditionalDirective();
-			case PreprocessPackage.IF_CONDITIONAL: return createIfConditional();
-			case PreprocessPackage.IF_DEF_CONDITIONAL: return createIfDefConditional();
-			case PreprocessPackage.IF_NOT_DEF_CONDITIONAL: return createIfNotDefConditional();
-			case PreprocessPackage.EL_IF_CONDITIONAL: return createElIfConditional();
-			case PreprocessPackage.ELSE_CONDITIONAL: return createElseConditional();
-			case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
-			case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
-			case PreprocessPackage.PREPROCESS: return createPreprocess();
-			case PreprocessPackage.GROUP_OPT2: return createGroupOpt2();
-			case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
-			case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
-			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
-			case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
-			case PreprocessPackage.CODE: return createCode();
-			case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
-			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: return createIfAbstractConditional();
-			case PreprocessPackage.EXPRESSION: return createExpression();
-			case PreprocessPackage.LINE_DIRECTIVE: return createLineDirective();
+			case PreprocessPackage.GROUP_OPT: return (EObject)createGroupOpt();
+			case PreprocessPackage.SOURCE_CODE_LINE: return (EObject)createSourceCodeLine();
+			case PreprocessPackage.INCLUDE_DIRECTIVE: return (EObject)createIncludeDirective();
+			case PreprocessPackage.DEFINE_DIRECTIVE: return (EObject)createDefineDirective();
+			case PreprocessPackage.IDENTIFIER_LIST: return (EObject)createIdentifierList();
+			case PreprocessPackage.ERROR_DIRECTIVE: return (EObject)createErrorDirective();
+			case PreprocessPackage.WARNING_DIRECTIVE: return (EObject)createWarningDirective();
+			case PreprocessPackage.UN_DEFINE_DIRECTIVE: return (EObject)createUnDefineDirective();
+			case PreprocessPackage.CONDITIONAL_DIRECTIVE: return (EObject)createConditionalDirective();
+			case PreprocessPackage.IF_CONDITIONAL: return (EObject)createIfConditional();
+			case PreprocessPackage.IF_DEF_CONDITIONAL: return (EObject)createIfDefConditional();
+			case PreprocessPackage.IF_NOT_DEF_CONDITIONAL: return (EObject)createIfNotDefConditional();
+			case PreprocessPackage.EL_IF_CONDITIONAL: return (EObject)createElIfConditional();
+			case PreprocessPackage.ELSE_CONDITIONAL: return (EObject)createElseConditional();
+			case PreprocessPackage.PRAGMA_DIRECTIVE: return (EObject)createPragmaDirective();
+			case PreprocessPackage.NULL_DIRECTIVE: return (EObject)createNullDirective();
+			case PreprocessPackage.PREPROCESS: return (EObject)createPreprocess();
+			case PreprocessPackage.GROUP_OPT2: return (EObject)createGroupOpt2();
+			case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return (EObject)createPreprocessorDirectives();
+			case PreprocessPackage.DEFINE_OBJECT_MACRO: return (EObject)createDefineObjectMacro();
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return (EObject)createDefineFunctionLikeMacro();
+			case PreprocessPackage.NEW_LINE_LINE: return (EObject)createNewLineLine();
+			case PreprocessPackage.CODE: return (EObject)createCode();
+			case PreprocessPackage.PRIMARY_EXPRESSION: return (EObject)createPrimaryExpression();
+			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: return (EObject)createIfAbstractConditional();
+			case PreprocessPackage.EXPRESSION: return (EObject)createExpression();
+			case PreprocessPackage.LINE_DIRECTIVE: return (EObject)createLineDirective();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

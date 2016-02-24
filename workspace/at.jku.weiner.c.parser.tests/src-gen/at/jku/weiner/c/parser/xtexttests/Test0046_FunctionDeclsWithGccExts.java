@@ -372,7 +372,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("do2", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_8_list);
@@ -448,7 +448,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> GccDeclExt2_18_list = Declarator_7_Var
 		.getGccDeclExt2();
 		Assert.assertNotNull(GccDeclExt2_18_list);
@@ -482,14 +482,14 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(GccAttribute_22_Var
 		);
 		Assert.assertEquals("__nothrow__", GccAttribute_22_Var
-		.getId());
+		.getIdent());
 		//22
 		final GccAttribute GccAttribute_23_Var
 		 = (GccAttribute)GccAttribute_21_list.get(1);
 		Assert.assertNotNull(GccAttribute_23_Var
 		);
 		Assert.assertEquals("__leaf__", GccAttribute_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final ExternalDeclaration ExternalDeclaration_24_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -549,7 +549,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_31_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_31_list = DirectDeclarator_31_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_31_list);
@@ -625,7 +625,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_41_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_41_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> GccDeclExt2_41_list = Declarator_30_Var
 		.getGccDeclExt2();
 		Assert.assertNotNull(GccDeclExt2_41_list);
@@ -659,7 +659,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(GccAttribute_45_Var
 		);
 		Assert.assertEquals("__nothrow__", GccAttribute_45_Var
-		.getId());
+		.getIdent());
 		//45
 		final ExternalDeclaration ExternalDeclaration_46_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -719,7 +719,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_53_Var
 		);
 		Assert.assertEquals("do3", DirectDeclarator_53_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_53_list = DirectDeclarator_53_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_53_list);
@@ -795,7 +795,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_63_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_63_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> GccDeclExt2_63_list = Declarator_52_Var
 		.getGccDeclExt2();
 		Assert.assertNotNull(GccDeclExt2_63_list);
@@ -868,7 +868,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_72_Var
 		);
 		Assert.assertEquals("do4", DirectDeclarator_72_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_72_list = DirectDeclarator_72_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_72_list);
@@ -944,7 +944,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_82_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_82_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> GccDeclExt2_82_list = Declarator_71_Var
 		.getGccDeclExt2();
 		Assert.assertNotNull(GccDeclExt2_82_list);
@@ -1017,7 +1017,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_91_Var
 		);
 		Assert.assertEquals("do5", DirectDeclarator_91_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_91_list = DirectDeclarator_91_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_91_list);
@@ -1093,7 +1093,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertNotNull(DirectDeclarator_101_Var
 		);
 		Assert.assertEquals("c", DirectDeclarator_101_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> GccDeclExt2_101_list = Declarator_90_Var
 		.getGccDeclExt2();
 		Assert.assertNotNull(GccDeclExt2_101_list);

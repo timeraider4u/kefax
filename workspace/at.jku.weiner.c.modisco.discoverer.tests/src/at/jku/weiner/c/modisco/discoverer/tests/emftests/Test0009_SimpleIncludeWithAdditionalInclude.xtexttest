@@ -76,7 +76,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"getValue",
+									ident++"getValue",
 									declaratorSuffix+=
 									(parser::DeclaratorSuffix
 										lastSuffix=
@@ -104,7 +104,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 					(parser::Declarator
 						declarator=
 						(parser::DirectDeclarator
-							id++"main",
+							ident++"main",
 							declaratorSuffix+=
 							(parser::DeclaratorSuffix
 								lastSuffix=
@@ -145,7 +145,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 									(parser::PostfixExpression
 										expr=
 										(parser::PrimaryExpression
-											id++"getValue"
+											ident++"getValue"
 										),
 										suffix=
 										(parser::PostfixExpressionSuffixArgument
@@ -172,7 +172,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 				(preprocess::PreprocessorDirectives
 					directive=
 					(preprocess::DefineObjectMacro
-						id++"NUMBER",
+						ident++"NUMBER",
 						string++"int"
 					)
 				),

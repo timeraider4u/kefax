@@ -212,7 +212,7 @@ public class Test0084_EmptyStructAssign {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("Employee", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -272,8 +272,8 @@ public class Test0084_EmptyStructAssign {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
-		Assert.assertEquals("id", DirectDeclarator_14_Var
-		.getId());
+		Assert.assertEquals("ident", DirectDeclarator_14_Var
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -315,7 +315,7 @@ public class Test0084_EmptyStructAssign {
 		Assert.assertEquals("struct", StructOrUnion_20_Var
 		.getName());
 		Assert.assertEquals("Employee", StructOrUnionSpecifier_19_Var
-		.getId());
+		.getIdent());
 		Assert.assertNull(StructOrUnionSpecifier_19_Var
 		.getStructDeclList());
 		final EList<? extends EObject> InitDeclaratorList_20_list = Declaration_16_Var
@@ -349,7 +349,7 @@ public class Test0084_EmptyStructAssign {
 		Assert.assertNotNull(DirectDeclarator_24_Var
 		);
 		Assert.assertEquals("emp", DirectDeclarator_24_Var
-		.getId());
+		.getIdent());
 		//24
 		final Initializer Initializer_25_Var
 		 = (Initializer)InitDeclarator_22_Var

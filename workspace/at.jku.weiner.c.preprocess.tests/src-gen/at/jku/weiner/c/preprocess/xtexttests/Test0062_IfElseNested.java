@@ -303,7 +303,7 @@ public class Test0062_IfElseNested {
 		Assert.assertTrue(PrimaryExpression_7_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_7_Var
-		.getId());
+		.getIdent());
 		//7
 		final GroupOpt GroupOpt_8_Var
 		 = (GroupOpt)IfConditional_6_Var
@@ -347,7 +347,7 @@ public class Test0062_IfElseNested {
 		Assert.assertTrue(PrimaryExpression_13_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_13_Var
-		.getId());
+		.getIdent());
 		//13
 		final GroupOpt GroupOpt_14_Var
 		 = (GroupOpt)IfConditional_12_Var
@@ -420,7 +420,7 @@ public class Test0062_IfElseNested {
 		Assert.assertNotNull(PrimaryExpression_23_Var
 		);
 		Assert.assertEquals("FOO", PrimaryExpression_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final PrimaryExpression PrimaryExpression_24_Var
 		 = (PrimaryExpression)RelationalExpression_22_Var

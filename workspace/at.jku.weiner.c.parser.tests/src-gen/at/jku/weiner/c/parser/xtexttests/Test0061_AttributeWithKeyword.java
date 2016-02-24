@@ -248,7 +248,7 @@ public class Test0061_AttributeWithKeyword {
 		Assert.assertNotNull(DirectDeclarator_12_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_12_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_12_list = DirectDeclarator_12_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_12_list);
@@ -318,7 +318,7 @@ public class Test0061_AttributeWithKeyword {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final FunctionDefinition FunctionDefinition_22_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var

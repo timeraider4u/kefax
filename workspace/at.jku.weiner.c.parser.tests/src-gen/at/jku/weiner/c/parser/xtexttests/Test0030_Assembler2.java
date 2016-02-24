@@ -347,7 +347,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -482,7 +482,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(DirectDeclarator_23_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_23_Var
-		.getId());
+		.getIdent());
 		//23
 		final Initializer Initializer_24_Var
 		 = (Initializer)InitDeclarator_21_Var
@@ -556,7 +556,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(DirectDeclarator_33_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_33_Var
-		.getId());
+		.getIdent());
 		//33
 		final Initializer Initializer_34_Var
 		 = (Initializer)InitDeclarator_31_Var
@@ -666,7 +666,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(PrimaryExpression_48_Var
 		);
 		Assert.assertEquals("bar", PrimaryExpression_48_Var
-		.getId());
+		.getIdent());
 		//48
 		final AsmLineWithColon AsmLineWithColon_49_Var
 		 = (AsmLineWithColon)AsmLines_40_list.get(1);
@@ -723,7 +723,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(PrimaryExpression_56_Var
 		);
 		Assert.assertEquals("foo", PrimaryExpression_56_Var
-		.getId());
+		.getIdent());
 		//56
 		final AsmLineWithColon AsmLineWithColon_57_Var
 		 = (AsmLineWithColon)AsmLines_40_list.get(2);
@@ -783,7 +783,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(PrimaryExpression_65_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_65_Var
-		.getId());
+		.getIdent());
 		//65
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_66_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_64_Var
@@ -813,7 +813,7 @@ public class Test0030_Assembler2 {
 		Assert.assertNotNull(PrimaryExpression_69_Var
 		);
 		Assert.assertEquals("bar", PrimaryExpression_69_Var
-		.getId());
+		.getIdent());
 		//69
 		final Statement Statement_70_Var
 		 = (Statement)Statement_36_list.get(2);

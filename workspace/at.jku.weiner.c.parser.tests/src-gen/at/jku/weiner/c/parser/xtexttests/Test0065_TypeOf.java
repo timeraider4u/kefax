@@ -240,7 +240,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final ExternalDeclaration ExternalDeclaration_9_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -276,7 +276,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(PrimaryExpression_13_Var
 		);
 		Assert.assertEquals("i", PrimaryExpression_13_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_13_list = Declaration_10_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_13_list);
@@ -308,7 +308,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(DirectDeclarator_17_Var
 		);
 		Assert.assertEquals("j", DirectDeclarator_17_Var
-		.getId());
+		.getIdent());
 		//17
 		final ExternalDeclaration ExternalDeclaration_18_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -344,7 +344,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(PrimaryExpression_22_Var
 		);
 		Assert.assertEquals("j", PrimaryExpression_22_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_22_list = Declaration_19_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_22_list);
@@ -376,7 +376,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(DirectDeclarator_26_Var
 		);
 		Assert.assertEquals("k", DirectDeclarator_26_Var
-		.getId());
+		.getIdent());
 		//26
 		final ExternalDeclaration ExternalDeclaration_27_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -412,7 +412,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(PrimaryExpression_31_Var
 		);
 		Assert.assertEquals("k", PrimaryExpression_31_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_31_list = Declaration_28_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_31_list);
@@ -444,7 +444,7 @@ public class Test0065_TypeOf {
 		Assert.assertNotNull(DirectDeclarator_35_Var
 		);
 		Assert.assertEquals("m", DirectDeclarator_35_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

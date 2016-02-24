@@ -205,7 +205,7 @@ public class Test0060_IfElIfElse {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("50", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -239,7 +239,7 @@ public class Test0060_IfElIfElse {
 		Assert.assertTrue(PrimaryExpression_8_Var
 		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final GroupOpt GroupOpt_9_Var
 		 = (GroupOpt)IfConditional_7_Var
@@ -275,7 +275,7 @@ public class Test0060_IfElIfElse {
 		Assert.assertTrue(PrimaryExpression_12_Var
 		.isDefined());
 		Assert.assertEquals("BAR", PrimaryExpression_12_Var
-		.getId());
+		.getIdent());
 		//12
 		final GroupOpt GroupOpt_13_Var
 		 = (GroupOpt)ElIfConditional_11_Var

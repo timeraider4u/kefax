@@ -84,7 +84,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo0",
+					ident++"foo0",
 					list isNull,
 //					replacement+=
 //					(ReplaceLine
@@ -95,10 +95,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo1",
+					ident++"foo1",
 					list=
 					(IdentifierList
-						id+*"[X]"
+						ident+*"[X]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -109,10 +109,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo2",
+					ident++"foo2",
 					list=
 					(IdentifierList
-						id+*"[X, Y]"
+						ident+*"[X, Y]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -123,10 +123,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo3",
+					ident++"foo3",
 					list=
 					(IdentifierList
-						id+*"[X, Y, Z]"
+						ident+*"[X, Y, Z]"
 					),
 //					replacement+=
 //					(ReplaceLine
@@ -137,13 +137,13 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(UnDefineDirective
-					id++"foo0"
+					ident++"foo0"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo0",
+					ident++"foo0",
 					list isNull,
 //					replacement+=
 //					(ReplaceLine

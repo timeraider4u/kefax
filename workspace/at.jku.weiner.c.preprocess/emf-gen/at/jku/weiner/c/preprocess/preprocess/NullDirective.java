@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getNullDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface NullDirective extends EObject
+public interface NullDirective extends PersistentEObject
 {
 } // NullDirective

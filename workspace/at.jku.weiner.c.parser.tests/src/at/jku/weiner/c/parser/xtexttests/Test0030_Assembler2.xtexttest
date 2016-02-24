@@ -70,7 +70,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"main",
+						ident++"main",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -120,7 +120,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"foo"
+											ident++"foo"
 										)
 									),
 									initializer=
@@ -153,7 +153,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"bar"
+											ident++"bar"
 										)
 									),
 									initializer=
@@ -204,7 +204,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"bar"
+															ident++"bar"
 														) // end expression
 													)
 												)
@@ -230,7 +230,7 @@ SKW_RIGHTBRACE NEWLINE
 													(ArgumentExpressionList
 														expr+=
 														(PrimaryExpression
-															id++"foo"
+															ident++"foo"
 														)
 													)
 												)
@@ -264,7 +264,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -275,7 +275,7 @@ SKW_RIGHTBRACE NEWLINE
 												string+*"[\\\"Ergebnis: %i\\\\n\\\"]"
 											),
 											(PrimaryExpression
-												id++"bar"
+												ident++"bar"
 											)
 										)
 									)

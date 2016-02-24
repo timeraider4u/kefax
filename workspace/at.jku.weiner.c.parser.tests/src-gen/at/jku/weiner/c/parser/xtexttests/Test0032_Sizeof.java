@@ -240,7 +240,7 @@ public class Test0032_Sizeof {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("sizeOfInt", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final FunctionDefinition FunctionDefinition_7_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -358,7 +358,7 @@ public class Test0032_Sizeof {
 		Assert.assertNotNull(DirectDeclarator_22_Var
 		);
 		Assert.assertEquals("sizeOfInt2", DirectDeclarator_22_Var
-		.getId());
+		.getIdent());
 		//22
 		final FunctionDefinition FunctionDefinition_23_Var
 		 = (FunctionDefinition)ExternalDeclaration_16_Var

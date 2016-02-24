@@ -173,7 +173,7 @@ public class Test0045_IfValueGreater {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("VERSION", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("290", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -208,7 +208,7 @@ public class Test0045_IfValueGreater {
 		Assert.assertNotNull(PrimaryExpression_8_Var
 		);
 		Assert.assertEquals("VERSION", PrimaryExpression_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final PrimaryExpression PrimaryExpression_9_Var
 		 = (PrimaryExpression)RelationalExpression_7_Var

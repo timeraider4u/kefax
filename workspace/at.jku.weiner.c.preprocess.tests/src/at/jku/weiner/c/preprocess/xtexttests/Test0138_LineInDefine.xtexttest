@@ -32,10 +32,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list=
 					(IdentifierList
-						id+*"[line, val]"
+						ident+*"[line, val]"
 					),
 					//replacement+=
 					//(ReplaceLine
@@ -49,7 +49,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"line",
+					ident++"line",
 					string++"1"
 				)
 			),
@@ -58,7 +58,7 @@ lexer-tokens
 				(ConditionalDirective
 					conditional=
 					(IfDefConditional
-						id++"line",
+						ident++"line",
 						group=
 						(GroupOpt
 							lines+=
@@ -74,7 +74,7 @@ lexer-tokens
 				(ConditionalDirective
 					conditional=
 					(IfNotDefConditional
-						id++"line",
+						ident++"line",
 						group=
 						(GroupOpt
 							lines+=
@@ -92,7 +92,7 @@ lexer-tokens
 					(IfConditional
 						expression=
 						(PrimaryExpression
-							id++"line"
+							ident++"line"
 						),
 						group=
 						(GroupOpt

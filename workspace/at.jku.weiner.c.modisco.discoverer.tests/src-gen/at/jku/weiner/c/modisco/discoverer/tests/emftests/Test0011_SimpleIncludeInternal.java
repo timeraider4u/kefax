@@ -264,7 +264,7 @@ public class Test0011_SimpleIncludeInternal {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("getValue", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_21_list = DirectDeclarator_21_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_21_list);
@@ -321,7 +321,7 @@ public class Test0011_SimpleIncludeInternal {
 		Assert.assertNotNull(DirectDeclarator_29_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_29_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_29_list = DirectDeclarator_29_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_29_list);
@@ -429,7 +429,7 @@ public class Test0011_SimpleIncludeInternal {
 		Assert.assertNotNull(PrimaryExpression_43_Var
 		);
 		Assert.assertEquals("getValue", PrimaryExpression_43_Var
-		.getId());
+		.getIdent());
 		//43
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_44_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_42_Var
@@ -477,7 +477,7 @@ public class Test0011_SimpleIncludeInternal {
 		Assert.assertNotNull(DefineObjectMacro_49_Var
 		);
 		Assert.assertEquals("NUMBER", DefineObjectMacro_49_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("int", DefineObjectMacro_49_Var
 		.getString());
 		//49

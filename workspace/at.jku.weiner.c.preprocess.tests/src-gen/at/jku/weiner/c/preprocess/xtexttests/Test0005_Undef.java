@@ -227,7 +227,7 @@ public class Test0005_Undef {
 		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
 		Assert.assertEquals("int", DefineObjectMacro_4_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("double", DefineObjectMacro_4_Var
 		.getString());
 		//4
@@ -249,7 +249,7 @@ public class Test0005_Undef {
 		Assert.assertNotNull(UnDefineDirective_7_Var
 		);
 		Assert.assertEquals("int", UnDefineDirective_7_Var
-		.getId());
+		.getIdent());
 		//7
 		final Code Code_8_Var
 		 = (Code)Lines_1_list.get(4);
@@ -269,7 +269,7 @@ public class Test0005_Undef {
 		Assert.assertNotNull(DefineObjectMacro_10_Var
 		);
 		Assert.assertEquals("int", DefineObjectMacro_10_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("long", DefineObjectMacro_10_Var
 		.getString());
 		//10
@@ -284,7 +284,7 @@ public class Test0005_Undef {
 		Assert.assertNotNull(UnDefineDirective_12_Var
 		);
 		Assert.assertEquals("int", UnDefineDirective_12_Var
-		.getId());
+		.getIdent());
 		//12
 		final Code Code_13_Var
 		 = (Code)Lines_1_list.get(7);
@@ -304,7 +304,7 @@ public class Test0005_Undef {
 		Assert.assertNotNull(UnDefineDirective_15_Var
 		);
 		Assert.assertEquals("int", UnDefineDirective_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final Code Code_16_Var
 		 = (Code)Lines_1_list.get(9);

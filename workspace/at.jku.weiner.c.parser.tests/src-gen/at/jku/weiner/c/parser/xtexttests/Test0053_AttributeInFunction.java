@@ -227,7 +227,7 @@ public class Test0053_AttributeInFunction {
 		Assert.assertNotNull(GccAttribute_9_Var
 		);
 		Assert.assertEquals("no_instrument_function", GccAttribute_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final TypeSpecifier TypeSpecifier_10_Var
 		 = (TypeSpecifier)DeclarationSpecifier_3_list.get(3);
@@ -248,7 +248,7 @@ public class Test0053_AttributeInFunction {
 		Assert.assertNotNull(DirectDeclarator_12_Var
 		);
 		Assert.assertEquals("foo", DirectDeclarator_12_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_12_list = DirectDeclarator_12_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_12_list);
@@ -318,7 +318,7 @@ public class Test0053_AttributeInFunction {
 		Assert.assertNotNull(DirectDeclarator_21_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_21_Var
-		.getId());
+		.getIdent());
 		//21
 		final FunctionDefinition FunctionDefinition_22_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.IdentifierListImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.IdentifierListImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,9 +65,9 @@ public class IdentifierListImpl extends PersistentEObjectImpl implements Identif
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<MyIdentifier> getId()
+	public EList<MyIdentifier> getIdent()
 	{
-		return (EList<MyIdentifier>)eGet(ParserPackage.Literals.IDENTIFIER_LIST__ID, true);
+		return (EList<MyIdentifier>)eGet(ParserPackage.Literals.IDENTIFIER_LIST__IDENT, true);
 	}
 
 } //IdentifierListImpl

@@ -13,7 +13,7 @@ public final class Messages extends NLS {
 		// initialize resource bundle
 		NLS.initializeMessages(Messages.BUNDLE_NAME, Messages.class);
 	}
-	
+
 	private Messages() {
 	}
 }

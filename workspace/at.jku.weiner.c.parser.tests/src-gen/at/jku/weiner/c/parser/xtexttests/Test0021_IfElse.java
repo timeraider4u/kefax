@@ -282,7 +282,7 @@ public class Test0021_IfElse {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("doSomething", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -352,7 +352,7 @@ public class Test0021_IfElse {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("argc", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final FunctionDefinition FunctionDefinition_16_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -406,7 +406,7 @@ public class Test0021_IfElse {
 		Assert.assertNotNull(PrimaryExpression_22_Var
 		);
 		Assert.assertEquals("argc", PrimaryExpression_22_Var
-		.getId());
+		.getIdent());
 		//22
 		final PrimaryExpression PrimaryExpression_23_Var
 		 = (PrimaryExpression)RelationalExpression_21_Var
@@ -478,7 +478,7 @@ public class Test0021_IfElse {
 		Assert.assertNotNull(PrimaryExpression_32_Var
 		);
 		Assert.assertEquals("argc", PrimaryExpression_32_Var
-		.getId());
+		.getIdent());
 		//32
 		final PrimaryExpression PrimaryExpression_33_Var
 		 = (PrimaryExpression)EqualityExpression_31_Var

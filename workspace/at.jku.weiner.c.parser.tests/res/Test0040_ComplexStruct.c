@@ -3,7 +3,7 @@ struct temp {
 };
 
 struct outer {
-	//int id;
+	//int ident;
 	struct temp *in1;
 	struct temp in2;
 	union {

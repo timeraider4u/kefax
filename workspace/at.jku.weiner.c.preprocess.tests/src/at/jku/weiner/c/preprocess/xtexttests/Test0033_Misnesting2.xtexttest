@@ -23,10 +23,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"myprintf",
+					ident++"myprintf",
 					list=
 					(IdentifierList
-						id+*"[x]"
+						ident+*"[x]"
 					),
 //					replacement+=
 //					(ReplaceLine

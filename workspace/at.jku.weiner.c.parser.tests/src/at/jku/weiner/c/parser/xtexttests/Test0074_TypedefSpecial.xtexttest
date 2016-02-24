@@ -35,7 +35,7 @@ KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_LEFTBRACKET DECIMAL_LITERAL SKW_R
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a",
+								ident++"a",
 								declaratorSuffix+=
 								(DeclaratorSuffix
 									expr=

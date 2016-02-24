@@ -184,7 +184,7 @@ public class Test0066_IfValueGreaterLongUnsigned {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("__STDC_VERSION__", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("201300UL", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -227,7 +227,7 @@ public class Test0066_IfValueGreaterLongUnsigned {
 		Assert.assertTrue(PrimaryExpression_9_Var
 		.isDefined());
 		Assert.assertEquals("__STDC_VERSION__", PrimaryExpression_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final RelationalExpression RelationalExpression_10_Var
 		 = (RelationalExpression)LogicalAndExpression_8_Var
@@ -243,7 +243,7 @@ public class Test0066_IfValueGreaterLongUnsigned {
 		Assert.assertNotNull(PrimaryExpression_11_Var
 		);
 		Assert.assertEquals("__STDC_VERSION__", PrimaryExpression_11_Var
-		.getId());
+		.getIdent());
 		//11
 		final PrimaryExpression PrimaryExpression_12_Var
 		 = (PrimaryExpression)RelationalExpression_10_Var

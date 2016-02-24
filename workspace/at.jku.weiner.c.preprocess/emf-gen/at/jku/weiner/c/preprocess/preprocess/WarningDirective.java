@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
+import fr.inria.atlanmod.neoemf.core.PersistentEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getWarningDirective()
  * @model
+ * @extends PersistentEObject
  * @generated
  */
-public interface WarningDirective extends EObject
+public interface WarningDirective extends PersistentEObject
 {
 	/**
 	 * Returns the value of the '<em><b>Msg</b></em>' attribute.

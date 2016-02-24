@@ -45,10 +45,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list =
 					(IdentifierList
-						id isEmpty,
+						ident isEmpty,
 						varID++"x",
 						variadic?=true
 					),

@@ -232,7 +232,7 @@ public class Test0004_Predef {
 		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
 		Assert.assertEquals("myVar1", DirectDeclarator_19_Var
-		.getId());
+		.getIdent());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_10_list.get(1);
@@ -299,7 +299,7 @@ public class Test0004_Predef {
 		Assert.assertNotNull(DirectDeclarator_28_Var
 		);
 		Assert.assertEquals("anotherVar2", DirectDeclarator_28_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Simple.c", TranslationUnit_3_Var
 		.getPath());
 		//28

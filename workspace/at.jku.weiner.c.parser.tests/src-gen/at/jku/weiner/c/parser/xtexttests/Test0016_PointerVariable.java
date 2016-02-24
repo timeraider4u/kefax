@@ -214,7 +214,7 @@ public class Test0016_PointerVariable {
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_8_Var
-		.getId());
+		.getIdent());
 		//8
 		final Pointer Pointer_9_Var
 		 = (Pointer)Declarator_7_Var
@@ -302,7 +302,7 @@ public class Test0016_PointerVariable {
 		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
 		Assert.assertEquals("b", DirectDeclarator_19_Var
-		.getId());
+		.getIdent());
 		//19
 		final Pointer Pointer_20_Var
 		 = (Pointer)Declarator_18_Var

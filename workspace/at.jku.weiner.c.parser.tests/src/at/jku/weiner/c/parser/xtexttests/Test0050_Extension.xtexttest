@@ -35,7 +35,7 @@ KW_EXTENSION WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						)
 					)

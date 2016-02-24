@@ -219,7 +219,7 @@ public class Test0042_BuiltinVaArgs {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("my_list", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -253,7 +253,7 @@ public class Test0042_BuiltinVaArgs {
 		Assert.assertNotNull(TypedefName_14_Var
 		);
 		Assert.assertEquals("my_list", TypedefName_14_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_14_list = Declaration_11_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_14_list);
@@ -285,7 +285,7 @@ public class Test0042_BuiltinVaArgs {
 		Assert.assertNotNull(DirectDeclarator_18_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_18_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

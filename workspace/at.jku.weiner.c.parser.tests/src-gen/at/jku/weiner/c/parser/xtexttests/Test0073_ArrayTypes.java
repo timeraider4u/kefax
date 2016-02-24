@@ -215,7 +215,7 @@ public class Test0073_ArrayTypes {
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
 		Assert.assertEquals("mytype", DirectDeclarator_9_Var
-		.getId());
+		.getIdent());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -275,7 +275,7 @@ public class Test0073_ArrayTypes {
 		Assert.assertNotNull(DirectDeclarator_17_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_17_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_17_list = DirectDeclarator_17_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_17_list);

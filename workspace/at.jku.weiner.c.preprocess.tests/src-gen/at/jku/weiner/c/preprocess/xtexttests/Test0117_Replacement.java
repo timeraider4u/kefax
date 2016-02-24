@@ -169,7 +169,7 @@ public class Test0117_Replacement {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -177,7 +177,7 @@ public class Test0117_Replacement {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertEquals("[bar, bax]", IdentifierList_4_Var
-		.getId().toString());
+		.getIdent().toString());
 		Assert.assertEquals("int bar[bax]", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4

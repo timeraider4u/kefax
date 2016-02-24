@@ -210,7 +210,7 @@ public class Test0022_PlusPlus {
 		Assert.assertNotNull(DirectDeclarator_6_Var
 		);
 		Assert.assertEquals("a", DirectDeclarator_6_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_6_list = DirectDeclarator_6_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_6_list);
@@ -280,7 +280,7 @@ public class Test0022_PlusPlus {
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
 		Assert.assertEquals("num", DirectDeclarator_15_Var
-		.getId());
+		.getIdent());
 		//15
 		final FunctionDefinition FunctionDefinition_16_Var
 		 = (FunctionDefinition)ExternalDeclaration_1_Var
@@ -330,7 +330,7 @@ public class Test0022_PlusPlus {
 		Assert.assertNotNull(PrimaryExpression_22_Var
 		);
 		Assert.assertEquals("num", PrimaryExpression_22_Var
-		.getId());
+		.getIdent());
 		//22
 		final PostfixExpressionSuffixPlusPlus PostfixExpressionSuffixPlusPlus_23_Var
 		 = (PostfixExpressionSuffixPlusPlus)PostfixExpression_21_Var
@@ -363,7 +363,7 @@ public class Test0022_PlusPlus {
 		Assert.assertNotNull(PrimaryExpression_27_Var
 		);
 		Assert.assertEquals("num", PrimaryExpression_27_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("++", UnaryExpression_26_Var
 		.getPlusplus());
 	}

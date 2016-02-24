@@ -197,7 +197,7 @@ public class Test0009_DefineAndInclude {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("INT", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("int", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -212,7 +212,7 @@ public class Test0009_DefineAndInclude {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("MAIN", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("main", DefineObjectMacro_5_Var
 		.getString());
 		//5

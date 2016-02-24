@@ -184,7 +184,7 @@ public class Test0043_IfValueGreater {
 		Assert.assertNotNull(PrimaryExpression_6_Var
 		);
 		Assert.assertEquals("VERSION", PrimaryExpression_6_Var
-		.getId());
+		.getIdent());
 		//6
 		final PrimaryExpression PrimaryExpression_7_Var
 		 = (PrimaryExpression)RelationalExpression_5_Var

@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.IdentifierList#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.IdentifierList#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,19 +26,19 @@ import org.eclipse.emf.common.util.EList;
 public interface IdentifierList extends PersistentEObject
 {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Ident</b></em>' containment reference list.
 	 * The list contents are of type {@link at.jku.weiner.c.parser.parser.MyIdentifier}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Ident</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' containment reference list.
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getIdentifierList_Id()
+	 * @return the value of the '<em>Ident</em>' containment reference list.
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getIdentifierList_Ident()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<MyIdentifier> getId();
+	EList<MyIdentifier> getIdent();
 
 } // IdentifierList

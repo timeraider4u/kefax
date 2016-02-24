@@ -32,7 +32,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 							(StructOrUnion
 								name++"struct"
 							),
-							id++"foo",
+							ident++"foo",
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
@@ -52,7 +52,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"i"
+													ident++"i"
 												)
 											),
 											constExpr+=
@@ -81,7 +81,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"j"
+													ident++"j"
 												)
 											),
 											constExpr+=
@@ -110,7 +110,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"k"
+													ident++"k"
 												)
 											),
 											constExpr+=

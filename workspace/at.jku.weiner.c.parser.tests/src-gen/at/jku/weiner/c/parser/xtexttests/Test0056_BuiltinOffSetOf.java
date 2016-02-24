@@ -246,7 +246,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -307,7 +307,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -349,7 +349,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertNotNull(DirectDeclarator_20_Var
 		);
 		Assert.assertEquals("bar", DirectDeclarator_20_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_20_list = DirectDeclarator_20_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_20_list);
@@ -419,7 +419,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertEquals("struct", StructOrUnion_29_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_28_Var
-		.getId());
+		.getIdent());
 		//29
 		final Declarator Declarator_30_Var
 		 = (Declarator)ParameterDeclaration_25_Var
@@ -433,7 +433,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_31_Var
-		.getId());
+		.getIdent());
 		//31
 		final FunctionDefinition FunctionDefinition_32_Var
 		 = (FunctionDefinition)ExternalDeclaration_15_Var
@@ -514,7 +514,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertEquals("struct", StructOrUnion_42_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_41_Var
-		.getId());
+		.getIdent());
 		//42
 		final PrimaryExpression PrimaryExpression_43_Var
 		 = (PrimaryExpression)PrimaryExpression_37_Var
@@ -522,7 +522,7 @@ public class Test0056_BuiltinOffSetOf {
 		Assert.assertNotNull(PrimaryExpression_43_Var
 		);
 		Assert.assertEquals("i", PrimaryExpression_43_Var
-		.getId());
+		.getIdent());
 	}
 	
 	@Test

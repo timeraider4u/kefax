@@ -27,28 +27,28 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"X",
+					ident++"X",
 					string++"x"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"Y",
+					ident++"Y",
 					string++"y"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"DECLARATION",
+					ident++"DECLARATION",
 					string++"INT X = 4"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
 				(DefineObjectMacro
-					id++"Z",
+					ident++"Z",
 					string++"1 + 1"
 				)
 			),

@@ -32,10 +32,10 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"FOO",
+					ident++"FOO",
 					list =
 					(IdentifierList
-						id+*"[x, y]",
+						ident+*"[x, y]",
 						variadic?=true
 					),
 //					replacement+=

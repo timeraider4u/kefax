@@ -34,14 +34,14 @@ KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								ident++"i"
 							)
 						),
 						initializer=
 						(Initializer
 							expr=
 							(PrimaryExpression
-								id++"MYDEF"
+								ident++"MYDEF"
 							)
 						) // end initializer
 					)

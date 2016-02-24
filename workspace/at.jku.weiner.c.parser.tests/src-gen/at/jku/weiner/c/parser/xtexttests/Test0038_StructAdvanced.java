@@ -609,7 +609,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertEquals("struct", StructOrUnion_7_Var
 		.getName());
 		Assert.assertEquals("empStruct", StructOrUnionSpecifier_6_Var
-		.getId());
+		.getIdent());
 		//7
 		final StructDeclarationList StructDeclarationList_8_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_6_Var
@@ -669,8 +669,8 @@ public class Test0038_StructAdvanced {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_15_Var
 		);
-		Assert.assertEquals("id", DirectDeclarator_15_Var
-		.getId());
+		Assert.assertEquals("ident", DirectDeclarator_15_Var
+		.getIdent());
 		//15
 		final StructDeclaration StructDeclaration_16_Var
 		 = (StructDeclaration)StructDeclaration_8_list.get(1);
@@ -721,7 +721,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_22_Var
 		);
 		Assert.assertEquals("name", DirectDeclarator_22_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_22_list = DirectDeclarator_22_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_22_list);
@@ -776,7 +776,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_29_Var
 		);
 		Assert.assertEquals("employee", DirectDeclarator_29_Var
-		.getId());
+		.getIdent());
 		//29
 		final ExternalDeclaration ExternalDeclaration_30_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -818,7 +818,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertEquals("struct", StructOrUnion_35_Var
 		.getName());
 		Assert.assertEquals("empStruct", StructOrUnionSpecifier_34_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_35_list = Declaration_31_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_35_list);
@@ -850,7 +850,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_39_Var
 		);
 		Assert.assertEquals("joe", DirectDeclarator_39_Var
-		.getId());
+		.getIdent());
 		//39
 		final Initializer Initializer_40_Var
 		 = (Initializer)InitDeclarator_37_Var
@@ -944,7 +944,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(TypedefName_53_Var
 		);
 		Assert.assertEquals("employee", TypedefName_53_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_53_list = Declaration_50_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_53_list);
@@ -976,7 +976,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_57_Var
 		);
 		Assert.assertEquals("phil", DirectDeclarator_57_Var
-		.getId());
+		.getIdent());
 		//57
 		final Initializer Initializer_58_Var
 		 = (Initializer)InitDeclarator_55_Var
@@ -1078,7 +1078,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_72_Var
 		);
 		Assert.assertEquals("print", DirectDeclarator_72_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_72_list = DirectDeclarator_72_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_72_list);
@@ -1140,7 +1140,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(TypedefName_80_Var
 		);
 		Assert.assertEquals("employee", TypedefName_80_Var
-		.getId());
+		.getIdent());
 		//80
 		final Declarator Declarator_81_Var
 		 = (Declarator)ParameterDeclaration_77_Var
@@ -1154,7 +1154,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_82_Var
 		);
 		Assert.assertEquals("emp", DirectDeclarator_82_Var
-		.getId());
+		.getIdent());
 		//82
 		final Pointer Pointer_83_Var
 		 = (Pointer)Declarator_81_Var
@@ -1212,7 +1212,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_90_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_90_Var
-		.getId());
+		.getIdent());
 		//90
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_91_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_89_Var
@@ -1234,7 +1234,7 @@ public class Test0038_StructAdvanced {
 		 = (PrimaryExpression)Expr_92_list.get(0);
 		Assert.assertNotNull(PrimaryExpression_93_Var
 		);
-		Assert.assertEquals("[\"(*employee).id=%d\\n\"]", PrimaryExpression_93_Var
+		Assert.assertEquals("[\"(*employee).ident=%d\\n\"]", PrimaryExpression_93_Var
 		.getString().toString());
 		//93
 		final PostfixExpression PostfixExpression_94_Var
@@ -1264,15 +1264,15 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_97_Var
 		);
 		Assert.assertEquals("emp", PrimaryExpression_97_Var
-		.getId());
+		.getIdent());
 		//97
 		final PostfixExpressionSuffixDot PostfixExpressionSuffixDot_98_Var
 		 = (PostfixExpressionSuffixDot)PostfixExpression_94_Var
 		.getSuffix();
 		Assert.assertNotNull(PostfixExpressionSuffixDot_98_Var
 		);
-		Assert.assertEquals("id", PostfixExpressionSuffixDot_98_Var
-		.getId());
+		Assert.assertEquals("ident", PostfixExpressionSuffixDot_98_Var
+		.getIdent());
 		//98
 		final Statement Statement_99_Var
 		 = (Statement)Statement_86_list.get(1);
@@ -1297,7 +1297,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_102_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_102_Var
-		.getId());
+		.getIdent());
 		//102
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_103_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_101_Var
@@ -1333,7 +1333,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_107_Var
 		);
 		Assert.assertEquals("emp", PrimaryExpression_107_Var
-		.getId());
+		.getIdent());
 		//107
 		final PostfixExpressionSuffixArrow PostfixExpressionSuffixArrow_108_Var
 		 = (PostfixExpressionSuffixArrow)PostfixExpression_106_Var
@@ -1341,7 +1341,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PostfixExpressionSuffixArrow_108_Var
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixArrow_108_Var
-		.getId());
+		.getIdent());
 		//108
 		final ExternalDeclaration ExternalDeclaration_109_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -1383,7 +1383,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_114_Var
 		);
 		Assert.assertEquals("main", DirectDeclarator_114_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_114_list = DirectDeclarator_114_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_114_list);
@@ -1492,7 +1492,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(TypedefName_128_Var
 		);
 		Assert.assertEquals("employee", TypedefName_128_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> InitDeclaratorList_128_list = Declaration_125_Var
 		.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_128_list);
@@ -1532,7 +1532,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(DirectDeclarator_133_Var
 		);
 		Assert.assertEquals("newEmployee", DirectDeclarator_133_Var
-		.getId());
+		.getIdent());
 		//133
 		final Initializer Initializer_134_Var
 		 = (Initializer)InitDeclarator_130_Var
@@ -1552,7 +1552,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_136_Var
 		);
 		Assert.assertEquals("malloc", PrimaryExpression_136_Var
-		.getId());
+		.getIdent());
 		//136
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_137_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_135_Var
@@ -1604,7 +1604,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(TypedefName_143_Var
 		);
 		Assert.assertEquals("employee", TypedefName_143_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> Statement_143_list = BlockList_124_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_143_list);
@@ -1635,7 +1635,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_147_Var
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_147_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("==", EqualityExpression_146_Var
 		.getOp());
 		//147
@@ -1645,7 +1645,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_148_Var
 		);
 		Assert.assertEquals("NULL", PrimaryExpression_148_Var
-		.getId());
+		.getIdent());
 		//148
 		final Statement Statement_149_Var
 		 = (Statement)SelectionStatement_145_Var
@@ -1701,7 +1701,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_156_Var
 		);
 		Assert.assertEquals("printf", PrimaryExpression_156_Var
-		.getId());
+		.getIdent());
 		//156
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_157_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_155_Var
@@ -1784,7 +1784,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_168_Var
 		);
 		Assert.assertEquals("print", PrimaryExpression_168_Var
-		.getId());
+		.getIdent());
 		//168
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_169_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_167_Var
@@ -1815,7 +1815,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_172_Var
 		);
 		Assert.assertEquals("joe", PrimaryExpression_172_Var
-		.getId());
+		.getIdent());
 		//172
 		final Statement Statement_173_Var
 		 = (Statement)Statement_143_list.get(2);
@@ -1840,7 +1840,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_176_Var
 		);
 		Assert.assertEquals("print", PrimaryExpression_176_Var
-		.getId());
+		.getIdent());
 		//176
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_177_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_175_Var
@@ -1871,7 +1871,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_180_Var
 		);
 		Assert.assertEquals("phil", PrimaryExpression_180_Var
-		.getId());
+		.getIdent());
 		//180
 		final Statement Statement_181_Var
 		 = (Statement)Statement_143_list.get(3);
@@ -1902,15 +1902,15 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_185_Var
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_185_Var
-		.getId());
+		.getIdent());
 		//185
 		final PostfixExpressionSuffixArrow PostfixExpressionSuffixArrow_186_Var
 		 = (PostfixExpressionSuffixArrow)PostfixExpression_184_Var
 		.getSuffix();
 		Assert.assertNotNull(PostfixExpressionSuffixArrow_186_Var
 		);
-		Assert.assertEquals("id", PostfixExpressionSuffixArrow_186_Var
-		.getId());
+		Assert.assertEquals("ident", PostfixExpressionSuffixArrow_186_Var
+		.getIdent());
 		Assert.assertEquals("=", AssignmentExpression_183_Var
 		.getOp());
 		//186
@@ -1951,7 +1951,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_192_Var
 		);
 		Assert.assertEquals("strcpy", PrimaryExpression_192_Var
-		.getId());
+		.getIdent());
 		//192
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_193_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_191_Var
@@ -1980,7 +1980,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_196_Var
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_196_Var
-		.getId());
+		.getIdent());
 		//196
 		final PostfixExpressionSuffixArrow PostfixExpressionSuffixArrow_197_Var
 		 = (PostfixExpressionSuffixArrow)PostfixExpression_195_Var
@@ -1988,7 +1988,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PostfixExpressionSuffixArrow_197_Var
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixArrow_197_Var
-		.getId());
+		.getIdent());
 		//197
 		final PrimaryExpression PrimaryExpression_198_Var
 		 = (PrimaryExpression)Expr_194_list.get(1);
@@ -2020,7 +2020,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_202_Var
 		);
 		Assert.assertEquals("print", PrimaryExpression_202_Var
-		.getId());
+		.getIdent());
 		//202
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_203_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_201_Var
@@ -2043,7 +2043,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_205_Var
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_205_Var
-		.getId());
+		.getIdent());
 		//205
 		final Statement Statement_206_Var
 		 = (Statement)Statement_143_list.get(6);
@@ -2068,7 +2068,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_209_Var
 		);
 		Assert.assertEquals("free", PrimaryExpression_209_Var
-		.getId());
+		.getIdent());
 		//209
 		final PostfixExpressionSuffixArgument PostfixExpressionSuffixArgument_210_Var
 		 = (PostfixExpressionSuffixArgument)PostfixExpression_208_Var
@@ -2091,7 +2091,7 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_212_Var
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_212_Var
-		.getId());
+		.getIdent());
 		//212
 		final Statement Statement_213_Var
 		 = (Statement)Statement_143_list.get(7);

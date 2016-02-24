@@ -33,7 +33,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething"
+						ident++"doSomething"
 					)
 				)
 			),
@@ -60,7 +60,7 @@ SKW_RIGHTBRACE NEWLINE
 									(Declarator
 										declarator=
 										(DirectDeclarator
-											id++"target"
+											ident++"target"
 										)
 									)
 								)
@@ -72,7 +72,7 @@ SKW_RIGHTBRACE NEWLINE
 							(JumpStatement
 								expr=
 								(PrimaryExpression
-									id++"target"
+									ident++"target"
 								), // end expression
 								goto++"goto"
 							) // end expression statement
@@ -84,7 +84,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PostfixExpression
 									expr=
 									(PrimaryExpression
-										id++"printf"
+										ident++"printf"
 									),
 									suffix=
 									(PostfixExpressionSuffixArgument
@@ -102,7 +102,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(LabeledStatement
-								id++"target",
+								ident++"target",
 								lStmt=
 								(Statement
 									stmt=
@@ -111,7 +111,7 @@ SKW_RIGHTBRACE NEWLINE
 										(PostfixExpression
 											expr=
 											(PrimaryExpression
-												id++"printf"
+												ident++"printf"
 											),
 											suffix=
 											(PostfixExpressionSuffixArgument

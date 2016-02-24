@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixArrowImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixArrowImpl#getIdent <em>Ident</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,9 +48,9 @@ public class PostfixExpressionSuffixArrowImpl extends PostfixExpressionSuffixImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID, true);
+		return (String)eGet(ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT, true);
 	}
 
 	/**
@@ -58,9 +58,9 @@ public class PostfixExpressionSuffixArrowImpl extends PostfixExpressionSuffixImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID, newId);
+		eSet(ParserPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__IDENT, newIdent);
 	}
 
 } //PostfixExpressionSuffixArrowImpl

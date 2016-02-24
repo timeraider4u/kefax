@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl#getDeclaratorSuffix <em>Declarator Suffix</em>}</li>
  * </ul>
@@ -67,9 +67,9 @@ public class DirectDeclaratorImpl extends PersistentEObjectImpl implements Direc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId()
+	public String getIdent()
 	{
-		return (String)eGet(ParserPackage.Literals.DIRECT_DECLARATOR__ID, true);
+		return (String)eGet(ParserPackage.Literals.DIRECT_DECLARATOR__IDENT, true);
 	}
 
 	/**
@@ -77,9 +77,9 @@ public class DirectDeclaratorImpl extends PersistentEObjectImpl implements Direc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId)
+	public void setIdent(String newIdent)
 	{
-		eSet(ParserPackage.Literals.DIRECT_DECLARATOR__ID, newId);
+		eSet(ParserPackage.Literals.DIRECT_DECLARATOR__IDENT, newIdent);
 	}
 
 	/**

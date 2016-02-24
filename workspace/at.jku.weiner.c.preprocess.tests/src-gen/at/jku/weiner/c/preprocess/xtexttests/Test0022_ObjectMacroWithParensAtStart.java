@@ -155,7 +155,7 @@ public class Test0022_ObjectMacroWithParensAtStart {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("foo", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("() bar()", DefineObjectMacro_3_Var
 		.getString());
 		//3

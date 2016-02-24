@@ -211,7 +211,7 @@ public class Test0067_FunctionDefWithStruct {
 		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_5_Var
-		.getId());
+		.getIdent());
 		//6
 		final StructDeclarationList StructDeclarationList_7_Var
 		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
@@ -272,7 +272,7 @@ public class Test0067_FunctionDefWithStruct {
 		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
-		.getId());
+		.getIdent());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -314,7 +314,7 @@ public class Test0067_FunctionDefWithStruct {
 		Assert.assertEquals("struct", StructOrUnion_20_Var
 		.getName());
 		Assert.assertEquals("foo", StructOrUnionSpecifier_19_Var
-		.getId());
+		.getIdent());
 		//20
 		final Declarator Declarator_21_Var
 		 = (Declarator)FunctionDefHead_16_Var
@@ -328,7 +328,7 @@ public class Test0067_FunctionDefWithStruct {
 		Assert.assertNotNull(DirectDeclarator_22_Var
 		);
 		Assert.assertEquals("do1", DirectDeclarator_22_Var
-		.getId());
+		.getIdent());
 		final EList<? extends EObject> DeclaratorSuffix_22_list = DirectDeclarator_22_Var
 		.getDeclaratorSuffix();
 		Assert.assertNotNull(DeclaratorSuffix_22_list);

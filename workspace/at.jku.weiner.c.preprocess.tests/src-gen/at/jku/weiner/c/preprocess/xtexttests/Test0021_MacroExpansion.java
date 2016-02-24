@@ -205,7 +205,7 @@ public class Test0021_MacroExpansion {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("foo", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("bar()", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//3

@@ -238,7 +238,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
 		Assert.assertEquals("PI", DefineObjectMacro_3_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("3.1415926535897932", DefineObjectMacro_3_Var
 		.getString());
 		//3
@@ -253,7 +253,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
 		Assert.assertEquals("NAME", DefineObjectMacro_5_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("\"Nobody\"", DefineObjectMacro_5_Var
 		.getString());
 		//5
@@ -268,7 +268,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
 		Assert.assertEquals("NUMBER", DefineObjectMacro_7_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("2", DefineObjectMacro_7_Var
 		.getString());
 		//7
@@ -288,7 +288,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_10_Var
 		);
 		Assert.assertEquals("X", DefineObjectMacro_10_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("NUMBER", DefineObjectMacro_10_Var
 		.getString());
 		//10
@@ -308,7 +308,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_13_Var
 		);
 		Assert.assertEquals("MAIN", DefineObjectMacro_13_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("int main(void)", DefineObjectMacro_13_Var
 		.getString());
 		//13
@@ -333,7 +333,7 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(DefineObjectMacro_17_Var
 		);
 		Assert.assertEquals("long", DefineObjectMacro_17_Var
-		.getId());
+		.getIdent());
 		Assert.assertEquals("int", DefineObjectMacro_17_Var
 		.getString());
 		//17

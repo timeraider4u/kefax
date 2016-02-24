@@ -217,7 +217,7 @@ public class Test0103_Ellipsis9 {
 		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
 		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
+		.getIdent());
 		//3
 		final IdentifierList IdentifierList_4_Var
 		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
@@ -225,7 +225,7 @@ public class Test0103_Ellipsis9 {
 		Assert.assertNotNull(IdentifierList_4_Var
 		);
 		Assert.assertTrue(IdentifierList_4_Var
-		.getId().isEmpty());
+		.getIdent().isEmpty());
 		Assert.assertEquals("x", IdentifierList_4_Var
 		.getVarID());
 		Assert.assertTrue(IdentifierList_4_Var

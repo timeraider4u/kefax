@@ -36,10 +36,10 @@ public final class NeoEMFDiscoverUtils {
 					new BlueprintsPersistenceBackendFactory());
 			NeoEMFDiscoverUtils.resSet = new ResourceSetImpl();
 			NeoEMFDiscoverUtils.resSet
-					.getResourceFactoryRegistry()
-			.getProtocolToFactoryMap()
-			.put(NeoBlueprintsURI.NEO_GRAPH_SCHEME,
-					new PersistentResourceFactoryImpl());
+			.getResourceFactoryRegistry()
+					.getProtocolToFactoryMap()
+					.put(NeoBlueprintsURI.NEO_GRAPH_SCHEME,
+							new PersistentResourceFactoryImpl());
 		}
 		return NeoEMFDiscoverUtils.resSet;
 	}
@@ -75,9 +75,12 @@ public final class NeoEMFDiscoverUtils {
 		// storeOptions
 		// .add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
 		storeOptions
-		.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
+				.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
 		options.put(BlueprintsResourceOptions.OPTIONS_BLUEPRINTS_GRAPH_TYPE,
 				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_TYPE_NEO4J);
+		options.put(
+				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_NEO4J_CACHE_TYPE,
+				BlueprintsNeo4jResourceOptions.CACHE_TYPE.STRONG);
 		options.put(PersistentResourceOptions.STORE_OPTIONS, storeOptions);
 		res.save(options);
 	}
@@ -90,9 +93,9 @@ public final class NeoEMFDiscoverUtils {
 				NeoBlueprintsURI.NEO_GRAPH_SCHEME, factory);
 		ResourceSet resSet = new ResourceSetImpl();
 		resSet.getResourceFactoryRegistry()
-				.getProtocolToFactoryMap()
-				.put(NeoBlueprintsURI.NEO_GRAPH_SCHEME,
-						new PersistentResourceFactoryImpl());
+		.getProtocolToFactoryMap()
+		.put(NeoBlueprintsURI.NEO_GRAPH_SCHEME,
+				new PersistentResourceFactoryImpl());
 		final String fileName = "/home/adalgrim/weiner/temp/neoblueprint";
 		final File file = new File(fileName);
 		MyLog.log(NeoEMFDiscoverUtils.class, "creating resource");

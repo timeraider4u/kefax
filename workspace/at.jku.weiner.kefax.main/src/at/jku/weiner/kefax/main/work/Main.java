@@ -169,6 +169,8 @@ public class Main {
 			// discoverer.setTrimPreprocessModel(true);
 			discoverer.setBatchMode(true);
 			// discoverer.setBatchMode(false);
+			discoverer.setUseNeoEMF(true);
+			// discoverer.setUseNeoEMF(false);
 
 			discoverer.discoverElement(inFileRes, monitor);
 		}

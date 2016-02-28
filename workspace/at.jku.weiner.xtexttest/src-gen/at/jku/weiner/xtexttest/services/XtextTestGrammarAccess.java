@@ -224,37 +224,43 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMydefaultPackageIDParserRuleCall_5_0 = (RuleCall)cMydefaultAssignment_5.eContents().get(0);
 		private final Assignment cMyimportAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMyimportImportParserRuleCall_6_0 = (RuleCall)cMyimportAssignment_6.eContents().get(0);
-		private final Assignment cCodeCallAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCodeCallCodeCallParserRuleCall_7_0 = (RuleCall)cCodeCallAssignment_7.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final RuleCall cOPTIONSTerminalRuleCall_8_0 = (RuleCall)cGroup_8.eContents().get(0);
-		private final Assignment cOptionCallAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cOptionCallCodeCallParserRuleCall_8_1_0 = (RuleCall)cOptionCallAssignment_8_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final RuleCall cTIMEOUTTerminalRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
+		private final Assignment cTimeOutAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cTimeOutINTTerminalRuleCall_7_2_0 = (RuleCall)cTimeOutAssignment_7_2.eContents().get(0);
+		private final Assignment cCodeCallAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cCodeCallCodeCallParserRuleCall_8_0 = (RuleCall)cCodeCallAssignment_8.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final RuleCall cSOURCETerminalRuleCall_9_0 = (RuleCall)cGroup_9.eContents().get(0);
-		private final RuleCall cFILETerminalRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_9_2 = (RuleCall)cGroup_9.eContents().get(2);
-		private final Assignment cFileAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
-		private final RuleCall cFileSTRINGTerminalRuleCall_9_3_0 = (RuleCall)cFileAssignment_9_3.eContents().get(0);
-		private final Assignment cRootAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cRootElementParserRuleCall_10_0 = (RuleCall)cRootAssignment_10.eContents().get(0);
-		private final Assignment cBeforeAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cBeforeBeforeParserRuleCall_11_0 = (RuleCall)cBeforeAssignment_11.eContents().get(0);
-		private final Assignment cAfterAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cAfterAfterParserRuleCall_12_0 = (RuleCall)cAfterAssignment_12.eContents().get(0);
+		private final RuleCall cOPTIONSTerminalRuleCall_9_0 = (RuleCall)cGroup_9.eContents().get(0);
+		private final Assignment cOptionCallAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cOptionCallCodeCallParserRuleCall_9_1_0 = (RuleCall)cOptionCallAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final RuleCall cSOURCETerminalRuleCall_10_0 = (RuleCall)cGroup_10.eContents().get(0);
+		private final RuleCall cFILETerminalRuleCall_10_1 = (RuleCall)cGroup_10.eContents().get(1);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_10_2 = (RuleCall)cGroup_10.eContents().get(2);
+		private final Assignment cFileAssignment_10_3 = (Assignment)cGroup_10.eContents().get(3);
+		private final RuleCall cFileSTRINGTerminalRuleCall_10_3_0 = (RuleCall)cFileAssignment_10_3.eContents().get(0);
+		private final Assignment cRootAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cRootElementParserRuleCall_11_0 = (RuleCall)cRootAssignment_11.eContents().get(0);
+		private final Assignment cBeforeAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cBeforeBeforeParserRuleCall_12_0 = (RuleCall)cBeforeAssignment_12.eContents().get(0);
+		private final Assignment cAfterAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cAfterAfterParserRuleCall_13_0 = (RuleCall)cAfterAssignment_13.eContents().get(0);
 		
 		//EmfTest:
 		//	{EmfTest} KW_EMFTEST
 		//	PACKAGE package=PackageID
 		//	DEFAULT mydefault=PackageID
-		//	myimport+=Import*
+		//	myimport+=Import* (TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 		//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
 		//	before=Before?
 		//	after=After?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* codeCall=CodeCall (OPTIONS
-		//optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element before=Before? after=After?
+		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* (TIMEOUT ASSIGNASSINGLE
+		//timeOut=INT)? codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
+		//before=Before? after=After?
 		public Group getGroup() { return cGroup; }
 		
 		//{EmfTest}
@@ -287,59 +293,74 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getMyimportImportParserRuleCall_6_0() { return cMyimportImportParserRuleCall_6_0; }
 		
-		//codeCall=CodeCall
-		public Assignment getCodeCallAssignment_7() { return cCodeCallAssignment_7; }
+		//(TIMEOUT ASSIGNASSINGLE timeOut=INT)?
+		public Group getGroup_7() { return cGroup_7; }
 		
-		//CodeCall
-		public RuleCall getCodeCallCodeCallParserRuleCall_7_0() { return cCodeCallCodeCallParserRuleCall_7_0; }
-		
-		//(OPTIONS optionCall=CodeCall)?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//OPTIONS
-		public RuleCall getOPTIONSTerminalRuleCall_8_0() { return cOPTIONSTerminalRuleCall_8_0; }
-		
-		//optionCall=CodeCall
-		public Assignment getOptionCallAssignment_8_1() { return cOptionCallAssignment_8_1; }
-		
-		//CodeCall
-		public RuleCall getOptionCallCodeCallParserRuleCall_8_1_0() { return cOptionCallCodeCallParserRuleCall_8_1_0; }
-		
-		//(SOURCE FILE ASSIGNASSINGLE file=STRING)
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//SOURCE
-		public RuleCall getSOURCETerminalRuleCall_9_0() { return cSOURCETerminalRuleCall_9_0; }
-		
-		//FILE
-		public RuleCall getFILETerminalRuleCall_9_1() { return cFILETerminalRuleCall_9_1; }
+		//TIMEOUT
+		public RuleCall getTIMEOUTTerminalRuleCall_7_0() { return cTIMEOUTTerminalRuleCall_7_0; }
 		
 		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_9_2() { return cASSIGNASSINGLETerminalRuleCall_9_2; }
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_7_1() { return cASSIGNASSINGLETerminalRuleCall_7_1; }
+		
+		//timeOut=INT
+		public Assignment getTimeOutAssignment_7_2() { return cTimeOutAssignment_7_2; }
+		
+		//INT
+		public RuleCall getTimeOutINTTerminalRuleCall_7_2_0() { return cTimeOutINTTerminalRuleCall_7_2_0; }
+		
+		//codeCall=CodeCall
+		public Assignment getCodeCallAssignment_8() { return cCodeCallAssignment_8; }
+		
+		//CodeCall
+		public RuleCall getCodeCallCodeCallParserRuleCall_8_0() { return cCodeCallCodeCallParserRuleCall_8_0; }
+		
+		//(OPTIONS optionCall=CodeCall)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//OPTIONS
+		public RuleCall getOPTIONSTerminalRuleCall_9_0() { return cOPTIONSTerminalRuleCall_9_0; }
+		
+		//optionCall=CodeCall
+		public Assignment getOptionCallAssignment_9_1() { return cOptionCallAssignment_9_1; }
+		
+		//CodeCall
+		public RuleCall getOptionCallCodeCallParserRuleCall_9_1_0() { return cOptionCallCodeCallParserRuleCall_9_1_0; }
+		
+		//(SOURCE FILE ASSIGNASSINGLE file=STRING)
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//SOURCE
+		public RuleCall getSOURCETerminalRuleCall_10_0() { return cSOURCETerminalRuleCall_10_0; }
+		
+		//FILE
+		public RuleCall getFILETerminalRuleCall_10_1() { return cFILETerminalRuleCall_10_1; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_10_2() { return cASSIGNASSINGLETerminalRuleCall_10_2; }
 		
 		//file=STRING
-		public Assignment getFileAssignment_9_3() { return cFileAssignment_9_3; }
+		public Assignment getFileAssignment_10_3() { return cFileAssignment_10_3; }
 		
 		//STRING
-		public RuleCall getFileSTRINGTerminalRuleCall_9_3_0() { return cFileSTRINGTerminalRuleCall_9_3_0; }
+		public RuleCall getFileSTRINGTerminalRuleCall_10_3_0() { return cFileSTRINGTerminalRuleCall_10_3_0; }
 		
 		//root=Element
-		public Assignment getRootAssignment_10() { return cRootAssignment_10; }
+		public Assignment getRootAssignment_11() { return cRootAssignment_11; }
 		
 		//Element
-		public RuleCall getRootElementParserRuleCall_10_0() { return cRootElementParserRuleCall_10_0; }
+		public RuleCall getRootElementParserRuleCall_11_0() { return cRootElementParserRuleCall_11_0; }
 		
 		//before=Before?
-		public Assignment getBeforeAssignment_11() { return cBeforeAssignment_11; }
+		public Assignment getBeforeAssignment_12() { return cBeforeAssignment_12; }
 		
 		//Before
-		public RuleCall getBeforeBeforeParserRuleCall_11_0() { return cBeforeBeforeParserRuleCall_11_0; }
+		public RuleCall getBeforeBeforeParserRuleCall_12_0() { return cBeforeBeforeParserRuleCall_12_0; }
 		
 		//after=After?
-		public Assignment getAfterAssignment_12() { return cAfterAssignment_12; }
+		public Assignment getAfterAssignment_13() { return cAfterAssignment_13; }
 		
 		//After
-		public RuleCall getAfterAfterParserRuleCall_12_0() { return cAfterAfterParserRuleCall_12_0; }
+		public RuleCall getAfterAfterParserRuleCall_13_0() { return cAfterAfterParserRuleCall_13_0; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Import");
@@ -1344,7 +1365,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	{EmfTest} KW_EMFTEST
 	//	PACKAGE package=PackageID
 	//	DEFAULT mydefault=PackageID
-	//	myimport+=Import*
+	//	myimport+=Import* (TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 	//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
 	//	before=Before?
 	//	after=After?;

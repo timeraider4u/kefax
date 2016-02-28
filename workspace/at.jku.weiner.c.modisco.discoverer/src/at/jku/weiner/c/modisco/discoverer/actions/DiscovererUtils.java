@@ -104,24 +104,36 @@ final class DiscovererUtils {
 		return result;
 	}
 
-	public static URI getTargetModel(final IResource res,
-			final IProgressMonitor monitor, final boolean useNeoEMF)
+	public static URI getTargetUri(final IResource res,
+			final IProgressMonitor monitor, final boolean useNeoEMF,
+			final URI lastUri, final boolean batchMode)
 					throws DiscoveryException {
+		final URI uri = DiscovererUtils.createNewFileUri(res, monitor,
+				useNeoEMF);
+		if (useNeoEMF) {
+			if ((lastUri != null) && batchMode) {
+				return lastUri;
+			}
+			final URI result = NeoEMFDiscoverUtils.createNeo4emfURI(uri);
+			MyLog.trace(DiscovererUtils.class, "resultURI='" + result + "'");
+			return result;
+		}
+		return uri;
+	}
+
+	private static URI createNewFileUri(final IResource res,
+			final IProgressMonitor monitor, final boolean useNeoEMF)
+			throws DiscoveryException {
 		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
 		MyLog.trace(DiscovererUtils.class, "targetPath='" + path + "'");
 		final Date dNow = new Date();
-		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-hhmmss");
+		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
 		final String prefix = ft.format(dNow);
 		MyLog.trace(DiscovererUtils.class, "prefix='" + prefix + "'");
 		final String model = path + IPath.SEPARATOR + "discover-" + prefix
 				+ DiscovererUtils.getBackendExtension(useNeoEMF);
 		MyLog.trace(DiscovererUtils.class, "modelURI='" + model + "'");
 		final URI uri = URI.createFileURI(model);
-		if (useNeoEMF) {
-			final URI result = NeoEMFDiscoverUtils.createNeo4emfURI(uri);
-			MyLog.trace(DiscovererUtils.class, "resultURI='" + result + "'");
-			return result;
-		}
 		return uri;
 	}
 

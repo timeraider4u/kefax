@@ -144,7 +144,7 @@ class EmfTestGenerator {
 	}
 	
 	def String mainJUnitTest() '''
-		@Test (timeout=«TIMEOUT»)
+		@Test (timeout=«IF this.test.timeOut > 0»«this.test.timeOut»«ELSE»«TIMEOUT»«ENDIF»)
 		public void checkParserResult() throws Exception {
 			final EObject obj = «getClassFor(test.codeCall.myclass)».«test.codeCall.method»(
 				this.pureJavaClassFileName, this.sourceFile

@@ -86,11 +86,12 @@ public class Test0006_SimpleAbsoluteInclude {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0006();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0006_before();
 	}
 	
 	@After
 	public void cleanUp() {
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0006_after();
 	}
 	
 	private String getTextFromFile(final String fileName)
@@ -101,7 +102,7 @@ public class Test0006_SimpleAbsoluteInclude {
 	}
 	
 				
-	@Test (timeout=25000)
+	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTest(
 			this.pureJavaClassFileName, this.sourceFile

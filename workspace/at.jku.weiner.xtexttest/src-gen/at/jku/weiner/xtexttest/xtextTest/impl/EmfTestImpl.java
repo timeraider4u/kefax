@@ -32,10 +32,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getMydefault <em>Mydefault</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getMyimport <em>Myimport</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getTimeOut <em>Time Out</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getCodeCall <em>Code Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getFile <em>File</em>}</li>
@@ -43,7 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getAfter <em>After</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -98,6 +99,26 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * @ordered
    */
   protected EList<Import> myimport;
+
+  /**
+   * The default value of the '{@link #getTimeOut() <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTimeOut()
+   * @generated
+   * @ordered
+   */
+  protected static final int TIME_OUT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getTimeOut() <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTimeOut()
+   * @generated
+   * @ordered
+   */
+  protected int timeOut = TIME_OUT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getCodeCall() <em>Code Call</em>}' containment reference.
@@ -248,6 +269,29 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       myimport = new EObjectContainmentEList<Import>(Import.class, this, XtextTestPackage.EMF_TEST__MYIMPORT);
     }
     return myimport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getTimeOut()
+  {
+    return timeOut;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTimeOut(int newTimeOut)
+  {
+    int oldTimeOut = timeOut;
+    timeOut = newTimeOut;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__TIME_OUT, oldTimeOut, timeOut));
   }
 
   /**
@@ -555,6 +599,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return getMydefault();
       case XtextTestPackage.EMF_TEST__MYIMPORT:
         return getMyimport();
+      case XtextTestPackage.EMF_TEST__TIME_OUT:
+        return getTimeOut();
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         return getCodeCall();
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
@@ -591,6 +637,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__MYIMPORT:
         getMyimport().clear();
         getMyimport().addAll((Collection<? extends Import>)newValue);
+        return;
+      case XtextTestPackage.EMF_TEST__TIME_OUT:
+        setTimeOut((Integer)newValue);
         return;
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         setCodeCall((CodeCall)newValue);
@@ -633,6 +682,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__MYIMPORT:
         getMyimport().clear();
         return;
+      case XtextTestPackage.EMF_TEST__TIME_OUT:
+        setTimeOut(TIME_OUT_EDEFAULT);
+        return;
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         setCodeCall((CodeCall)null);
         return;
@@ -671,6 +723,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return MYDEFAULT_EDEFAULT == null ? mydefault != null : !MYDEFAULT_EDEFAULT.equals(mydefault);
       case XtextTestPackage.EMF_TEST__MYIMPORT:
         return myimport != null && !myimport.isEmpty();
+      case XtextTestPackage.EMF_TEST__TIME_OUT:
+        return timeOut != TIME_OUT_EDEFAULT;
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         return codeCall != null;
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
@@ -702,6 +756,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
     result.append(package_);
     result.append(", mydefault: ");
     result.append(mydefault);
+    result.append(", timeOut: ");
+    result.append(timeOut);
     result.append(", file: ");
     result.append(file);
     result.append(')');

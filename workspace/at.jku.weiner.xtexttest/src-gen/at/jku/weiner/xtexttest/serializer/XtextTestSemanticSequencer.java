@@ -144,6 +144,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         package=PackageID 
 	 *         mydefault=PackageID 
 	 *         myimport+=Import* 
+	 *         timeOut=INT? 
 	 *         codeCall=CodeCall 
 	 *         optionCall=CodeCall? 
 	 *         file=STRING 

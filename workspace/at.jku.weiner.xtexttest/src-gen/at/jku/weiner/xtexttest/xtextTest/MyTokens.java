@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getToken <em>Token</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getCount <em>Count</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getMyTokens()
  * @model

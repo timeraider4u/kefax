@@ -4,6 +4,8 @@ default at.jku.weiner.c.common.common
 imports at.jku.weiner.c.preprocess.preprocess as preprocess
 imports at.jku.weiner.c.parser.parser as parser
 
+timeOut = 45000
+
 class=EMFTest method=emfTestB()
 options class=EMFTest method=getOptions() 
 
@@ -368,4 +370,7 @@ source file="res/Test0015_Include"
 		)
 	)
 )
-before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0015()
+
+before class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0015_before()
+after class=at.jku.weiner.c.modisco.discoverer.tests.EMFTest method=test0015_after()
+

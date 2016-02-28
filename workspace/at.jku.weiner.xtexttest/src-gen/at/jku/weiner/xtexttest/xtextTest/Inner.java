@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getParameter <em>Parameter</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssign <em>Assign</em>}</li>
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsNotNull <em>Is Not Null</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsEmpty <em>Is Empty</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getInner()
  * @model

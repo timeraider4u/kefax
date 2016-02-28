@@ -51,7 +51,7 @@ public class Test0002_Emftest {
 	}
 	
 				
-	@Test (timeout=25000)
+	@Test (timeout=30000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.emfTest(
 			this.pureJavaClassFileName, this.sourceFile

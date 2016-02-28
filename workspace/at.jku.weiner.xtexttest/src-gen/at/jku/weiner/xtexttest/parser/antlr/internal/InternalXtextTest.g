@@ -594,18 +594,56 @@ this_DEFAULT_4=RULE_DEFAULT
 
 
 (
+this_TIMEOUT_7=RULE_TIMEOUT
+    { 
+    newLeafNode(this_TIMEOUT_7, grammarAccess.getEmfTestAccess().getTIMEOUTTerminalRuleCall_7_0()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_8, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_7_1()); 
+    }
+
+
+
+(
+(
+		lv_timeOut_9_0=RULE_INT
+		{
+			newLeafNode(lv_timeOut_9_0, grammarAccess.getEmfTestAccess().getTimeOutINTTerminalRuleCall_7_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEmfTestRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"timeOut",
+        		lv_timeOut_9_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
+	    }
+
+)
+)
+
+)?
+
+
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getCodeCallCodeCallParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getCodeCallCodeCallParserRuleCall_8_0()); 
 	    }
-		lv_codeCall_7_0=ruleCodeCall		{
+		lv_codeCall_10_0=ruleCodeCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"codeCall",
-        		lv_codeCall_7_0, 
+        		lv_codeCall_10_0, 
         		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -615,9 +653,9 @@ this_DEFAULT_4=RULE_DEFAULT
 
 
 (
-this_OPTIONS_8=RULE_OPTIONS
+this_OPTIONS_11=RULE_OPTIONS
     { 
-    newLeafNode(this_OPTIONS_8, grammarAccess.getEmfTestAccess().getOPTIONSTerminalRuleCall_8_0()); 
+    newLeafNode(this_OPTIONS_11, grammarAccess.getEmfTestAccess().getOPTIONSTerminalRuleCall_9_0()); 
     }
 
 
@@ -625,16 +663,16 @@ this_OPTIONS_8=RULE_OPTIONS
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getOptionCallCodeCallParserRuleCall_8_1_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getOptionCallCodeCallParserRuleCall_9_1_0()); 
 	    }
-		lv_optionCall_9_0=ruleCodeCall		{
+		lv_optionCall_12_0=ruleCodeCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"optionCall",
-        		lv_optionCall_9_0, 
+        		lv_optionCall_12_0, 
         		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -646,32 +684,32 @@ this_OPTIONS_8=RULE_OPTIONS
 
 
 (
-this_SOURCE_10=RULE_SOURCE
+this_SOURCE_13=RULE_SOURCE
     { 
-    newLeafNode(this_SOURCE_10, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_9_0()); 
+    newLeafNode(this_SOURCE_13, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_10_0()); 
     }
 
 
 
-this_FILE_11=RULE_FILE
+this_FILE_14=RULE_FILE
     { 
-    newLeafNode(this_FILE_11, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_9_1()); 
+    newLeafNode(this_FILE_14, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_10_1()); 
     }
 
 
 
-this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
+this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
     { 
-    newLeafNode(this_ASSIGNASSINGLE_12, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_9_2()); 
+    newLeafNode(this_ASSIGNASSINGLE_15, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_10_2()); 
     }
 
 
 
 (
 (
-		lv_file_13_0=RULE_STRING
+		lv_file_16_0=RULE_STRING
 		{
-			newLeafNode(lv_file_13_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_9_3_0()); 
+			newLeafNode(lv_file_16_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_10_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -680,7 +718,7 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
        		setWithLastConsumed(
        			$current, 
        			"file",
-        		lv_file_13_0, 
+        		lv_file_16_0, 
         		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
@@ -693,16 +731,16 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_11_0()); 
 	    }
-		lv_root_14_0=ruleElement		{
+		lv_root_17_0=ruleElement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"root",
-        		lv_root_14_0, 
+        		lv_root_17_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Element");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -714,16 +752,16 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_12_0()); 
 	    }
-		lv_before_15_0=ruleBefore		{
+		lv_before_18_0=ruleBefore		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"before",
-        		lv_before_15_0, 
+        		lv_before_18_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Before");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -735,16 +773,16 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_13_0()); 
 	    }
-		lv_after_16_0=ruleAfter		{
+		lv_after_19_0=ruleAfter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"after",
-        		lv_after_16_0, 
+        		lv_after_19_0, 
         		"at.jku.weiner.xtexttest.XtextTest.After");
 	        afterParserOrEnumRuleCall();
 	    }

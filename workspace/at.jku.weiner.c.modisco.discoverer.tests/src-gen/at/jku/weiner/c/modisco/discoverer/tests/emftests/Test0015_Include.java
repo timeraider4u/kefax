@@ -144,11 +144,12 @@ public class Test0015_Include {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0015();
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0015_before();
 	}
 	
 	@After
 	public void cleanUp() {
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0015_after();
 	}
 	
 	private String getTextFromFile(final String fileName)
@@ -159,7 +160,7 @@ public class Test0015_Include {
 	}
 	
 				
-	@Test (timeout=25000)
+	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTestB(
 			this.pureJavaClassFileName, this.sourceFile

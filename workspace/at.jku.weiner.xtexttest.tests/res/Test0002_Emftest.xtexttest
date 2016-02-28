@@ -4,6 +4,8 @@ default at.jku.weiner.c.common.common
 imports at.jku.weiner.c.preprocess.preprocess as preprocess
 imports at.jku.weiner.c.parser.parser as parser
 
+timeOut = 30000
+
 class=org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest method=emfTest()
 
 source file="res/TestDiscoverer0001.c"

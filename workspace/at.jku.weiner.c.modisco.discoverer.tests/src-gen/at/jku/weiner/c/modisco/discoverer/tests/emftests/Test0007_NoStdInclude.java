@@ -76,7 +76,7 @@ public class Test0007_NoStdInclude {
 	}
 	
 				
-	@Test (timeout=25000)
+	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTest(
 			this.pureJavaClassFileName, this.sourceFile

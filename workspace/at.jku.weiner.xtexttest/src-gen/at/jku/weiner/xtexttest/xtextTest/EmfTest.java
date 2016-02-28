@@ -13,10 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMydefault <em>Mydefault</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMyimport <em>Myimport</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getTimeOut <em>Time Out</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getCodeCall <em>Code Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile <em>File</em>}</li>
@@ -24,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter <em>After</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest()
  * @model
@@ -99,6 +100,32 @@ public interface EmfTest extends EObject
    * @generated
    */
   EList<Import> getMyimport();
+
+  /**
+   * Returns the value of the '<em><b>Time Out</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Time Out</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Time Out</em>' attribute.
+   * @see #setTimeOut(int)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest_TimeOut()
+   * @model
+   * @generated
+   */
+  int getTimeOut();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getTimeOut <em>Time Out</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Time Out</em>' attribute.
+   * @see #getTimeOut()
+   * @generated
+   */
+  void setTimeOut(int value);
 
   /**
    * Returns the value of the '<em><b>Code Call</b></em>' containment reference.

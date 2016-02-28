@@ -9,6 +9,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -26,10 +27,10 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
-
+	
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
 	private static final String EXCLUSIVE_MSG = "TRIM_PREPROCESS_MODEL and BATCH_MODE can not be used at the same time";
-
+	
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
 	private String additionalDirectives = "";
@@ -37,13 +38,13 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	private boolean batchMode = false;
 	private URI lastUri = null;
 	private boolean useNeoEMF = false;
-
+	
 	protected final boolean isApplicableOn(final IResource resource) {
 		MyLog.trace(AbstractDiscoverer.class, "isApplicableOn='" + resource
 				+ "'");
 		MyLog.trace(AbstractDiscoverer.class,
 				"isApplicableOn='" + resource.getClass() + "'");
-
+		
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
@@ -61,7 +62,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		}
 		return false;
 	}
-
+	
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
@@ -83,7 +84,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			monitor.done();
 		}
 	}
-
+	
 	private final void discover2(final IResource resource,
 			final IProgressMonitor monitor) throws Exception {
 		final MyStore store = this.initialize(resource, monitor);
@@ -108,7 +109,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		// done
 		store.getMonitor().setTaskName(Messages.done);
 	}
-
+	
 	/***
 	 * initialize all data values
 	 *
@@ -126,11 +127,11 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
 		this.checkParameterValues();
 		if (this.useNeoEMF) {
-			ResourceSet resSet = NeoEMFDiscoverUtils.getResSet();
+			final ResourceSet resSet = NeoEMFDiscoverUtils.createOrGetResSet();
 			this.setResourceSet(resSet);
 		}
-		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor,
-				this.useNeoEMF);
+		final URI targetURI = DiscovererUtils.getTargetUri(resource, monitor,
+				this.useNeoEMF, this.lastUri, this.batchMode);
 		this.setTargetURI(targetURI);
 		MyLog.log(AbstractDiscoverer.class, "creating target model!");
 		final Resource targetModel = this.createTargetModel();
@@ -139,7 +140,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				MyLog.log(AbstractDiscoverer.class,
 						"saving target model - first!");
 				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
-			} catch (IOException ex) {
+			} catch (final IOException ex) {
 				throw new DiscoveryException(ex);
 			}
 		}
@@ -149,22 +150,26 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				this.batchMode);
 		return result;
 	}
-
+	
 	@Override
 	protected Resource createTargetModel() {
 		if (this.useNeoEMF) {
-			URI targetURI = this.getTargetURI();
-			Resource targetModel = NeoEMFDiscoverUtils
+			// final Resource targetModel = this.getTargetModel();
+			// if (targetModel != null) {
+			// return targetModel;
+			// }
+			final URI targetURI = this.getTargetURI();
+			final Resource newTargetModel = NeoEMFDiscoverUtils
 					.createTargetModel(targetURI);
-
-			this.setTargetModel(targetModel);
-			return targetModel;
+			
+			this.setTargetModel(newTargetModel);
+			return newTargetModel;
 		} else {
 			final Resource res = super.createTargetModel();
 			return res;
 		}
 	}
-
+	
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -186,14 +191,14 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 				this.discoverDirectory(file, store);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-						.getFileExtension();
+				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file, store);
 				}
 			}
 		}
 	}
-
+	
 	private final void discoverFile(final File file, final MyStore store)
 			throws Exception {
 		MyLog.log(AbstractDiscoverer.class,
@@ -202,13 +207,13 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscoverer.class, "discovering file done!");
-
+			
 		} catch (final IOException ex) {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-
+	
 	/***
 	 * saving
 	 *
@@ -220,8 +225,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		MyLog.log(AbstractDiscoverer.class, "save target model!");
 		// if (this.isTargetSerializationChosen()) {
 		try {
-			URI targetURI = this.getTargetURI();
-			Resource targetModel = this.getTargetModel();
+			final URI targetURI = this.getTargetURI();
+			final Resource targetModel = this.getTargetModel();
 			if (this.useNeoEMF) {
 				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
 			} else {
@@ -232,20 +237,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 			final IProject project = store.getResource().getProject();
 			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
 			MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
-			if (this.batchMode && (this.lastUri != null)) {
-				final String lastUriStr = this.lastUri.toFileString();
-				if (!(lastUriStr.equals(currUriStr))) {
-					MyLog.log(DiscoverFromIFile.class,
-							"batchMode, delete previous uri='" + lastUriStr
-							+ "!");
-					final File file = new File(lastUriStr);
-					boolean wasDeleted = file.delete();
-					MyLog.log(DiscoverFromIFile.class, "wasDeleted='"
-							+ wasDeleted + "'");
-					project.refreshLocal(IResource.DEPTH_INFINITE,
-							store.getMonitor());
-				}
-			}
+			this.deleteLastXMISerialization(currUriStr, store, project);
 			this.lastUri = targetURI;
 		} catch (final Exception ex) {
 			throw new DiscoveryException(
@@ -254,72 +246,119 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		// }
 	}
 
+	private void deleteLastXMISerialization(final String currUriStr,
+			final MyStore store, final IProject project) throws CoreException {
+		if (this.batchMode && (this.lastUri != null) && (!this.useNeoEMF)) {
+			final String lastUriStr = this.lastUri.toFileString();
+			if (!(lastUriStr.equals(currUriStr))) {
+				MyLog.log(DiscoverFromIFile.class,
+						"batchMode, delete previous uri='" + lastUriStr + "!");
+				final File file = new File(lastUriStr);
+				final boolean wasDeleted = file.delete();
+				MyLog.log(DiscoverFromIFile.class, "wasDeleted='" + wasDeleted
+						+ "'");
+				project.refreshLocal(IResource.DEPTH_INFINITE,
+						store.getMonitor());
+			}
+		}
+	}
+
+	public final void unloadResource() {
+		final Resource res = this.getTargetModel();
+		if (res == null) {
+			return;
+		}
+		try {
+			if (res.isLoaded()) {
+				res.unload();
+			}
+		} catch (final Exception ex) {
+			MyLog.errorNoThrows(AbstractDiscoverer.class, ex);
+		}
+	}
+	
 	public boolean isSetStdInclude() {
 		return this.setStdInclude;
 	}
-
-	@Parameter(name = "STD_INCLUDE", requiresInputValue = false, description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
+	
+	@Parameter(
+			name = "STD_INCLUDE",
+			requiresInputValue = false,
+			description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
 	public void setSetStdInclude(final boolean setStdInclude) {
 		this.setStdInclude = setStdInclude;
 	}
-
+	
 	public String getIncludeDirs() {
 		return this.includeDirs;
 	}
-
-	@Parameter(name = "INCLUDE_DIRS", requiresInputValue = false, description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
+	
+	@Parameter(
+			name = "INCLUDE_DIRS",
+			requiresInputValue = false,
+			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
 	public void setIncludeDirs(final String includeDirs) {
 		this.includeDirs = includeDirs;
 	}
-
+	
 	public String getAdditionalDirectives() {
 		return this.additionalDirectives;
 	}
-
-	@Parameter(name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES", requiresInputValue = false, description = "Add additional preprocessor directives and macros"
-			+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
+	
+	@Parameter(
+			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
+			requiresInputValue = false,
+			description = "Add additional preprocessor directives and macros"
+					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
 	public void setAdditionalDirectives(final String defines) {
 		this.additionalDirectives = defines;
 	}
-
+	
 	public boolean isTrimPreprocessModel() {
 		return this.trimPreprocessModel;
 	}
-
-	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model"
-			+ "(" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
+	
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
+			description = "Remove code and empty lines from preprocessor model"
+					+ "(" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
 	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		if (this.batchMode && trimPreprocessModel) {
 			this.exclusiveBatchModeAndTrimError();
 		}
 		this.trimPreprocessModel = trimPreprocessModel;
 	}
-
+	
 	public boolean isBatchMode() {
 		return this.batchMode;
 	}
-
-	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations"
-			+ " (" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
+	
+	@Parameter(
+			name = "BATCH_MODE",
+			requiresInputValue = false,
+			description = "Re-use model and clean-up any temporarily saved serializations"
+					+ " (" + AbstractDiscoverer.EXCLUSIVE_MSG + ")")
 	public void setBatchMode(final boolean batchMode) {
 		if (this.trimPreprocessModel && batchMode) {
 			this.exclusiveBatchModeAndTrimError();
 		}
 		this.batchMode = batchMode;
 	}
-
+	
 	private void exclusiveBatchModeAndTrimError() {
 		final RuntimeException ex = new IllegalArgumentException(
 				"TRIM_PREPROCESS_MODEL AND BATCH_MODE are exclusive to each other");
 		MyLog.error(AbstractDiscoverer.class, ex);
 		throw ex;
 	}
-
-	@Parameter(name = "USENEOEMF", requiresInputValue = false, description = "Use NeoEMF persistence layer instead of default one (XMI serialization)")
+	
+	@Parameter(
+			name = "USENEOEMF",
+			requiresInputValue = false,
+			description = "Use NeoEMF persistence layer instead of default one (XMI serialization)")
 	public void setUseNeoEMF(final boolean setUseNeoEMF) {
 		this.useNeoEMF = setUseNeoEMF;
 	}
-
+	
 	public boolean isUseNeoEMF() {
 		return this.useNeoEMF;
 	}

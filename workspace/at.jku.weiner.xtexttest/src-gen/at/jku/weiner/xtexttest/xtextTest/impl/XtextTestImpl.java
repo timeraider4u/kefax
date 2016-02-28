@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getLang <em>Lang</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getAfter <em>After</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -15,4 +15,5 @@ Bundle-ActivationPolicy: lazy
 Export-Package: at.jku.weiner.c.modisco.discoverer.neoemf
 Import-Package: at.jku.weiner.c.common.common,
  at.jku.weiner.c.common.log,
- at.jku.weiner.c.preprocess.preprocess
+ at.jku.weiner.c.preprocess.preprocess,
+ org.apache.commons.io;version="1.4.1"

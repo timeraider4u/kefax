@@ -33,6 +33,7 @@ EmfTest:
 	PACKAGE package=PackageID
 	DEFAULT mydefault=PackageID
 	(myimport+=Import)*
+	(TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 	codeCall=CodeCall
 	(OPTIONS optionCall=CodeCall)?
 	(SOURCE FILE ASSIGNASSINGLE file=STRING)

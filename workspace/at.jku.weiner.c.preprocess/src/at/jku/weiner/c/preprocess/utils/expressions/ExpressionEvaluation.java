@@ -85,7 +85,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 					.walkTo((at.jku.weiner.c.common.common.PrimaryExpression) expression);
 		}
 		final RuntimeException ex = new IllegalArgumentException(
-				"should never get here!");
+				"should never get here! expression='" + expression + "'");
 		MyLog.error(ExpressionEvaluation.class, ex);
 		throw ex;
 	}
@@ -210,7 +210,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		String name = null;
 		boolean isConst = false;
 		if (expr instanceof PrimaryExpression) {
-			PrimaryExpression primExpr = (PrimaryExpression) expr;
+			final PrimaryExpression primExpr = (PrimaryExpression) expr;
 			final String constant = primExpr.getConst();
 			if (constant != null) {
 				name = constant;
@@ -220,7 +220,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				isConst = false;
 			}
 		} else {
-			at.jku.weiner.c.common.common.PrimaryExpression primExpr = (at.jku.weiner.c.common.common.PrimaryExpression) expr;
+			final at.jku.weiner.c.common.common.PrimaryExpression primExpr = (at.jku.weiner.c.common.common.PrimaryExpression) expr;
 			final String constant = primExpr.getConst();
 			if (constant != null) {
 				name = constant;
@@ -241,13 +241,13 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final Expression expr = expression.getExpr();
 		final String constant = expression.getConst();
 		final String id = expression.getIdent();
-		T result = this.walkTo(constant, id, expr, false);
+		final T result = this.walkTo(constant, id, expr, false);
 		return result;
 	}
 
 	@Override
 	public T walkTo(final PrimaryExpression expression) {
-		boolean isDefined = expression.isDefined();
+		final boolean isDefined = expression.isDefined();
 		final String constant = expression.getConst();
 		final String id = expression.getIdent();
 		final Expression expr = expression.getExpr();

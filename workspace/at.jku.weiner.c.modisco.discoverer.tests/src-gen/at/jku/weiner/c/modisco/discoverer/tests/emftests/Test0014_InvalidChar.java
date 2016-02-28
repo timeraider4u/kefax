@@ -67,10 +67,12 @@ public class Test0014_InvalidChar {
 	public void initialize(){
 		options = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0014_before();
 	}
 	
 	@After
 	public void cleanUp() {
+		at.jku.weiner.c.modisco.discoverer.tests.EMFTest.test0014_after();
 	}
 	
 	private String getTextFromFile(final String fileName)
@@ -81,7 +83,7 @@ public class Test0014_InvalidChar {
 	}
 	
 				
-	@Test (timeout=25000)
+	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTest(
 			this.pureJavaClassFileName, this.sourceFile

@@ -249,13 +249,22 @@ public interface XtextTestPackage extends EPackage
   int EMF_TEST__MYIMPORT = 2;
 
   /**
+   * The feature id for the '<em><b>Time Out</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__TIME_OUT = 3;
+
+  /**
    * The feature id for the '<em><b>Code Call</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMF_TEST__CODE_CALL = 3;
+  int EMF_TEST__CODE_CALL = 4;
 
   /**
    * The feature id for the '<em><b>Option Call</b></em>' containment reference.
@@ -264,7 +273,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__OPTION_CALL = 4;
+  int EMF_TEST__OPTION_CALL = 5;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -273,7 +282,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__FILE = 5;
+  int EMF_TEST__FILE = 6;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -282,7 +291,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__ROOT = 6;
+  int EMF_TEST__ROOT = 7;
 
   /**
    * The feature id for the '<em><b>Before</b></em>' containment reference.
@@ -291,7 +300,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__BEFORE = 7;
+  int EMF_TEST__BEFORE = 8;
 
   /**
    * The feature id for the '<em><b>After</b></em>' containment reference.
@@ -300,7 +309,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__AFTER = 8;
+  int EMF_TEST__AFTER = 9;
 
   /**
    * The number of structural features of the '<em>Emf Test</em>' class.
@@ -309,7 +318,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST_FEATURE_COUNT = 9;
+  int EMF_TEST_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.
@@ -1023,6 +1032,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EReference getEmfTest_Myimport();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getTimeOut <em>Time Out</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Time Out</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getTimeOut()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EAttribute getEmfTest_TimeOut();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getCodeCall <em>Code Call</em>}'.
@@ -1743,6 +1763,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference EMF_TEST__MYIMPORT = eINSTANCE.getEmfTest_Myimport();
+
+    /**
+     * The meta object literal for the '<em><b>Time Out</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EMF_TEST__TIME_OUT = eINSTANCE.getEmfTest_TimeOut();
 
     /**
      * The meta object literal for the '<em><b>Code Call</b></em>' containment reference feature.

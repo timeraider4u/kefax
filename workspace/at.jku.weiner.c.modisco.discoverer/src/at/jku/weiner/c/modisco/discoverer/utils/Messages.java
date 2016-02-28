@@ -9,11 +9,12 @@ public final class Messages extends NLS {
 	public static String modelFileSuffix;
 	public static String extensionList;
 	public static String done;
+	public static String prefix;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(Messages.BUNDLE_NAME, Messages.class);
 	}
-
+	
 	private Messages() {
 	}
 }

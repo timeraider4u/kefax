@@ -1,11 +1,5 @@
 package at.jku.weiner.c.modisco.discoverer.tests;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -29,19 +23,19 @@ public class NeoEMFTest {
 	private URI uri;
 	private Resource res;
 	private ResourceSet resSet;
-	
+
 	private CommonFactory commonFactory;
 	private PreprocessFactory preprocessFactory;
 	private ParserFactory parserFactory;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		final String path = "/tmp/neoemf-" + NeoEMFTest.i;
 		NeoEMFTest.i++;
-
+		
 		final URI fileUri = URI.createFileURI(path);
 		Assert.assertNotNull(fileUri);
-		
+
 		this.resSet = NeoEMFDiscoverUtils.createOrGetResSet();
 		Assert.assertNotNull(this.resSet);
 		this.uri = NeoEMFDiscoverUtils.createNeo4emfURI(fileUri);
@@ -49,32 +43,32 @@ public class NeoEMFTest {
 		this.res = NeoEMFDiscoverUtils.createTargetModel(this.uri);
 		Assert.assertNotNull(this.res);
 		NeoEMFDiscoverUtils.saveTargetModel(this.uri, this.res);
-		
+
 		this.commonFactory = CommonFactory.eINSTANCE;
 		this.parserFactory = ParserFactory.eINSTANCE;
 		this.preprocessFactory = PreprocessFactory.eINSTANCE;
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
-		NeoEMFDiscoverUtils.unloadResSet();
+		// NeoEMFDiscoverUtils.unloadResSet();
 	}
-	
+
 	@Test
 	public void test() throws Exception {
 		this.createModel("test1");
 		NeoEMFDiscoverUtils.saveTargetModel(this.uri, this.res);
 		Thread.sleep(500);
 	}
-	
+
 	@Test
 	public void test2() throws Exception {
 		this.createModel("test2");
 		NeoEMFDiscoverUtils.saveTargetModel(this.uri, this.res);
 		Thread.sleep(500);
 	}
-
-	private void createModel(final String testName) {
+	
+	private Model createModel(final String testName) {
 		final Model model = this.commonFactory.createModel();
 		final TranslationUnit unit = this.commonFactory.createTranslationUnit();
 		unit.setPath(testName);
@@ -85,9 +79,10 @@ public class NeoEMFTest {
 		unit.setParser(parser);
 		final Preprocess preprocess = this.preprocessFactory.createPreprocess();
 		unit.setPreprocess(preprocess);
-		
+
 		model.getUnits().add(unit);
 		this.res.getContents().add(model);
+		return model;
 	}
-
+	
 }

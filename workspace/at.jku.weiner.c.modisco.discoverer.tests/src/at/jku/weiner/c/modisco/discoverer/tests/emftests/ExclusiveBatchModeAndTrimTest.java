@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.actions.AbstractDiscoverer;
+import at.jku.weiner.c.modisco.discoverer.actions.AbstractDiscovererWithLogic;
 import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
 
 public class ExclusiveBatchModeAndTrimTest {
@@ -17,7 +17,7 @@ public class ExclusiveBatchModeAndTrimTest {
 
 	@Test(expected = RuntimeException.class)
 	public void test() {
-		AbstractDiscoverer<IResource> discoverer = new DiscoverFromIResource();
+		AbstractDiscovererWithLogic<IResource> discoverer = new DiscoverFromIResource();
 		discoverer.setTrimPreprocessModel(true);
 		discoverer.setBatchMode(true);
 	}

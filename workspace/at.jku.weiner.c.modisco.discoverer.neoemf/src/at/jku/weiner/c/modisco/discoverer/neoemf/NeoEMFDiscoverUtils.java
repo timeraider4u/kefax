@@ -31,16 +31,16 @@ import fr.inria.atlanmod.neoemf.resources.PersistentResourceOptions;
 import fr.inria.atlanmod.neoemf.resources.impl.PersistentResourceFactoryImpl;
 
 public final class NeoEMFDiscoverUtils {
-	
+
 	private static ResourceSet resSet = null;
 	private static URI uri = null;
-
+	
 	public static ResourceSet createOrGetResSet() {
 		NeoEMFDiscoverUtils.unloadResSet();
 		final ResourceSet resSet = NeoEMFDiscoverUtils.getResSet();
 		return resSet;
 	}
-	
+
 	private static ResourceSet getResSet() {
 		if ((NeoEMFDiscoverUtils.resSet == null)) {
 			final BlueprintsPersistenceBackendFactory persistenceBackendFactory = new BlueprintsPersistenceBackendFactory();
@@ -56,7 +56,7 @@ public final class NeoEMFDiscoverUtils {
 		}
 		return NeoEMFDiscoverUtils.resSet;
 	}
-	
+
 	public static void unloadResSet() {
 		System.err.println("unloadResSet1");
 		if ((NeoEMFDiscoverUtils.resSet == null)) {
@@ -70,9 +70,9 @@ public final class NeoEMFDiscoverUtils {
 			}
 		}
 		System.err.println("unloadResSet3");
-		
+
 		NeoEMFDiscoverUtils.resSet.getResourceFactoryRegistry()
-		.getProtocolToFactoryMap().clear();
+				.getProtocolToFactoryMap().clear();
 		PersistenceBackendFactoryRegistry.getFactories().clear();
 		if (NeoEMFDiscoverUtils.uri != null) {
 			// final String path = NeoEMFDiscoverUtils.uri.toFileString();
@@ -83,23 +83,23 @@ public final class NeoEMFDiscoverUtils {
 			// }
 			NeoEMFDiscoverUtils.uri = null;
 		}
-
+		
 		NeoEMFDiscoverUtils.resSet = null;
 	}
-	
+
 	// public static void unload() {
 	// NeoEMFDiscoverUtils.resSet = null;
 	//
 	// }
-	
+
 	private NeoEMFDiscoverUtils() {
-		
+
 	}
-	
+
 	public static String getBackendExtension() {
 		return Messages.modelNeoEMFSuffix;
 	}
-	
+
 	public static URI createNeo4emfURI(final URI fileUri) {
 		final URI uri = NeoBlueprintsURI.createNeoGraphURI(fileUri);
 		// URI uri = URI.createHierarchicalURI("neo4emf", fileUri.authority(),
@@ -107,13 +107,13 @@ public final class NeoEMFDiscoverUtils {
 		// fileUri.fragment());
 		return uri;
 	}
-	
+
 	public static Resource createTargetModel(final URI uri) {
 		final ResourceSet resSet = NeoEMFDiscoverUtils.getResSet();
 		final Resource resource = resSet.createResource(uri);
 		return resource;
 	}
-	
+
 	public static void saveTargetModel(final URI uri, final Resource res)
 			throws IOException {
 		NeoEMFDiscoverUtils.uri = uri;
@@ -122,9 +122,9 @@ public final class NeoEMFDiscoverUtils {
 		final List<Object> storeOptions = new ArrayList<Object>();
 		// storeOptions.add(PersistentResourceOptions.EStoreOption.LOGGING);
 		storeOptions
-				.add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
+		.add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
 		storeOptions
-				.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
+		.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
 		options.put(BlueprintsResourceOptions.OPTIONS_BLUEPRINTS_GRAPH_TYPE,
 				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_TYPE_NEO4J);
 		// options.put(
@@ -133,48 +133,5 @@ public final class NeoEMFDiscoverUtils {
 		options.put(PersistentResourceOptions.STORE_OPTIONS, storeOptions);
 		res.save(options);
 	}
-	
-	public static void test() {
-		MyLog.log(NeoEMFDiscoverUtils.class, "test()");
-		
-		final BlueprintsPersistenceBackendFactory factory = new BlueprintsPersistenceBackendFactory();
-		PersistenceBackendFactoryRegistry.getFactories().put(
-				NeoBlueprintsURI.NEO_GRAPH_SCHEME, factory);
-		final ResourceSet resSet = new ResourceSetImpl();
-		resSet.getResourceFactoryRegistry()
-		.getProtocolToFactoryMap()
-		.put(NeoBlueprintsURI.NEO_GRAPH_SCHEME,
-				new PersistentResourceFactoryImpl());
-		final String fileName = "/home/adalgrim/weiner/temp/neoblueprint";
-		final File file = new File(fileName);
-		MyLog.log(NeoEMFDiscoverUtils.class, "creating resource");
-		final Resource resource = resSet.createResource(NeoBlueprintsURI
-				.createNeoGraphURI(file));
-		
-		// load the resource
-		MyLog.log(NeoEMFDiscoverUtils.class, "loading the resource!");
-		try {
-			resource.load(Collections.EMPTY_MAP);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-		
-		// perform modifications
-		MyLog.log(NeoEMFDiscoverUtils.class, "performing modifications!");
-		final CommonFactory factory2 = CommonFactory.eINSTANCE;
-		final TranslationUnit unit = factory2.createTranslationUnit();
-		unit.setPath("example path");
-		resource.getContents().add(unit);
-		
-		// save the modifications
-		MyLog.log(NeoEMFDiscoverUtils.class, "saving!");
-		try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-		// unload the resource and shutdown the database engine
-		MyLog.log(NeoEMFDiscoverUtils.class, "unload!");
-		resource.unload();
-	}
+
 }

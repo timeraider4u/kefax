@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.Assert;
 
-import fr.inria.atlanmod.neoemf.resources.impl.PersistentResourceImpl;
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
@@ -22,7 +21,7 @@ public class TestUtils {
 	protected final static String DEFAULT_INC_DIRS = null;
 	protected final static String DEFAULT_ADDITION = null;
 	protected final static boolean DEFAULT_TRIM = false;
-	protected final static boolean DEFAULT_USE_NEOEMF = true;
+	protected final static boolean DEFAULT_USE_NEOEMF = false;
 
 	protected static boolean batchMode = TestUtils.DEFAULT_BATCH_MODE;
 	protected static boolean isEmpty = TestUtils.DEFAULT_IS_EMPTY;

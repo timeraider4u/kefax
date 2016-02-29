@@ -13,95 +13,70 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
-import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.common.CommonFactory;
 import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFile;
+import at.jku.weiner.c.modisco.discoverer.backend.SerializationBackend;
 import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
-import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
-import at.jku.weiner.c.parser.parser.ExternalDeclaration;
-import at.jku.weiner.c.parser.parser.Parser;
-import at.jku.weiner.c.parser.parser.ParserFactory;
-import at.jku.weiner.c.preprocess.preprocess.Preprocess;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
 		AbstractDiscoverer<T> {
 
+	private final SerializationBackend backend = null;
+
+	private MyStore myStore = null;
+	private XtextUtils xtextUtils = null;
 	private URI lastUri = null;
 
-	protected final boolean isApplicableOn(final IResource resource) {
-		return DiscovererUtils.isApplicableOn(resource);
+	protected final boolean isApplicableOn(final IResource iResource) {
+		return DiscovererUtils.isApplicableOn(iResource);
 	}
 
-	protected final void discover(final IResource resource,
+	protected final void discover(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
 			monitor.subTask(Messages.discover + "'"
-					+ resource.getLocationURI().toString() + "'");
-			// System.err.println("clazz='" + monitor.getClass() + "'");
-			this.discover2(resource, monitor);
+					+ iResource.getLocationURI().toString() + "'");
+			this.discover2(iResource, monitor);
 		} catch (final Exception ex) {
-			if (ex instanceof DiscoveryException) {
-				MyLog.errorNoThrows(AbstractDiscovererWithLogic.class, ex);
-				throw (DiscoveryException) ex;
-			}
-			final DiscoveryException newEx = new DiscoveryException("'"
-					+ ex.getClass() + "':" + ex.getMessage());
-			MyLog.errorNoThrows(AbstractDiscovererWithLogic.class, ex);
-			throw newEx;
+			DiscovererUtils.handleException(ex);
 		} finally {
 			monitor.done();
 		}
 	}
 
-	private final void discover2(final IResource resource,
+	private final void discover2(final IResource iResource,
 			final IProgressMonitor monitor) throws Exception {
-		final MyStore store = this.initialize(resource, monitor);
-		// discover
-		store.getMonitor().beginTask(Messages.discover,
-				IProgressMonitor.UNKNOWN);
+		this.myStore = this.initialize(iResource, monitor);
+		this.xtextUtils = new XtextUtils(this.myStore);
 
-		if (resource instanceof IFile) {
-			final IFile file = (IFile) resource;
-			this.discoverFile(file.getLocation().toFile(), store);
-		} else if (resource instanceof IContainer) {
-			final IContainer container = (IContainer) resource;
-			this.discoverDirectory(container.getLocation().toFile(), store);
-		} else {
-			final DiscoveryException ex = new DiscoveryException(resource
-					.getClass().getName() + " not handled"); //$NON-NLS-1$
-			MyLog.error(AbstractDiscovererWithLogic.class, ex);
-		}
+		this.discoverIResource(iResource);
 
 		// clean-up
-		store.getParser().cleanUp();
-		// saving
-		this.save(store);
-		// done
-		store.getMonitor().setTaskName(Messages.done);
+		this.xtextUtils.cleanUp();
 	}
 
 	/***
 	 * initialize all data values
 	 *
-	 * @param resource
+	 * @param iResource
 	 *
 	 * @param monitor
 	 * @return
 	 * @throws DiscoveryException
 	 */
-	private final MyStore initialize(final IResource resource,
+	private final MyStore initialize(final IResource iResource,
 			IProgressMonitor monitor) throws DiscoveryException {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
@@ -112,7 +87,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			final ResourceSet resSet = NeoEMFDiscoverUtils.createOrGetResSet();
 			this.setResourceSet(resSet);
 		}
-		final URI targetURI = DiscovererUtils.getTargetUri(resource, monitor,
+		final URI targetURI = DiscovererUtils.getTargetUri(iResource, monitor,
 				this.isUseNeoEMF(), this.lastUri, this.isBatchMode());
 		this.setTargetURI(targetURI);
 		MyLog.log(AbstractDiscovererWithLogic.class, "creating target model!");
@@ -126,27 +101,62 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 				throw new DiscoveryException(ex);
 			}
 		}
-		final MyStore result = new MyStore(this.getSettings(), monitor, targetModel,
-				resource);
+		final Model model = this.getModel(targetModel);
+		final MyStore result = new MyStore(this.getSettings(), monitor,
+				iResource, model);
 		return result;
 	}
 
-	@Override
-	protected Resource createTargetModel() {
-		if (this.isUseNeoEMF()) {
-			// final Resource targetModel = this.getTargetModel();
-			// if (targetModel != null) {
-			// return targetModel;
-			// }
-			final URI targetURI = this.getTargetURI();
-			final Resource newTargetModel = NeoEMFDiscoverUtils
-					.createTargetModel(targetURI);
+	private Model getModel(final Resource targetModel) {
+		final EList<EObject> list = targetModel.getContents();
+		if (this.getSettings().isBatchMode() && (list != null)
+				&& (list.size() == 1)) {
+			final EObject root = targetModel.getContents().get(0);
+			if (root instanceof Model) {
+				return (Model) root;
+			}
+		}
+		return this.createNewModel(targetModel);
+	}
 
-			this.setTargetModel(newTargetModel);
-			return newTargetModel;
+	private Model createNewModel(final Resource targetModel) {
+		CommonFactory factory = CommonFactory.eINSTANCE;
+		final Model result = factory.createModel();
+		targetModel.getContents().add(result);
+		return result;
+	}
+
+	// @Override
+	// protected Resource createTargetModel() {
+	// if (this.isUseNeoEMF()) {
+	// // final Resource targetModel = this.getTargetModel();
+	// // if (targetModel != null) {
+	// // return targetModel;
+	// // }
+	// final URI targetURI = this.getTargetURI();
+	// final Resource newTargetModel = NeoEMFDiscoverUtils
+	// .createTargetModel(targetURI);
+	//
+	// this.setTargetModel(newTargetModel);
+	// return newTargetModel;
+	// } else {
+	// final Resource res = super.createTargetModel();
+	// return res;
+	// }
+	// }
+
+	private final void discoverIResource(final IResource iResource)
+			throws Exception {
+		if (iResource instanceof IFile) {
+			final IFile file = (IFile) iResource;
+			this.discoverFile(file.getLocation().toFile());
+		} else if (iResource instanceof IContainer) {
+			final IContainer container = (IContainer) iResource;
+			this.discoverDirectory(container.getLocation().toFile());
 		} else {
-			final Resource res = super.createTargetModel();
-			return res;
+			final DiscoveryException ex = new DiscoveryException(iResource
+					.getClass().getName() + " not handled"); //$NON-NLS-1$
+			MyLog.error(AbstractDiscovererWithLogic.class, ex);
 		}
 	}
 
@@ -156,8 +166,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 	 *
 	 * @throws DiscoveryException
 	 */
-	private final void discoverDirectory(final File directory,
-			final MyStore store) throws Exception {
+	private final void discoverDirectory(final File directory) throws Exception {
 		if (!directory.isDirectory()) {
 			final Exception ex = new DiscoveryException(
 					"not a directory '" + directory.getAbsolutePath() + "'"); //$NON-NLS-1$
@@ -168,25 +177,24 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 		Arrays.sort(files, new FileNameSorter());
 		for (final File file : files) {
 			if (file.isDirectory()) {
-				this.discoverDirectory(file, store);
+				this.discoverDirectory(file);
 			} else {
 				final String fileExtension = new Path(file.getPath())
 				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
-					this.discoverFile(file, store);
+					this.discoverFile(file);
 				}
 			}
 		}
 	}
 
-	private final void discoverFile(final File file, final MyStore store)
-			throws Exception {
+	private final void discoverFile(final File file) throws Exception {
 		MyLog.log(AbstractDiscovererWithLogic.class, "discovering file='"
 				+ file.getAbsolutePath() + "'...");
 		try {
 
 			final IFile iFile = DiscovererUtils.getFileFor(file);
-			store.getParser().readFromXtextFile(file, iFile);
+			this.xtextUtils.readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscovererWithLogic.class,
 					"discovering file done!");
 		} catch (final IOException ex) {
@@ -201,30 +209,35 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 	 * @param store
 	 * @throws DiscoveryException
 	 */
-	private final void save(final MyStore store) throws DiscoveryException {
-		store.getMonitor().setTaskName(Messages.saving);
-		MyLog.log(AbstractDiscovererWithLogic.class, "save target model!");
-		// if (this.isTargetSerializationChosen()) {
+	@Override
+	protected final void saveTargetModel() throws IOException {
 		try {
-			final URI targetURI = this.getTargetURI();
-			final Resource targetModel = this.getTargetModel();
-			if (this.isUseNeoEMF()) {
-				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
-			} else {
-				this.saveTargetModel();
-			}
-			// update project
-			final String currUriStr = targetURI.toFileString();
-			final IProject project = store.getResource().getProject();
-			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
-			MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
-			this.deleteLastXMISerialization(currUriStr, store, project);
-			this.lastUri = targetURI;
-		} catch (final Exception ex) {
-			throw new DiscoveryException(
-					"Error saving discovery result model", ex); //$NON-NLS-1$
+			this.saveTargetModel2();
+		} catch (CoreException ex) {
+			throw new IOException(ex);
 		}
-		// }
+	}
+
+	private final void saveTargetModel2() throws CoreException, IOException {
+		MyLog.log(AbstractDiscovererWithLogic.class, "save target model!");
+
+		final URI targetURI = this.getTargetURI();
+		final Resource targetModel = this.getTargetModel();
+		if (this.isUseNeoEMF()) {
+			NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
+		} else {
+			super.saveTargetModel();
+		}
+		// update project
+		final String currUriStr = targetURI.toFileString();
+		final IProject project = this.myStore.getIResource().getProject();
+
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				this.myStore.getMonitor());
+
+		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
+		this.deleteLastXMISerialization(currUriStr, this.myStore, project);
+		this.lastUri = targetURI;
 	}
 
 	private void deleteLastXMISerialization(final String currUriStr,

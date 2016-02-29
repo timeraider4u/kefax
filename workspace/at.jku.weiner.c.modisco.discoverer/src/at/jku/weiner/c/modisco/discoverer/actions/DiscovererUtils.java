@@ -32,17 +32,28 @@ final class DiscovererUtils {
 
 	}
 
+	protected static final void handleException(final Exception ex)
+			throws DiscoveryException {
+		if (ex instanceof DiscoveryException) {
+			MyLog.errorNoThrows(DiscovererUtils.class, ex);
+			throw (DiscoveryException) ex;
+		}
+		final DiscoveryException newEx = new DiscoveryException("'"
+				+ ex.getClass() + "':" + ex.getMessage());
+		MyLog.errorNoThrows(DiscovererUtils.class, ex);
+		throw newEx;
+	}
+
 	protected static boolean isApplicableOn(final IResource resource) {
-		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
-				+ resource + "'");
-		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
-				+ resource.getClass() + "'");
+		MyLog.trace(DiscovererUtils.class, "isApplicableOn='" + resource + "'");
+		MyLog.trace(DiscovererUtils.class,
+				"isApplicableOn='" + resource.getClass() + "'");
 
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
 			final IContainer container = (IContainer) resource;
-			MyLog.trace(AbstractDiscovererWithLogic.class, "isContainer");
+			MyLog.trace(DiscovererUtils.class, "isContainer");
 			final boolean result = container.isAccessible();
 			MyLog.trace(AbstractDiscovererWithLogic.class,
 					"isContainer.isAccessible='" + result + "'");

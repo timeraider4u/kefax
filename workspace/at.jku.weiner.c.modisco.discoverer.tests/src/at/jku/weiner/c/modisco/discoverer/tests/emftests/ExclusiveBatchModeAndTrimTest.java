@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.AbstractDiscovererWithLogic;
-import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
+import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
 
 public class ExclusiveBatchModeAndTrimTest {
 

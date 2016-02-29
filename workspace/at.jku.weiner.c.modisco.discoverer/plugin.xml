@@ -4,28 +4,28 @@
    <extension
          point="org.eclipse.modisco.infra.discovery.core.discoverer">
       <discoverer
-            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource"
+            class="at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource"
             id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource">
       </discoverer>
    </extension>
    <extension
          point="org.eclipse.modisco.infra.discovery.core.discoverer">
       <discoverer
-            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer"
+            class="at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromICContainer"
             id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer">
       </discoverer>
    </extension>
     <extension
          point="org.eclipse.modisco.infra.discovery.core.discoverer">
       <discoverer
-            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFile"
+            class="at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFile"
             id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFile">
       </discoverer>
    </extension>
    <extension
          point="org.eclipse.modisco.infra.discovery.core.discoverer">
       <discoverer
-            class="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFolder"
+            class="at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFolder"
             id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIFolder">
       </discoverer>
    </extension>

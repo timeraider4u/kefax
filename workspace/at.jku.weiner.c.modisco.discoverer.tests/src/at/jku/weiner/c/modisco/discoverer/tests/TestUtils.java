@@ -12,7 +12,7 @@ import org.junit.Assert;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource;
+import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
 
 public class TestUtils {
 	protected final static boolean DEFAULT_BATCH_MODE = false;

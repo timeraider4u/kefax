@@ -1,13 +1,21 @@
 package at.jku.weiner.c.modisco.discoverer.actions;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
 
+import at.jku.weiner.c.modisco.discoverer.backend.IDiscoverer;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
-public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
+public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
+		implements IDiscoverer {
 
 	private final MySettings settings = new MySettings();
+
+	public AbstractDiscoverer() {
+		super();
+		super.setSerializeTarget(true);
+	}
 
 	protected final MySettings getSettings() {
 		return this.settings;
@@ -68,6 +76,12 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 
 	public final boolean isUseNeoEMF() {
 		return this.settings.isUseNeoEMF();
+	}
+
+	@Override
+	public Resource createTargetModel() {
+		final Resource res = super.createTargetModel();
+		return res;
 	}
 
 }

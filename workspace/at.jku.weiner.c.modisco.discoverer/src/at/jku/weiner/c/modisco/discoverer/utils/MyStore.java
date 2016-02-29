@@ -15,44 +15,45 @@ public final class MyStore {
 
 	private final MySettings mySettings;
 	private final IProgressMonitor monitor;
+	private final IResource iResource;
+
 	private final CommonFactory factory;
+
 	private final Model model;
-	private final XtextUtils parser;
-	private final IResource resource;
+
+	// private final XtextUtils xtextutils;
 
 	public MyStore(final MySettings mySettings, final IProgressMonitor monitor,
-			final Resource targetModel, final IResource resource)
+			final IResource iResource, final Model model)
 					throws DiscoveryException {
 		this.mySettings = mySettings;
 		this.monitor = monitor;
-		this.resource = resource;
+		this.iResource = iResource;
 
 		this.factory = CommonFactory.eINSTANCE;
-		if (this.factory == null) {
-			throw new DiscoveryException("factory is null!");
-		}
 
-		this.model = this.getModel(targetModel);
-		this.parser = new XtextUtils(this);
+		this.model = model;
+		// this.model = this.getModel(targetModel);
+		// this.xtextutils = new XtextUtils(this);
 	}
 
-	private Model getModel(final Resource targetModel) {
-		final EList<EObject> list = targetModel.getContents();
-		if (this.mySettings.isBatchMode() && (list != null)
-				&& (list.size() == 1)) {
-			final EObject root = targetModel.getContents().get(0);
-			if (root instanceof Model) {
-				return (Model) root;
-			}
-		}
-		return this.createNewModel(targetModel);
-	}
+	// private Model getModel(final Resource targetModel) {
+	// final EList<EObject> list = targetModel.getContents();
+	// if (this.mySettings.isBatchMode() && (list != null)
+	// && (list.size() == 1)) {
+	// final EObject root = targetModel.getContents().get(0);
+	// if (root instanceof Model) {
+	// return (Model) root;
+	// }
+	// }
+	// return this.createNewModel(targetModel);
+	// }
 
-	private Model createNewModel(final Resource targetModel) {
-		final Model result = this.factory.createModel();
-		targetModel.getContents().add(result);
-		return result;
-	}
+	// private Model createNewModel(final Resource targetModel) {
+	// final Model result = this.factory.createModel();
+	// targetModel.getContents().add(result);
+	// return result;
+	// }
 
 	public IProgressMonitor getMonitor() {
 		return this.monitor;
@@ -66,16 +67,16 @@ public final class MyStore {
 		return this.model;
 	}
 
-	public XtextUtils getParser() {
-		return this.parser;
-	}
+	// public XtextUtils getXtextUtils() {
+	// return this.xtextutils;
+	// }
 
 	public MySettings getMySettings() {
 		return this.mySettings;
 	}
 
-	public IResource getResource() {
-		return resource;
+	public IResource getIResource() {
+		return this.iResource;
 	}
 
 }

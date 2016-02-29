@@ -37,33 +37,13 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
 		AbstractDiscoverer<T> {
-	
+
 	private URI lastUri = null;
-	
+
 	protected final boolean isApplicableOn(final IResource resource) {
-		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
-				+ resource + "'");
-		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
-				+ resource.getClass() + "'");
-		
-		if (resource instanceof IFile) {
-			return DiscovererUtils.checkFile((IFile) resource);
-		} else if (resource instanceof IContainer) {
-			final IContainer container = (IContainer) resource;
-			MyLog.trace(AbstractDiscovererWithLogic.class, "isContainer");
-			final boolean result = container.isAccessible();
-			MyLog.trace(AbstractDiscovererWithLogic.class,
-					"isContainer.isAccessible='" + result + "'");
-			return result;
-		} else if (resource instanceof IFolder) {
-			final IFolder folder = (IFolder) resource;
-			MyLog.trace(AbstractDiscovererWithLogic.class, "isFolder");
-			final boolean result = folder.isAccessible();
-			return result;
-		}
-		return false;
+		return DiscovererUtils.isApplicableOn(resource);
 	}
-	
+
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
@@ -84,14 +64,14 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			monitor.done();
 		}
 	}
-	
+
 	private final void discover2(final IResource resource,
 			final IProgressMonitor monitor) throws Exception {
 		final MyStore store = this.initialize(resource, monitor);
 		// discover
 		store.getMonitor().beginTask(Messages.discover,
 				IProgressMonitor.UNKNOWN);
-		
+
 		if (resource instanceof IFile) {
 			final IFile file = (IFile) resource;
 			this.discoverFile(file.getLocation().toFile(), store);
@@ -111,7 +91,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 		// done
 		store.getMonitor().setTaskName(Messages.done);
 	}
-	
+
 	/***
 	 * initialize all data values
 	 *
@@ -146,13 +126,11 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 				throw new DiscoveryException(ex);
 			}
 		}
-		final MyStore result = new MyStore(monitor, targetModel, resource,
-				this.isSetStdInclude(), this.getIncludeDirs(),
-				this.getAdditionalDirectives(), this.isTrimPreprocessModel(),
-				this.isBatchMode());
+		final MyStore result = new MyStore(this.getSettings(), monitor, targetModel,
+				resource);
 		return result;
 	}
-	
+
 	@Override
 	protected Resource createTargetModel() {
 		if (this.isUseNeoEMF()) {
@@ -163,7 +141,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			final URI targetURI = this.getTargetURI();
 			final Resource newTargetModel = NeoEMFDiscoverUtils
 					.createTargetModel(targetURI);
-			
+
 			this.setTargetModel(newTargetModel);
 			return newTargetModel;
 		} else {
@@ -171,7 +149,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			return res;
 		}
 	}
-	
+
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -200,13 +178,13 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			}
 		}
 	}
-	
+
 	private final void discoverFile(final File file, final MyStore store)
 			throws Exception {
 		MyLog.log(AbstractDiscovererWithLogic.class, "discovering file='"
 				+ file.getAbsolutePath() + "'...");
 		try {
-			
+
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscovererWithLogic.class,
@@ -216,7 +194,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-	
+
 	/***
 	 * saving
 	 *
@@ -266,5 +244,5 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			}
 		}
 	}
-	
+
 }

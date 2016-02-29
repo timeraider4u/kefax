@@ -13,34 +13,24 @@ import at.jku.weiner.c.modisco.discoverer.actions.XtextUtils;
 
 public final class MyStore {
 
+	private final MySettings mySettings;
 	private final IProgressMonitor monitor;
 	private final CommonFactory factory;
 	private final Model model;
 	private final XtextUtils parser;
-	private final boolean stdInclude;
-	private final String includeDirs;
 	private final IResource resource;
-	private final String additionalPreprocessingDirectives;
-	private final boolean trimPreprocessModel;
-	private final boolean batchMode;
 
-	public MyStore(final IProgressMonitor monitor, final Resource targetModel,
-			final IResource resource, final boolean stdInclude,
-			final String includeDirs,
-			final String additionalPreprocessingDirectives,
-			final boolean trimPreprocessModel, final boolean batchMode)
+	public MyStore(final MySettings mySettings, final IProgressMonitor monitor,
+			final Resource targetModel, final IResource resource)
 					throws DiscoveryException {
+		this.mySettings = mySettings;
 		this.monitor = monitor;
 		this.resource = resource;
-		this.stdInclude = stdInclude;
-		this.includeDirs = includeDirs;
-		this.additionalPreprocessingDirectives = additionalPreprocessingDirectives;
-		this.trimPreprocessModel = trimPreprocessModel;
+
 		this.factory = CommonFactory.eINSTANCE;
 		if (this.factory == null) {
 			throw new DiscoveryException("factory is null!");
 		}
-		this.batchMode = batchMode;
 
 		this.model = this.getModel(targetModel);
 		this.parser = new XtextUtils(this);
@@ -48,7 +38,8 @@ public final class MyStore {
 
 	private Model getModel(final Resource targetModel) {
 		final EList<EObject> list = targetModel.getContents();
-		if (this.isBatchMode() && (list != null) && (list.size() == 1)) {
+		if (this.mySettings.isBatchMode() && (list != null)
+				&& (list.size() == 1)) {
 			final EObject root = targetModel.getContents().get(0);
 			if (root instanceof Model) {
 				return (Model) root;
@@ -79,28 +70,12 @@ public final class MyStore {
 		return this.parser;
 	}
 
-	public boolean isStdInclude() {
-		return this.stdInclude;
-	}
-
-	public String getIncludeDirs() {
-		return this.includeDirs;
+	public MySettings getMySettings() {
+		return this.mySettings;
 	}
 
 	public IResource getResource() {
-		return this.resource;
-	}
-
-	public String getAdditionalPreprocessingDirectives() {
-		return this.additionalPreprocessingDirectives;
-	}
-
-	public boolean isTrimPreprocessModel() {
-		return this.trimPreprocessModel;
-	}
-
-	public boolean isBatchMode() {
-		return batchMode;
+		return resource;
 	}
 
 }

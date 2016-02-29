@@ -48,9 +48,9 @@ public class XtextUtils {
 	}
 
 	private void setUpPredefinedMacros() {
-		final URI uri = PredefinedMacros.getPredefinedURI(false,
-				this.store.isStdInclude());
-		if (this.store.isBatchMode()) {
+		final URI uri = PredefinedMacros.getPredefinedURI(false, this.store
+				.getMySettings().isSetStdInclude());
+		if (this.store.getMySettings().isBatchMode()) {
 			// skip loading pre-defined macros if already in added to model
 			// by previous discover call
 			final String uriPath = uri.toString();
@@ -63,7 +63,7 @@ public class XtextUtils {
 			}
 		}
 		final Preprocess preprocess = PredefinedMacros.loadPreDefinedMacros(
-				false, this.store.isStdInclude());
+				false, this.store.getMySettings().isSetStdInclude());
 		final TranslationUnit predefined = this.store.getFactory()
 				.createTranslationUnit();
 		predefined.setPreprocess(preprocess);
@@ -127,13 +127,14 @@ public class XtextUtils {
 		preprocessGenerator.setInsertPredefinedMacros(true);
 		preprocessGenerator.setValidateUnit(true);
 		preprocessGenerator.setUnit(unit);
-		preprocessGenerator.setStdInclude(this.store.isStdInclude());
-		preprocessGenerator.setTrimPreprocessModel(this.store
+		preprocessGenerator.setStdInclude(this.store.getMySettings()
+				.isSetStdInclude());
+		preprocessGenerator.setTrimPreprocessModel(this.store.getMySettings()
 				.isTrimPreprocessModel());
-		MyLog.trace(XtextUtils.class,
-				"setStdInclude='" + this.store.isStdInclude() + "'");
+		MyLog.trace(XtextUtils.class, "setStdInclude='"
+				+ this.store.getMySettings().isSetStdInclude() + "'");
 		preprocessGenerator.setAdditionalPreprocessingDirectives(this.store
-				.getAdditionalPreprocessingDirectives());
+				.getMySettings().getAdditionalDirectives());
 		preprocessGenerator.setCommonInjector(this.commonInjector);
 		// preprocessGenerator.insertPredefinedMacros(this.store.getModel());
 		this.preprocessor.generate(iFile, fileNameOnly);
@@ -141,7 +142,7 @@ public class XtextUtils {
 	}
 
 	private void setUpIncludeDirs(final String path) {
-		String includeDirs = this.store.getIncludeDirs();
+		String includeDirs = this.store.getMySettings().getIncludeDirs();
 		MyLog.trace(XtextUtils.class, "includeDirs='" + includeDirs + "'");
 		if (includeDirs == null) {
 			includeDirs = "";
@@ -161,8 +162,8 @@ public class XtextUtils {
 
 	private void setUpAdditionalPreprocessingDirectives(
 			final TranslationUnit unit) throws IOException {
-		final String additionalStr = this.store
-				.getAdditionalPreprocessingDirectives();
+		final String additionalStr = this.store.getMySettings()
+				.getAdditionalDirectives();
 		if ((additionalStr == null) || additionalStr.isEmpty()) {
 			return;
 		}

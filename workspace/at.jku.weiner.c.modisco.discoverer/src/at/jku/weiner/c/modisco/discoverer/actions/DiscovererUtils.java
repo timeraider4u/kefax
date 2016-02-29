@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.eclipse.cdt.core.model.CoreModel;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -26,11 +27,35 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 
 final class DiscovererUtils {
 	private static List<String> extensionList = null;
-	
+
 	private DiscovererUtils() {
-		
+
 	}
-	
+
+	protected static boolean isApplicableOn(final IResource resource) {
+		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
+				+ resource + "'");
+		MyLog.trace(AbstractDiscovererWithLogic.class, "isApplicableOn='"
+				+ resource.getClass() + "'");
+
+		if (resource instanceof IFile) {
+			return DiscovererUtils.checkFile((IFile) resource);
+		} else if (resource instanceof IContainer) {
+			final IContainer container = (IContainer) resource;
+			MyLog.trace(AbstractDiscovererWithLogic.class, "isContainer");
+			final boolean result = container.isAccessible();
+			MyLog.trace(AbstractDiscovererWithLogic.class,
+					"isContainer.isAccessible='" + result + "'");
+			return result;
+		} else if (resource instanceof IFolder) {
+			final IFolder folder = (IFolder) resource;
+			MyLog.trace(AbstractDiscovererWithLogic.class, "isFolder");
+			final boolean result = folder.isAccessible();
+			return result;
+		}
+		return false;
+	}
+
 	protected static boolean isCdtExtension(final String fileExtension) {
 		final boolean result = DiscovererUtils.getExtensionList().contains(
 				fileExtension);
@@ -38,7 +63,7 @@ final class DiscovererUtils {
 				+ "'=" + result);
 		return result;
 	}
-	
+
 	protected static List<String> getExtensionList() {
 		if (DiscovererUtils.extensionList == null) {
 			final String[] list = Messages.extensionList.split(",");
@@ -46,7 +71,7 @@ final class DiscovererUtils {
 		}
 		return DiscovererUtils.extensionList;
 	}
-	
+
 	protected static boolean checkFile(final IFile file) {
 		if (!file.exists()) {
 			return false;
@@ -61,7 +86,7 @@ final class DiscovererUtils {
 		MyLog.trace(DiscovererUtils.class, "result=" + result);
 		return result;
 	}
-	
+
 	protected static CoreModel getCoreModel() throws DiscoveryException {
 		final CoreModel coreModel = CoreModel.getDefault();
 		if (coreModel == null) {
@@ -69,7 +94,7 @@ final class DiscovererUtils {
 		}
 		return coreModel;
 	}
-	
+
 	public static IFile getFileFor(final File file) throws DiscoveryException {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IPath location = Path.fromOSString(file.getAbsolutePath());
@@ -87,7 +112,7 @@ final class DiscovererUtils {
 				+ result.getFullPath().toOSString());
 		return result;
 	}
-	
+
 	public static String getTargetDirectory(final IResource res,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		final IProject project = res.getProject();
@@ -103,11 +128,11 @@ final class DiscovererUtils {
 		final String result = tmpStr.replaceAll("file[:]", "");
 		return result;
 	}
-	
+
 	public static URI getTargetUri(final IResource res,
 			final IProgressMonitor monitor, final boolean useNeoEMF,
 			final URI lastUri, final boolean batchMode)
-			throws DiscoveryException {
+					throws DiscoveryException {
 		final URI uri = DiscovererUtils.createNewFileUri(res, monitor,
 				useNeoEMF);
 		if (useNeoEMF) {
@@ -120,10 +145,10 @@ final class DiscovererUtils {
 		}
 		return uri;
 	}
-	
+
 	private static URI createNewFileUri(final IResource res,
 			final IProgressMonitor monitor, final boolean useNeoEMF)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
 		MyLog.trace(DiscovererUtils.class, "targetPath='" + path + "'");
 		final Date dNow = new Date();
@@ -136,12 +161,12 @@ final class DiscovererUtils {
 		final URI uri = URI.createFileURI(model);
 		return uri;
 	}
-	
+
 	private static String getBackendExtension(final boolean useNeoEMF) {
 		if (useNeoEMF) {
 			return NeoEMFDiscoverUtils.getBackendExtension();
 		}
 		return Messages.modelFileSuffix;
 	}
-	
+
 }

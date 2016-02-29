@@ -8,7 +8,7 @@ import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 
 	private final MySettings settings = new MySettings();
-	
+
 	protected final MySettings getSettings() {
 		return this.settings;
 	}
@@ -17,10 +17,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.settings.isSetStdInclude();
 	}
 
-	@Parameter(
-			name = "STD_INCLUDE",
-			requiresInputValue = false,
-			description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
+	@Parameter(name = "STD_INCLUDE", requiresInputValue = false, description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
 	public final void setSetStdInclude(final boolean setStdInclude) {
 		this.settings.setSetStdInclude(setStdInclude);
 	}
@@ -29,10 +26,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.settings.getIncludeDirs();
 	}
 
-	@Parameter(
-			name = "INCLUDE_DIRS",
-			requiresInputValue = false,
-			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
+	@Parameter(name = "INCLUDE_DIRS", requiresInputValue = false, description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
 	public final void setIncludeDirs(final String includeDirs) {
 		this.settings.setIncludeDirs(includeDirs);
 	}
@@ -41,11 +35,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.settings.getAdditionalDirectives();
 	}
 
-	@Parameter(
-			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
-			requiresInputValue = false,
-			description = "Add additional preprocessor directives and macros"
-					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
+	@Parameter(name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES", requiresInputValue = false, description = "Add additional preprocessor directives and macros"
+			+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
 	public final void setAdditionalDirectives(final String defines) {
 		this.settings.setAdditionalDirectives(defines);
 	}
@@ -54,9 +45,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.settings.isTrimPreprocessModel();
 	}
 
-	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
-			description = "Remove code and empty lines from preprocessor model"
-					+ "(" + MySettings.EXCLUSIVE_MSG + ")")
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false, description = "Remove code and empty lines from preprocessor model"
+			+ "(" + MySettings.EXCLUSIVE_MSG + ")")
 	public final void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		this.settings.setTrimPreprocessModel(trimPreprocessModel);
 	}
@@ -65,19 +55,13 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 		return this.settings.isBatchMode();
 	}
 
-	@Parameter(
-			name = "BATCH_MODE",
-			requiresInputValue = false,
-			description = "Re-use model and clean-up any temporarily saved serializations"
-					+ " (" + MySettings.EXCLUSIVE_MSG + ")")
+	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations"
+			+ " (" + MySettings.EXCLUSIVE_MSG + ")")
 	public final void setBatchMode(final boolean batchMode) {
 		this.settings.setBatchMode(batchMode);
 	}
 
-	@Parameter(
-			name = "USENEOEMF",
-			requiresInputValue = false,
-			description = "Use NeoEMF persistence layer instead of default one (XMI serialization)")
+	@Parameter(name = "USENEOEMF", requiresInputValue = false, description = "Use NeoEMF persistence layer instead of default one (XMI serialization)")
 	public final void setUseNeoEMF(final boolean setUseNeoEMF) {
 		this.settings.setUseNeoEMF(setUseNeoEMF);
 	}
@@ -85,5 +69,5 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T> {
 	public final boolean isUseNeoEMF() {
 		return this.settings.isUseNeoEMF();
 	}
-	
+
 }

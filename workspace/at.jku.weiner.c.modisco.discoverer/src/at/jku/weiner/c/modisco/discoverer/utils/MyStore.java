@@ -21,11 +21,9 @@ public final class MyStore {
 
 	private final Model model;
 
-	// private final XtextUtils xtextutils;
-
 	public MyStore(final MySettings mySettings, final IProgressMonitor monitor,
 			final IResource iResource, final Model model)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		this.mySettings = mySettings;
 		this.monitor = monitor;
 		this.iResource = iResource;
@@ -66,10 +64,6 @@ public final class MyStore {
 	public Model getModel() {
 		return this.model;
 	}
-
-	// public XtextUtils getXtextUtils() {
-	// return this.xtextutils;
-	// }
 
 	public MySettings getMySettings() {
 		return this.mySettings;

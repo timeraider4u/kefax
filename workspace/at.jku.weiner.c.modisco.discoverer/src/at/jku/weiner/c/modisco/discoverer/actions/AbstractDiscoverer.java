@@ -1,5 +1,7 @@
 package at.jku.weiner.c.modisco.discoverer.actions;
 
+import java.io.IOException;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
@@ -8,7 +10,7 @@ import at.jku.weiner.c.modisco.discoverer.backend.IDiscoverer;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
-		implements IDiscoverer {
+implements IDiscoverer {
 
 	private final MySettings settings = new MySettings();
 
@@ -84,4 +86,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 		return res;
 	}
 
+	@Override
+	public void saveTargetModelDefault() throws IOException {
+		super.saveTargetModel();
+	}
 }

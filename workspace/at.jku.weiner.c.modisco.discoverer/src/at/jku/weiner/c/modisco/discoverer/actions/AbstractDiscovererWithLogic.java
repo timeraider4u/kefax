@@ -30,18 +30,16 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
-		AbstractDiscoverer<T> {
-
-	private final SerializationBackend backend = null;
-
+AbstractDiscoverer<T> {
+	
 	private MyStore myStore = null;
 	private XtextUtils xtextUtils = null;
-	private URI lastUri = null;
-
+	private final URI lastUri = null;
+	
 	protected final boolean isApplicableOn(final IResource iResource) {
 		return DiscovererUtils.isApplicableOn(iResource);
 	}
-
+	
 	protected final void discover(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
@@ -54,18 +52,23 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			monitor.done();
 		}
 	}
-
+	
 	private final void discover2(final IResource iResource,
-			final IProgressMonitor monitor) throws Exception {
+			IProgressMonitor monitor) throws Exception {
+		if (monitor == null) {
+			monitor = new NullProgressMonitor();
+		}
+		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
+		
 		this.myStore = this.initialize(iResource, monitor);
 		this.xtextUtils = new XtextUtils(this.myStore);
-
+		
 		this.discoverIResource(iResource);
-
+		
 		// clean-up
 		this.xtextUtils.cleanUp();
 	}
-
+	
 	/***
 	 * initialize all data values
 	 *
@@ -76,12 +79,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 	 * @throws DiscoveryException
 	 */
 	private final MyStore initialize(final IResource iResource,
-			IProgressMonitor monitor) throws DiscoveryException {
-		if (monitor == null) {
-			monitor = new NullProgressMonitor();
-		}
-		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
-		this.checkParameterValues();
+			final IProgressMonitor monitor) throws DiscoveryException {
 		if (this.isUseNeoEMF()) {
 			final ResourceSet resSet = NeoEMFDiscoverUtils.createOrGetResSet();
 			this.setResourceSet(resSet);
@@ -105,7 +103,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 				iResource, model);
 		return result;
 	}
-
+	
 	private Model getModel(final Resource targetModel) {
 		final EList<EObject> list = targetModel.getContents();
 		if (this.getSettings().isBatchMode() && (list != null)
@@ -117,14 +115,14 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 		}
 		return this.createNewModel(targetModel);
 	}
-
+	
 	private Model createNewModel(final Resource targetModel) {
-		CommonFactory factory = CommonFactory.eINSTANCE;
+		final CommonFactory factory = CommonFactory.eINSTANCE;
 		final Model result = factory.createModel();
 		targetModel.getContents().add(result);
 		return result;
 	}
-
+	
 	// @Override
 	// protected Resource createTargetModel() {
 	// if (this.isUseNeoEMF()) {
@@ -143,7 +141,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 	// return res;
 	// }
 	// }
-
+	
 	private final void discoverIResource(final IResource iResource)
 			throws Exception {
 		if (iResource instanceof IFile) {
@@ -158,7 +156,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			MyLog.error(AbstractDiscovererWithLogic.class, ex);
 		}
 	}
-
+	
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -178,19 +176,19 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 				this.discoverDirectory(file);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-				.getFileExtension();
+						.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file);
 				}
 			}
 		}
 	}
-
+	
 	private final void discoverFile(final File file) throws Exception {
 		MyLog.log(AbstractDiscovererWithLogic.class, "discovering file='"
 				+ file.getAbsolutePath() + "'...");
 		try {
-
+			
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			this.xtextUtils.readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscovererWithLogic.class,
@@ -200,7 +198,7 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-
+	
 	/***
 	 * saving
 	 *
@@ -211,49 +209,24 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 	protected final void saveTargetModel() throws IOException {
 		try {
 			this.saveTargetModel2();
-		} catch (CoreException ex) {
+		} catch (final CoreException ex) {
 			throw new IOException(ex);
 		}
 	}
-
+	
 	private final void saveTargetModel2() throws CoreException, IOException {
-		MyLog.log(AbstractDiscovererWithLogic.class, "save target model!");
-
+		MyLog.log(AbstractDiscovererWithLogic.class, "saving target model...");
+		// saving
 		final URI targetURI = this.getTargetURI();
 		final Resource targetModel = this.getTargetModel();
-		if (this.isUseNeoEMF()) {
-			NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
-		} else {
-			super.saveTargetModel();
-		}
-		// update project
+		this.backend.save(targetModel, targetURI);
 		final String currUriStr = targetURI.toFileString();
-		final IProject project = this.myStore.getIResource().getProject();
+		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
 
+		// update project
+		final IProject project = this.myStore.getIResource().getProject();
 		project.refreshLocal(IResource.DEPTH_INFINITE,
 				this.myStore.getMonitor());
-
-		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
-		this.deleteLastXMISerialization(currUriStr, this.myStore, project);
-		this.lastUri = targetURI;
-	}
-
-	private void deleteLastXMISerialization(final String currUriStr,
-			final MyStore store, final IProject project) throws CoreException {
-		if (this.isBatchMode() && (this.lastUri != null)
-				&& (!this.isUseNeoEMF())) {
-			final String lastUriStr = this.lastUri.toFileString();
-			if (!(lastUriStr.equals(currUriStr))) {
-				MyLog.log(DiscoverFromIFile.class,
-						"batchMode, delete previous uri='" + lastUriStr + "!");
-				final File file = new File(lastUriStr);
-				final boolean wasDeleted = file.delete();
-				MyLog.log(DiscoverFromIFile.class, "wasDeleted='" + wasDeleted
-						+ "'");
-				project.refreshLocal(IResource.DEPTH_INFINITE,
-						store.getMonitor());
-			}
-		}
 	}
 
 }

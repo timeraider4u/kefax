@@ -31,4 +31,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: at.jku.weiner.c.modisco.discoverer,
  at.jku.weiner.c.modisco.discoverer.actions,
- at.jku.weiner.c.modisco.discoverer.actions.impl
+ at.jku.weiner.c.modisco.discoverer.actions.impl,
+ at.jku.weiner.c.modisco.discoverer.utils

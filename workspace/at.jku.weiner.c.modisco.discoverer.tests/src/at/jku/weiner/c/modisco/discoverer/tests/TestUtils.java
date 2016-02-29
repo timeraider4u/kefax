@@ -13,37 +13,20 @@ import org.junit.Assert;
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
+import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
 public class TestUtils {
-	protected final static boolean DEFAULT_BATCH_MODE = false;
-	protected final static boolean DEFAULT_IS_EMPTY = false;
-	protected final static boolean DEFAULT_STD_INC = true;
-	protected final static String DEFAULT_INC_DIRS = null;
-	protected final static String DEFAULT_ADDITION = null;
-	protected final static boolean DEFAULT_TRIM = false;
-	protected final static boolean DEFAULT_USE_NEOEMF = false;
-
-	protected static boolean batchMode = TestUtils.DEFAULT_BATCH_MODE;
-	protected static boolean isEmpty = TestUtils.DEFAULT_IS_EMPTY;
-	protected static boolean stdInclude = TestUtils.DEFAULT_STD_INC;
-	protected static String includeDirs = TestUtils.DEFAULT_INC_DIRS;
-	protected static String additionalDirectives = TestUtils.DEFAULT_ADDITION;
-	protected static boolean trimPreprocessModel = TestUtils.DEFAULT_TRIM;
-	protected static boolean useNeoEMF = TestUtils.DEFAULT_USE_NEOEMF;
-
-	protected static void reset() {
-		TestUtils.batchMode = TestUtils.DEFAULT_BATCH_MODE;
-		TestUtils.isEmpty = TestUtils.DEFAULT_IS_EMPTY;
-		TestUtils.stdInclude = TestUtils.DEFAULT_STD_INC;
-		TestUtils.includeDirs = TestUtils.DEFAULT_INC_DIRS;
-		TestUtils.additionalDirectives = TestUtils.DEFAULT_ADDITION;
-		TestUtils.trimPreprocessModel = TestUtils.DEFAULT_TRIM;
-		TestUtils.useNeoEMF = TestUtils.DEFAULT_USE_NEOEMF;
-	}
+	protected static MySettings mySettings = new MySettings();
+	protected static boolean isEmpty = false;
 
 	private final IProject project;
 	private final DiscoverFromIResource discoverer;
 	private final Resource discoveredModel;
+
+	public static final void reset() {
+		TestUtils.isEmpty = false;
+		TestUtils.mySettings = new MySettings();
+	}
 
 	public TestUtils(final IProject iProject, final String testName,
 			final List<String> resFiles) throws Exception {
@@ -51,18 +34,23 @@ public class TestUtils {
 		Assert.assertNotNull(this.project);
 
 		this.discoverer = new DiscoverFromIResource();
-		this.discoverer.setSetStdInclude(TestUtils.stdInclude);
-		this.discoverer.setIncludeDirs(TestUtils.includeDirs);
-		this.discoverer.setAdditionalDirectives(TestUtils.additionalDirectives);
-		this.discoverer.setTrimPreprocessModel(TestUtils.trimPreprocessModel);
-		this.discoverer.setBatchMode(TestUtils.batchMode);
-		this.discoverer.setUseNeoEMF(TestUtils.useNeoEMF);
+		this.discoverer
+				.setSetStdInclude(TestUtils.mySettings.isSetStdInclude());
+		this.discoverer.setIncludeDirs(TestUtils.mySettings.getIncludeDirs());
+		this.discoverer.setAdditionalDirectives(TestUtils.mySettings
+				.getAdditionalDirectives());
+		this.discoverer.setTrimPreprocessModel(TestUtils.mySettings
+				.isTrimPreprocessModel());
+		this.discoverer.setBatchMode(TestUtils.mySettings.isBatchMode());
+		this.discoverer.setUseNeoEMF(TestUtils.mySettings.isUseNeoEMF());
 		for (final String resName : resFiles) {
 			final IResource res = this.getRes(resName);
 			Assert.assertNotNull(res);
-			MyLog.trace(TestUtils.class, "testName='" + testName + ", resName="
-					+ resName + "', includeDirs='" + TestUtils.includeDirs
-					+ "'");
+			MyLog.trace(
+					TestUtils.class,
+					"testName='" + testName + ", resName=" + resName
+							+ "', includeDirs='"
+							+ TestUtils.mySettings.getIncludeDirs() + "'");
 			this.discoverer.discoverElement(res, new NullProgressMonitor());
 			// Thread.sleep(500);
 		}

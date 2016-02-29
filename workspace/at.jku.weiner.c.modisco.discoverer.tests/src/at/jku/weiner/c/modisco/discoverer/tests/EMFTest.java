@@ -21,15 +21,13 @@ import org.osgi.framework.Bundle;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
-	private static final Lock lock = new ReentrantLock();
 	private static String path3 = null;
 	private static TestUtils myUtils = null;
-	
+
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
 		final Map<String, Object> result = new HashMap<String, Object>();
@@ -42,7 +40,7 @@ public class EMFTest {
 		result.put("plugin_id", Activator.PLUGIN_ID);
 		return result;
 	}
-	
+
 	public static Model emfTestB(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		final List<String> list = new ArrayList<String>();
@@ -50,19 +48,19 @@ public class EMFTest {
 		list.add(sourceFile + "2");
 		return EMFTest.emfTest(pureJavaClassFileName, sourceFile, list);
 	}
-	
+
 	public static Model emfTest(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		return EMFTest.emfTest(pureJavaClassFileName, sourceFile,
 				EMFTest.getListForElement(sourceFile));
 	}
-	
+
 	private static List<String> getListForElement(final String element) {
 		final List<String> result = new ArrayList<String>();
 		result.add(element);
 		return result;
 	}
-	
+
 	private static Model emfTest(final String pureJavaClassFileName,
 			final String testName, final List<String> resFiles)
 			throws Exception {
@@ -70,14 +68,14 @@ public class EMFTest {
 		final IProject iProject = EMFTest.getProject();
 		iProject.refreshLocal(IResource.DEPTH_INFINITE,
 				new NullProgressMonitor());
-		
+
 		final TestUtils utils = new TestUtils(iProject, testName, resFiles);
 		final Model result = utils.getModel();
 		TestUtils.reset();
 		EMFTest.myUtils = utils;
 		return result;
 	}
-	
+
 	private static void cleanUpOldProject() throws CoreException {
 		MyLog.setLog_level(MyLog.LOG_TRACE);
 		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
@@ -86,7 +84,7 @@ public class EMFTest {
 			oldProject.delete(true, true, new NullProgressMonitor());
 		}
 	}
-	
+
 	private static IProject getProject() throws Exception {
 		final Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
 		final IProject project = ProjectUtils.importPlugin(bundle);
@@ -94,7 +92,6 @@ public class EMFTest {
 	}
 
 	private static void setUp() {
-		EMFTest.lock.lock();
 		EMFTest.myUtils = null;
 		TestUtils.reset();
 	}
@@ -109,18 +106,17 @@ public class EMFTest {
 		} catch (final CoreException e) {
 			e.printStackTrace();
 		}
-		EMFTest.lock.unlock();
 	}
-	
+
 	public static void test0001_before() {
 		EMFTest.setUp();
 		TestUtils.isEmpty = true;
 	}
-	
+
 	public static void test0001_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0002_before() {
 		EMFTest.setUp();
 		EMFTest.testIncludeDirsIsEmpty();
@@ -129,7 +125,7 @@ public class EMFTest {
 	public static void test0002_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0003_before() {
 		EMFTest.setUp();
 	}
@@ -153,78 +149,80 @@ public class EMFTest {
 	public static void test0005_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0006_before() {
 		EMFTest.setUp();
-		TestUtils.includeDirs = EMFTest.path3 + File.separator
-				+ Activator.PLUGIN_ID + File.separator + "res/";
+		TestUtils.mySettings.setIncludeDirs(EMFTest.path3 + File.separator
+				+ Activator.PLUGIN_ID + File.separator + "res/");
 	}
-	
+
 	public static void test0006_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0007_before() {
 		EMFTest.setUp();
-		TestUtils.stdInclude = false;
+		TestUtils.mySettings.setSetStdInclude(false);
 	}
-	
+
 	public static void test0007_after() {
 		EMFTest.testIncludeDirsIsEmpty();
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0008_before() {
 		EMFTest.setUp();
-		TestUtils.additionalDirectives = "#define __MY_TYPE__ unsigned int";
+		TestUtils.mySettings
+				.setAdditionalDirectives("#define __MY_TYPE__ unsigned int");
 	}
 
 	public static void test0008_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0009_before() {
 		EMFTest.setUp();
-		TestUtils.additionalDirectives = "#include \"../include/SimpleInclude.h\"";
+		TestUtils.mySettings
+		.setAdditionalDirectives("#include \"../include/SimpleInclude.h\"");
 	}
-	
+
 	public static void test0009_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0010_before() {
 		EMFTest.setUp();
-		TestUtils.trimPreprocessModel = true;
-		TestUtils.stdInclude = false;
+		TestUtils.mySettings.setTrimPreprocessModel(true);
+		TestUtils.mySettings.setSetStdInclude(false);
 	}
-	
+
 	public static void test0010_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0011_before() {
 		EMFTest.setUp();
 	}
-	
+
 	public static void test0011_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0012_before() {
 		EMFTest.setUp();
-		TestUtils.batchMode = true;
+		TestUtils.mySettings.setBatchMode(true);
 	}
-	
+
 	public static void test0012_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0013_before() {
 		EMFTest.setUp();
-		TestUtils.batchMode = true;
+		TestUtils.mySettings.setBatchMode(true);
 		// TestUtils.trimPreprocessModel = true;
 	}
-	
+
 	public static void test0013_after() {
 		EMFTest.cleanUp();
 	}
@@ -232,33 +230,33 @@ public class EMFTest {
 	public static void test0014_before() {
 		EMFTest.setUp();
 	}
-	
+
 	public static void test0014_after() {
 		EMFTest.cleanUp();
 	}
 
 	public static void test0015_before() {
 		EMFTest.setUp();
-		TestUtils.batchMode = true;
+		TestUtils.mySettings.setBatchMode(true);
 	}
-	
+
 	public static void test0015_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	public static void test0016_before() {
 		EMFTest.setUp();
-		TestUtils.batchMode = true;
+		TestUtils.mySettings.setBatchMode(true);
 	}
-	
+
 	public static void test0016_after() {
 		EMFTest.cleanUp();
 	}
-	
+
 	private static void testIncludeDirsIsEmpty() {
 		final List<String> list = IncludeDirs.getListCopy();
 		Assert.assertNotNull(list);
 		Assert.assertTrue(list.isEmpty());
-		Assert.assertNull(TestUtils.includeDirs);
+		Assert.assertEquals("", TestUtils.mySettings.getIncludeDirs());
 	}
 }

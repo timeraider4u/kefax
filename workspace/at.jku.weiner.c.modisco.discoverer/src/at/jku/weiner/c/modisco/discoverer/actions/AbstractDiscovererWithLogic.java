@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -171,7 +170,6 @@ public abstract class AbstractDiscovererWithLogic<T> extends
 			final Exception ex = new DiscoveryException(
 					"not a directory '" + directory.getAbsolutePath() + "'"); //$NON-NLS-1$
 			MyLog.error(AbstractDiscovererWithLogic.class, ex);
-			throw ex;
 		}
 		final File[] files = directory.listFiles();
 		Arrays.sort(files, new FileNameSorter());

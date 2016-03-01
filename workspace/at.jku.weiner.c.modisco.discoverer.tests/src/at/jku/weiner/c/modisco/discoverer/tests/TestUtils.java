@@ -56,7 +56,7 @@ public class TestUtils {
 		}
 		this.checkTargetModelSerialization(iProject, testName,
 				TestUtils.isEmpty);
-		this.discoveredModel = this.discoverer.getTargetModel();
+		this.discoveredModel = this.discoverer.getTargetResource();
 		Assert.assertNotNull(this.discoveredModel);
 	}
 

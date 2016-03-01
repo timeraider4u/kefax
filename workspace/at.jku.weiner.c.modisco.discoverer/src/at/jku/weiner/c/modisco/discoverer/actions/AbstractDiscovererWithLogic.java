@@ -27,6 +27,7 @@ import at.jku.weiner.c.modisco.discoverer.backend.SerializationBackend;
 import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
+import at.jku.weiner.c.modisco.discoverer.utils.ModelUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
@@ -63,7 +64,7 @@ AbstractDiscoverer<T> {
 		this.myStore = this.initialize(iResource, monitor);
 		this.xtextUtils = new XtextUtils(this.myStore);
 
-		this.discoverIResource(iResource);
+		this.discoverIResource();
 
 		// clean-up
 		this.xtextUtils.cleanUp();
@@ -80,54 +81,29 @@ AbstractDiscoverer<T> {
 	 */
 	private final MyStore initialize(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
+
 		// creating resource set
+		MyLog.trace(AbstractDiscovererWithLogic.class, "creating resource set!");
 		final ResourceSet resSet = this.backend.getResourceSet();
 		this.setResourceSet(resSet);
+
 		// creating target URI
+		MyLog.trace(AbstractDiscovererWithLogic.class, "creating target URI!");
 		final URI targetURI = this.backend.getTargetURI(iResource, monitor);
 		this.setTargetURI(targetURI);
 		MyLog.trace(AbstractDiscovererWithLogic.class, "targetURI='"
 				+ targetURI.toString() + "'");
 
-		// final URI targetURI = DiscovererUtils.getTargetUri(iResource,
-		// monitor,
-		// this.isUseNeoEMF(), this.lastUri, this.isBatchMode());
-		// this.setTargetURI(targetURI);
-
 		// creating target resource
-		MyLog.log(AbstractDiscovererWithLogic.class, "creating target model!");
-		final Resource targetModel = this.createTargetModel();
-		if (this.isUseNeoEMF()) {
-			try {
-				MyLog.log(AbstractDiscovererWithLogic.class,
-						"saving target model - first!");
-				NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
-			} catch (final IOException ex) {
-				throw new DiscoveryException(ex);
-			}
-		}
-		final Model model = this.getModel(targetModel);
+		MyLog.trace(AbstractDiscovererWithLogic.class,
+				"creating target resource!");
+		final Resource targetModel = this.backend.createTargetResource();
+		this.setTargetModel(targetModel);
+
+		// create MyStore
+		MyLog.trace(AbstractDiscovererWithLogic.class, "creating MyStore!");
 		final MyStore result = new MyStore(this.getSettings(), monitor,
-				iResource, model);
-		return result;
-	}
-
-	private Model getModel(final Resource targetModel) {
-		final EList<EObject> list = targetModel.getContents();
-		if (this.getSettings().isBatchMode() && (list != null)
-				&& (list.size() == 1)) {
-			final EObject root = targetModel.getContents().get(0);
-			if (root instanceof Model) {
-				return (Model) root;
-			}
-		}
-		return this.createNewModel(targetModel);
-	}
-
-	private Model createNewModel(final Resource targetModel) {
-		final CommonFactory factory = CommonFactory.eINSTANCE;
-		final Model result = factory.createModel();
-		targetModel.getContents().add(result);
+				iResource, this);
 		return result;
 	}
 
@@ -150,8 +126,8 @@ AbstractDiscoverer<T> {
 	// }
 	// }
 
-	private final void discoverIResource(final IResource iResource)
-			throws Exception {
+	private final void discoverIResource() throws Exception {
+		final IResource iResource = this.myStore.getIResource();
 		if (iResource instanceof IFile) {
 			final IFile file = (IFile) iResource;
 			this.discoverFile(file.getLocation().toFile());
@@ -226,7 +202,7 @@ AbstractDiscoverer<T> {
 		MyLog.log(AbstractDiscovererWithLogic.class, "saving target model...");
 		// saving
 		final URI targetURI = this.getTargetURI();
-		final Resource targetModel = this.getTargetModel();
+		final Resource targetModel = this.getTargetResource();
 		this.backend.save(targetModel, targetURI);
 		final String currUriStr = targetURI.toFileString();
 		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");

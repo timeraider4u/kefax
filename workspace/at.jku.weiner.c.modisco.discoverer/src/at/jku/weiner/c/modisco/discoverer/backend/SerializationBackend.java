@@ -23,8 +23,9 @@ public abstract class SerializationBackend {
 	private final MySettings mySettings;
 
 	private ResourceSet resSet = null;
+	private Resource resource = null;
+
 	private URI lastUri = null;
-	private Resource lastResource = null;
 
 	protected SerializationBackend(final IDiscoverer discoverer,
 			final MySettings mySettings) {
@@ -32,7 +33,7 @@ public abstract class SerializationBackend {
 		this.mySettings = mySettings;
 	}
 
-	public ResourceSet getResourceSet() {
+	public final ResourceSet getResourceSet() {
 		if (this.resSet == null) {
 			this.resSet = this.createNewResourceSet();
 		}
@@ -41,15 +42,10 @@ public abstract class SerializationBackend {
 
 	protected abstract ResourceSet createNewResourceSet();
 
-	// public final URI getTargetURI(final IResource iResource,
-	// final IProgressMonitor monitor) throws DiscoveryException {
-	// return this.createNewTargetURI(iResource, monitor);
-	// }
-
 	public abstract URI getTargetURI(IResource iResource,
 			IProgressMonitor monitor) throws DiscoveryException;
 
-	protected URI createTargetFileURI(final IResource iResource,
+	protected final URI createTargetFileURI(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		// set-up path name parts
 		final String dir = DiscovererUtils.getTargetDirectory(iResource,
@@ -69,14 +65,23 @@ public abstract class SerializationBackend {
 
 	protected abstract String getBackendExtension();
 
-	protected abstract Resource createNewTargetResource();
+	public final Resource createTargetResource() throws DiscoveryException {
+		if (this.resource == null) {
+			this.resource = this.createNewTargetResource();
+			this.getResourceSet().getResources().add(this.resource);
+		}
+		return this.resource;
+	}
 
-	public void save(final Resource res, final URI uri) throws IOException {
+	protected abstract Resource createNewTargetResource()
+			throws DiscoveryException;
+
+	public final void save(final Resource res, final URI uri)
+			throws IOException {
 		res.setURI(uri);
 		this.saveTargetModel(res, uri);
 		this.deleteLastSavedInternal(uri);
 		this.lastUri = uri;
-		this.lastResource = res;
 	}
 
 	protected abstract void saveTargetModel(final Resource res, final URI uri)

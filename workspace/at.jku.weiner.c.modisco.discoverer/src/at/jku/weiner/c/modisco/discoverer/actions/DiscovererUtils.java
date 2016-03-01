@@ -16,11 +16,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 
 public final class DiscovererUtils {
@@ -136,23 +134,6 @@ public final class DiscovererUtils {
 		final String tmpStr = folder.getLocationURI().toString();
 		final String result = tmpStr.replaceAll("file[:]", "");
 		return result;
-	}
-
-	private final static URI getTargetUri(final IResource res,
-			final IProgressMonitor monitor, final boolean useNeoEMF,
-			final URI lastUri, final boolean batchMode)
-					throws DiscoveryException {
-		final URI uri = null;
-
-		if (useNeoEMF) {
-			// if ((lastUri != null) && batchMode) {
-			// return lastUri;
-			// }
-			final URI result = NeoEMFDiscoverUtils.createNeo4emfURI(uri);
-			MyLog.trace(DiscovererUtils.class, "resultURI='" + result + "'");
-			return result;
-		}
-		return uri;
 	}
 
 }

@@ -7,6 +7,6 @@ public interface IDiscoverer {
 	
 	public URI getTargetURI();
 	
-	public Resource getTargetModel();
+	public Resource getTargetResource();
 
 }

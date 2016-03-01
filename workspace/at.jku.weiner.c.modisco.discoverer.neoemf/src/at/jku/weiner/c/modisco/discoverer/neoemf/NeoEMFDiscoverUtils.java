@@ -34,7 +34,23 @@ public final class NeoEMFDiscoverUtils {
 
 	private static ResourceSet resSet = null;
 	private static URI uri = null;
-	
+
+	private static URI getTargetUri(final URI lastUri, final boolean batchMode) {
+		if ((lastUri != null) && batchMode) {
+			return lastUri;
+		}
+		final URI result = NeoEMFDiscoverUtils
+				.createNeo4emfURI(NeoEMFDiscoverUtils.uri);
+		MyLog.trace(NeoEMFDiscoverUtils.class, "resultURI='" + result + "'");
+		return result;
+	}
+
+	private static void saveTargetUriFirst(final URI targetURI,
+			final Resource targetModel) throws IOException {
+		MyLog.log(NeoEMFDiscoverUtils.class, "saving target model - first!");
+		NeoEMFDiscoverUtils.saveTargetModel(targetURI, targetModel);
+	}
+
 	public static ResourceSet createOrGetResSet() {
 		NeoEMFDiscoverUtils.unloadResSet();
 		final ResourceSet resSet = NeoEMFDiscoverUtils.getResSet();
@@ -83,7 +99,7 @@ public final class NeoEMFDiscoverUtils {
 			// }
 			NeoEMFDiscoverUtils.uri = null;
 		}
-		
+
 		NeoEMFDiscoverUtils.resSet = null;
 	}
 

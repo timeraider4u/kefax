@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.cdt.core.model.CoreModel;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -92,14 +91,6 @@ public final class DiscovererUtils {
 				.getFileExtension());
 		MyLog.trace(DiscovererUtils.class, "result=" + result);
 		return result;
-	}
-
-	protected static CoreModel getCoreModel() throws DiscoveryException {
-		final CoreModel coreModel = CoreModel.getDefault();
-		if (coreModel == null) {
-			throw new DiscoveryException("coremodel is null!");
-		}
-		return coreModel;
 	}
 
 	public static IFile getFileFor(final File file) throws DiscoveryException {

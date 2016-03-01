@@ -12,22 +12,14 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.common.common.CommonFactory;
-import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFile;
-import at.jku.weiner.c.modisco.discoverer.backend.SerializationBackend;
-import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
-import at.jku.weiner.c.modisco.discoverer.utils.ModelUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
@@ -35,7 +27,6 @@ AbstractDiscoverer<T> {
 
 	private MyStore myStore = null;
 	private XtextUtils xtextUtils = null;
-	private final URI lastUri = null;
 
 	protected final boolean isApplicableOn(final IResource iResource) {
 		return DiscovererUtils.isApplicableOn(iResource);
@@ -205,7 +196,8 @@ AbstractDiscoverer<T> {
 		final Resource targetModel = this.getTargetResource();
 		this.backend.save(targetModel, targetURI);
 		final String currUriStr = targetURI.toFileString();
-		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
+		MyLog.log(AbstractDiscovererWithLogic.class, "saved to='" + currUriStr
+				+ "'");
 
 		// update project
 		final IProject project = this.myStore.getIResource().getProject();

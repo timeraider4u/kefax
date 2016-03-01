@@ -14,7 +14,6 @@ import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.DiscovererUtils;
-import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFile;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
 public abstract class SerializationBackend {
@@ -96,11 +95,12 @@ public abstract class SerializationBackend {
 		if (lastUriStr.equals(currUriStr)) {
 			return;
 		}
-		MyLog.trace(DiscoverFromIFile.class,
+		MyLog.trace(SerializationBackend.class,
 				"batchMode, deleting previous uri='" + lastUriStr + "...");
 		final boolean deleted = this.deleteLastSaved(this.lastUri);
-		MyLog.log(DiscoverFromIFile.class, "batchMode, delete previous uri='"
-				+ lastUriStr + ", deleted='" + deleted + "'!");
+		MyLog.log(SerializationBackend.class,
+				"batchMode, delete previous uri='" + lastUriStr + ", deleted='"
+						+ deleted + "'!");
 	}
 
 	protected abstract boolean deleteLastSaved(final URI lastURI)

@@ -25,11 +25,14 @@ Require-Bundle: org.eclipse.ui,
  at.jku.weiner.c.parser.ui,
  at.jku.weiner.c.parser,
  org.eclipse.cdt.core,
- at.jku.weiner.c.modisco.discoverer.neoemf;bundle-version="1.0.0"
+ fr.inria.atlanmod.neoemf.graph.blueprints;bundle-version="0.0.1",
+ fr.inria.atlanmod.neoemf.graph.blueprints.neo4j;bundle-version="0.0.1",
+ fr.inria.atlanmod.neoemf.ui;bundle-version="0.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: at.jku.weiner.c.modisco.discoverer,
  at.jku.weiner.c.modisco.discoverer.actions,
  at.jku.weiner.c.modisco.discoverer.actions.impl,
+ at.jku.weiner.c.modisco.discoverer.neoemf,
  at.jku.weiner.c.modisco.discoverer.utils

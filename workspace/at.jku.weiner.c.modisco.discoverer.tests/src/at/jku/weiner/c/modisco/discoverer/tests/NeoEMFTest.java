@@ -27,12 +27,12 @@ public class NeoEMFTest {
 	private CommonFactory commonFactory;
 	private PreprocessFactory preprocessFactory;
 	private ParserFactory parserFactory;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		final String path = "/tmp/neoemf-" + NeoEMFTest.i;
 		NeoEMFTest.i++;
-		
+
 		final URI fileUri = URI.createFileURI(path);
 		Assert.assertNotNull(fileUri);
 
@@ -67,7 +67,7 @@ public class NeoEMFTest {
 		NeoEMFDiscoverUtils.saveTargetModel(this.uri, this.res);
 		Thread.sleep(500);
 	}
-	
+
 	private Model createModel(final String testName) {
 		final Model model = this.commonFactory.createModel();
 		final TranslationUnit unit = this.commonFactory.createTranslationUnit();
@@ -84,5 +84,5 @@ public class NeoEMFTest {
 		this.res.getContents().add(model);
 		return model;
 	}
-	
+
 }

@@ -1,14 +1,11 @@
 package at.jku.weiner.c.modisco.discoverer.neoemf;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,11 +13,8 @@ import org.eclipse.emf.ecore.resource.Resource.Factory.Registry;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import at.jku.weiner.c.common.common.CommonFactory;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.neoemf.utils.Messages;
-import fr.inria.atlanmod.neoemf.datastore.PersistenceBackend;
+import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import fr.inria.atlanmod.neoemf.datastore.PersistenceBackendFactoryRegistry;
 import fr.inria.atlanmod.neoemf.graph.blueprints.datastore.BlueprintsPersistenceBackendFactory;
 import fr.inria.atlanmod.neoemf.graph.blueprints.neo4j.resources.BlueprintsNeo4jResourceOptions;

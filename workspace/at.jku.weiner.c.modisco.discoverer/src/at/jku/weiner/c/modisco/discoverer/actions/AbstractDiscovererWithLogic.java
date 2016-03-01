@@ -30,16 +30,16 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
-AbstractDiscoverer<T> {
-	
+		AbstractDiscoverer<T> {
+
 	private MyStore myStore = null;
 	private XtextUtils xtextUtils = null;
 	private final URI lastUri = null;
-	
+
 	protected final boolean isApplicableOn(final IResource iResource) {
 		return DiscovererUtils.isApplicableOn(iResource);
 	}
-	
+
 	protected final void discover(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
@@ -52,23 +52,23 @@ AbstractDiscoverer<T> {
 			monitor.done();
 		}
 	}
-	
+
 	private final void discover2(final IResource iResource,
 			IProgressMonitor monitor) throws Exception {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
-		
+
 		this.myStore = this.initialize(iResource, monitor);
 		this.xtextUtils = new XtextUtils(this.myStore);
-		
+
 		this.discoverIResource(iResource);
-		
+
 		// clean-up
 		this.xtextUtils.cleanUp();
 	}
-	
+
 	/***
 	 * initialize all data values
 	 *
@@ -80,10 +80,9 @@ AbstractDiscoverer<T> {
 	 */
 	private final MyStore initialize(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
-		if (this.isUseNeoEMF()) {
-			final ResourceSet resSet = NeoEMFDiscoverUtils.createOrGetResSet();
-			this.setResourceSet(resSet);
-		}
+		final ResourceSet resSet = this.backend.getResourceSet();
+		this.setResourceSet(resSet);
+
 		final URI targetURI = DiscovererUtils.getTargetUri(iResource, monitor,
 				this.isUseNeoEMF(), this.lastUri, this.isBatchMode());
 		this.setTargetURI(targetURI);
@@ -103,7 +102,7 @@ AbstractDiscoverer<T> {
 				iResource, model);
 		return result;
 	}
-	
+
 	private Model getModel(final Resource targetModel) {
 		final EList<EObject> list = targetModel.getContents();
 		if (this.getSettings().isBatchMode() && (list != null)
@@ -115,14 +114,14 @@ AbstractDiscoverer<T> {
 		}
 		return this.createNewModel(targetModel);
 	}
-	
+
 	private Model createNewModel(final Resource targetModel) {
 		final CommonFactory factory = CommonFactory.eINSTANCE;
 		final Model result = factory.createModel();
 		targetModel.getContents().add(result);
 		return result;
 	}
-	
+
 	// @Override
 	// protected Resource createTargetModel() {
 	// if (this.isUseNeoEMF()) {
@@ -141,7 +140,7 @@ AbstractDiscoverer<T> {
 	// return res;
 	// }
 	// }
-	
+
 	private final void discoverIResource(final IResource iResource)
 			throws Exception {
 		if (iResource instanceof IFile) {
@@ -156,7 +155,7 @@ AbstractDiscoverer<T> {
 			MyLog.error(AbstractDiscovererWithLogic.class, ex);
 		}
 	}
-	
+
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -176,19 +175,19 @@ AbstractDiscoverer<T> {
 				this.discoverDirectory(file);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-						.getFileExtension();
+				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file);
 				}
 			}
 		}
 	}
-	
+
 	private final void discoverFile(final File file) throws Exception {
 		MyLog.log(AbstractDiscovererWithLogic.class, "discovering file='"
 				+ file.getAbsolutePath() + "'...");
 		try {
-			
+
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			this.xtextUtils.readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscovererWithLogic.class,
@@ -198,7 +197,7 @@ AbstractDiscoverer<T> {
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-	
+
 	/***
 	 * saving
 	 *
@@ -213,7 +212,7 @@ AbstractDiscoverer<T> {
 			throw new IOException(ex);
 		}
 	}
-	
+
 	private final void saveTargetModel2() throws CoreException, IOException {
 		MyLog.log(AbstractDiscovererWithLogic.class, "saving target model...");
 		// saving
@@ -222,11 +221,11 @@ AbstractDiscoverer<T> {
 		this.backend.save(targetModel, targetURI);
 		final String currUriStr = targetURI.toFileString();
 		MyLog.log(DiscoverFromIFile.class, "saved to='" + currUriStr + "'");
-
+		
 		// update project
 		final IProject project = this.myStore.getIResource().getProject();
 		project.refreshLocal(IResource.DEPTH_INFINITE,
 				this.myStore.getMonitor());
 	}
-
+	
 }

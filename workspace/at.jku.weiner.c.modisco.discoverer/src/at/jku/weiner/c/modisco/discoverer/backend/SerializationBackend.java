@@ -11,34 +11,44 @@ import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIFile;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
 public abstract class SerializationBackend {
-
+	
 	protected final IDiscoverer discoverer;
 	private final MySettings mySettings;
-	
-	private URI lastUri = null;
 
+	private ResourceSet resSet = null;
+	private URI lastUri = null;
+	private Resource lastResource = null;
+	
 	protected SerializationBackend(final IDiscoverer discoverer,
 			final MySettings mySettings) {
 		this.discoverer = discoverer;
 		this.mySettings = mySettings;
 	}
-
-	protected abstract ResourceSet createNewResourceSet();
 	
-	protected abstract Resource createNewTargetResource();
+	public ResourceSet getResourceSet() {
+		if (this.resSet == null) {
+			this.resSet = this.createNewResourceSet();
+		}
+		return this.resSet;
+	}
+	
+	protected abstract ResourceSet createNewResourceSet();
 
+	protected abstract Resource createNewTargetResource();
+	
 	public void save(final Resource res, final URI uri) throws IOException {
 		res.setURI(uri);
 		this.saveTargetModel(res, uri);
 		this.deleteLastSavedInternal(uri);
 		this.lastUri = uri;
+		this.lastResource = res;
 	}
-
+	
 	protected abstract void saveTargetModel(final Resource res, final URI uri)
 			throws IOException;
-	
+
 	private void deleteLastSavedInternal(final URI currUri) throws IOException {
-		if ((this.mySettings.isBatchMode()) || (this.lastUri == null)) {
+		if ((!(this.mySettings.isBatchMode())) || (this.lastUri == null)) {
 			return;
 		}
 		final String currUriStr = currUri.toFileString();
@@ -52,8 +62,8 @@ public abstract class SerializationBackend {
 		MyLog.log(DiscoverFromIFile.class, "batchMode, delete previous uri='"
 				+ lastUriStr + ", deleted='" + deleted + "'!");
 	}
-	
+
 	protected abstract boolean deleteLastSaved(final URI lastURI)
 			throws IOException;
-
+	
 }

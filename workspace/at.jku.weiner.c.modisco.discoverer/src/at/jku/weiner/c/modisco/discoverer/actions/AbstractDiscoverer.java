@@ -9,26 +9,26 @@ import at.jku.weiner.c.modisco.discoverer.backend.SerializationFactory;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 
 public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
-		implements IDiscoverer {
-	
+implements IDiscoverer {
+
 	private final MySettings settings = new MySettings();
 	protected SerializationBackend backend = null;
-	
+
 	public AbstractDiscoverer() {
 		super();
 		super.setSerializeTarget(true);
 		this.backend = SerializationFactory.getBackend(
 				this.settings.isUseNeoEMF(), this, this.settings);
 	}
-	
+
 	protected final MySettings getSettings() {
 		return this.settings;
 	}
-	
+
 	public final boolean isSetStdInclude() {
 		return this.settings.isSetStdInclude();
 	}
-	
+
 	@Parameter(
 			name = "STD_INCLUDE",
 			requiresInputValue = false,
@@ -36,11 +36,11 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 	public final void setSetStdInclude(final boolean setStdInclude) {
 		this.settings.setSetStdInclude(setStdInclude);
 	}
-	
+
 	public final String getIncludeDirs() {
 		return this.settings.getIncludeDirs();
 	}
-	
+
 	@Parameter(
 			name = "INCLUDE_DIRS",
 			requiresInputValue = false,
@@ -48,11 +48,11 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 	public final void setIncludeDirs(final String includeDirs) {
 		this.settings.setIncludeDirs(includeDirs);
 	}
-	
+
 	public final String getAdditionalDirectives() {
 		return this.settings.getAdditionalDirectives();
 	}
-	
+
 	@Parameter(
 			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
 			requiresInputValue = false,
@@ -61,22 +61,22 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 	public final void setAdditionalDirectives(final String defines) {
 		this.settings.setAdditionalDirectives(defines);
 	}
-	
+
 	public final boolean isTrimPreprocessModel() {
 		return this.settings.isTrimPreprocessModel();
 	}
-	
+
 	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
 			description = "Remove code and empty lines from preprocessor model"
 					+ "(" + MySettings.EXCLUSIVE_MSG + ")")
 	public final void setTrimPreprocessModel(final boolean trimPreprocessModel) {
 		this.settings.setTrimPreprocessModel(trimPreprocessModel);
 	}
-	
+
 	public final boolean isBatchMode() {
 		return this.settings.isBatchMode();
 	}
-	
+
 	@Parameter(
 			name = "BATCH_MODE",
 			requiresInputValue = false,
@@ -85,7 +85,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 	public final void setBatchMode(final boolean batchMode) {
 		this.settings.setBatchMode(batchMode);
 	}
-	
+
 	@Parameter(
 			name = "USENEOEMF",
 			requiresInputValue = false,
@@ -95,9 +95,9 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 		this.backend = SerializationFactory.getBackend(setUseNeoEMF, this,
 				this.settings);
 	}
-	
+
 	public final boolean isUseNeoEMF() {
 		return this.settings.isUseNeoEMF();
 	}
-	
+
 }

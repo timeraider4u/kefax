@@ -1,9 +1,7 @@
 package at.jku.weiner.c.modisco.discoverer.actions;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.cdt.core.model.CoreModel;
@@ -25,7 +23,7 @@ import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.neoemf.NeoEMFDiscoverUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 
-final class DiscovererUtils {
+public final class DiscovererUtils {
 	private static List<String> extensionList = null;
 
 	private DiscovererUtils() {
@@ -140,12 +138,12 @@ final class DiscovererUtils {
 		return result;
 	}
 
-	public static URI getTargetUri(final IResource res,
+	private final static URI getTargetUri(final IResource res,
 			final IProgressMonitor monitor, final boolean useNeoEMF,
 			final URI lastUri, final boolean batchMode)
 					throws DiscoveryException {
-		final URI uri = DiscovererUtils.createNewFileUri(res, monitor,
-				useNeoEMF);
+		final URI uri = null;
+
 		if (useNeoEMF) {
 			// if ((lastUri != null) && batchMode) {
 			// return lastUri;
@@ -155,29 +153,6 @@ final class DiscovererUtils {
 			return result;
 		}
 		return uri;
-	}
-
-	private static URI createNewFileUri(final IResource res,
-			final IProgressMonitor monitor, final boolean useNeoEMF)
-			throws DiscoveryException {
-		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
-		MyLog.trace(DiscovererUtils.class, "targetPath='" + path + "'");
-		final Date dNow = new Date();
-		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
-		final String prefix = ft.format(dNow);
-		MyLog.trace(DiscovererUtils.class, "prefix='" + prefix + "'");
-		final String model = path + IPath.SEPARATOR + "discover-" + prefix
-				+ DiscovererUtils.getBackendExtension(useNeoEMF);
-		MyLog.trace(DiscovererUtils.class, "modelURI='" + model + "'");
-		final URI uri = URI.createFileURI(model);
-		return uri;
-	}
-
-	private static String getBackendExtension(final boolean useNeoEMF) {
-		if (useNeoEMF) {
-			return NeoEMFDiscoverUtils.getBackendExtension();
-		}
-		return Messages.modelFileSuffix;
 	}
 
 }

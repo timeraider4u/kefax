@@ -8,10 +8,10 @@ public final class SerializationFactory {
 
 	}
 
-	public static SerializationBackend getBackend(final boolean useNeoEMF,
-			final IDiscoverer discoverer, final MySettings mySettings) {
-		if (useNeoEMF) {
-			return null;
+	public static SerializationBackend getBackend(final IDiscoverer discoverer,
+			final MySettings mySettings) {
+		if (mySettings.isUseNeoEMF()) {
+			return new NeoEMFSerializationBackend(discoverer, mySettings);
 		} else {
 			return new XMISerializationBackend(discoverer, mySettings);
 		}

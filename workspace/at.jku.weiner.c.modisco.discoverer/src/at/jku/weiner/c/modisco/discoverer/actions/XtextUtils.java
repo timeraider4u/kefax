@@ -41,6 +41,7 @@ public class XtextUtils {
 	}
 
 	private Injector setupCommon() {
+		MyLog.trace(XtextUtils.class, "setupCommon!");
 		final CommonActivator activator = CommonActivator.getInstance();
 		final Injector result = activator
 				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
@@ -48,33 +49,46 @@ public class XtextUtils {
 	}
 
 	private void setUpPredefinedMacros() {
+		MyLog.trace(XtextUtils.class, "setup predefined macros!");
 		final URI uri = PredefinedMacros.getPredefinedURI(false, this.store
 				.getMySettings().isSetStdInclude());
+		MyLog.trace(XtextUtils.class, "uri='" + uri + "'!");
 		if (this.store.getMySettings().isBatchMode()) {
 			// skip loading pre-defined macros if already in added to model
 			// by previous discover call
 			final String uriPath = uri.toString();
-			EList<TranslationUnit> units = this.store.getModel().getUnits();
-			for (TranslationUnit unit : units) {
+			final EList<TranslationUnit> units = this.store.getModel()
+					.getUnits();
+			for (final TranslationUnit unit : units) {
 				final String unitPath = unit.getPath();
 				if (uriPath.equals(unitPath)) {
 					return;
 				}
 			}
 		}
+		
+		MyLog.trace(XtextUtils.class, "PredefinedMacros.loadPreDefinedMacros!");
 		final Preprocess preprocess = PredefinedMacros.loadPreDefinedMacros(
 				false, this.store.getMySettings().isSetStdInclude());
+		MyLog.trace(XtextUtils.class,
+				"PredefinedMacros.loadPreDefinedMacros done!");
 		final TranslationUnit predefined = this.store.getFactory()
 				.createTranslationUnit();
+		MyLog.trace(XtextUtils.class, "created translation unit!");
 		predefined.setPreprocess(preprocess);
 		final String path = uri.toString();
 		predefined.setPath(path);
+
+		MyLog.trace(XtextUtils.class, "adding predefined to model!");
 		this.store.getModel().getUnits().add(predefined);
+		MyLog.trace(XtextUtils.class, "setUpPredefinedMacros done!");
 	}
 
 	public final void readFromXtextFile(final File file, final IFile iFile)
 			throws Exception {
 		// initialize ...
+		MyLog.trace(XtextUtils.class, "starting readFromXtextFil!");
+
 		this.cleanUp();
 		final TranslationUnit unit = this.store.getFactory()
 				.createTranslationUnit();

@@ -14,7 +14,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.log.MyLog;
@@ -23,15 +22,15 @@ import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
-AbstractDiscoverer<T> {
-
+		AbstractDiscoverer<T> {
+	
 	private MyStore myStore = null;
 	private XtextUtils xtextUtils = null;
-
+	
 	protected final boolean isApplicableOn(final IResource iResource) {
 		return DiscovererUtils.isApplicableOn(iResource);
 	}
-
+	
 	protected final void discover(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		try {
@@ -44,23 +43,23 @@ AbstractDiscoverer<T> {
 			monitor.done();
 		}
 	}
-
+	
 	private final void discover2(final IResource iResource,
 			IProgressMonitor monitor) throws Exception {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
-
-		this.myStore = this.initialize(iResource, monitor);
-		this.xtextUtils = new XtextUtils(this.myStore);
+		
+		this.initialize(iResource, monitor);
+		MyLog.trace(AbstractDiscovererWithLogic.class, "initialization done!");
 
 		this.discoverIResource();
-
+		
 		// clean-up
 		this.xtextUtils.cleanUp();
 	}
-
+	
 	/***
 	 * initialize all data values
 	 *
@@ -70,53 +69,40 @@ AbstractDiscoverer<T> {
 	 * @return
 	 * @throws DiscoveryException
 	 */
-	private final MyStore initialize(final IResource iResource,
+	private final void initialize(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
+		// check if previous discoverer has been closed successfully
+		if ((!AbstractDiscoverer.closeCalled)
+				&& (!this.getSettings().isBatchMode())) {
+			throw new DiscoveryException(
+					"close has not been called before starting new discovery!");
+		}
+		AbstractDiscoverer.closeCalled = false;
 
-		// creating resource set
-		MyLog.trace(AbstractDiscovererWithLogic.class, "creating resource set!");
-		final ResourceSet resSet = this.backend.getResourceSet();
-		this.setResourceSet(resSet);
-
+		// initialize backend
+		MyLog.trace(AbstractDiscovererWithLogic.class, "initialize backend!");
+		this.backend.initialize();
+		
 		// creating target URI
 		MyLog.trace(AbstractDiscovererWithLogic.class, "creating target URI!");
-		final URI targetURI = this.backend.getTargetURI(iResource, monitor);
-		this.setTargetURI(targetURI);
-		MyLog.trace(AbstractDiscovererWithLogic.class, "targetURI='"
-				+ targetURI.toString() + "'");
-
+		this.backend.updateTargetURI(iResource, monitor);
+		
 		// creating target resource
 		MyLog.trace(AbstractDiscovererWithLogic.class,
 				"creating target resource!");
-		final Resource targetModel = this.backend.createTargetResource();
-		this.setTargetModel(targetModel);
-
+		this.backend.updateTargetResource();
+		
 		// create MyStore
 		MyLog.trace(AbstractDiscovererWithLogic.class, "creating MyStore!");
 		final MyStore result = new MyStore(this.getSettings(), monitor,
 				iResource, this);
-		return result;
+		this.myStore = result;
+
+		// create XText utilities
+		MyLog.trace(AbstractDiscovererWithLogic.class, "creating xtext utils!");
+		this.xtextUtils = new XtextUtils(this.myStore);
 	}
-
-	// @Override
-	// protected Resource createTargetModel() {
-	// if (this.isUseNeoEMF()) {
-	// // final Resource targetModel = this.getTargetModel();
-	// // if (targetModel != null) {
-	// // return targetModel;
-	// // }
-	// final URI targetURI = this.getTargetURI();
-	// final Resource newTargetModel = NeoEMFDiscoverUtils
-	// .createTargetModel(targetURI);
-	//
-	// this.setTargetModel(newTargetModel);
-	// return newTargetModel;
-	// } else {
-	// final Resource res = super.createTargetModel();
-	// return res;
-	// }
-	// }
-
+	
 	private final void discoverIResource() throws Exception {
 		final IResource iResource = this.myStore.getIResource();
 		if (iResource instanceof IFile) {
@@ -131,7 +117,7 @@ AbstractDiscoverer<T> {
 			MyLog.error(AbstractDiscovererWithLogic.class, ex);
 		}
 	}
-
+	
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -151,19 +137,19 @@ AbstractDiscoverer<T> {
 				this.discoverDirectory(file);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-						.getFileExtension();
+				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file);
 				}
 			}
 		}
 	}
-
+	
 	private final void discoverFile(final File file) throws Exception {
 		MyLog.log(AbstractDiscovererWithLogic.class, "discovering file='"
 				+ file.getAbsolutePath() + "'...");
 		try {
-
+			
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			this.xtextUtils.readFromXtextFile(file, iFile);
 			MyLog.log(AbstractDiscovererWithLogic.class,
@@ -173,7 +159,7 @@ AbstractDiscoverer<T> {
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 	}
-
+	
 	/***
 	 * saving
 	 *
@@ -188,7 +174,7 @@ AbstractDiscoverer<T> {
 			throw new IOException(ex);
 		}
 	}
-
+	
 	private final void saveTargetModel2() throws CoreException, IOException {
 		MyLog.log(AbstractDiscovererWithLogic.class, "saving target model...");
 		// saving
@@ -198,11 +184,16 @@ AbstractDiscoverer<T> {
 		final String currUriStr = targetURI.toFileString();
 		MyLog.log(AbstractDiscovererWithLogic.class, "saved to='" + currUriStr
 				+ "'");
-
+		
 		// update project
 		final IProject project = this.myStore.getIResource().getProject();
 		project.refreshLocal(IResource.DEPTH_INFINITE,
 				this.myStore.getMonitor());
 	}
-
+	
+	public void close() {
+		this.backend.close();
+		AbstractDiscoverer.closeCalled = true;
+	}
+	
 }

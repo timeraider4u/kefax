@@ -26,6 +26,7 @@ public class TestUtils {
 	public static final void reset() {
 		TestUtils.isEmpty = false;
 		TestUtils.mySettings = new MySettings();
+		TestUtils.mySettings.setUseNeoEMF(true);
 	}
 
 	public TestUtils(final IProject iProject, final String testName,
@@ -99,7 +100,7 @@ public class TestUtils {
 	}
 
 	public void cleanUp() {
-		// this.discoverer.unloadResource();
+		this.discoverer.close();
 		// PersistentResourceImpl
 		// .shutdownWithoutUnload((PersistentResourceImpl)
 		// this.discoveredModel);

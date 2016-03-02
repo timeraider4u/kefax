@@ -19,11 +19,9 @@ import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 public abstract class SerializationBackend {
 
 	protected final IDiscoverer discoverer;
-	private final MySettings mySettings;
+	protected final MySettings mySettings;
 
-	private ResourceSet resSet = null;
 	private Resource resource = null;
-
 	private URI lastUri = null;
 
 	protected SerializationBackend(final IDiscoverer discoverer,
@@ -32,16 +30,42 @@ public abstract class SerializationBackend {
 		this.mySettings = mySettings;
 	}
 
-	public final ResourceSet getResourceSet() {
-		if (this.resSet == null) {
-			this.resSet = this.createNewResourceSet();
+	protected final URI getLastUri() {
+		return this.lastUri;
+	}
+	
+	public final void initialize() throws DiscoveryException {
+		this.getResourceSet(true);
+		this.initializeInternal();
+	}
+	
+	protected abstract void initializeInternal() throws DiscoveryException;
+	
+	protected final ResourceSet getResourceSet() throws DiscoveryException {
+		return this.getResourceSet(false);
+	}
+
+	protected final ResourceSet getResourceSet(final boolean reset)
+			throws DiscoveryException {
+		ResourceSet resSet = this.discoverer.getResourceSet();
+		if ((resSet == null) || reset) {
+			resSet = this.createNewResourceSet();
+			this.discoverer.setResourceSet(resSet);
 		}
-		return this.resSet;
+		return resSet;
 	}
 
 	protected abstract ResourceSet createNewResourceSet();
 
-	public abstract URI getTargetURI(IResource iResource,
+	public final void updateTargetURI(final IResource iResource,
+			final IProgressMonitor monitor) throws DiscoveryException {
+		final URI targetURI = this.createTargetURI(iResource, monitor);
+		this.discoverer.setTargetURI(targetURI);
+		MyLog.trace(SerializationBackend.class,
+				"targetURI='" + targetURI.toString() + "'");
+	}
+	
+	protected abstract URI createTargetURI(IResource iResource,
 			IProgressMonitor monitor) throws DiscoveryException;
 
 	protected final URI createTargetFileURI(final IResource iResource,
@@ -64,16 +88,23 @@ public abstract class SerializationBackend {
 
 	protected abstract String getBackendExtension();
 
-	public final Resource createTargetResource() throws DiscoveryException {
+	public final void updateTargetResource() throws DiscoveryException {
 		if (this.resource == null) {
-			this.resource = this.createNewTargetResource();
+			try {
+				this.resource = this.createNewTargetResource(this.discoverer
+						.getTargetURI());
+			} catch (final IOException ex) {
+				final DiscoveryException newEx = new DiscoveryException(ex);
+				MyLog.errorNoThrows(SerializationBackend.class, newEx);
+				throw newEx;
+			}
 			this.getResourceSet().getResources().add(this.resource);
 		}
-		return this.resource;
+		this.discoverer.setTargetResource(this.resource);
 	}
 
-	protected abstract Resource createNewTargetResource()
-			throws DiscoveryException;
+	protected abstract Resource createNewTargetResource(URI uri)
+			throws DiscoveryException, IOException;
 
 	public final void save(final Resource res, final URI uri)
 			throws IOException {
@@ -105,5 +136,20 @@ public abstract class SerializationBackend {
 
 	protected abstract boolean deleteLastSaved(final URI lastURI)
 			throws IOException;
-
+	
+	public final void close() {
+		if ((this.discoverer.getResourceSet() == null)
+				|| (this.discoverer.getTargetURI() == null)
+				|| (this.discoverer.getTargetResource() == null)) {
+			return;
+		}
+		try {
+			this.closeInternal();
+		} catch (final Exception ex) {
+			MyLog.errorNoThrows(SerializationBackend.class, ex);
+		}
+	}
+	
+	protected abstract void closeInternal() throws IOException;
+	
 }

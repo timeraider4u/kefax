@@ -6,6 +6,7 @@ import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 import at.jku.weiner.c.common.common.CommonFactory;
 import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.backend.IDiscoverer;
 
 public final class MyStore {
@@ -25,9 +26,12 @@ public final class MyStore {
 		this.monitor = monitor;
 		this.iResource = iResource;
 
+		MyLog.trace(MyStore.class, "getting common factory!");
 		this.factory = ModelUtils.getCommonFactory();
+		MyLog.trace(MyStore.class, "creating/getting model!");
 		this.model = ModelUtils.getModel(mySettings,
 				discoverer.getTargetResource());
+		MyLog.trace(MyStore.class, "initialization of MyStore finished!");
 	}
 
 	public IProgressMonitor getMonitor() {

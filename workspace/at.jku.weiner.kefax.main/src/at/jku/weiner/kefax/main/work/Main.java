@@ -32,6 +32,7 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
 import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.c.modisco.discoverer.actions.AbstractDiscoverer;
 import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 
@@ -55,15 +56,17 @@ public class Main {
 	private IStatus run1(final IProgressMonitor monitor) {
 		IStatus result = Status.OK_STATUS;
 		final Date start = new Date();
+		final DiscoverFromIResource discoverer = new DiscoverFromIResource();
 		try {
 			MyLog.log(Main.class,
 					"at.jku.weiner.kefax.main - Start of program!");
-			result = this.run2(monitor);
+			result = this.run2(monitor, discoverer);
 		} catch (final Exception ex) {
 			ex.printStackTrace();
 			MyLog.errorNoThrows(Main.class, ex);
 			result = Status.CANCEL_STATUS;
 		} finally {
+			discoverer.close();
 			monitor.done();
 		}
 		final Date end = new Date();
@@ -77,7 +80,8 @@ public class Main {
 		return result;
 	}
 
-	private IStatus run2(final IProgressMonitor monitor) throws Exception {
+	private IStatus run2(final IProgressMonitor monitor,
+			final DiscoverFromIResource discoverer) throws Exception {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		final IProject project = root.getProject("HelloC");
 		final IResource cmdRes = project.findMember("test.cmd");
@@ -125,7 +129,6 @@ public class Main {
 					+ "'");
 		}
 		// iterate command lines
-		final DiscoverFromIResource discoverer = new DiscoverFromIResource();
 		monitor.beginTask("iterating modules", cmdLines.size());
 		final int total = cmdLines.size() + 1;
 		for (int i = 0; i < cmdLines.size(); i++) {
@@ -169,8 +172,8 @@ public class Main {
 			// discoverer.setTrimPreprocessModel(true);
 			discoverer.setBatchMode(true);
 			// discoverer.setBatchMode(false);
-			discoverer.setUseNeoEMF(true);
-			// discoverer.setUseNeoEMF(false);
+			// discoverer.setUseNeoEMF(true);
+			discoverer.setUseNeoEMF(false);
 
 			discoverer.discoverElement(inFileRes, monitor);
 		}

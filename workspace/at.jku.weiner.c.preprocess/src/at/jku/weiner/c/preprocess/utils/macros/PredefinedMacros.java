@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 
 import com.google.common.collect.Iterators;
@@ -18,18 +19,27 @@ import com.google.common.collect.Iterators;
 public class PredefinedMacros {
 	public static final String MACRO_FILE = "__FILE__";
 	public static final String MACRO_LINE = "__LINE__";
-	
+
 	private static final String BUNDLE_NAME = "at.jku.weiner.c.preprocess";
 
 	private static Preprocess predefined = null;
-	private static boolean stdPreInclude;
+	private static boolean stdPreInclude = false;
+
+	public static void clear() {
+		PredefinedMacros.predefined = null;
+		PredefinedMacros.stdPreInclude = false;
+	}
 
 	public static Preprocess loadPreDefinedMacros(final boolean standAlone,
 			final boolean stdInclude) {
 		if ((PredefinedMacros.predefined != null)
 				&& (PredefinedMacros.stdPreInclude == stdInclude)) {
+			MyLog.trace(PredefinedMacros.class,
+					"returning an existing pre-defined macros preprocessor");
 			return PredefinedMacros.predefined;
 		}
+		MyLog.trace(PredefinedMacros.class,
+				"creating a new predefined-macros preprocessor");
 		final URI predefinedURI = PredefinedMacros.getPredefinedURI(standAlone,
 				stdInclude);
 		final ResourceSet rs = new XtextResourceSet();

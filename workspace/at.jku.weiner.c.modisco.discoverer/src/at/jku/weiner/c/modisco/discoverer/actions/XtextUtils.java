@@ -66,7 +66,7 @@ public class XtextUtils {
 				}
 			}
 		}
-		
+
 		MyLog.trace(XtextUtils.class, "PredefinedMacros.loadPreDefinedMacros!");
 		final Preprocess preprocess = PredefinedMacros.loadPreDefinedMacros(
 				false, this.store.getMySettings().isSetStdInclude());
@@ -75,7 +75,11 @@ public class XtextUtils {
 		final TranslationUnit predefined = this.store.getFactory()
 				.createTranslationUnit();
 		MyLog.trace(XtextUtils.class, "created translation unit!");
+		MyLog.trace(XtextUtils.class, "predefined='" + predefined + "'");
+		MyLog.trace(XtextUtils.class, "preprocess='" + preprocess + "'");
+
 		predefined.setPreprocess(preprocess);
+		MyLog.trace(XtextUtils.class, "setted pre-process to translation unit!");
 		final String path = uri.toString();
 		predefined.setPath(path);
 
@@ -127,7 +131,7 @@ public class XtextUtils {
 
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);

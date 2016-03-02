@@ -27,9 +27,11 @@ import fr.inria.atlanmod.neoemf.resources.impl.PersistentResourceFactoryImpl;
 import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
+import at.jku.weiner.c.parser.utils.ParserUnloader;
+import at.jku.weiner.c.preprocess.utils.PreprocessUnloader;
 
 public class NeoEMFSerializationBackend extends SerializationBackend {
-	
+
 	private static ResourceSet lastResSet = null;
 
 	protected NeoEMFSerializationBackend(final IDiscoverer discoverer,
@@ -39,7 +41,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 
 	@Override
 	protected final void initializeInternal() throws DiscoveryException {
-		
+
 	}
 
 	@Override
@@ -55,7 +57,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		NeoEMFSerializationBackend.lastResSet = resSet;
 		return resSet;
 	}
-	
+
 	@Override
 	public URI createTargetURI(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
@@ -116,6 +118,8 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 
 	@Override
 	protected void closeInternal() throws IOException {
+		PreprocessUnloader.unloadCachedStuff();
+		ParserUnloader.unloadCachedStuff();
 		this.unloadResSet();
 	}
 
@@ -126,7 +130,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		MyLog.trace(NeoEMFSerializationBackend.class,
 				"unloading resource set - phase 2!");
 		if ((NeoEMFSerializationBackend.lastResSet != null)) {
-			
+
 			final EList<Resource> list = NeoEMFSerializationBackend.lastResSet
 					.getResources();
 			if (list != null) {

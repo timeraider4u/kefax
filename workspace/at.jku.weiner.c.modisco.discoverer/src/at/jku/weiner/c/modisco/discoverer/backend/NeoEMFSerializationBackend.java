@@ -98,15 +98,15 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		final Map<Object, Object> options = new HashMap<Object, Object>();
 		final List<Object> storeOptions = new ArrayList<Object>();
 		// storeOptions.add(PersistentResourceOptions.EStoreOption.LOGGING);
-		storeOptions
-		.add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
+		// storeOptions
+		// .add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
 		storeOptions
 		.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
 		options.put(BlueprintsResourceOptions.OPTIONS_BLUEPRINTS_GRAPH_TYPE,
 				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_TYPE_NEO4J);
 		options.put(
 				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_NEO4J_CACHE_TYPE,
-				BlueprintsNeo4jResourceOptions.CACHE_TYPE.WEAK);
+				BlueprintsNeo4jResourceOptions.CACHE_TYPE.STRONG);
 		options.put(PersistentResourceOptions.STORE_OPTIONS, storeOptions);
 		res.save(options);
 	}

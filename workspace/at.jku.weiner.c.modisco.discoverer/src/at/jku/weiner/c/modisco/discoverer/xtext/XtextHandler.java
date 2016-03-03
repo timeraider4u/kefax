@@ -75,11 +75,11 @@ public abstract class XtextHandler<T> {
 		this.setUp(file, iFile);
 		// load resource
 		this.resource = this.loadResource(file, iFile);
-		MyLog.trace(XtextHandler.class, "get resource was successfull!");
+		MyLog.debug(XtextHandler.class, "get resource was successfull!");
 		this.validateResource(this.resource);
-		MyLog.trace(XtextHandler.class, "validation was successfull!");
+		MyLog.debug(XtextHandler.class, "validation was successfull!");
 		final EObject object = this.resource.getContents().get(0);
-		MyLog.trace(XtextHandler.class,
+		MyLog.debug(XtextHandler.class,
 				"get contents from resource was successfull!");
 		if (object == null) {
 			this.error("Returned object of file='" + file.getAbsolutePath()
@@ -88,7 +88,7 @@ public abstract class XtextHandler<T> {
 		try {
 			@SuppressWarnings("unchecked")
 			final T result = (T) object;
-			MyLog.trace(
+			MyLog.debug(
 					XtextHandler.class,
 					"XText parsing was successfuly for file='"
 							+ file.toString() + "'!");
@@ -132,6 +132,7 @@ public abstract class XtextHandler<T> {
 		MyLog.trace(XtextHandler.class, "uri.toString()='" + uri.toString()
 				+ "'");
 		final Resource resource = resourceSet.getResource(uri, true);
+		MyLog.trace(XtextHandler.class, "Resource='" + resource + "'");
 		return resource;
 	}
 	

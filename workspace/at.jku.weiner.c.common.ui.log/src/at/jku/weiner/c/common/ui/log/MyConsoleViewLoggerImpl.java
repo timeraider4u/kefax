@@ -1,5 +1,7 @@
 package at.jku.weiner.c.common.ui.log;
 
+import java.io.IOException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
@@ -37,11 +39,17 @@ public final class MyConsoleViewLoggerImpl implements MyConsoleViewLogger {
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				Color red = Display.getDefault().getSystemColor(SWT.COLOR_RED);
+				final Color red = Display.getDefault().getSystemColor(
+						SWT.COLOR_RED);
 				out.setColor(red);
 				// out.setFontStyle(SWT.BOLD);
 				out.println(message);
 				MyConsoleViewLoggerImpl.this.messageConsole.activate();
+				try {
+					out.close();
+				} catch (final IOException ex) {
+					ex.printStackTrace();
+				}
 			}
 		});
 	}

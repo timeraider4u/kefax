@@ -33,14 +33,14 @@ public abstract class SerializationBackend {
 	protected final URI getLastUri() {
 		return this.lastUri;
 	}
-	
+
 	public final void initialize() throws DiscoveryException {
 		this.getResourceSet(true);
 		this.initializeInternal();
 	}
-	
+
 	protected abstract void initializeInternal() throws DiscoveryException;
-	
+
 	protected final ResourceSet getResourceSet() throws DiscoveryException {
 		return this.getResourceSet(false);
 	}
@@ -64,7 +64,7 @@ public abstract class SerializationBackend {
 		MyLog.trace(SerializationBackend.class,
 				"targetURI='" + targetURI.toString() + "'");
 	}
-	
+
 	protected abstract URI createTargetURI(IResource iResource,
 			IProgressMonitor monitor) throws DiscoveryException;
 
@@ -136,20 +136,21 @@ public abstract class SerializationBackend {
 
 	protected abstract boolean deleteLastSaved(final URI lastURI)
 			throws IOException;
-	
+
 	public final void close() {
 		if ((this.discoverer.getResourceSet() == null)
 				|| (this.discoverer.getTargetURI() == null)
 				|| (this.discoverer.getTargetResource() == null)) {
 			return;
 		}
+		MyLog.log(SerializationBackend.class, "closing backend");
 		try {
 			this.closeInternal();
 		} catch (final Exception ex) {
 			MyLog.errorNoThrows(SerializationBackend.class, ex);
 		}
 	}
-	
+
 	protected abstract void closeInternal() throws IOException;
-	
+
 }

@@ -61,6 +61,7 @@ public abstract class XtextHandler<T> {
 		this.fileExtensions = fileExtensions;
 		this.injector = injector;
 		this.store = store;
+		// this.resourceFactory = new MyResourceFactory(store);
 		this.resourceFactory = this.injector
 				.getInstance(IResourceFactory.class);
 		this.validator = this.injector.getInstance(IResourceValidator.class);

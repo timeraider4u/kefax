@@ -2,10 +2,12 @@ package at.jku.weiner.c.modisco.discoverer.actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
@@ -20,6 +22,7 @@ import at.jku.weiner.c.modisco.discoverer.xtext.XtextPreprocessor;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ParserFactory;
+import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
@@ -128,16 +131,29 @@ public class XtextUtils {
 		if (parser != null) {
 			final EList<ExternalDeclaration> list = parser.getExternal();
 			if (list != null) {
-				for (int i = list.size() - 1; i >= 0; i--) {
+				final Iterator<ExternalDeclaration> it = list.iterator();
+				final EList<ExternalDeclaration> newList = ECollections
+						.newBasicEListWithCapacity(list.size());
+				secondParser.eSet(ParserPackage.Literals.PARSER__EXTERNAL,
+						newList);
+				final int total = list.size();
+				for (int i = 0; it.hasNext(); i++) {
 					MyLog.debug(XtextHandler.class, "handling of #'" + i
-							+ "' of '" + list.size() + "'");
-					final ExternalDeclaration dec = list.get(i);
-					secondParser.getExternal().add(0, dec);
+							+ "' of '" + total + "'");
+					final ExternalDeclaration dec = it.next();
+					it.remove();
+					secondParser.getExternal().add(dec);
+					if ((i % 250) == 0) {
+						MyLog.debug(XtextHandler.class, "saving of #'" + i
+								+ "' of '" + total + "'");
+						this.store.getDiscoverer().getTargetResource()
+						.save(new HashMap<>());
+					}
+
 				}
+				MyLog.debug(XtextHandler.class, "setting second parser!");
 			}
-			MyLog.debug(XtextHandler.class, "setting second parser!");
 		}
-		
 		MyLog.debug(XtextHandler.class, "readFromXtextFile done!");
 	}
 

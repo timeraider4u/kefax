@@ -3,6 +3,9 @@ High priority:
 	preprocess:
 	/home/harry/workspace/runtime-EclipseApplication/linux-3.18/crypto/gf128mul.c
 		line 100:	#define xx(p, q)	0x##p##q
+	
+	parser:
+	kernel/sys_ni.i - line 40
 
 	MoDisco: Neo4EMF as persistence layer:
 	https://github.com/atlanmod/NeoEMF/blob/master/bench/fr.inria.atlanmod.neoemf.benchmarks/src/fr/inria/atlanmod/kyanos/benchmarks/KyanosMapCreator.java

@@ -245,7 +245,8 @@ MyCode returns ecore::EString:
 	PP_ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
 	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
 	|ELIF|ELSE|WARNING|UNDEF|
-	SpecialKeywords|Constant1
+	SpecialKeywords|Constant1 
+	// |PP_NUMBER
 ;
 
 MyDefineLineFunction returns ecore::EString:
@@ -303,6 +304,8 @@ terminal ELSE: 'else';
 terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
 terminal VA_ARGS: SKW_UNDERSCORE SKW_UNDERSCORE 'VA_ARGS' SKW_UNDERSCORE SKW_UNDERSCORE;
+terminal HEX_LITERAL: HEX_PREFIX (HEX_DIGIT+ INTEGER_TYPE_SUFFIX?)?;
+
 
 // special keywords
 // ... see common

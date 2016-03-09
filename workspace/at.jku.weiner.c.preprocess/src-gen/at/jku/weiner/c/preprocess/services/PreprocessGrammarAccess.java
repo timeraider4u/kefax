@@ -1541,6 +1541,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tENDIF;
 	private final TerminalRule tPRAGMA;
 	private final TerminalRule tVA_ARGS;
+	private final TerminalRule tHEX_LITERAL;
 	private final TerminalRule tNEWLINE;
 	
 	private final Grammar grammar;
@@ -1603,6 +1604,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tENDIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ENDIF");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PRAGMA");
 		this.tVA_ARGS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.VA_ARGS");
+		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HEX_LITERAL");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.NEWLINE");
 	}
 	
@@ -2130,6 +2132,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tVA_ARGS;
 	}
 	
+	//terminal HEX_LITERAL returns ecore::EString:
+	//	HEX_PREFIX (HEX_DIGIT+ INTEGER_TYPE_SUFFIX?)?;
+	public TerminalRule getHEX_LITERALRule() {
+		return tHEX_LITERAL;
+	}
+	
 	//terminal NEWLINE returns ecore::EString:
 	//	Common::NEWLINE;
 	public TerminalRule getNEWLINERule() {
@@ -2433,7 +2441,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//HexLiteral ecore::EString:
-	//	HEX_LITERAL
+	//	super::HEX_LITERAL
 	public CommonGrammarAccess.HexLiteralElements getHexLiteralAccess() {
 		return gaCommon.getHexLiteralAccess();
 	}
@@ -2782,10 +2790,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return gaCommon.getSTRING_LITERALRule();
 	}
 	
-	//terminal HEX_LITERAL returns ecore::EString:
-	//	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
-	public TerminalRule getHEX_LITERALRule() {
-		return gaCommon.getHEX_LITERALRule();
+	//terminal HEX_PREFIX returns ecore::EString:
+	//	'0' ('x' | 'X');
+	public TerminalRule getHEX_PREFIXRule() {
+		return gaCommon.getHEX_PREFIXRule();
 	}
 	
 	//terminal DECIMAL_LITERAL returns ecore::EString:
@@ -2809,7 +2817,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[79]->TerminalRule'HEX_DIGIT'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'HEX_DIGIT'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
@@ -2819,7 +2827,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'INTEGER_TYPE_SUFFIX'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'INTEGER_TYPE_SUFFIX'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
@@ -2829,7 +2837,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'UNSIGNED_SUFFIX'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'UNSIGNED_SUFFIX'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
@@ -2839,7 +2847,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'LONG_SUFFIX'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_SUFFIX'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
@@ -2849,7 +2857,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_LONG_SUFFIX'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[84]->TerminalRule'LONG_LONG_SUFFIX'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
@@ -2868,7 +2876,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[85]->TerminalRule'EXPONENT'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'EXPONENT'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
@@ -2878,7 +2886,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'FLOAT_TYPE_SUFFIX'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'FLOAT_TYPE_SUFFIX'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
@@ -2888,7 +2896,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'ESCAPE_SEQUENCE'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'ESCAPE_SEQUENCE'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
@@ -2898,7 +2906,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'OCTAL_ESCAPE'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'OCTAL_ESCAPE'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
@@ -2908,7 +2916,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'HEX_ESCAPE'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'HEX_ESCAPE'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
@@ -2918,7 +2926,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'LINEFEED'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'LINEFEED'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
@@ -2928,7 +2936,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'CARRIAGERETURN'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[92]->TerminalRule'CARRIAGERETURN'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
@@ -2944,7 +2952,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[93]->TerminalRule'LINEBREAK'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[94]->TerminalRule'LINEBREAK'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEBREAKRule() {
@@ -2960,7 +2968,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[95]->TerminalRule'SPACE'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'SPACE'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
@@ -2970,7 +2978,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'TAB'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[97]->TerminalRule'TAB'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
@@ -2986,7 +2994,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[98]->TerminalRule'BLOCK_COMMENT'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'BLOCK_COMMENT'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getBLOCK_COMMENTRule() {
@@ -2996,7 +3004,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'LINE_COMMENT'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'LINE_COMMENT'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINE_COMMENTRule() {
@@ -3006,7 +3014,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
-	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'FORM_FEED'
+	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[101]->TerminalRule'FORM_FEED'
 	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFORM_FEEDRule() {

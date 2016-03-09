@@ -1307,6 +1307,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tCHAR_LITERAL;
 	private final TerminalRule tSTRING_LITERAL;
 	private final TerminalRule tHEX_LITERAL;
+	private final TerminalRule tHEX_PREFIX;
 	private final TerminalRule tDECIMAL_LITERAL;
 	private final TerminalRule tOCTAL_LITERAL;
 	private final TerminalRule tBIN_LITERAL;
@@ -1416,6 +1417,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tCHAR_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CHAR_LITERAL");
 		this.tSTRING_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.STRING_LITERAL");
 		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HEX_LITERAL");
+		this.tHEX_PREFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HEX_PREFIX");
 		this.tDECIMAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.DECIMAL_LITERAL");
 		this.tOCTAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.OCTAL_LITERAL");
 		this.tBIN_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.BIN_LITERAL");
@@ -2114,9 +2116,15 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal HEX_LITERAL:
-	//	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
+	//	HEX_PREFIX HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
 	public TerminalRule getHEX_LITERALRule() {
 		return tHEX_LITERAL;
+	}
+	
+	//terminal HEX_PREFIX:
+	//	'0' ('x' | 'X');
+	public TerminalRule getHEX_PREFIXRule() {
+		return tHEX_PREFIX;
 	}
 	
 	//terminal DECIMAL_LITERAL:

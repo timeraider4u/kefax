@@ -1,0 +1,66 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0140_ConcatenateHexNumber.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE 
+		HEX_LITERAL WHITESPACE HASH HASH WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE 
+		DECIMAL_LITERAL WHITESPACE HASH HASH WHITESPACE FLOAT_LITERAL WHITESPACE
+		HASH HASH WHITESPACE ID  
+		NEWLINE
+	NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					ident++"foo",
+					list=
+					(IdentifierList
+						ident+*"[a]"
+					),
+					string++"0x ## a"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					ident++"bar",
+					list=
+					(IdentifierList
+						ident+*"[a]"
+					),
+					string++"1 ## .0 ## a"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"foo(5A)"
+			),
+			(Code
+				code++"bar(25)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0140_ConcatenateHexNumber.c.i"
+expected file="expected/Test0140_ConcatenateHexNumber.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

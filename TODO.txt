@@ -1,9 +1,5 @@
 High priority:
 
-	preprocess:
-	/home/harry/workspace/runtime-EclipseApplication/linux-3.18/crypto/gf128mul.c
-		line 100:	#define xx(p, q)	0x##p##q
-	
 	parser:
 	kernel/sys_ni.i - line 40
 

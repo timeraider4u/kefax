@@ -154,6 +154,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
 			case ParserPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return (EObject)createPostfixExpressionSuffixMinusMinus();
 			case ParserPackage.PRIMARY_EXPRESSION: return (EObject)createPrimaryExpression();
 			case ParserPackage.CONSTANT_EXPRESSION: return (EObject)createConstantExpression();
+			case ParserPackage.GCC_ASM_BASIC: return (EObject)createGccAsmBasic();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1147,6 +1148,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
 	{
 		ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
 		return constantExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GccAsmBasic createGccAsmBasic()
+	{
+		GccAsmBasicImpl gccAsmBasic = new GccAsmBasicImpl();
+		return gccAsmBasic;
 	}
 
 	/**

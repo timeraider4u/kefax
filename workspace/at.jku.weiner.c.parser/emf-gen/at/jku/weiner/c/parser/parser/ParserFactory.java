@@ -833,6 +833,15 @@ public interface ParserFactory extends EFactory
 	ConstantExpression createConstantExpression();
 
 	/**
+	 * Returns a new object of class '<em>Gcc Asm Basic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gcc Asm Basic</em>'.
+	 * @generated
+	 */
+	GccAsmBasic createGccAsmBasic();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

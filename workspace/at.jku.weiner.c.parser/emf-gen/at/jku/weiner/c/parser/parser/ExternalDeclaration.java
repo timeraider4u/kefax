@@ -16,6 +16,7 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getFunctionDefinition <em>Function Definition</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getGccAsmBasic <em>Gcc Asm Basic</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,5 +130,31 @@ public interface ExternalDeclaration extends PersistentEObject
 	 * @generated
 	 */
 	void setSemi(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Gcc Asm Basic</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gcc Asm Basic</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gcc Asm Basic</em>' containment reference.
+	 * @see #setGccAsmBasic(GccAsmBasic)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getExternalDeclaration_GccAsmBasic()
+	 * @model containment="true"
+	 * @generated
+	 */
+	GccAsmBasic getGccAsmBasic();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getGccAsmBasic <em>Gcc Asm Basic</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gcc Asm Basic</em>' containment reference.
+	 * @see #getGccAsmBasic()
+	 * @generated
+	 */
+	void setGccAsmBasic(GccAsmBasic value);
 
 } // ExternalDeclaration

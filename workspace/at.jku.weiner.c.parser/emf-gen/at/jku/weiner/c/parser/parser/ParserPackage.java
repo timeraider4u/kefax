@@ -105,13 +105,22 @@ public interface ParserPackage extends EPackage
 	int EXTERNAL_DECLARATION__SEMI = 3;
 
 	/**
+	 * The feature id for the '<em><b>Gcc Asm Basic</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DECLARATION__GCC_ASM_BASIC = 4;
+
+	/**
 	 * The number of structural features of the '<em>External Declaration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_DECLARATION_FEATURE_COUNT = 4;
+	int EXTERNAL_DECLARATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.FunctionDefHeadImpl <em>Function Def Head</em>}' class.
@@ -3946,6 +3955,43 @@ public interface ParserPackage extends EPackage
 	 */
 	int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
+	/**
+	 * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl <em>Gcc Asm Basic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl
+	 * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getGccAsmBasic()
+	 * @generated
+	 */
+	int GCC_ASM_BASIC = 90;
+
+	/**
+	 * The feature id for the '<em><b>Asm</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GCC_ASM_BASIC__ASM = 0;
+
+	/**
+	 * The feature id for the '<em><b>String</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GCC_ASM_BASIC__STRING = 1;
+
+	/**
+	 * The number of structural features of the '<em>Gcc Asm Basic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GCC_ASM_BASIC_FEATURE_COUNT = 2;
+
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ExternalDeclaration <em>External Declaration</em>}'.
@@ -4000,6 +4046,17 @@ public interface ParserPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getExternalDeclaration_Semi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.ExternalDeclaration#getGccAsmBasic <em>Gcc Asm Basic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Gcc Asm Basic</em>'.
+	 * @see at.jku.weiner.c.parser.parser.ExternalDeclaration#getGccAsmBasic()
+	 * @see #getExternalDeclaration()
+	 * @generated
+	 */
+	EReference getExternalDeclaration_GccAsmBasic();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.FunctionDefHead <em>Function Def Head</em>}'.
@@ -7015,6 +7072,38 @@ public interface ParserPackage extends EPackage
 	EReference getConstantExpression_Expr();
 
 	/**
+	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.GccAsmBasic <em>Gcc Asm Basic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gcc Asm Basic</em>'.
+	 * @see at.jku.weiner.c.parser.parser.GccAsmBasic
+	 * @generated
+	 */
+	EClass getGccAsmBasic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAsmBasic#getAsm <em>Asm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Asm</em>'.
+	 * @see at.jku.weiner.c.parser.parser.GccAsmBasic#getAsm()
+	 * @see #getGccAsmBasic()
+	 * @generated
+	 */
+	EAttribute getGccAsmBasic_Asm();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link at.jku.weiner.c.parser.parser.GccAsmBasic#getString <em>String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>String</em>'.
+	 * @see at.jku.weiner.c.parser.parser.GccAsmBasic#getString()
+	 * @see #getGccAsmBasic()
+	 * @generated
+	 */
+	EAttribute getGccAsmBasic_String();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7078,6 +7167,14 @@ public interface ParserPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute EXTERNAL_DECLARATION__SEMI = eINSTANCE.getExternalDeclaration_Semi();
+
+		/**
+		 * The meta object literal for the '<em><b>Gcc Asm Basic</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_DECLARATION__GCC_ASM_BASIC = eINSTANCE.getExternalDeclaration_GccAsmBasic();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.FunctionDefHeadImpl <em>Function Def Head</em>}' class.
@@ -9512,6 +9609,32 @@ public interface ParserPackage extends EPackage
 		 * @generated
 		 */
 		EReference CONSTANT_EXPRESSION__EXPR = eINSTANCE.getConstantExpression_Expr();
+
+		/**
+		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl <em>Gcc Asm Basic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl
+		 * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getGccAsmBasic()
+		 * @generated
+		 */
+		EClass GCC_ASM_BASIC = eINSTANCE.getGccAsmBasic();
+
+		/**
+		 * The meta object literal for the '<em><b>Asm</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GCC_ASM_BASIC__ASM = eINSTANCE.getGccAsmBasic_Asm();
+
+		/**
+		 * The meta object literal for the '<em><b>String</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GCC_ASM_BASIC__STRING = eINSTANCE.getGccAsmBasic_String();
 
 	}
 

@@ -6,6 +6,7 @@ import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDefinition;
+import at.jku.weiner.c.parser.parser.GccAsmBasic;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
 import fr.inria.atlanmod.neoemf.core.impl.PersistentEObjectImpl;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getFunctionDefinition <em>Function Definition</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getGccAsmBasic <em>Gcc Asm Basic</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,6 +142,26 @@ public class ExternalDeclarationImpl extends PersistentEObjectImpl implements Ex
 	public void setSemi(String newSemi)
 	{
 		eSet(ParserPackage.Literals.EXTERNAL_DECLARATION__SEMI, newSemi);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GccAsmBasic getGccAsmBasic()
+	{
+		return (GccAsmBasic)eGet(ParserPackage.Literals.EXTERNAL_DECLARATION__GCC_ASM_BASIC, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGccAsmBasic(GccAsmBasic newGccAsmBasic)
+	{
+		eSet(ParserPackage.Literals.EXTERNAL_DECLARATION__GCC_ASM_BASIC, newGccAsmBasic);
 	}
 
 } //ExternalDeclarationImpl

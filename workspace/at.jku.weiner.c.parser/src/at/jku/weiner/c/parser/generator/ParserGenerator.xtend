@@ -95,6 +95,7 @@ import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
 import at.jku.weiner.c.parser.parser.Init
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix
 import at.jku.weiner.c.parser.parser.ConstantExpression
+import at.jku.weiner.c.parser.parser.GccAsmBasic
 
 /**
  * Generates code from your model files on save.
@@ -129,6 +130,9 @@ class ParserGenerator implements IGenerator {
 		«outputFor(dec.declaration)»
 		«IF dec.semi != null»
 			«dec.semi»
+		«ENDIF»
+		«IF dec.gccAsmBasic != null»
+			«outputFor(dec.gccAsmBasic)»
 		«ENDIF»
 	'''
 	
@@ -426,6 +430,10 @@ class ParserGenerator implements IGenerator {
 			«IF obj.to != null»...«outputFor(obj.to)»«ENDIF»
 			]«ENDIF»
 		«IF obj.ident != null».«obj.ident»«ENDIF»
+	'''
+	
+	def String outputFor(GccAsmBasic obj) '''
+		«obj.asm»(«outputForString(obj.string)»);
 	'''
 	
 	def String outputFor(EList<GccDeclaratorExtension> obj) {

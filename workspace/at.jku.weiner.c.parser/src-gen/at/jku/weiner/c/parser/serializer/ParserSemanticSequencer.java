@@ -45,6 +45,7 @@ import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDefinition;
 import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.GccAsmBasic;
 import at.jku.weiner.c.parser.parser.GccAttribute;
 import at.jku.weiner.c.parser.parser.GccAttributeList;
 import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
@@ -239,6 +240,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.FUNCTION_SPECIFIER:
 				sequence_FunctionSpecifier(context, (FunctionSpecifier) semanticObject); 
+				return; 
+			case ParserPackage.GCC_ASM_BASIC:
+				sequence_GccAsmBasic(context, (GccAsmBasic) semanticObject); 
 				return; 
 			case ParserPackage.GCC_ATTRIBUTE:
 				sequence_GccAttribute(context, (GccAttribute) semanticObject); 
@@ -767,7 +771,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((functiondefHead=FunctionDefHead functionDefinition=FunctionDefinition) | declaration=Declaration | semi=SKW_SEMI)
+	 *     ((functiondefHead=FunctionDefHead functionDefinition=FunctionDefinition) | declaration=Declaration | gccAsmBasic=GccAsmBasic | semi=SKW_SEMI)
 	 */
 	protected void sequence_ExternalDeclaration(EObject context, ExternalDeclaration semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -818,6 +822,15 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_INLINE3 | name=KW_NORETURN | gccAttributeSpecifier=GccAttributeSpecifier)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
+		genericSequencer.createSequence(context, (EObject)semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) string+=STRING_LITERAL+)
+	 */
+	protected void sequence_GccAsmBasic(EObject context, GccAsmBasic semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
 	}
 	

@@ -44,6 +44,7 @@ import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDefinition;
 import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.GccAsmBasic;
 import at.jku.weiner.c.parser.parser.GccAttribute;
 import at.jku.weiner.c.parser.parser.GccAttributeList;
 import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
@@ -744,6 +745,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	private EClass constantExpressionEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gccAsmBasicEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -857,6 +865,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	public EAttribute getExternalDeclaration_Semi()
 	{
 		return (EAttribute)externalDeclarationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExternalDeclaration_GccAsmBasic()
+	{
+		return (EReference)externalDeclarationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3684,6 +3702,36 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGccAsmBasic()
+	{
+		return gccAsmBasicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGccAsmBasic_Asm()
+	{
+		return (EAttribute)gccAsmBasicEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGccAsmBasic_String()
+	{
+		return (EAttribute)gccAsmBasicEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParserFactory getParserFactory()
 	{
 		return (ParserFactory)getEFactoryInstance();
@@ -3714,6 +3762,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(externalDeclarationEClass, EXTERNAL_DECLARATION__FUNCTION_DEFINITION);
 		createEReference(externalDeclarationEClass, EXTERNAL_DECLARATION__DECLARATION);
 		createEAttribute(externalDeclarationEClass, EXTERNAL_DECLARATION__SEMI);
+		createEReference(externalDeclarationEClass, EXTERNAL_DECLARATION__GCC_ASM_BASIC);
 
 		functionDefHeadEClass = createEClass(FUNCTION_DEF_HEAD);
 		createEReference(functionDefHeadEClass, FUNCTION_DEF_HEAD__FUN_DECL_SPECIFIERS);
@@ -4085,6 +4134,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
 		createEAttribute(constantExpressionEClass, CONSTANT_EXPRESSION__RESTRICT);
 		createEReference(constantExpressionEClass, CONSTANT_EXPRESSION__EXPR);
+
+		gccAsmBasicEClass = createEClass(GCC_ASM_BASIC);
+		createEAttribute(gccAsmBasicEClass, GCC_ASM_BASIC__ASM);
+		createEAttribute(gccAsmBasicEClass, GCC_ASM_BASIC__STRING);
 	}
 
 	/**
@@ -4164,6 +4217,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getExternalDeclaration_FunctionDefinition(), this.getFunctionDefinition(), null, "functionDefinition", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExternalDeclaration_Declaration(), this.getDeclaration(), null, "declaration", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalDeclaration_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalDeclaration_GccAsmBasic(), this.getGccAsmBasic(), null, "gccAsmBasic", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(functionDefHeadEClass, FunctionDefHead.class, "FunctionDefHead", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFunctionDefHead_FunDeclSpecifiers(), this.getFunctionDeclarationSpecifiers(), null, "funDeclSpecifiers", null, 0, 1, FunctionDefHead.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4535,6 +4589,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConstantExpression_Restrict(), theEcorePackage.getEString(), "restrict", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConstantExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gccAsmBasicEClass, GccAsmBasic.class, "GccAsmBasic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGccAsmBasic_Asm(), theEcorePackage.getEString(), "asm", null, 0, 1, GccAsmBasic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGccAsmBasic_String(), theEcorePackage.getEString(), "string", null, 0, -1, GccAsmBasic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

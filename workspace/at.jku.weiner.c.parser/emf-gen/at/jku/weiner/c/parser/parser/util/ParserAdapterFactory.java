@@ -525,6 +525,11 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
 				return createConstantExpressionAdapter();
 			}
 			@Override
+			public Adapter caseGccAsmBasic(GccAsmBasic object)
+			{
+				return createGccAsmBasicAdapter();
+			}
+			@Override
 			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
 			{
 				return createCommon_ExpressionAdapter();
@@ -1912,6 +1917,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createConstantExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.GccAsmBasic <em>Gcc Asm Basic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.c.parser.parser.GccAsmBasic
+	 * @generated
+	 */
+	public Adapter createGccAsmBasicAdapter()
 	{
 		return null;
 	}

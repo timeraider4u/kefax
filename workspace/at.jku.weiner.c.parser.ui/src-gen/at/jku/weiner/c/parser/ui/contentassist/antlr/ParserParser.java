@@ -58,6 +58,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getAlternatives_2(), "rule__DirectDeclaratorLastSuffix__Alternatives_2");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAlternatives_1(), "rule__GccDeclaratorExtension__Alternatives_1");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAlternatives_1_0_0_0(), "rule__GccDeclaratorExtension__AsmAlternatives_1_0_0_0");
+					put(grammarAccess.getGccAsmBasicAccess().getAsmAlternatives_1_0(), "rule__GccAsmBasic__AsmAlternatives_1_0");
 					put(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAlternatives_1_0(), "rule__GccAttributeSpecifier__AttributeAlternatives_1_0");
 					put(grammarAccess.getGccAttributeAccess().getAlternatives_1(), "rule__GccAttribute__Alternatives_1");
 					put(grammarAccess.getPointerAccess().getAlternatives_1_0(), "rule__Pointer__Alternatives_1_0");
@@ -151,6 +152,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getGroup(), "rule__DirectDeclaratorLastSuffix__Group__0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGroup(), "rule__GccDeclaratorExtension__Group__0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGroup_1_0(), "rule__GccDeclaratorExtension__Group_1_0__0");
+					put(grammarAccess.getGccAsmBasicAccess().getGroup(), "rule__GccAsmBasic__Group__0");
 					put(grammarAccess.getGccAttributeSpecifierAccess().getGroup(), "rule__GccAttributeSpecifier__Group__0");
 					put(grammarAccess.getGccAttributeListAccess().getGroup(), "rule__GccAttributeList__Group__0");
 					put(grammarAccess.getGccAttributeListAccess().getGroup_1(), "rule__GccAttributeList__Group_1__0");
@@ -279,7 +281,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExternalDeclarationAccess().getFunctiondefHeadAssignment_1_0_0_0(), "rule__ExternalDeclaration__FunctiondefHeadAssignment_1_0_0_0");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctionDefinitionAssignment_1_0_1(), "rule__ExternalDeclaration__FunctionDefinitionAssignment_1_0_1");
 					put(grammarAccess.getExternalDeclarationAccess().getDeclarationAssignment_1_1(), "rule__ExternalDeclaration__DeclarationAssignment_1_1");
-					put(grammarAccess.getExternalDeclarationAccess().getSemiAssignment_1_2(), "rule__ExternalDeclaration__SemiAssignment_1_2");
+					put(grammarAccess.getExternalDeclarationAccess().getGccAsmBasicAssignment_1_2(), "rule__ExternalDeclaration__GccAsmBasicAssignment_1_2");
+					put(grammarAccess.getExternalDeclarationAccess().getSemiAssignment_1_3(), "rule__ExternalDeclaration__SemiAssignment_1_3");
 					put(grammarAccess.getFunctionDefHeadAccess().getFunDeclSpecifiersAssignment_1(), "rule__FunctionDefHead__FunDeclSpecifiersAssignment_1");
 					put(grammarAccess.getFunctionDefHeadAccess().getFunDeclaratorAssignment_2(), "rule__FunctionDefHead__FunDeclaratorAssignment_2");
 					put(grammarAccess.getFunctionDefHeadAccess().getFunDeclarationAssignment_3(), "rule__FunctionDefHead__FunDeclarationAssignment_3");
@@ -388,6 +391,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAssignment_1_0_0(), "rule__GccDeclaratorExtension__AsmAssignment_1_0_0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getStringAssignment_1_0_2(), "rule__GccDeclaratorExtension__StringAssignment_1_0_2");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGccAttributeSpecifierAssignment_1_1(), "rule__GccDeclaratorExtension__GccAttributeSpecifierAssignment_1_1");
+					put(grammarAccess.getGccAsmBasicAccess().getAsmAssignment_1(), "rule__GccAsmBasic__AsmAssignment_1");
+					put(grammarAccess.getGccAsmBasicAccess().getStringAssignment_3(), "rule__GccAsmBasic__StringAssignment_3");
 					put(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAssignment_1(), "rule__GccAttributeSpecifier__AttributeAssignment_1");
 					put(grammarAccess.getGccAttributeSpecifierAccess().getListAssignment_4(), "rule__GccAttributeSpecifier__ListAssignment_4");
 					put(grammarAccess.getGccAttributeListAccess().getGccAttributeAssignment_0(), "rule__GccAttributeList__GccAttributeAssignment_0");

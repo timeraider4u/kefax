@@ -11,8 +11,12 @@ KW_ASM1 SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 	(Parser
 		external+=
-		(ExternalDeclaration 
-			semi++";"
+		(ExternalDeclaration
+			gccAsmBasic=
+			(GccAsmBasic
+				asm++"asm",
+				string+*"[\\\"int $3\\\"]"
+			)
 		)
 	)
 //----------------------------------------------------------------------

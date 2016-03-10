@@ -77,6 +77,8 @@ ExternalDeclaration
 		)
 	|	declaration=Declaration
 			preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
+	|	gccAsmBasic=GccAsmBasic
+			preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 	|	semi=SKW_SEMI
 			preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 	)
@@ -372,6 +374,12 @@ GccDeclaratorExtension:
 	)
 ;
 
+GccAsmBasic:
+	{GccAsmBasic}
+	asm=(KW_ASM1|KW_ASM2|KW_ASM3) 
+	SKW_LEFTPAREN (string+=STRING_LITERAL)+ SKW_RIGHTPAREN
+	SKW_SEMI
+;
 
 GccAttributeSpecifier:
 	{GccAttributeSpecifier} 

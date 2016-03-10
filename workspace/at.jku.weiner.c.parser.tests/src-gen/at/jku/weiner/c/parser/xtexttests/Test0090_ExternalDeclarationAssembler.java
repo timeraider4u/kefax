@@ -45,6 +45,7 @@ import at.jku.weiner.c.parser.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.GccAsmBasic;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -129,8 +130,16 @@ public class Test0090_ExternalDeclarationAssembler {
 		 = (ExternalDeclaration)External_0_list.get(0);
 		Assert.assertNotNull(ExternalDeclaration_1_Var
 		);
-		Assert.assertEquals(";", ExternalDeclaration_1_Var
-		.getSemi());
+		//1
+		final GccAsmBasic GccAsmBasic_2_Var
+		 = (GccAsmBasic)ExternalDeclaration_1_Var
+		.getGccAsmBasic();
+		Assert.assertNotNull(GccAsmBasic_2_Var
+		);
+		Assert.assertEquals("asm", GccAsmBasic_2_Var
+		.getAsm());
+		Assert.assertEquals("[\"int $3\"]", GccAsmBasic_2_Var
+		.getString().toString());
 	}
 	
 	@Test

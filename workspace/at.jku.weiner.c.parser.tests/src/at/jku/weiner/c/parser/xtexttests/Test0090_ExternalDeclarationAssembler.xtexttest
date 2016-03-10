@@ -1,0 +1,24 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0090_ExternalDeclarationAssembler.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_ASM1 SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			semi++";"
+		)
+	)
+//----------------------------------------------------------------------
+output file="bin/Test0090_ExternalDeclarationAssembler.c"
+expected file isSameAsInputFile
+//----------------------------------------------------------------------
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

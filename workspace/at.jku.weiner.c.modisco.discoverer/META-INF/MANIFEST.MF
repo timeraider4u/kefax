@@ -27,6 +27,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.cdt.core,
  fr.inria.atlanmod.neoemf.graph.blueprints;bundle-version="0.0.1",
  fr.inria.atlanmod.neoemf.graph.blueprints.neo4j;bundle-version="0.0.1",
+ fr.inria.atlanmod.neoemf.map;bundle-version="0.0.1",
  fr.inria.atlanmod.neoemf.ui;bundle-version="0.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

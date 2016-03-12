@@ -164,11 +164,11 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> expected = this.lexerUtils
 				.getTokens("(5Y)BAR(X,5,Z)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(12, code.size());
+		Assert.assertEquals(11, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(4, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(3, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(3, ranges.stopIndex);
+		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -215,11 +215,11 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens("(5Y)(X5)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(7, code.size());
+		Assert.assertEquals(6, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(7, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(7, ranges.stopIndex);
-		Assert.assertEquals(7, ranges.addedElements);
+		Assert.assertEquals(6, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(6, ranges.stopIndex);
+		Assert.assertEquals(6, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
 
@@ -241,11 +241,11 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> expected = this.lexerUtils
 				.getTokens("(5Y) BAR(X,5,Z)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(13, code.size());
+		Assert.assertEquals(12, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(4, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(3, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(3, ranges.stopIndex);
+		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -300,19 +300,19 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens("(5Y) (X5)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(8, code.size());
+		Assert.assertEquals(7, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(7, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(8, ranges.stopIndex);
-		Assert.assertEquals(7, ranges.addedElements);
+		Assert.assertEquals(6, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(7, ranges.stopIndex);
+		Assert.assertEquals(6, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(8, code.size());
+		Assert.assertEquals(7, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(7, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(8, ranges.stopIndex);
-		Assert.assertEquals(7, ranges.addedElements);
+		Assert.assertEquals(6, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(7, ranges.stopIndex);
+		Assert.assertEquals(6, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
 
@@ -334,11 +334,11 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> expected = this.lexerUtils
 				.getTokens(" (5Y) BAR(X,5,Z) ");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(15, code.size());
+		Assert.assertEquals(14, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(4, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(5, ranges.stopIndex);
-		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(3, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(4, ranges.stopIndex);
+		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -385,11 +385,11 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens(" (5Y) (X5) ");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(10, code.size());
+		Assert.assertEquals(9, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(7, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(10, ranges.stopIndex);
-		Assert.assertEquals(7, ranges.addedElements);
+		Assert.assertEquals(6, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(9, ranges.stopIndex);
+		Assert.assertEquals(6, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
 
@@ -410,11 +410,11 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = this.lexerUtils.getTokens(" (5Y) (X5) ");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(10, code.size());
+		Assert.assertEquals(9, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(7, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(10, ranges.stopIndex);
-		Assert.assertEquals(7, ranges.addedElements);
+		Assert.assertEquals(6, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(9, ranges.stopIndex);
+		Assert.assertEquals(6, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
 
@@ -436,9 +436,9 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> expected = new ArrayList<Token>();
 		expected.add(new CommonToken(
 				InternalPreprocessLexer.RULE_SKW_LEFTPAREN, "("));
-		expected.add(new CommonToken(
-				InternalPreprocessLexer.RULE_DECIMAL_LITERAL, "5"));
-		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "R"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_HEX_LITERAL,
+				"5R"));
+		// expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "R"));
 		expected.add(new CommonToken(
 				InternalPreprocessLexer.RULE_SKW_RIGHTPAREN, ")"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
@@ -456,11 +456,11 @@ public class TestDefinitionFunctionMacro {
 				InternalPreprocessLexer.RULE_SKW_RIGHTPAREN, ")"));
 
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(11, code.size());
+		Assert.assertEquals(10, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(4, ranges.getCurrentInsertionIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(3, ranges.getCurrentInsertionIndex());
+		Assert.assertEquals(3, ranges.stopIndex);
+		Assert.assertEquals(3, ranges.addedElements);
 		Assert.assertEquals(6, ranges.removedElements);
 	}
 

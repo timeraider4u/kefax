@@ -14,9 +14,17 @@ lexer-tokens
 		DECIMAL_LITERAL WHITESPACE HASH HASH WHITESPACE FLOAT_LITERAL WHITESPACE
 		HASH HASH WHITESPACE ID  
 		NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE 
+		HEX_LITERAL WHITESPACE HASH HASH WHITESPACE 
+		HEX_LITERAL WHITESPACE HASH HASH WHITESPACE
+		HEX_LITERAL WHITESPACE HASH HASH WHITESPACE 
+		HEX_LITERAL WHITESPACE HASH HASH WHITESPACE 
+		HEX_LITERAL
+		NEWLINE
 	NEWLINE
-	ID SKW_LEFTPAREN DECIMAL_LITERAL ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN HEX_LITERAL SKW_RIGHTPAREN NEWLINE
 	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN OCTAL_LITERAL SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -47,12 +55,26 @@ lexer-tokens
 					string++"1 ## .0 ## a"
 				)
 			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					ident++"baz",
+					list=
+					(IdentifierList
+						ident+*"[a]"
+					),
+					string++"0x ## 08 ## 081 ## 0h0 ## 1e1"
+				)
+			),
 			(NewLineLine),
 			(Code
 				code++"foo(5A)"
 			),
 			(Code
 				code++"bar(25)"
+			),
+			(Code
+				code++"baz(07)"
 			)
 		)
 	)

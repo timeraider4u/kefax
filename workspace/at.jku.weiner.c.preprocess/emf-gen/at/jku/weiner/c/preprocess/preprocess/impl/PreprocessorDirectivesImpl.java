@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl#getDirective <em>Directive</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

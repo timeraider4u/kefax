@@ -474,7 +474,7 @@ class PreprocessGenerator implements IGenerator {
 		val String lineUnresolved = obj.line;
 		val String line = resolve(lineUnresolved);
 		this.currLineNumber.pop();
-		this.currLineNumber.push(line);
+		this.currLineNumber.push(String.valueOf(Integer.valueOf(line) - 1));
 		registerLineNumber();
 		val String pathUnresolved = obj.path;
 		if (pathUnresolved != null) {

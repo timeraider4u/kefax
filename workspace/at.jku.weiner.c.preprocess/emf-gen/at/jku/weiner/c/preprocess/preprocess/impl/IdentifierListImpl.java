@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#isVariadic <em>Variadic</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getVarID <em>Var ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

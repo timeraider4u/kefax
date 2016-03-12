@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID <em>Var ID</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList()
  * @model

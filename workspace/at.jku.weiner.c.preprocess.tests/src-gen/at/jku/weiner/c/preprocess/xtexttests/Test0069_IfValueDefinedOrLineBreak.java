@@ -112,7 +112,7 @@ public class Test0069_IfValueDefinedOrLineBreak {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_HEX_LITERAL",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_IF",

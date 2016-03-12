@@ -51,7 +51,11 @@ import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -140,16 +144,50 @@ public class Test0140_ConcatenateHexNumber {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_HEX_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_HEX_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_HEX_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_HEX_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_HEX_LITERAL",
+				"RULE_NEWLINE",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_ID",
+				"RULE_HEX_LITERAL",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_OCTAL_LITERAL",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				};
@@ -179,7 +217,7 @@ public class Test0140_ConcatenateHexNumber {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(5, Lines_1_list.size());
+		Assert.assertEquals(7, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -227,23 +265,53 @@ public class Test0140_ConcatenateHexNumber {
 		Assert.assertEquals("1 ## .0 ## a", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
-		final NewLineLine NewLineLine_8_Var
-		 = (NewLineLine)Lines_1_list.get(2);
-		Assert.assertNotNull(NewLineLine_8_Var
+		final PreprocessorDirectives PreprocessorDirectives_8_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_8_Var
 		);
 		//8
-		final Code Code_9_Var
-		 = (Code)Lines_1_list.get(3);
-		Assert.assertNotNull(Code_9_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_9_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_8_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
 		);
-		Assert.assertEquals("foo(5A)", Code_9_Var
-		.getCode());
+		Assert.assertEquals("baz", DefineFunctionLikeMacro_9_Var
+		.getIdent());
 		//9
-		final Code Code_10_Var
-		 = (Code)Lines_1_list.get(4);
-		Assert.assertNotNull(Code_10_Var
+		final IdentifierList IdentifierList_10_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_10_Var
 		);
-		Assert.assertEquals("bar(25)", Code_10_Var
+		Assert.assertEquals("[a]", IdentifierList_10_Var
+		.getIdent().toString());
+		Assert.assertEquals("0x ## 08 ## 081 ## 0h0 ## 1e1", DefineFunctionLikeMacro_9_Var
+		.getString());
+		//10
+		final NewLineLine NewLineLine_11_Var
+		 = (NewLineLine)Lines_1_list.get(3);
+		Assert.assertNotNull(NewLineLine_11_Var
+		);
+		//11
+		final Code Code_12_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_12_Var
+		);
+		Assert.assertEquals("foo(5A)", Code_12_Var
+		.getCode());
+		//12
+		final Code Code_13_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_13_Var
+		);
+		Assert.assertEquals("bar(25)", Code_13_Var
+		.getCode());
+		//13
+		final Code Code_14_Var
+		 = (Code)Lines_1_list.get(6);
+		Assert.assertNotNull(Code_14_Var
+		);
+		Assert.assertEquals("baz(07)", Code_14_Var
 		.getCode());
 	}
 	

@@ -23,6 +23,7 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr1 <em>Expr1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2 <em>Expr2</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier()
@@ -291,5 +292,31 @@ public interface TypeSpecifier extends PersistentEObject
 	 * @generated
 	 */
 	void setExpr2(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Gcc Attribute Specifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gcc Attribute Specifier</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gcc Attribute Specifier</em>' containment reference.
+	 * @see #setGccAttributeSpecifier(GccAttributeSpecifier)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_GccAttributeSpecifier()
+	 * @model containment="true"
+	 * @generated
+	 */
+	GccAttributeSpecifier getGccAttributeSpecifier();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gcc Attribute Specifier</em>' containment reference.
+	 * @see #getGccAttributeSpecifier()
+	 * @generated
+	 */
+	void setGccAttributeSpecifier(GccAttributeSpecifier value);
 
 } // TypeSpecifier

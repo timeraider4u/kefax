@@ -58,10 +58,43 @@ import at.jku.weiner.c.parser.parser.StructDeclaratorList;
 import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
-import at.jku.weiner.c.parser.parser.InitDeclaratorList;
-import at.jku.weiner.c.parser.parser.InitDeclarator;
+import at.jku.weiner.c.parser.parser.StructDeclaration;
+import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
+import at.jku.weiner.c.parser.parser.StructOrUnion;
+import at.jku.weiner.c.parser.parser.StructDeclarationList;
+import at.jku.weiner.c.parser.parser.StructDeclaration;
+import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.StructDeclaratorList;
+import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttributeList;
+import at.jku.weiner.c.parser.parser.GccAttribute;
+import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.ShiftExpression;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttributeList;
+import at.jku.weiner.c.parser.parser.GccAttribute;
+import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.ShiftExpression;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -225,7 +258,7 @@ public class Test0091_StructWithAttribute {
 		final EList<? extends EObject> DeclarationSpecifier_3_list = DeclarationSpecifiers_3_Var
 		.getDeclarationSpecifier();
 		Assert.assertNotNull(DeclarationSpecifier_3_list);
-		Assert.assertEquals(1, DeclarationSpecifier_3_list.size());
+		Assert.assertEquals(2, DeclarationSpecifier_3_list.size());
 		//3
 		final TypeSpecifier TypeSpecifier_4_Var
 		 = (TypeSpecifier)DeclarationSpecifier_3_list.get(0);
@@ -256,7 +289,7 @@ public class Test0091_StructWithAttribute {
 		final EList<? extends EObject> StructDeclaration_7_list = StructDeclarationList_7_Var
 		.getStructDeclaration();
 		Assert.assertNotNull(StructDeclaration_7_list);
-		Assert.assertEquals(1, StructDeclaration_7_list.size());
+		Assert.assertEquals(2, StructDeclaration_7_list.size());
 		//7
 		final StructDeclaration StructDeclaration_8_Var
 		 = (StructDeclaration)StructDeclaration_7_list.get(0);
@@ -308,38 +341,281 @@ public class Test0091_StructWithAttribute {
 		);
 		Assert.assertEquals("i", DirectDeclarator_14_Var
 		.getIdent());
-		final EList<? extends EObject> InitDeclaratorList_14_list = Declaration_2_Var
-		.getInitDeclaratorList();
-		Assert.assertNotNull(InitDeclaratorList_14_list);
-		Assert.assertEquals(1, InitDeclaratorList_14_list.size());
 		//14
-		final InitDeclaratorList InitDeclaratorList_15_Var
-		 = (InitDeclaratorList)InitDeclaratorList_14_list.get(0);
-		Assert.assertNotNull(InitDeclaratorList_15_Var
+		final StructDeclaration StructDeclaration_15_Var
+		 = (StructDeclaration)StructDeclaration_7_list.get(1);
+		Assert.assertNotNull(StructDeclaration_15_Var
 		);
-		final EList<? extends EObject> InitDeclarator_15_list = InitDeclaratorList_15_Var
-		.getInitDeclarator();
-		Assert.assertNotNull(InitDeclarator_15_list);
-		Assert.assertEquals(1, InitDeclarator_15_list.size());
 		//15
-		final InitDeclarator InitDeclarator_16_Var
-		 = (InitDeclarator)InitDeclarator_15_list.get(0);
-		Assert.assertNotNull(InitDeclarator_16_Var
+		final SpecifierQualifierList SpecifierQualifierList_16_Var
+		 = (SpecifierQualifierList)StructDeclaration_15_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_16_Var
 		);
+		final EList<? extends EObject> TypeSpecifier_16_list = SpecifierQualifierList_16_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_16_list);
+		Assert.assertEquals(2, TypeSpecifier_16_list.size());
 		//16
-		final Declarator Declarator_17_Var
-		 = (Declarator)InitDeclarator_16_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_17_Var
+		final TypeSpecifier TypeSpecifier_17_Var
+		 = (TypeSpecifier)TypeSpecifier_16_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_17_Var
 		);
 		//17
-		final DirectDeclarator DirectDeclarator_18_Var
-		 = (DirectDeclarator)Declarator_17_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_18_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_18_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_17_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_18_Var
 		);
-		Assert.assertEquals("phil", DirectDeclarator_18_Var
+		//18
+		final StructOrUnion StructOrUnion_19_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_18_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_19_Var
+		);
+		Assert.assertEquals("struct", StructOrUnion_19_Var
+		.getName());
+		Assert.assertEquals("bar", StructOrUnionSpecifier_18_Var
 		.getIdent());
+		//19
+		final StructDeclarationList StructDeclarationList_20_Var
+		 = (StructDeclarationList)StructOrUnionSpecifier_18_Var
+		.getStructDeclList();
+		Assert.assertNotNull(StructDeclarationList_20_Var
+		);
+		final EList<? extends EObject> StructDeclaration_20_list = StructDeclarationList_20_Var
+		.getStructDeclaration();
+		Assert.assertNotNull(StructDeclaration_20_list);
+		Assert.assertEquals(1, StructDeclaration_20_list.size());
+		//20
+		final StructDeclaration StructDeclaration_21_Var
+		 = (StructDeclaration)StructDeclaration_20_list.get(0);
+		Assert.assertNotNull(StructDeclaration_21_Var
+		);
+		//21
+		final SpecifierQualifierList SpecifierQualifierList_22_Var
+		 = (SpecifierQualifierList)StructDeclaration_21_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_22_Var
+		);
+		final EList<? extends EObject> TypeSpecifier_22_list = SpecifierQualifierList_22_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_22_list);
+		Assert.assertEquals(1, TypeSpecifier_22_list.size());
+		//22
+		final TypeSpecifier TypeSpecifier_23_Var
+		 = (TypeSpecifier)TypeSpecifier_22_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_23_Var
+		);
+		Assert.assertEquals("int", TypeSpecifier_23_Var
+		.getName());
+		//23
+		final StructDeclaratorList StructDeclaratorList_24_Var
+		 = (StructDeclaratorList)StructDeclaration_21_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_24_Var
+		);
+		final EList<? extends EObject> StructDeclarator_24_list = StructDeclaratorList_24_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_24_list);
+		Assert.assertEquals(1, StructDeclarator_24_list.size());
+		//24
+		final StructDeclarator StructDeclarator_25_Var
+		 = (StructDeclarator)StructDeclarator_24_list.get(0);
+		Assert.assertNotNull(StructDeclarator_25_Var
+		);
+		//25
+		final Declarator Declarator_26_Var
+		 = (Declarator)StructDeclarator_25_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_26_Var
+		);
+		//26
+		final DirectDeclarator DirectDeclarator_27_Var
+		 = (DirectDeclarator)Declarator_26_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_27_Var
+		);
+		Assert.assertEquals("j", DirectDeclarator_27_Var
+		.getIdent());
+		//27
+		final TypeSpecifier TypeSpecifier_28_Var
+		 = (TypeSpecifier)TypeSpecifier_16_list.get(1);
+		Assert.assertNotNull(TypeSpecifier_28_Var
+		);
+		//28
+		final GccAttributeSpecifier GccAttributeSpecifier_29_Var
+		 = (GccAttributeSpecifier)TypeSpecifier_28_Var
+		.getGccAttributeSpecifier();
+		Assert.assertNotNull(GccAttributeSpecifier_29_Var
+		);
+		//29
+		final GccAttributeList GccAttributeList_30_Var
+		 = (GccAttributeList)GccAttributeSpecifier_29_Var
+		.getList();
+		Assert.assertNotNull(GccAttributeList_30_Var
+		);
+		final EList<? extends EObject> GccAttribute_30_list = GccAttributeList_30_Var
+		.getGccAttribute();
+		Assert.assertNotNull(GccAttribute_30_list);
+		Assert.assertEquals(1, GccAttribute_30_list.size());
+		//30
+		final GccAttribute GccAttribute_31_Var
+		 = (GccAttribute)GccAttribute_30_list.get(0);
+		Assert.assertNotNull(GccAttribute_31_Var
+		);
+		Assert.assertEquals("__aligned__", GccAttribute_31_Var
+		.getKeyword());
+		//31
+		final ArgumentExpressionList ArgumentExpressionList_32_Var
+		 = (ArgumentExpressionList)GccAttribute_31_Var
+		.getList();
+		Assert.assertNotNull(ArgumentExpressionList_32_Var
+		);
+		final EList<? extends EObject> Expr_32_list = ArgumentExpressionList_32_Var
+		.getExpr();
+		Assert.assertNotNull(Expr_32_list);
+		Assert.assertEquals(1, Expr_32_list.size());
+		//32
+		final PrimaryExpression PrimaryExpression_33_Var
+		 = (PrimaryExpression)Expr_32_list.get(0);
+		Assert.assertNotNull(PrimaryExpression_33_Var
+		);
+		Assert.assertTrue(PrimaryExpression_33_Var
+		.isParentheses());
+		//33
+		final ShiftExpression ShiftExpression_34_Var
+		 = (ShiftExpression)PrimaryExpression_33_Var
+		.getExpr();
+		Assert.assertNotNull(ShiftExpression_34_Var
+		);
+		Assert.assertEquals("<<", ShiftExpression_34_Var
+		.getOp());
+		//34
+		final PrimaryExpression PrimaryExpression_35_Var
+		 = (PrimaryExpression)ShiftExpression_34_Var
+		.getLeft();
+		Assert.assertNotNull(PrimaryExpression_35_Var
+		);
+		//35
+		final Constant2 Constant2_36_Var
+		 = (Constant2)PrimaryExpression_35_Var
+		.getConst();
+		Assert.assertNotNull(Constant2_36_Var
+		);
+		Assert.assertEquals("2", Constant2_36_Var
+		.getDec());
+		//36
+		final PrimaryExpression PrimaryExpression_37_Var
+		 = (PrimaryExpression)ShiftExpression_34_Var
+		.getRight();
+		Assert.assertNotNull(PrimaryExpression_37_Var
+		);
+		Assert.assertTrue(PrimaryExpression_37_Var
+		.isParentheses());
+		//37
+		final PrimaryExpression PrimaryExpression_38_Var
+		 = (PrimaryExpression)PrimaryExpression_37_Var
+		.getExpr();
+		Assert.assertNotNull(PrimaryExpression_38_Var
+		);
+		//38
+		final Constant2 Constant2_39_Var
+		 = (Constant2)PrimaryExpression_38_Var
+		.getConst();
+		Assert.assertNotNull(Constant2_39_Var
+		);
+		Assert.assertEquals("3", Constant2_39_Var
+		.getDec());
+		//39
+		final TypeSpecifier TypeSpecifier_40_Var
+		 = (TypeSpecifier)DeclarationSpecifier_3_list.get(1);
+		Assert.assertNotNull(TypeSpecifier_40_Var
+		);
+		//40
+		final GccAttributeSpecifier GccAttributeSpecifier_41_Var
+		 = (GccAttributeSpecifier)TypeSpecifier_40_Var
+		.getGccAttributeSpecifier();
+		Assert.assertNotNull(GccAttributeSpecifier_41_Var
+		);
+		//41
+		final GccAttributeList GccAttributeList_42_Var
+		 = (GccAttributeList)GccAttributeSpecifier_41_Var
+		.getList();
+		Assert.assertNotNull(GccAttributeList_42_Var
+		);
+		final EList<? extends EObject> GccAttribute_42_list = GccAttributeList_42_Var
+		.getGccAttribute();
+		Assert.assertNotNull(GccAttribute_42_list);
+		Assert.assertEquals(1, GccAttribute_42_list.size());
+		//42
+		final GccAttribute GccAttribute_43_Var
+		 = (GccAttribute)GccAttribute_42_list.get(0);
+		Assert.assertNotNull(GccAttribute_43_Var
+		);
+		Assert.assertEquals("__aligned__", GccAttribute_43_Var
+		.getKeyword());
+		//43
+		final ArgumentExpressionList ArgumentExpressionList_44_Var
+		 = (ArgumentExpressionList)GccAttribute_43_Var
+		.getList();
+		Assert.assertNotNull(ArgumentExpressionList_44_Var
+		);
+		final EList<? extends EObject> Expr_44_list = ArgumentExpressionList_44_Var
+		.getExpr();
+		Assert.assertNotNull(Expr_44_list);
+		Assert.assertEquals(1, Expr_44_list.size());
+		//44
+		final PrimaryExpression PrimaryExpression_45_Var
+		 = (PrimaryExpression)Expr_44_list.get(0);
+		Assert.assertNotNull(PrimaryExpression_45_Var
+		);
+		Assert.assertTrue(PrimaryExpression_45_Var
+		.isParentheses());
+		//45
+		final ShiftExpression ShiftExpression_46_Var
+		 = (ShiftExpression)PrimaryExpression_45_Var
+		.getExpr();
+		Assert.assertNotNull(ShiftExpression_46_Var
+		);
+		Assert.assertEquals("<<", ShiftExpression_46_Var
+		.getOp());
+		//46
+		final PrimaryExpression PrimaryExpression_47_Var
+		 = (PrimaryExpression)ShiftExpression_46_Var
+		.getLeft();
+		Assert.assertNotNull(PrimaryExpression_47_Var
+		);
+		//47
+		final Constant2 Constant2_48_Var
+		 = (Constant2)PrimaryExpression_47_Var
+		.getConst();
+		Assert.assertNotNull(Constant2_48_Var
+		);
+		Assert.assertEquals("2", Constant2_48_Var
+		.getDec());
+		//48
+		final PrimaryExpression PrimaryExpression_49_Var
+		 = (PrimaryExpression)ShiftExpression_46_Var
+		.getRight();
+		Assert.assertNotNull(PrimaryExpression_49_Var
+		);
+		Assert.assertTrue(PrimaryExpression_49_Var
+		.isParentheses());
+		//49
+		final PrimaryExpression PrimaryExpression_50_Var
+		 = (PrimaryExpression)PrimaryExpression_49_Var
+		.getExpr();
+		Assert.assertNotNull(PrimaryExpression_50_Var
+		);
+		//50
+		final Constant2 Constant2_51_Var
+		 = (Constant2)PrimaryExpression_50_Var
+		.getConst();
+		Assert.assertNotNull(Constant2_51_Var
+		);
+		Assert.assertEquals("3", Constant2_51_Var
+		.getDec());
 	}
 	
 	@Test

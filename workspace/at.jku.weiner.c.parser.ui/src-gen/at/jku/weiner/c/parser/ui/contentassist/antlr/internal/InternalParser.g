@@ -4113,6 +4113,15 @@ rule__TypeSpecifier__Alternatives
 
 
 
+    |
+(
+{ before(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierAssignment_24()); }
+(rule__TypeSpecifier__GccAttributeSpecifierAssignment_24)
+{ after(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierAssignment_24()); }
+)
+
+
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -25794,6 +25803,21 @@ rule__TypeSpecifier__Expr2Assignment_23_1_5
 (
 { before(grammarAccess.getTypeSpecifierAccess().getExpr2ConstantExpressionParserRuleCall_23_1_5_0()); }
 	ruleConstantExpression{ after(grammarAccess.getTypeSpecifierAccess().getExpr2ConstantExpressionParserRuleCall_23_1_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TypeSpecifier__GccAttributeSpecifierAssignment_24
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0()); }
+	ruleGccAttributeSpecifier{ after(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0()); }
 )
 
 ;

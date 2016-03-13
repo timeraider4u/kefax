@@ -2093,6 +2093,28 @@ this_SKW_RIGHTPAREN_40=RULE_SKW_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0()); 
+	    }
+		lv_gccAttributeSpecifier_41_0=ruleGccAttributeSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"gccAttributeSpecifier",
+        		lv_gccAttributeSpecifier_41_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttributeSpecifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )
 
 

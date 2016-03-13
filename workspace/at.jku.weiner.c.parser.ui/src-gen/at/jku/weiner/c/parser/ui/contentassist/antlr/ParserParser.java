@@ -340,6 +340,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeSpecifierAccess().getConstExprAssignment_23_1_1(), "rule__TypeSpecifier__ConstExprAssignment_23_1_1");
 					put(grammarAccess.getTypeSpecifierAccess().getExpr1Assignment_23_1_3(), "rule__TypeSpecifier__Expr1Assignment_23_1_3");
 					put(grammarAccess.getTypeSpecifierAccess().getExpr2Assignment_23_1_5(), "rule__TypeSpecifier__Expr2Assignment_23_1_5");
+					put(grammarAccess.getTypeSpecifierAccess().getGccAttributeSpecifierAssignment_24(), "rule__TypeSpecifier__GccAttributeSpecifierAssignment_24");
 					put(grammarAccess.getTypedefNameAccess().getIdentAssignment_1(), "rule__TypedefName__IdentAssignment_1");
 					put(grammarAccess.getStructOrUnionSpecifierAccess().getTypeAssignment_1(), "rule__StructOrUnionSpecifier__TypeAssignment_1");
 					put(grammarAccess.getStructOrUnionSpecifierAccess().getIdentAssignment_2_0_0(), "rule__StructOrUnionSpecifier__IdentAssignment_2_0_0");

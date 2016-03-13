@@ -209,6 +209,7 @@ TypeSpecifier:
 				expr1=ConstantExpression SKW_COMMA
 				expr2=ConstantExpression
 			SKW_RIGHTPAREN) // GCC extension
+	|	gccAttributeSpecifier=GccAttributeSpecifier
 ;
 
 TypedefName:
@@ -311,7 +312,7 @@ FunctionSpecifier:
 			//|	'__stdcall'
 		)
 		
-		|	gccAttributeSpecifier=GccAttributeSpecifier
+//		|	gccAttributeSpecifier=GccAttributeSpecifier
 		//|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 	)
 ;

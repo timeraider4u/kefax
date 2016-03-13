@@ -49,7 +49,7 @@ import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.StorageClassSpecifier;
 import at.jku.weiner.c.parser.parser.FunctionSpecifier;
-import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
 import at.jku.weiner.c.parser.parser.GccAttributeList;
 import at.jku.weiner.c.parser.parser.GccAttribute;
@@ -201,13 +201,13 @@ public class Test0061_AttributeWithKeyword {
 		Assert.assertEquals("inline", FunctionSpecifier_5_Var
 		.getName());
 		//5
-		final FunctionSpecifier FunctionSpecifier_6_Var
-		 = (FunctionSpecifier)DeclarationSpecifier_3_list.get(2);
-		Assert.assertNotNull(FunctionSpecifier_6_Var
+		final TypeSpecifier TypeSpecifier_6_Var
+		 = (TypeSpecifier)DeclarationSpecifier_3_list.get(2);
+		Assert.assertNotNull(TypeSpecifier_6_Var
 		);
 		//6
 		final GccAttributeSpecifier GccAttributeSpecifier_7_Var
-		 = (GccAttributeSpecifier)FunctionSpecifier_6_Var
+		 = (GccAttributeSpecifier)TypeSpecifier_6_Var
 		.getGccAttributeSpecifier();
 		Assert.assertNotNull(GccAttributeSpecifier_7_Var
 		);

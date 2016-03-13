@@ -629,6 +629,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpr2Assignment_23_1_5 = (Assignment)cGroup_23_1.eContents().get(5);
 		private final RuleCall cExpr2ConstantExpressionParserRuleCall_23_1_5_0 = (RuleCall)cExpr2Assignment_23_1_5.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_23_1_6 = (RuleCall)cGroup_23_1.eContents().get(6);
+		private final Assignment cGccAttributeSpecifierAssignment_24 = (Assignment)cAlternatives.eContents().get(24);
+		private final RuleCall cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0 = (RuleCall)cGccAttributeSpecifierAssignment_24.eContents().get(0);
 		
 		//TypeSpecifier:
 		//	{TypeSpecifier} name=KW_BOOL
@@ -659,7 +661,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	constExpr=ConstantExpression SKW_COMMA
 		//	expr1=ConstantExpression SKW_COMMA
 		//	expr2=ConstantExpression
-		//	SKW_RIGHTPAREN);
+		//	SKW_RIGHTPAREN) | gccAttributeSpecifier=GccAttributeSpecifier;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TypeSpecifier} name=KW_BOOL | name=KW_BUILTIN_VA_LIST | name=KW_CHAR | name=KW_COMPLEX | name=KW_DOUBLE | name=KW_FLOAT
@@ -669,7 +671,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//| specifier=StructOrUnionSpecifier | specifier=EnumSpecifier | type=TypedefName | typeOf=(KW_TYPEOF1 | KW_TYPEOF2 |
 		//KW_TYPEOF3) (SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN) |
 		//builtinChooseExpr?=KW_BUILTIN_CHOOSE_EXPR (SKW_LEFTPAREN constExpr=ConstantExpression SKW_COMMA
-		//expr1=ConstantExpression SKW_COMMA expr2=ConstantExpression SKW_RIGHTPAREN)
+		//expr1=ConstantExpression SKW_COMMA expr2=ConstantExpression SKW_RIGHTPAREN) |
+		//gccAttributeSpecifier=GccAttributeSpecifier
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{TypeSpecifier} name=KW_BOOL
@@ -929,6 +932,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_23_1_6() { return cSKW_RIGHTPARENTerminalRuleCall_23_1_6; }
+		
+		//gccAttributeSpecifier=GccAttributeSpecifier
+		public Assignment getGccAttributeSpecifierAssignment_24() { return cGccAttributeSpecifierAssignment_24; }
+		
+		//GccAttributeSpecifier
+		public RuleCall getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0() { return cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_24_0; }
 	}
 	public class TypedefNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TypedefName");
@@ -6339,7 +6348,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	constExpr=ConstantExpression SKW_COMMA
 	//	expr1=ConstantExpression SKW_COMMA
 	//	expr2=ConstantExpression
-	//	SKW_RIGHTPAREN);
+	//	SKW_RIGHTPAREN) | gccAttributeSpecifier=GccAttributeSpecifier;
 	public TypeSpecifierElements getTypeSpecifierAccess() {
 		return pTypeSpecifier;
 	}

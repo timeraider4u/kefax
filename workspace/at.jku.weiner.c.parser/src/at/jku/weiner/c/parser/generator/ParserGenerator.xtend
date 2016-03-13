@@ -232,6 +232,7 @@ class ParserGenerator implements IGenerator {
 		«IF spec.builtinChooseExpr»__builtin_choose_expr(
 			«outputFor(spec.constExpr)», «outputFor(spec.expr1)», «outputFor(spec.expr2)»
 		)«ENDIF»
+		«IF spec.gccAttributeSpecifier != null»«outputFor(spec.gccAttributeSpecifier)»«ENDIF»
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''

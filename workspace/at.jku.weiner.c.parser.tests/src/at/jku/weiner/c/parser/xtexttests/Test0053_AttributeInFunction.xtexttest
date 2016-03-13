@@ -31,7 +31,7 @@ SKW_RIGHTBRACE NEWLINE
 					(FunctionSpecifier
 						name++"inline"
 					),
-					(FunctionSpecifier
+					(TypeSpecifier
 						gccAttributeSpecifier=
 						(GccAttributeSpecifier
 							list=

@@ -4,6 +4,7 @@ package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.Expression;
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#isBuiltinChooseExpr <em>Builtin Choose Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr1 <em>Expr1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr2 <em>Expr2</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -267,6 +269,26 @@ public class TypeSpecifierImpl extends PersistentEObjectImpl implements TypeSpec
 	public void setExpr2(Expression newExpr2)
 	{
 		eSet(ParserPackage.Literals.TYPE_SPECIFIER__EXPR2, newExpr2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GccAttributeSpecifier getGccAttributeSpecifier()
+	{
+		return (GccAttributeSpecifier)eGet(ParserPackage.Literals.TYPE_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGccAttributeSpecifier(GccAttributeSpecifier newGccAttributeSpecifier)
+	{
+		eSet(ParserPackage.Literals.TYPE_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER, newGccAttributeSpecifier);
 	}
 
 } //TypeSpecifierImpl

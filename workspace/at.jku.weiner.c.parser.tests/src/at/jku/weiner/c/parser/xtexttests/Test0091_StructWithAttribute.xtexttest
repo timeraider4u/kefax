@@ -54,7 +54,7 @@ NEWLINE
 							structDeclList=
 							(StructDeclarationList
 								structDeclaration+=
-								// int ident
+								// int i
 								(StructDeclaration
 									list=
 									(SpecifierQualifierList
@@ -76,24 +76,138 @@ NEWLINE
 											)
 										)
 									)
+								),
+								// struct ...
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											specifier=
+										
+											(StructOrUnionSpecifier
+												type=
+												(StructOrUnion
+													name++"struct"
+												),
+												ident++"bar",
+												structDeclList=
+												(StructDeclarationList
+													structDeclaration+=
+													// int j
+													(StructDeclaration
+														list=
+														(SpecifierQualifierList
+															typeSpecifier+=
+															(TypeSpecifier
+																name++"int"
+															)
+														),
+														structDeclarationList=
+														(StructDeclaratorList
+															structDeclarator+=
+															(StructDeclarator
+																declarator=
+																(Declarator
+																	declarator=
+																	(DirectDeclarator
+																		ident++"j"
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // struct or union specifier
+										),
+										(TypeSpecifier
+											gccAttributeSpecifier=
+											(GccAttributeSpecifier
+												list=
+												(GccAttributeList
+													gccAttribute+=
+													(GccAttribute
+														keyword++"__aligned__",
+														list=
+														(ArgumentExpressionList
+															expr+=
+															(PrimaryExpression
+																parentheses?=true,
+																expr=
+																(ShiftExpression
+																	op++"<<",
+																	left=
+																	(PrimaryExpression
+																		const=
+																		(common::Constant2
+																			dec++"2"
+																		)
+																	),
+																	right=
+																	(PrimaryExpression
+																		parentheses?=true,
+																		expr=
+																		(PrimaryExpression
+																			const=
+																			(common::Constant2
+																				dec++"3"
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													) // end gcc attribute
+												)
+											)
+										)
+									)
 								)
 							)
 						) // end struct or union specifier
-					)
-				), // end declaration specifiers
-				initDeclaratorList+=
-				(InitDeclaratorList
-					initDeclarator+=
-					(InitDeclarator
-						declarator=
-						(Declarator
-							declarator=
-							(DirectDeclarator
-								ident++"phil"
+					),
+					(TypeSpecifier
+						gccAttributeSpecifier=
+						(GccAttributeSpecifier
+							list=
+							(GccAttributeList
+								gccAttribute+=
+								(GccAttribute
+									keyword++"__aligned__",
+									list=
+									(ArgumentExpressionList
+										expr+=
+										(PrimaryExpression
+											parentheses?=true,
+											expr=
+											(ShiftExpression
+												op++"<<",
+												left=
+												(PrimaryExpression
+													const=
+													(common::Constant2
+														dec++"2"
+													)
+												),
+												right=
+												(PrimaryExpression
+													parentheses?=true,
+													expr=
+													(PrimaryExpression
+														const=
+														(common::Constant2
+															dec++"3"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
 							)
 						)
 					)
-				)
+				) // end declaration specifiers
 			)
 		) // end external declaration		  
 	)

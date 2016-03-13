@@ -1192,6 +1192,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTypeSpecifier_GccAttributeSpecifier()
+	{
+		return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTypedefName()
 	{
 		return typedefNameEClass;
@@ -3803,6 +3813,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__BUILTIN_CHOOSE_EXPR);
 		createEReference(typeSpecifierEClass, TYPE_SPECIFIER__EXPR1);
 		createEReference(typeSpecifierEClass, TYPE_SPECIFIER__EXPR2);
+		createEReference(typeSpecifierEClass, TYPE_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER);
 
 		typedefNameEClass = createEClass(TYPEDEF_NAME);
 		createEAttribute(typedefNameEClass, TYPEDEF_NAME__IDENT);
@@ -4258,6 +4269,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEAttribute(getTypeSpecifier_BuiltinChooseExpr(), theEcorePackage.getEBoolean(), "builtinChooseExpr", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeSpecifier_Expr1(), this.getExpression(), null, "expr1", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeSpecifier_Expr2(), this.getExpression(), null, "expr2", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeSpecifier_GccAttributeSpecifier(), this.getGccAttributeSpecifier(), null, "gccAttributeSpecifier", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typedefNameEClass, TypedefName.class, "TypedefName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypedefName_Ident(), theEcorePackage.getEString(), "ident", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

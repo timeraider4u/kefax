@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterTypeListImpl#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterTypeListImpl#isEllipsis <em>Ellipsis</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

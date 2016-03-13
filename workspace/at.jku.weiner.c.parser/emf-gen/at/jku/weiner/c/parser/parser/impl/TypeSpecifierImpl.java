@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExtType <em>Ext Type</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr1 <em>Expr1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExpr2 <em>Expr2</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

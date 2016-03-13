@@ -13,13 +13,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getPointer <em>Pointer</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt1 <em>Gcc Decl Ext1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt2 <em>Gcc Decl Ext2</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclarator()
  * @model

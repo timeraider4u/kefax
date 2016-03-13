@@ -1,0 +1,116 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0091_StructWithAttribute.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+	WHITESPACE
+	KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+		WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+		WHITESPACE SKW_RIGHTBRACE WHITESPACE KW_ATTRIBUTE3 SKW_LEFTPAREN SKW_LEFTPAREN
+			KW_ALIGNED3 SKW_LEFTPAREN SKW_LEFTPAREN
+					DECIMAL_LITERAL WHITESPACE SKW_LEFTSHIFT WHITESPACE
+					SKW_LEFTPAREN 
+						DECIMAL_LITERAL 
+					SKW_RIGHTPAREN
+			SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_RIGHTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE 
+SKW_RIGHTBRACE WHITESPACE KW_ATTRIBUTE3 SKW_LEFTPAREN SKW_LEFTPAREN
+		KW_ALIGNED3 SKW_LEFTPAREN SKW_LEFTPAREN
+				DECIMAL_LITERAL WHITESPACE SKW_LEFTSHIFT WHITESPACE
+				SKW_LEFTPAREN 
+					DECIMAL_LITERAL 
+				SKW_RIGHTPAREN
+		SKW_RIGHTPAREN SKW_RIGHTPAREN
+	SKW_RIGHTPAREN SKW_RIGHTPAREN 
+	SKW_SEMI 
+NEWLINE
+
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// struct foo { ... } ... ;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							ident++"foo",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// int ident
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													ident++"i"
+												)
+											)
+										)
+									)
+								)
+							)
+						) // end struct or union specifier
+					)
+				), // end declaration specifiers
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								ident++"phil"
+							)
+						)
+					)
+				)
+			)
+		) // end external declaration		  
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0091_StructWithAttribute.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+before
+	class = at.jku.weiner.c.parser.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+after
+	class = at.jku.weiner.c.parser.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

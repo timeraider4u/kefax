@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConditionalExpressionImpl#getQExpr <em>QExpr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConditionalExpressionImpl#getCExpr <em>CExpr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

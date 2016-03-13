@@ -11,11 +11,11 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getLastSuffix <em>Last Suffix</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclaratorSuffix()
  * @model

@@ -12943,140 +12943,164 @@ ruleParserKeywords returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(    this_KW_ATOMIC_0=RULE_KW_ATOMIC    {
-		$current.merge(this_KW_ATOMIC_0);
+(    this_KW_ALIGNED1_0=RULE_KW_ALIGNED1    {
+		$current.merge(this_KW_ALIGNED1_0);
     }
 
     { 
-    newLeafNode(this_KW_ATOMIC_0, grammarAccess.getParserKeywordsAccess().getKW_ATOMICTerminalRuleCall_0()); 
+    newLeafNode(this_KW_ALIGNED1_0, grammarAccess.getParserKeywordsAccess().getKW_ALIGNED1TerminalRuleCall_0()); 
     }
 
-    |    this_KW_AUTO_1=RULE_KW_AUTO    {
-		$current.merge(this_KW_AUTO_1);
-    }
-
-    { 
-    newLeafNode(this_KW_AUTO_1, grammarAccess.getParserKeywordsAccess().getKW_AUTOTerminalRuleCall_1()); 
-    }
-
-    |    this_KW_BOOL_2=RULE_KW_BOOL    {
-		$current.merge(this_KW_BOOL_2);
+    |    this_KW_ALIGNED2_1=RULE_KW_ALIGNED2    {
+		$current.merge(this_KW_ALIGNED2_1);
     }
 
     { 
-    newLeafNode(this_KW_BOOL_2, grammarAccess.getParserKeywordsAccess().getKW_BOOLTerminalRuleCall_2()); 
+    newLeafNode(this_KW_ALIGNED2_1, grammarAccess.getParserKeywordsAccess().getKW_ALIGNED2TerminalRuleCall_1()); 
     }
 
-    |    this_KW_CONST_3=RULE_KW_CONST    {
-		$current.merge(this_KW_CONST_3);
-    }
-
-    { 
-    newLeafNode(this_KW_CONST_3, grammarAccess.getParserKeywordsAccess().getKW_CONSTTerminalRuleCall_3()); 
-    }
-
-    |    this_KW_CHAR_4=RULE_KW_CHAR    {
-		$current.merge(this_KW_CHAR_4);
+    |    this_KW_ALIGNED3_2=RULE_KW_ALIGNED3    {
+		$current.merge(this_KW_ALIGNED3_2);
     }
 
     { 
-    newLeafNode(this_KW_CHAR_4, grammarAccess.getParserKeywordsAccess().getKW_CHARTerminalRuleCall_4()); 
+    newLeafNode(this_KW_ALIGNED3_2, grammarAccess.getParserKeywordsAccess().getKW_ALIGNED3TerminalRuleCall_2()); 
     }
 
-    |    this_KW_DOUBLE_5=RULE_KW_DOUBLE    {
-		$current.merge(this_KW_DOUBLE_5);
-    }
-
-    { 
-    newLeafNode(this_KW_DOUBLE_5, grammarAccess.getParserKeywordsAccess().getKW_DOUBLETerminalRuleCall_5()); 
-    }
-
-    |    this_KW_EXTERN_6=RULE_KW_EXTERN    {
-		$current.merge(this_KW_EXTERN_6);
+    |    this_KW_ATOMIC_3=RULE_KW_ATOMIC    {
+		$current.merge(this_KW_ATOMIC_3);
     }
 
     { 
-    newLeafNode(this_KW_EXTERN_6, grammarAccess.getParserKeywordsAccess().getKW_EXTERNTerminalRuleCall_6()); 
+    newLeafNode(this_KW_ATOMIC_3, grammarAccess.getParserKeywordsAccess().getKW_ATOMICTerminalRuleCall_3()); 
     }
 
-    |    this_KW_FLOAT_7=RULE_KW_FLOAT    {
-		$current.merge(this_KW_FLOAT_7);
-    }
-
-    { 
-    newLeafNode(this_KW_FLOAT_7, grammarAccess.getParserKeywordsAccess().getKW_FLOATTerminalRuleCall_7()); 
-    }
-
-    |    this_KW_INT_8=RULE_KW_INT    {
-		$current.merge(this_KW_INT_8);
+    |    this_KW_AUTO_4=RULE_KW_AUTO    {
+		$current.merge(this_KW_AUTO_4);
     }
 
     { 
-    newLeafNode(this_KW_INT_8, grammarAccess.getParserKeywordsAccess().getKW_INTTerminalRuleCall_8()); 
+    newLeafNode(this_KW_AUTO_4, grammarAccess.getParserKeywordsAccess().getKW_AUTOTerminalRuleCall_4()); 
     }
 
-    |    this_KW_LONG_9=RULE_KW_LONG    {
-		$current.merge(this_KW_LONG_9);
-    }
-
-    { 
-    newLeafNode(this_KW_LONG_9, grammarAccess.getParserKeywordsAccess().getKW_LONGTerminalRuleCall_9()); 
-    }
-
-    |    this_KW_RESTRICT_10=RULE_KW_RESTRICT    {
-		$current.merge(this_KW_RESTRICT_10);
+    |    this_KW_BOOL_5=RULE_KW_BOOL    {
+		$current.merge(this_KW_BOOL_5);
     }
 
     { 
-    newLeafNode(this_KW_RESTRICT_10, grammarAccess.getParserKeywordsAccess().getKW_RESTRICTTerminalRuleCall_10()); 
+    newLeafNode(this_KW_BOOL_5, grammarAccess.getParserKeywordsAccess().getKW_BOOLTerminalRuleCall_5()); 
     }
 
-    |    this_KW_SHORT_11=RULE_KW_SHORT    {
-		$current.merge(this_KW_SHORT_11);
-    }
-
-    { 
-    newLeafNode(this_KW_SHORT_11, grammarAccess.getParserKeywordsAccess().getKW_SHORTTerminalRuleCall_11()); 
-    }
-
-    |    this_KW_SIGNED1_12=RULE_KW_SIGNED1    {
-		$current.merge(this_KW_SIGNED1_12);
+    |    this_KW_CONST_6=RULE_KW_CONST    {
+		$current.merge(this_KW_CONST_6);
     }
 
     { 
-    newLeafNode(this_KW_SIGNED1_12, grammarAccess.getParserKeywordsAccess().getKW_SIGNED1TerminalRuleCall_12()); 
+    newLeafNode(this_KW_CONST_6, grammarAccess.getParserKeywordsAccess().getKW_CONSTTerminalRuleCall_6()); 
     }
 
-    |    this_KW_SIGNED2_13=RULE_KW_SIGNED2    {
-		$current.merge(this_KW_SIGNED2_13);
-    }
-
-    { 
-    newLeafNode(this_KW_SIGNED2_13, grammarAccess.getParserKeywordsAccess().getKW_SIGNED2TerminalRuleCall_13()); 
-    }
-
-    |    this_KW_SIGNED3_14=RULE_KW_SIGNED3    {
-		$current.merge(this_KW_SIGNED3_14);
+    |    this_KW_CHAR_7=RULE_KW_CHAR    {
+		$current.merge(this_KW_CHAR_7);
     }
 
     { 
-    newLeafNode(this_KW_SIGNED3_14, grammarAccess.getParserKeywordsAccess().getKW_SIGNED3TerminalRuleCall_14()); 
+    newLeafNode(this_KW_CHAR_7, grammarAccess.getParserKeywordsAccess().getKW_CHARTerminalRuleCall_7()); 
     }
 
-    |    this_KW_VOID_15=RULE_KW_VOID    {
-		$current.merge(this_KW_VOID_15);
-    }
-
-    { 
-    newLeafNode(this_KW_VOID_15, grammarAccess.getParserKeywordsAccess().getKW_VOIDTerminalRuleCall_15()); 
-    }
-
-    |    this_KW_UNSIGNED_16=RULE_KW_UNSIGNED    {
-		$current.merge(this_KW_UNSIGNED_16);
+    |    this_KW_DOUBLE_8=RULE_KW_DOUBLE    {
+		$current.merge(this_KW_DOUBLE_8);
     }
 
     { 
-    newLeafNode(this_KW_UNSIGNED_16, grammarAccess.getParserKeywordsAccess().getKW_UNSIGNEDTerminalRuleCall_16()); 
+    newLeafNode(this_KW_DOUBLE_8, grammarAccess.getParserKeywordsAccess().getKW_DOUBLETerminalRuleCall_8()); 
+    }
+
+    |    this_KW_EXTERN_9=RULE_KW_EXTERN    {
+		$current.merge(this_KW_EXTERN_9);
+    }
+
+    { 
+    newLeafNode(this_KW_EXTERN_9, grammarAccess.getParserKeywordsAccess().getKW_EXTERNTerminalRuleCall_9()); 
+    }
+
+    |    this_KW_FLOAT_10=RULE_KW_FLOAT    {
+		$current.merge(this_KW_FLOAT_10);
+    }
+
+    { 
+    newLeafNode(this_KW_FLOAT_10, grammarAccess.getParserKeywordsAccess().getKW_FLOATTerminalRuleCall_10()); 
+    }
+
+    |    this_KW_INT_11=RULE_KW_INT    {
+		$current.merge(this_KW_INT_11);
+    }
+
+    { 
+    newLeafNode(this_KW_INT_11, grammarAccess.getParserKeywordsAccess().getKW_INTTerminalRuleCall_11()); 
+    }
+
+    |    this_KW_LONG_12=RULE_KW_LONG    {
+		$current.merge(this_KW_LONG_12);
+    }
+
+    { 
+    newLeafNode(this_KW_LONG_12, grammarAccess.getParserKeywordsAccess().getKW_LONGTerminalRuleCall_12()); 
+    }
+
+    |    this_KW_RESTRICT_13=RULE_KW_RESTRICT    {
+		$current.merge(this_KW_RESTRICT_13);
+    }
+
+    { 
+    newLeafNode(this_KW_RESTRICT_13, grammarAccess.getParserKeywordsAccess().getKW_RESTRICTTerminalRuleCall_13()); 
+    }
+
+    |    this_KW_SHORT_14=RULE_KW_SHORT    {
+		$current.merge(this_KW_SHORT_14);
+    }
+
+    { 
+    newLeafNode(this_KW_SHORT_14, grammarAccess.getParserKeywordsAccess().getKW_SHORTTerminalRuleCall_14()); 
+    }
+
+    |    this_KW_SIGNED1_15=RULE_KW_SIGNED1    {
+		$current.merge(this_KW_SIGNED1_15);
+    }
+
+    { 
+    newLeafNode(this_KW_SIGNED1_15, grammarAccess.getParserKeywordsAccess().getKW_SIGNED1TerminalRuleCall_15()); 
+    }
+
+    |    this_KW_SIGNED2_16=RULE_KW_SIGNED2    {
+		$current.merge(this_KW_SIGNED2_16);
+    }
+
+    { 
+    newLeafNode(this_KW_SIGNED2_16, grammarAccess.getParserKeywordsAccess().getKW_SIGNED2TerminalRuleCall_16()); 
+    }
+
+    |    this_KW_SIGNED3_17=RULE_KW_SIGNED3    {
+		$current.merge(this_KW_SIGNED3_17);
+    }
+
+    { 
+    newLeafNode(this_KW_SIGNED3_17, grammarAccess.getParserKeywordsAccess().getKW_SIGNED3TerminalRuleCall_17()); 
+    }
+
+    |    this_KW_VOID_18=RULE_KW_VOID    {
+		$current.merge(this_KW_VOID_18);
+    }
+
+    { 
+    newLeafNode(this_KW_VOID_18, grammarAccess.getParserKeywordsAccess().getKW_VOIDTerminalRuleCall_18()); 
+    }
+
+    |    this_KW_UNSIGNED_19=RULE_KW_UNSIGNED    {
+		$current.merge(this_KW_UNSIGNED_19);
+    }
+
+    { 
+    newLeafNode(this_KW_UNSIGNED_19, grammarAccess.getParserKeywordsAccess().getKW_UNSIGNEDTerminalRuleCall_19()); 
     }
 )
     ;
@@ -13616,6 +13640,12 @@ RULE_KW_ATTRIBUTE3 : RULE_KW_ATTRIBUTE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 RULE_KW_AUTO : 'auto';
 
 RULE_KW_ALIGNAS : RULE_SKW_UNDERSCORE 'Alignas';
+
+RULE_KW_ALIGNED1 : 'aligned';
+
+RULE_KW_ALIGNED2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_ALIGNED1;
+
+RULE_KW_ALIGNED3 : RULE_KW_ALIGNED2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_ALIGNOF1 : 'alignof';
 

@@ -10,6 +10,7 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.SelectionStatement#getIf <em>If</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.SelectionStatement#getExpr <em>Expr</em>}</li>
@@ -19,7 +20,6 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.SelectionStatement#getSwitch <em>Switch</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.SelectionStatement#getSwitchStatement <em>Switch Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getSelectionStatement()
  * @model

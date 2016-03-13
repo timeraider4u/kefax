@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getExpr <em>Expr</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAndand <em>Andand</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getIdent <em>Ident</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

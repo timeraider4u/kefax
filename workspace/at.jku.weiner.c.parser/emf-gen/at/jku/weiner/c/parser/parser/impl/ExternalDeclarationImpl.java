@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getFunctiondefHead <em>Functiondef Head</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getFunctionDefinition <em>Function Definition</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getSemi <em>Semi</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExternalDeclarationImpl#getGccAsmBasic <em>Gcc Asm Basic</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

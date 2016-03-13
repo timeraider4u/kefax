@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorListImpl#getDesignator <em>Designator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

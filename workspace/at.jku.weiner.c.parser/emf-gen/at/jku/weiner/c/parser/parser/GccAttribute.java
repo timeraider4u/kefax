@@ -11,13 +11,13 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getList <em>List</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccAttribute()
  * @model

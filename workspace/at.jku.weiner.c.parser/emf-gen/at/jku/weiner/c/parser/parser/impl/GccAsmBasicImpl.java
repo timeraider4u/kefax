@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAsmBasicImpl#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -359,6 +359,11 @@ class MyXtextTestGenerator {
 		Assert.assertEquals("«value»", «varName».get«paramName»());
 	'''
 	
+//	def generateForValueAssign(String varName, String paramName,
+//			String value) '''
+//		Assert.assertEquals("«value»", «varName».get«paramName»().toString());
+//	'''
+	
 	def generateForBoolAssign(String varName, String paramName, String string3) '''
 		«IF "true".equals(string3)»
 			Assert.assertTrue(«varName».is«paramName»());

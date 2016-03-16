@@ -819,7 +819,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_INLINE3 | name=KW_NORETURN | gccAttributeSpecifier=GccAttributeSpecifier)
+	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_INLINE3 | name=KW_NORETURN)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
@@ -971,7 +971,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (ident=ID lStmt=Statement) | 
-	 *         (case=KW_CASE ((lower=Constant1 higher=Constant1) | expr=ConstantExpression) lStmt=Statement) | 
+	 *         (case=KW_CASE expr=ConstantExpression higher=ConstantExpression? lStmt=Statement) | 
 	 *         (mydefault?=KW_DEFAULT lStmt=Statement)
 	 *     )
 	 */

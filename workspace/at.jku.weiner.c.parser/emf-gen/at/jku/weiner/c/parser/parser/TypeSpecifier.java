@@ -11,7 +11,6 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExtType <em>Ext Type</em>}</li>
@@ -25,6 +24,7 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExpr2 <em>Expr2</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier()
  * @model

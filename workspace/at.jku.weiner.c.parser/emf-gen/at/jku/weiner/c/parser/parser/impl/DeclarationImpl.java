@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationImpl#getInitDeclaratorList <em>Init Declarator List</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

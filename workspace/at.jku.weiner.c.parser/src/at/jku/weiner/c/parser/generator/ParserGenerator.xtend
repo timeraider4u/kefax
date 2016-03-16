@@ -508,7 +508,8 @@ class ParserGenerator implements IGenerator {
 		«IF obj.ident != null»«obj.ident»:«outputFor(obj.LStmt)»«ENDIF»
 		«IF obj.getCase() != null»case 
 			«IF obj.expr != null»«outputFor(obj.expr)»
-			«ELSE»«obj.lower»...«obj.higher»«ENDIF»
+				«IF obj.higher != null»...«outputFor(obj.higher)»«ENDIF»
+			«ENDIF»
 			:«outputFor(obj.LStmt)»«ENDIF»
 		«IF obj.mydefault»default: «outputFor(obj.LStmt)»«ENDIF»
 	'''

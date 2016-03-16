@@ -15,16 +15,15 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getCase <em>Case</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLower <em>Lower</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getHigher <em>Higher</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#isMydefault <em>Mydefault</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getHigher <em>Higher</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -116,46 +115,6 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLower()
-	{
-		return (String)eGet(ParserPackage.Literals.LABELED_STATEMENT__LOWER, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLower(String newLower)
-	{
-		eSet(ParserPackage.Literals.LABELED_STATEMENT__LOWER, newLower);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getHigher()
-	{
-		return (String)eGet(ParserPackage.Literals.LABELED_STATEMENT__HIGHER, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHigher(String newHigher)
-	{
-		eSet(ParserPackage.Literals.LABELED_STATEMENT__HIGHER, newHigher);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Expression getExpr()
 	{
 		return (Expression)eGet(ParserPackage.Literals.LABELED_STATEMENT__EXPR, true);
@@ -189,6 +148,26 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
 	public void setMydefault(boolean newMydefault)
 	{
 		eSet(ParserPackage.Literals.LABELED_STATEMENT__MYDEFAULT, newMydefault);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression getHigher()
+	{
+		return (Expression)eGet(ParserPackage.Literals.LABELED_STATEMENT__HIGHER, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHigher(Expression newHigher)
+	{
+		eSet(ParserPackage.Literals.LABELED_STATEMENT__HIGHER, newHigher);
 	}
 
 } //LabeledStatementImpl

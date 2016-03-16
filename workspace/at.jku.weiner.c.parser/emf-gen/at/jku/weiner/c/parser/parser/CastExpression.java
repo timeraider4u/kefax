@@ -10,12 +10,12 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.CastExpression#isExtension <em>Extension</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getCastExpression()
  * @model

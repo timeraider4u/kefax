@@ -1506,81 +1506,62 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cFunctionSpecifierAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cAlternatives_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_0_0 = (Assignment)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cNameKW_INLINE1TerminalRuleCall_1_0_0_0 = (RuleCall)cNameAssignment_1_0_0.eContents().get(0);
-		private final Assignment cNameAssignment_1_0_1 = (Assignment)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cNameKW_INLINE2TerminalRuleCall_1_0_1_0 = (RuleCall)cNameAssignment_1_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_0_2 = (Assignment)cAlternatives_1_0.eContents().get(2);
-		private final RuleCall cNameKW_INLINE3TerminalRuleCall_1_0_2_0 = (RuleCall)cNameAssignment_1_0_2.eContents().get(0);
-		private final Assignment cNameAssignment_1_0_3 = (Assignment)cAlternatives_1_0.eContents().get(3);
-		private final RuleCall cNameKW_NORETURNTerminalRuleCall_1_0_3_0 = (RuleCall)cNameAssignment_1_0_3.eContents().get(0);
-		private final Assignment cGccAttributeSpecifierAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0 = (RuleCall)cGccAttributeSpecifierAssignment_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cNameKW_INLINE1TerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cNameKW_INLINE2TerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cNameKW_INLINE3TerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cNameKW_NORETURNTerminalRuleCall_1_3_0 = (RuleCall)cNameAssignment_1_3.eContents().get(0);
 		
 		//FunctionSpecifier:
-		//	{FunctionSpecifier} ((name=KW_INLINE1
+		//	{FunctionSpecifier} (name=KW_INLINE1
 		//	| name=KW_INLINE2 // GCC extension
 		//	| name=KW_INLINE3 // GCC extension?
 		//	| name=KW_NORETURN
 		//	//|	'__stdcall'
-		//) | gccAttributeSpecifier=GccAttributeSpecifier
-		//	//|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 		//);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{FunctionSpecifier} ((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
+		//{FunctionSpecifier} (name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
 		//| name=KW_INLINE3 // GCC extension?
 		//| name=KW_NORETURN //|	'__stdcall'
-		//) | gccAttributeSpecifier=GccAttributeSpecifier //|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{FunctionSpecifier}
 		public Action getFunctionSpecifierAction_0() { return cFunctionSpecifierAction_0; }
 		
-		//((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
-		//| name=KW_INLINE3 // GCC extension?
-		//| name=KW_NORETURN //|	'__stdcall'
-		//) | gccAttributeSpecifier=GccAttributeSpecifier //|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
-		//)
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
 		//(name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
 		//| name=KW_INLINE3 // GCC extension?
 		//| name=KW_NORETURN //|	'__stdcall'
 		//)
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//name=KW_INLINE1
-		public Assignment getNameAssignment_1_0_0() { return cNameAssignment_1_0_0; }
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
 		
 		//KW_INLINE1
-		public RuleCall getNameKW_INLINE1TerminalRuleCall_1_0_0_0() { return cNameKW_INLINE1TerminalRuleCall_1_0_0_0; }
+		public RuleCall getNameKW_INLINE1TerminalRuleCall_1_0_0() { return cNameKW_INLINE1TerminalRuleCall_1_0_0; }
 		
 		//name=KW_INLINE2
-		public Assignment getNameAssignment_1_0_1() { return cNameAssignment_1_0_1; }
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
 		
 		//KW_INLINE2
-		public RuleCall getNameKW_INLINE2TerminalRuleCall_1_0_1_0() { return cNameKW_INLINE2TerminalRuleCall_1_0_1_0; }
+		public RuleCall getNameKW_INLINE2TerminalRuleCall_1_1_0() { return cNameKW_INLINE2TerminalRuleCall_1_1_0; }
 		
 		//name=KW_INLINE3
-		public Assignment getNameAssignment_1_0_2() { return cNameAssignment_1_0_2; }
+		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
 		
 		//KW_INLINE3
-		public RuleCall getNameKW_INLINE3TerminalRuleCall_1_0_2_0() { return cNameKW_INLINE3TerminalRuleCall_1_0_2_0; }
+		public RuleCall getNameKW_INLINE3TerminalRuleCall_1_2_0() { return cNameKW_INLINE3TerminalRuleCall_1_2_0; }
 		
 		//name=KW_NORETURN
-		public Assignment getNameAssignment_1_0_3() { return cNameAssignment_1_0_3; }
+		public Assignment getNameAssignment_1_3() { return cNameAssignment_1_3; }
 		
 		//KW_NORETURN
-		public RuleCall getNameKW_NORETURNTerminalRuleCall_1_0_3_0() { return cNameKW_NORETURNTerminalRuleCall_1_0_3_0; }
-		
-		//gccAttributeSpecifier=GccAttributeSpecifier
-		public Assignment getGccAttributeSpecifierAssignment_1_1() { return cGccAttributeSpecifierAssignment_1_1; }
-		
-		//GccAttributeSpecifier
-		public RuleCall getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0() { return cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0; }
+		public RuleCall getNameKW_NORETURNTerminalRuleCall_1_3_0() { return cNameKW_NORETURNTerminalRuleCall_1_3_0; }
 	}
 	public class DeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Declarator");
@@ -2960,15 +2941,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cCaseAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
 		private final RuleCall cCaseKW_CASETerminalRuleCall_1_1_0_0 = (RuleCall)cCaseAssignment_1_1_0.eContents().get(0);
-		private final Alternatives cAlternatives_1_1_1 = (Alternatives)cGroup_1_1.eContents().get(1);
-		private final Group cGroup_1_1_1_0 = (Group)cAlternatives_1_1_1.eContents().get(0);
-		private final Assignment cLowerAssignment_1_1_1_0_0 = (Assignment)cGroup_1_1_1_0.eContents().get(0);
-		private final RuleCall cLowerConstant1ParserRuleCall_1_1_1_0_0_0 = (RuleCall)cLowerAssignment_1_1_1_0_0.eContents().get(0);
-		private final RuleCall cEllipsisParserRuleCall_1_1_1_0_1 = (RuleCall)cGroup_1_1_1_0.eContents().get(1);
-		private final Assignment cHigherAssignment_1_1_1_0_2 = (Assignment)cGroup_1_1_1_0.eContents().get(2);
-		private final RuleCall cHigherConstant1ParserRuleCall_1_1_1_0_2_0 = (RuleCall)cHigherAssignment_1_1_1_0_2.eContents().get(0);
-		private final Assignment cExprAssignment_1_1_1_1 = (Assignment)cAlternatives_1_1_1.eContents().get(1);
-		private final RuleCall cExprConstantExpressionParserRuleCall_1_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1_1.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Assignment cExprAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
+		private final RuleCall cExprConstantExpressionParserRuleCall_1_1_1_0_0 = (RuleCall)cExprAssignment_1_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1_1 = (Group)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cEllipsisParserRuleCall_1_1_1_1_0 = (RuleCall)cGroup_1_1_1_1.eContents().get(0);
+		private final Assignment cHigherAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
+		private final RuleCall cHigherConstantExpressionParserRuleCall_1_1_1_1_1_0 = (RuleCall)cHigherAssignment_1_1_1_1_1.eContents().get(0);
 		private final RuleCall cSKW_COLONTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		private final Assignment cLStmtAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
 		private final RuleCall cLStmtStatementParserRuleCall_1_1_3_0 = (RuleCall)cLStmtAssignment_1_1_3.eContents().get(0);
@@ -2981,19 +2960,22 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LabeledStatement Statement:
 		//	{LabeledStatement} (ident=ID SKW_COLON lStmt=Statement
-		//	| case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
+		//	| case=KW_CASE (expr=ConstantExpression (Ellipsis
+		//	higher=ConstantExpression)? // gcc extension
+		//) SKW_COLON lStmt=Statement
 		//	| mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{LabeledStatement} (ident=ID SKW_COLON lStmt=Statement | case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 |
-		//expr=ConstantExpression) SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
+		//{LabeledStatement} (ident=ID SKW_COLON lStmt=Statement | case=KW_CASE (expr=ConstantExpression (Ellipsis
+		//higher=ConstantExpression)? // gcc extension
+		//) SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		public Group getGroup() { return cGroup; }
 		
 		//{LabeledStatement}
 		public Action getLabeledStatementAction_0() { return cLabeledStatementAction_0; }
 		
-		//(ident=ID SKW_COLON lStmt=Statement | case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression)
-		//SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
+		//(ident=ID SKW_COLON lStmt=Statement | case=KW_CASE (expr=ConstantExpression (Ellipsis higher=ConstantExpression)? // gcc extension
+		//) SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//ident=ID SKW_COLON lStmt=Statement
@@ -3014,7 +2996,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getLStmtStatementParserRuleCall_1_0_2_0() { return cLStmtStatementParserRuleCall_1_0_2_0; }
 		
-		//case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
+		//case=KW_CASE (expr=ConstantExpression (Ellipsis higher=ConstantExpression)? // gcc extension
+		//) SKW_COLON lStmt=Statement
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//case=KW_CASE
@@ -3023,32 +3006,27 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_CASE
 		public RuleCall getCaseKW_CASETerminalRuleCall_1_1_0_0() { return cCaseKW_CASETerminalRuleCall_1_1_0_0; }
 		
-		//(lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression)
-		public Alternatives getAlternatives_1_1_1() { return cAlternatives_1_1_1; }
-		
-		//lower=Constant1 Ellipsis higher=Constant1
-		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
-		
-		//lower=Constant1
-		public Assignment getLowerAssignment_1_1_1_0_0() { return cLowerAssignment_1_1_1_0_0; }
-		
-		//Constant1
-		public RuleCall getLowerConstant1ParserRuleCall_1_1_1_0_0_0() { return cLowerConstant1ParserRuleCall_1_1_1_0_0_0; }
-		
-		//Ellipsis
-		public RuleCall getEllipsisParserRuleCall_1_1_1_0_1() { return cEllipsisParserRuleCall_1_1_1_0_1; }
-		
-		//higher=Constant1
-		public Assignment getHigherAssignment_1_1_1_0_2() { return cHigherAssignment_1_1_1_0_2; }
-		
-		//Constant1
-		public RuleCall getHigherConstant1ParserRuleCall_1_1_1_0_2_0() { return cHigherConstant1ParserRuleCall_1_1_1_0_2_0; }
+		//(expr=ConstantExpression (Ellipsis higher=ConstantExpression)? // gcc extension
+		//)
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 		
 		//expr=ConstantExpression
-		public Assignment getExprAssignment_1_1_1_1() { return cExprAssignment_1_1_1_1; }
+		public Assignment getExprAssignment_1_1_1_0() { return cExprAssignment_1_1_1_0; }
 		
 		//ConstantExpression
-		public RuleCall getExprConstantExpressionParserRuleCall_1_1_1_1_0() { return cExprConstantExpressionParserRuleCall_1_1_1_1_0; }
+		public RuleCall getExprConstantExpressionParserRuleCall_1_1_1_0_0() { return cExprConstantExpressionParserRuleCall_1_1_1_0_0; }
+		
+		//(Ellipsis higher=ConstantExpression)?
+		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
+		
+		//Ellipsis
+		public RuleCall getEllipsisParserRuleCall_1_1_1_1_0() { return cEllipsisParserRuleCall_1_1_1_1_0; }
+		
+		//higher=ConstantExpression
+		public Assignment getHigherAssignment_1_1_1_1_1() { return cHigherAssignment_1_1_1_1_1; }
+		
+		//ConstantExpression
+		public RuleCall getHigherConstantExpressionParserRuleCall_1_1_1_1_1_0() { return cHigherConstantExpressionParserRuleCall_1_1_1_1_1_0; }
 		
 		//SKW_COLON
 		public RuleCall getSKW_COLONTerminalRuleCall_1_1_2() { return cSKW_COLONTerminalRuleCall_1_1_2; }
@@ -6500,13 +6478,11 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FunctionSpecifier:
-	//	{FunctionSpecifier} ((name=KW_INLINE1
+	//	{FunctionSpecifier} (name=KW_INLINE1
 	//	| name=KW_INLINE2 // GCC extension
 	//	| name=KW_INLINE3 // GCC extension?
 	//	| name=KW_NORETURN
 	//	//|	'__stdcall'
-	//) | gccAttributeSpecifier=GccAttributeSpecifier
-	//	//|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 	//);
 	public FunctionSpecifierElements getFunctionSpecifierAccess() {
 		return pFunctionSpecifier;
@@ -6815,7 +6791,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//LabeledStatement Statement:
 	//	{LabeledStatement} (ident=ID SKW_COLON lStmt=Statement
-	//	| case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
+	//	| case=KW_CASE (expr=ConstantExpression (Ellipsis
+	//	higher=ConstantExpression)? // gcc extension
+	//) SKW_COLON lStmt=Statement
 	//	| mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 	public LabeledStatementElements getLabeledStatementAccess() {
 		return pLabeledStatement;
@@ -8089,7 +8067,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[39]->TerminalRule'SKW_DOLLAR'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
@@ -8273,7 +8251,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[69]->TerminalRule'SKW_UNDERSCORE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
@@ -8289,7 +8267,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[71]->TerminalRule'IDENTIFIER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
@@ -8299,7 +8277,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'LETTER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
@@ -8351,7 +8329,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'HEX_DIGIT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
@@ -8361,7 +8339,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'INTEGER_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
@@ -8371,7 +8349,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'UNSIGNED_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
@@ -8381,7 +8359,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
@@ -8391,7 +8369,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[84]->TerminalRule'LONG_LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
@@ -8410,7 +8388,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'EXPONENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
@@ -8420,7 +8398,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'FLOAT_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
@@ -8430,7 +8408,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'ESCAPE_SEQUENCE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
@@ -8440,7 +8418,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'OCTAL_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
@@ -8450,7 +8428,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'HEX_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
@@ -8460,7 +8438,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'LINEFEED'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
@@ -8470,7 +8448,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[92]->TerminalRule'CARRIAGERETURN'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
@@ -8486,7 +8464,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[94]->TerminalRule'LINEBREAK'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
@@ -8502,7 +8480,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'SPACE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
@@ -8512,7 +8490,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[97]->TerminalRule'TAB'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();
@@ -8522,7 +8500,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'BLOCK_COMMENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return gaCommon.getBLOCK_COMMENTRule();
@@ -8532,7 +8510,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'LINE_COMMENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
@@ -8542,7 +8520,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[101]->TerminalRule'FORM_FEED'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFORM_FEEDRule() {
 		return gaCommon.getFORM_FEEDRule();

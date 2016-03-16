@@ -11,10 +11,10 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.FunctionDefinition#getBody <em>Body</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getFunctionDefinition()
  * @model

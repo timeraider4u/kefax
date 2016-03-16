@@ -10,16 +10,15 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLStmt <em>LStmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getCase <em>Case</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLower <em>Lower</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getHigher <em>Higher</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#isMydefault <em>Mydefault</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getHigher <em>Higher</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getLabeledStatement()
  * @model
@@ -106,58 +105,6 @@ public interface LabeledStatement extends Statement
 	void setCase(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Lower</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Lower</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(String)
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getLabeledStatement_Lower()
-	 * @model
-	 * @generated
-	 */
-	String getLower();
-
-	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLower <em>Lower</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower</em>' attribute.
-	 * @see #getLower()
-	 * @generated
-	 */
-	void setLower(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Higher</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Higher</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Higher</em>' attribute.
-	 * @see #setHigher(String)
-	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getLabeledStatement_Higher()
-	 * @model
-	 * @generated
-	 */
-	String getHigher();
-
-	/**
-	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getHigher <em>Higher</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Higher</em>' attribute.
-	 * @see #getHigher()
-	 * @generated
-	 */
-	void setHigher(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -208,5 +155,31 @@ public interface LabeledStatement extends Statement
 	 * @generated
 	 */
 	void setMydefault(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Higher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Higher</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Higher</em>' containment reference.
+	 * @see #setHigher(Expression)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getLabeledStatement_Higher()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Expression getHigher();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getHigher <em>Higher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Higher</em>' containment reference.
+	 * @see #getHigher()
+	 * @generated
+	 */
+	void setHigher(Expression value);
 
 } // LabeledStatement

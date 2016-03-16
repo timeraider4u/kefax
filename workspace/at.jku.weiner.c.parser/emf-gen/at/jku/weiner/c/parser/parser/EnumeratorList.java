@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.EnumeratorList#getEnumerator <em>Enumerator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.EnumeratorList#isLastComma <em>Last Comma</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getEnumeratorList()
  * @model

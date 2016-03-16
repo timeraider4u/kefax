@@ -535,8 +535,12 @@ LabeledStatement returns Statement:
 		ident=ID SKW_COLON lStmt=Statement
 	|	case=KW_CASE
 			(
-				(lower=Constant1 Ellipsis higher=Constant1) // gcc extension
-			|	expr=ConstantExpression
+				(expr=ConstantExpression 
+					(Ellipsis 
+						higher=ConstantExpression
+					)? // gcc extension
+				) 
+//			|	expr=ConstantExpression
 			) 
 			SKW_COLON lStmt=Statement
 	|	mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement

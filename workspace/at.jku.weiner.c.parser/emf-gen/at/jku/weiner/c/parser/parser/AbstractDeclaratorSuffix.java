@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getAssignmentExpr <em>Assignment Expr</em>}</li>
@@ -21,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getParameterTypeList <em>Parameter Type List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getAbstractDeclaratorSuffix()
  * @model

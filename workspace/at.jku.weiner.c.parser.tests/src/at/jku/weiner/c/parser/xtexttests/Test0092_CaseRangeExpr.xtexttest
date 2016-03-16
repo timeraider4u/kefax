@@ -4,25 +4,24 @@ package at.jku.weiner.c.parser
 language parser
 imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-source file="res/Test0063_SwitchWithEllipsis.c"
+source file="res/Test0092_CaseRangeExpr.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_INT WHITESPACE ID SKW_LEFTPAREN KW_CHAR WHITESPACE ID SKW_RIGHTPAREN 
+KW_INT WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN 
 WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE KW_SWITCH WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN 
 	WHITESPACE SKW_LEFTBRACE NEWLINE 
-
-		WHITESPACE KW_CASE WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_DOT SKW_DOT SKW_DOT WHITESPACE DECIMAL_LITERAL SKW_COLON  NEWLINE
-		WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 			
-		WHITESPACE KW_CASE WHITESPACE CHAR_LITERAL WHITESPACE SKW_DOT SKW_DOT SKW_DOT WHITESPACE CHAR_LITERAL SKW_COLON
-		WHITESPACE SKW_LEFTBRACE NEWLINE
-		WHITESPACE KW_BREAK SKW_SEMI NEWLINE
-		WHITESPACE SKW_RIGHTBRACE NEWLINE
-				
-		WHITESPACE KW_DEFAULT SKW_COLON WHITESPACE SKW_LEFTBRACE NEWLINE
+		WHITESPACE KW_CASE WHITESPACE 
+			SKW_LEFTPAREN 
+				DECIMAL_LITERAL SKW_MINUS DECIMAL_LITERAL 
+			SKW_RIGHTPAREN
+			WHITESPACE SKW_DOT SKW_DOT SKW_DOT WHITESPACE 
+			SKW_LEFTPAREN
+				DECIMAL_LITERAL SKW_PLUS DECIMAL_LITERAL
+			SKW_RIGHTPAREN
+			SKW_COLON NEWLINE
 		WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
-		WHITESPACE SKW_RIGHTBRACE NEWLINE
 	WHITESPACE SKW_RIGHTBRACE NEWLINE
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
@@ -45,7 +44,7 @@ SKW_RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						ident++"doSomething",
+						ident++"foo",
 						declaratorSuffix+=
 						(DeclaratorSuffix
 							lastSuffix=
@@ -60,14 +59,14 @@ SKW_RIGHTBRACE NEWLINE
 											(DeclarationSpecifiers
 												declarationSpecifier+=
 												(TypeSpecifier
-													name++"char"
+													name++"int"
 												)
 											),
 											declarator=
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													ident++"argc"
+													ident++"bar"
 												)
 											)
 										)
@@ -91,7 +90,7 @@ SKW_RIGHTBRACE NEWLINE
 								switch++"switch",
 								expr=
 								(PrimaryExpression
-									ident++"argc"
+									ident++"bar"
 								), // end expression
 								switchStatement=
 								(Statement
@@ -102,26 +101,56 @@ SKW_RIGHTBRACE NEWLINE
 											blockList+=
 											(BlockList
 												statement+=
-												// case 0 ... :
+												// case (8-2) ... (8+2):
 												(Statement
 													stmt=	
 													(LabeledStatement
 														case++"case",
 														expr=
 														(PrimaryExpression
-															const=
-															(common::Constant2
-																dec++"0"
+															parentheses?=true,
+															expr=
+															(AdditiveExpression
+																op++"-",
+																left=
+																(PrimaryExpression
+																	const=
+																	(common::Constant2
+																		dec++"8"
+																	)
+																),
+																right=
+																(PrimaryExpression
+																	const=
+																	(common::Constant2
+																		dec++"2"
+																	)
+																)
 															)
-														),
+															
+														), // end constant expression of lower
 														higher=
 														(PrimaryExpression
-															const=
-															(common::Constant2
-																dec++"28"
-																
+															parentheses?=true,
+															expr=
+															(AdditiveExpression
+																op++"+",
+																left=
+																(PrimaryExpression
+																	const=
+																	(common::Constant2
+																		dec++"8"
+																	)
+																),
+																right=
+																(PrimaryExpression
+																	const=
+																	(common::Constant2
+																		dec++"2"
+																	)
+																)
 															)
-														),
+														), // end constant expression of higher
 														lStmt=
 														(Statement
 															stmt=
@@ -131,89 +160,14 @@ SKW_RIGHTBRACE NEWLINE
 																(PrimaryExpression
 																	const=
 																	(common::Constant2
-																		dec++"0"	
+																		dec++"1"	
 																	)
-																)
+																) // end expression
 															) // end jump statement
-														)
-													) // end labeled statement
-												), // end statement
-												// case 1: ...
-												(Statement
-													stmt=	
-													(LabeledStatement
-														case++"case",
-														expr=
-														(PrimaryExpression
-															const=
-															(common::Constant2
-																dec++"0"
-															)
-														),
-														higher=
-														(PrimaryExpression
-															const=
-															(common::Constant2
-																dec++"7"
-																
-															)
-														),
-														lStmt=
-														(Statement
-															stmt=
-															(CompoundStatement
-																body=
-																(BodyStatement
-																	blockList+=
-																	(BlockList
-																		statement+=
-																		(Statement
-																			stmt=	
-																			(JumpStatement
-																				break++"break"
-																			) // end jump statement
-																		)
-																	)
-																)
-															)
-														)
-													) // end labeled statement
-												), // end statement
-												// default: ...
-												(Statement
-													stmt=	
-													(LabeledStatement
-														mydefault?=true,
-														lStmt=
-														(Statement
-															stmt=
-															(CompoundStatement
-																body=
-																(BodyStatement
-																	blockList+=
-																	(BlockList
-																		statement+=
-																		(Statement
-																			stmt=	
-																			(JumpStatement
-																				return++"return",
-																				expr=
-																				(PrimaryExpression
-																					const=
-																					(common::Constant2
-																						dec++"2"	
-																					)
-																				) // end expression
-																			) // end jump statement
-																		)
-																	)
-																)
-															)
 														)
 													) // end labeled statement
 												) // end statement
 											)
-										
 										)
 									) // end compound statement of switch
 								) // switch
@@ -227,7 +181,7 @@ SKW_RIGHTBRACE NEWLINE
 								(PrimaryExpression
 									const=
 									(common::Constant2
-										dec++"1"
+										dec++"0"
 									)
 								), // end expression
 								return++"return"
@@ -241,7 +195,7 @@ SKW_RIGHTBRACE NEWLINE
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0063_SwitchWithEllipsis.c"
+output file="bin/Test0092_CaseRangeExpr.c"
 expected file isSameAsInputFile
 replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------

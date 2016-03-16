@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerImpl#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerImpl#isLastComma <em>Last Comma</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.modisco.infra.browser.neoemf.feature_1.0.0.201603282031.jar" id="org.eclipse.modisco.infra.browser.neoemf.feature" version="1.0.0.201603282031">
+      <category name="org.eclipse.modisco.infra.browser.neoemf"/>
+   </feature>
+   <category-def name="org.eclipse.modisco.infra.browser.neoemf" label="org.eclipse.modisco.infra.browser.neoemf"/>
+</site>

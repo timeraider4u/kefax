@@ -3,27 +3,32 @@ package at.jku.weiner.c.parser.utils;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import at.jku.weiner.c.common.log.MyLog;
+
 public final class ScopeTypes implements Cloneable {
 	private final HashSet<String> types = new HashSet<String>();
-	
+
 	public void addType(final String type) {
 		this.types.add(type);
 	}
-	
+
 	public void clear() {
 		this.types.clear();
 	}
-	
+
 	public void removeType(final String type) {
 		this.types.remove(type);
 	}
-	
+
 	public boolean containsType(final String type) {
 		final boolean result = this.types.contains(type);
 		return result;
 	}
-
+	
 	public String debug() {
+		if (!MyLog.shouldLog(MyLog.LOG_DEBUG)) {
+			return "";
+		}
 		final StringBuffer buffer = new StringBuffer("");
 		final Iterator<String> it = this.types.iterator();
 		int i = 0;
@@ -43,7 +48,7 @@ public final class ScopeTypes implements Cloneable {
 		}
 		return buffer.toString();
 	}
-
+	
 	@Override
 	protected Object clone() {
 		final ScopeTypes result = new ScopeTypes();
@@ -54,5 +59,5 @@ public final class ScopeTypes implements Cloneable {
 		}
 		return result;
 	}
-	
+
 }

@@ -1,7 +1,14 @@
 High priority:
 
-	parser:
-	arch/x86/kernel/ptrace.i [ERROR:no viable alternative at input 'putreg32' : 37887
+	emf-ecore:
+	org.eclipse.emf/plugins/org.eclipse.emf.codegen.ecore/templates/model/Class.javajet
+	Line 43:
+	<%if (genClass.hasDocumentation()) {%>
+ *
+ * <!-- begin-model-doc -->
+ * <%=genClass.getDocumentation(genModel.getIndentation(stringBuffer))%>
+ * <!-- end-model-doc -->
+<%}%>
 
 	MoDisco: Neo4EMF as persistence layer:
 	https://github.com/atlanmod/NeoEMF/blob/master/bench/fr.inria.atlanmod.neoemf.benchmarks/src/fr/inria/atlanmod/kyanos/benchmarks/KyanosMapCreator.java

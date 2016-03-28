@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+    Copyright (c) 2009, 2010 Mia-Software.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Nicolas Bros (Mia-Software) - initial API and implementation
+        Nicolas Guyomar (Mia_software) - Bug 333651 Remove of the MoDisco EPackage view and of the metamodel browsing button
+ -->
+
+<plugin>
+<extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.eclipse.gmt.modisco.infra.browser.objectContribution1"
+            objectClass="org.eclipse.core.resources.IFolder">
+         <action
+               class="org.eclipse.gmt.modisco.infra.browser.actions.OpenNeoResourceAction"
+               id="org.eclipse.gmt.modisco.infra.browser.neo4emf.openNeoResourceAction"
+               label="open NeoResource">
+         </action>
+         <menu
+               icon="icons/full/obj16/MoDiscoModelIcon.gif"
+               id="org.eclipse.gmt.modisco.infra.browser.neo4emf.menu1"
+               label="Open NeoResource">
+            <separator
+                  name="org.eclipse.gmt.modisco.infra.browser.separator1">
+            </separator>
+         </menu>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.gmt.modisco.infra.browser.editors.Neo4EMFBrowser"
+            contributorClass="org.eclipse.gmt.modisco.infra.browser.editors.BrowserActionBarContributor"
+            default="false"
+            id="org.eclipse.gmt.modisco.infra.browser.NeoEditor"
+            name="Neo Resource Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.eclipse.gmt.modisco.infra.browser.filters.Neo4JDatabase"
+            id="org.eclipse.gmt.modisco.infra.browser.Neo4EMFDB "
+            namespace="org.eclipse.gmt.modisco.infra.browser"
+            properties="isNeo4EMFDB"
+            type="org.eclipse.core.resources.IFolder">
+      </propertyTester>
+   </extension>
+
+</plugin>

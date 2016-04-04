@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: at.jku.weiner.xtexttest
 Bundle-Vendor: Harald Weiner
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: at.jku.weiner.xtexttest; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext.xbase,
@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.xtext.xbase,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext,
- at.jku.weiner.c.common;bundle-version="1.0.0.20150210";visibility:=reexport
+ at.jku.weiner.c.common;bundle-version="0.1.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.xtexttest.parser.antlr.internal,
  at.jku.weiner.xtexttest.serializer,

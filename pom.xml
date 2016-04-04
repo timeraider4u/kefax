@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>at.jku.weiner.kefax</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>workspace</module>
+	</modules>
+	
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
+	
+	<url>https://github.com/timeraider4u/xtext-predicates.git</url>
+	<description>Xtext predicates is a project to develop a Linux kernel feature 
+		extractor by creating an Eclipse Modisco discoverer for the C programming 
+		language using a modified version of Xtext.</description>
+	<scm>
+		<connection>scm:git:git://github.com/timeraider4u/xtext-predicates.git</connection>
+		<developerConnection>scm:git://github.com/timeraider4u/xtext-predicates.git</developerConnection>
+		<url>https://github.com/timeraider4u/xtext-predicates.git</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>harald.weiner</id>
+			<name>Harald Weiner</name>
+			<email>harald.weiner@jku.at</email>
+			<organization>JKU - Johannes Kepler University Linz, Austria</organization>
+		</developer>
+	</developers>
+	
+</project>

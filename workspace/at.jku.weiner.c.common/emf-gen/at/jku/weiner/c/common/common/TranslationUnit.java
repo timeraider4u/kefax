@@ -11,13 +11,13 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPreprocess <em>Preprocess</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getParser <em>Parser</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPath <em>Path</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getAdditionalPreprocessingDirectives <em>Additional Preprocessing Directives</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit()
  * @model

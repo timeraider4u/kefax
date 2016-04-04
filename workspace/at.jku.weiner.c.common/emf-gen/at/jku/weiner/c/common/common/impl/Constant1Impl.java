@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant1Impl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,10 +13,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.Model#getUnits <em>Units</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getModel()
  * @model

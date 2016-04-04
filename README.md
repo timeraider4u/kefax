@@ -6,6 +6,23 @@ programming language C.
 See also my post in the Eclipse forum:
 https://www.eclipse.org/forums/index.php?t=msg&th=1069632
 
+[![Build Status](https://travis-ci.org/timeraider4u/xtext-predicates.svg?branch=master)](https://travis-ci.org/timeraider4u/xtext-predicates)
+
+# HOWTO - install and use:
+Add https://timeraider4u.github.io/NeoEMF/ as Eclipse update site
+and install the following features:
+* 'NeoEMF Persistence Framework'
+	(fr.inria.atlanmod.neoemf.core.feature.feature.group),
+* 'NeoEMF Blueprints Adapter'
+	(fr.inria.atlanmod.neoemf.graph.blueprints.feature.feature.group)
+* NeoEMF Blueprints Implementations
+	(fr.inria.atlanmod.neoemf.graph.blueprints.implementations.feature.feature.group)
+
+Add https://timeraider4u.github.io/NeoEMF/ as Eclipse update site
+and install the following features:
+* 'Xtext Complete SDK'
+	(org.eclipse.xtext.sdk.feature.group)
+
 ## More interesting links:
 ### C/C++ discoverer for Eclipse MoDisco forum thread:
 http://www.eclipse.org/forums/index.php/t/366540/

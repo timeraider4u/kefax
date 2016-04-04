@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PostfixExpressionImpl#getSuffix <em>Suffix</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

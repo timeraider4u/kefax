@@ -23,6 +23,9 @@ and install the following features:
 * 'Xtext Complete SDK'
 	(org.eclipse.xtext.sdk.feature.group)
 
+# HOWTO - development
+Coming soon...
+
 ## More interesting links:
 ### C/C++ discoverer for Eclipse MoDisco forum thread:
 http://www.eclipse.org/forums/index.php/t/366540/

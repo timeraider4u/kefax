@@ -10,12 +10,12 @@ package at.jku.weiner.c.common.common;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getLeft <em>Left</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.MultiplicativeExpression#getRight <em>Right</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getMultiplicativeExpression()
  * @model

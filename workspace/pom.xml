@@ -14,6 +14,16 @@
 	<artifactId>workspace</artifactId>
 	<packaging>pom</packaging>
 	
+	<properties>
+		<my.version>${project.parent.version}</my.version>
+		<tycho.version>0.23.1</tycho.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<eclipse.name>luna</eclipse.name>
+		<xtext.version>2.9.0-SNAPSHOT</xtext.version>
+		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
+		<mwe2.version>${xtext.version}</mwe2.version>
+	</properties>
+	
 	<repositories>
 		<repository>
 			<id>NeoEMF</id>
@@ -113,16 +123,6 @@
 		<module>at.jku.weiner.testing.tests</module>
 		-->
 	</modules>
- 
-	<properties>
-		<tycho.version>0.23.1</tycho.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<eclipse.name>luna</eclipse.name>
-		<xtextVersion>2.9.0-SNAPSHOT</xtextVersion>
-		<xtext.version>${xtextVersion}</xtext.version>
-		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
-		<mwe2.version>${xtextVersion}</mwe2.version>
-	</properties>
 
 	<build>
 		<pluginManagement>
@@ -205,11 +205,37 @@
 						</execution>
 					</executions>
 				</plugin>
+				<!-- ensure that file src-gen/.../Injector.java exists -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.4.1</version>
+					<executions>
+						<execution>
+							<id>enforce-files-exist</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<phase>none</phase>
+							<configuration>
+								<rules>
+									<requireFilesExist>
+										<files>
+											<file>${project.basedir}/src-gen/${artifactIdAsPath}/${xtextLangName}InjectorProvider.java</file>
+										</files>
+									</requireFilesExist>
+								</rules>
+								<fail>true</fail>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 				<!-- run mwe2 workflow generation -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<executions>
+						<!--
 						<execution>
 							<id>outputVariables</id>
 							<phase>generate-resources</phase>
@@ -224,6 +250,7 @@
 								</tasks>
 							</configuration>
 						</execution>
+						-->
 						<execution>
 							<id>run mwe2</id>
 							<phase>generate-sources</phase>
@@ -287,11 +314,55 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+				<!-- run xtexttest xtext compiler -->
+				<plugin>
+					<groupId>org.eclipse.xtext</groupId>
+					<artifactId>xtext-maven-plugin</artifactId>
+					<version>${xtext.version}</version>
+					<executions>
+						<execution>
+							<id>runXtextTest</id>
+							<phase>none</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<languages>
+							<language>
+								<setup>at.jku.weiner.xtexttest.XtextTestStandaloneSetup</setup>
+								<outputConfigurations>
+									<outputConfiguration>
+										<outputDirectory>${project.basedir}/src-gen/${artifactIdAsPath}/xtexttests/</outputDirectory>
+									</outputConfiguration>
+								</outputConfigurations>
+							</language>
+						</languages>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>at.jku.weiner.kefax</groupId>
+							<artifactId>at.jku.weiner.xtexttest</artifactId>
+							<version>${my.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>at.jku.weiner.kefax</groupId>
+							<artifactId>at.jku.weiner.c.common</artifactId>
+							<version>${my.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>at.jku.weiner.kefax</groupId>
+							<artifactId>at.jku.weiner.c.common.ui.log.service</artifactId>
+							<version>${my.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 				<!-- run xtend -->
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtextVersion}</version>
+					<version>${xtext.version}</version>
 					<executions>
 						<execution>
 							<id>xtend-maven-gen</id>

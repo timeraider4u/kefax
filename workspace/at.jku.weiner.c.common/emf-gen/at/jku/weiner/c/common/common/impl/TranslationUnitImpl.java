@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.TranslationUnitImpl#getPreprocess <em>Preprocess</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.TranslationUnitImpl#getParser <em>Parser</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.TranslationUnitImpl#getPath <em>Path</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.TranslationUnitImpl#getAdditionalPreprocessingDirectives <em>Additional Preprocessing Directives</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

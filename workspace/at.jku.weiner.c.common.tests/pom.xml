@@ -25,7 +25,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 			</plugin>
-			<!-- ensure that file src/.../Injector.java exists -->
+			<!-- ensure that file src-gen/.../Injector.java exists -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
@@ -33,19 +33,18 @@
 				<executions>
 					<execution>
 						<id>enforce-files-exist</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<requireFilesExist>
-									<files>
-										<file>${project.basedir}/src-gen/${artifactIdAsPath}/${xtextLangName}InjectorProvider.java</file>
-									</files>
-								</requireFilesExist>
-							</rules>
-							<fail>true</fail>
-						</configuration>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- execute xtexttest generation -->
+			<plugin>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>xtext-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>runXtextTest</id>
+						<phase>generate-sources</phase>
 					</execution>
 				</executions>
 			</plugin>

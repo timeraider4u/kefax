@@ -162,6 +162,34 @@
 								<failIfNoMatch>true</failIfNoMatch>
 							</configuration>
 						</execution>
+						<execution>
+							<id>regex-property-2</id>
+							<phase>pre-clean</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>artifactIdAsXtextTest</name>
+								<value>${project.artifactId}</value>
+								<regex>(.*)[\.]tests$</regex>
+								<replacement>$1</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>regex-property-3</id>
+							<phase>pre-clean</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>artifactIdAsXtextTestPath</name>
+								<value>${artifactIdAsXtextTest}</value>
+								<regex>\.</regex>
+								<replacement>${file.separator}</replacement>
+								<failIfNoMatch>true</failIfNoMatch>
+							</configuration>
+						</execution>								
 					</executions>
 				</plugin>
 				<!-- clean directories -->
@@ -349,7 +377,7 @@
 								<setup>at.jku.weiner.xtexttest.XtextTestStandaloneSetup</setup>
 								<outputConfigurations>
 									<outputConfiguration>
-										<outputDirectory>${project.basedir}/src-gen/${artifactIdAsPath}/xtexttests/</outputDirectory>
+										<outputDirectory>${project.basedir}/src-gen/${artifactIdAsXtextTestPath}/xtexttests/</outputDirectory>
 									</outputConfiguration>
 								</outputConfigurations>
 							</language>

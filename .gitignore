@@ -2,6 +2,7 @@
 *~
 .*~
 *.tmp
+*.kate-swp
 bin/
 bin
 target

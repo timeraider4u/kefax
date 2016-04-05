@@ -121,6 +121,7 @@
 		<xtextVersion>2.9.0-SNAPSHOT</xtextVersion>
 		<xtext.version>${xtextVersion}</xtext.version>
 		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
+		<mwe2.version>${xtextVersion}</mwe2.version>
 	</properties>
 
 	<build>
@@ -148,11 +149,69 @@
 						</execution>
 					</executions>
 				</plugin>
-				<!-- output variables -->
+				<!-- clean directories -->
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.5</version>
+					<executions>
+						<execution>
+							<id>cleanNormal</id>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+							<phase>clean</phase>
+						</execution>
+						<execution>
+							<id>cleanExt</id>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+							<phase>none</phase>
+							<configuration>
+								<filesets>
+									<fileset>
+										<directory>${basedir}/emf-gen</directory>
+									</fileset>
+									<fileset>
+										<directory>${basedir}/src-gen</directory>
+									</fileset>
+									<fileset>
+										<directory>${basedir}/xtend-gen</directory>
+									</fileset>
+									<!-- clean ui plugin as well -->
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+									</fileset>
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+									</fileset>
+									<!-- clean test fragment as well -->
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+									</fileset>
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+									</fileset>
+									<!-- clean ui test fragment as well -->
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.ui.tests/src-gen</directory>
+									</fileset>
+									<fileset>
+										<directory>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</directory>
+									</fileset>
+								</filesets>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- run mwe2 workflow generation -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<executions>
 						<execution>
+							<id>outputVariables</id>
 							<phase>generate-resources</phase>
 							<goals>
 								<goal>run</goal>
@@ -161,82 +220,45 @@
 								<tasks>
 									<echo>${project.artifactId}</echo>
 									<echo>${artifactIdAsPath}</echo>
+									<echo>${project.basedir}</echo>
+								</tasks>
+							</configuration>
+						</execution>
+						<execution>
+							<id>run mwe2</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<tasks>
+									<property name="compile_classpath" refid="maven.compile.classpath"/>
+									<property name="runtime_classpath" refid="maven.runtime.classpath"/>
+									<property name="test_classpath" refid="maven.test.classpath"/>
+									<property name="plugin_classpath" refid="maven.plugin.classpath"/>
+									<property name="my_classpath" value="${compile_classpath}${path.separator}${plugin_classpath}"/>
+									<property name="project_dir" value="${project.basedir}"/>
+									<!--
+									<echo message="compile classpath: ${compile_classpath}"/>
+									<echo message="runtime classpath: ${runtime_classpath}"/>
+									<echo message="test classpath:    ${test_classpath}"/>
+									<echo message="plugin classpath:  ${plugin_classpath}"/>
+									<echo message="my classpath:      ${my_classpath}"/>
+									<echo message="project.basedir:   ${project_dir}"/>
+									-->
+									<java classname="org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher" fork="true" failonerror="true">
+										<classpath>
+											<pathelement path="${compile_classpath}"/>
+											<pathelement path="${plugin_classpath}"/>
+										</classpath>
+										<arg value="${project.basedir}/src/${artifactIdAsPath}/Generate${xtextLangName}.mwe2"/>
+										<arg value="-p"/>
+										<arg value="projectPath=${project.basedir}"/>
+									</java>
 								</tasks>
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>
-				<!-- clean src-gen and xtend-gen directories -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.5</version>
-					<configuration>
-						<filesets>
-							<fileset>
-								<directory>${basedir}/src-gen</directory>
-							</fileset>
-							<fileset>
-								<directory>${basedir}/xtend-gen</directory>
-							</fileset>
-							<!-- clean ui plugin as well -->
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
-							</fileset>
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
-							</fileset>
-							<!-- clean test fragment as well -->
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
-							</fileset>
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
-							</fileset>
-							<!-- clean ui test fragment as well -->
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.ui.tests/src-gen</directory>
-							</fileset>
-							<fileset>
-								<directory>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</directory>
-							</fileset>
-						</filesets>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.2.1</version>
-					<executions>
-						<execution>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>java</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<includeProjectDependencies>false</includeProjectDependencies>
-						<includePluginDependencies>true</includePluginDependencies>
-						<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
-						<arguments>
-							<argument>file://${project.basedir}/src/${artifactIdAsPath}/Generate${xtextLangName}.mwe2</argument>
-							<argument>
-								-p
-							</argument>
-							<argument>
-								runtimeProject=/${project.basedir}
-							</argument>
-							<argument>projectPath=/${project.basedir}</argument>
-						</arguments>
-						<systemProperties>
-							<systemProperty>
-								<key>java.class.path</key>
-								<value>${basedir}</value>
-							</systemProperty>
-						</systemProperties>
-						<includePluginDependencies>true</includePluginDependencies>
-					</configuration>
 					<dependencies>
 						<dependency>
 							<groupId>org.eclipse.xtext</groupId>
@@ -253,12 +275,19 @@
 							<artifactId>org.eclipse.xtext.xbase</artifactId>
 							<version>${xtext.other.version}</version>
 						</dependency>
+						<dependency>
+							<groupId>org.eclipse.emf</groupId>
+							<artifactId>org.eclipse.emf.mwe2.launch</artifactId>
+							<version>${mwe2.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.eclipse.emf</groupId>
+							<artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
+							<version>${mwe2.version}</version>
+						</dependency>
 					</dependencies>
 				</plugin>
-				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins
-				so that it doesn't run before the exec-maven-plugin's *.mwe2 gen;
-				this way we can list it after.
-				-->
+				<!-- run xtend -->
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
@@ -284,6 +313,11 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho.version}</version>
+					<executions>
+						<execution>
+							<id>run-eclipse-unit-tests</id>
+						</execution>
+					</executions>
 					<configuration>
 						<useUIHarness>false</useUIHarness>
 					</configuration>

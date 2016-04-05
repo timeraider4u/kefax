@@ -4,7 +4,7 @@
 *.tmp
 bin/
 bin
-xtend-gen
 target
 target/
 *.xtendbin
+*._trace

@@ -29,12 +29,50 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>cleanExt</id>
+						<phase>clean</phase>
+					</execution>
+				</executions>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+			
 			<!-- run mwe2 generation -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.4.1</version>
+				<executions>
+					<execution>
+						<id>enforce-files-exist</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<phase>process-sources</phase>
+						<configuration>
+							<rules>
+								<requireFilesExist>
+									<files>
+										<file>${project.basedir}/../${artifactId}.tests/src-gen/${artifactIdAsPath}/tests/${xtextLangName}InjectorProvider.java</file>
+									</files>
+								</requireFilesExist>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
 			<!-- execute xtend generation -->
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>

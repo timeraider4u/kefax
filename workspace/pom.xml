@@ -100,8 +100,23 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>Xtext2</id>
-			<url>https://raw.github.com/timeraider4u/xtext/mvn-repo/</url>
+			<name>Xtext2 mvn-repo</name>
 			<layout>default</layout>
+			<url>https://raw.github.com/timeraider4u/xtext/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>OSSSonatype</id>
+			<name>OSS Sonatype</name>
+			<layout>default</layout>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>

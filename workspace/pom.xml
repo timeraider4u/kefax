@@ -377,7 +377,7 @@
 								<setup>at.jku.weiner.xtexttest.XtextTestStandaloneSetup</setup>
 								<outputConfigurations>
 									<outputConfiguration>
-										<outputDirectory>${project.basedir}/src-gen/${artifactIdAsXtextTestPath}/xtexttests/</outputDirectory>
+										<outputDirectory>${project.basedir}/src-gen/</outputDirectory>
 									</outputConfiguration>
 								</outputConfigurations>
 							</language>

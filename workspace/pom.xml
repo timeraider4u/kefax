@@ -131,10 +131,12 @@
 	<modules>
 		<module>at.jku.weiner.c.common</module>
 		<module>at.jku.weiner.c.common.tests</module>
+		<module>at.jku.weiner.c.common.ui</module>
 		<module>at.jku.weiner.c.common.ui.log</module>
 		<module>at.jku.weiner.c.common.ui.log.service</module>
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.tests</module>
+		<module>at.jku.weiner.xtexttest.ui</module>
 	</modules>
 
 	<build>

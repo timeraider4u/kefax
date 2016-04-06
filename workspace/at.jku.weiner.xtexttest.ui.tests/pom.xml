@@ -11,11 +11,11 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>at.jku.weiner.c.common.tests</artifactId>
+	<artifactId>at.jku.weiner.xtexttest.ui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 	
 	<properties>
-		<xtextLangName>Common</xtextLangName>
+		<xtextLangName>XtextTest</xtextLangName>
 	</properties>
 
 	<build>
@@ -25,19 +25,20 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 			</plugin>
-			<!-- ensure that file src-gen/.../Injector.java exists -->
+			<!-- ensure that file src-gen/.../UiInjectorProvider.java exists -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<version>1.4.1</version>
 				<executions>
 					<execution>
-						<id>enforce-files-exist</id>
+						<id>enforce-ui-files-exist</id>
 						<phase>validate</phase>
 					</execution>
 				</executions>
 			</plugin>
 			<!-- execute xtexttest generation -->
+			<!--
 			<plugin>
 				<groupId>org.eclipse.xtext</groupId>
 				<artifactId>xtext-maven-plugin</artifactId>
@@ -48,6 +49,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 			<!-- execute xtend generation -->
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
@@ -59,7 +61,7 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>run-eclipse-unit-tests</id>
+						<id>run-eclipse-gui-unit-tests</id>
 						<phase>integration-test</phase>
 					</execution>
 				</executions>

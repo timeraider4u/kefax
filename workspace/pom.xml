@@ -134,9 +134,7 @@
 		<module>at.jku.weiner.c.common.ui.log</module>
 		<module>at.jku.weiner.c.common.ui.log.service</module>
 		<module>at.jku.weiner.xtexttest</module>
-		<!--
-		<module>at.jku.weiner.testing.tests</module>
-		-->
+		<module>at.jku.weiner.xtexttest.tests</module>
 	</modules>
 
 	<build>
@@ -433,6 +431,11 @@
 						</execution>
 					</executions>
 					<configuration>
+						<includes>
+							<include>**/Test*.java</include>
+							<include>**/*Test*.java</include>
+							<include>**/*TestCase.java</include>
+						</includes>
 						<useUIHarness>false</useUIHarness>
 					</configuration>
 				</plugin>

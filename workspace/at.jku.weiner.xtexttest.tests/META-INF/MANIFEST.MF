@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: at.jku.weiner.xtexttest.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: at.jku.weiner.xtexttest.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: at.jku.weiner.xtexttest,
@@ -11,7 +11,8 @@ Require-Bundle: at.jku.weiner.xtexttest,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.xtexttest.tests
+Export-Package: at.jku.weiner.xtexttest.tests,
+ at.jku.weiner.xtexttest.mytests
 Import-Package: org.junit.runners;version="4.5.0",
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core,

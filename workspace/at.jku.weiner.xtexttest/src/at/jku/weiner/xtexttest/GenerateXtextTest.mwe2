@@ -65,7 +65,7 @@ Workflow {
 			project = WizardConfig {
 				runtimeRoot = projectPath
 				// eclipseEditor = false
-				// testingSupport = true
+				testingSupport = true
 			}
 			code = auto-inject {
 				preferXtendStubs = true

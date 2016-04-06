@@ -1,7 +1,16 @@
 language: java
-env:
-   global:
-      - DISPLAY=:99.0
+
+jdk: oraclejdk7
+
+env: DISPLAY=:99.0
+
 before_install:
-   - sh -e /etc/init.d/xvfb start - sleep 10
-script: mvn clean install
+   - sh -e /etc/init.d/xvfb start
+   - sleep 10
+
+script:
+   - export
+   - mvn clean install
+
+#after_failure:
+#   - cat /home/travis/build/timeraider4u/xtext-predicates/workspace/at.jku.weiner.common/target/work/data/.metadata/.log

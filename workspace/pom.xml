@@ -447,14 +447,24 @@
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho.version}</version>
 					<executions>
+						<!-- I really hate Maven for not allowing to share
+						configurations without redundancies, see, e.g.,
+						http://javamoods.blogspot.co.at/2009/03/maven-profiles-activation-or-not.html
+						and I also hate Maven because it activates running plugins with
+						default phases -->
+						<execution>
+							<id>default-test</id>
+							<phase>none</phase>
+						</execution>
 						<execution>
 							<id>run-eclipse-unit-tests</id>
-							<phase>none</phase>
 							<!--
+							<phase>none</phase>
+							-->
 							<goals>
 								<goal>test</goal>
 							</goals>
-							-->
+							
 							<configuration>
 								<failIfNoTests>true</failIfNoTests>
 								<includes>
@@ -462,17 +472,20 @@
 									<include>**/*Test*.java</include>
 									<include>**/*TestCase.java</include>
 								</includes>
+								<skip>${skip-tests-normal}</skip>
+								<skipTests>${skip-tests-normal}</skipTests>
 								<useUIHarness>false</useUIHarness>
 							</configuration>
 						</execution>
 						<execution>
 							<id>run-eclipse-gui-unit-tests</id>
-							<phase>none</phase>
 							<!--
+							<phase>none</phase>
+							-->
 							<goals>
 								<goal>test</goal>
 							</goals>
-							-->
+							
 							<configuration>
 								<failIfNoTests>false</failIfNoTests>
 								<includes>
@@ -480,6 +493,8 @@
 									<include>**/*Test*.java</include>
 									<include>**/*TestCase.java</include>
 								</includes>
+								<skip>${skip-gui-tests}</skip>
+								<skipTests>${skip-gui-tests}</skipTests>
 								<useUIHarness>true</useUIHarness>
 							</configuration>
 						</execution>
@@ -533,4 +548,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

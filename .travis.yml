@@ -1,6 +1,6 @@
-language: java
+#language: java
 
-jdk: oraclejdk7
+#jdk: oraclejdk7
 
 env: DISPLAY=:99.0
 
@@ -9,7 +9,7 @@ before_install:
    - sleep 10
 
 script:
-   - export
+#   - export
    - mvn clean install
 
 #after_failure:

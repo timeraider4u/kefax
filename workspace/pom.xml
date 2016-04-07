@@ -22,6 +22,17 @@
 		<xtext.version>2.9.0-SNAPSHOT</xtext.version>
 		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
 		<mwe2.version>${xtext.version}</mwe2.version>
+		
+		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
+		<lang.src-gen>${basedir}/src-gen</lang.src-gen>
+		<lang.xtend-gen>${basedir}/xtend-gen</lang.xtend-gen>
+		<lang.tests.src-gen>${basedir}/../${project.artifactId}.tests/src-gen</lang.tests.src-gen>
+		<lang.tests.xtend-gen>${basedir}/../${project.artifactId}.tests/xtend-gen</lang.tests.xtend-gen>
+		<lang.ui.src-gen>${basedir}/../${project.artifactId}.ui/src-gen</lang.ui.src-gen>
+		<lang.ui.xtend-gen>${basedir}/../${project.artifactId}.ui/xtend-gen</lang.ui.xtend-gen>
+		<lang.ui.tests.src-gen>${basedir}/../${project.artifactId}.ui.tests/src-gen</lang.ui.tests.src-gen>
+		<lang.ui.tests.xtend-gen>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</lang.ui.tests.xtend-gen>
+
 	</properties>
 	
 	<repositories>
@@ -218,34 +229,34 @@
 							<configuration>
 								<filesets>
 									<fileset>
-										<directory>${basedir}/emf-gen</directory>
+										<directory>${lang.emf-gen}</directory>
 									</fileset>
 									<fileset>
-										<directory>${basedir}/src-gen</directory>
+										<directory>${lang.src-gen}</directory>
 									</fileset>
 									<fileset>
-										<directory>${basedir}/xtend-gen</directory>
+										<directory>${lang.xtend-gen}</directory>
 									</fileset>
 									<!-- clean ui plugin as well -->
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+										<directory>${lang.ui.src-gen}</directory>
 									</fileset>
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+										<directory>${lang.ui.xtend-gen}</directory>
 									</fileset>
 									<!-- clean test fragment as well -->
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+										<directory>${lang.tests.src-gen}</directory>
 									</fileset>
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+										<directory>${lang.tests.xtend-gen}</directory>
 									</fileset>
 									<!-- clean ui test fragment as well -->
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.ui.tests/src-gen</directory>
+										<directory>${lang.ui.tests.src-gen}</directory>
 									</fileset>
 									<fileset>
-										<directory>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</directory>
+										<directory>${lang.ui.tests.xtend-gen}</directory>
 									</fileset>
 								</filesets>
 							</configuration>
@@ -299,22 +310,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<executions>
-						<!--
-						<execution>
-							<id>outputVariables</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<tasks>
-									<echo>${project.artifactId}</echo>
-									<echo>${artifactIdAsPath}</echo>
-									<echo>${project.basedir}</echo>
-								</tasks>
-							</configuration>
-						</execution>
-						-->
 						<execution>
 							<id>run mwe2</id>
 							<phase>generate-sources</phase>
@@ -329,6 +324,16 @@
 									<property name="plugin_classpath" refid="maven.plugin.classpath"/>
 									<property name="my_classpath" value="${compile_classpath}${path.separator}${plugin_classpath}"/>
 									<property name="project_dir" value="${project.basedir}"/>
+									<!-- create directories and files - if the do not exist yet -->
+									<touch file="${lang.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.tests.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.tests.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.tests.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.tests.xtend-gen}/.keep" mkdirs="true" />
+									<!-- output some interesting variables -->
 									<!--
 									<echo message="compile classpath: ${compile_classpath}"/>
 									<echo message="runtime classpath: ${runtime_classpath}"/>
@@ -337,6 +342,7 @@
 									<echo message="my classpath:      ${my_classpath}"/>
 									<echo message="project.basedir:   ${project_dir}"/>
 									-->
+									<!-- run mwe2 launcher -->
 									<java classname="org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher" fork="true" failonerror="true">
 										<classpath>
 											<pathelement path="${compile_classpath}"/>
@@ -346,6 +352,7 @@
 										<arg value="-p"/>
 										<arg value="projectPath=${project.basedir}"/>
 									</java>
+									
 								</tasks>
 							</configuration>
 						</execution>

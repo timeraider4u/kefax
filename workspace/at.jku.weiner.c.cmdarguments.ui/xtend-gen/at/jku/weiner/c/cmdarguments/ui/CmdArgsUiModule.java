@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class CmdArgsUiModule extends AbstractCmdArgsUiModule {
-  public CmdArgsUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public CmdArgsUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class DotconfigUiModule extends AbstractDotconfigUiModule {
-  public DotconfigUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public DotconfigUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

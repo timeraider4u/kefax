@@ -154,6 +154,10 @@
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
+		<module>at.jku.weiner.kefax.kbuild</module>
+		<module>at.jku.weiner.kefax.kbuild.tests</module>
+		<module>at.jku.weiner.kefax.kbuild.ui</module>
+		<module>at.jku.weiner.kefax.kbuild.ui.tests</module>
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>
@@ -332,15 +336,6 @@
 									<property name="plugin_classpath" refid="maven.plugin.classpath"/>
 									<property name="my_classpath" value="${compile_classpath}${path.separator}${plugin_classpath}"/>
 									<property name="project_dir" value="${project.basedir}"/>
-									<!-- create directories and files - if the do not exist yet -->
-									<touch file="${lang.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.tests.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.tests.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.tests.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.tests.xtend-gen}/.keep" mkdirs="true" />
 									<!-- output some interesting variables -->
 									<!--
 									<echo message="compile classpath: ${compile_classpath}"/>
@@ -360,7 +355,15 @@
 										<arg value="-p"/>
 										<arg value="projectPath=${project.basedir}"/>
 									</java>
-									
+									<!-- create directories and files - if they do not exist yet -->
+									<touch file="${lang.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.tests.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.tests.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.tests.src-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.ui.tests.xtend-gen}/.keep" mkdirs="true" />
 								</tasks>
 							</configuration>
 						</execution>

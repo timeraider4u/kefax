@@ -10,11 +10,18 @@ public final class ScopeSymbols implements Cloneable {
 	private final List<ScopeTypes> types = new ArrayList<ScopeTypes>();
 	private boolean isTypeDefValue = false;
 	private String temp = null;
-	
+
+	private final boolean forceEnableDebug;
+
 	public ScopeSymbols(final String scopeName) {
+		this(scopeName, false);
+	}
+	
+	public ScopeSymbols(final String scopeName, final boolean forceEnableDebug) {
+		this.forceEnableDebug = forceEnableDebug;
 		this.scopeName = scopeName;
 		// level 0
-		this.types.add(new ScopeTypes());
+		this.types.add(new ScopeTypes(forceEnableDebug));
 	}
 	
 	public void clear(final int level) {
@@ -29,7 +36,7 @@ public final class ScopeSymbols implements Cloneable {
 			this.types.remove(i);
 		}
 		for (int i = this.types.size(); i <= level; i++) {
-			this.types.add(new ScopeTypes());
+			this.types.add(new ScopeTypes(this.forceEnableDebug));
 		}
 	}
 	
@@ -62,10 +69,9 @@ public final class ScopeSymbols implements Cloneable {
 	}
 	
 	public String debug() {
-		if (!MyLog.shouldLog(MyLog.LOG_DEBUG)) {
+		if (!MyLog.shouldLog(MyLog.LOG_DEBUG) && (!this.forceEnableDebug)) {
 			return "";
 		}
-
 		final StringBuffer result = new StringBuffer("Scope='"
 				+ this.getScopeName() + "'");
 		result.append(System.lineSeparator());
@@ -99,7 +105,8 @@ public final class ScopeSymbols implements Cloneable {
 	
 	@Override
 	protected Object clone() {
-		final ScopeSymbols result = new ScopeSymbols(this.scopeName);
+		final ScopeSymbols result = new ScopeSymbols(this.scopeName,
+				this.forceEnableDebug);
 		// result.isTypeDefValue = this.isTypeDefValue;
 		// result.temp = this.temp;
 		result.isTypeDefValue = false;

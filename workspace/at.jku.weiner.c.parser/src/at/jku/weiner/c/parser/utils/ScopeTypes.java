@@ -7,26 +7,35 @@ import at.jku.weiner.c.common.log.MyLog;
 
 public final class ScopeTypes implements Cloneable {
 	private final HashSet<String> types = new HashSet<String>();
+	private final boolean forceEnableDebug;
 
+	public ScopeTypes() {
+		this(false);
+	}
+
+	public ScopeTypes(final boolean forceEnableDebug) {
+		this.forceEnableDebug = forceEnableDebug;
+	}
+	
 	public void addType(final String type) {
 		this.types.add(type);
 	}
-
+	
 	public void clear() {
 		this.types.clear();
 	}
-
+	
 	public void removeType(final String type) {
 		this.types.remove(type);
 	}
-
+	
 	public boolean containsType(final String type) {
 		final boolean result = this.types.contains(type);
 		return result;
 	}
-	
+
 	public String debug() {
-		if (!MyLog.shouldLog(MyLog.LOG_DEBUG)) {
+		if (!MyLog.shouldLog(MyLog.LOG_DEBUG) && (!this.forceEnableDebug)) {
 			return "";
 		}
 		final StringBuffer buffer = new StringBuffer("");
@@ -48,10 +57,10 @@ public final class ScopeTypes implements Cloneable {
 		}
 		return buffer.toString();
 	}
-	
+
 	@Override
 	protected Object clone() {
-		final ScopeTypes result = new ScopeTypes();
+		final ScopeTypes result = new ScopeTypes(this.forceEnableDebug);
 		final Iterator<String> it = this.types.iterator();
 		while (it.hasNext()) {
 			final String next = it.next();
@@ -59,5 +68,5 @@ public final class ScopeTypes implements Cloneable {
 		}
 		return result;
 	}
-
+	
 }

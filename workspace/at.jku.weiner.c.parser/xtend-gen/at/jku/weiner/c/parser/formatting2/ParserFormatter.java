@@ -3,6 +3,8 @@
  */
 package at.jku.weiner.c.parser.formatting2;
 
+import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.common.formatting2.CommonFormatter;
 import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
@@ -94,10 +96,11 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
-public class ParserFormatter /* implements CommonFormatter  */{
+public class ParserFormatter extends CommonFormatter {
   @Inject
   @Extension
   private ParserGrammarAccess _parserGrammarAccess;
@@ -674,14 +677,23 @@ public class ParserFormatter /* implements CommonFormatter  */{
   }
   
   protected void _format(final ArgumentExpressionList argumentExpressionList, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nat.jku.weiner.c.common.common.Expression cannot be resolved to a type."
-      + "\nThe method getExpr() is undefined for the type ArgumentExpressionList");
+    EList<at.jku.weiner.c.common.common.Expression> _expr = argumentExpressionList.getExpr();
+    for (final at.jku.weiner.c.common.common.Expression expr : _expr) {
+      this.format(expr, document);
+    }
   }
   
   protected void _format(final PrimaryExpression primaryExpression, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method getConst() is undefined for the type PrimaryExpression");
+    Constant2 _const = primaryExpression.getConst();
+    this.format(_const, document);
+    Expression _expr = primaryExpression.getExpr();
+    this.format(_expr, document);
+    Statement _compoundStmt = primaryExpression.getCompoundStmt();
+    this.format(_compoundStmt, document);
+    TypeName _typeName = primaryExpression.getTypeName();
+    this.format(_typeName, document);
+    TypeName _typeName2 = primaryExpression.getTypeName2();
+    this.format(_typeName2, document);
   }
   
   protected void _format(final ConstantExpression constantExpression, @Extension final IFormattableDocument document) {
@@ -696,20 +708,11 @@ public class ParserFormatter /* implements CommonFormatter  */{
     } else if (additiveExpression instanceof AndExpression) {
       _format((AndExpression)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof AsmStatement) {
-      _format((AsmStatement)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof AssignmentExpression) {
       _format((AssignmentExpression)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof BodyStatement) {
-      _format((BodyStatement)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof CastExpression) {
       _format((CastExpression)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof CompoundStatement) {
-      _format((CompoundStatement)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof ConditionalExpression) {
       _format((ConditionalExpression)additiveExpression, document);
@@ -717,29 +720,14 @@ public class ParserFormatter /* implements CommonFormatter  */{
     } else if (additiveExpression instanceof ConstantExpression) {
       _format((ConstantExpression)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof EnumSpecifier) {
-      _format((EnumSpecifier)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof EqualityExpression) {
       _format((EqualityExpression)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof ExclusiveOrExpression) {
       _format((ExclusiveOrExpression)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof ExpressionStatement) {
-      _format((ExpressionStatement)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof InclusiveOrExpression) {
       _format((InclusiveOrExpression)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof IterationStatement) {
-      _format((IterationStatement)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof JumpStatement) {
-      _format((JumpStatement)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof LabeledStatement) {
-      _format((LabeledStatement)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof LogicalAndExpression) {
       _format((LogicalAndExpression)additiveExpression, document);
@@ -765,26 +753,59 @@ public class ParserFormatter /* implements CommonFormatter  */{
     } else if (additiveExpression instanceof RelationalExpression) {
       _format((RelationalExpression)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof SelectionStatement) {
-      _format((SelectionStatement)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof ShiftExpression) {
       _format((ShiftExpression)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof UnaryExpression) {
+      _format((UnaryExpression)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof ArgumentExpressionList) {
+      _format((ArgumentExpressionList)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof AsmStatement) {
+      _format((AsmStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof BodyStatement) {
+      _format((BodyStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof CompoundStatement) {
+      _format((CompoundStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof EnumSpecifier) {
+      _format((EnumSpecifier)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof Expression) {
+      _format((Expression)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof ExpressionStatement) {
+      _format((ExpressionStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof IterationStatement) {
+      _format((IterationStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof JumpStatement) {
+      _format((JumpStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof LabeledStatement) {
+      _format((LabeledStatement)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof Parser) {
+      _format((Parser)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof SelectionStatement) {
+      _format((SelectionStatement)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof StructOrUnionSpecifier) {
       _format((StructOrUnionSpecifier)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof UnaryExpression) {
-      _format((UnaryExpression)additiveExpression, document);
+    } else if (additiveExpression instanceof XtextResource) {
+      _format((XtextResource)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof AbstractDeclarator) {
       _format((AbstractDeclarator)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof AbstractDeclaratorSuffix) {
       _format((AbstractDeclaratorSuffix)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof ArgumentExpressionList) {
-      _format((ArgumentExpressionList)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof AsmLine) {
       _format((AsmLine)additiveExpression, document);
@@ -833,9 +854,6 @@ public class ParserFormatter /* implements CommonFormatter  */{
       return;
     } else if (additiveExpression instanceof EnumeratorList) {
       _format((EnumeratorList)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof Expression) {
-      _format((Expression)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof ExternalDeclaration) {
       _format((ExternalDeclaration)additiveExpression, document);
@@ -891,9 +909,6 @@ public class ParserFormatter /* implements CommonFormatter  */{
     } else if (additiveExpression instanceof ParameterTypeList) {
       _format((ParameterTypeList)additiveExpression, document);
       return;
-    } else if (additiveExpression instanceof Parser) {
-      _format((Parser)additiveExpression, document);
-      return;
     } else if (additiveExpression instanceof Pointer) {
       _format((Pointer)additiveExpression, document);
       return;
@@ -923,6 +938,12 @@ public class ParserFormatter /* implements CommonFormatter  */{
       return;
     } else if (additiveExpression instanceof TypeSpecifier) {
       _format((TypeSpecifier)additiveExpression, document);
+      return;
+    } else if (additiveExpression == null) {
+      _format((Void)null, document);
+      return;
+    } else if (additiveExpression != null) {
+      _format(additiveExpression, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +

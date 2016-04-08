@@ -3,11 +3,12 @@
  */
 package at.jku.weiner.c.preprocess.formatting2;
 
+import at.jku.weiner.c.common.common.Expression;
+import at.jku.weiner.c.common.formatting2.CommonFormatter;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional;
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional;
-import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt2;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
@@ -25,10 +26,11 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
-public class PreprocessFormatter /* implements CommonFormatter  */{
+public class PreprocessFormatter extends CommonFormatter {
   @Inject
   @Extension
   private PreprocessGrammarAccess _preprocessGrammarAccess;
@@ -103,50 +105,59 @@ public class PreprocessFormatter /* implements CommonFormatter  */{
   }
   
   protected void _format(final PrimaryExpression primaryExpression, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method getExpr() is undefined for the type PrimaryExpression");
+    Expression _expr = primaryExpression.getExpr();
+    this.format(_expr, document);
   }
   
-  public void format(final Object defineFunctionLikeMacro, final IFormattableDocument document) {
-    if (defineFunctionLikeMacro instanceof DefineFunctionLikeMacro) {
-      _format((DefineFunctionLikeMacro)defineFunctionLikeMacro, document);
+  public void format(final Object primaryExpression, final IFormattableDocument document) {
+    if (primaryExpression instanceof PrimaryExpression) {
+      _format((PrimaryExpression)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof ElIfConditional) {
-      _format((ElIfConditional)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof DefineFunctionLikeMacro) {
+      _format((DefineFunctionLikeMacro)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof ElseConditional) {
-      _format((ElseConditional)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof ElIfConditional) {
+      _format((ElIfConditional)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof GroupOpt2) {
-      _format((GroupOpt2)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof ElseConditional) {
+      _format((ElseConditional)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof IfConditional) {
-      _format((IfConditional)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof GroupOpt2) {
+      _format((GroupOpt2)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof IfDefConditional) {
-      _format((IfDefConditional)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof IfConditional) {
+      _format((IfConditional)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof IfNotDefConditional) {
-      _format((IfNotDefConditional)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof IfDefConditional) {
+      _format((IfDefConditional)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof PreprocessorDirectives) {
-      _format((PreprocessorDirectives)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof IfNotDefConditional) {
+      _format((IfNotDefConditional)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof PrimaryExpression) {
-      _format((PrimaryExpression)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof Preprocess) {
+      _format((Preprocess)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof ConditionalDirective) {
-      _format((ConditionalDirective)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof PreprocessorDirectives) {
+      _format((PreprocessorDirectives)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof GroupOpt) {
-      _format((GroupOpt)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof XtextResource) {
+      _format((XtextResource)primaryExpression, document);
       return;
-    } else if (defineFunctionLikeMacro instanceof Preprocess) {
-      _format((Preprocess)defineFunctionLikeMacro, document);
+    } else if (primaryExpression instanceof ConditionalDirective) {
+      _format((ConditionalDirective)primaryExpression, document);
+      return;
+    } else if (primaryExpression instanceof GroupOpt) {
+      _format((GroupOpt)primaryExpression, document);
+      return;
+    } else if (primaryExpression == null) {
+      _format((Void)null, document);
+      return;
+    } else if (primaryExpression != null) {
+      _format(primaryExpression, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(defineFunctionLikeMacro, document).toString());
+        Arrays.<Object>asList(primaryExpression, document).toString());
     }
   }
 }

@@ -5,7 +5,7 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: at.jku.weiner.c.parser.tests;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: at.jku.weiner.c.common;bundle-version="1.0.0",
+Require-Bundle: at.jku.weiner.c.common,
  at.jku.weiner.c.parser,
  org.eclipse.xtext.junit4,
  org.eclipse.xtext.xbase.junit,

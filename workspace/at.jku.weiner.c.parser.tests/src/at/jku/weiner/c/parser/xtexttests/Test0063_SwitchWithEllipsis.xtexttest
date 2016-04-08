@@ -147,14 +147,14 @@ SKW_RIGHTBRACE NEWLINE
 														(PrimaryExpression
 															const=
 															(common::Constant2
-																dec++"0"
+																ch++"'0'"
 															)
 														),
 														higher=
 														(PrimaryExpression
 															const=
 															(common::Constant2
-																dec++"7"
+																ch++"'7'"
 																
 															)
 														),

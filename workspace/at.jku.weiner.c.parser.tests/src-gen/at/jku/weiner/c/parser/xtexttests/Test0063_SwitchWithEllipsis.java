@@ -546,8 +546,8 @@ public class Test0063_SwitchWithEllipsis {
 		.getConst();
 		Assert.assertNotNull(Constant2_39_Var
 		);
-		Assert.assertEquals("0", Constant2_39_Var
-		.getDec());
+		Assert.assertEquals("'0'", Constant2_39_Var
+		.getCh());
 		//39
 		final PrimaryExpression PrimaryExpression_40_Var
 		 = (PrimaryExpression)LabeledStatement_37_Var
@@ -560,8 +560,8 @@ public class Test0063_SwitchWithEllipsis {
 		.getConst();
 		Assert.assertNotNull(Constant2_41_Var
 		);
-		Assert.assertEquals("7", Constant2_41_Var
-		.getDec());
+		Assert.assertEquals("'7'", Constant2_41_Var
+		.getCh());
 		//41
 		final Statement Statement_42_Var
 		 = (Statement)LabeledStatement_37_Var

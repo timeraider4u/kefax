@@ -40,11 +40,6 @@ Workflow {
 		directory = "${projectPath}/emf-gen"
 	}
 	
-	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-        genModel = "${commonGenModel}"
-        srcPath = "platform:/resource/${projectName}/src"
-    }
-	
 	component = DirectoryCleaner {
 		directory = "${projectPath}/src-gen"
 	}
@@ -62,6 +57,11 @@ Workflow {
 	component = DirectoryCleaner {
 		directory = "${projectPath}/model/generated"
 	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+        genModel = "${commonGenModel}"
+        srcPath = "platform:/resource/${projectName}/src"
+   }
 	
 	component = XtextGenerator auto-inject {
 		configuration = {

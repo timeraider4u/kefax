@@ -21,6 +21,7 @@
 		<eclipse.name>luna</eclipse.name>
 		<xtext.version>2.9.0-SNAPSHOT</xtext.version>
 		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
+		<antlr.version>3.5.3-SNAPSHOT</antlr.version>
 		<mwe2.version>${xtext.version}</mwe2.version>
 		
 		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
@@ -41,6 +42,34 @@
 			<name>NeoEMF</name>
 			<layout>p2</layout>
 			<url>http://timeraider4u.github.io/NeoEMF/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>antlr3.eclipse</id>
+			<name>antlr3 eclipse-repo</name>
+			<layout>p2</layout>
+			<url>http://timeraider4u.github.io/antlr3/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>org.xtext.antlr.generator.eclipse</id>
+			<name>org.xtext.antlr.generator eclipse-repo</name>
+			<layout>p2</layout>
+			<url>https://timeraider4u.github.io/org.xtext.antlr.generator/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -124,6 +153,34 @@
 			</releases>
 		</pluginRepository>
 		<pluginRepository>
+			<id>antlr3</id>
+			<name>antlr3 mvn-repo</name>
+			<layout>default</layout>
+			<url>https://raw.github.com/timeraider4u/antlr3/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>org.xtext.antlr.generator</id>
+			<name>org.xtext.antlr.generator mvn-repo</name>
+			<layout>default</layout>
+			<url>https://raw.github.com/timeraider4u/org.xtext.antlr.generator/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
 			<id>OSSSonatype</id>
 			<name>OSS Sonatype</name>
 			<layout>default</layout>
@@ -150,6 +207,10 @@
 		<module>at.jku.weiner.c.common.ui.log</module>
 		<module>at.jku.weiner.c.common.ui.log.service</module>
 		<module>at.jku.weiner.c.common.ui.tests</module>
+		<module>at.jku.weiner.c.parser</module>
+		<module>at.jku.weiner.c.parser.tests</module>
+		<module>at.jku.weiner.c.parser.ui</module>
+		<module>at.jku.weiner.c.parser.ui.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
@@ -393,6 +454,16 @@
 							<groupId>org.eclipse.emf</groupId>
 							<artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
 							<version>${mwe2.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>antlr-generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>antlr-runtime</artifactId>
+							<version>${antlr.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>

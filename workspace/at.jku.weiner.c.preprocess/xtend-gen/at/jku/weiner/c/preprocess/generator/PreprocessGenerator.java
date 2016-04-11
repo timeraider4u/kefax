@@ -3,6 +3,12 @@
  */
 package at.jku.weiner.c.preprocess.generator;
 
+import at.jku.weiner.c.common.CommonStandaloneSetup;
+import at.jku.weiner.c.common.common.CommonFactory;
+import at.jku.weiner.c.common.common.Expression;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
@@ -24,18 +30,28 @@ import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
+import at.jku.weiner.c.preprocess.utils.IncludeDirs;
+import at.jku.weiner.c.preprocess.utils.IncludeUtils;
+import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.Trimmer;
+import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import fr.inria.atlanmod.neoemf.core.Id;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -45,8 +61,13 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
@@ -60,7 +81,7 @@ public class PreprocessGenerator implements IGenerator {
   private String fileName = "hello_world.cdt.i";
   
   @Accessors
-  private /* TranslationUnit */Object unit = null;
+  private TranslationUnit unit = null;
   
   @Accessors
   private boolean legacyMode = true;
@@ -110,16 +131,48 @@ public class PreprocessGenerator implements IGenerator {
   
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field MyLog is undefined"
-      + "\ndebug cannot be resolved");
+    this.setUp();
+    ResourceSet _resourceSet = input.getResourceSet();
+    this.rs = _resourceSet;
+    URI _uRI = input.getURI();
+    this.uri = _uRI;
+    Stack<URI> _stack = new Stack<URI>();
+    this.currUri = _stack;
+    Stack<String> _stack_1 = new Stack<String>();
+    this.currFileNames = _stack_1;
+    Stack<String> _stack_2 = new Stack<String>();
+    this.currLineNumber = _stack_2;
+    this.currUri.push(this.uri);
+    if (this.stdInclude) {
+      IncludeDirs.setUp();
+    }
+    this.path.clear();
+    this.definitionTable.reset();
+    if (this.insertPredefinedMacros) {
+      this.insertPredefinedMacros();
+    }
+    final String additional = this.addAdditionalPreprocessingDirectives(this.rs);
+    final Preprocess preprocess = this.getPreprocessFor(input, false);
+    final String output = this.outputFor(preprocess);
+    String _removeInvalid = this.removeInvalid(output);
+    final String result = (additional + _removeInvalid);
+    Class<? extends Class> _class = PreprocessGenerator.class.getClass();
+    MyLog.debug(_class, (("generating output file=\'" + this.fileName) + "\'"));
+    fsa.generateFile(this.fileName, result);
+    this.trimPreprocess(preprocess);
   }
   
   public void setUp() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nCommonStandaloneSetup cannot be resolved to a type."
-      + "\nCommonStandaloneSetup cannot be resolved."
-      + "\ncreateInjectorAndDoEMFRegistration cannot be resolved");
+    boolean _equals = Objects.equal(this.commonInjector, null);
+    if (_equals) {
+      this.standAlone = true;
+      final CommonStandaloneSetup setup = new CommonStandaloneSetup();
+      final Injector injector = setup.createInjectorAndDoEMFRegistration();
+      this.commonInjector = injector;
+    }
+    final LexerUtils utils = new LexerUtils(this.lexer, this.tokenDefProvider);
+    DefinitionTable _definitionTable = new DefinitionTable(utils);
+    this.definitionTable = _definitionTable;
   }
   
   public void insertPredefinedMacros() {
@@ -165,17 +218,68 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public Preprocess getPreprocessFor(final Resource input, final boolean forceLoading) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\n== cannot be resolved"
-      + "\ntrace cannot be resolved"
-      + "\npreprocess cannot be resolved"
-      + "\ndebug cannot be resolved"
-      + "\ndebug cannot be resolved"
-      + "\nerror cannot be resolved");
+    Preprocess preprocess = null;
+    this.validatePreprocess(input);
+    final String tempFileName = this.getFileName(input);
+    this.currLineNumber.push("0");
+    this.currFileNames.push(tempFileName);
+    this.registerFileName();
+    this.registerLineNumber();
+    boolean _equals = Objects.equal(this.unit, null);
+    if (_equals) {
+      TreeIterator<EObject> _allContents = input.getAllContents();
+      Iterator<Preprocess> _filter = Iterators.<Preprocess>filter(_allContents, Preprocess.class);
+      Preprocess _head = IteratorExtensions.<Preprocess>head(_filter);
+      preprocess = _head;
+      Class<? extends Class> _class = PreprocessGenerator.class.getClass();
+      String _peek = this.currFileNames.peek();
+      String _plus = ((("unit-null: preprocess=\'" + preprocess) + "\'") + _peek);
+      String _plus_1 = (_plus + "\'");
+      MyLog.trace(_class, _plus_1);
+    } else {
+      at.jku.weiner.c.common.common.Preprocess _preprocess = this.unit.getPreprocess();
+      preprocess = ((Preprocess) _preprocess);
+      boolean _or = false;
+      boolean _equals_1 = Objects.equal(preprocess, null);
+      if (_equals_1) {
+        _or = true;
+      } else {
+        _or = forceLoading;
+      }
+      if (_or) {
+        String _peek_1 = this.currFileNames.peek();
+        Preprocess _loadExistingPreprocess = this.loadExistingPreprocess(_peek_1);
+        preprocess = _loadExistingPreprocess;
+        Class<? extends Class> _class_1 = PreprocessGenerator.class.getClass();
+        String _peek_2 = this.currFileNames.peek();
+        String _plus_2 = ((("force-loading: preprocess=\'" + preprocess) + "\'") + _peek_2);
+        String _plus_3 = (_plus_2 + "\'");
+        MyLog.debug(_class_1, _plus_3);
+        boolean _equals_2 = Objects.equal(preprocess, null);
+        if (_equals_2) {
+          TreeIterator<EObject> _allContents_1 = input.getAllContents();
+          Iterator<Preprocess> _filter_1 = Iterators.<Preprocess>filter(_allContents_1, Preprocess.class);
+          Preprocess _head_1 = IteratorExtensions.<Preprocess>head(_filter_1);
+          preprocess = _head_1;
+          Class<? extends Class> _class_2 = PreprocessGenerator.class.getClass();
+          String _peek_3 = this.currFileNames.peek();
+          String _plus_4 = ((("filtering: preprocess=\'" + preprocess) + "\'") + _peek_3);
+          String _plus_5 = (_plus_4 + "\'");
+          MyLog.debug(_class_2, _plus_5);
+        }
+      }
+    }
+    boolean _equals_3 = Objects.equal(preprocess, null);
+    if (_equals_3) {
+      final RuntimeException ex = new RuntimeException("preprocess is null!");
+      Class<? extends Class> _class_3 = PreprocessGenerator.class.getClass();
+      MyLog.error(_class_3, ex);
+    }
+    String _peek_4 = this.currFileNames.peek();
+    String _plus_6 = ("/" + _peek_4);
+    String _plus_7 = (_plus_6 + "/");
+    this.path.add(_plus_7);
+    return preprocess;
   }
   
   public String getFileName(final Resource input) {
@@ -192,22 +296,43 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public Preprocess loadExistingPreprocess(final String filePath) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nModel cannot be resolved to a type."
-      + "\nModel cannot be resolved to a type."
-      + "\nTranslationUnit cannot be resolved to a type."
-      + "\nTranslationUnit cannot be resolved to a type."
-      + "\neContainer cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nunits cannot be resolved"
-      + "\npath cannot be resolved"
-      + "\npreprocess cannot be resolved");
+    EObject _eContainer = this.unit.eContainer();
+    final Model model = ((Model) _eContainer);
+    boolean _equals = Objects.equal(model, null);
+    if (_equals) {
+      return null;
+    }
+    final EList<TranslationUnit> units = model.getUnits();
+    for (int i = 0; (i < units.size()); i++) {
+      {
+        final TranslationUnit myUnit = units.get(i);
+        String _path = myUnit.getPath();
+        boolean _equals_1 = filePath.equals(_path);
+        if (_equals_1) {
+          at.jku.weiner.c.common.common.Preprocess _preprocess = myUnit.getPreprocess();
+          return ((Preprocess) _preprocess);
+        }
+      }
+    }
+    return null;
   }
   
   public void validatePreprocess(final Resource resource) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field MyLog is undefined"
-      + "\nerror cannot be resolved");
+    if ((!this.validateUnit)) {
+      return;
+    }
+    final List<Issue> list = this.validator.validate(resource, CheckMode.ALL, 
+      CancelIndicator.NullImpl);
+    boolean _isEmpty = list.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      String _string = list.toString();
+      String _plus = ("error during validation of unit=\'" + _string);
+      String _plus_1 = (_plus + "\'");
+      final RuntimeException ex = new RuntimeException(_plus_1);
+      Class<? extends Class> _class = PreprocessGenerator.class.getClass();
+      MyLog.error(_class, ex);
+    }
   }
   
   public String outputFor(final Preprocess preprocess) {
@@ -217,15 +342,76 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public String outputFor(final GroupOpt group) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\nThe method or field MyLog is undefined"
-      + "\ndebug cannot be resolved"
-      + "\nerror cannot be resolved"
-      + "\ndebug cannot be resolved"
-      + "\ndebug cannot be resolved");
+    Class<? extends Class> _class = PreprocessGenerator.class.getClass();
+    MyLog.debug(_class, (("outputFor path=\'" + this.path) + "\'"));
+    final StringBuffer result = new StringBuffer("");
+    this.registerLineNumber();
+    for (int i = 0; (i < group.getLines().size()); i++) {
+      {
+        EList<SourceCodeLine> _lines = group.getLines();
+        SourceCodeLine obj = _lines.get(i);
+        if ((obj instanceof PreprocessorDirectives)) {
+          String _outputFor = this.outputFor(((PreprocessorDirectives) obj));
+          result.append(_outputFor);
+        } else {
+          if ((obj instanceof NewLineLine)) {
+            String _outputFor_1 = this.outputFor(((NewLineLine) obj));
+            result.append(_outputFor_1);
+          } else {
+            if ((obj instanceof Code)) {
+              boolean fullResolved = false;
+              String codeResult = "";
+              final List<Code> codeList = new ArrayList<Code>();
+              do {
+                try {
+                  final SourceCodeLine line = ((SourceCodeLine) obj);
+                  if ((line instanceof Code)) {
+                    final Code code = ((Code) obj);
+                    codeList.add(code);
+                    String _outputFor_2 = this.outputFor(codeList);
+                    codeResult = _outputFor_2;
+                    fullResolved = true;
+                  } else {
+                    if ((line instanceof NewLineLine)) {
+                      i++;
+                      EList<SourceCodeLine> _lines_1 = group.getLines();
+                      SourceCodeLine _get = _lines_1.get(i);
+                      obj = _get;
+                    } else {
+                      final RuntimeException ex = new IllegalArgumentException("Can not nest a preprocessor directive while looking of a closing parentheses!");
+                      Class<? extends Class> _class_1 = PreprocessGenerator.class.getClass();
+                      MyLog.error(_class_1, ex);
+                    }
+                  }
+                } catch (final Throwable _t) {
+                  if (_t instanceof MacroParentheseNotClosedYetException) {
+                    final MacroParentheseNotClosedYetException ex_1 = (MacroParentheseNotClosedYetException)_t;
+                    Class<? extends Class> _class_2 = PreprocessGenerator.class.getClass();
+                    MyLog.debug(_class_2, (("not fully resolved at=\'" + Integer.valueOf(i)) + "\'"));
+                    i++;
+                    EList<SourceCodeLine> _lines_2 = group.getLines();
+                    SourceCodeLine _get_1 = _lines_2.get(i);
+                    obj = _get_1;
+                  } else {
+                    throw Exceptions.sneakyThrow(_t);
+                  }
+                }
+              } while((!fullResolved));
+              result.append(codeResult);
+              String _newLine = this.getNewLine();
+              result.append(_newLine);
+            }
+          }
+        }
+        this.incrementCurrLineNumber();
+      }
+    }
+    int _length = ((Object[])Conversions.unwrapArray(this.path, Object.class)).length;
+    int _minus = (_length - 1);
+    this.path.remove(_minus);
+    Class<? extends Class> _class_1 = PreprocessGenerator.class.getClass();
+    MyLog.debug(_class_1, (("back in path=\'" + this.path) + "\'"));
+    return result.toString();
   }
   
   public String outputFor(final PreprocessorDirectives obj) {
@@ -298,24 +484,42 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public String outputForLegacyMode(final IncludeDirective obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nModel cannot be resolved to a type."
-      + "\nModel cannot be resolved to a type."
-      + "\nCommonFactory cannot be resolved to a type."
-      + "\nTranslationUnit cannot be resolved to a type."
-      + "\nThe method or field eContainer is undefined for the type Preprocess"
-      + "\nThe method or field CommonFactory is undefined"
-      + "\nInvalid number of arguments. The method setUnit(TranslationUnit) is not applicable for the arguments (IncludeDirective,TranslationUnit)"
-      + "\n!= cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\neContainer cannot be resolved"
-      + "\neINSTANCE cannot be resolved"
-      + "\ncreateTranslationUnit cannot be resolved"
-      + "\npath cannot be resolved"
-      + "\nunits cannot be resolved"
-      + "\nadd cannot be resolved"
-      + "\npreprocess cannot be resolved");
+    try {
+      final String inc = obj.getString();
+      URI _peek = this.currUri.peek();
+      boolean _isNext = obj.isNext();
+      final IncludeUtils includeUtils = new IncludeUtils(this.rs, _peek, inc, this.definitionTable, _isNext);
+      final Resource res = includeUtils.getResource();
+      final Preprocess preprocess = this.getPreprocessFor(res, true);
+      boolean _and = false;
+      boolean _notEquals = (!Objects.equal(this.unit, null));
+      if (!_notEquals) {
+        _and = false;
+      } else {
+        EObject _eContainer = preprocess.eContainer();
+        boolean _equals = Objects.equal(_eContainer, null);
+        _and = _equals;
+      }
+      if (_and) {
+        EObject _eContainer_1 = this.unit.eContainer();
+        final Model model = ((Model) _eContainer_1);
+        final CommonFactory factory = CommonFactory.eINSTANCE;
+        final TranslationUnit unit2 = factory.createTranslationUnit();
+        final String path = this.getFileName(res);
+        unit2.setPath(path);
+        EList<TranslationUnit> _units = model.getUnits();
+        _units.add(unit2);
+        unit2.setPreprocess(preprocess);
+        obj.setUnit(unit2);
+      }
+      final String output = this.outputFor(preprocess);
+      this.currUri.pop();
+      this.currFileNames.pop();
+      this.currLineNumber.pop();
+      return output;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public String outputFor(final DefineDirective obj) {
@@ -373,22 +577,55 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public String outputFor(final ConditionalDirective condDirective, final IfDefConditional obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field id is undefined for the type IfDefConditional");
+    String _ident = obj.getIdent();
+    boolean _isDefined = this.definitionTable.isDefined(_ident);
+    if (_isDefined) {
+      condDirective.setBranchTaken(obj);
+      obj.setBranchTaken(true);
+      Id _id = obj.id();
+      String _plus = ("ifdef " + _id);
+      String _plus_1 = (_plus + "/");
+      this.path.add(_plus_1);
+      GroupOpt _group = obj.getGroup();
+      String _outputFor = this.outputFor(_group);
+      return _outputFor.trim();
+    }
+    return "";
   }
   
   public String outputFor(final ConditionalDirective condDirective, final IfNotDefConditional obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field id is undefined for the type IfNotDefConditional");
+    String _ident = obj.getIdent();
+    boolean _isDefined = this.definitionTable.isDefined(_ident);
+    boolean _not = (!_isDefined);
+    if (_not) {
+      condDirective.setBranchTaken(obj);
+      obj.setBranchTaken(true);
+      Id _id = obj.id();
+      String _plus = ("ifnotdef " + _id);
+      String _plus_1 = (_plus + "/");
+      this.path.add(_plus_1);
+      GroupOpt _group = obj.getGroup();
+      String _outputFor = this.outputFor(_group);
+      return _outputFor.trim();
+    }
+    return "";
   }
   
   public String outputFor(final ConditionalDirective condDirective, final IfConditional obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nExpression cannot be resolved to a type."
-      + "\nThe method evaluateFor(Expression) is undefined for the type Class<ExpressionEvaluation>"
-      + "\nThe method evaluateFor(Expression, Injector, DefinitionTable) is undefined for the type Class<ExpressionEvaluation>"
-      + "\nThe method or field MyLog is undefined"
-      + "\ntrace cannot be resolved");
+    final Expression expr = obj.getExpression();
+    final String string = ExpressionEvaluation.evaluateFor(expr);
+    final boolean result = ExpressionEvaluation.evaluateFor(expr, this.commonInjector, this.definitionTable);
+    Class<? extends Class> _class = PreprocessGenerator.class.getClass();
+    MyLog.trace(_class, (((("resultOfExpr=\'" + string) + "\'=\'") + Boolean.valueOf(result)) + "\'"));
+    if (result) {
+      this.path.add((("if " + string) + "/"));
+      condDirective.setBranchTaken(obj);
+      obj.setBranchTaken(true);
+      GroupOpt _group = obj.getGroup();
+      String _outputFor = this.outputFor(_group);
+      return _outputFor.trim();
+    }
+    return "";
   }
   
   public String outputFor(final ConditionalDirective condDirective, final EList<ElIfConditional> obj) {
@@ -410,10 +647,23 @@ public class PreprocessGenerator implements IGenerator {
   }
   
   public String outputFor(final ConditionalDirective condDirective, final ElIfConditional obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nExpression cannot be resolved to a type."
-      + "\nThe method evaluateFor(Expression, Injector, DefinitionTable) is undefined for the type Class<ExpressionEvaluation>"
-      + "\nThe method evaluateFor(Expression) is undefined for the type Class<ExpressionEvaluation>");
+    final IfAbstractConditional condition = condDirective.getBranchTaken();
+    boolean _notEquals = (!Objects.equal(condition, null));
+    if (_notEquals) {
+      return "";
+    }
+    final Expression expr = obj.getExpression();
+    boolean _evaluateFor = ExpressionEvaluation.evaluateFor(expr, this.commonInjector, this.definitionTable);
+    if (_evaluateFor) {
+      final String string = ExpressionEvaluation.evaluateFor(expr);
+      this.path.add((("elif" + string) + "/"));
+      condDirective.setBranchTaken(obj);
+      obj.setBranchTaken(true);
+      GroupOpt _group = obj.getGroup();
+      String _outputFor = this.outputFor(_group);
+      return _outputFor.trim();
+    }
+    return "";
   }
   
   public String outputFor(final ConditionalDirective condDirective, final ElseConditional obj) {

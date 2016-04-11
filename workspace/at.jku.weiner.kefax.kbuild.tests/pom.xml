@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>at.jku.weiner.kefax</groupId>
+		<artifactId>workspace</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>at.jku.weiner.kefax.kbuild.tests</artifactId>
+	<packaging>eclipse-test-plugin</packaging>
+	
+	<properties>
+		<xtextLangName>Kbuild</xtextLangName>
+		<skip-tests-normal>false</skip-tests-normal>
+		<skip-gui-tests>true</skip-gui-tests>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- convert artifactId to artifactIdAsPath -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<!-- ensure that file src-gen/.../Injector.java exists -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.4.1</version>
+				<executions>
+					<execution>
+						<id>enforce-files-exist</id>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- execute xtexttest generation -->
+			<plugin>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>xtext-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>runXtextTest</id>
+						<phase>generate-sources</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- execute xtend generation -->
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+			<!-- run tycho test -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

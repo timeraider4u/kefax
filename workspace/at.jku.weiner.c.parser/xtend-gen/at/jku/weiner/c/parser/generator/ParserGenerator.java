@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.c.parser.generator;
 
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
@@ -2634,18 +2635,120 @@ public class ParserGenerator implements IGenerator {
   }
   
   public String outputFor(final ArgumentExpressionList obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field expr is undefined for the type ArgumentExpressionList"
-      + "\nThe method or field expr is undefined for the type ArgumentExpressionList"
-      + "\nindexOf cannot be resolved"
-      + "\n> cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<at.jku.weiner.c.common.common.Expression> _expr = obj.getExpr();
+      for(final at.jku.weiner.c.common.common.Expression e : _expr) {
+        {
+          EList<at.jku.weiner.c.common.common.Expression> _expr_1 = obj.getExpr();
+          int _indexOf = _expr_1.indexOf(e);
+          boolean _greaterThan = (_indexOf > 0);
+          if (_greaterThan) {
+            _builder.append(",");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        String _outputFor = this.outputFor(((Expression) e));
+        _builder.append(_outputFor, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
   }
   
   public String outputForPrimaryExpression(final PrimaryExpression obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field const is undefined for the type PrimaryExpression"
-      + "\nThe method or field const is undefined for the type PrimaryExpression"
-      + "\n!= cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _ident = obj.getIdent();
+      boolean _notEquals = (!Objects.equal(_ident, null));
+      if (_notEquals) {
+        String _ident_1 = obj.getIdent();
+        _builder.append(_ident_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      Constant2 _const = obj.getConst();
+      boolean _notEquals_1 = (!Objects.equal(_const, null));
+      if (_notEquals_1) {
+        Constant2 _const_1 = obj.getConst();
+        String _outputFor = this.outputFor(_const_1);
+        _builder.append(_outputFor, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<String> _string = obj.getString();
+      boolean _notEquals_2 = (!Objects.equal(_string, null));
+      if (_notEquals_2) {
+        EList<String> _string_1 = obj.getString();
+        String _outputForString = this.outputForString(_string_1);
+        _builder.append(_outputForString, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _isParentheses = obj.isParentheses();
+      if (_isParentheses) {
+        _builder.append("(");
+        Expression _expr = obj.getExpr();
+        String _outputFor_1 = this.outputFor(_expr);
+        _builder.append(_outputFor_1, "");
+        _builder.append(")");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _isBuiltin_offsetof = obj.isBuiltin_offsetof();
+      if (_isBuiltin_offsetof) {
+        _builder.append("__builtin_offsetof(");
+        TypeName _typeName = obj.getTypeName();
+        String _outputFor_2 = this.outputFor(_typeName);
+        _builder.append(_outputFor_2, "");
+        _builder.append(",");
+        Expression _expr_1 = obj.getExpr();
+        String _outputFor_3 = this.outputFor(_expr_1);
+        _builder.append(_outputFor_3, "");
+        _builder.append(")");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      Statement _compoundStmt = obj.getCompoundStmt();
+      boolean _notEquals_3 = (!Objects.equal(_compoundStmt, null));
+      if (_notEquals_3) {
+        {
+          boolean _isExt = obj.isExt();
+          if (_isExt) {
+            _builder.append("__extension__");
+          }
+        }
+        _builder.append("(");
+        Statement _compoundStmt_1 = obj.getCompoundStmt();
+        String _outputFor_4 = this.outputFor(_compoundStmt_1);
+        _builder.append(_outputFor_4, "");
+        _builder.append(")");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _isBuiltin_typescompatiblep = obj.isBuiltin_typescompatiblep();
+      if (_isBuiltin_typescompatiblep) {
+        _builder.append("__builtin_types_compatible_p(");
+        TypeName _typeName_1 = obj.getTypeName();
+        String _outputFor_5 = this.outputFor(_typeName_1);
+        _builder.append(_outputFor_5, "");
+        _builder.append(", ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        TypeName _typeName2 = obj.getTypeName2();
+        String _outputFor_6 = this.outputFor(_typeName2);
+        _builder.append(_outputFor_6, "\t");
+        _builder.append(")");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
   
   public String outputForString(final EList<String> obj) {
@@ -2662,29 +2765,72 @@ public class ParserGenerator implements IGenerator {
     return _builder.toString();
   }
   
-  public String outputFor(final /* Constant2 */Object obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nhex cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nhex cannot be resolved"
-      + "\noct cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\noct cannot be resolved"
-      + "\ndec cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\ndec cannot be resolved"
-      + "\nch cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nch cannot be resolved"
-      + "\nstr cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nstr cannot be resolved"
-      + "\nfloat cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nfloat cannot be resolved"
-      + "\nbin cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nbin cannot be resolved");
+  public String outputFor(final Constant2 obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _hex = obj.getHex();
+      boolean _notEquals = (!Objects.equal(_hex, null));
+      if (_notEquals) {
+        String _hex_1 = obj.getHex();
+        _builder.append(_hex_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _oct = obj.getOct();
+      boolean _notEquals_1 = (!Objects.equal(_oct, null));
+      if (_notEquals_1) {
+        String _oct_1 = obj.getOct();
+        _builder.append(_oct_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _dec = obj.getDec();
+      boolean _notEquals_2 = (!Objects.equal(_dec, null));
+      if (_notEquals_2) {
+        String _dec_1 = obj.getDec();
+        _builder.append(_dec_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _ch = obj.getCh();
+      boolean _notEquals_3 = (!Objects.equal(_ch, null));
+      if (_notEquals_3) {
+        String _ch_1 = obj.getCh();
+        _builder.append(_ch_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _str = obj.getStr();
+      boolean _notEquals_4 = (!Objects.equal(_str, null));
+      if (_notEquals_4) {
+        String _str_1 = obj.getStr();
+        _builder.append(_str_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _float = obj.getFloat();
+      boolean _notEquals_5 = (!Objects.equal(_float, null));
+      if (_notEquals_5) {
+        String _float_1 = obj.getFloat();
+        _builder.append(_float_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _bin = obj.getBin();
+      boolean _notEquals_6 = (!Objects.equal(_bin, null));
+      if (_notEquals_6) {
+        String _bin_1 = obj.getBin();
+        _builder.append(_bin_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
   
   @Pure

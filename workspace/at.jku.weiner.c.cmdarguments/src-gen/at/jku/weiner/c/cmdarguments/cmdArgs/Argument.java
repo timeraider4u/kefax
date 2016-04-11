@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getMacro <em>Macro</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncDir <em>Inc Dir</em>}</li>
@@ -24,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn <em>In</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument()
  * @model

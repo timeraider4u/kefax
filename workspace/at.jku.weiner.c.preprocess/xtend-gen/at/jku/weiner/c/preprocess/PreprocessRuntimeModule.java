@@ -4,6 +4,7 @@
 package at.jku.weiner.c.preprocess;
 
 import at.jku.weiner.c.preprocess.AbstractPreprocessRuntimeModule;
+import at.jku.weiner.c.preprocess.utils.MyValueConverter;
 import org.eclipse.xtext.conversion.IValueConverterService;
 
 /**
@@ -13,7 +14,6 @@ import org.eclipse.xtext.conversion.IValueConverterService;
 public class PreprocessRuntimeModule extends AbstractPreprocessRuntimeModule {
   @Override
   public Class<? extends IValueConverterService> bindIValueConverterService() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from Class<MyValueConverter> to Class<? extends IValueConverterService>");
+    return MyValueConverter.class;
   }
 }

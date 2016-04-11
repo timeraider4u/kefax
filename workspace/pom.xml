@@ -55,7 +55,7 @@
 			<id>antlr3.eclipse</id>
 			<name>antlr3 eclipse-repo</name>
 			<layout>p2</layout>
-			<url>http://timeraider4u.github.io/antlr3/</url>
+			<url>https://timeraider4u.github.io/antlr3/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -139,6 +139,20 @@
 	
 	<pluginRepositories>
 		<pluginRepository>
+			<id>org.xtext.antlr.generator</id>
+			<name>org.xtext.antlr.generator mvn-repo</name>
+			<layout>default</layout>
+			<url>https://raw.github.com/timeraider4u/org.xtext.antlr.generator/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
 			<id>Xtext2</id>
 			<name>Xtext2 mvn-repo</name>
 			<layout>default</layout>
@@ -157,20 +171,6 @@
 			<name>antlr3 mvn-repo</name>
 			<layout>default</layout>
 			<url>https://raw.github.com/timeraider4u/antlr3/mvn-repo/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</pluginRepository>
-		<pluginRepository>
-			<id>org.xtext.antlr.generator</id>
-			<name>org.xtext.antlr.generator mvn-repo</name>
-			<layout>default</layout>
-			<url>https://raw.github.com/timeraider4u/org.xtext.antlr.generator/mvn-repo/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -431,6 +431,34 @@
 					</executions>
 					<dependencies>
 						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>org.antlr.generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>org.antlr.runtime</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<!--
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>org.antlr.generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						
+						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>antlr-generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>antlr-runtime</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						-->
+						<dependency>
 							<groupId>org.eclipse.xtext</groupId>
 							<artifactId>org.eclipse.xtext.xtext</artifactId>
 							<version>${xtext.version}</version>
@@ -454,16 +482,6 @@
 							<groupId>org.eclipse.emf</groupId>
 							<artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
 							<version>${mwe2.version}</version>
-						</dependency>
-						<dependency>
-							<groupId>org.xtext</groupId>
-							<artifactId>antlr-generator</artifactId>
-							<version>${antlr.version}</version>
-						</dependency>
-						<dependency>
-							<groupId>org.antlr</groupId>
-							<artifactId>antlr-runtime</artifactId>
-							<version>${antlr.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>

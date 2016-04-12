@@ -1,10 +1,6 @@
 package at.jku.weiner.kefax.gitclone;
 
-import java.util.Collections;
-import java.util.Date;
-
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.mylyn.commons.ui.dialogs.AbstractNotificationPopup;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -16,10 +12,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.UIJob;
 
-//import org.eclipse.mylyn.commons.notifications.core.AbstractNotification;
-//import org.eclipse.mylyn.internal.commons.notifications.ui.NotificationService;
-
-@SuppressWarnings("restriction")
 public class GitCloneNotification extends AbstractNotificationPopup {
 	private final String title;
 	private final String message;

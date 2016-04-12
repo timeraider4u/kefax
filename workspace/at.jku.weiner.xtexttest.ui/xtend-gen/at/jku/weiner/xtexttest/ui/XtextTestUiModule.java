@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class XtextTestUiModule extends AbstractXtextTestUiModule {
-  public XtextTestUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public XtextTestUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

@@ -104,7 +104,7 @@ public final class ScopeSymbols implements Cloneable {
 	}
 	
 	@Override
-	protected Object clone() {
+	public Object clone() {
 		final ScopeSymbols result = new ScopeSymbols(this.scopeName,
 				this.forceEnableDebug);
 		// result.isTypeDefValue = this.isTypeDefValue;

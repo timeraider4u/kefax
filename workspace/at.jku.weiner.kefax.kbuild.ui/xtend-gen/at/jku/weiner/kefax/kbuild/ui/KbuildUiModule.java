@@ -4,11 +4,16 @@
 package at.jku.weiner.kefax.kbuild.ui;
 
 import at.jku.weiner.kefax.kbuild.ui.AbstractKbuildUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
-/* @FinalFieldsConstructor */@SuppressWarnings("all")
+@FinalFieldsConstructor
+@SuppressWarnings("all")
 public class KbuildUiModule extends AbstractKbuildUiModule {
+  public KbuildUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
+  }
 }

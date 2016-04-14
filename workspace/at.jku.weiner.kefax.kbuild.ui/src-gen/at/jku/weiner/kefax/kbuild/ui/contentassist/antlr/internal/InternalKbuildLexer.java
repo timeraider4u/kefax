@@ -1217,37 +1217,50 @@ public class InternalKbuildLexer extends Lexer {
         public String getDescription() {
             return "1:1: Tokens : ( RULE_NLI | RULE_TAB | RULE_WSS | RULE_SL_COMMENT | RULE_OBJ_START | RULE_OBJ_Y | RULE_OBJ_M | RULE_IFEQ | RULE_IFNEQ | RULE_IFNDEF | RULE_ELSE | RULE_ENDIF | RULE_Y | RULE_M | RULE_OBJ_FILE | RULE_INCLUDE | RULE_SYMBOL | RULE_SHELL_CHAR | RULE_DOLLAR | RULE_BRACE_START | RULE_BRACE_END | RULE_QUOTE | RULE_PLUS | RULE_DPOINT | RULE_EQ | RULE_SLASH | RULE_BACKSLASH | RULE_COMMA | RULE_SEMICOLON | RULE_STRING );";
         }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
+        public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
+            int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA6_16 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA6_16>='\u0000' && LA6_16<='\t')||(LA6_16>='\u000B' && LA6_16<='\f')||(LA6_16>='\u000E' && LA6_16<='\uFFFF')) ) {s = 32;}
-
-                        else s = 33;
-
-                        if ( s>=0 ) return s;
+                        s = specialState0(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
                     case 1 : 
-                        int LA6_64 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA6_64>='-' && LA6_64<='.')||(LA6_64>='0' && LA6_64<='9')||(LA6_64>='@' && LA6_64<='Z')||LA6_64=='_'||(LA6_64>='a' && LA6_64<='z')) ) {s = 65;}
-
-                        else if ( ((LA6_64>='\u0000' && LA6_64<='\t')||(LA6_64>='\u000B' && LA6_64<=',')||LA6_64=='/'||(LA6_64>=':' && LA6_64<='?')||(LA6_64>='[' && LA6_64<='^')||LA6_64=='`'||(LA6_64>='{' && LA6_64<='\uFFFF')) ) {s = 66;}
-
-                        else s = 11;
-
-                        if ( s>=0 ) return s;
+                        s = specialState1(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
             }
             NoViableAltException nvae =
                 new NoViableAltException(getDescription(), 6, _s, input);
             error(nvae);
             throw nvae;
+        }
+
+        private int specialState0(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA6_16 = input.LA(1);
+
+            s = -1;
+            if ( ((LA6_16>='\u0000' && LA6_16<='\t')||(LA6_16>='\u000B' && LA6_16<='\f')||(LA6_16>='\u000E' && LA6_16<='\uFFFF')) ) {s = 32;}
+
+            else s = 33;
+
+            return s;
+        }
+
+        private int specialState1(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA6_64 = input.LA(1);
+
+            s = -1;
+            if ( ((LA6_64>='-' && LA6_64<='.')||(LA6_64>='0' && LA6_64<='9')||(LA6_64>='@' && LA6_64<='Z')||LA6_64=='_'||(LA6_64>='a' && LA6_64<='z')) ) {s = 65;}
+
+            else if ( ((LA6_64>='\u0000' && LA6_64<='\t')||(LA6_64>='\u000B' && LA6_64<=',')||LA6_64=='/'||(LA6_64>=':' && LA6_64<='?')||(LA6_64>='[' && LA6_64<='^')||LA6_64=='`'||(LA6_64>='{' && LA6_64<='\uFFFF')) ) {s = 66;}
+
+            else s = 11;
+
+            return s;
         }
     }
  

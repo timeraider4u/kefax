@@ -21,7 +21,11 @@
 		<eclipse.name>luna</eclipse.name>
 		<xtext.version>2.9.0-SNAPSHOT</xtext.version>
 		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
-		<antlr.version>3.5.3-SNAPSHOT</antlr.version>
+		<!--
+		<antlr.version>3.2.1-SNAPSHOT</antlr.version>
+		-->
+		<antlr.generator.version>3.2.1-SNAPSHOT</antlr.generator.version>
+
 		<mwe2.version>${xtext.version}</mwe2.version>
 		
 		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
@@ -42,20 +46,6 @@
 			<name>NeoEMF</name>
 			<layout>p2</layout>
 			<url>http://timeraider4u.github.io/NeoEMF/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</repository>
-		<repository>
-			<id>antlr3.eclipse</id>
-			<name>antlr3 eclipse-repo</name>
-			<layout>p2</layout>
-			<url>https://timeraider4u.github.io/antlr3/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -157,20 +147,6 @@
 			<name>Xtext2 mvn-repo</name>
 			<layout>default</layout>
 			<url>https://raw.github.com/timeraider4u/xtext/mvn-repo/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</pluginRepository>
-		<pluginRepository>
-			<id>antlr3</id>
-			<name>antlr3 mvn-repo</name>
-			<layout>default</layout>
-			<url>https://raw.github.com/timeraider4u/antlr3/mvn-repo/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -432,15 +408,23 @@
 					<dependencies>
 						<dependency>
 							<groupId>org.xtext</groupId>
+							<artifactId>antlr-generator</artifactId>
+							<version>${antlr.generator.version}</version>
+						</dependency>
+						
+						<!--
+						<dependency>
+							<groupId>org.xtext</groupId>
 							<artifactId>org.antlr.generator</artifactId>
 							<version>${antlr.version}</version>
 						</dependency>
+						
+
 						<dependency>
 							<groupId>org.antlr</groupId>
 							<artifactId>org.antlr.runtime</artifactId>
 							<version>${antlr.version}</version>
 						</dependency>
-						<!--
 						<dependency>
 							<groupId>org.antlr</groupId>
 							<artifactId>org.antlr.generator</artifactId>

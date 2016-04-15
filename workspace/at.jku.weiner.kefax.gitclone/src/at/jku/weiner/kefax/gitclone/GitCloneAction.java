@@ -21,6 +21,9 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 
+import at.jku.weiner.kefax.shared.MyNotification;
+import at.jku.weiner.kefax.shared.Settings;
+
 public class GitCloneAction extends AbstractHandler {
 
 	private final IProgressMonitor monitor = new NullProgressMonitor();
@@ -42,7 +45,7 @@ public class GitCloneAction extends AbstractHandler {
 	private IStatus run() {
 		try {
 			this.myRun();
-		} catch (Exception ex) {
+		} catch (final Exception ex) {
 			// MyLog.errorNoThrows(CleanUpCommand.class, ex);
 			ex.printStackTrace();
 			return Status.CANCEL_STATUS;
@@ -53,7 +56,7 @@ public class GitCloneAction extends AbstractHandler {
 	private void myRun() throws Exception {
 		final IProject project = this.setUpProject();
 
-		IFolder src = project.getFolder("src");
+		final IFolder src = project.getFolder(Settings.LINUX_CHECKOUT_DIR);
 		if (src.exists()) {
 			src.delete(true, this.monitor);
 		}
@@ -66,7 +69,7 @@ public class GitCloneAction extends AbstractHandler {
 	private IProject setUpProject() throws CoreException {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IWorkspaceRoot root = workspace.getRoot();
-		final IProject project = root.getProject("kefax-linux-source");
+		final IProject project = root.getProject(Settings.LINUX_CHECKOUT_PRJ);
 		if (!project.exists()) {
 			project.create(this.monitor);
 		} else {
@@ -83,60 +86,19 @@ public class GitCloneAction extends AbstractHandler {
 		System.out.println("target='" + target + "'");
 		final File targetDir = new File(target);
 
-		GitCloneNotification.run();
+		MyNotification.run("at.jku.weiner.kefax.gitclone actions started",
+				"git clone " + Settings.LINUX_CHECKOUT_URL
+				+ " can take several minutes!");
 
-		// GitCloneAction
-		// .showStatusMessage(
-		// "git clone https://github.com/torvalds/linux.git can take a few minutes!",
-		// false);
-
-		CloneCommand clone = Git.cloneRepository();
-		clone.setURI("https://github.com/torvalds/linux.git");
+		final CloneCommand clone = Git.cloneRepository();
+		clone.setURI(Settings.LINUX_CHECKOUT_URL);
 		clone.setDirectory(targetDir);
 		clone.setBare(false);
 		clone.setCloneAllBranches(false);
 		clone.setCloneSubmodules(false);
 
-		clone.setBranch("master");
+		clone.setBranch(Settings.LINUX_CHECKOUT_BRANCH);
 		clone.call();
-		// FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		//
-		// Repository repository = builder.setGitDir(new File(target))
-		// .readEnvironment().findGitDir() // scan up the file system tree
-		// .build();
 	}
-
-	/**
-	 * taken from
-	 * http://www.mindfiresolutions.com/Showing-the-status-message-in-
-	 * the-Eclipse-RCP-application-261.php
-	 *
-	 * Shows status message in RCP
-	 *
-	 * @param message
-	 *            message to be displayed
-	 * @param isError
-	 *            if its an error message or normal message
-	 */
-	// private static void showStatusMessage(final String message,
-	// final boolean isError) {
-	// Display.getDefault().syncExec(new Runnable() {
-	//
-	// @Override
-	// @SuppressWarnings("restriction")
-	// public void run() {
-	// IWorkbenchWindow window = PlatformUI.getWorkbench()
-	// .getActiveWorkbenchWindow();
-	// if (window instanceof WorkbenchWindow) {
-	// WorkbenchWindow w = (WorkbenchWindow) window;
-	// if (isError) {
-	// w.getStatusLineManager().setErrorMessage(message);
-	// } else {
-	// w.getStatusLineManager().setMessage(message);
-	// }
-	// }
-	// }
-	// });
-	// }
 
 }

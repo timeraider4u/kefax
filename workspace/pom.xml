@@ -191,10 +191,12 @@
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
+		<!--
 		<module>at.jku.weiner.kefax.kbuild</module>
 		<module>at.jku.weiner.kefax.kbuild.tests</module>
 		<module>at.jku.weiner.kefax.kbuild.ui</module>
 		<module>at.jku.weiner.kefax.kbuild.ui.tests</module>
+		-->
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>

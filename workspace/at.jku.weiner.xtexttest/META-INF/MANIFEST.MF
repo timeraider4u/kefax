@@ -16,8 +16,7 @@ Require-Bundle: org.eclipse.xtext.xbase,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext,
- at.jku.weiner.c.common;bundle-version="0.1.0";visibility:=reexport,
- org.antlr.runtime
+ at.jku.weiner.c.common;bundle-version="0.1.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.xtexttest.parser.antlr.internal,
  at.jku.weiner.xtexttest.serializer,

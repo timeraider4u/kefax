@@ -15,8 +15,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
- org.eclipse.xtext.xbase.lib,
- org.antlr.runtime
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.cmdarguments.generator,
  at.jku.weiner.c.cmdarguments.cmdArgs,

@@ -19,8 +19,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.ecore;bundle-version="2.9.0",
  at.jku.weiner.c.common.ui.log.service;bundle-version="0.1.0";visibility:=reexport,
  at.jku.weiner.c.common.ui.log;bundle-version="0.1.0";resolution:=optional,
- fr.inria.atlanmod.neoemf.core;bundle-version="0.0.1";visibility:=reexport,
- org.antlr.runtime
+ fr.inria.atlanmod.neoemf.core;bundle-version="0.0.1";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.common,
  at.jku.weiner.c.common.common,

@@ -79,6 +79,19 @@ Workflow {
 			project = WizardConfig {
 				runtimeRoot = projectPath
 				testingSupport = true
+				// do not update META-INF/MANIFEST.MF files
+				eclipsePluginManifest = model.ManifestAccess {
+					merge = false
+				}
+				eclipsePluginTestManifest = model.ManifestAccess {
+					merge = false
+				}
+				runtimeManifest = model.ManifestAccess {
+					merge = false
+				}
+				runtimeTestManifest = model.ManifestAccess {
+					merge = false
+				}
 			}
 			code = auto-inject {
 				preferXtendStubs = true

@@ -21,6 +21,11 @@
 		<eclipse.name>luna</eclipse.name>
 		<xtext.version>2.9.0-SNAPSHOT</xtext.version>
 		<xtext.other.version>3.0.0-SNAPSHOT</xtext.other.version>
+		<!--
+		<antlr.version>3.2.1-SNAPSHOT</antlr.version>
+		-->
+		<antlr.generator.version>3.2.1-SNAPSHOT</antlr.generator.version>
+
 		<mwe2.version>${xtext.version}</mwe2.version>
 		
 		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
@@ -41,6 +46,20 @@
 			<name>NeoEMF</name>
 			<layout>p2</layout>
 			<url>http://timeraider4u.github.io/NeoEMF/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>org.xtext.antlr.generator.eclipse</id>
+			<name>org.xtext.antlr.generator eclipse-repo</name>
+			<layout>p2</layout>
+			<url>https://timeraider4u.github.io/org.xtext.antlr.generator/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
@@ -110,6 +129,20 @@
 	
 	<pluginRepositories>
 		<pluginRepository>
+			<id>org.xtext.antlr.generator</id>
+			<name>org.xtext.antlr.generator mvn-repo</name>
+			<layout>default</layout>
+			<url>https://raw.github.com/timeraider4u/org.xtext.antlr.generator/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
 			<id>Xtext2</id>
 			<name>Xtext2 mvn-repo</name>
 			<layout>default</layout>
@@ -150,14 +183,20 @@
 		<module>at.jku.weiner.c.common.ui.log</module>
 		<module>at.jku.weiner.c.common.ui.log.service</module>
 		<module>at.jku.weiner.c.common.ui.tests</module>
+		<module>at.jku.weiner.c.parser</module>
+		<module>at.jku.weiner.c.parser.tests</module>
+		<module>at.jku.weiner.c.parser.ui</module>
+		<module>at.jku.weiner.c.parser.ui.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
+		<!--
 		<module>at.jku.weiner.kefax.kbuild</module>
 		<module>at.jku.weiner.kefax.kbuild.tests</module>
 		<module>at.jku.weiner.kefax.kbuild.ui</module>
 		<module>at.jku.weiner.kefax.kbuild.ui.tests</module>
+		-->
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>
@@ -369,6 +408,42 @@
 						</execution>
 					</executions>
 					<dependencies>
+						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>antlr-generator</artifactId>
+							<version>${antlr.generator.version}</version>
+						</dependency>
+						
+						<!--
+						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>org.antlr.generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						
+
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>org.antlr.runtime</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>org.antlr.generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						
+						<dependency>
+							<groupId>org.xtext</groupId>
+							<artifactId>antlr-generator</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.antlr</groupId>
+							<artifactId>antlr-runtime</artifactId>
+							<version>${antlr.version}</version>
+						</dependency>
+						-->
 						<dependency>
 							<groupId>org.eclipse.xtext</groupId>
 							<artifactId>org.eclipse.xtext.xtext</artifactId>

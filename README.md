@@ -26,6 +26,10 @@ and install the following features:
 # HOWTO - development
 Coming soon...
 
+# Bug 460481 with work-around:
+https://dzone.com/articles/method-size-limit-java
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=460481#c4
+
 ## More interesting links:
 ### C/C++ discoverer for Eclipse MoDisco forum thread:
 http://www.eclipse.org/forums/index.php/t/366540/

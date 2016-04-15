@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="at.jku.weiner.kefax.configure.ConfigureHandler"
+           id="at.jku.weiner.kefax.configure.command"
+           name="at.jku.weiner.kefax.configure.command">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:org.eclipse.ui.main.menu">
+        <menu
+              id="at.jku.weiner.kefax.main.filemenu"
+              label="KeFaX">
+           <command
+                 commandId="at.jku.weiner.kefax.configure.command"
+                 label="Generate .config"
+                 style="push"
+                 tooltip="Generate Linux .config">
+           </command>
+         </menu>
+      </menuContribution>
+   </extension>
+</plugin>

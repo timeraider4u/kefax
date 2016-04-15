@@ -3371,111 +3371,131 @@ public class InternalCommonLexer extends Lexer {
         public String getDescription() {
             return "1:1: Tokens : ( RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_NEWLINE | RULE_WHITESPACE | RULE_IGNORED | RULE_SPECIAL );";
         }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
+        public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
+            int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA39_25 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA39_25>='\u0000' && LA39_25<='&')||(LA39_25>='(' && LA39_25<='\uFFFF')) ) {s = 74;}
-
-                        else s = 73;
-
-                        if ( s>=0 ) return s;
+                        s = specialState0(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
                     case 1 : 
-                        int LA39_0 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA39_0=='&') ) {s = 1;}
-
-                        else if ( (LA39_0=='=') ) {s = 2;}
-
-                        else if ( (LA39_0=='\\') ) {s = 3;}
-
-                        else if ( (LA39_0=='^') ) {s = 4;}
-
-                        else if ( (LA39_0==',') ) {s = 5;}
-
-                        else if ( (LA39_0==':') ) {s = 6;}
-
-                        else if ( (LA39_0=='/') ) {s = 7;}
-
-                        else if ( (LA39_0=='.') ) {s = 8;}
-
-                        else if ( (LA39_0=='\"') ) {s = 9;}
-
-                        else if ( (LA39_0=='>') ) {s = 10;}
-
-                        else if ( (LA39_0=='{') ) {s = 11;}
-
-                        else if ( (LA39_0=='[') ) {s = 12;}
-
-                        else if ( (LA39_0=='(') ) {s = 13;}
-
-                        else if ( (LA39_0=='<') ) {s = 14;}
-
-                        else if ( (LA39_0=='-') ) {s = 15;}
-
-                        else if ( (LA39_0=='%') ) {s = 16;}
-
-                        else if ( (LA39_0=='!') ) {s = 17;}
-
-                        else if ( (LA39_0=='|') ) {s = 18;}
-
-                        else if ( (LA39_0=='+') ) {s = 19;}
-
-                        else if ( (LA39_0=='?') ) {s = 20;}
-
-                        else if ( (LA39_0=='}') ) {s = 21;}
-
-                        else if ( (LA39_0==']') ) {s = 22;}
-
-                        else if ( (LA39_0==')') ) {s = 23;}
-
-                        else if ( (LA39_0==';') ) {s = 24;}
-
-                        else if ( (LA39_0=='\'') ) {s = 25;}
-
-                        else if ( (LA39_0=='*') ) {s = 26;}
-
-                        else if ( (LA39_0=='~') ) {s = 27;}
-
-                        else if ( (LA39_0=='L') ) {s = 28;}
-
-                        else if ( (LA39_0=='$'||(LA39_0>='A' && LA39_0<='K')||(LA39_0>='M' && LA39_0<='Z')||LA39_0=='_'||(LA39_0>='a' && LA39_0<='z')) ) {s = 29;}
-
-                        else if ( (LA39_0=='0') ) {s = 30;}
-
-                        else if ( ((LA39_0>='1' && LA39_0<='9')) ) {s = 31;}
-
-                        else if ( (LA39_0=='\n'||LA39_0=='\r') ) {s = 32;}
-
-                        else if ( (LA39_0=='\t'||LA39_0==' ') ) {s = 33;}
-
-                        else if ( (LA39_0=='\f') ) {s = 34;}
-
-                        else if ( ((LA39_0>='\u0000' && LA39_0<='\b')||LA39_0=='\u000B'||(LA39_0>='\u000E' && LA39_0<='\u001F')||LA39_0=='#'||LA39_0=='@'||LA39_0=='`'||(LA39_0>='\u007F' && LA39_0<='\uFFFF')) ) {s = 35;}
-
-                        if ( s>=0 ) return s;
+                        s = specialState1(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
                     case 2 : 
-                        int LA39_9 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA39_9>='\u0000' && LA39_9<='\uFFFF')) ) {s = 49;}
-
-                        else s = 48;
-
-                        if ( s>=0 ) return s;
+                        s = specialState2(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
             }
             NoViableAltException nvae =
                 new NoViableAltException(getDescription(), 39, _s, input);
             error(nvae);
             throw nvae;
+        }
+
+        private int specialState0(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA39_25 = input.LA(1);
+
+            s = -1;
+            if ( ((LA39_25>='\u0000' && LA39_25<='&')||(LA39_25>='(' && LA39_25<='\uFFFF')) ) {s = 74;}
+
+            else s = 73;
+
+            return s;
+        }
+
+        private int specialState1(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA39_0 = input.LA(1);
+
+            s = -1;
+            if ( (LA39_0=='&') ) {s = 1;}
+
+            else if ( (LA39_0=='=') ) {s = 2;}
+
+            else if ( (LA39_0=='\\') ) {s = 3;}
+
+            else if ( (LA39_0=='^') ) {s = 4;}
+
+            else if ( (LA39_0==',') ) {s = 5;}
+
+            else if ( (LA39_0==':') ) {s = 6;}
+
+            else if ( (LA39_0=='/') ) {s = 7;}
+
+            else if ( (LA39_0=='.') ) {s = 8;}
+
+            else if ( (LA39_0=='\"') ) {s = 9;}
+
+            else if ( (LA39_0=='>') ) {s = 10;}
+
+            else if ( (LA39_0=='{') ) {s = 11;}
+
+            else if ( (LA39_0=='[') ) {s = 12;}
+
+            else if ( (LA39_0=='(') ) {s = 13;}
+
+            else if ( (LA39_0=='<') ) {s = 14;}
+
+            else if ( (LA39_0=='-') ) {s = 15;}
+
+            else if ( (LA39_0=='%') ) {s = 16;}
+
+            else if ( (LA39_0=='!') ) {s = 17;}
+
+            else if ( (LA39_0=='|') ) {s = 18;}
+
+            else if ( (LA39_0=='+') ) {s = 19;}
+
+            else if ( (LA39_0=='?') ) {s = 20;}
+
+            else if ( (LA39_0=='}') ) {s = 21;}
+
+            else if ( (LA39_0==']') ) {s = 22;}
+
+            else if ( (LA39_0==')') ) {s = 23;}
+
+            else if ( (LA39_0==';') ) {s = 24;}
+
+            else if ( (LA39_0=='\'') ) {s = 25;}
+
+            else if ( (LA39_0=='*') ) {s = 26;}
+
+            else if ( (LA39_0=='~') ) {s = 27;}
+
+            else if ( (LA39_0=='L') ) {s = 28;}
+
+            else if ( (LA39_0=='$'||(LA39_0>='A' && LA39_0<='K')||(LA39_0>='M' && LA39_0<='Z')||LA39_0=='_'||(LA39_0>='a' && LA39_0<='z')) ) {s = 29;}
+
+            else if ( (LA39_0=='0') ) {s = 30;}
+
+            else if ( ((LA39_0>='1' && LA39_0<='9')) ) {s = 31;}
+
+            else if ( (LA39_0=='\n'||LA39_0=='\r') ) {s = 32;}
+
+            else if ( (LA39_0=='\t'||LA39_0==' ') ) {s = 33;}
+
+            else if ( (LA39_0=='\f') ) {s = 34;}
+
+            else if ( ((LA39_0>='\u0000' && LA39_0<='\b')||LA39_0=='\u000B'||(LA39_0>='\u000E' && LA39_0<='\u001F')||LA39_0=='#'||LA39_0=='@'||LA39_0=='`'||(LA39_0>='\u007F' && LA39_0<='\uFFFF')) ) {s = 35;}
+
+            return s;
+        }
+
+        private int specialState2(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA39_9 = input.LA(1);
+
+            s = -1;
+            if ( ((LA39_9>='\u0000' && LA39_9<='\uFFFF')) ) {s = 49;}
+
+            else s = 48;
+
+            return s;
         }
     }
  

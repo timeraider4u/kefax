@@ -53,9 +53,14 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		final XtextTokenStream tokenStream = new XtextTokenStream(this.lexer,
 				this.tokenDefProvider);
 		// this.parser.setInitialHiddenTokens(tokenStream);
-		@SuppressWarnings("unchecked")
-		final List<Token> tokens = tokenStream.getTokens();
+		final List<Token> tokens = getTokensFor(tokenStream.getTokens());
 		return tokens;
+	}
+	
+	private List<Token> getTokensFor(final List<? extends Token> tokens) {
+		final List<Token> result = new ArrayList<Token>();
+		result.addAll(tokens);
+		return result;
 	}
 	
 	/**

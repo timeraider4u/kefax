@@ -59,7 +59,7 @@ public final class ScopeTypes implements Cloneable {
 	}
 
 	@Override
-	protected Object clone() {
+	public Object clone() {
 		final ScopeTypes result = new ScopeTypes(this.forceEnableDebug);
 		final Iterator<String> it = this.types.iterator();
 		while (it.hasNext()) {

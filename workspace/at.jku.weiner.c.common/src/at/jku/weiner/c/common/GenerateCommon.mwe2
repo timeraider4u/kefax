@@ -40,11 +40,6 @@ Workflow {
 		directory = "${projectPath}/emf-gen"
 	}
 	
-	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-        genModel = "${commonGenModel}"
-        srcPath = "platform:/resource/${projectName}/src"
-    }
-	
 	component = DirectoryCleaner {
 		directory = "${projectPath}/src-gen"
 	}
@@ -63,12 +58,30 @@ Workflow {
 		directory = "${projectPath}/model/generated"
 	}
 	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+        genModel = "${commonGenModel}"
+        srcPath = "platform:/resource/${projectName}/src"
+   }
+	
 	component = XtextGenerator auto-inject {
 		configuration = {
 			project = WizardConfig {
 				runtimeRoot = projectPath
 				// eclipseEditor = false
 				testingSupport = true
+				// do not update META-INF/MANIFEST.MF files
+				eclipsePluginManifest = model.ManifestAccess {
+					merge = false
+				}
+				eclipsePluginTestManifest = model.ManifestAccess {
+					merge = false
+				}
+				runtimeManifest = model.ManifestAccess {
+					merge = false
+				}
+				runtimeTestManifest = model.ManifestAccess {
+					merge = false
+				}
 			}
 			code = auto-inject {
 				preferXtendStubs = true

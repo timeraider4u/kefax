@@ -789,25 +789,31 @@ public class InternalDotconfigLexer extends Lexer {
         public String getDescription() {
             return "1:1: Tokens : ( RULE_NLI | RULE_WSS | RULE_EQ | RULE_LOGIC_SYM | RULE_S_HEX | RULE_S_INT | RULE_SYMBOL | RULE_STRING | RULE_SL_COMMENT_NOT | RULE_SL_COMMENT );";
         }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
+        public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
+            int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA10_28 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA10_28>='\u0000' && LA10_28<='\t')||(LA10_28>='\u000B' && LA10_28<='\uFFFF')) ) {s = 14;}
-
-                        else s = 29;
-
-                        if ( s>=0 ) return s;
+                        s = specialState0(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
             }
             NoViableAltException nvae =
                 new NoViableAltException(getDescription(), 10, _s, input);
             error(nvae);
             throw nvae;
+        }
+
+        private int specialState0(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA10_28 = input.LA(1);
+
+            s = -1;
+            if ( ((LA10_28>='\u0000' && LA10_28<='\t')||(LA10_28>='\u000B' && LA10_28<='\uFFFF')) ) {s = 14;}
+
+            else s = 29;
+
+            return s;
         }
     }
  

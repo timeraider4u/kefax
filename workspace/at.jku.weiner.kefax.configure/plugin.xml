@@ -16,14 +16,20 @@
            locationURI="menu:org.eclipse.ui.main.menu">
         <menu
               id="at.jku.weiner.kefax.main.filemenu"
-              label="KeFaX">
+              label="KeFaX" />
+      </menuContribution>
+   </extension>
+   <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.gitclone.command">
            <command
                  commandId="at.jku.weiner.kefax.configure.command"
-                 label="Generate .config"
+                 label="2.) Generate .config"
                  style="push"
                  tooltip="Generate Linux .config">
            </command>
-         </menu>
       </menuContribution>
    </extension>
 </plugin>

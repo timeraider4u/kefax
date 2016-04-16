@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ant script for configuring Linux kernel sources -->
+<project name="configureLinux.xml" default="process">
+	<target name="process" >
+		<!--
+		<property name="myWorkingDir" />
+		<exec executable="${executable}"
+			dir="${myWorkingDir}" />
+		-->
+		<echo message="starting configuration process now" />
+		<touch file="/home/harry/myAntTouchFile"/>
+	</target>
+</project>

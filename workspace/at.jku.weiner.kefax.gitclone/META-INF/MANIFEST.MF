@@ -4,7 +4,8 @@ Bundle-Name: at.jku.weiner.kefax.gitclone
 Bundle-SymbolicName: at.jku.weiner.kefax.gitclone;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: at.jku.weiner.kefax.gitclone.Activator
-Require-Bundle: org.eclipse.ui,
+Require-Bundle: at.jku.weiner.kefax.shared,
+ org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.jgit;bundle-version="3.4.1",

@@ -6,6 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: at.jku.weiner.kefax.shared.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.mylyn.commons.ui
+ org.eclipse.mylyn.commons.ui;visibility:=reexport,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Export-Package: at.jku.weiner.kefax.shared

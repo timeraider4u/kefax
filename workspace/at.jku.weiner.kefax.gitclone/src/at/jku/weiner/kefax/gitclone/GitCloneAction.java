@@ -1,104 +1,131 @@
 package at.jku.weiner.kefax.gitclone;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 
+import at.jku.weiner.kefax.shared.KefaxUtils;
+import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
 import at.jku.weiner.kefax.shared.Settings;
 
-public class GitCloneAction extends AbstractHandler {
-
-	private final IProgressMonitor monitor = new NullProgressMonitor();
+public class GitCloneAction extends MyActionHandler {
+	
+	public GitCloneAction() {
+		super("at.jku.weiner.kefax.gitclone.job");
+	}
 
 	@Override
-	public Object execute(final ExecutionEvent event) throws ExecutionException {
-
-		final Job job = new Job("at.jku.weiner.kefax.gitclone.job") {
-			@Override
-			protected IStatus run(final IProgressMonitor monitor) {
-				final IStatus result = GitCloneAction.this.run();
-				return result;
-			}
-		};
-		job.schedule();
-		return null;
-	}
-
-	private IStatus run() {
-		try {
-			this.myRun();
-		} catch (final Exception ex) {
-			// MyLog.errorNoThrows(CleanUpCommand.class, ex);
-			ex.printStackTrace();
-			return Status.CANCEL_STATUS;
-		}
-		return Status.OK_STATUS;
-	}
-
-	private void myRun() throws Exception {
+	protected void myRun() throws Exception {
 		final IProject project = this.setUpProject();
 
 		final IFolder src = project.getFolder(Settings.LINUX_CHECKOUT_DIR);
 		if (src.exists()) {
-			src.delete(true, this.monitor);
+			src.delete(true, this.getMonitor());
 		}
-		src.create(true, true, this.monitor);
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.monitor);
+		src.create(true, true, this.getMonitor());
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		this.runClone(src);
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.monitor);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
 
 	private IProject setUpProject() throws CoreException {
-		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		final IWorkspaceRoot root = workspace.getRoot();
-		final IProject project = root.getProject(Settings.LINUX_CHECKOUT_PRJ);
-		if (!project.exists()) {
-			project.create(this.monitor);
+		final IProject project = KefaxUtils.getLinuxProject();
+		if (project.exists()) {
+			// TODO maybe ask for confirmation before re-creating
+			project.delete(true, this.getMonitor());
+			project.create(this.getMonitor());
 		} else {
-			// project.delete(this.monitor);
+			project.create(this.getMonitor());
 		}
-		project.open(this.monitor);
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.monitor);
+		project.open(this.getMonitor());
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		return project;
 	}
 
 	private void runClone(final IFolder src) throws Exception {
-		final IPath path = src.getLocation();
-		final String target = path.toOSString();
+		final String target = KefaxUtils.getLinuxSrcFolderAsFilePath();
 		System.out.println("target='" + target + "'");
 		final File targetDir = new File(target);
 
 		MyNotification.run("at.jku.weiner.kefax.gitclone actions started",
 				"git clone " + Settings.LINUX_CHECKOUT_URL
 				+ " can take several minutes!");
+		
+		final String format = "yyyy-MM-dd:HH:mm:ss";
+		final Date start = new Date();
+		final DateFormat dateFormat = new SimpleDateFormat(format);
+		final String startString = dateFormat.format(start);
+		System.out.println(startString);
 
+		// this.runGitCloneCommand1(targetDir);
+		this.runGitCloneCommand2(targetDir);
+		
+		final Date end = new Date();
+		final String endString = dateFormat.format(end);
+		System.out.println(endString);
+		final long durationInMs = end.getTime() - start.getTime();
+		final long durationInSec = durationInMs / 1000;
+		final long minutes = (long) (durationInSec / 60);
+		final long seconds = durationInSec % 60;
+		System.out.println("git clone " + Settings.LINUX_CHECKOUT_BRANCH
+				+ " took '" + minutes + "' minutes '" + seconds + "' seconds");
+	}
+
+	private void runGitCloneCommand2(final File targetDir) {
+		final List<String> cmds = new ArrayList<String>();
+		cmds.add("git");
+		cmds.add("clone");
+		// cmds.add("--no-tags");
+		cmds.add("--depth");
+		cmds.add("1");
+		cmds.add("--progress");
+		cmds.add("--branch");
+		cmds.add(Settings.LINUX_CHECKOUT_BRANCH);
+		cmds.add(Settings.LINUX_CHECKOUT_URL);
+		cmds.add(".");
+		KefaxUtils.executeCommand(cmds, targetDir, this.getMonitor(), true);
+	}
+	
+	@SuppressWarnings("unused")
+	/**
+	 * runGitCloneCommand1
+	 * not used as JGit clone command does not support
+	 * --depth argument,
+	 * see https://bugs.eclipse.org/bugs/show_bug.cgi?id=475615
+	 */
+	private void runGitCloneCommand1(final File targetDir) throws Exception {
 		final CloneCommand clone = Git.cloneRepository();
 		clone.setURI(Settings.LINUX_CHECKOUT_URL);
 		clone.setDirectory(targetDir);
 		clone.setBare(false);
 		clone.setCloneAllBranches(false);
+		// clone.setNoTags(true);
+		// clone.setNoTags(false);
 		clone.setCloneSubmodules(false);
+		final List<String> branchesToClone = GitCloneAction
+				.singleton("refs/heads/" + Settings.LINUX_CHECKOUT_BRANCH);
+		clone.setBranchesToClone(branchesToClone);
 
 		clone.setBranch(Settings.LINUX_CHECKOUT_BRANCH);
 		clone.call();
 	}
 
+	private static List<String> singleton(final String item) {
+		final List<String> result = new ArrayList<String>();
+		result.add(item);
+		return Collections.unmodifiableList(result);
+	}
+	
 }

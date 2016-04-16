@@ -1,15 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: at.jku.weiner.kefax.configure
-Bundle-SymbolicName: at.jku.weiner.kefax.configure;singleton:=true
+Bundle-Name: at.jku.weiner.kefax.ant
+Bundle-SymbolicName: at.jku.weiner.kefax.ant;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: at.jku.weiner.kefax.configure.Activator
+Bundle-Activator: at.jku.weiner.kefax.ant.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- at.jku.weiner.kefax.shared,
- org.eclipse.core.resources,
  org.eclipse.ant.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: at.jku.weiner.kefax.configure
+Export-Package: at.jku.weiner.kefax.ant
 Import-Package: org.apache.tools.ant

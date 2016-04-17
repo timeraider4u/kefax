@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: at.jku.weiner.log.eclipselog
+Bundle-SymbolicName: at.jku.weiner.log.eclipselog;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: at.jku.weiner.log.eclipselog.Activator
+Require-Bundle:  org.eclipse.ui,
+ org.eclipse.core.runtime,
+ at.jku.weiner.log;bundle-version="0.1.0",
+ org.eclipse.ui.console;bundle-version="3.5.300"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

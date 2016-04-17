@@ -10,22 +10,24 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
-public abstract class MyActionHandler extends AbstractHandler {
+import at.jku.weiner.log.MyLog;
 
+public abstract class MyActionHandler extends AbstractHandler {
+	
 	private final String actionName;
 	private IProgressMonitor monitor;
-	
+
 	public MyActionHandler(final String actionName) {
 		this.actionName = actionName;
 		this.monitor = null;
 	}
-
+	
 	private class MyActionJob extends Job {
-		
+
 		public MyActionJob(final String name) {
 			super(name);
 		}
-		
+
 		@Override
 		protected IStatus run(final IProgressMonitor monitor) {
 			final SubMonitor subMonitor = SubMonitor.convert(monitor,
@@ -34,9 +36,9 @@ public abstract class MyActionHandler extends AbstractHandler {
 			final IStatus result = MyActionHandler.this.run();
 			return result;
 		}
-
+		
 	}
-
+	
 	public final void start() throws Exception {
 		final Job job = new MyActionJob(this.getActionName());
 		job.schedule();
@@ -46,7 +48,7 @@ public abstract class MyActionHandler extends AbstractHandler {
 			throw new OperationCanceledException("");
 		}
 	}
-	
+
 	@Override
 	public final Object execute(final ExecutionEvent event)
 			throws ExecutionException {
@@ -54,27 +56,29 @@ public abstract class MyActionHandler extends AbstractHandler {
 		job.schedule();
 		return null;
 	}
-	
+
 	private final IStatus run() {
 		try {
 			this.myRun();
 			return Status.OK_STATUS;
 		} catch (final Exception ex) {
-			// MyLog.errorNoThrows(this.getClass(), ex);
-			ex.printStackTrace();
+			MyLog.errorNoThrows(this.getClass(), ex);
+			MyNotification.run("execution of '" + this.getActionName()
+					+ "' failed!", ex.getMessage());
+			// ex.printStackTrace();
 			this.getMonitor().done();
 		}
 		return Status.CANCEL_STATUS;
 	}
-
+	
 	protected abstract void myRun() throws Exception;
-
+	
 	protected IProgressMonitor getMonitor() {
 		return this.monitor;
 	}
-	
+
 	public String getActionName() {
 		return this.actionName;
 	}
-
+	
 }

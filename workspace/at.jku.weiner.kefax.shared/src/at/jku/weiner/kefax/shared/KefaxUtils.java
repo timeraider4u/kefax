@@ -22,6 +22,8 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 
+import at.jku.weiner.log.MyLog;
+
 public final class KefaxUtils {
 	private static final String OS_NAME = "os.name";
 	public static final int STATE_OKAY = 0;
@@ -104,7 +106,7 @@ public final class KefaxUtils {
 			final File workingDirectory, final IProgressMonitor monitor,
 			final boolean redirectStdError) {
 		final String cmd = command.toString();
-		System.out.println("Executing cmd='" + cmd + "'");
+		MyLog.log(KefaxUtils.class, "Executing cmd='" + cmd + "'");
 		boolean result = false;
 		final int returnValue = KefaxUtils
 				.executeCommandInternalWithExceptionHandling(command,
@@ -112,11 +114,11 @@ public final class KefaxUtils {
 		if (returnValue != KefaxUtils.STATE_OKAY) {
 			final String msg = "Executing '" + cmd
 					+ "' failed with exit-code='" + returnValue + "'!";
-			System.out.println(msg);
+			MyLog.error(KefaxUtils.class, msg);
 			MyNotification.run("Command execution has failed", msg);
 		} else {
 			final String msg = "Executing '" + cmd + "' has been successful!";
-			System.out.println(msg);
+			MyLog.log(KefaxUtils.class, msg);
 			MyNotification.run("Command execution has finished", cmd);
 			result = true;
 		}

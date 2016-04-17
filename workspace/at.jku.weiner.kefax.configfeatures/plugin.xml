@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="at.jku.weiner.kefax.configfeatures.ConfigFeatureHandler"
+           id="at.jku.weiner.kefax.configurefeatures.command"
+           name="at.jku.weiner.kefax.configurefeatures.command">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:org.eclipse.ui.main.menu">
+        <menu
+              id="at.jku.weiner.kefax.main.filemenu"
+              label="KeFaX" />
+      </menuContribution>
+   </extension>
+   <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.command">
+           <command
+                 commandId="at.jku.weiner.kefax.configurefeatures.command"
+                 label="4.) Read .config and generate features.txt"
+                 style="push"
+                 tooltip="Read .config and generate features.txt">
+           </command>
+      </menuContribution>
+   </extension>
+</plugin>

@@ -7,7 +7,9 @@ Bundle-Activator: at.jku.weiner.kefax.shared.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.mylyn.commons.ui;visibility:=reexport,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ at.jku.weiner.log,
+ at.jku.weiner.log.eclipselog;bundle-version="0.1.0";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: at.jku.weiner.kefax.shared

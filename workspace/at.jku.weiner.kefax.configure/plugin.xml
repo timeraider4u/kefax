@@ -4,6 +4,11 @@
   <extension
         point="org.eclipse.ui.commands">
      <command
+           defaultHandler="at.jku.weiner.kefax.configure.DeleteHandler"
+           id="at.jku.weiner.kefax.configure.delete.command"
+           name="at.jku.weiner.kefax.configure.delete.command">
+     </command>
+     <command
            defaultHandler="at.jku.weiner.kefax.configure.ConfigureHandler"
            id="at.jku.weiner.kefax.configure.command"
            name="at.jku.weiner.kefax.configure.command">
@@ -25,8 +30,18 @@
            allPopups="false"
            locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.gitclone.command">
            <command
+                 commandId="at.jku.weiner.kefax.configure.delete.command"
+                 label="2.) Clean-up .config files"
+                 style="push"
+                 tooltip="Delete any existing .config or .config.old files">
+           </command>
+      </menuContribution>
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.delete.command">
+           <command
                  commandId="at.jku.weiner.kefax.configure.command"
-                 label="2.) Generate .config"
+                 label="3.) Generate .config"
                  style="push"
                  tooltip="Generate Linux .config">
            </command>

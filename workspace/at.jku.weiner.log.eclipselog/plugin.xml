@@ -1,0 +1,5 @@
+<plugin>
+<extension point="org.eclipse.ui.startup">
+	<startup class="at.jku.weiner.log.eclipselog.MyStartUp" />
+</extension>
+</plugin>

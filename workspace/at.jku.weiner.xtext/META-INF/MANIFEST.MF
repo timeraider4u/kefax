@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: at.jku.weiner.xtext
+Bundle-SymbolicName: at.jku.weiner.xtext
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: at.jku.weiner.xtext.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.google.inject,
+ org.eclipse.core.resources,
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext,
+ org.eclipse.xtext.ui,
+ at.jku.weiner.log
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: at.jku.weiner.xtext

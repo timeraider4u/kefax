@@ -14,7 +14,7 @@ import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyFileWriter;
 import at.jku.weiner.kefax.shared.MyNotification;
-import at.jku.weiner.kefax.shared.Settings;
+import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public class ConfigureHandler extends MyActionHandler {
@@ -69,8 +69,8 @@ public class ConfigureHandler extends MyActionHandler {
 
 	private boolean generateMinimalConfig() {
 		final List<String> cmds = new ArrayList<String>();
-		cmds.add(Settings.MAKE_COMMAND);
-		cmds.add(Settings.MAKE_ARG_1);
+		cmds.add(MySettings.MAKE_COMMAND);
+		cmds.add(MySettings.MAKE_ARG_1);
 		if (!KefaxUtils.executeCommand(cmds, this.workingDirectory,
 				this.getMonitor(), false)) {
 			return false;
@@ -81,12 +81,12 @@ public class ConfigureHandler extends MyActionHandler {
 	private boolean addSelectedFeaturesToConfig() throws Exception {
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		if (!MyFileWriter.appendStringToFile(this.configPathAsString,
-				Settings.CONFIG_1)) {
+				MySettings.CONFIG_1)) {
 			return false;
 		}
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		if (!MyFileWriter.appendStringToFile(this.configPathAsString,
-				Settings.CONFIG_2)) {
+				MySettings.CONFIG_2)) {
 			return false;
 		}
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
@@ -95,8 +95,8 @@ public class ConfigureHandler extends MyActionHandler {
 
 	private boolean updateConfig() throws Exception {
 		final List<String> cmds = new ArrayList<String>();
-		cmds.add(Settings.MAKE_COMMAND);
-		cmds.add(Settings.MAKE_ARG_2);
+		cmds.add(MySettings.MAKE_COMMAND);
+		cmds.add(MySettings.MAKE_ARG_2);
 		if (!KefaxUtils.executeCommand(cmds, this.workingDirectory,
 				this.getMonitor(), false)) {
 			return false;

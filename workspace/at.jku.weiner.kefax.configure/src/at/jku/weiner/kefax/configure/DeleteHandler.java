@@ -8,7 +8,7 @@ import org.eclipse.core.resources.IResource;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
-import at.jku.weiner.kefax.shared.Settings;
+import at.jku.weiner.kefax.shared.MySettings;
 
 public class DeleteHandler extends MyActionHandler {
 
@@ -24,7 +24,7 @@ public class DeleteHandler extends MyActionHandler {
 			configFile.delete(true, this.getMonitor());
 		}
 		final IFile configOldFile = folder
-				.getFile(Settings.LINUX_CHECKOUT_CONFIG_OLD);
+				.getFile(MySettings.LINUX_CHECKOUT_CONFIG_OLD);
 		if (configOldFile.exists()) {
 			configOldFile.delete(true, this.getMonitor());
 		}

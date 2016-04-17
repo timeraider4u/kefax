@@ -18,7 +18,7 @@ import org.eclipse.jgit.api.Git;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
-import at.jku.weiner.kefax.shared.Settings;
+import at.jku.weiner.kefax.shared.MySettings;
 
 public class GitCloneAction extends MyActionHandler {
 	
@@ -30,7 +30,7 @@ public class GitCloneAction extends MyActionHandler {
 	protected void myRun() throws Exception {
 		final IProject project = this.setUpProject();
 
-		final IFolder src = project.getFolder(Settings.LINUX_CHECKOUT_DIR);
+		final IFolder src = project.getFolder(MySettings.LINUX_CHECKOUT_DIR);
 		if (src.exists()) {
 			src.delete(true, this.getMonitor());
 		}
@@ -60,7 +60,7 @@ public class GitCloneAction extends MyActionHandler {
 		final File targetDir = new File(target);
 
 		MyNotification.run("at.jku.weiner.kefax.gitclone actions started",
-				"git clone " + Settings.LINUX_CHECKOUT_URL
+				"git clone " + MySettings.LINUX_CHECKOUT_URL
 				+ " can take several minutes!");
 		
 		final String format = "yyyy-MM-dd:HH:mm:ss";
@@ -79,7 +79,7 @@ public class GitCloneAction extends MyActionHandler {
 		final long durationInSec = durationInMs / 1000;
 		final long minutes = (long) (durationInSec / 60);
 		final long seconds = durationInSec % 60;
-		System.out.println("git clone " + Settings.LINUX_CHECKOUT_BRANCH
+		System.out.println("git clone " + MySettings.LINUX_CHECKOUT_BRANCH
 				+ " took '" + minutes + "' minutes '" + seconds + "' seconds");
 	}
 
@@ -92,8 +92,8 @@ public class GitCloneAction extends MyActionHandler {
 		cmds.add("1");
 		cmds.add("--progress");
 		cmds.add("--branch");
-		cmds.add(Settings.LINUX_CHECKOUT_BRANCH);
-		cmds.add(Settings.LINUX_CHECKOUT_URL);
+		cmds.add(MySettings.LINUX_CHECKOUT_BRANCH);
+		cmds.add(MySettings.LINUX_CHECKOUT_URL);
 		cmds.add(".");
 		KefaxUtils.executeCommand(cmds, targetDir, this.getMonitor(), true);
 	}
@@ -107,7 +107,7 @@ public class GitCloneAction extends MyActionHandler {
 	 */
 	private void runGitCloneCommand1(final File targetDir) throws Exception {
 		final CloneCommand clone = Git.cloneRepository();
-		clone.setURI(Settings.LINUX_CHECKOUT_URL);
+		clone.setURI(MySettings.LINUX_CHECKOUT_URL);
 		clone.setDirectory(targetDir);
 		clone.setBare(false);
 		clone.setCloneAllBranches(false);
@@ -115,10 +115,10 @@ public class GitCloneAction extends MyActionHandler {
 		// clone.setNoTags(false);
 		clone.setCloneSubmodules(false);
 		final List<String> branchesToClone = GitCloneAction
-				.singleton("refs/heads/" + Settings.LINUX_CHECKOUT_BRANCH);
+				.singleton("refs/heads/" + MySettings.LINUX_CHECKOUT_BRANCH);
 		clone.setBranchesToClone(branchesToClone);
 
-		clone.setBranch(Settings.LINUX_CHECKOUT_BRANCH);
+		clone.setBranch(MySettings.LINUX_CHECKOUT_BRANCH);
 		clone.call();
 	}
 

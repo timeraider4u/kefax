@@ -9,7 +9,7 @@ import org.eclipse.core.resources.IResource;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
-import at.jku.weiner.kefax.shared.Settings;
+import at.jku.weiner.kefax.shared.MySettings;
 
 public class ConfigFeatureHandler extends MyActionHandler {
 
@@ -26,7 +26,7 @@ public class ConfigFeatureHandler extends MyActionHandler {
 		final String configPathAsString = KefaxUtils.getURIasFileString(config);
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		final File featuresFile = new File(src, Settings.FEATURES_TXT_NAME);
+		final File featuresFile = new File(src, MySettings.FEATURES_TXT_NAME);
 		final DotConfig dotConfig = new DotConfig(config, configPathAsString,
 				featuresFile);
 		dotConfig.parseAndGenerateFeaturesTxt();

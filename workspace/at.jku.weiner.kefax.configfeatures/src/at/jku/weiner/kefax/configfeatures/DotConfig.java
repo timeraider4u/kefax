@@ -16,7 +16,7 @@ import at.jku.weiner.xtext.XtextUtils;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 import at.jku.weiner.kefax.dotconfig.dotconfig.DotConfigModel;
 import at.jku.weiner.kefax.dotconfig.ui.internal.DotconfigActivator;
-import at.jku.weiner.kefax.shared.Settings;
+import at.jku.weiner.kefax.shared.MySettings;
 
 public class DotConfig {
 
@@ -99,12 +99,12 @@ public class DotConfig {
 		for (final Config config : this.dotConfigList) {
 			final String configName = config.getName();
 			final String configValue = config.getV();
-			if ((Settings.LINUX_CONFIG_YES.equals(configValue))
-					|| (Settings.LINUX_CONFIG_MODULE.equals(configValue))) {
+			if ((MySettings.LINUX_CONFIG_YES.equals(configValue))
+					|| (MySettings.LINUX_CONFIG_MODULE.equals(configValue))) {
 				output.write(configName);
-				output.write(Settings.FEATURES_TXT_ARG_1);
-				output.write(Settings.FEATURES_TXT_ARG_2);
-				output.write(Settings.FEATURES_TXT_ARG_3);
+				output.write(MySettings.FEATURES_TXT_ARG_1);
+				output.write(MySettings.FEATURES_TXT_ARG_2);
+				output.write(MySettings.FEATURES_TXT_ARG_3);
 			}
 		}
 		output.close();

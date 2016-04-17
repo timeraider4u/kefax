@@ -35,9 +35,9 @@ public final class KefaxUtils {
 	
 	public static boolean isLinuxOS() {
 		final String osName = System.getProperty(KefaxUtils.OS_NAME);
-		if (osName.contains(Settings.LINUX_OS_NAME_1)) {
+		if (osName.contains(MySettings.LINUX_OS_NAME_1)) {
 			return true;
-		} else if (osName.contains(Settings.LINUX_OS_NAME_2)) {
+		} else if (osName.contains(MySettings.LINUX_OS_NAME_2)) {
 			return true;
 		}
 		return false;
@@ -79,13 +79,13 @@ public final class KefaxUtils {
 	public static IProject getLinuxProject() {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IWorkspaceRoot root = workspace.getRoot();
-		final IProject project = root.getProject(Settings.LINUX_CHECKOUT_PRJ);
+		final IProject project = root.getProject(MySettings.LINUX_CHECKOUT_PRJ);
 		return project;
 	}
 	
 	public static IFolder getLinuxSrcFolder() {
 		final IProject project = KefaxUtils.getLinuxProject();
-		final IFolder src = project.getFolder(Settings.LINUX_CHECKOUT_DIR);
+		final IFolder src = project.getFolder(MySettings.LINUX_CHECKOUT_DIR);
 		return src;
 	}
 
@@ -98,7 +98,7 @@ public final class KefaxUtils {
 
 	public static IFile getLinuxConfigFile() {
 		final IFolder src = KefaxUtils.getLinuxSrcFolder();
-		final IFile file = src.getFile(Settings.LINUX_CHECKOUT_CONFIG);
+		final IFile file = src.getFile(MySettings.LINUX_CHECKOUT_CONFIG);
 		return file;
 	}
 	

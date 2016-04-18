@@ -1,3 +1,0 @@
--D__FOO__BAR__
--DFOO2
--D_BAR2

@@ -1,0 +1,85 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0005_FunctionDefines.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE 
+		STRING 
+		//SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ANY_OTHER ID
+		// NEWLINE
+		WS
+		KW_DEFINE ID SKW_ASSIGN ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		STRING 
+		//ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ANY_OTHER ID 
+		NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		STRING 
+		//ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_ASSIGN 
+		//ID SKW_LEFTPAREN ID SKW_RIGHTPAREN ANY_OTHER +*2 ID 
+		NEWLINE
+	
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(FunctionMacro
+				name++"FOO",
+				params+*"[X]",
+				value++"BAR(X)"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				string++"BAR(x)=#x"
+			)
+		),
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"_BAR2",
+				value++"5"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				string++"STR(s)=#s"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				string++"FOOBAR(X,Y)=FOO(X)##Y"
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

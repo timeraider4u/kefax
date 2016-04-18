@@ -1,0 +1,96 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0007_UseIncludeDirs.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	// ... := ... 
+	ID WS SKW_COLON SKW_ASSIGN WS
+		// -Ifoo/bar/include
+		KW_INCDIR ID WS
+		// -I./foobar/bar/include
+		KW_INCDIR ID WS
+		// -IC:\system\include
+		KW_INCDIR ID
+		NEWLINE
+	// ... := ... 
+	ID WS SKW_COLON SKW_ASSIGN WS
+		// 	-isystem C:\system32\include
+		SKW_MINUS KW_INCSYS WS ID WS
+		SKW_MINUS KW_INCSYS WS
+			// /usr/lib/gcc/x86_64-pc-linux-gnu/4.8.4/include
+			ID
+			
+		NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"foo/bar/include"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"./foobar/bar/include"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"C:\\\\system\\\\include"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			incDir?=false,
+			incSys?=true,
+			useIncDir=
+			(PathCmd
+				path++"C:\\\\system32\\\\include"
+			)
+		),
+		(Argument
+			incDir?=false,
+			incSys?=true,
+			useIncDir=
+			(PathCmd
+				path++"/usr/lib/gcc/x86_64-pc-linux-gnu/4.8.4/include"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			incDir?=false,
+			incSys?=false,
+			macro=			
+			(SimpleMacro
+				name++"__FOO__"
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

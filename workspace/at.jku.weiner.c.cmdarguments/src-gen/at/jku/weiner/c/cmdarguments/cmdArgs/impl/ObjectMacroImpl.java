@@ -17,15 +17,36 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ObjectMacroImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ObjectMacroImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -72,6 +93,29 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.OBJECT_MACRO__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -100,6 +144,8 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.OBJECT_MACRO__NAME:
+        return getName();
       case CmdArgsPackage.OBJECT_MACRO__VALUE:
         return getValue();
     }
@@ -116,6 +162,9 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.OBJECT_MACRO__NAME:
+        setName((String)newValue);
+        return;
       case CmdArgsPackage.OBJECT_MACRO__VALUE:
         setValue((String)newValue);
         return;
@@ -133,6 +182,9 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.OBJECT_MACRO__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case CmdArgsPackage.OBJECT_MACRO__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -150,6 +202,8 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.OBJECT_MACRO__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case CmdArgsPackage.OBJECT_MACRO__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -167,7 +221,9 @@ public class ObjectMacroImpl extends MacroImpl implements ObjectMacro
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

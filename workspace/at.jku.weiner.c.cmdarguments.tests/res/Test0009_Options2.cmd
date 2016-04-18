@@ -1,1 +1,0 @@
--Wp,-MD,foo/bar/foobar/.foobar_t.o.d

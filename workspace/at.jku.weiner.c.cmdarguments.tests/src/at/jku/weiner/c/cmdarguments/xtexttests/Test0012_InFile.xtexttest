@@ -8,11 +8,19 @@ split-lexer=true
 source file="res/Test0012_InFile.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	SKW_MINUS ID WS
-	// -o drivers/gpu/drm/nouveau/core/core/client.o
-	KW_OUTPUT WS ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID WS
-	// drivers/gpu/drm/nouveau/core/core/client.c 
-	ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		KW_DEFINE ID WS
+		SKW_MINUS ID WS
+		KW_OUTPUT WS ID WS
+		ID 
+		NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		ID WS	
+		KW_DEFINE ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		KW_DEFINE ID WS
+		ID WS
+		KW_DEFINE ID NEWLINE
 //----------------------------------------------------------------------
 
 (Model
@@ -20,21 +28,65 @@ lexer-tokens
 	(CmdLine
 		arguments+=
 		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO2"
+			)
+		),
+		(Argument
 			option++"c"
 		),
 		(Argument
 			out=
 			(PathCmd
 				path
-				++"drivers/gpu/drm/nouveau/core/core/client.o"
+				++"out.o"
 			)
 		),
 		(Argument
 			in//=
 			//(PathCmd
 				//path
-				++"drivers/gpu/drm/nouveau/core/core/client.c"
+				++"abc.c"
 			//)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			in//=
+			//(PathCmd
+				//path
+				++"./in/in-file.h"
+			//)
+		),
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"_BAR2"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO2"
+			)
+		),
+		(Argument
+			in//=
+			//(PathCmd
+				//path
+				++"C:\\\\temp\\\\infile.c"
+			//)
+		),
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO2"
+			)
 		)
 	)
 )

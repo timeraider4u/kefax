@@ -1,4 +1,0 @@
--Wundef
--Wall -Werror-implicit-function-declaration
--std=gnu89
--mtune=generic

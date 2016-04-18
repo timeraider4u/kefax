@@ -1,0 +1,1 @@
+foobar.o := -D__FOO__BAR__

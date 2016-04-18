@@ -95,13 +95,22 @@ public interface CmdArgsPackage extends EPackage
   int CMD_LINE = 1;
 
   /**
+   * The feature id for the '<em><b>Start</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CMD_LINE__START = 0;
+
+  /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CMD_LINE__ARGUMENTS = 0;
+  int CMD_LINE__ARGUMENTS = 1;
 
   /**
    * The number of structural features of the '<em>Cmd Line</em>' class.
@@ -110,7 +119,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CMD_LINE_FEATURE_COUNT = 1;
+  int CMD_LINE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl <em>Argument</em>}' class.
@@ -232,22 +241,13 @@ public interface CmdArgsPackage extends EPackage
   int MACRO = 3;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MACRO__NAME = 0;
-
-  /**
    * The number of structural features of the '<em>Macro</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MACRO_FEATURE_COUNT = 1;
+  int MACRO_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl <em>Path Cmd</em>}' class.
@@ -294,7 +294,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_MACRO__NAME = MACRO__NAME;
+  int SIMPLE_MACRO__NAME = MACRO_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Simple Macro</em>' class.
@@ -303,7 +303,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 0;
+  int SIMPLE_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ObjectMacroImpl <em>Object Macro</em>}' class.
@@ -322,7 +322,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJECT_MACRO__NAME = MACRO__NAME;
+  int OBJECT_MACRO__NAME = MACRO_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -331,7 +331,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJECT_MACRO__VALUE = MACRO_FEATURE_COUNT + 0;
+  int OBJECT_MACRO__VALUE = MACRO_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Object Macro</em>' class.
@@ -340,7 +340,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJECT_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 1;
+  int OBJECT_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl <em>Function Macro</em>}' class.
@@ -359,7 +359,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_MACRO__NAME = MACRO__NAME;
+  int FUNCTION_MACRO__NAME = MACRO_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' attribute list.
@@ -368,7 +368,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_MACRO__PARAMS = MACRO_FEATURE_COUNT + 0;
+  int FUNCTION_MACRO__PARAMS = MACRO_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -377,7 +377,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_MACRO__VALUE = MACRO_FEATURE_COUNT + 1;
+  int FUNCTION_MACRO__VALUE = MACRO_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Function Macro</em>' class.
@@ -386,7 +386,35 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 2;
+  int FUNCTION_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl <em>String Macro</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getStringMacro()
+   * @generated
+   */
+  int STRING_MACRO = 8;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_MACRO__STRING = MACRO_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Macro</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_MACRO_FEATURE_COUNT = MACRO_FEATURE_COUNT + 1;
 
 
   /**
@@ -419,6 +447,17 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    */
   EClass getCmdLine();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine#getStart <em>Start</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Start</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine#getStart()
+   * @see #getCmdLine()
+   * @generated
+   */
+  EAttribute getCmdLine_Start();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine#getArguments <em>Arguments</em>}'.
@@ -562,17 +601,6 @@ public interface CmdArgsPackage extends EPackage
   EClass getMacro();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Macro#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Macro#getName()
-   * @see #getMacro()
-   * @generated
-   */
-  EAttribute getMacro_Name();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd <em>Path Cmd</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -604,6 +632,17 @@ public interface CmdArgsPackage extends EPackage
   EClass getSimpleMacro();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro#getName()
+   * @see #getSimpleMacro()
+   * @generated
+   */
+  EAttribute getSimpleMacro_Name();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro <em>Object Macro</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -612,6 +651,17 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    */
   EClass getObjectMacro();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro#getName()
+   * @see #getObjectMacro()
+   * @generated
+   */
+  EAttribute getObjectMacro_Name();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro#getValue <em>Value</em>}'.
@@ -635,6 +685,17 @@ public interface CmdArgsPackage extends EPackage
   EClass getFunctionMacro();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro#getName()
+   * @see #getFunctionMacro()
+   * @generated
+   */
+  EAttribute getFunctionMacro_Name();
+
+  /**
    * Returns the meta object for the attribute list '{@link at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro#getParams <em>Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -655,6 +716,27 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    */
   EAttribute getFunctionMacro_Value();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro <em>String Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Macro</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro
+   * @generated
+   */
+  EClass getStringMacro();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString()
+   * @see #getStringMacro()
+   * @generated
+   */
+  EAttribute getStringMacro_String();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -706,6 +788,14 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EClass CMD_LINE = eINSTANCE.getCmdLine();
+
+    /**
+     * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CMD_LINE__START = eINSTANCE.getCmdLine_Start();
 
     /**
      * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
@@ -816,14 +906,6 @@ public interface CmdArgsPackage extends EPackage
     EClass MACRO = eINSTANCE.getMacro();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MACRO__NAME = eINSTANCE.getMacro_Name();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl <em>Path Cmd</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -852,6 +934,14 @@ public interface CmdArgsPackage extends EPackage
     EClass SIMPLE_MACRO = eINSTANCE.getSimpleMacro();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_MACRO__NAME = eINSTANCE.getSimpleMacro_Name();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ObjectMacroImpl <em>Object Macro</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -860,6 +950,14 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EClass OBJECT_MACRO = eINSTANCE.getObjectMacro();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBJECT_MACRO__NAME = eINSTANCE.getObjectMacro_Name();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -880,6 +978,14 @@ public interface CmdArgsPackage extends EPackage
     EClass FUNCTION_MACRO = eINSTANCE.getFunctionMacro();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION_MACRO__NAME = eINSTANCE.getFunctionMacro_Name();
+
+    /**
      * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -894,6 +1000,24 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EAttribute FUNCTION_MACRO__VALUE = eINSTANCE.getFunctionMacro_Value();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl <em>String Macro</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getStringMacro()
+     * @generated
+     */
+    EClass STRING_MACRO = eINSTANCE.getStringMacro();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_MACRO__STRING = eINSTANCE.getStringMacro_String();
 
   }
 

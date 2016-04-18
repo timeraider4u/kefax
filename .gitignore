@@ -10,3 +10,4 @@ target/
 *.xtendbin
 *._trace
 MANIFEST.MF_gen
+*.xtextbin

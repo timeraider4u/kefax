@@ -18,16 +18,16 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.junit.Assert;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public class LexerAndParserTest extends AbstractXtextTests {
-	
+
 	private final Lexer lexer;
 	private final AbstractAntlrParser parser;
 	private final ITokenDefProvider tokenDefProvider;
-	
+
 	private boolean debugTokenStream = false;
-	
+
 	public LexerAndParserTest(final Lexer lexer,
 			final AbstractAntlrParser parser,
 			final ITokenDefProvider tokenDefProvider) {
@@ -35,15 +35,15 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		this.parser = parser;
 		this.tokenDefProvider = tokenDefProvider;
 	}
-	
+
 	public boolean isDebugTokenStream() {
 		return this.debugTokenStream;
 	}
-	
+
 	public void setDebugTokenStream(final boolean debugTokenStream) {
 		this.debugTokenStream = debugTokenStream;
 	}
-	
+
 	/**
 	 * return the list of tokens created by the lexer from the given input
 	 */
@@ -53,23 +53,23 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		final XtextTokenStream tokenStream = new XtextTokenStream(this.lexer,
 				this.tokenDefProvider);
 		// this.parser.setInitialHiddenTokens(tokenStream);
-		final List<Token> tokens = getTokensFor(tokenStream.getTokens());
+		final List<Token> tokens = this.getTokensFor(tokenStream.getTokens());
 		return tokens;
 	}
-	
+
 	private List<Token> getTokensFor(final List<? extends Token> tokens) {
 		final List<Token> result = new ArrayList<Token>();
 		result.addAll(tokens);
 		return result;
 	}
-	
+
 	/**
 	 * return the name of the terminal rule for a given token
 	 */
 	public String getTokenType(final Token token) {
 		return this.tokenDefProvider.getTokenDefMap().get(token.getType());
 	}
-	
+
 	/**
 	 * @param tokens
 	 *            the tokens to debug to console
@@ -83,7 +83,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 							+ token.getText());
 		}
 	}
-	
+
 	/**
 	 * check whether an input is chopped into a list of expected token types
 	 */
@@ -91,7 +91,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 			final String... expectedTokenTypes) {
 		this.checkTokenisation(input, true, expectedTokenTypes);
 	}
-	
+
 	/**
 	 * check whether an input is chopped into a list of expected token types
 	 */
@@ -113,7 +113,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		Assert.assertEquals(input, Arrays.asList(expectedTokenTypes),
 				actualTokenTypes);
 	}
-	
+
 	/**
 	 * check that an input is not tokenised using a particular terminal rule
 	 */
@@ -125,7 +125,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		Assert.assertNotSame(input, unExpectedTokenType,
 				this.getTokenType(token));
 	}
-	
+
 	/**
 	 * return the parse result for an input given a specific entry rule of the
 	 * grammar
@@ -136,7 +136,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 				.getGrammarAccess().getGrammar(), entryRule);
 		return this.parser.parse(rule, new StringReader(input));
 	}
-	
+
 	/**
 	 * check that the input can be successfully parsed given a specific entry
 	 * rule of the grammar
@@ -145,7 +145,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		final IParseResult la = this.getParseResult(input, entryRule);
 		Assert.assertFalse(input, la.hasSyntaxErrors());
 	}
-	
+
 	/**
 	 * check that the input cannot be successfully parsed given a specific entry
 	 * rule of the grammar
@@ -154,7 +154,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		final IParseResult la = this.getParseResult(input, entryRule);
 		Assert.assertFalse(input, la.hasSyntaxErrors());
 	}
-	
+
 	/**
 	 *
 	 * @param ruleName
@@ -166,7 +166,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		return new StringBuilder("RULE_").append(ruleName.toUpperCase())
 				.toString();
 	}
-	
+
 	/**
 	 * Return the rule name for a keyword, which is the keyword enclosed in
 	 * single quotes
@@ -178,14 +178,14 @@ public class LexerAndParserTest extends AbstractXtextTests {
 	public static String keyword(final String keyword) {
 		return new StringBuilder("'").append(keyword).append("'").toString();
 	}
-	
+
 	/**
 	 * check that input is treated as a keyword by the grammar
 	 */
 	public void checkKeyword(final String input) {
 		this.checkTokenisation(input, LexerAndParserTest.keyword(input));
 	}
-	
+
 	/**
 	 * check that input is not treated as a keyword by the grammar
 	 */
@@ -195,7 +195,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		final String type = this.getTokenType(tokens.get(0));
 		Assert.assertFalse(keyword, type.charAt(0) == '\'');
 	}
-	
+
 	public void outputTokens(final String input) {
 		final List<Token> tokens = this.getTokens(input);
 		for (int i = 0; i < tokens.size(); i++) {

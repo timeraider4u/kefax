@@ -11,6 +11,7 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 import at.jku.weiner.c.cmdarguments.services.CmdArgsGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -56,6 +57,9 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case CmdArgsPackage.SIMPLE_MACRO:
 				sequence_SimpleMacro(context, (SimpleMacro) semanticObject); 
 				return; 
+			case CmdArgsPackage.STRING_MACRO:
+				sequence_StringMacro(context, (StringMacro) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -81,7 +85,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (arguments+=Argument arguments+=Argument*)
+	 *     (start=ID arguments+=Argument arguments+=Argument*)
 	 */
 	protected void sequence_CmdLine(EObject context, CmdLine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -112,8 +116,8 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_ObjectMacro(EObject context, ObjectMacro semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.MACRO__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.MACRO__NAME));
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.OBJECT_MACRO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.OBJECT_MACRO__NAME));
 			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.OBJECT_MACRO__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.OBJECT_MACRO__VALUE));
 		}
@@ -147,12 +151,28 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_SimpleMacro(EObject context, SimpleMacro semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.MACRO__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.MACRO__NAME));
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.SIMPLE_MACRO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.SIMPLE_MACRO__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSimpleMacroAccess().getNameIdentifierParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     string=STRING
+	 */
+	protected void sequence_StringMacro(EObject context, StringMacro semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__STRING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__STRING));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getStringMacroAccess().getStringSTRINGTerminalRuleCall_1_0(), semanticObject.getString());
 		feeder.finish();
 	}
 }

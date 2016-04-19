@@ -23,16 +23,37 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getParams <em>Params</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -89,6 +110,29 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.FUNCTION_MACRO__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<String> getParams()
   {
     if (params == null)
@@ -131,6 +175,8 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.FUNCTION_MACRO__NAME:
+        return getName();
       case CmdArgsPackage.FUNCTION_MACRO__PARAMS:
         return getParams();
       case CmdArgsPackage.FUNCTION_MACRO__VALUE:
@@ -150,6 +196,9 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.FUNCTION_MACRO__NAME:
+        setName((String)newValue);
+        return;
       case CmdArgsPackage.FUNCTION_MACRO__PARAMS:
         getParams().clear();
         getParams().addAll((Collection<? extends String>)newValue);
@@ -171,6 +220,9 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.FUNCTION_MACRO__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case CmdArgsPackage.FUNCTION_MACRO__PARAMS:
         getParams().clear();
         return;
@@ -191,6 +243,8 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
   {
     switch (featureID)
     {
+      case CmdArgsPackage.FUNCTION_MACRO__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case CmdArgsPackage.FUNCTION_MACRO__PARAMS:
         return params != null && !params.isEmpty();
       case CmdArgsPackage.FUNCTION_MACRO__VALUE:
@@ -210,7 +264,9 @@ public class FunctionMacroImpl extends MacroImpl implements FunctionMacro
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (params: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", params: ");
     result.append(params);
     result.append(", value: ");
     result.append(value);

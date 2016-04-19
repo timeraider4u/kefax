@@ -18,6 +18,12 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 
 
+fragment RULE_SKW_DOT : '.';
+
+fragment RULE_SKW_DIV : '/';
+
+RULE_SKW_COLON : ':';
+
 RULE_SKW_MINUS : '-';
 
 RULE_SKW_ASSIGN : '=';
@@ -27,6 +33,10 @@ RULE_SKW_LEFTPAREN : '(';
 RULE_SKW_RIGHTPAREN : ')';
 
 RULE_SKW_COMMA : ',';
+
+RULE_SKW_DOLLAR : '$';
+
+fragment RULE_SKW_BACKSLASH : '\\';
 
 RULE_KW_DEFINE : RULE_SKW_MINUS 'D';
 
@@ -42,21 +52,27 @@ RULE_KW_INCSYS : 'isystem';
 
 RULE_KW_INCLUDE : 'include';
 
-RULE_ID : RULE_LETTER (RULE_LETTER|RULE_DIGIT)*;
+RULE_ID : RULE_ID_PART_1 RULE_ID_PART_2*;
 
-fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
+fragment RULE_ID_PART_1 : (RULE_LETTER|RULE_SKW_DIV|RULE_SKW_DOT|RULE_INT);
 
-RULE_INT : RULE_DIGIT+;
+fragment RULE_ID_PART_2 : (RULE_ID_PART_1|RULE_SKW_COLON RULE_SKW_BACKSLASH|RULE_SKW_BACKSLASH|RULE_SKW_MINUS);
+
+fragment RULE_LETTER : ('A'..'Z'|'a'..'z'|'_');
+
+fragment RULE_INT : RULE_DIGIT+;
 
 fragment RULE_DIGIT : '0'..'9';
 
-RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
+RULE_STRING : ('"' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'"')))* '"'|'\'' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'\'')))* '\'');
 
 RULE_NEWLINE : ('\n'|'\r');
 
 RULE_WS : (' '|'\t');
 
-RULE_LINE_COMMENT : '//' ( options {greedy=false;} : . )*RULE_NEWLINE;
+fragment RULE_SKW_HASH : '#';
+
+RULE_LINE_COMMENT : RULE_SKW_HASH ( options {greedy=false;} : . )*RULE_NEWLINE;
 
 RULE_ANY_OTHER : .;
 

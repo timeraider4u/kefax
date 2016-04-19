@@ -95,6 +95,15 @@ public interface CmdArgsFactory extends EFactory
   FunctionMacro createFunctionMacro();
 
   /**
+   * Returns a new object of class '<em>String Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Macro</em>'.
+   * @generated
+   */
+  StringMacro createStringMacro();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -72,6 +72,7 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
       case CmdArgsPackage.SIMPLE_MACRO: return createSimpleMacro();
       case CmdArgsPackage.OBJECT_MACRO: return createObjectMacro();
       case CmdArgsPackage.FUNCTION_MACRO: return createFunctionMacro();
+      case CmdArgsPackage.STRING_MACRO: return createStringMacro();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -163,6 +164,17 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
   {
     FunctionMacroImpl functionMacro = new FunctionMacroImpl();
     return functionMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringMacro createStringMacro()
+  {
+    StringMacroImpl stringMacro = new StringMacroImpl();
+    return stringMacro;
   }
 
   /**

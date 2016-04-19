@@ -115,6 +115,11 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
         return createFunctionMacroAdapter();
       }
       @Override
+      public Adapter caseStringMacro(StringMacro object)
+      {
+        return createStringMacroAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -252,6 +257,21 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionMacroAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro <em>String Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro
+   * @generated
+   */
+  public Adapter createStringMacroAdapter()
   {
     return null;
   }

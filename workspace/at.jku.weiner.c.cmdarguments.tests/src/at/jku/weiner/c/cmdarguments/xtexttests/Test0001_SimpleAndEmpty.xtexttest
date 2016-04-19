@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0001_SimpleAndEmpty.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS SKW_COLON SKW_ASSIGN WS ID WS ID NEWLINE
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			in++"/usr/bin/gcc"
+		),
+		(Argument
+			in++"my.c"
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

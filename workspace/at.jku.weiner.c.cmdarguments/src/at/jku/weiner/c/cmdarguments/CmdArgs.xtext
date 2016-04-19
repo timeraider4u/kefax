@@ -9,12 +9,13 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
 	{Model}
-	(lines+=CmdLine (NEWLINE lines+=CmdLine)* )?
+	(lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)?
 	NEWLINE?
 ;
 
 CmdLine:
 	{CmdLine}
+	start=ID WS+ SKW_COLON SKW_ASSIGN WS+
 	(arguments+=Argument (WS+ arguments+=Argument)*)
 ;
 
@@ -74,6 +75,7 @@ Macro returns Macro:
 		SimpleMacro
 	|	ObjectMacro
 	|	FunctionMacro
+	|	StringMacro
 	)
 ;
 
@@ -94,6 +96,11 @@ FunctionMacro returns Macro:
 	SKW_LEFTPAREN (params+=Identifier (SKW_COMMA params+=Identifier)*)? 
 	SKW_RIGHTPAREN SKW_ASSIGN
 	value=MyCode
+;
+
+StringMacro returns Macro:
+	{StringMacro}
+	string=STRING
 ;
 
 PathCmd:
@@ -121,18 +128,23 @@ Option:
 ;
 
 NonOptionChar:
-	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
+	ID | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
 ;
 
 OptionChar:
 	SKW_MINUS | KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_LANG | KW_OUTPUT
 ;
 
+terminal fragment SKW_DOT: '.';
+terminal fragment SKW_DIV: '/';
+terminal SKW_COLON: ':';
 terminal SKW_MINUS: '-';
 terminal SKW_ASSIGN: '=';
 terminal SKW_LEFTPAREN: '(';
 terminal SKW_RIGHTPAREN: ')';
 terminal SKW_COMMA: ',';
+terminal SKW_DOLLAR: '$';
+terminal SKW_BACKSLASH: '\\';
 
 //terminal HASH: '#';
 terminal KW_DEFINE: SKW_MINUS 'D';
@@ -143,11 +155,18 @@ terminal KW_NOSTDINC: 'nostdinc';
 terminal KW_INCSYS: 'isystem';
 terminal KW_INCLUDE: 'include';
 
-terminal ID: LETTER (LETTER|DIGIT)*;
+terminal ID: ID_PART_1 ID_PART_2*;
+
+terminal ID_PART_1: 
+	(LETTER|SKW_DIV|SKW_DOT|INT)
+;
+
+terminal ID_PART_2: 
+	(ID_PART_1|SKW_COLON SKW_BACKSLASH|SKW_BACKSLASH|SKW_MINUS)
+;
 
 terminal fragment LETTER:
-		'$'
-	|	'A'..'Z'
+		'A'..'Z'
 	|	'a'..'z'
 	|	'_'
 ;
@@ -156,14 +175,21 @@ terminal INT: DIGIT+;
 terminal fragment DIGIT: ('0'..'9');
 
 terminal STRING	: 
-			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
-			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+			'"' ( SKW_BACKSLASH 
+				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ 
+				| !(SKW_BACKSLASH|'"')
+			)* '"' |
+			"'" ( SKW_BACKSLASH 
+				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ 
+				| !(SKW_BACKSLASH|"'")
+			)* "'"
 ;
 
 terminal NEWLINE: '\n' | '\r';
 terminal WS: (' '|'\t');
+terminal fragment SKW_HASH: '#';
 
-terminal LINE_COMMENT: '//' -> NEWLINE;
+terminal LINE_COMMENT: SKW_HASH -> NEWLINE;
 
 terminal ANY_OTHER: .;
 //terminal END: EOF;

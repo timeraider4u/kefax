@@ -1,3 +1,0 @@
--DFOO1=BAR
--DFOO2=5
--DFOO3=doSomething

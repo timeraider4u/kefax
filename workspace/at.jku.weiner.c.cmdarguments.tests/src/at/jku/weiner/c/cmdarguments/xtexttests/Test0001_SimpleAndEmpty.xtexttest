@@ -14,6 +14,7 @@ lexer-tokens
 (Model
 	lines+=
 	(CmdLine
+		start++"my.o",
 		arguments+=
 		(Argument
 			in++"/usr/bin/gcc"

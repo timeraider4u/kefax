@@ -46,10 +46,16 @@ import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
-public class Test0018_Options4 {
+public class Test0020_Variables {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -95,7 +101,7 @@ public class Test0018_Options4 {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0018_Options4.cmd");
+			"res/Test0020_Variables.cmd");
 			final String[] expected = new String[] {
 				"RULE_ID",
 				"RULE_WS",
@@ -103,8 +109,31 @@ public class Test0018_Options4 {
 				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_SKW_MINUS",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_VAR",
+				"RULE_NEWLINE",
+				"RULE_KW_VAR",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
 				"RULE_SKW_MINUS",
 				"RULE_ID",
+				"RULE_SKW_ASSIGN",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_KW_VAR",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_VAR",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -115,7 +144,7 @@ public class Test0018_Options4 {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0018_Options4.cmd");
+			"res/Test0020_Variables.cmd");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -127,13 +156,13 @@ public class Test0018_Options4 {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(1, Lines_0_list.size());
+		Assert.assertEquals(4, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
-		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		Assert.assertEquals("foobar1.o", CmdLine_1_Var
 		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
@@ -144,7 +173,65 @@ public class Test0018_Options4 {
 		 = (Argument)Arguments_1_list.get(0);
 		Assert.assertNotNull(Argument_2_Var
 		);
-		Assert.assertEquals("version", Argument_2_Var
+		Assert.assertEquals("Wundef", Argument_2_Var
+		.getOption());
+		//2
+		final CmdLine CmdLine_3_Var
+		 = (CmdLine)Lines_0_list.get(1);
+		Assert.assertNotNull(CmdLine_3_Var
+		);
+		Assert.assertEquals("foobar2.o", CmdLine_3_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_3_list = CmdLine_3_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_3_list);
+		Assert.assertEquals(1, Arguments_3_list.size());
+		//3
+		final Argument Argument_4_Var
+		 = (Argument)Arguments_3_list.get(0);
+		Assert.assertNotNull(Argument_4_Var
+		);
+		Assert.assertEquals("foobar1.o", Argument_4_Var
+		.getIn());
+		Assert.assertNull(Argument_4_Var
+		.getOption());
+		//4
+		final CmdLine CmdLine_5_Var
+		 = (CmdLine)Lines_0_list.get(2);
+		Assert.assertNotNull(CmdLine_5_Var
+		);
+		Assert.assertEquals("my", CmdLine_5_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_5_list = CmdLine_5_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_5_list);
+		Assert.assertEquals(1, Arguments_5_list.size());
+		//5
+		final Argument Argument_6_Var
+		 = (Argument)Arguments_5_list.get(0);
+		Assert.assertNotNull(Argument_6_Var
+		);
+		Assert.assertEquals("std=gnu89", Argument_6_Var
+		.getOption());
+		//6
+		final CmdLine CmdLine_7_Var
+		 = (CmdLine)Lines_0_list.get(3);
+		Assert.assertNotNull(CmdLine_7_Var
+		);
+		Assert.assertEquals("x", CmdLine_7_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_7_list);
+		Assert.assertEquals(1, Arguments_7_list.size());
+		//7
+		final Argument Argument_8_Var
+		 = (Argument)Arguments_7_list.get(0);
+		Assert.assertNotNull(Argument_8_Var
+		);
+		Assert.assertEquals("my-own", Argument_8_Var
+		.getIn());
+		Assert.assertNull(Argument_8_Var
 		.getOption());
 	}
 	

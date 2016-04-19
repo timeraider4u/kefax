@@ -39,9 +39,10 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
 					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
-					put(grammarAccess.getPathCmdAccess().getPathAlternatives_0(), "rule__PathCmd__PathAlternatives_0");
+					put(grammarAccess.getPathCmdAccess().getPathAlternatives_1_0(), "rule__PathCmd__PathAlternatives_1_0");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getOptionCharAccess().getAlternatives(), "rule__OptionChar__Alternatives");
+					put(grammarAccess.getIdentifierAccess().getAlternatives(), "rule__Identifier__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
 					put(grammarAccess.getModelAccess().getGroup_1_1(), "rule__Model__Group_1_1__0");
@@ -64,6 +65,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionMacroAccess().getGroup_3(), "rule__FunctionMacro__Group_3__0");
 					put(grammarAccess.getFunctionMacroAccess().getGroup_3_1(), "rule__FunctionMacro__Group_3_1__0");
 					put(grammarAccess.getStringMacroAccess().getGroup(), "rule__StringMacro__Group__0");
+					put(grammarAccess.getPathCmdAccess().getGroup(), "rule__PathCmd__Group__0");
 					put(grammarAccess.getOptionAccess().getGroup(), "rule__Option__Group__0");
 					put(grammarAccess.getOptionAccess().getGroup_1(), "rule__Option__Group_1__0");
 					put(grammarAccess.getModelAccess().getLinesAssignment_1_0(), "rule__Model__LinesAssignment_1_0");
@@ -90,7 +92,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionMacroAccess().getParamsAssignment_3_1_1(), "rule__FunctionMacro__ParamsAssignment_3_1_1");
 					put(grammarAccess.getFunctionMacroAccess().getValueAssignment_6(), "rule__FunctionMacro__ValueAssignment_6");
 					put(grammarAccess.getStringMacroAccess().getStringAssignment_1(), "rule__StringMacro__StringAssignment_1");
-					put(grammarAccess.getPathCmdAccess().getPathAssignment(), "rule__PathCmd__PathAssignment");
+					put(grammarAccess.getPathCmdAccess().getPathAssignment_1(), "rule__PathCmd__PathAssignment_1");
 				}
 			};
 		}

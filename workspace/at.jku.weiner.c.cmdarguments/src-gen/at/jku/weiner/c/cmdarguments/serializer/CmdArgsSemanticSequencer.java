@@ -85,7 +85,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (start=ID arguments+=Argument arguments+=Argument*)
+	 *     (start=Identifier arguments+=Argument arguments+=Argument*)
 	 */
 	protected void sequence_CmdLine(EObject context, CmdLine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

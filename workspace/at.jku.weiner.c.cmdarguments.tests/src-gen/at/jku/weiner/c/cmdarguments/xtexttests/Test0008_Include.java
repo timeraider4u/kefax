@@ -162,6 +162,8 @@ public class Test0008_Include {
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
@@ -197,6 +199,8 @@ public class Test0008_Include {
 		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_6_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_6_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_6_list = CmdLine_6_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_6_list);

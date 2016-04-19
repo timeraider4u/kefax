@@ -161,6 +161,8 @@ public class Test0004_SimpleObjectDefine {
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
@@ -185,6 +187,8 @@ public class Test0004_SimpleObjectDefine {
 		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_4_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_4_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_4_list = CmdLine_4_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_4_list);
@@ -209,6 +213,8 @@ public class Test0004_SimpleObjectDefine {
 		 = (CmdLine)Lines_0_list.get(2);
 		Assert.assertNotNull(CmdLine_7_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_7_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_7_list);

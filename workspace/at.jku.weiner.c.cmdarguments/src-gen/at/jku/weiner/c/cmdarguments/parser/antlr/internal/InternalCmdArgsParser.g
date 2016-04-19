@@ -150,19 +150,19 @@ ruleCmdLine returns [EObject current=null]
     }
 )(
 (
-		lv_start_1_0=RULE_ID
-		{
-			newLeafNode(lv_start_1_0, grammarAccess.getCmdLineAccess().getStartIDTerminalRuleCall_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getCmdLineAccess().getStartIdentifierParserRuleCall_1_0()); 
+	    }
+		lv_start_1_0=ruleIdentifier		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCmdLineRule());
+	            $current = createModelElementForParent(grammarAccess.getCmdLineRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"start",
         		lv_start_1_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.ID");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -924,27 +924,33 @@ rulePathCmd returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPathCmdAccess().getPathCmdAction_0(),
+            $current);
+    }
+)(
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathIdentifierParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathIdentifierParserRuleCall_1_0_0()); 
 	    }
-		lv_path_0_1=ruleIdentifier		{
+		lv_path_1_1=ruleIdentifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPathCmdRule());
 	        }
        		set(
        			$current, 
        			"path",
-        		lv_path_0_1, 
+        		lv_path_1_1, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
-    |		lv_path_0_2=RULE_STRING2
+    |		lv_path_1_2=RULE_STRING2
 		{
-			newLeafNode(lv_path_0_2, grammarAccess.getPathCmdAccess().getPathSTRING2TerminalRuleCall_0_1()); 
+			newLeafNode(lv_path_1_2, grammarAccess.getPathCmdAccess().getPathSTRING2TerminalRuleCall_1_0_1()); 
 		}
 		{
 	        if ($current==null) {
@@ -953,44 +959,15 @@ rulePathCmd returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"path",
-        		lv_path_0_2, 
+        		lv_path_1_2, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.STRING2");
 	    }
 
 )
 
 )
-)
+))
 ;
-
-
-
-
-
-// Entry rule entryRuleIdentifier
-entryRuleIdentifier returns [String current=null] 
-:
-	{ newCompositeNode(grammarAccess.getIdentifierRule()); } 
-	 iv_ruleIdentifier=ruleIdentifier 
-	 { $current=$iv_ruleIdentifier.current.getText(); }  
-	 EOF 
-;
-
-// Rule Identifier
-ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule();
-    }:
-    this_ID_0=RULE_ID    {
-		$current.merge(this_ID_0);
-    }
-
-    { 
-    newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall()); 
-    }
-
-    ;
 
 
 
@@ -1118,12 +1095,16 @@ ruleOptionChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
     }
     @after { leaveRule();
     }:
-(    this_ID_0=RULE_ID    {
-		$current.merge(this_ID_0);
+(
+    { 
+        newCompositeNode(grammarAccess.getOptionCharAccess().getIdentifierParserRuleCall_0()); 
+    }
+    this_Identifier_0=ruleIdentifier    {
+		$current.merge(this_Identifier_0);
     }
 
     { 
-    newLeafNode(this_ID_0, grammarAccess.getOptionCharAccess().getIDTerminalRuleCall_0()); 
+        afterParserOrEnumRuleCall();
     }
 
     |    this_STRING2_1=RULE_STRING2    {
@@ -1148,6 +1129,43 @@ ruleOptionChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 
     { 
     newLeafNode(this_ANY_OTHER_3, grammarAccess.getOptionCharAccess().getANY_OTHERTerminalRuleCall_3()); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleIdentifier
+entryRuleIdentifier returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getIdentifierRule()); } 
+	 iv_ruleIdentifier=ruleIdentifier 
+	 { $current=$iv_ruleIdentifier.current.getText(); }  
+	 EOF 
+;
+
+// Rule Identifier
+ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |    this_KW_VAR_1=RULE_KW_VAR    {
+		$current.merge(this_KW_VAR_1);
+    }
+
+    { 
+    newLeafNode(this_KW_VAR_1, grammarAccess.getIdentifierAccess().getKW_VARTerminalRuleCall_1()); 
     }
 )
     ;

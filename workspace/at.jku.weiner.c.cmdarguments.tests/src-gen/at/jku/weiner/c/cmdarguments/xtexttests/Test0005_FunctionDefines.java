@@ -203,6 +203,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
@@ -229,6 +231,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_4_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_4_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_4_list = CmdLine_4_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_4_list);
@@ -266,6 +270,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(2);
 		Assert.assertNotNull(CmdLine_9_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_9_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_9_list = CmdLine_9_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_9_list);
@@ -288,6 +294,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(3);
 		Assert.assertNotNull(CmdLine_12_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_12_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_12_list = CmdLine_12_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_12_list);
@@ -310,6 +318,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(4);
 		Assert.assertNotNull(CmdLine_15_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_15_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_15_list = CmdLine_15_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_15_list);
@@ -332,6 +342,8 @@ public class Test0005_FunctionDefines {
 		 = (CmdLine)Lines_0_list.get(5);
 		Assert.assertNotNull(CmdLine_18_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_18_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_18_list = CmdLine_18_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_18_list);

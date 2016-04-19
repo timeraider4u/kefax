@@ -5,53 +5,50 @@ language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0008_Include.cmd"
+source file="res/Test0020_Variables.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-
-ID WS SKW_COLON SKW_ASSIGN WS 
-	// -include ./include/std/config.h
-	SKW_MINUS KW_INCLUDE WS ID WS
-	// -include C:\system\mysystem.h
-	SKW_MINUS KW_INCLUDE WS ID NEWLINE
-ID WS SKW_COLON SKW_ASSIGN WS 
-	SKW_MINUS KW_INCLUDE WS ID WS
-	SKW_MINUS KW_INCLUDE WS ID NEWLINE
-
+	ID WS SKW_COLON SKW_ASSIGN WS SKW_MINUS ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		KW_VAR NEWLINE
+	KW_VAR WS SKW_COLON SKW_ASSIGN WS 
+		SKW_MINUS ID SKW_ASSIGN ID NEWLINE
+	KW_VAR WS SKW_COLON SKW_ASSIGN WS 
+		KW_VAR NEWLINE 
 //----------------------------------------------------------------------
 
 (Model
 	lines+=
 	(CmdLine
-		start++"foobar.o",
+		start++"foobar1.o",
 		arguments+=
 		(Argument
-			include=
-			(PathCmd
-				path++"./include/std/config.h"
-			)
-		),
-		(Argument
-			include=
-			(PathCmd
-				path++"C:\\\\system\\\\mysystem.h"
-			)
+			option++"Wundef"
 		)
 	),
 	(CmdLine
-		start++"foobar.o",
+		start++"foobar2.o",
 		arguments+=
 		(Argument
-			include=
-			(PathCmd
-				path++"C:\\\\system32\\\\mysystem.h"
-			)
-		),
+			in++"foobar1.o",
+			option isNull
+		)
+	),
+	(CmdLine
+		start++"my",
+		arguments+=
 		(Argument
-			include=
-			(PathCmd
-				path++"./include64/std/config.h"
-			)
+			option++"std=gnu89"
+			
+		)
+	),
+	(CmdLine
+		start++"x",
+		arguments+=
+		(Argument
+			in++"my-own",
+			option isNull
+			
 		)
 	)
 )

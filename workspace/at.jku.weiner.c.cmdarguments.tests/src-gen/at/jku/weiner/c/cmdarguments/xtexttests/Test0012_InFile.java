@@ -179,6 +179,8 @@ public class Test0012_InFile {
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
@@ -228,6 +230,8 @@ public class Test0012_InFile {
 		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_8_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_8_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_8_list = CmdLine_8_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_8_list);
@@ -257,6 +261,8 @@ public class Test0012_InFile {
 		 = (CmdLine)Lines_0_list.get(2);
 		Assert.assertNotNull(CmdLine_12_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_12_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_12_list = CmdLine_12_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_12_list);

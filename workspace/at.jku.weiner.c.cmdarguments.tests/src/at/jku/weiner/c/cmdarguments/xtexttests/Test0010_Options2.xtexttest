@@ -19,6 +19,7 @@ lexer-tokens
 (Model
 	lines+=
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			option++"Wp,-MD,foo/bar/foobar/.foobar_t.o.d"

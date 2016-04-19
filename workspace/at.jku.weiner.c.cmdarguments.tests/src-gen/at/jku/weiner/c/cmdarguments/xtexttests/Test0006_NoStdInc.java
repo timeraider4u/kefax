@@ -143,6 +143,8 @@ public class Test0006_NoStdInc {
 		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_1_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
@@ -161,6 +163,8 @@ public class Test0006_NoStdInc {
 		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_3_Var
 		);
+		Assert.assertEquals("foobar.o", CmdLine_3_Var
+		.getStart());
 		final EList<? extends EObject> Arguments_3_list = CmdLine_3_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_3_list);

@@ -311,7 +311,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     start=ID (ambiguity) SKW_COLON SKW_ASSIGN WS+ arguments+=Argument
+	 *     start=Identifier (ambiguity) SKW_COLON SKW_ASSIGN WS+ arguments+=Argument
 	 */
 	protected void emit_CmdLine_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -322,7 +322,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     start=ID WS+ SKW_COLON SKW_ASSIGN (ambiguity) arguments+=Argument
+	 *     start=Identifier WS+ SKW_COLON SKW_ASSIGN (ambiguity) arguments+=Argument
 	 */
 	protected void emit_CmdLine_WSTerminalRuleCall_5_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -32,6 +32,7 @@ lexer-tokens
 (Model
 	lines+=
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			incDir?=true,
@@ -56,6 +57,7 @@ lexer-tokens
 		)
 	),
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			incDir?=false,
@@ -75,6 +77,7 @@ lexer-tokens
 		)
 	),
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			incDir?=false,

@@ -18,6 +18,7 @@ lexer-tokens
 (Model
 	lines+=
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			out=
@@ -33,6 +34,7 @@ lexer-tokens
 		)
 	),
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			macro=

@@ -15,6 +15,7 @@ lexer-tokens
 (Model
 	lines+=
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			nostdinc?=true,
@@ -22,6 +23,7 @@ lexer-tokens
 		)
 	),
 	(CmdLine
+		start++"foobar.o",
 		arguments+=
 		(Argument
 			nostdinc?=false,

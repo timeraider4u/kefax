@@ -22,7 +22,7 @@ lexer-tokens
 		(Argument
 			out=
 			(PathCmd
-				path++"\\\"C:\\\\Program Files\\\\MyApp\\\\temp\\\\temp.c\\\""
+				path++"C:\\\\Program Files\\\\MyApp\\\\temp\\\\temp.c"
 			)
 		),
 		(Argument

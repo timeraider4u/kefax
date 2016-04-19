@@ -171,7 +171,7 @@ public class Test0011_Outputfile {
 		.getOut();
 		Assert.assertNotNull(PathCmd_3_Var
 		);
-		Assert.assertEquals("\"C:\\Program Files\\MyApp\\temp\\temp.c\"", PathCmd_3_Var
+		Assert.assertEquals("C:\\Program Files\\MyApp\\temp\\temp.c", PathCmd_3_Var
 		.getPath());
 		//3
 		final Argument Argument_4_Var

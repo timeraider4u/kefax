@@ -38,7 +38,7 @@ Argument:
 	|
 		(SKW_MINUS (SKW_MINUS)? (option=Option)?)
 	|
-		in=Option
+		in=Identifier
 	)
 ;
 
@@ -84,35 +84,21 @@ StringMacro returns Macro:
 ;
 
 PathCmd:
-	path=Path
-	//name=Identifier
+	path=(Identifier|STRING2)
 ;
 
 Identifier: ID;
 
 MyCode:
-	MyCodeChar+
-;
-MyCodeChar:
-	PathChar | SKW_LEFTPAREN | SKW_RIGHTPAREN
-;
-Path: 
-	PathChar+
-;
-PathChar:
-	OptionChar | NonOptionChar
+	(OptionChar | SKW_LEFTPAREN | SKW_RIGHTPAREN)+
 ;
 
 Option:
-	NonOptionChar (OptionChar | NonOptionChar)*
-;
-
-NonOptionChar:
-	ID | STRING2 | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
+	OptionChar+ (SKW_COMMA (SKW_MINUS)? OptionChar+)*
 ;
 
 OptionChar:
-	SKW_MINUS | KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_LANG | KW_OUTPUT
+	ID | STRING2 | SKW_ASSIGN | ANY_OTHER
 ;
 
 terminal fragment SKW_DOT: '.';

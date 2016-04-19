@@ -75,7 +75,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         out=PathCmd | 
 	 *         lang=PathCmd | 
 	 *         option=Option? | 
-	 *         in=Option
+	 *         in=Identifier
 	 *     )
 	 */
 	protected void sequence_Argument(EObject context, Argument semanticObject) {
@@ -131,17 +131,10 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     path=Path
+	 *     (path=Identifier | path=STRING2)
 	 */
 	protected void sequence_PathCmd(EObject context, PathCmd semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathParserRuleCall_0(), semanticObject.getPath());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

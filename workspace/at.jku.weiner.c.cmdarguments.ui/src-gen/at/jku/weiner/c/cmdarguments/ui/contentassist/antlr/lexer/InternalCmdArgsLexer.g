@@ -64,7 +64,7 @@ fragment RULE_INT : RULE_DIGIT+;
 
 fragment RULE_DIGIT : '0'..'9';
 
-RULE_STRING : ('"' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'"')))* '"'|'\'' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'\'')))* '\'');
+RULE_STRING2 : ('"' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'"')))* '"'|'\'' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'\'')))* '\'');
 
 RULE_NEWLINE : ('\n'|'\r');
 

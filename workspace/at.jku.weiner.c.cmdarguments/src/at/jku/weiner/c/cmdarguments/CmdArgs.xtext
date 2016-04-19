@@ -9,7 +9,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
 	{Model}
-	(lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)?
+	(lines+=CmdLine (NEWLINE* lines+=CmdLine)*)?
 	NEWLINE?
 ;
 
@@ -100,7 +100,7 @@ FunctionMacro returns Macro:
 
 StringMacro returns Macro:
 	{StringMacro}
-	string=STRING
+	string=STRING2
 ;
 
 PathCmd:
@@ -128,7 +128,7 @@ Option:
 ;
 
 NonOptionChar:
-	ID | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
+	ID | STRING2 | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
 ;
 
 OptionChar:
@@ -174,13 +174,13 @@ terminal fragment LETTER:
 terminal INT: DIGIT+;
 terminal fragment DIGIT: ('0'..'9');
 
-terminal STRING	: 
+terminal STRING2	: 
 			'"' ( SKW_BACKSLASH 
-				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ 
+				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
 				| !(SKW_BACKSLASH|'"')
 			)* '"' |
 			"'" ( SKW_BACKSLASH 
-				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ 
+				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
 				| !(SKW_BACKSLASH|"'")
 			)* "'"
 ;

@@ -163,7 +163,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     string=STRING
+	 *     string=STRING2
 	 */
 	protected void sequence_StringMacro(EObject context, StringMacro semanticObject) {
 		if(errorAcceptor != null) {
@@ -172,7 +172,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStringMacroAccess().getStringSTRINGTerminalRuleCall_1_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0(), semanticObject.getString());
 		feeder.finish();
 	}
 }

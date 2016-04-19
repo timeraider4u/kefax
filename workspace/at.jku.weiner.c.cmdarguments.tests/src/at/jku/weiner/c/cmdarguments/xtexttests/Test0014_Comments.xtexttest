@@ -7,10 +7,37 @@ language cmdArgs
 split-lexer=true
 source file="res/Test0014_Comments.cmd"
 //----------------------------------------------------------------------
+lexer-tokens
+	LINE_COMMENT
+	LINE_COMMENT
+	LINE_COMMENT
+	LINE_COMMENT
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID SKW_ASSIGN ID LINE_COMMENT
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID SKW_ASSIGN ID LINE_COMMENT
 //----------------------------------------------------------------------
 
 (Model
 	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"FOO",
+				value++"BAR"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO"
+			)
+		)
+	),
 	(CmdLine
 		arguments+=
 		(Argument

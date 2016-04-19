@@ -99,7 +99,7 @@ ruleModel returns [EObject current=null]
     { 
     newLeafNode(this_NEWLINE_2, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0()); 
     }
-)+(
+)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getModelAccess().getLinesCmdLineParserRuleCall_1_1_1_0()); 
@@ -1051,9 +1051,9 @@ ruleStringMacro returns [EObject current=null]
     }
 )(
 (
-		lv_string_1_0=RULE_STRING
+		lv_string_1_0=RULE_STRING2
 		{
-			newLeafNode(lv_string_1_0, grammarAccess.getStringMacroAccess().getStringSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_string_1_0, grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1063,7 +1063,7 @@ ruleStringMacro returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_1_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.STRING");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.STRING2");
 	    }
 
 )
@@ -1381,12 +1381,12 @@ ruleNonOptionChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     newLeafNode(this_ID_0, grammarAccess.getNonOptionCharAccess().getIDTerminalRuleCall_0()); 
     }
 
-    |    this_STRING_1=RULE_STRING    {
-		$current.merge(this_STRING_1);
+    |    this_STRING2_1=RULE_STRING2    {
+		$current.merge(this_STRING2_1);
     }
 
     { 
-    newLeafNode(this_STRING_1, grammarAccess.getNonOptionCharAccess().getSTRINGTerminalRuleCall_1()); 
+    newLeafNode(this_STRING2_1, grammarAccess.getNonOptionCharAccess().getSTRING2TerminalRuleCall_1()); 
     }
 
     |    this_SKW_ASSIGN_2=RULE_SKW_ASSIGN    {

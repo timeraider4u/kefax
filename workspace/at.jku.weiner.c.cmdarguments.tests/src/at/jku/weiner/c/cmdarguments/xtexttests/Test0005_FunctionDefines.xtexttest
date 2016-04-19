@@ -10,21 +10,24 @@ source file="res/Test0005_FunctionDefines.cmd"
 lexer-tokens
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE 
-		STRING 
+		STRING2
 		//SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ANY_OTHER ID
 		// NEWLINE
 		WS
 		KW_DEFINE ID SKW_ASSIGN ID NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
-		STRING 
+		STRING2
 		//ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN ANY_OTHER ID 
 		NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
-		STRING 
+		STRING2
 		//ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_ASSIGN 
 		//ID SKW_LEFTPAREN ID SKW_RIGHTPAREN ANY_OTHER +*2 ID 
 		NEWLINE
-	
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		STRING2 NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		STRING2 NEWLINE
 //----------------------------------------------------------------------
 
 (Model
@@ -71,6 +74,24 @@ lexer-tokens
 			macro=
 			(StringMacro
 				string++"FOOBAR(X,Y)=FOO(X)##Y"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				string++"STR(s)=\\\\#s"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				string++"FOOBAR(X,Y)=FOO(X)\\\\#\\\\#Y"
 			)
 		)
 	)

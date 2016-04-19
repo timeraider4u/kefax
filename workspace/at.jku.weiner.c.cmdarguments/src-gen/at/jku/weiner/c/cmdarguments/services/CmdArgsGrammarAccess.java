@@ -36,17 +36,17 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Model:
-		//	{Model} (lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)?
+		//	{Model} (lines+=CmdLine (NEWLINE* lines+=CmdLine)*)?
 		//	NEWLINE?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Model} (lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)? NEWLINE?
+		//{Model} (lines+=CmdLine (NEWLINE* lines+=CmdLine)*)? NEWLINE?
 		public Group getGroup() { return cGroup; }
 		
 		//{Model}
 		public Action getModelAction_0() { return cModelAction_0; }
 		
-		//(lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)?
+		//(lines+=CmdLine (NEWLINE* lines+=CmdLine)*)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//lines+=CmdLine
@@ -55,10 +55,10 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//CmdLine
 		public RuleCall getLinesCmdLineParserRuleCall_1_0_0() { return cLinesCmdLineParserRuleCall_1_0_0; }
 		
-		//(NEWLINE+ lines+=CmdLine)*
+		//(NEWLINE* lines+=CmdLine)*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//NEWLINE+
+		//NEWLINE*
 		public RuleCall getNEWLINETerminalRuleCall_1_1_0() { return cNEWLINETerminalRuleCall_1_1_0; }
 		
 		//lines+=CmdLine
@@ -588,23 +588,23 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cStringMacroAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cStringAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStringSTRINGTerminalRuleCall_1_0 = (RuleCall)cStringAssignment_1.eContents().get(0);
+		private final RuleCall cStringSTRING2TerminalRuleCall_1_0 = (RuleCall)cStringAssignment_1.eContents().get(0);
 		
 		//StringMacro Macro:
-		//	{StringMacro} string=STRING
+		//	{StringMacro} string=STRING2
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StringMacro} string=STRING
+		//{StringMacro} string=STRING2
 		public Group getGroup() { return cGroup; }
 		
 		//{StringMacro}
 		public Action getStringMacroAction_0() { return cStringMacroAction_0; }
 		
-		//string=STRING
+		//string=STRING2
 		public Assignment getStringAssignment_1() { return cStringAssignment_1; }
 		
-		//STRING
-		public RuleCall getStringSTRINGTerminalRuleCall_1_0() { return cStringSTRINGTerminalRuleCall_1_0; }
+		//STRING2
+		public RuleCall getStringSTRING2TerminalRuleCall_1_0() { return cStringSTRING2TerminalRuleCall_1_0; }
 	}
 	public class PathCmdElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
@@ -729,23 +729,23 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NonOptionChar");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSTRING2TerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSKW_ASSIGNTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSKW_COMMATerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cANY_OTHERTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//NonOptionChar:
-		//	ID | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER;
+		//	ID | STRING2 | SKW_ASSIGN | SKW_COMMA | ANY_OTHER;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
+		//ID | STRING2 | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
 		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+		//STRING2
+		public RuleCall getSTRING2TerminalRuleCall_1() { return cSTRING2TerminalRuleCall_1; }
 		
 		//SKW_ASSIGN
 		public RuleCall getSKW_ASSIGNTerminalRuleCall_2() { return cSKW_ASSIGNTerminalRuleCall_2; }
@@ -848,7 +848,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tLETTER;
 	private final TerminalRule tINT;
 	private final TerminalRule tDIGIT;
-	private final TerminalRule tSTRING;
+	private final TerminalRule tSTRING2;
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tWS;
 	private final TerminalRule tSKW_HASH;
@@ -907,7 +907,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.LETTER");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.INT");
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.DIGIT");
-		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.STRING");
+		this.tSTRING2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.STRING2");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NEWLINE");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.WS");
 		this.tSKW_HASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.SKW_HASH");
@@ -939,7 +939,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	{Model} (lines+=CmdLine (NEWLINE+ lines+=CmdLine)*)?
+	//	{Model} (lines+=CmdLine (NEWLINE* lines+=CmdLine)*)?
 	//	NEWLINE?;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -1089,7 +1089,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StringMacro Macro:
-	//	{StringMacro} string=STRING
+	//	{StringMacro} string=STRING2
 	public StringMacroElements getStringMacroAccess() {
 		return pStringMacro;
 	}
@@ -1171,7 +1171,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NonOptionChar:
-	//	ID | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER;
+	//	ID | STRING2 | SKW_ASSIGN | SKW_COMMA | ANY_OTHER;
 	public NonOptionCharElements getNonOptionCharAccess() {
 		return pNonOptionChar;
 	}
@@ -1330,11 +1330,11 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		return tDIGIT;
 	}
 	
-	//terminal STRING:
+	//terminal STRING2:
 	//	'"' (SKW_BACKSLASH . | !(SKW_BACKSLASH | '"'))* '"' |
 	//	"'" (SKW_BACKSLASH . | !(SKW_BACKSLASH | "'"))* "'";
-	public TerminalRule getSTRINGRule() {
-		return tSTRING;
+	public TerminalRule getSTRING2Rule() {
+		return tSTRING2;
 	}
 	
 	//terminal NEWLINE:

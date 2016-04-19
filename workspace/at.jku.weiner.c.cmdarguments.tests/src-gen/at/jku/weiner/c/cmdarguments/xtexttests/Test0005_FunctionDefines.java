@@ -58,6 +58,12 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
@@ -131,7 +137,7 @@ public class Test0005_FunctionDefines {
 				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
-				"RULE_STRING",
+				"RULE_STRING2",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
 				"RULE_ID",
@@ -144,7 +150,7 @@ public class Test0005_FunctionDefines {
 				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
-				"RULE_STRING",
+				"RULE_STRING2",
 				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WS",
@@ -152,7 +158,23 @@ public class Test0005_FunctionDefines {
 				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
-				"RULE_STRING",
+				"RULE_STRING2",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_STRING2",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_STRING2",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -175,7 +197,7 @@ public class Test0005_FunctionDefines {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(4, Lines_0_list.size());
+		Assert.assertEquals(6, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -282,6 +304,50 @@ public class Test0005_FunctionDefines {
 		Assert.assertNotNull(StringMacro_14_Var
 		);
 		Assert.assertEquals("FOOBAR(X,Y)=FOO(X)##Y", StringMacro_14_Var
+		.getString());
+		//14
+		final CmdLine CmdLine_15_Var
+		 = (CmdLine)Lines_0_list.get(4);
+		Assert.assertNotNull(CmdLine_15_Var
+		);
+		final EList<? extends EObject> Arguments_15_list = CmdLine_15_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_15_list);
+		Assert.assertEquals(1, Arguments_15_list.size());
+		//15
+		final Argument Argument_16_Var
+		 = (Argument)Arguments_15_list.get(0);
+		Assert.assertNotNull(Argument_16_Var
+		);
+		//16
+		final StringMacro StringMacro_17_Var
+		 = (StringMacro)Argument_16_Var
+		.getMacro();
+		Assert.assertNotNull(StringMacro_17_Var
+		);
+		Assert.assertEquals("STR(s)=\\#s", StringMacro_17_Var
+		.getString());
+		//17
+		final CmdLine CmdLine_18_Var
+		 = (CmdLine)Lines_0_list.get(5);
+		Assert.assertNotNull(CmdLine_18_Var
+		);
+		final EList<? extends EObject> Arguments_18_list = CmdLine_18_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_18_list);
+		Assert.assertEquals(1, Arguments_18_list.size());
+		//18
+		final Argument Argument_19_Var
+		 = (Argument)Arguments_18_list.get(0);
+		Assert.assertNotNull(Argument_19_Var
+		);
+		//19
+		final StringMacro StringMacro_20_Var
+		 = (StringMacro)Argument_19_Var
+		.getMacro();
+		Assert.assertNotNull(StringMacro_20_Var
+		);
+		Assert.assertEquals("FOOBAR(X,Y)=FOO(X)\\#\\#Y", StringMacro_20_Var
 		.getString());
 	}
 	

@@ -47,6 +47,12 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
@@ -93,6 +99,48 @@ public class Test0014_Comments {
 		return content;
 	}
 	
+	@Test (timeout=1000)
+	public void checkLexerTokens() throws Exception{
+		final String text = this.getTextFromFile(
+			"res/Test0014_Comments.cmd");
+			final String[] expected = new String[] {
+				"RULE_LINE_COMMENT",
+				"RULE_LINE_COMMENT",
+				"RULE_LINE_COMMENT",
+				"RULE_LINE_COMMENT",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_ID",
+				"RULE_SKW_ASSIGN",
+				"RULE_ID",
+				"RULE_LINE_COMMENT",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_ID",
+				"RULE_SKW_ASSIGN",
+				"RULE_ID",
+				"RULE_LINE_COMMENT",
+				};
+			//final List<Token> actual = testHelper.getTokens(text);
+			//testHelper.outputTokens(text);
+			testHelper.checkTokenisation(text, expected);
+	}
 	
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
@@ -109,7 +157,7 @@ public class Test0014_Comments {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(1, Lines_0_list.size());
+		Assert.assertEquals(3, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -133,6 +181,52 @@ public class Test0014_Comments {
 		Assert.assertEquals("FOO", ObjectMacro_3_Var
 		.getName());
 		Assert.assertEquals("BAR", ObjectMacro_3_Var
+		.getValue());
+		//3
+		final CmdLine CmdLine_4_Var
+		 = (CmdLine)Lines_0_list.get(1);
+		Assert.assertNotNull(CmdLine_4_Var
+		);
+		final EList<? extends EObject> Arguments_4_list = CmdLine_4_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_4_list);
+		Assert.assertEquals(1, Arguments_4_list.size());
+		//4
+		final Argument Argument_5_Var
+		 = (Argument)Arguments_4_list.get(0);
+		Assert.assertNotNull(Argument_5_Var
+		);
+		//5
+		final SimpleMacro SimpleMacro_6_Var
+		 = (SimpleMacro)Argument_5_Var
+		.getMacro();
+		Assert.assertNotNull(SimpleMacro_6_Var
+		);
+		Assert.assertEquals("FOO", SimpleMacro_6_Var
+		.getName());
+		//6
+		final CmdLine CmdLine_7_Var
+		 = (CmdLine)Lines_0_list.get(2);
+		Assert.assertNotNull(CmdLine_7_Var
+		);
+		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_7_list);
+		Assert.assertEquals(1, Arguments_7_list.size());
+		//7
+		final Argument Argument_8_Var
+		 = (Argument)Arguments_7_list.get(0);
+		Assert.assertNotNull(Argument_8_Var
+		);
+		//8
+		final ObjectMacro ObjectMacro_9_Var
+		 = (ObjectMacro)Argument_8_Var
+		.getMacro();
+		Assert.assertNotNull(ObjectMacro_9_Var
+		);
+		Assert.assertEquals("FOO", ObjectMacro_9_Var
+		.getName());
+		Assert.assertEquals("BAR", ObjectMacro_9_Var
 		.getValue());
 	}
 	

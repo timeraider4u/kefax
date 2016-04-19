@@ -928,9 +928,9 @@ rule__NonOptionChar__Alternatives
 )
 
     |(
-{ before(grammarAccess.getNonOptionCharAccess().getSTRINGTerminalRuleCall_1()); }
-	RULE_STRING
-{ after(grammarAccess.getNonOptionCharAccess().getSTRINGTerminalRuleCall_1()); }
+{ before(grammarAccess.getNonOptionCharAccess().getSTRING2TerminalRuleCall_1()); }
+	RULE_STRING2
+{ after(grammarAccess.getNonOptionCharAccess().getSTRING2TerminalRuleCall_1()); }
 )
 
     |(
@@ -1189,16 +1189,9 @@ rule__Model__Group_1_1__0__Impl
     }
 :
 (
-(
-{ before(grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0()); }
-(	RULE_NEWLINE)
-{ after(grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0()); }
-)
-(
 { before(grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0()); }
 (	RULE_NEWLINE)*
 { after(grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0()); }
-)
 )
 
 ;
@@ -3460,8 +3453,8 @@ rule__StringMacro__StringAssignment_1
     }
 :
 (
-{ before(grammarAccess.getStringMacroAccess().getStringSTRINGTerminalRuleCall_1_0()); }
-	RULE_STRING{ after(grammarAccess.getStringMacroAccess().getStringSTRINGTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0()); }
+	RULE_STRING2{ after(grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0()); }
 )
 
 ;

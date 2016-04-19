@@ -28,7 +28,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_CmdLine_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_CmdLine_WSTerminalRuleCall_5_p;
 	protected AbstractElementAlias match_CmdLine_WSTerminalRuleCall_6_1_0_p;
-	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_1_1_0_p;
+	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_1_1_0_a;
 	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_2_q;
 	
 	@Inject
@@ -42,7 +42,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_CmdLine_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_2());
 		match_CmdLine_WSTerminalRuleCall_5_p = new TokenAlias(true, false, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_5());
 		match_CmdLine_WSTerminalRuleCall_6_1_0_p = new TokenAlias(true, false, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_6_1_0());
-		match_Model_NEWLINETerminalRuleCall_1_1_0_p = new TokenAlias(true, false, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0());
+		match_Model_NEWLINETerminalRuleCall_1_1_0_a = new TokenAlias(true, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0());
 		match_Model_NEWLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_2());
 	}
 	
@@ -252,8 +252,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_CmdLine_WSTerminalRuleCall_5_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_CmdLine_WSTerminalRuleCall_6_1_0_p.equals(syntax))
 				emit_CmdLine_WSTerminalRuleCall_6_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Model_NEWLINETerminalRuleCall_1_1_0_p.equals(syntax))
-				emit_Model_NEWLINETerminalRuleCall_1_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Model_NEWLINETerminalRuleCall_1_1_0_a.equals(syntax))
+				emit_Model_NEWLINETerminalRuleCall_1_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Model_NEWLINETerminalRuleCall_2_q.equals(syntax))
 				emit_Model_NEWLINETerminalRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -351,12 +351,12 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     NEWLINE+
+	 *     NEWLINE*
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     lines+=CmdLine (ambiguity) lines+=CmdLine
 	 */
-	protected void emit_Model_NEWLINETerminalRuleCall_1_1_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Model_NEWLINETerminalRuleCall_1_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

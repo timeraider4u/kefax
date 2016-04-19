@@ -3,3 +3,5 @@
 #foobar.o := -D"STR(s)=#s"
 #foobar.o := -D"FOOBAR(X,Y)=FOO(X)##Y"
 foobar.o := -DFOO=BAR# set foo to bar
+foobar.o := -DFOO
+foobar.o := -DFOO=BAR# set foo to bar

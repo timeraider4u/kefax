@@ -3,9 +3,14 @@
  */
 package at.jku.weiner.c.cmdarguments
 
+import at.jku.weiner.c.cmdarguments.services.CmdArgumentsValueConverter
+import org.eclipse.xtext.conversion.IValueConverterService
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class CmdArgsRuntimeModule extends AbstractCmdArgsRuntimeModule {
+	override Class<? extends IValueConverterService> bindIValueConverterService() {
+        return CmdArgumentsValueConverter;
+    }
 }

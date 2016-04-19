@@ -112,7 +112,7 @@ public class Test0011_Outputfile {
 				"RULE_WS",
 				"RULE_KW_OUTPUT",
 				"RULE_WS",
-				"RULE_STRING",
+				"RULE_STRING2",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
 				"RULE_ID",

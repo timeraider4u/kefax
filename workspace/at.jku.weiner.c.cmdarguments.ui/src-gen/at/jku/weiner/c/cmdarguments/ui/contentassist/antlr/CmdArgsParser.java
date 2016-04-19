@@ -39,9 +39,11 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
 					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
-					put(grammarAccess.getPathCmdAccess().getPathAlternatives_1_0(), "rule__PathCmd__PathAlternatives_1_0");
+					put(grammarAccess.getPathLegalPartAccess().getAlternatives(), "rule__PathLegalPart__Alternatives");
+					put(grammarAccess.getMacroLegalPartAccess().getAlternatives(), "rule__MacroLegalPart__Alternatives");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
-					put(grammarAccess.getOptionCharAccess().getAlternatives(), "rule__OptionChar__Alternatives");
+					put(grammarAccess.getOptionLegalStartAccess().getAlternatives(), "rule__OptionLegalStart__Alternatives");
+					put(grammarAccess.getOptionLegalContinuationAccess().getAlternatives(), "rule__OptionLegalContinuation__Alternatives");
 					put(grammarAccess.getIdentifierAccess().getAlternatives(), "rule__Identifier__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
@@ -68,6 +70,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPathCmdAccess().getGroup(), "rule__PathCmd__Group__0");
 					put(grammarAccess.getOptionAccess().getGroup(), "rule__Option__Group__0");
 					put(grammarAccess.getOptionAccess().getGroup_1(), "rule__Option__Group_1__0");
+					put(grammarAccess.getOptionPartAccess().getGroup(), "rule__OptionPart__Group__0");
 					put(grammarAccess.getModelAccess().getLinesAssignment_1_0(), "rule__Model__LinesAssignment_1_0");
 					put(grammarAccess.getModelAccess().getLinesAssignment_1_1_1(), "rule__Model__LinesAssignment_1_1_1");
 					put(grammarAccess.getCmdLineAccess().getStartAssignment_1(), "rule__CmdLine__StartAssignment_1");

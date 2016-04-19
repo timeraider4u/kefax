@@ -64,6 +64,12 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
@@ -176,6 +182,23 @@ public class Test0005_FunctionDefines {
 				"RULE_KW_DEFINE",
 				"RULE_STRING2",
 				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_KW_NOSTDINC",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_DEFINE",
+				"RULE_KW_INCSYS",
+				"RULE_SKW_ASSIGN",
+				"RULE_KW_INCLUDE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -197,7 +220,7 @@ public class Test0005_FunctionDefines {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(6, Lines_0_list.size());
+		Assert.assertEquals(8, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -361,6 +384,56 @@ public class Test0005_FunctionDefines {
 		);
 		Assert.assertEquals("FOOBAR(X,Y)=FOO(X)\\#\\#Y", StringMacro_20_Var
 		.getString());
+		//20
+		final CmdLine CmdLine_21_Var
+		 = (CmdLine)Lines_0_list.get(6);
+		Assert.assertNotNull(CmdLine_21_Var
+		);
+		Assert.assertEquals("foobar.o", CmdLine_21_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_21_list = CmdLine_21_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_21_list);
+		Assert.assertEquals(1, Arguments_21_list.size());
+		//21
+		final Argument Argument_22_Var
+		 = (Argument)Arguments_21_list.get(0);
+		Assert.assertNotNull(Argument_22_Var
+		);
+		//22
+		final SimpleMacro SimpleMacro_23_Var
+		 = (SimpleMacro)Argument_22_Var
+		.getMacro();
+		Assert.assertNotNull(SimpleMacro_23_Var
+		);
+		Assert.assertEquals("nostdinc", SimpleMacro_23_Var
+		.getName());
+		//23
+		final CmdLine CmdLine_24_Var
+		 = (CmdLine)Lines_0_list.get(7);
+		Assert.assertNotNull(CmdLine_24_Var
+		);
+		Assert.assertEquals("foobar.o", CmdLine_24_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_24_list = CmdLine_24_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_24_list);
+		Assert.assertEquals(1, Arguments_24_list.size());
+		//24
+		final Argument Argument_25_Var
+		 = (Argument)Arguments_24_list.get(0);
+		Assert.assertNotNull(Argument_25_Var
+		);
+		//25
+		final ObjectMacro ObjectMacro_26_Var
+		 = (ObjectMacro)Argument_25_Var
+		.getMacro();
+		Assert.assertNotNull(ObjectMacro_26_Var
+		);
+		Assert.assertEquals("isystem", ObjectMacro_26_Var
+		.getName());
+		Assert.assertEquals("include", ObjectMacro_26_Var
+		.getValue());
 	}
 	
 	

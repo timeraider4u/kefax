@@ -61,19 +61,19 @@ Macro returns Macro:
 
 SimpleMacro returns Macro:
 	{SimpleMacro}
-	name=Identifier
+	name=MacroLegalPart
 ;
 
 ObjectMacro returns Macro:
 	{ObjectMacro}
-	name=Identifier SKW_ASSIGN
+	name=MacroLegalPart SKW_ASSIGN
 	value=MyCode
 ;
 
 FunctionMacro returns Macro:
 	{FunctionMacro}
-	name=Identifier
-	SKW_LEFTPAREN (params+=Identifier (SKW_COMMA params+=Identifier)*)? 
+	name=MacroLegalPart
+	SKW_LEFTPAREN (params+=MacroLegalPart (SKW_COMMA params+=MacroLegalPart)*)? 
 	SKW_RIGHTPAREN SKW_ASSIGN
 	value=MyCode
 ;
@@ -85,19 +85,56 @@ StringMacro returns Macro:
 
 PathCmd:
 	{PathCmd}
-	path=(Identifier|STRING2)
+	path=PathLegalPart
+;
+
+PathLegalPart:
+		Identifier
+	|	STRING2
+	|	KW_NOSTDINC 
+	|	KW_INCSYS
+	|	KW_INCLUDE
+;
+
+MacroLegalPart:
+		Identifier
+	|	KW_NOSTDINC 
+	|	KW_INCSYS
+	|	KW_INCLUDE
+	|	ANY_OTHER
 ;
 
 MyCode:
-	(OptionChar | SKW_LEFTPAREN | SKW_RIGHTPAREN)+
+	(
+		Identifier 
+	|	STRING2
+	|	SKW_LEFTPAREN
+	|	SKW_RIGHTPAREN
+	|	KW_NOSTDINC 
+	|	KW_INCSYS
+	|	KW_INCLUDE
+	|	ANY_OTHER
+	)+
 ;
 
 Option:
-	OptionChar+ (SKW_COMMA (SKW_MINUS)? OptionChar+)*
+	OptionPart+ (SKW_COMMA (SKW_MINUS)? OptionPart+)*
 ;
 
-OptionChar:
-	Identifier | STRING2 | SKW_ASSIGN | ANY_OTHER
+OptionPart:
+	OptionLegalStart OptionLegalContinuation*
+;
+
+OptionLegalStart:
+	Identifier | STRING2
+;
+
+OptionLegalContinuation:
+		KW_NOSTDINC 
+	|	KW_INCSYS
+	|	KW_INCLUDE
+	|	SKW_ASSIGN
+	|	ANY_OTHER
 ;
 
 Identifier returns ecore::EString:

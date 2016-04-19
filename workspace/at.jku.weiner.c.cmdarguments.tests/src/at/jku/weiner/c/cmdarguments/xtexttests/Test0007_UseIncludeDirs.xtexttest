@@ -28,13 +28,22 @@ lexer-tokens
 			ID
 			
 		NEWLINE
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		KW_INCDIR ID WS
+		KW_INCDIR ID WS 
+		KW_INCDIR KW_INCSYS WS 
+		KW_INCDIR ID WS
+		KW_INCDIR ID WS
+		KW_INCDIR ID WS
+		KW_INCDIR ID WS
+		KW_INCDIR KW_NOSTDINC 
 //----------------------------------------------------------------------
 
 (Model
 	lines+=
 	(CmdLine
-		start++"foobar.o",
+		start++"foobar1.o",
 		arguments+=
 		(Argument
 			incDir?=true,
@@ -56,10 +65,17 @@ lexer-tokens
 			(PathCmd
 				path++"C:\\\\system\\\\include"
 			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"include"
+			)
 		)
 	),
 	(CmdLine
-		start++"foobar.o",
+		start++"foobar2.o",
 		arguments+=
 		(Argument
 			incDir?=false,
@@ -79,7 +95,7 @@ lexer-tokens
 		)
 	),
 	(CmdLine
-		start++"foobar.o",
+		start++"foobar3.o",
 		arguments+=
 		(Argument
 			incDir?=false,
@@ -87,6 +103,66 @@ lexer-tokens
 			macro=			
 			(SimpleMacro
 				name++"__FOO__"
+			)
+		)
+	),
+	(CmdLine
+		start++"foobar4.o",
+		arguments+=
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"output"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"isystem/"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"isystem"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"I/"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"x"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"o"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"D"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(PathCmd
+				path++"nostdinc"
 			)
 		)
 	)

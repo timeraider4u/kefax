@@ -94,7 +94,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=Identifier (params+=Identifier params+=Identifier*)? value=MyCode)
+	 *     (name=MacroLegalPart (params+=MacroLegalPart params+=MacroLegalPart*)? value=MyCode)
 	 */
 	protected void sequence_FunctionMacro(EObject context, FunctionMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -112,7 +112,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=Identifier value=MyCode)
+	 *     (name=MacroLegalPart value=MyCode)
 	 */
 	protected void sequence_ObjectMacro(EObject context, ObjectMacro semanticObject) {
 		if(errorAcceptor != null) {
@@ -123,7 +123,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getObjectMacroAccess().getNameIdentifierParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getObjectMacroAccess().getNameMacroLegalPartParserRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getObjectMacroAccess().getValueMyCodeParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -131,16 +131,23 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (path=Identifier | path=STRING2)
+	 *     path=PathLegalPart
 	 */
 	protected void sequence_PathCmd(EObject context, PathCmd semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_1_0(), semanticObject.getPath());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=Identifier
+	 *     name=MacroLegalPart
 	 */
 	protected void sequence_SimpleMacro(EObject context, SimpleMacro semanticObject) {
 		if(errorAcceptor != null) {
@@ -149,7 +156,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSimpleMacroAccess().getNameIdentifierParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSimpleMacroAccess().getNameMacroLegalPartParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

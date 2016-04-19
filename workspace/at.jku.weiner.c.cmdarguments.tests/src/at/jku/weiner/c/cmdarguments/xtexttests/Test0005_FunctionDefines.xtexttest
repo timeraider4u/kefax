@@ -28,6 +28,10 @@ lexer-tokens
 		STRING2 NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
 		STRING2 NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		KW_NOSTDINC NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		KW_INCSYS SKW_ASSIGN KW_INCLUDE
 //----------------------------------------------------------------------
 
 (Model
@@ -98,6 +102,27 @@ lexer-tokens
 			macro=
 			(StringMacro
 				string++"FOOBAR(X,Y)=FOO(X)\\\\#\\\\#Y"
+			)
+		)
+	),
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"nostdinc"
+			)
+		)
+	),
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"isystem",
+				value++"include"
 			)
 		)
 	)

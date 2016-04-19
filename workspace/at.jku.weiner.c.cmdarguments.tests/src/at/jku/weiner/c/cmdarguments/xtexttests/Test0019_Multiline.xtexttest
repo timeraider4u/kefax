@@ -1,0 +1,65 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0019_Multiline.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS SKW_COLON SKW_ASSIGN WS 
+		KW_DEFINE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
+			ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS LINE_BREAK
+		WS KW_DEFINE STRING2 LINE_BREAK
+		WS KW_DEFINE ID WS WS LINE_BREAK
+		WS WS WS KW_DEFINE STRING2 WS LINE_BREAK
+		WS KW_DEFINE STRING2 NEWLINE
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(FunctionMacro
+				name++"FOO",
+				params+*"[X]",
+				value++"BAR(X)"
+			)
+		),
+		(Argument
+			macro=
+			(StringMacro
+				string++"BAR(x)=#x"
+			)
+		),
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"_BAR2"
+			)
+		),
+		(Argument
+			macro=
+			(StringMacro
+				string++"STR(s)=#s"
+			)
+		),
+		(Argument
+			macro=
+			(StringMacro
+				string++"FOOBAR(X,Y)=FOO(X)##Y"
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

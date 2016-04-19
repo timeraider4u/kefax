@@ -852,6 +852,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tWS;
 	private final TerminalRule tSKW_HASH;
+	private final TerminalRule tLINE_BREAK;
 	private final TerminalRule tLINE_COMMENT;
 	private final TerminalRule tANY_OTHER;
 	
@@ -911,6 +912,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NEWLINE");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.WS");
 		this.tSKW_HASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.SKW_HASH");
+		this.tLINE_BREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.LINE_BREAK");
 		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.LINE_COMMENT");
 		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.ANY_OTHER");
 	}
@@ -1353,6 +1355,12 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//	'#';
 	public TerminalRule getSKW_HASHRule() {
 		return tSKW_HASH;
+	}
+	
+	//terminal LINE_BREAK:
+	//	SKW_BACKSLASH NEWLINE;
+	public TerminalRule getLINE_BREAKRule() {
+		return tLINE_BREAK;
 	}
 	
 	//terminal LINE_COMMENT:

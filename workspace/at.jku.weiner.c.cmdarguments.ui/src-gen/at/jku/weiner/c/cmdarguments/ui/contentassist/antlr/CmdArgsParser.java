@@ -112,7 +112,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_LINE_COMMENT" };
+		return new String[] { "RULE_LINE_COMMENT", "RULE_LINE_BREAK" };
 	}
 	
 	public CmdArgsGrammarAccess getGrammarAccess() {

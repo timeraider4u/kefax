@@ -1,7 +1,7 @@
 grammar at.jku.weiner.c.cmdarguments.CmdArgs 
 //with org.eclipse.xtext.common.Terminals
 //hidden()
-hidden(LINE_COMMENT)
+hidden(LINE_COMMENT,LINE_BREAK)
 
 generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
 
@@ -188,7 +188,7 @@ terminal STRING2	:
 terminal NEWLINE: '\n' | '\r';
 terminal WS: (' '|'\t');
 terminal fragment SKW_HASH: '#';
-
+terminal LINE_BREAK: SKW_BACKSLASH NEWLINE;
 terminal LINE_COMMENT: SKW_HASH -> NEWLINE;
 
 terminal ANY_OTHER: .;

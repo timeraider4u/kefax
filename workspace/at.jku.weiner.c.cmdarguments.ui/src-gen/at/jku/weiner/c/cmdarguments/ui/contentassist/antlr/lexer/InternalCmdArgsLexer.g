@@ -72,6 +72,8 @@ RULE_WS : (' '|'\t');
 
 fragment RULE_SKW_HASH : '#';
 
+RULE_LINE_BREAK : RULE_SKW_BACKSLASH RULE_NEWLINE;
+
 RULE_LINE_COMMENT : RULE_SKW_HASH ( options {greedy=false;} : . )*RULE_NEWLINE;
 
 RULE_ANY_OTHER : .;

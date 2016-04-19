@@ -15,7 +15,7 @@ public class CmdArgsParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrP
 	
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_LINE_COMMENT");
+		tokenStream.setInitialHiddenTokens("RULE_LINE_COMMENT", "RULE_LINE_BREAK");
 	}
 	
 	@Override

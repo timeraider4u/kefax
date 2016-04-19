@@ -22,32 +22,24 @@ CmdLine:
 Argument:
 	{Argument}
 	(
-		(Define macro=Macro)
+		(KW_DEFINE macro=Macro)
 	|
-		(incDir?=IncDir useIncDir=PathCmd)
+		(incDir?=KW_INCDIR useIncDir=PathCmd)
 	|
 		(incSys?=IncSys WS+ useIncDir=PathCmd)
 	|
 		(nostdinc?=NoStdInc)
 	|
-		(Include WS+ include=PathCmd)
+		(SKW_MINUS KW_INCLUDE WS+ include=PathCmd)
 	|
-		(Output WS+ out=PathCmd)
+		(KW_OUTPUT WS+ out=PathCmd)
 	|
-		(Lang WS+ lang=PathCmd)
+		(KW_LANG WS+ lang=PathCmd)
 	|
 		(SKW_MINUS (SKW_MINUS)? (option=Option)?)
 	|
 		in=Option
 	)
-;
-
-Define:
-	KW_DEFINE
-;
-
-IncDir:
-	KW_INCDIR
 ;
 
 IncSys:
@@ -56,18 +48,6 @@ IncSys:
 
 NoStdInc:
 	SKW_MINUS KW_NOSTDINC
-;
-
-Include:
-	SKW_MINUS KW_INCLUDE
-;
-
-Output:
-	KW_OUTPUT
-;
-
-Lang:
-	KW_LANG
 ;
 
 Macro returns Macro:

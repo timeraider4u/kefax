@@ -68,7 +68,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * Constraint:
 	 *     (
 	 *         macro=Macro | 
-	 *         (incDir?=IncDir useIncDir=PathCmd) | 
+	 *         (incDir?=KW_INCDIR useIncDir=PathCmd) | 
 	 *         (incSys?=IncSys useIncDir=PathCmd) | 
 	 *         nostdinc?=NoStdInc | 
 	 *         include=PathCmd | 

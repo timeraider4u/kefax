@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_DOT", "RULE_SKW_DIV", "RULE_SKW_COLON", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_SKW_DOLLAR", "RULE_SKW_BACKSLASH", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_LANG", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_ID", "RULE_KW_VAR", "RULE_ID_PART_1", "RULE_ID_PART_2", "RULE_LETTER", "RULE_INT", "RULE_DIGIT", "RULE_STRING2", "RULE_NEWLINE", "RULE_WS", "RULE_SKW_HASH", "RULE_LINE_BREAK", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_DOT", "RULE_SKW_DIV", "RULE_SKW_COLON", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_SKW_DOLLAR", "RULE_SKW_BACKSLASH", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_LANG", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_KW_VAR", "RULE_ID_PART_1", "RULE_ID_PART_2", "RULE_ID", "RULE_LETTER", "RULE_INT", "RULE_DIGIT", "RULE_STRING2", "RULE_NEWLINE", "RULE_WS", "RULE_SKW_HASH", "RULE_LINE_BREAK", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
     };
     public static final int RULE_SKW_MINUS=7;
-    public static final int RULE_ID=21;
+    public static final int RULE_ID=24;
     public static final int RULE_NEWLINE=29;
-    public static final int RULE_ID_PART_1=23;
+    public static final int RULE_ID_PART_1=22;
     public static final int RULE_KW_INCDIR=15;
-    public static final int RULE_ID_PART_2=24;
+    public static final int RULE_ID_PART_2=23;
     public static final int RULE_KW_OUTPUT=16;
     public static final int RULE_ANY_OTHER=34;
     public static final int RULE_SKW_DOLLAR=12;
@@ -37,7 +37,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final int RULE_LINE_BREAK=32;
     public static final int EOF=-1;
     public static final int RULE_LETTER=25;
-    public static final int RULE_KW_VAR=22;
+    public static final int RULE_KW_VAR=21;
     public static final int RULE_SKW_RIGHTPAREN=10;
     public static final int RULE_STRING2=28;
     public static final int RULE_KW_INCLUDE=20;
@@ -166,7 +166,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_KW_VAR)) ) {
+            if ( (LA3_0==RULE_KW_VAR||LA3_0==RULE_ID) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -213,13 +213,13 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                         if ( (LA2_0==RULE_NEWLINE) ) {
                             int LA2_1 = input.LA(2);
 
-                            if ( ((LA2_1>=RULE_ID && LA2_1<=RULE_KW_VAR)||LA2_1==RULE_NEWLINE) ) {
+                            if ( (LA2_1==RULE_KW_VAR||LA2_1==RULE_ID||LA2_1==RULE_NEWLINE) ) {
                                 alt2=1;
                             }
 
 
                         }
-                        else if ( ((LA2_0>=RULE_ID && LA2_0<=RULE_KW_VAR)) ) {
+                        else if ( (LA2_0==RULE_KW_VAR||LA2_0==RULE_ID) ) {
                             alt2=1;
                         }
 
@@ -2112,7 +2112,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( ((LA18_0>=RULE_KW_NOSTDINC && LA18_0<=RULE_KW_VAR)||LA18_0==RULE_ANY_OTHER) ) {
+            if ( ((LA18_0>=RULE_KW_NOSTDINC && LA18_0<=RULE_KW_VAR)||LA18_0==RULE_ID||LA18_0==RULE_ANY_OTHER) ) {
                 alt18=1;
             }
             switch (alt18) {
@@ -2555,8 +2555,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             // InternalCmdArgsParser.g:973:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_KW_NOSTDINC_2= RULE_KW_NOSTDINC | this_KW_INCSYS_3= RULE_KW_INCSYS | this_KW_INCLUDE_4= RULE_KW_INCLUDE )
             int alt19=5;
             switch ( input.LA(1) ) {
-            case RULE_ID:
             case RULE_KW_VAR:
+            case RULE_ID:
                 {
                 alt19=1;
                 }
@@ -2739,8 +2739,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             // InternalCmdArgsParser.g:1038:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER )
             int alt20=5;
             switch ( input.LA(1) ) {
-            case RULE_ID:
             case RULE_KW_VAR:
+            case RULE_ID:
                 {
                 alt20=1;
                 }
@@ -3459,7 +3459,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( ((LA27_0>=RULE_ID && LA27_0<=RULE_KW_VAR)) ) {
+            if ( (LA27_0==RULE_KW_VAR||LA27_0==RULE_ID) ) {
                 alt27=1;
             }
             else if ( (LA27_0==RULE_STRING2) ) {
@@ -3830,16 +3830,16 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA15_minS =
         "\1\7\2\uffff\1\7\7\uffff";
     static final String DFA15_maxS =
-        "\1\26\2\uffff\1\36\7\uffff";
+        "\1\30\2\uffff\1\36\7\uffff";
     static final String DFA15_acceptS =
         "\1\uffff\1\1\1\2\1\uffff\1\6\1\7\1\11\1\4\1\10\1\3\1\5";
     static final String DFA15_specialS =
         "\13\uffff}>";
     static final String[] DFA15_transitionS = {
-            "\1\3\6\uffff\1\1\1\2\1\4\1\5\3\uffff\2\6",
+            "\1\3\6\uffff\1\1\1\2\1\4\1\5\3\uffff\1\6\2\uffff\1\6",
             "",
             "",
-            "\1\10\12\uffff\1\7\1\11\1\12\2\10\5\uffff\3\10",
+            "\1\10\12\uffff\1\7\1\11\1\12\1\10\2\uffff\1\10\3\uffff\3\10",
             "",
             "",
             "",
@@ -3895,12 +3895,12 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA14_specialS =
         "\6\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\1\1\1\2\5\uffff\1\3\2\4",
-            "\1\3\2\uffff\1\3\6\uffff\5\3\5\uffff\2\3\1\5\3\uffff\1\3",
-            "\1\3\2\uffff\1\3\6\uffff\5\3\5\uffff\2\3\1\5\3\uffff\1\3",
+            "\1\2\2\uffff\1\1\3\uffff\1\3\2\4",
+            "\1\3\2\uffff\1\3\6\uffff\4\3\2\uffff\1\3\3\uffff\2\3\1\5\3\uffff\1\3",
+            "\1\3\2\uffff\1\3\6\uffff\4\3\2\uffff\1\3\3\uffff\2\3\1\5\3\uffff\1\3",
             "",
             "",
-            "\1\4\1\3\6\uffff\4\3\3\uffff\2\3\7\uffff\1\5"
+            "\1\4\1\3\6\uffff\4\3\3\uffff\1\3\2\uffff\1\3\5\uffff\1\5"
     };
 
     static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
@@ -3949,13 +3949,13 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA16_specialS =
         "\13\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\1\3\1\4\1\5\1\1\1\2\5\uffff\1\7\5\uffff\1\6",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
-            "\1\12\1\10\13\uffff\2\11\6\uffff\2\11",
+            "\1\3\1\4\1\5\1\2\2\uffff\1\1\3\uffff\1\7\5\uffff\1\6",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\12\1\10\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
             "",
             "",
             "",
@@ -4008,18 +4008,18 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA21_specialS =
         "\15\uffff}>";
     static final String[] DFA21_transitionS = {
-            "\1\5\1\6\7\uffff\1\7\1\10\1\11\1\2\1\3\5\uffff\1\4\2\1\3\uffff\1\12",
+            "\1\5\1\6\7\uffff\1\7\1\10\1\11\1\3\2\uffff\1\2\3\uffff\1\4\2\1\3\uffff\1\12",
             "",
-            "\2\14\7\uffff\5\14\5\uffff\2\14\1\13\3\uffff\1\14",
-            "\2\14\7\uffff\5\14\5\uffff\2\14\1\13\3\uffff\1\14",
-            "",
-            "",
+            "\2\14\7\uffff\4\14\2\uffff\1\14\3\uffff\2\14\1\13\3\uffff\1\14",
+            "\2\14\7\uffff\4\14\2\uffff\1\14\3\uffff\2\14\1\13\3\uffff\1\14",
             "",
             "",
             "",
             "",
             "",
-            "\1\1\1\14\6\uffff\4\14\3\uffff\2\14\7\uffff\1\13",
+            "",
+            "",
+            "\1\1\1\14\6\uffff\4\14\3\uffff\1\14\2\uffff\1\14\5\uffff\1\13",
             ""
     };
 
@@ -4069,12 +4069,12 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA22_specialS =
         "\6\uffff}>";
     static final String[] DFA22_transitionS = {
-            "\1\1\11\uffff\1\2\1\3\5\uffff\1\4\2\1",
+            "\1\1\11\uffff\1\3\2\uffff\1\2\3\uffff\1\4\2\1",
             "",
-            "\1\4\2\uffff\1\4\6\uffff\5\4\5\uffff\2\4\1\5\3\uffff\1\4",
-            "\1\4\2\uffff\1\4\6\uffff\5\4\5\uffff\2\4\1\5\3\uffff\1\4",
+            "\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\5\3\uffff\1\4",
+            "\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\5\3\uffff\1\4",
             "",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\2\4\7\uffff\1\5"
+            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\5\uffff\1\5"
     };
 
     static final short[] DFA22_eot = DFA.unpackEncodedString(DFA22_eotS);
@@ -4123,12 +4123,12 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA24_specialS =
         "\6\uffff}>";
     static final String[] DFA24_transitionS = {
-            "\1\1\11\uffff\1\2\1\3\5\uffff\1\4\2\1",
+            "\1\1\11\uffff\1\3\2\uffff\1\2\3\uffff\1\4\2\1",
             "",
-            "\1\4\2\uffff\1\4\6\uffff\5\4\5\uffff\2\4\1\5\3\uffff\1\4",
-            "\1\4\2\uffff\1\4\6\uffff\5\4\5\uffff\2\4\1\5\3\uffff\1\4",
+            "\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\5\3\uffff\1\4",
+            "\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\5\3\uffff\1\4",
             "",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\2\4\7\uffff\1\5"
+            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\5\uffff\1\5"
     };
 
     static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
@@ -4168,30 +4168,30 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000020600002L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000020600000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000021200002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000021200000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000040000040L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000006063C080L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000006123C080L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000004307C0000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000307C0000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000000707C0000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000004313C0000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000313C0000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000000713C0000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000030600082L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000030600002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000031200082L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000031200002L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000004307C0600L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000004313C0600L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00000004207C0400L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00000004213C0400L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000C00L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000004207C0000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000004307C0602L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000030600802L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000030600080L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000030600000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000004213C0000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000004313C0602L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000031200802L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000031200080L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000031200000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x00000004001C0102L});
 
 }

@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsLexer extends Lexer {
     public static final int RULE_SKW_MINUS=7;
-    public static final int RULE_ID=21;
+    public static final int RULE_ID=24;
     public static final int RULE_NEWLINE=29;
-    public static final int RULE_ID_PART_1=23;
+    public static final int RULE_ID_PART_1=22;
     public static final int RULE_KW_INCDIR=15;
-    public static final int RULE_ID_PART_2=24;
+    public static final int RULE_ID_PART_2=23;
     public static final int RULE_KW_OUTPUT=16;
     public static final int RULE_ANY_OTHER=34;
     public static final int RULE_SKW_DOLLAR=12;
@@ -26,7 +26,7 @@ public class InternalCmdArgsLexer extends Lexer {
     public static final int RULE_LINE_BREAK=32;
     public static final int EOF=-1;
     public static final int RULE_LETTER=25;
-    public static final int RULE_KW_VAR=22;
+    public static final int RULE_KW_VAR=21;
     public static final int RULE_SKW_RIGHTPAREN=10;
     public static final int RULE_STRING2=28;
     public static final int RULE_KW_INCLUDE=20;
@@ -393,12 +393,39 @@ public class InternalCmdArgsLexer extends Lexer {
         try {
             int _type = RULE_KW_VAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCmdArgsLexer.g:55:13: ( RULE_SKW_DOLLAR RULE_SKW_LEFTPAREN RULE_ID RULE_SKW_RIGHTPAREN )
-            // InternalCmdArgsLexer.g:55:15: RULE_SKW_DOLLAR RULE_SKW_LEFTPAREN RULE_ID RULE_SKW_RIGHTPAREN
+            // InternalCmdArgsLexer.g:55:13: ( RULE_SKW_DOLLAR RULE_SKW_LEFTPAREN ( options {greedy=false; } : . )* RULE_SKW_RIGHTPAREN )
+            // InternalCmdArgsLexer.g:55:15: RULE_SKW_DOLLAR RULE_SKW_LEFTPAREN ( options {greedy=false; } : . )* RULE_SKW_RIGHTPAREN
             {
             mRULE_SKW_DOLLAR(); 
             mRULE_SKW_LEFTPAREN(); 
-            mRULE_ID(); 
+            // InternalCmdArgsLexer.g:55:50: ( options {greedy=false; } : . )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
+
+                if ( (LA1_0==')') ) {
+                    alt1=2;
+                }
+                else if ( ((LA1_0>='\u0000' && LA1_0<='(')||(LA1_0>='*' && LA1_0<='\uFFFF')) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // InternalCmdArgsLexer.g:55:78: .
+            	    {
+            	    matchAny(); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
             mRULE_SKW_RIGHTPAREN(); 
 
             }
@@ -421,17 +448,17 @@ public class InternalCmdArgsLexer extends Lexer {
             {
             mRULE_ID_PART_1(); 
             // InternalCmdArgsLexer.g:57:26: ( RULE_ID_PART_2 )*
-            loop1:
+            loop2:
             do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-                if ( ((LA1_0>='-' && LA1_0<=':')||(LA1_0>='A' && LA1_0<='Z')||LA1_0=='\\'||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
-                    alt1=1;
+                if ( ((LA2_0>='-' && LA2_0<=':')||(LA2_0>='A' && LA2_0<='Z')||LA2_0=='\\'||LA2_0=='_'||(LA2_0>='a' && LA2_0<='z')) ) {
+                    alt2=1;
                 }
 
 
-                switch (alt1) {
+                switch (alt2) {
             	case 1 :
             	    // InternalCmdArgsLexer.g:57:26: RULE_ID_PART_2
             	    {
@@ -441,7 +468,7 @@ public class InternalCmdArgsLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop1;
+            	    break loop2;
                 }
             } while (true);
 
@@ -463,158 +490,8 @@ public class InternalCmdArgsLexer extends Lexer {
             // InternalCmdArgsLexer.g:59:27: ( RULE_LETTER | RULE_SKW_DIV | RULE_SKW_DOT | RULE_INT )
             {
             // InternalCmdArgsLexer.g:59:27: ( RULE_LETTER | RULE_SKW_DIV | RULE_SKW_DOT | RULE_INT )
-            int alt2=4;
-            switch ( input.LA(1) ) {
-            case 'A':
-            case 'B':
-            case 'C':
-            case 'D':
-            case 'E':
-            case 'F':
-            case 'G':
-            case 'H':
-            case 'I':
-            case 'J':
-            case 'K':
-            case 'L':
-            case 'M':
-            case 'N':
-            case 'O':
-            case 'P':
-            case 'Q':
-            case 'R':
-            case 'S':
-            case 'T':
-            case 'U':
-            case 'V':
-            case 'W':
-            case 'X':
-            case 'Y':
-            case 'Z':
-            case '_':
-            case 'a':
-            case 'b':
-            case 'c':
-            case 'd':
-            case 'e':
-            case 'f':
-            case 'g':
-            case 'h':
-            case 'i':
-            case 'j':
-            case 'k':
-            case 'l':
-            case 'm':
-            case 'n':
-            case 'o':
-            case 'p':
-            case 'q':
-            case 'r':
-            case 's':
-            case 't':
-            case 'u':
-            case 'v':
-            case 'w':
-            case 'x':
-            case 'y':
-            case 'z':
-                {
-                alt2=1;
-                }
-                break;
-            case '/':
-                {
-                alt2=2;
-                }
-                break;
-            case '.':
-                {
-                alt2=3;
-                }
-                break;
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                {
-                alt2=4;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 2, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt2) {
-                case 1 :
-                    // InternalCmdArgsLexer.g:59:28: RULE_LETTER
-                    {
-                    mRULE_LETTER(); 
-
-                    }
-                    break;
-                case 2 :
-                    // InternalCmdArgsLexer.g:59:40: RULE_SKW_DIV
-                    {
-                    mRULE_SKW_DIV(); 
-
-                    }
-                    break;
-                case 3 :
-                    // InternalCmdArgsLexer.g:59:53: RULE_SKW_DOT
-                    {
-                    mRULE_SKW_DOT(); 
-
-                    }
-                    break;
-                case 4 :
-                    // InternalCmdArgsLexer.g:59:66: RULE_INT
-                    {
-                    mRULE_INT(); 
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_ID_PART_1"
-
-    // $ANTLR start "RULE_ID_PART_2"
-    public final void mRULE_ID_PART_2() throws RecognitionException {
-        try {
-            // InternalCmdArgsLexer.g:61:25: ( ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS ) )
-            // InternalCmdArgsLexer.g:61:27: ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS )
-            {
-            // InternalCmdArgsLexer.g:61:27: ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS )
             int alt3=4;
             switch ( input.LA(1) ) {
-            case '.':
-            case '/':
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
             case 'A':
             case 'B':
             case 'C':
@@ -672,17 +549,26 @@ public class InternalCmdArgsLexer extends Lexer {
                 alt3=1;
                 }
                 break;
-            case ':':
+            case '/':
                 {
                 alt3=2;
                 }
                 break;
-            case '\\':
+            case '.':
                 {
                 alt3=3;
                 }
                 break;
-            case '-':
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
                 {
                 alt3=4;
                 }
@@ -695,6 +581,147 @@ public class InternalCmdArgsLexer extends Lexer {
             }
 
             switch (alt3) {
+                case 1 :
+                    // InternalCmdArgsLexer.g:59:28: RULE_LETTER
+                    {
+                    mRULE_LETTER(); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalCmdArgsLexer.g:59:40: RULE_SKW_DIV
+                    {
+                    mRULE_SKW_DIV(); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalCmdArgsLexer.g:59:53: RULE_SKW_DOT
+                    {
+                    mRULE_SKW_DOT(); 
+
+                    }
+                    break;
+                case 4 :
+                    // InternalCmdArgsLexer.g:59:66: RULE_INT
+                    {
+                    mRULE_INT(); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_ID_PART_1"
+
+    // $ANTLR start "RULE_ID_PART_2"
+    public final void mRULE_ID_PART_2() throws RecognitionException {
+        try {
+            // InternalCmdArgsLexer.g:61:25: ( ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS ) )
+            // InternalCmdArgsLexer.g:61:27: ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS )
+            {
+            // InternalCmdArgsLexer.g:61:27: ( RULE_ID_PART_1 | RULE_SKW_COLON RULE_SKW_BACKSLASH | RULE_SKW_BACKSLASH | RULE_SKW_MINUS )
+            int alt4=4;
+            switch ( input.LA(1) ) {
+            case '.':
+            case '/':
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'G':
+            case 'H':
+            case 'I':
+            case 'J':
+            case 'K':
+            case 'L':
+            case 'M':
+            case 'N':
+            case 'O':
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U':
+            case 'V':
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
+            case '_':
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e':
+            case 'f':
+            case 'g':
+            case 'h':
+            case 'i':
+            case 'j':
+            case 'k':
+            case 'l':
+            case 'm':
+            case 'n':
+            case 'o':
+            case 'p':
+            case 'q':
+            case 'r':
+            case 's':
+            case 't':
+            case 'u':
+            case 'v':
+            case 'w':
+            case 'x':
+            case 'y':
+            case 'z':
+                {
+                alt4=1;
+                }
+                break;
+            case ':':
+                {
+                alt4=2;
+                }
+                break;
+            case '\\':
+                {
+                alt4=3;
+                }
+                break;
+            case '-':
+                {
+                alt4=4;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt4) {
                 case 1 :
                     // InternalCmdArgsLexer.g:61:28: RULE_ID_PART_1
                     {
@@ -767,18 +794,18 @@ public class InternalCmdArgsLexer extends Lexer {
             // InternalCmdArgsLexer.g:65:21: ( RULE_DIGIT )+
             {
             // InternalCmdArgsLexer.g:65:21: ( RULE_DIGIT )+
-            int cnt4=0;
-            loop4:
+            int cnt5=0;
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( ((LA4_0>='0' && LA4_0<='9')) ) {
-                    alt4=1;
+                if ( ((LA5_0>='0' && LA5_0<='9')) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
             	    // InternalCmdArgsLexer.g:65:21: RULE_DIGIT
             	    {
@@ -788,12 +815,12 @@ public class InternalCmdArgsLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
+            	    if ( cnt5 >= 1 ) break loop5;
                         EarlyExitException eee =
-                            new EarlyExitException(4, input);
+                            new EarlyExitException(5, input);
                         throw eee;
                 }
-                cnt4++;
+                cnt5++;
             } while (true);
 
 
@@ -830,41 +857,41 @@ public class InternalCmdArgsLexer extends Lexer {
             // InternalCmdArgsLexer.g:69:16: ( '\"' ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\"' ) ) )* '\"' | '\\'' ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\\'' ) ) )* '\\'' )
             {
             // InternalCmdArgsLexer.g:69:16: ( '\"' ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\"' ) ) )* '\"' | '\\'' ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\\'' ) ) )* '\\'' )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0=='\"') ) {
-                alt7=1;
+            if ( (LA8_0=='\"') ) {
+                alt8=1;
             }
-            else if ( (LA7_0=='\'') ) {
-                alt7=2;
+            else if ( (LA8_0=='\'') ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
                     // InternalCmdArgsLexer.g:69:17: '\"' ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
                     // InternalCmdArgsLexer.g:69:21: ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\"' ) ) )*
-                    loop5:
+                    loop6:
                     do {
-                        int alt5=3;
-                        int LA5_0 = input.LA(1);
+                        int alt6=3;
+                        int LA6_0 = input.LA(1);
 
-                        if ( (LA5_0=='\\') ) {
-                            alt5=1;
+                        if ( (LA6_0=='\\') ) {
+                            alt6=1;
                         }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='!')||(LA5_0>='#' && LA5_0<='[')||(LA5_0>=']' && LA5_0<='\uFFFF')) ) {
-                            alt5=2;
+                        else if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
+                            alt6=2;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt6) {
                     	case 1 :
                     	    // InternalCmdArgsLexer.g:69:22: RULE_SKW_BACKSLASH .
                     	    {
@@ -890,7 +917,7 @@ public class InternalCmdArgsLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop5;
+                    	    break loop6;
                         }
                     } while (true);
 
@@ -903,20 +930,20 @@ public class InternalCmdArgsLexer extends Lexer {
                     {
                     match('\''); 
                     // InternalCmdArgsLexer.g:69:82: ( RULE_SKW_BACKSLASH . | ~ ( ( RULE_SKW_BACKSLASH | '\\'' ) ) )*
-                    loop6:
+                    loop7:
                     do {
-                        int alt6=3;
-                        int LA6_0 = input.LA(1);
+                        int alt7=3;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA6_0=='\\') ) {
-                            alt6=1;
+                        if ( (LA7_0=='\\') ) {
+                            alt7=1;
                         }
-                        else if ( ((LA6_0>='\u0000' && LA6_0<='&')||(LA6_0>='(' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
-                            alt6=2;
+                        else if ( ((LA7_0>='\u0000' && LA7_0<='&')||(LA7_0>='(' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
+                            alt7=2;
                         }
 
 
-                        switch (alt6) {
+                        switch (alt7) {
                     	case 1 :
                     	    // InternalCmdArgsLexer.g:69:83: RULE_SKW_BACKSLASH .
                     	    {
@@ -942,7 +969,7 @@ public class InternalCmdArgsLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop6;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -1067,20 +1094,20 @@ public class InternalCmdArgsLexer extends Lexer {
             {
             mRULE_SKW_HASH(); 
             // InternalCmdArgsLexer.g:79:35: ( options {greedy=false; } : . )*
-            loop8:
+            loop9:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA8_0=='\n'||LA8_0=='\r') ) {
-                    alt8=2;
+                if ( (LA9_0=='\n'||LA9_0=='\r') ) {
+                    alt9=2;
                 }
-                else if ( ((LA8_0>='\u0000' && LA8_0<='\t')||(LA8_0>='\u000B' && LA8_0<='\f')||(LA8_0>='\u000E' && LA8_0<='\uFFFF')) ) {
-                    alt8=1;
+                else if ( ((LA9_0>='\u0000' && LA9_0<='\t')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\uFFFF')) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt9) {
             	case 1 :
             	    // InternalCmdArgsLexer.g:79:63: .
             	    {
@@ -1090,7 +1117,7 @@ public class InternalCmdArgsLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop9;
                 }
             } while (true);
 
@@ -1128,9 +1155,9 @@ public class InternalCmdArgsLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // InternalCmdArgsLexer.g:1:8: ( RULE_SKW_COLON | RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_LANG | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_KW_VAR | RULE_ID | RULE_STRING2 | RULE_NEWLINE | RULE_WS | RULE_LINE_BREAK | RULE_LINE_COMMENT | RULE_ANY_OTHER )
-        int alt9=21;
-        alt9 = dfa9.predict(input);
-        switch (alt9) {
+        int alt10=21;
+        alt10 = dfa10.predict(input);
+        switch (alt10) {
             case 1 :
                 // InternalCmdArgsLexer.g:1:10: RULE_SKW_COLON
                 {
@@ -1284,23 +1311,23 @@ public class InternalCmdArgsLexer extends Lexer {
     }
 
 
-    protected DFA9 dfa9 = new DFA9(this);
-    static final String DFA9_eotS =
+    protected DFA10 dfa10 = new DFA10(this);
+    static final String DFA10_eotS =
         "\2\uffff\1\26\4\uffff\2\40\1\24\4\uffff\2\24\2\uffff\2\24\13\uffff\1\40\1\uffff\2\40\6\uffff\15\40\1\71\1\72\1\73\3\uffff";
-    static final String DFA9_eofS =
+    static final String DFA10_eofS =
         "\74\uffff";
-    static final String DFA9_minS =
+    static final String DFA10_minS =
         "\1\0\1\uffff\1\104\4\uffff\1\157\1\156\1\50\4\uffff\2\0\2\uffff\1\12\1\0\13\uffff\1\163\1\uffff\1\171\1\143\6\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\55\3\uffff";
-    static final String DFA9_maxS =
+    static final String DFA10_maxS =
         "\1\uffff\1\uffff\1\170\4\uffff\1\157\1\163\1\50\4\uffff\2\uffff\2\uffff\1\15\1\uffff\13\uffff\1\163\1\uffff\1\171\1\143\6\uffff\1\164\1\163\1\154\1\144\1\164\1\165\1\151\1\145\1\144\1\156\1\155\1\145\1\143\3\172\3\uffff";
-    static final String DFA9_acceptS =
-        "\1\uffff\1\1\1\uffff\1\3\1\4\1\5\1\6\3\uffff\4\17\2\uffff\1\21\1\22\2\uffff\1\25\1\1\1\2\1\7\1\11\1\12\1\10\1\3\1\4\1\5\1\6\1\uffff\1\17\2\uffff\1\16\1\20\1\21\1\22\1\23\1\24\20\uffff\1\14\1\15\1\13";
-    static final String DFA9_specialS =
-        "\1\1\15\uffff\1\2\1\3\3\uffff\1\0\50\uffff}>";
-    static final String[] DFA9_transitionS = {
+    static final String DFA10_acceptS =
+        "\1\uffff\1\1\1\uffff\1\3\1\4\1\5\1\6\3\uffff\4\17\2\uffff\1\21\1\22\2\uffff\1\25\1\1\1\2\1\12\1\10\1\11\1\7\1\3\1\4\1\5\1\6\1\uffff\1\17\2\uffff\1\16\1\20\1\21\1\22\1\23\1\24\20\uffff\1\14\1\15\1\13";
+    static final String DFA10_specialS =
+        "\1\2\15\uffff\1\3\1\1\3\uffff\1\0\50\uffff}>";
+    static final String[] DFA10_transitionS = {
             "\11\24\1\21\1\20\2\24\1\20\22\24\1\21\1\24\1\16\1\23\1\11\2\24\1\17\1\4\1\5\2\24\1\6\1\2\1\14\1\13\12\15\1\1\2\24\1\3\3\24\32\12\1\24\1\22\2\24\1\12\1\24\10\12\1\10\4\12\1\7\14\12\uff85\24",
             "",
-            "\1\27\4\uffff\1\32\45\uffff\1\30\10\uffff\1\31",
+            "\1\32\4\uffff\1\30\45\uffff\1\31\10\uffff\1\27",
             "",
             "",
             "",
@@ -1360,34 +1387,34 @@ public class InternalCmdArgsLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA9_eot = DFA.unpackEncodedString(DFA9_eotS);
-    static final short[] DFA9_eof = DFA.unpackEncodedString(DFA9_eofS);
-    static final char[] DFA9_min = DFA.unpackEncodedStringToUnsignedChars(DFA9_minS);
-    static final char[] DFA9_max = DFA.unpackEncodedStringToUnsignedChars(DFA9_maxS);
-    static final short[] DFA9_accept = DFA.unpackEncodedString(DFA9_acceptS);
-    static final short[] DFA9_special = DFA.unpackEncodedString(DFA9_specialS);
-    static final short[][] DFA9_transition;
+    static final short[] DFA10_eot = DFA.unpackEncodedString(DFA10_eotS);
+    static final short[] DFA10_eof = DFA.unpackEncodedString(DFA10_eofS);
+    static final char[] DFA10_min = DFA.unpackEncodedStringToUnsignedChars(DFA10_minS);
+    static final char[] DFA10_max = DFA.unpackEncodedStringToUnsignedChars(DFA10_maxS);
+    static final short[] DFA10_accept = DFA.unpackEncodedString(DFA10_acceptS);
+    static final short[] DFA10_special = DFA.unpackEncodedString(DFA10_specialS);
+    static final short[][] DFA10_transition;
 
     static {
-        int numStates = DFA9_transitionS.length;
-        DFA9_transition = new short[numStates][];
+        int numStates = DFA10_transitionS.length;
+        DFA10_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA9_transition[i] = DFA.unpackEncodedString(DFA9_transitionS[i]);
+            DFA10_transition[i] = DFA.unpackEncodedString(DFA10_transitionS[i]);
         }
     }
 
-    class DFA9 extends DFA {
+    class DFA10 extends DFA {
 
-        public DFA9(BaseRecognizer recognizer) {
+        public DFA10(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 9;
-            this.eot = DFA9_eot;
-            this.eof = DFA9_eof;
-            this.min = DFA9_min;
-            this.max = DFA9_max;
-            this.accept = DFA9_accept;
-            this.special = DFA9_special;
-            this.transition = DFA9_transition;
+            this.decisionNumber = 10;
+            this.eot = DFA10_eot;
+            this.eof = DFA10_eof;
+            this.min = DFA10_min;
+            this.max = DFA10_max;
+            this.accept = DFA10_accept;
+            this.special = DFA10_special;
+            this.transition = DFA10_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( RULE_SKW_COLON | RULE_SKW_MINUS | RULE_SKW_ASSIGN | RULE_SKW_LEFTPAREN | RULE_SKW_RIGHTPAREN | RULE_SKW_COMMA | RULE_KW_DEFINE | RULE_KW_INCDIR | RULE_KW_OUTPUT | RULE_KW_LANG | RULE_KW_NOSTDINC | RULE_KW_INCSYS | RULE_KW_INCLUDE | RULE_KW_VAR | RULE_ID | RULE_STRING2 | RULE_NEWLINE | RULE_WS | RULE_LINE_BREAK | RULE_LINE_COMMENT | RULE_ANY_OTHER );";
@@ -1417,17 +1444,17 @@ public class InternalCmdArgsLexer extends Lexer {
                     
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 9, _s, input);
+                new NoViableAltException(getDescription(), 10, _s, input);
             error(nvae);
             throw nvae;
         }
 
         private int specialState0(int s, IntStream _input) {
             IntStream input = _input;
-            int LA9_19 = input.LA(1);
+            int LA10_19 = input.LA(1);
 
             s = -1;
-            if ( ((LA9_19>='\u0000' && LA9_19<='\uFFFF')) ) {s = 40;}
+            if ( ((LA10_19>='\u0000' && LA10_19<='\uFFFF')) ) {s = 40;}
 
             else s = 20;
 
@@ -1436,70 +1463,70 @@ public class InternalCmdArgsLexer extends Lexer {
 
         private int specialState1(int s, IntStream _input) {
             IntStream input = _input;
-            int LA9_0 = input.LA(1);
+            int LA10_15 = input.LA(1);
 
             s = -1;
-            if ( (LA9_0==':') ) {s = 1;}
-
-            else if ( (LA9_0=='-') ) {s = 2;}
-
-            else if ( (LA9_0=='=') ) {s = 3;}
-
-            else if ( (LA9_0=='(') ) {s = 4;}
-
-            else if ( (LA9_0==')') ) {s = 5;}
-
-            else if ( (LA9_0==',') ) {s = 6;}
-
-            else if ( (LA9_0=='n') ) {s = 7;}
-
-            else if ( (LA9_0=='i') ) {s = 8;}
-
-            else if ( (LA9_0=='$') ) {s = 9;}
-
-            else if ( ((LA9_0>='A' && LA9_0<='Z')||LA9_0=='_'||(LA9_0>='a' && LA9_0<='h')||(LA9_0>='j' && LA9_0<='m')||(LA9_0>='o' && LA9_0<='z')) ) {s = 10;}
-
-            else if ( (LA9_0=='/') ) {s = 11;}
-
-            else if ( (LA9_0=='.') ) {s = 12;}
-
-            else if ( ((LA9_0>='0' && LA9_0<='9')) ) {s = 13;}
-
-            else if ( (LA9_0=='\"') ) {s = 14;}
-
-            else if ( (LA9_0=='\'') ) {s = 15;}
-
-            else if ( (LA9_0=='\n'||LA9_0=='\r') ) {s = 16;}
-
-            else if ( (LA9_0=='\t'||LA9_0==' ') ) {s = 17;}
-
-            else if ( (LA9_0=='\\') ) {s = 18;}
-
-            else if ( (LA9_0=='#') ) {s = 19;}
-
-            else if ( ((LA9_0>='\u0000' && LA9_0<='\b')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\u001F')||LA9_0=='!'||(LA9_0>='%' && LA9_0<='&')||(LA9_0>='*' && LA9_0<='+')||(LA9_0>=';' && LA9_0<='<')||(LA9_0>='>' && LA9_0<='@')||LA9_0=='['||(LA9_0>=']' && LA9_0<='^')||LA9_0=='`'||(LA9_0>='{' && LA9_0<='\uFFFF')) ) {s = 20;}
-
-            return s;
-        }
-
-        private int specialState2(int s, IntStream _input) {
-            IntStream input = _input;
-            int LA9_14 = input.LA(1);
-
-            s = -1;
-            if ( ((LA9_14>='\u0000' && LA9_14<='\uFFFF')) ) {s = 36;}
+            if ( ((LA10_15>='\u0000' && LA10_15<='\uFFFF')) ) {s = 36;}
 
             else s = 20;
 
             return s;
         }
 
-        private int specialState3(int s, IntStream _input) {
+        private int specialState2(int s, IntStream _input) {
             IntStream input = _input;
-            int LA9_15 = input.LA(1);
+            int LA10_0 = input.LA(1);
 
             s = -1;
-            if ( ((LA9_15>='\u0000' && LA9_15<='\uFFFF')) ) {s = 36;}
+            if ( (LA10_0==':') ) {s = 1;}
+
+            else if ( (LA10_0=='-') ) {s = 2;}
+
+            else if ( (LA10_0=='=') ) {s = 3;}
+
+            else if ( (LA10_0=='(') ) {s = 4;}
+
+            else if ( (LA10_0==')') ) {s = 5;}
+
+            else if ( (LA10_0==',') ) {s = 6;}
+
+            else if ( (LA10_0=='n') ) {s = 7;}
+
+            else if ( (LA10_0=='i') ) {s = 8;}
+
+            else if ( (LA10_0=='$') ) {s = 9;}
+
+            else if ( ((LA10_0>='A' && LA10_0<='Z')||LA10_0=='_'||(LA10_0>='a' && LA10_0<='h')||(LA10_0>='j' && LA10_0<='m')||(LA10_0>='o' && LA10_0<='z')) ) {s = 10;}
+
+            else if ( (LA10_0=='/') ) {s = 11;}
+
+            else if ( (LA10_0=='.') ) {s = 12;}
+
+            else if ( ((LA10_0>='0' && LA10_0<='9')) ) {s = 13;}
+
+            else if ( (LA10_0=='\"') ) {s = 14;}
+
+            else if ( (LA10_0=='\'') ) {s = 15;}
+
+            else if ( (LA10_0=='\n'||LA10_0=='\r') ) {s = 16;}
+
+            else if ( (LA10_0=='\t'||LA10_0==' ') ) {s = 17;}
+
+            else if ( (LA10_0=='\\') ) {s = 18;}
+
+            else if ( (LA10_0=='#') ) {s = 19;}
+
+            else if ( ((LA10_0>='\u0000' && LA10_0<='\b')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\u001F')||LA10_0=='!'||(LA10_0>='%' && LA10_0<='&')||(LA10_0>='*' && LA10_0<='+')||(LA10_0>=';' && LA10_0<='<')||(LA10_0>='>' && LA10_0<='@')||LA10_0=='['||(LA10_0>=']' && LA10_0<='^')||LA10_0=='`'||(LA10_0>='{' && LA10_0<='\uFFFF')) ) {s = 20;}
+
+            return s;
+        }
+
+        private int specialState3(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA10_14 = input.LA(1);
+
+            s = -1;
+            if ( ((LA10_14>='\u0000' && LA10_14<='\uFFFF')) ) {s = 36;}
 
             else s = 20;
 

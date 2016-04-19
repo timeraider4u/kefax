@@ -161,7 +161,7 @@ terminal KW_NOSTDINC: 'nostdinc';
 terminal KW_INCSYS: 'isystem';
 terminal KW_INCLUDE: 'include';
 
-terminal KW_VAR returns ecore::EString: SKW_DOLLAR SKW_LEFTPAREN ID SKW_RIGHTPAREN;
+terminal KW_VAR returns ecore::EString: SKW_DOLLAR SKW_LEFTPAREN -> SKW_RIGHTPAREN;
 
 terminal ID: ID_PART_1 ID_PART_2*;
 

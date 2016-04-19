@@ -52,6 +52,8 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
@@ -135,6 +137,13 @@ public class Test0020_Variables {
 				"RULE_WS",
 				"RULE_KW_VAR",
 				"RULE_NEWLINE",
+				"RULE_KW_VAR",
+				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
+				"RULE_WS",
+				"RULE_KW_VAR",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -156,7 +165,7 @@ public class Test0020_Variables {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(4, Lines_0_list.size());
+		Assert.assertEquals(5, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -232,6 +241,26 @@ public class Test0020_Variables {
 		Assert.assertEquals("my-own", Argument_8_Var
 		.getIn());
 		Assert.assertNull(Argument_8_Var
+		.getOption());
+		//8
+		final CmdLine CmdLine_9_Var
+		 = (CmdLine)Lines_0_list.get(4);
+		Assert.assertNotNull(CmdLine_9_Var
+		);
+		Assert.assertEquals("x", CmdLine_9_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_9_list = CmdLine_9_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_9_list);
+		Assert.assertEquals(1, Arguments_9_list.size());
+		//9
+		final Argument Argument_10_Var
+		 = (Argument)Arguments_9_list.get(0);
+		Assert.assertNotNull(Argument_10_Var
+		);
+		Assert.assertEquals("my own", Argument_10_Var
+		.getIn());
+		Assert.assertNull(Argument_10_Var
 		.getOption());
 	}
 	

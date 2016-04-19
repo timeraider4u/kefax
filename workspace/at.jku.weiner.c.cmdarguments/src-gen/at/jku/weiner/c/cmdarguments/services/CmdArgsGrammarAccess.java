@@ -1268,7 +1268,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_VAR:
-	//	SKW_DOLLAR SKW_LEFTPAREN ID SKW_RIGHTPAREN;
+	//	SKW_DOLLAR SKW_LEFTPAREN->SKW_RIGHTPAREN;
 	public TerminalRule getKW_VARRule() {
 		return tKW_VAR;
 	}

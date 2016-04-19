@@ -15,7 +15,9 @@ lexer-tokens
 		// -I./foobar/bar/include
 		KW_INCDIR ID WS
 		// -IC:\system\include
-		KW_INCDIR ID
+		KW_INCDIR ID WS
+		// -Iinclude
+		KW_INCDIR KW_INCLUDE
 		NEWLINE
 	// ... := ... 
 	ID WS SKW_COLON SKW_ASSIGN WS

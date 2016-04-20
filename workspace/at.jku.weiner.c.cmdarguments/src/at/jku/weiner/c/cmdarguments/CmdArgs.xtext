@@ -138,7 +138,8 @@ OptionLegalContinuation:
 ;
 
 Identifier returns ecore::EString:
-	ID | KW_VAR
+		ID (SKW_COLON SKW_BACKSLASH ID)*
+	|	KW_VAR
 ;
 
 terminal fragment SKW_DOT: '.';
@@ -170,7 +171,7 @@ terminal ID_PART_1:
 ;
 
 terminal ID_PART_2: 
-	(ID_PART_1|SKW_COLON SKW_BACKSLASH|SKW_BACKSLASH|SKW_MINUS)
+	(ID_PART_1|SKW_BACKSLASH|SKW_MINUS)
 ;
 
 terminal fragment LETTER:

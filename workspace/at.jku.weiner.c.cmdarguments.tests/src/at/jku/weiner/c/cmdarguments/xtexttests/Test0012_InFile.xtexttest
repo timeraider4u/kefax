@@ -19,7 +19,7 @@ lexer-tokens
 		KW_DEFINE ID NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS 
 		KW_DEFINE ID WS
-		ID WS
+		ID SKW_COLON SKW_BACKSLASH ID WS
 		KW_DEFINE ID NEWLINE
 //----------------------------------------------------------------------
 

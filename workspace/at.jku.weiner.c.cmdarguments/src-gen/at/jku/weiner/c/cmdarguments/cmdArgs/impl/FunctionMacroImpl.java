@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getParams <em>Params</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.FunctionMacroImpl#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

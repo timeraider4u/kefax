@@ -15,14 +15,14 @@ lexer-tokens
 		// -I./foobar/bar/include
 		KW_INCDIR ID WS
 		// -IC:\system\include
-		KW_INCDIR ID WS
+		KW_INCDIR ID SKW_COLON SKW_BACKSLASH ID WS
 		// -Iinclude
 		KW_INCDIR KW_INCLUDE
 		NEWLINE
 	// ... := ... 
 	ID WS SKW_COLON SKW_ASSIGN WS
 		// 	-isystem C:\system32\include
-		SKW_MINUS KW_INCSYS WS ID WS
+		SKW_MINUS KW_INCSYS WS ID SKW_COLON SKW_BACKSLASH ID WS
 		SKW_MINUS KW_INCSYS WS
 			// /usr/lib/gcc/x86_64-pc-linux-gnu/4.8.4/include
 			ID

@@ -1393,20 +1393,41 @@ ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
     }
     @after { leaveRule();
     }:
-(    this_ID_0=RULE_ID    {
+((    this_ID_0=RULE_ID    {
 		$current.merge(this_ID_0);
     }
 
     { 
-    newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0()); 
+    newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0_0()); 
     }
-
-    |    this_KW_VAR_1=RULE_KW_VAR    {
-		$current.merge(this_KW_VAR_1);
+(    this_SKW_COLON_1=RULE_SKW_COLON    {
+		$current.merge(this_SKW_COLON_1);
     }
 
     { 
-    newLeafNode(this_KW_VAR_1, grammarAccess.getIdentifierAccess().getKW_VARTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_COLON_1, grammarAccess.getIdentifierAccess().getSKW_COLONTerminalRuleCall_0_1_0()); 
+    }
+    this_SKW_BACKSLASH_2=RULE_SKW_BACKSLASH    {
+		$current.merge(this_SKW_BACKSLASH_2);
+    }
+
+    { 
+    newLeafNode(this_SKW_BACKSLASH_2, grammarAccess.getIdentifierAccess().getSKW_BACKSLASHTerminalRuleCall_0_1_1()); 
+    }
+    this_ID_3=RULE_ID    {
+		$current.merge(this_ID_3);
+    }
+
+    { 
+    newLeafNode(this_ID_3, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0_1_2()); 
+    }
+)*)
+    |    this_KW_VAR_4=RULE_KW_VAR    {
+		$current.merge(this_KW_VAR_4);
+    }
+
+    { 
+    newLeafNode(this_KW_VAR_4, grammarAccess.getIdentifierAccess().getKW_VARTerminalRuleCall_1()); 
     }
 )
     ;

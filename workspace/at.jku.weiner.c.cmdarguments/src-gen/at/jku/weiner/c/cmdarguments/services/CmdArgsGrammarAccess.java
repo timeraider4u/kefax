@@ -797,18 +797,39 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	public class IdentifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final RuleCall cSKW_COLONTerminalRuleCall_0_1_0 = (RuleCall)cGroup_0_1.eContents().get(0);
+		private final RuleCall cSKW_BACKSLASHTerminalRuleCall_0_1_1 = (RuleCall)cGroup_0_1.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0_1_2 = (RuleCall)cGroup_0_1.eContents().get(2);
 		private final RuleCall cKW_VARTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Identifier:
-		//	ID | KW_VAR;
+		//	ID (SKW_COLON SKW_BACKSLASH ID)*
+		//	| KW_VAR;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | KW_VAR
+		//ID (SKW_COLON SKW_BACKSLASH ID)* | KW_VAR
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//ID (SKW_COLON SKW_BACKSLASH ID)*
+		public Group getGroup_0() { return cGroup_0; }
+		
 		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		
+		//(SKW_COLON SKW_BACKSLASH ID)*
+		public Group getGroup_0_1() { return cGroup_0_1; }
+		
+		//SKW_COLON
+		public RuleCall getSKW_COLONTerminalRuleCall_0_1_0() { return cSKW_COLONTerminalRuleCall_0_1_0; }
+		
+		//SKW_BACKSLASH
+		public RuleCall getSKW_BACKSLASHTerminalRuleCall_0_1_1() { return cSKW_BACKSLASHTerminalRuleCall_0_1_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_1_2() { return cIDTerminalRuleCall_0_1_2; }
 		
 		//KW_VAR
 		public RuleCall getKW_VARTerminalRuleCall_1() { return cKW_VARTerminalRuleCall_1; }
@@ -1156,7 +1177,8 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Identifier:
-	//	ID | KW_VAR;
+	//	ID (SKW_COLON SKW_BACKSLASH ID)*
+	//	| KW_VAR;
 	public IdentifierElements getIdentifierAccess() {
 		return pIdentifier;
 	}
@@ -1286,7 +1308,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ID_PART_2:
-	//	ID_PART_1 | SKW_COLON SKW_BACKSLASH | SKW_BACKSLASH | SKW_MINUS;
+	//	ID_PART_1 | SKW_BACKSLASH | SKW_MINUS;
 	public TerminalRule getID_PART_2Rule() {
 		return tID_PART_2;
 	}

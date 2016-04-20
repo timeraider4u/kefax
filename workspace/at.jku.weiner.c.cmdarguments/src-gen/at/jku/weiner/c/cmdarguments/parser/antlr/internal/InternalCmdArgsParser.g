@@ -384,7 +384,11 @@ this_SKW_ASSIGN_3=RULE_SKW_ASSIGN
 	    }
 
 )
-))*))
+))*)(this_WS_8=RULE_WS
+    { 
+    newLeafNode(this_WS_8, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_6()); 
+    }
+)?)
 ;
 
 

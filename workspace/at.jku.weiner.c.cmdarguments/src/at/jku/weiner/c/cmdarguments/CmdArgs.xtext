@@ -31,6 +31,7 @@ FillUp:
 Assignment:
 	start=Identifier WS+ SKW_COLON SKW_ASSIGN WS+
 	(arguments+=Argument (WS+ arguments+=Argument)*)
+	WS?
 ;
 
 Argument:

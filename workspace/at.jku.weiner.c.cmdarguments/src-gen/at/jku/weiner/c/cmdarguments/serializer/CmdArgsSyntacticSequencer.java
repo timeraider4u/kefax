@@ -28,6 +28,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Assignment_WSTerminalRuleCall_1_p;
 	protected AbstractElementAlias match_Assignment_WSTerminalRuleCall_4_p;
 	protected AbstractElementAlias match_Assignment_WSTerminalRuleCall_5_1_0_p;
+	protected AbstractElementAlias match_Assignment_WSTerminalRuleCall_6_q;
 	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_1_1_0_a;
 	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_2_q;
 	protected AbstractElementAlias match_Target_WSTerminalRuleCall_3_a;
@@ -43,6 +44,7 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Assignment_WSTerminalRuleCall_1_p = new TokenAlias(true, false, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_1());
 		match_Assignment_WSTerminalRuleCall_4_p = new TokenAlias(true, false, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_4());
 		match_Assignment_WSTerminalRuleCall_5_1_0_p = new TokenAlias(true, false, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_5_1_0());
+		match_Assignment_WSTerminalRuleCall_6_q = new TokenAlias(false, true, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_6());
 		match_Model_NEWLINETerminalRuleCall_1_1_0_a = new TokenAlias(true, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1_0());
 		match_Model_NEWLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_2());
 		match_Target_WSTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getTargetAccess().getWSTerminalRuleCall_3());
@@ -257,6 +259,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Assignment_WSTerminalRuleCall_4_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Assignment_WSTerminalRuleCall_5_1_0_p.equals(syntax))
 				emit_Assignment_WSTerminalRuleCall_5_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Assignment_WSTerminalRuleCall_6_q.equals(syntax))
+				emit_Assignment_WSTerminalRuleCall_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Model_NEWLINETerminalRuleCall_1_1_0_a.equals(syntax))
 				emit_Model_NEWLINETerminalRuleCall_1_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Model_NEWLINETerminalRuleCall_2_q.equals(syntax))
@@ -353,6 +357,17 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     arguments+=Argument (ambiguity) arguments+=Argument
 	 */
 	protected void emit_Assignment_WSTerminalRuleCall_5_1_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     arguments+=Argument (ambiguity) (rule end)
+	 */
+	protected void emit_Assignment_WSTerminalRuleCall_6_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -1751,6 +1751,7 @@ rule__Assignment__Group__5
     }
 :
 	rule__Assignment__Group__5__Impl
+	rule__Assignment__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1771,6 +1772,36 @@ rule__Assignment__Group__5__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Assignment__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Assignment__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assignment__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_6()); }
+(	RULE_WS)?
+{ after(grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_6()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 

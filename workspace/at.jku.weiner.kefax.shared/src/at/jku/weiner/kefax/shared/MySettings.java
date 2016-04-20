@@ -13,6 +13,11 @@ public final class MySettings {
 	public static final String LINUX_CHECKOUT_CONFIG_OLD = MySettings.LINUX_CHECKOUT_CONFIG
 			+ ".old";
 
+	public static final String LINUX_DISCOVER_PRJ = "kefax-linux-working";
+	public static final String LINUX_DISCOVER_DIR = "src";
+	
+	public static final String LINUX_EXT4_SRC = "fs/ext4";
+
 	public static final String LINUX_CONFIG_YES = "y";
 	public static final String LINUX_CONFIG_MODULE = "m";
 	

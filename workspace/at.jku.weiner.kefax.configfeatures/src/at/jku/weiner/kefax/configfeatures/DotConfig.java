@@ -19,13 +19,13 @@ import at.jku.weiner.kefax.dotconfig.ui.internal.DotconfigActivator;
 import at.jku.weiner.kefax.shared.MySettings;
 
 public class DotConfig {
-
+	
 	private final IFile iConfigLFile;
 	private final String configPathAsString;
 	private final File featuresFile;
 	private final String featuresFileName;
 	private EList<Config> dotConfigList;
-
+	
 	public DotConfig(final IFile iConfigLFile, final String configPathAsString,
 			final File featuresFile) {
 		this.iConfigLFile = iConfigLFile;
@@ -34,7 +34,7 @@ public class DotConfig {
 		this.featuresFileName = featuresFile.getAbsolutePath();
 		this.dotConfigList = null;
 	}
-
+	
 	public void parseAndGenerateFeaturesTxt() throws Exception {
 		this.dotConfigList = null;
 		try {
@@ -44,7 +44,7 @@ public class DotConfig {
 			MyLog.error(DotConfig.class, ex);
 		}
 	}
-	
+
 	/***
 	 * see http://wiki.eclipse.org/Xtext/FAQ#
 	 * How_do_I_load_my_model_in_a_standalone_Java_application.C2.A0.3F for
@@ -64,11 +64,6 @@ public class DotConfig {
 			final Exception ex = new NullPointerException("injector is null!");
 			MyLog.error(DotConfig.class, ex);
 		}
-		// final ResourceSet resourceSet = new ResourceSetImpl();
-		// final Resource resource = resourceSet.createResource(URI
-		// .createURI("dummy:/example.config"));
-		// final InputStream in = new FileInputStream(this.dotConfigFile);
-		// resource.load(in, resourceSet.getLoadOptions());
 		final Resource resource = XtextUtils.loadResource(this.iConfigLFile,
 				injector, "config");
 		if (resource == null) {
@@ -88,7 +83,7 @@ public class DotConfig {
 			MyLog.error(DotConfig.class, ex);
 		}
 	}
-	
+
 	private void createFeaturesTxtInternal() throws Exception {
 		MyLog.log(DotConfig.class, "Creating features.txt as '"
 				+ this.featuresFileName + "'");
@@ -109,7 +104,7 @@ public class DotConfig {
 		}
 		output.close();
 	}
-
+	
 	@SuppressWarnings("unused")
 	private void createDefineFile(final File defineFile,
 			final String defineFilePath) throws Exception {
@@ -132,5 +127,5 @@ public class DotConfig {
 		}
 		output.close();
 	}
-
+	
 }

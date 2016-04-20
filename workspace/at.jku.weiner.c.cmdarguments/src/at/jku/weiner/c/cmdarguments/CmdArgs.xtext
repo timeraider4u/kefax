@@ -14,7 +14,21 @@ Model:
 ;
 
 CmdLine:
-	{CmdLine}
+		Assignment 
+	|	Target
+;
+
+Target:
+	start=Identifier SKW_COLON
+		(FillUp arguments+=Argument)*
+	WS* NEWLINE NEWLINE
+;
+
+FillUp:
+	WS+ | (WS* NEWLINE WS+)
+;
+
+Assignment:
 	start=Identifier WS+ SKW_COLON SKW_ASSIGN WS+
 	(arguments+=Argument (WS+ arguments+=Argument)*)
 ;

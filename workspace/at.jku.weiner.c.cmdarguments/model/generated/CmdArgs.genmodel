@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.cmdarguments.editor/src" modelPluginID="at.jku.weiner.c.cmdarguments"
     forceOverwrite="true" modelName="CmdArgs" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.cmdarguments.edit"
-    editorPluginID="at.jku.weiner.c.cmdarguments.editor" runtimeVersion="2.10">
+    editorPluginID="at.jku.weiner.c.cmdarguments.editor" runtimeVersion="2.11">
   <genPackages prefix="CmdArgs" basePackage="at.jku.weiner.c.cmdarguments" disposableProviderFactory="true"
       fileExtensions="cmd" ecorePackage="CmdArgs.ecore#/">
     <genClasses ecoreClass="CmdArgs.ecore#//Model">
@@ -14,6 +14,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//CmdLine/start"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//CmdLine/arguments"/>
     </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//Target"/>
+    <genClasses ecoreClass="CmdArgs.ecore#//Assignment"/>
     <genClasses ecoreClass="CmdArgs.ecore#//Argument">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Argument/macro"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/incDir"/>

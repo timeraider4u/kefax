@@ -3,27 +3,25 @@
 package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Macro</b></em>'.
+ * An implementation of the model object '<em><b>Target</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class MacroImpl extends MinimalEObjectImpl.Container implements Macro
+public class TargetImpl extends CmdLineImpl implements Target
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MacroImpl()
+  protected TargetImpl()
   {
     super();
   }
@@ -36,7 +34,7 @@ public class MacroImpl extends MinimalEObjectImpl.Container implements Macro
   @Override
   protected EClass eStaticClass()
   {
-    return CmdArgsPackage.Literals.MACRO;
+    return CmdArgsPackage.Literals.TARGET;
   }
 
-} //MacroImpl
+} //TargetImpl

@@ -16,51 +16,52 @@ lexer-tokens
 	NEWLINE
 	ID SKW_COLON NEWLINE
 		WS ID NEWLINE
-		WS KW_VAR NEWLINE
+		WS KW_VAR NEWLINE NEWLINE
+	ID SKW_COLON NEWLINE NEWLINE
 //----------------------------------------------------------------------
 
 (Model
 	lines+=
-	(CmdLine
-		start++"foobar1.o",
+	(Assignment
+		start++"foo.o",
 		arguments+=
 		(Argument
-			option++"Wundef"
+			in++"gcc"
+		),
+		(Argument
+			option++"Wall"
+		),
+		(Argument
+			in++"foobar.c"
 		)
 	),
-	(CmdLine
-		start++"foobar2.o",
+	(Target
+		start++"foo2.o",
 		arguments+=
 		(Argument
-			in++"foobar1.o",
+			in++"foo.o",
 			option isNull
 		)
 	),
-	(CmdLine
-		start++"my",
+	(Target
+		start++"bar.o",
+		arguments isEmpty
+	),
+	(Target
+		start++"foobar.o",
 		arguments+=
 		(Argument
-			option++"std=gnu89"
-			
+			in++"foo2.o",
+			option isNull	
+		),
+		(Argument
+			in++"bar.o",
+			option isNull
 		)
 	),
-	(CmdLine
-		start++"x",
-		arguments+=
-		(Argument
-			in++"my-own",
-			option isNull
-			
-		)
-	),
-	(CmdLine
-		start++"x",
-		arguments+=
-		(Argument
-			in++"my own",
-			option isNull
-			
-		)
+	(Target
+		start++"baz.o",
+		arguments isEmpty
 	)
 )
 

@@ -37,6 +37,8 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getCmdLineAccess().getAlternatives(), "rule__CmdLine__Alternatives");
+					put(grammarAccess.getFillUpAccess().getAlternatives(), "rule__FillUp__Alternatives");
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
 					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
 					put(grammarAccess.getPathLegalPartAccess().getAlternatives(), "rule__PathLegalPart__Alternatives");
@@ -48,9 +50,12 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
 					put(grammarAccess.getModelAccess().getGroup_1_1(), "rule__Model__Group_1_1__0");
-					put(grammarAccess.getCmdLineAccess().getGroup(), "rule__CmdLine__Group__0");
-					put(grammarAccess.getCmdLineAccess().getGroup_6(), "rule__CmdLine__Group_6__0");
-					put(grammarAccess.getCmdLineAccess().getGroup_6_1(), "rule__CmdLine__Group_6_1__0");
+					put(grammarAccess.getTargetAccess().getGroup(), "rule__Target__Group__0");
+					put(grammarAccess.getTargetAccess().getGroup_2(), "rule__Target__Group_2__0");
+					put(grammarAccess.getFillUpAccess().getGroup_1(), "rule__FillUp__Group_1__0");
+					put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
+					put(grammarAccess.getAssignmentAccess().getGroup_5(), "rule__Assignment__Group_5__0");
+					put(grammarAccess.getAssignmentAccess().getGroup_5_1(), "rule__Assignment__Group_5_1__0");
 					put(grammarAccess.getArgumentAccess().getGroup(), "rule__Argument__Group__0");
 					put(grammarAccess.getArgumentAccess().getGroup_1_0(), "rule__Argument__Group_1_0__0");
 					put(grammarAccess.getArgumentAccess().getGroup_1_1(), "rule__Argument__Group_1_1__0");
@@ -75,9 +80,11 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierAccess().getGroup_0_1(), "rule__Identifier__Group_0_1__0");
 					put(grammarAccess.getModelAccess().getLinesAssignment_1_0(), "rule__Model__LinesAssignment_1_0");
 					put(grammarAccess.getModelAccess().getLinesAssignment_1_1_1(), "rule__Model__LinesAssignment_1_1_1");
-					put(grammarAccess.getCmdLineAccess().getStartAssignment_1(), "rule__CmdLine__StartAssignment_1");
-					put(grammarAccess.getCmdLineAccess().getArgumentsAssignment_6_0(), "rule__CmdLine__ArgumentsAssignment_6_0");
-					put(grammarAccess.getCmdLineAccess().getArgumentsAssignment_6_1_1(), "rule__CmdLine__ArgumentsAssignment_6_1_1");
+					put(grammarAccess.getTargetAccess().getStartAssignment_0(), "rule__Target__StartAssignment_0");
+					put(grammarAccess.getTargetAccess().getArgumentsAssignment_2_1(), "rule__Target__ArgumentsAssignment_2_1");
+					put(grammarAccess.getAssignmentAccess().getStartAssignment_0(), "rule__Assignment__StartAssignment_0");
+					put(grammarAccess.getAssignmentAccess().getArgumentsAssignment_5_0(), "rule__Assignment__ArgumentsAssignment_5_0");
+					put(grammarAccess.getAssignmentAccess().getArgumentsAssignment_5_1_1(), "rule__Assignment__ArgumentsAssignment_5_1_1");
 					put(grammarAccess.getArgumentAccess().getMacroAssignment_1_0_1(), "rule__Argument__MacroAssignment_1_0_1");
 					put(grammarAccess.getArgumentAccess().getIncDirAssignment_1_1_0(), "rule__Argument__IncDirAssignment_1_1_0");
 					put(grammarAccess.getArgumentAccess().getUseIncDirAssignment_1_1_1(), "rule__Argument__UseIncDirAssignment_1_1_1");

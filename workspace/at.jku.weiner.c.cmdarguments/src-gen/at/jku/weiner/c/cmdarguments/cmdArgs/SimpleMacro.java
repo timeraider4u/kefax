@@ -10,10 +10,10 @@ package at.jku.weiner.c.cmdarguments.cmdArgs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getSimpleMacro()
  * @model

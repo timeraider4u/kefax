@@ -122,6 +122,80 @@ public interface CmdArgsPackage extends EPackage
   int CMD_LINE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.TargetImpl <em>Target</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.TargetImpl
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getTarget()
+   * @generated
+   */
+  int TARGET = 2;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET__START = CMD_LINE__START;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET__ARGUMENTS = CMD_LINE__ARGUMENTS;
+
+  /**
+   * The number of structural features of the '<em>Target</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET_FEATURE_COUNT = CMD_LINE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.AssignmentImpl <em>Assignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.AssignmentImpl
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getAssignment()
+   * @generated
+   */
+  int ASSIGNMENT = 3;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT__START = CMD_LINE__START;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT__ARGUMENTS = CMD_LINE__ARGUMENTS;
+
+  /**
+   * The number of structural features of the '<em>Assignment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT_FEATURE_COUNT = CMD_LINE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl <em>Argument</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -129,7 +203,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getArgument()
    * @generated
    */
-  int ARGUMENT = 2;
+  int ARGUMENT = 4;
 
   /**
    * The feature id for the '<em><b>Macro</b></em>' containment reference.
@@ -238,7 +312,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getMacro()
    * @generated
    */
-  int MACRO = 3;
+  int MACRO = 5;
 
   /**
    * The number of structural features of the '<em>Macro</em>' class.
@@ -257,7 +331,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getPathCmd()
    * @generated
    */
-  int PATH_CMD = 4;
+  int PATH_CMD = 6;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -285,7 +359,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getSimpleMacro()
    * @generated
    */
-  int SIMPLE_MACRO = 5;
+  int SIMPLE_MACRO = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -313,7 +387,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getObjectMacro()
    * @generated
    */
-  int OBJECT_MACRO = 6;
+  int OBJECT_MACRO = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -350,7 +424,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getFunctionMacro()
    * @generated
    */
-  int FUNCTION_MACRO = 7;
+  int FUNCTION_MACRO = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,7 +470,7 @@ public interface CmdArgsPackage extends EPackage
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getStringMacro()
    * @generated
    */
-  int STRING_MACRO = 8;
+  int STRING_MACRO = 10;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -469,6 +543,26 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    */
   EReference getCmdLine_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Target <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Target</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Target
+   * @generated
+   */
+  EClass getTarget();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assignment</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Assignment
+   * @generated
+   */
+  EClass getAssignment();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument <em>Argument</em>}'.
@@ -804,6 +898,26 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EReference CMD_LINE__ARGUMENTS = eINSTANCE.getCmdLine_Arguments();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.TargetImpl <em>Target</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.TargetImpl
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getTarget()
+     * @generated
+     */
+    EClass TARGET = eINSTANCE.getTarget();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.AssignmentImpl <em>Assignment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.AssignmentImpl
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getAssignment()
+     * @generated
+     */
+    EClass ASSIGNMENT = eINSTANCE.getAssignment();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl <em>Argument</em>}' class.

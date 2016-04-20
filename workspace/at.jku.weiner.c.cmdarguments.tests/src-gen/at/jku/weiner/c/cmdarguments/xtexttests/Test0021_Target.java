@@ -44,16 +44,17 @@ import at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer;
 import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Assignment;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
@@ -138,6 +139,11 @@ public class Test0021_Target {
 				"RULE_WS",
 				"RULE_KW_VAR",
 				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_COLON",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -161,51 +167,45 @@ public class Test0021_Target {
 		Assert.assertNotNull(Lines_0_list);
 		Assert.assertEquals(5, Lines_0_list.size());
 		//0
-		final CmdLine CmdLine_1_Var
-		 = (CmdLine)Lines_0_list.get(0);
-		Assert.assertNotNull(CmdLine_1_Var
+		final Assignment Assignment_1_Var
+		 = (Assignment)Lines_0_list.get(0);
+		Assert.assertNotNull(Assignment_1_Var
 		);
-		Assert.assertEquals("foobar1.o", CmdLine_1_Var
+		Assert.assertEquals("foo.o", Assignment_1_Var
 		.getStart());
-		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
+		final EList<? extends EObject> Arguments_1_list = Assignment_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
-		Assert.assertEquals(1, Arguments_1_list.size());
+		Assert.assertEquals(3, Arguments_1_list.size());
 		//1
 		final Argument Argument_2_Var
 		 = (Argument)Arguments_1_list.get(0);
 		Assert.assertNotNull(Argument_2_Var
 		);
-		Assert.assertEquals("Wundef", Argument_2_Var
-		.getOption());
+		Assert.assertEquals("gcc", Argument_2_Var
+		.getIn());
 		//2
-		final CmdLine CmdLine_3_Var
-		 = (CmdLine)Lines_0_list.get(1);
-		Assert.assertNotNull(CmdLine_3_Var
+		final Argument Argument_3_Var
+		 = (Argument)Arguments_1_list.get(1);
+		Assert.assertNotNull(Argument_3_Var
 		);
-		Assert.assertEquals("foobar2.o", CmdLine_3_Var
-		.getStart());
-		final EList<? extends EObject> Arguments_3_list = CmdLine_3_Var
-		.getArguments();
-		Assert.assertNotNull(Arguments_3_list);
-		Assert.assertEquals(1, Arguments_3_list.size());
+		Assert.assertEquals("Wall", Argument_3_Var
+		.getOption());
 		//3
 		final Argument Argument_4_Var
-		 = (Argument)Arguments_3_list.get(0);
+		 = (Argument)Arguments_1_list.get(2);
 		Assert.assertNotNull(Argument_4_Var
 		);
-		Assert.assertEquals("foobar1.o", Argument_4_Var
+		Assert.assertEquals("foobar.c", Argument_4_Var
 		.getIn());
-		Assert.assertNull(Argument_4_Var
-		.getOption());
 		//4
-		final CmdLine CmdLine_5_Var
-		 = (CmdLine)Lines_0_list.get(2);
-		Assert.assertNotNull(CmdLine_5_Var
+		final Target Target_5_Var
+		 = (Target)Lines_0_list.get(1);
+		Assert.assertNotNull(Target_5_Var
 		);
-		Assert.assertEquals("my", CmdLine_5_Var
+		Assert.assertEquals("foo2.o", Target_5_Var
 		.getStart());
-		final EList<? extends EObject> Arguments_5_list = CmdLine_5_Var
+		final EList<? extends EObject> Arguments_5_list = Target_5_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_5_list);
 		Assert.assertEquals(1, Arguments_5_list.size());
@@ -214,48 +214,57 @@ public class Test0021_Target {
 		 = (Argument)Arguments_5_list.get(0);
 		Assert.assertNotNull(Argument_6_Var
 		);
-		Assert.assertEquals("std=gnu89", Argument_6_Var
+		Assert.assertEquals("foo.o", Argument_6_Var
+		.getIn());
+		Assert.assertNull(Argument_6_Var
 		.getOption());
 		//6
-		final CmdLine CmdLine_7_Var
-		 = (CmdLine)Lines_0_list.get(3);
-		Assert.assertNotNull(CmdLine_7_Var
+		final Target Target_7_Var
+		 = (Target)Lines_0_list.get(2);
+		Assert.assertNotNull(Target_7_Var
 		);
-		Assert.assertEquals("x", CmdLine_7_Var
+		Assert.assertEquals("bar.o", Target_7_Var
 		.getStart());
-		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var
-		.getArguments();
-		Assert.assertNotNull(Arguments_7_list);
-		Assert.assertEquals(1, Arguments_7_list.size());
+		Assert.assertTrue(Target_7_Var
+		.getArguments().isEmpty());
 		//7
-		final Argument Argument_8_Var
-		 = (Argument)Arguments_7_list.get(0);
-		Assert.assertNotNull(Argument_8_Var
+		final Target Target_8_Var
+		 = (Target)Lines_0_list.get(3);
+		Assert.assertNotNull(Target_8_Var
 		);
-		Assert.assertEquals("my-own", Argument_8_Var
-		.getIn());
-		Assert.assertNull(Argument_8_Var
-		.getOption());
-		//8
-		final CmdLine CmdLine_9_Var
-		 = (CmdLine)Lines_0_list.get(4);
-		Assert.assertNotNull(CmdLine_9_Var
-		);
-		Assert.assertEquals("x", CmdLine_9_Var
+		Assert.assertEquals("foobar.o", Target_8_Var
 		.getStart());
-		final EList<? extends EObject> Arguments_9_list = CmdLine_9_Var
+		final EList<? extends EObject> Arguments_8_list = Target_8_Var
 		.getArguments();
-		Assert.assertNotNull(Arguments_9_list);
-		Assert.assertEquals(1, Arguments_9_list.size());
+		Assert.assertNotNull(Arguments_8_list);
+		Assert.assertEquals(2, Arguments_8_list.size());
+		//8
+		final Argument Argument_9_Var
+		 = (Argument)Arguments_8_list.get(0);
+		Assert.assertNotNull(Argument_9_Var
+		);
+		Assert.assertEquals("foo2.o", Argument_9_Var
+		.getIn());
+		Assert.assertNull(Argument_9_Var
+		.getOption());
 		//9
 		final Argument Argument_10_Var
-		 = (Argument)Arguments_9_list.get(0);
+		 = (Argument)Arguments_8_list.get(1);
 		Assert.assertNotNull(Argument_10_Var
 		);
-		Assert.assertEquals("my own", Argument_10_Var
+		Assert.assertEquals("bar.o", Argument_10_Var
 		.getIn());
 		Assert.assertNull(Argument_10_Var
 		.getOption());
+		//10
+		final Target Target_11_Var
+		 = (Target)Lines_0_list.get(4);
+		Assert.assertNotNull(Target_11_Var
+		);
+		Assert.assertEquals("baz.o", Target_11_Var
+		.getStart());
+		Assert.assertTrue(Target_11_Var
+		.getArguments().isEmpty());
 	}
 	
 	

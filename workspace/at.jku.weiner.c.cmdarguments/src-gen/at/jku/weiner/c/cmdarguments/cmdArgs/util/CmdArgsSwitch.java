@@ -50,7 +50,7 @@ public class CmdArgsSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -83,6 +83,22 @@ public class CmdArgsSwitch<T> extends Switch<T>
       {
         CmdLine cmdLine = (CmdLine)theEObject;
         T result = caseCmdLine(cmdLine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.TARGET:
+      {
+        Target target = (Target)theEObject;
+        T result = caseTarget(target);
+        if (result == null) result = caseCmdLine(target);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.ASSIGNMENT:
+      {
+        Assignment assignment = (Assignment)theEObject;
+        T result = caseAssignment(assignment);
+        if (result == null) result = caseCmdLine(assignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -171,6 +187,38 @@ public class CmdArgsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCmdLine(CmdLine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Target</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Target</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTarget(Target object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssignment(Assignment object)
   {
     return null;
   }

@@ -85,6 +85,16 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
         return createCmdLineAdapter();
       }
       @Override
+      public Adapter caseTarget(Target object)
+      {
+        return createTargetAdapter();
+      }
+      @Override
+      public Adapter caseAssignment(Assignment object)
+      {
+        return createAssignmentAdapter();
+      }
+      @Override
       public Adapter caseArgument(Argument object)
       {
         return createArgumentAdapter();
@@ -167,6 +177,36 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCmdLineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Target <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Target
+   * @generated
+   */
+  public Adapter createTargetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Assignment
+   * @generated
+   */
+  public Adapter createAssignmentAdapter()
   {
     return null;
   }

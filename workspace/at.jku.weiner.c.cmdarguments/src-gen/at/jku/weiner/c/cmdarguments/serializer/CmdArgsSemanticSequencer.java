@@ -4,14 +4,15 @@
 package at.jku.weiner.c.cmdarguments.serializer;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Assignment;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 import at.jku.weiner.c.cmdarguments.services.CmdArgsGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -39,8 +40,8 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case CmdArgsPackage.ARGUMENT:
 				sequence_Argument(context, (Argument) semanticObject); 
 				return; 
-			case CmdArgsPackage.CMD_LINE:
-				sequence_CmdLine(context, (CmdLine) semanticObject); 
+			case CmdArgsPackage.ASSIGNMENT:
+				sequence_Assignment(context, (Assignment) semanticObject); 
 				return; 
 			case CmdArgsPackage.FUNCTION_MACRO:
 				sequence_FunctionMacro(context, (FunctionMacro) semanticObject); 
@@ -59,6 +60,9 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case CmdArgsPackage.STRING_MACRO:
 				sequence_StringMacro(context, (StringMacro) semanticObject); 
+				return; 
+			case CmdArgsPackage.TARGET:
+				sequence_Target(context, (Target) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -87,7 +91,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * Constraint:
 	 *     (start=Identifier arguments+=Argument arguments+=Argument*)
 	 */
-	protected void sequence_CmdLine(EObject context, CmdLine semanticObject) {
+	protected void sequence_Assignment(EObject context, Assignment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -174,5 +178,14 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0(), semanticObject.getString());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (start=Identifier arguments+=Argument*)
+	 */
+	protected void sequence_Target(EObject context, Target semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

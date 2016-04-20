@@ -11,6 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//Argument" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//CmdLine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="#//CmdLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="Argument">
     <eStructuralFeatures xsi:type="ecore:EReference" name="macro" eType="#//Macro"
         containment="true"/>

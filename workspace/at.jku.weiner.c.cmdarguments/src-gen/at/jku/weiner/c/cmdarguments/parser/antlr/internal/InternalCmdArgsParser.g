@@ -142,81 +142,247 @@ ruleCmdLine returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getCmdLineAccess().getCmdLineAction_0(),
-            $current);
+(
+    { 
+        newCompositeNode(grammarAccess.getCmdLineAccess().getAssignmentParserRuleCall_0()); 
     }
-)(
+    this_Assignment_0=ruleAssignment
+    {
+        $current = $this_Assignment_0.current;
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getCmdLineAccess().getTargetParserRuleCall_1()); 
+    }
+    this_Target_1=ruleTarget
+    {
+        $current = $this_Target_1.current;
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleTarget
+entryRuleTarget returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getTargetRule()); }
+	 iv_ruleTarget=ruleTarget 
+	 { $current=$iv_ruleTarget.current; } 
+	 EOF 
+;
+
+// Rule Target
+ruleTarget returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCmdLineAccess().getStartIdentifierParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTargetAccess().getStartIdentifierParserRuleCall_0_0()); 
 	    }
-		lv_start_1_0=ruleIdentifier		{
+		lv_start_0_0=ruleIdentifier		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCmdLineRule());
+	            $current = createModelElementForParent(grammarAccess.getTargetRule());
 	        }
        		set(
        			$current, 
        			"start",
-        		lv_start_1_0, 
+        		lv_start_0_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(this_WS_2=RULE_WS
+)this_SKW_COLON_1=RULE_SKW_COLON
     { 
-    newLeafNode(this_WS_2, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_SKW_COLON_1, grammarAccess.getTargetAccess().getSKW_COLONTerminalRuleCall_1()); 
     }
-)+this_SKW_COLON_3=RULE_SKW_COLON
+(
     { 
-    newLeafNode(this_SKW_COLON_3, grammarAccess.getCmdLineAccess().getSKW_COLONTerminalRuleCall_3()); 
+        newCompositeNode(grammarAccess.getTargetAccess().getFillUpParserRuleCall_2_0()); 
     }
-this_SKW_ASSIGN_4=RULE_SKW_ASSIGN
-    { 
-    newLeafNode(this_SKW_ASSIGN_4, grammarAccess.getCmdLineAccess().getSKW_ASSIGNTerminalRuleCall_4()); 
+ruleFillUp
+    {
+        afterParserOrEnumRuleCall();
     }
-(this_WS_5=RULE_WS
-    { 
-    newLeafNode(this_WS_5, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_5()); 
-    }
-)+((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCmdLineAccess().getArgumentsArgumentParserRuleCall_6_0_0()); 
+	        newCompositeNode(grammarAccess.getTargetAccess().getArgumentsArgumentParserRuleCall_2_1_0()); 
 	    }
-		lv_arguments_6_0=ruleArgument		{
+		lv_arguments_3_0=ruleArgument		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCmdLineRule());
+	            $current = createModelElementForParent(grammarAccess.getTargetRule());
 	        }
        		add(
        			$current, 
        			"arguments",
-        		lv_arguments_6_0, 
+        		lv_arguments_3_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Argument");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)((this_WS_7=RULE_WS
+))*(this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_7, grammarAccess.getCmdLineAccess().getWSTerminalRuleCall_6_1_0()); 
+    newLeafNode(this_WS_4, grammarAccess.getTargetAccess().getWSTerminalRuleCall_3()); 
     }
-)+(
+)*this_NEWLINE_5=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_5, grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_4()); 
+    }
+this_NEWLINE_6=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_5()); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleFillUp
+entryRuleFillUp returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getFillUpRule()); } 
+	 iv_ruleFillUp=ruleFillUp 
+	 { $current=$iv_ruleFillUp.current.getText(); }  
+	 EOF 
+;
+
+// Rule FillUp
+ruleFillUp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+((    this_WS_0=RULE_WS    {
+		$current.merge(this_WS_0);
+    }
+
+    { 
+    newLeafNode(this_WS_0, grammarAccess.getFillUpAccess().getWSTerminalRuleCall_0()); 
+    }
+)+
+    |((    this_WS_1=RULE_WS    {
+		$current.merge(this_WS_1);
+    }
+
+    { 
+    newLeafNode(this_WS_1, grammarAccess.getFillUpAccess().getWSTerminalRuleCall_1_0()); 
+    }
+)*    this_NEWLINE_2=RULE_NEWLINE    {
+		$current.merge(this_NEWLINE_2);
+    }
+
+    { 
+    newLeafNode(this_NEWLINE_2, grammarAccess.getFillUpAccess().getNEWLINETerminalRuleCall_1_1()); 
+    }
+(    this_WS_3=RULE_WS    {
+		$current.merge(this_WS_3);
+    }
+
+    { 
+    newLeafNode(this_WS_3, grammarAccess.getFillUpAccess().getWSTerminalRuleCall_1_2()); 
+    }
+)+))
+    ;
+
+
+
+
+
+// Entry rule entryRuleAssignment
+entryRuleAssignment returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getAssignmentRule()); }
+	 iv_ruleAssignment=ruleAssignment 
+	 { $current=$iv_ruleAssignment.current; } 
+	 EOF 
+;
+
+// Rule Assignment
+ruleAssignment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCmdLineAccess().getArgumentsArgumentParserRuleCall_6_1_1_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentAccess().getStartIdentifierParserRuleCall_0_0()); 
 	    }
-		lv_arguments_8_0=ruleArgument		{
+		lv_start_0_0=ruleIdentifier		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCmdLineRule());
+	            $current = createModelElementForParent(grammarAccess.getAssignmentRule());
+	        }
+       		set(
+       			$current, 
+       			"start",
+        		lv_start_0_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(this_WS_1=RULE_WS
+    { 
+    newLeafNode(this_WS_1, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_1()); 
+    }
+)+this_SKW_COLON_2=RULE_SKW_COLON
+    { 
+    newLeafNode(this_SKW_COLON_2, grammarAccess.getAssignmentAccess().getSKW_COLONTerminalRuleCall_2()); 
+    }
+this_SKW_ASSIGN_3=RULE_SKW_ASSIGN
+    { 
+    newLeafNode(this_SKW_ASSIGN_3, grammarAccess.getAssignmentAccess().getSKW_ASSIGNTerminalRuleCall_3()); 
+    }
+(this_WS_4=RULE_WS
+    { 
+    newLeafNode(this_WS_4, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_4()); 
+    }
+)+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentAccess().getArgumentsArgumentParserRuleCall_5_0_0()); 
+	    }
+		lv_arguments_5_0=ruleArgument		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentRule());
 	        }
        		add(
        			$current, 
        			"arguments",
-        		lv_arguments_8_0, 
+        		lv_arguments_5_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Argument");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)((this_WS_6=RULE_WS
+    { 
+    newLeafNode(this_WS_6, grammarAccess.getAssignmentAccess().getWSTerminalRuleCall_5_1_0()); 
+    }
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentAccess().getArgumentsArgumentParserRuleCall_5_1_1_0()); 
+	    }
+		lv_arguments_7_0=ruleArgument		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentRule());
+	        }
+       		add(
+       			$current, 
+       			"arguments",
+        		lv_arguments_7_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Argument");
 	        afterParserOrEnumRuleCall();
 	    }

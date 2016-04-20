@@ -66,6 +66,8 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
     {
       case CmdArgsPackage.MODEL: return createModel();
       case CmdArgsPackage.CMD_LINE: return createCmdLine();
+      case CmdArgsPackage.TARGET: return createTarget();
+      case CmdArgsPackage.ASSIGNMENT: return createAssignment();
       case CmdArgsPackage.ARGUMENT: return createArgument();
       case CmdArgsPackage.MACRO: return createMacro();
       case CmdArgsPackage.PATH_CMD: return createPathCmd();
@@ -98,6 +100,28 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
   {
     CmdLineImpl cmdLine = new CmdLineImpl();
     return cmdLine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Target createTarget()
+  {
+    TargetImpl target = new TargetImpl();
+    return target;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assignment createAssignment()
+  {
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
   }
 
   /**

@@ -3,6 +3,7 @@
 package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Assignment;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsFactory;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
@@ -13,6 +14,7 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Target;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -42,6 +44,20 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * @generated
    */
   private EClass cmdLineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass targetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assignmentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,6 +219,26 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
   public EReference getCmdLine_Arguments()
   {
     return (EReference)cmdLineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTarget()
+  {
+    return targetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAssignment()
+  {
+    return assignmentEClass;
   }
 
   /**
@@ -492,6 +528,10 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     createEAttribute(cmdLineEClass, CMD_LINE__START);
     createEReference(cmdLineEClass, CMD_LINE__ARGUMENTS);
 
+    targetEClass = createEClass(TARGET);
+
+    assignmentEClass = createEClass(ASSIGNMENT);
+
     argumentEClass = createEClass(ARGUMENT);
     createEReference(argumentEClass, ARGUMENT__MACRO);
     createEAttribute(argumentEClass, ARGUMENT__INC_DIR);
@@ -554,6 +594,8 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    targetEClass.getESuperTypes().add(this.getCmdLine());
+    assignmentEClass.getESuperTypes().add(this.getCmdLine());
     simpleMacroEClass.getESuperTypes().add(this.getMacro());
     objectMacroEClass.getESuperTypes().add(this.getMacro());
     functionMacroEClass.getESuperTypes().add(this.getMacro());
@@ -566,6 +608,10 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     initEClass(cmdLineEClass, CmdLine.class, "CmdLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCmdLine_Start(), ecorePackage.getEString(), "start", null, 0, 1, CmdLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCmdLine_Arguments(), this.getArgument(), null, "arguments", null, 0, -1, CmdLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArgument_Macro(), this.getMacro(), null, "macro", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

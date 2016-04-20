@@ -1,9 +1,12 @@
 foo.o := gcc -Wall foobar.c
 
-foo.o: $(foo.o)
+foo2.o: $(foo.o)
 
 bar.o: 
 
 foobar.o:
-	foo.o
+	foo2.o
 	$(bar.o)
+
+baz.o:
+

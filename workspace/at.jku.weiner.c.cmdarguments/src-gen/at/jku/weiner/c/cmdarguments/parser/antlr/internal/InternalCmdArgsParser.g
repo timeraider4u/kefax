@@ -238,10 +238,6 @@ ruleFillUp
     { 
     newLeafNode(this_NEWLINE_5, grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_4()); 
     }
-this_NEWLINE_6=RULE_NEWLINE
-    { 
-    newLeafNode(this_NEWLINE_6, grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_5()); 
-    }
 )
 ;
 

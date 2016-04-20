@@ -102,14 +102,13 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cArgumentsArgumentParserRuleCall_2_1_0 = (RuleCall)cArgumentsAssignment_2_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Target:
 		//	start=Identifier SKW_COLON (FillUp arguments+=Argument)*
-		//	WS* NEWLINE NEWLINE;
+		//	WS* NEWLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//start=Identifier SKW_COLON (FillUp arguments+=Argument)* WS* NEWLINE NEWLINE
+		//start=Identifier SKW_COLON (FillUp arguments+=Argument)* WS* NEWLINE
 		public Group getGroup() { return cGroup; }
 		
 		//start=Identifier
@@ -138,9 +137,6 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
-		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
 	}
 	public class FillUpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.FillUp");
@@ -1096,7 +1092,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Target:
 	//	start=Identifier SKW_COLON (FillUp arguments+=Argument)*
-	//	WS* NEWLINE NEWLINE;
+	//	WS* NEWLINE;
 	public TargetElements getTargetAccess() {
 		return pTarget;
 	}

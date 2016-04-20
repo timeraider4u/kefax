@@ -21,7 +21,7 @@ CmdLine:
 Target:
 	start=Identifier SKW_COLON
 		(FillUp arguments+=Argument)*
-	WS* NEWLINE NEWLINE
+	WS* NEWLINE
 ;
 
 FillUp:

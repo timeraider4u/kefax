@@ -1394,7 +1394,6 @@ rule__Target__Group__4
     }
 :
 	rule__Target__Group__4__Impl
-	rule__Target__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1415,36 +1414,6 @@ rule__Target__Group__4__Impl
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__Target__Group__5
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Target__Group__5__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Target__Group__5__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_5()); }
-	RULE_NEWLINE
-{ after(grammarAccess.getTargetAccess().getNEWLINETerminalRuleCall_5()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 

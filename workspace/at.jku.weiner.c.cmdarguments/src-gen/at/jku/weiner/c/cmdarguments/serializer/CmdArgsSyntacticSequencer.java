@@ -384,8 +384,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     arguments+=Argument (ambiguity) NEWLINE NEWLINE (rule end)
-	 *     start=Identifier SKW_COLON (ambiguity) NEWLINE NEWLINE (rule end)
+	 *     arguments+=Argument (ambiguity) NEWLINE (rule end)
+	 *     start=Identifier SKW_COLON (ambiguity) NEWLINE (rule end)
 	 */
 	protected void emit_Target_WSTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -25,20 +25,19 @@ import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.log.MyLog;
 
 public class CmdArgs {
-
+	
 	private final CmdLine line;
 	private final String path;
 	private final IFolder src;
-
+	
 	private final List<String> includeDirectoriesPaths;
 	private final StringBuffer additionalDirectives;
 	private final StringBuffer useIncludeDirs;
-
+	
 	private boolean noStdInclude = false;
-
+	
 	private String inFilePath = null;
-	private IFile inFile = null;
-
+	
 	public CmdArgs(final IFile file, final CmdLine line) throws Exception {
 		this.src = KefaxUtils.getLinuxSrcFolder();
 		this.path = KefaxUtils.getURIasFileString(file);
@@ -55,7 +54,7 @@ public class CmdArgs {
 		}
 		this.visit(this.line.getArguments());
 	}
-
+	
 	private final void visit(final EList<Argument> list) throws Exception {
 		if ((list == null) || list.isEmpty()) {
 			final ParseException ex = new ParseException(
@@ -69,7 +68,7 @@ public class CmdArgs {
 			this.visit(arg);
 		}
 	}
-
+	
 	private final void visit(final Argument arg) {
 		final Macro macro = arg.getMacro();
 		final boolean incDir = arg.isIncDir();
@@ -77,7 +76,7 @@ public class CmdArgs {
 		final boolean isNoStdInc = arg.isNostdinc();
 		final PathCmd include = arg.getInclude();
 		final String in = arg.getIn();
-
+		
 		if (macro != null) {
 			this.visit(macro);
 		}
@@ -97,7 +96,7 @@ public class CmdArgs {
 			this.visitForInFile(in);
 		}
 	}
-
+	
 	private final void visit(final Macro macro) {
 		MyLog.trace(CmdArgs.class, "visitMacro='" + macro + "'");
 		if (macro instanceof SimpleMacro) {
@@ -110,14 +109,14 @@ public class CmdArgs {
 			this.visitFor((StringMacro) macro);
 		}
 	}
-
+	
 	private final void visitFor(final SimpleMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
 		this.additionalDirectives.append(" 1");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-
+	
 	private final void visitFor(final ObjectMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
@@ -125,7 +124,7 @@ public class CmdArgs {
 		this.additionalDirectives.append(macro.getValue());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-
+	
 	private final void visitFor(final FunctionMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
@@ -145,25 +144,25 @@ public class CmdArgs {
 		this.additionalDirectives.append(macro.getValue());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-
+	
 	private void visitFor(final StringMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro);
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-
+	
 	private final void visitForUseIncDir(final PathCmd pathCmd) {
 		final String str = pathCmd.getPath();
 		this.addUseIncDir(str, true);
 	}
-
+	
 	private final void addUseIncDir(final String str, final boolean useAbsPath) {
 		final String absPath = this.getPathFor(str, useAbsPath);
 		this.useIncludeDirs.append(absPath);
 		this.includeDirectoriesPaths.add(absPath);
 		this.useIncludeDirs.append(File.pathSeparator);
 	}
-
+	
 	private final String getPathFor(final String str, final boolean useAbsPath) {
 		if (useAbsPath) {
 			final String absPath = this.getAbsolutePath(str);
@@ -171,7 +170,7 @@ public class CmdArgs {
 		}
 		return this.getLinuxAbsolutePath();
 	}
-
+	
 	private final void visitForInclude(final PathCmd pathCmd) {
 		String str = pathCmd.getPath();
 		if (str.startsWith("./")) {
@@ -183,12 +182,11 @@ public class CmdArgs {
 		this.additionalDirectives.append(">");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-
+	
 	private final void visitForInFile(final String inFileParam) {
 		this.inFilePath = inFileParam;
-		this.inFile = null;
 	}
-
+	
 	private final String getAbsolutePath(String result) {
 		final URI uri = URI.createFileURI(result);
 		if (uri.isRelative()) {
@@ -198,35 +196,35 @@ public class CmdArgs {
 		}
 		return result;
 	}
-
+	
 	private final String getLinuxAbsolutePath() {
 		final IResource res = this.src;
 		final String newStr = res.getLocationURI().toString();
 		final String result = newStr.replace("file:", "");
-
+		
 		return result;
 	}
-
+	
 	public String getAdditionalDirectivesAsString() {
 		return this.additionalDirectives.toString();
 	}
-
+	
 	public String getIncludeDirectoriesAsString() {
 		return this.useIncludeDirs.toString();
 	}
-
+	
 	public List<String> getIncludeDirectoriesPathsAsList() {
 		final List<String> list = Collections
 				.unmodifiableList(this.includeDirectoriesPaths);
 		return list;
 	}
-
+	
 	public boolean isNoStandardInclude() {
 		return this.noStdInclude;
 	}
-
+	
 	public String getInFilePath() {
 		return this.inFilePath;
 	}
-
+	
 }

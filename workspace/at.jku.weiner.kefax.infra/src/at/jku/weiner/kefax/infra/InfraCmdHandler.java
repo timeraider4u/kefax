@@ -1,5 +1,6 @@
 package at.jku.weiner.kefax.infra;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -31,6 +34,7 @@ import at.jku.weiner.xtext.XtextUtils;
 public class InfraCmdHandler extends MyActionHandler implements
 IResourceVisitor {
 
+	private static final String HEADER_FILE_SUFFIX = ".h";
 	private final List<IFile> files;
 	
 	public InfraCmdHandler() {
@@ -100,6 +104,15 @@ IResourceVisitor {
 	
 	private void parse(final IProject project, final IFile file)
 			throws Exception {
+		final CmdArgs args = this.paresCmdLines(file);
+		
+		this.copySourceFile(args);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		this.copyIncludeDirectories(args);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+	}
+	
+	private CmdArgs paresCmdLines(final IFile file) throws Exception {
 		if ((file == null) || (!file.isAccessible())) {
 			final Exception ex = new UnsupportedDataTypeException(
 					"Could not access cmd file='" + file + "'");
@@ -136,11 +149,79 @@ IResourceVisitor {
 		// Only read first line
 		final CmdLine cmdLine = cmdLines.get(0);
 		final CmdArgs args = new CmdArgs(file, cmdLine);
-		final String inFile = args.getInFilePath();
+		return args;
+	}
+
+	private void copySourceFile(final CmdArgs args) throws Exception,
+	CoreException {
+		final String inFileString = args.getInFilePath();
 		final List<String> includes = args.getIncludeDirectoriesPathsAsList();
-		MyLog.log(InfraCmdHandler.class, "inFile='" + inFile + "'");
-		MyLog.log(InfraCmdHandler.class, "includes='" + includes + "'");
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFileString + "'");
+		MyLog.trace(InfraCmdHandler.class, "includes='" + includes + "'");
+		final IFolder src = KefaxUtils.getLinuxSrcFolder();
+		final IFile inFile = src.getFile(inFileString);
+		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFile + "'");
+		if ((inFile == null) || (!inFile.isAccessible())) {
+			final Exception ex = new FileNotFoundException("inFile='" + inFile
+					+ "' can not be accessed ('" + inFileString + "')");
+			MyLog.error(InfraCmdHandler.class, ex);
+		}
+		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+		final IFile outFile = dstFolder.getFile(inFileString);
+		KefaxUtils.mkParentDirsFor(outFile, this.getMonitor());
+
+		MyLog.trace(InfraCmdHandler.class, "outFile='" + outFile + "'");
+		inFile.copy(outFile.getFullPath(), true, this.getMonitor());
+	}
+
+	private void copyIncludeDirectories(final CmdArgs args) throws Exception {
+		final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
+		final String srcFolderURIStr = srcFolder.getLocationURI().toString();
+		final String srcFolderStr = srcFolderURIStr.replaceFirst("file:", "");
+		final IPath srcFolderPath = new Path(srcFolderStr);
+		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+		final List<String> incDirs = args.getIncludeDirectoriesPathsAsList();
+		for (int i = 0; i < incDirs.size(); i++) {
+			final String incDir = incDirs.get(i);
+			final IPath path = new Path(incDir);
+			final int num = srcFolderPath.matchingFirstSegments(path);
+			final IPath myPath = path.makeRelativeTo(srcFolderPath);
+			final boolean isAbsolute = myPath.isAbsolute();
+
+			if (!isAbsolute && (num >= 1)) {
+				this.copyIncludeDirectory(srcFolder, dstFolder, myPath);
+			}
+		}
+	}
+	
+	private void copyIncludeDirectory(final IFolder srcFolder,
+			final IFolder dstFolder, final IPath myPath) throws Exception {
+		MyLog.trace(InfraCmdHandler.class, "copy '" + myPath + "' from '"
+				+ srcFolder + "' to '" + dstFolder + "'");
+		final IFolder srcIncFolder = srcFolder.getFolder(myPath);
+		final IFolder dstIncFolder = dstFolder.getFolder(myPath);
+		final IPath dstIncPath = dstIncFolder.getFullPath();
+		KefaxUtils.mkParentDirsFor(dstIncFolder, this.getMonitor());
+		if (!dstIncFolder.exists()) {
+			dstIncFolder.create(true, true, this.getMonitor());
+		}
+		final IResource[] members = srcIncFolder.members();
+		if (members == null) {
+			return;
+		}
+		for (int i = 0; i < members.length; i++) {
+
+			final IResource member = members[i];
+			System.err.println("	member='" + member + "'");
+			System.err.println("	dstIncPath='" + dstIncPath + "'");
+			
+			if (member instanceof IFile) {
+				final String name = member.getName();
+				if (name.endsWith(InfraCmdHandler.HEADER_FILE_SUFFIX)) {
+					member.copy(dstIncPath, true, this.getMonitor());
+				}
+			}
+		}
 	}
 
 }

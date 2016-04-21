@@ -30,13 +30,14 @@ public class CmdArgs {
 	private final String path;
 	private final IFolder src;
 
-	private final List<String> includeDirectories;
+	private final List<String> includeDirectoriesPaths;
 	private final StringBuffer additionalDirectives;
 	private final StringBuffer useIncludeDirs;
 
 	private boolean noStdInclude = false;
 
-	private String inFile = null;
+	private String inFilePath = null;
+	private IFile inFile = null;
 
 	public CmdArgs(final IFile file, final CmdLine line) throws Exception {
 		this.src = KefaxUtils.getLinuxSrcFolder();
@@ -44,7 +45,7 @@ public class CmdArgs {
 		this.line = line;
 		this.additionalDirectives = new StringBuffer("");
 		this.useIncludeDirs = new StringBuffer("");
-		this.includeDirectories = new ArrayList<String>();
+		this.includeDirectoriesPaths = new ArrayList<String>();
 		this.addUseIncDir(null, false);
 		if ((line == null) || (!(line instanceof Assignment))) {
 			final ParseException ex = new ParseException(
@@ -109,7 +110,7 @@ public class CmdArgs {
 			this.visitFor((StringMacro) macro);
 		}
 	}
-	
+
 	private final void visitFor(final SimpleMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
@@ -159,7 +160,7 @@ public class CmdArgs {
 	private final void addUseIncDir(final String str, final boolean useAbsPath) {
 		final String absPath = this.getPathFor(str, useAbsPath);
 		this.useIncludeDirs.append(absPath);
-		this.includeDirectories.add(absPath);
+		this.includeDirectoriesPaths.add(absPath);
 		this.useIncludeDirs.append(File.pathSeparator);
 	}
 
@@ -183,8 +184,9 @@ public class CmdArgs {
 		this.additionalDirectives.append(System.lineSeparator());
 	}
 
-	private final void visitForInFile(final String inFile) {
-		this.inFile = inFile;
+	private final void visitForInFile(final String inFileParam) {
+		this.inFilePath = inFileParam;
+		this.inFile = null;
 	}
 
 	private final String getAbsolutePath(String result) {
@@ -213,9 +215,9 @@ public class CmdArgs {
 		return this.useIncludeDirs.toString();
 	}
 
-	public List<String> getIncludeDirectoriesAsList() {
+	public List<String> getIncludeDirectoriesPathsAsList() {
 		final List<String> list = Collections
-				.unmodifiableList(this.includeDirectories);
+				.unmodifiableList(this.includeDirectoriesPaths);
 		return list;
 	}
 
@@ -223,8 +225,8 @@ public class CmdArgs {
 		return this.noStdInclude;
 	}
 
-	public String getInFile() {
-		return this.inFile;
+	public String getInFilePath() {
+		return this.inFilePath;
 	}
 
 }

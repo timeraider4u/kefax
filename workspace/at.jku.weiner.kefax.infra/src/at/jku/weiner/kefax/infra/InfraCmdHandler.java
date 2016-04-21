@@ -136,8 +136,8 @@ IResourceVisitor {
 		// Only read first line
 		final CmdLine cmdLine = cmdLines.get(0);
 		final CmdArgs args = new CmdArgs(file, cmdLine);
-		final String inFile = args.getInFile();
-		final List<String> includes = args.getIncludeDirectoriesAsList();
+		final String inFile = args.getInFilePath();
+		final List<String> includes = args.getIncludeDirectoriesPathsAsList();
 		MyLog.log(InfraCmdHandler.class, "inFile='" + inFile + "'");
 		MyLog.log(InfraCmdHandler.class, "includes='" + includes + "'");
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());

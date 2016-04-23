@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getContinue <em>Continue</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getBreak <em>Break</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getGoto <em>Goto</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

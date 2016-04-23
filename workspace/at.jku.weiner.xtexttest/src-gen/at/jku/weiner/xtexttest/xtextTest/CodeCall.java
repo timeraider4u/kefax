@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getMyclass <em>Myclass</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getMethod <em>Method</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams <em>Params</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getCodeCall()
  * @model

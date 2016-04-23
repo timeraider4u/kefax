@@ -6,10 +6,10 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.handlers.RadioState;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public class SetLogLevelCommand extends AbstractHandler {
-	
+
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
 		// if (HandlerUtil.matchesRadioState(event)) {
@@ -30,11 +30,11 @@ public class SetLogLevelCommand extends AbstractHandler {
 			MyLog.setLog_level(MyLog.LOG_INFO);
 		}
 		// and so on ...
-
+		
 		// and finally update the current state
 		HandlerUtil.updateRadioState(event.getCommand(), currentState);
-		
+
 		return null;
 	}
-
+	
 }

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl#getAssignmentExpr <em>Assignment Expr</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl#getParameterTypeList <em>Parameter Type List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
@@ -16,25 +15,26 @@ import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestMacroParentheseHelper {
-
+	
 	private final static String MACRO_NAME = "foo";
 	private final static String VALUE = "X Y Z";
 	private final static PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 	private String replaceLine;
-
+	
 	@Inject
 	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-
+	
 	private DefinitionTable definitionTable;
-
+	
 	@Before
 	public void setUp() {
 		MyLog.setLog_level(MyLog.LOG_NONE);
@@ -42,24 +42,24 @@ public class TestMacroParentheseHelper {
 				this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(lexerUtils);
 		this.definitionTable.reset();
-
+		
 		this.replaceLine = TestMacroParentheseHelper.VALUE;
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test00() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
 				.createIdentifierList();
 		this.definitionTable.addFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
-
+		
 		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
 				+ "();post";
 		final String actual = this.definitionTable.fullResolve(code);
 		final String expected = "pre;X Y Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test01() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -73,7 +73,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;55 Y Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test02() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -88,7 +88,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;3 (5) Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test03Params() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -104,7 +104,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;(3) ((5), (3)) (3, (3), ((5)));post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(expected = MacroParentheseNotClosedYetException.class, timeout = 1000)
 	public void test03() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -116,7 +116,7 @@ public class TestMacroParentheseHelper {
 				+ "(;post";
 		this.definitionTable.fullResolve(code);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test04() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -131,7 +131,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;A () Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testA() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -145,7 +145,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;bar Y Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testB() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -160,7 +160,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;0 bar Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testC() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -174,7 +174,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;((bar)) Y Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testD() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -189,7 +189,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;(0) (bar) Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testE() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -204,7 +204,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;0 bar Z(1);post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testF() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -218,7 +218,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;0 Y Z(1);post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testG() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -233,7 +233,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;a b Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testH() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -248,7 +248,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;(0,b) bar Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testI() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -263,7 +263,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;1 (bar,b) Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testJ() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -279,7 +279,7 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;foobar1 (foo1,bar2) (foobar2) (foo2,bar2);post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testK() {
 		final IdentifierList params = TestMacroParentheseHelper.factory
@@ -296,5 +296,5 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;((((foobar1)))) ((((foo1,bar2)))) ((((foobar2) (foo2,bar2))));post";
 		Assert.assertEquals(expected, actual);
 	}
-
+	
 }

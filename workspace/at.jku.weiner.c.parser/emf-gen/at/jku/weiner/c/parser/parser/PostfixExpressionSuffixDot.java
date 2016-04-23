@@ -10,10 +10,10 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot#getIdent <em>Ident</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpressionSuffixDot()
  * @model

@@ -10,6 +10,7 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getExpr <em>Expr</em>}</li>
@@ -21,7 +22,6 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAndand <em>Andand</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getIdent <em>Ident</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getUnaryExpression()
  * @model

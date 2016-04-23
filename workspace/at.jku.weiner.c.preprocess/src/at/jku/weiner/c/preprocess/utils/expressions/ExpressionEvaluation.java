@@ -15,16 +15,16 @@ import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Injector;
 
 public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
-
+	
 	private final IExpressionVisitor<T> visitor;
-
+	
 	public static boolean evaluateFor(final Expression expression,
 			final Injector injector, final DefinitionTable definitionTable) {
 		final IExpressionVisitor<Long> evalVisitor = new ExpressionLongVisitor(
@@ -37,7 +37,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
-
+	
 	public static String evaluateFor(final Expression expression) {
 		final IExpressionVisitor<String> printVisitor = new ExpressionStringVisitor();
 		final ExpressionEvaluation<String> evaluate1 = new ExpressionEvaluation<String>(
@@ -45,11 +45,11 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final String string = evaluate1.walkTo(expression);
 		return string;
 	}
-
+	
 	public ExpressionEvaluation(final IExpressionVisitor<T> visitor) {
 		this.visitor = visitor;
 	}
-
+	
 	@Override
 	public T walkTo(final Expression expression) {
 		if (expression instanceof ConditionalExpression) {
@@ -89,7 +89,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		MyLog.error(ExpressionEvaluation.class, ex);
 		throw ex;
 	}
-
+	
 	@Override
 	public T walkTo(final ConditionalExpression expression) {
 		final T a = this.walkTo((Expression) expression.getExpr());
@@ -100,7 +100,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.visitor.evaluateForConditionalExpression(a, b, c);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final LogicalOrExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -109,7 +109,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final LogicalAndExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -118,7 +118,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final InclusiveOrExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -127,7 +127,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final ExclusiveOrExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -136,7 +136,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final AndExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -144,7 +144,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.visitor.evaluateForAndExpression(left, right);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final EqualityExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -154,7 +154,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final RelationalExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -164,7 +164,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final ShiftExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -174,7 +174,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final AdditiveExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -184,7 +184,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final MultiplicativeExpression expression) {
 		final T left = this.walkTo(expression.getLeft());
@@ -194,7 +194,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				right, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final UnaryExpression expression) {
 		final T expr = this.walkTo(expression.getExpr());
@@ -202,7 +202,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.visitor.evaluateForUnaryExpression(expr, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final PostfixExpression expression) {
 		final Expression expr = expression.getExpr();
@@ -234,7 +234,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 				name, isConst);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(
 			final at.jku.weiner.c.common.common.PrimaryExpression expression) {
@@ -244,7 +244,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.walkTo(constant, id, expr, false);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final PrimaryExpression expression) {
 		final boolean isDefined = expression.isDefined();
@@ -254,7 +254,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.walkTo(constant, id, expr, isDefined);
 		return result;
 	}
-
+	
 	private T walkTo(final String constant, final String id,
 			final Expression expr, final boolean isDefined) {
 		if (constant != null) {
@@ -272,5 +272,5 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		MyLog.error(ExpressionEvaluation.class, ex);
 		throw ex;
 	}
-
+	
 }

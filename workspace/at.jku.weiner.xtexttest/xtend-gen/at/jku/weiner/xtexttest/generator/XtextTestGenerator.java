@@ -3,7 +3,7 @@
  */
 package at.jku.weiner.xtexttest.generator;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 import at.jku.weiner.xtexttest.generator.EmfTestGenerator;
 import at.jku.weiner.xtexttest.generator.MyXtextTestGenerator;
 import at.jku.weiner.xtexttest.xtextTest.Model;

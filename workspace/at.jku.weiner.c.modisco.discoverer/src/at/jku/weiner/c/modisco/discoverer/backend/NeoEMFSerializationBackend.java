@@ -24,26 +24,26 @@ import fr.inria.atlanmod.neoemf.graph.blueprints.util.NeoBlueprintsURI;
 import fr.inria.atlanmod.neoemf.resources.PersistentResourceFactory;
 import fr.inria.atlanmod.neoemf.resources.PersistentResourceOptions;
 import fr.inria.atlanmod.neoemf.resources.impl.PersistentResourceFactoryImpl;
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 import at.jku.weiner.c.parser.utils.ParserUnloader;
 import at.jku.weiner.c.preprocess.utils.PreprocessUnloader;
+import at.jku.weiner.log.MyLog;
 
 public class NeoEMFSerializationBackend extends SerializationBackend {
-	
+
 	private static ResourceSet lastResSet = null;
-	
+
 	protected NeoEMFSerializationBackend(final IDiscoverer discoverer,
 			final MySettings mySettings) {
 		super(discoverer, mySettings);
 	}
-	
+
 	@Override
 	protected final void initializeInternal() throws DiscoveryException {
-		
+
 	}
-	
+
 	@Override
 	protected ResourceSet createNewResourceSet() {
 		final BlueprintsPersistenceBackendFactory persistenceBackendFactory = new BlueprintsPersistenceBackendFactory();
@@ -57,7 +57,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		NeoEMFSerializationBackend.lastResSet = resSet;
 		return resSet;
 	}
-	
+
 	@Override
 	public URI createTargetURI(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
@@ -72,12 +72,12 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		final URI result = NeoBlueprintsURI.createNeoGraphURI(fileUri);
 		return result;
 	}
-	
+
 	@Override
 	protected String getBackendExtension() {
 		return Messages.modelNeoEMFSuffix;
 	}
-	
+
 	@Override
 	public Resource createNewTargetResource(final URI uri)
 			throws DiscoveryException, IOException {
@@ -88,7 +88,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		this.saveTargetModel(resource, uri);
 		return resource;
 	}
-	
+
 	@Override
 	protected void saveTargetModel(final Resource res, final URI uri)
 			throws IOException {
@@ -101,7 +101,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		// storeOptions
 		// .add(BlueprintsResourceOptions.EStoreGraphOption.DIRECT_WRITE);
 		storeOptions
-				.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
+		.add(BlueprintsResourceOptions.EStoreGraphOption.AUTOCOMMIT);
 		options.put(BlueprintsResourceOptions.OPTIONS_BLUEPRINTS_GRAPH_TYPE,
 				BlueprintsNeo4jResourceOptions.OPTIONS_BLUEPRINTS_TYPE_NEO4J);
 		options.put(
@@ -110,19 +110,19 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		options.put(PersistentResourceOptions.STORE_OPTIONS, storeOptions);
 		res.save(options);
 	}
-	
+
 	@Override
 	protected boolean deleteLastSaved(final URI lastURI) throws IOException {
 		return false;
 	}
-	
+
 	@Override
 	protected void closeInternal() throws IOException {
 		PreprocessUnloader.unloadCachedStuff();
 		ParserUnloader.unloadCachedStuff();
 		this.unloadResSet();
 	}
-	
+
 	private void unloadResSet() {
 		MyLog.trace(NeoEMFSerializationBackend.class,
 				"unloading resource set - phase 1!");
@@ -130,7 +130,7 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 		MyLog.trace(NeoEMFSerializationBackend.class,
 				"unloading resource set - phase 2!");
 		if ((NeoEMFSerializationBackend.lastResSet != null)) {
-			
+
 			final EList<Resource> list = NeoEMFSerializationBackend.lastResSet
 					.getResources();
 			if (list != null) {
@@ -142,12 +142,12 @@ public class NeoEMFSerializationBackend extends SerializationBackend {
 			}
 			NeoEMFSerializationBackend.lastResSet.getResources().clear();
 			NeoEMFSerializationBackend.lastResSet.getResourceFactoryRegistry()
-					.getProtocolToFactoryMap().clear();
+			.getProtocolToFactoryMap().clear();
 		}
 		MyLog.trace(NeoEMFSerializationBackend.class,
 				"unloading resource set - phase 3!");
 		PersistenceBackendFactoryRegistry.getFactories().clear();
 		NeoEMFSerializationBackend.lastResSet = null;
 	}
-	
+
 }

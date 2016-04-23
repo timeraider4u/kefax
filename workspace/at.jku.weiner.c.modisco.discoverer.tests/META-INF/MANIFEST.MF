@@ -35,10 +35,9 @@ Require-Bundle: org.junit;bundle-version="4.11.0",
  at.jku.weiner.c.preprocess,
  fr.inria.atlanmod.neoemf.graph.blueprints;bundle-version="0.0.1",
  fr.inria.atlanmod.neoemf.graph.blueprints.neo4j;bundle-version="0.0.1",
- fr.inria.atlanmod.neoemf.ui;bundle-version="0.0.1"
+ fr.inria.atlanmod.neoemf.ui;bundle-version="0.0.1",
+ at.jku.weiner.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: at.jku.weiner.c.modisco.discoverer.tests
-Bundle-ClassPath: libs/commons-io-2.4.jar,
- .

@@ -3,34 +3,34 @@ package at.jku.weiner.c.parser.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public final class ScopeSymbols implements Cloneable {
 	private final String scopeName;
 	private final List<ScopeTypes> types = new ArrayList<ScopeTypes>();
 	private boolean isTypeDefValue = false;
 	private String temp = null;
-
+	
 	private final boolean forceEnableDebug;
-
+	
 	public ScopeSymbols(final String scopeName) {
 		this(scopeName, false);
 	}
-	
+
 	public ScopeSymbols(final String scopeName, final boolean forceEnableDebug) {
 		this.forceEnableDebug = forceEnableDebug;
 		this.scopeName = scopeName;
 		// level 0
 		this.types.add(new ScopeTypes(forceEnableDebug));
 	}
-	
+
 	public void clear(final int level) {
 		this.cleanUp(level);
 		if (level > 0) {
 			this.types.get(level).clear();
 		}
 	}
-	
+
 	public void cleanUp(final int level) {
 		for (int i = this.types.size() - 1; i > level; i--) {
 			this.types.remove(i);
@@ -39,7 +39,7 @@ public final class ScopeSymbols implements Cloneable {
 			this.types.add(new ScopeTypes(this.forceEnableDebug));
 		}
 	}
-	
+
 	public void addType(final int level) {
 		this.cleanUp(level);
 		if (this.isTypeDefValue && (this.temp != null)) {
@@ -51,7 +51,7 @@ public final class ScopeSymbols implements Cloneable {
 			this.setTypeDefValue(false);
 		}
 	}
-	
+
 	public boolean containsType(final int level, final String type) {
 		this.cleanUp(level);
 		MyLog.trace(ScopeSymbols.class, this.debug());
@@ -67,7 +67,7 @@ public final class ScopeSymbols implements Cloneable {
 		}
 		return false;
 	}
-	
+
 	public String debug() {
 		if (!MyLog.shouldLog(MyLog.LOG_DEBUG) && (!this.forceEnableDebug)) {
 			return "";
@@ -88,21 +88,21 @@ public final class ScopeSymbols implements Cloneable {
 		}
 		return result.toString();
 	}
-	
+
 	public void setTypeDefValue(final boolean isTypeDefValue) {
 		MyLog.trace(ScopeSymbols.class, "setTypedefValue='" + isTypeDefValue
 				+ "'");
 		this.isTypeDefValue = isTypeDefValue;
 	}
-	
+
 	public void setTemp(final String temp) {
 		this.temp = temp;
 	}
-	
+
 	public String getScopeName() {
 		return this.scopeName;
 	}
-	
+
 	@Override
 	public Object clone() {
 		final ScopeSymbols result = new ScopeSymbols(this.scopeName,
@@ -118,5 +118,5 @@ public final class ScopeSymbols implements Cloneable {
 		}
 		return result;
 	}
-	
+
 }

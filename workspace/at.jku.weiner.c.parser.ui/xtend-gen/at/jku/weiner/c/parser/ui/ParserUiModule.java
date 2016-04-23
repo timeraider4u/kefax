@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class ParserUiModule extends AbstractParserUiModule {
-  public ParserUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public ParserUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

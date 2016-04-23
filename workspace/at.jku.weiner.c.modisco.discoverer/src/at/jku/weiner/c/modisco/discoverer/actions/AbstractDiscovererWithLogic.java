@@ -16,10 +16,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.FileNameSorter;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
+import at.jku.weiner.log.MyLog;
 
 public abstract class AbstractDiscovererWithLogic<T> extends
 		AbstractDiscoverer<T> {

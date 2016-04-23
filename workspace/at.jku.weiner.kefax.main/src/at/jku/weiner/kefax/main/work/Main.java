@@ -31,10 +31,9 @@ import org.eclipse.xtext.validation.Issue;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
-import at.jku.weiner.c.common.log.MyLog;
-import at.jku.weiner.c.modisco.discoverer.actions.AbstractDiscoverer;
 import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Injector;
 

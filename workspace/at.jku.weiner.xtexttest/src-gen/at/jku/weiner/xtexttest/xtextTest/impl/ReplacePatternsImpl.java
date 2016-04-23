@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl#getReplace <em>Replace</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

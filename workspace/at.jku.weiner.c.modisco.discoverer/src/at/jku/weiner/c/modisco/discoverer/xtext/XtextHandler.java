@@ -20,16 +20,16 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.actions.XtextUtils;
 import at.jku.weiner.c.modisco.discoverer.utils.MyStore;
 import at.jku.weiner.c.parser.ui.internal.ParserActivator;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Injector;
 
 public abstract class XtextHandler<T> {
-	
+
 	public static Injector setupPreprocessor() {
 		MyLog.trace(XtextUtils.class, "setupPreprocessor!");
 		final PreprocessActivator activator = PreprocessActivator.getInstance();
@@ -37,7 +37,7 @@ public abstract class XtextHandler<T> {
 				.getInjector(PreprocessActivator.AT_JKU_WEINER_C_PREPROCESS_PREPROCESS);
 		return result;
 	}
-	
+
 	public static Injector setupParser() {
 		MyLog.trace(XtextUtils.class, "setupParser!");
 		final ParserActivator activator = ParserActivator.getInstance();
@@ -45,7 +45,7 @@ public abstract class XtextHandler<T> {
 				.getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
 		return result;
 	}
-	
+
 	protected final String[] fileExtensions;
 	protected final MyStore store;
 	private final Injector injector;
@@ -53,9 +53,9 @@ public abstract class XtextHandler<T> {
 	private final IResourceValidator validator;
 	private final JavaIoFileSystemAccess fileAccessSystem;
 	protected final IGenerator generator;
-	
+
 	private Resource resource = null;
-	
+
 	public XtextHandler(final String[] fileExtensions, final MyStore store,
 			final Injector injector) {
 		this.fileExtensions = fileExtensions;
@@ -69,7 +69,7 @@ public abstract class XtextHandler<T> {
 				.getInstance(JavaIoFileSystemAccess.class);
 		this.generator = this.injector.getInstance(IGenerator.class);
 	}
-	
+
 	public final T parseFile(final File file, final IFile iFile)
 			throws Exception {
 		// set-up
@@ -103,17 +103,17 @@ public abstract class XtextHandler<T> {
 		// should never get here
 		return null;
 	}
-	
+
 	protected void setUp(final File file, final IFile iFile) {
-		
+
 	}
-	
+
 	private final void error(final String string) throws Exception {
 		final DiscoveryException ex = new DiscoveryException(string);
 		MyLog.error(XtextHandler.class, ex);
 		throw ex;
 	}
-	
+
 	private final Resource loadResource(final File file, final IFile iFile)
 			throws DiscoveryException {
 		for (final String ext : this.fileExtensions) {
@@ -136,7 +136,7 @@ public abstract class XtextHandler<T> {
 		MyLog.trace(XtextHandler.class, "Resource='" + resource + "'");
 		return resource;
 	}
-	
+
 	private final void validateResource(final Resource resource)
 			throws Exception {
 		// validate the resource
@@ -148,11 +148,11 @@ public abstract class XtextHandler<T> {
 					+ "': " + list.toString());
 		}
 	}
-	
+
 	protected void parseFinalize(final T resource) {
-		
+
 	}
-	
+
 	public void generate(final IFile iFile, final String fileNameOnly)
 			throws DiscoveryException {
 		final String path = this.getOutputPath(iFile);
@@ -161,9 +161,9 @@ public abstract class XtextHandler<T> {
 		this.setUpGenerator();
 		this.generator.doGenerate(this.resource, this.fileAccessSystem);
 	}
-	
+
 	public abstract String getOutputPath(IFile iFile) throws DiscoveryException;
-	
+
 	protected abstract void setUpGenerator();
-	
+
 }

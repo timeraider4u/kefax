@@ -25,7 +25,8 @@ import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.log.MyLog;
 
 public class CmdArgs {
-	
+	private final StringBuffer cmdArgsAsStringBuffer;
+	private final String id;
 	private final CmdLine line;
 	private final String path;
 	private final IFolder src;
@@ -42,6 +43,9 @@ public class CmdArgs {
 		this.src = KefaxUtils.getLinuxSrcFolder();
 		this.path = KefaxUtils.getURIasFileString(file);
 		this.line = line;
+		this.id = line.getStart();
+		this.cmdArgsAsStringBuffer = new StringBuffer(this.id);
+		this.cmdArgsAsStringBuffer.append(" := ");
 		this.additionalDirectives = new StringBuffer("");
 		this.useIncludeDirs = new StringBuffer("");
 		this.includeDirectoriesPaths = new ArrayList<String>();
@@ -53,6 +57,7 @@ public class CmdArgs {
 			MyLog.error(CmdArgs.class, ex);
 		}
 		this.visit(this.line.getArguments());
+		this.cmdArgsAsStringBuffer.append(System.lineSeparator());
 	}
 	
 	private final void visit(final EList<Argument> list) throws Exception {
@@ -81,12 +86,13 @@ public class CmdArgs {
 			this.visit(macro);
 		}
 		if (incDir) {
-			this.visitForUseIncDir(arg.getUseIncDir());
+			this.visitForUseIncDir(arg.getUseIncDir(), incDir);
 		}
 		if (incSys) {
-			this.visitForUseIncDir(arg.getUseIncDir());
+			this.visitForUseIncDir(arg.getUseIncDir(), incDir);
 		}
 		if (isNoStdInc) {
+			this.cmdArgsAsStringBuffer.append(" -nostdinc");
 			this.noStdInclude = isNoStdInc;
 		}
 		if (include != null) {
@@ -111,6 +117,9 @@ public class CmdArgs {
 	}
 	
 	private final void visitFor(final SimpleMacro macro) {
+		this.cmdArgsAsStringBuffer.append(" -D");
+		this.cmdArgsAsStringBuffer.append(macro.getName());
+
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
 		this.additionalDirectives.append(" 1");
@@ -118,6 +127,11 @@ public class CmdArgs {
 	}
 	
 	private final void visitFor(final ObjectMacro macro) {
+		this.cmdArgsAsStringBuffer.append(" -D");
+		this.cmdArgsAsStringBuffer.append(macro.getName());
+		this.cmdArgsAsStringBuffer.append("=");
+		this.cmdArgsAsStringBuffer.append(macro.getValue());
+
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
 		this.additionalDirectives.append(" ");
@@ -126,6 +140,10 @@ public class CmdArgs {
 	}
 	
 	private final void visitFor(final FunctionMacro macro) {
+		this.cmdArgsAsStringBuffer.append(" -D");
+		this.cmdArgsAsStringBuffer.append(macro.getName());
+		this.cmdArgsAsStringBuffer.append("(");
+
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
 		this.additionalDirectives.append("(");
@@ -133,12 +151,18 @@ public class CmdArgs {
 		boolean isFirst = true;
 		for (int i = 0; i < params.size(); i++) {
 			if (!isFirst) {
+				this.cmdArgsAsStringBuffer.append(",");
 				this.additionalDirectives.append(",");
 			}
 			final String param = params.get(i);
 			this.additionalDirectives.append(param);
+			this.cmdArgsAsStringBuffer.append(param);
 			isFirst = false;
 		}
+		this.cmdArgsAsStringBuffer.append(")");
+		this.cmdArgsAsStringBuffer.append("=");
+		this.cmdArgsAsStringBuffer.append(macro.getValue());
+		
 		this.additionalDirectives.append(")");
 		this.additionalDirectives.append(" ");
 		this.additionalDirectives.append(macro.getValue());
@@ -146,13 +170,25 @@ public class CmdArgs {
 	}
 	
 	private void visitFor(final StringMacro macro) {
+		this.cmdArgsAsStringBuffer.append(" -D\"");
+		this.cmdArgsAsStringBuffer.append(macro.getString());
+		this.cmdArgsAsStringBuffer.append("\"");
+
 		this.additionalDirectives.append("#define ");
-		this.additionalDirectives.append(macro);
+		this.additionalDirectives.append(macro.getString());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
 	
-	private final void visitForUseIncDir(final PathCmd pathCmd) {
+	private final void visitForUseIncDir(final PathCmd pathCmd,
+			final boolean incDir) {
+		if (incDir) {
+			this.cmdArgsAsStringBuffer.append(" -I");
+		} else {
+			this.cmdArgsAsStringBuffer.append(" -isystem ");
+		}
+		
 		final String str = pathCmd.getPath();
+		this.cmdArgsAsStringBuffer.append(str);
 		this.addUseIncDir(str, true);
 	}
 	
@@ -173,6 +209,9 @@ public class CmdArgs {
 	
 	private final void visitForInclude(final PathCmd pathCmd) {
 		String str = pathCmd.getPath();
+		this.cmdArgsAsStringBuffer.append(" -include ");
+		this.cmdArgsAsStringBuffer.append(str);
+		
 		if (str.startsWith("./")) {
 			str = str.substring(2);
 		}
@@ -185,6 +224,8 @@ public class CmdArgs {
 	
 	private final void visitForInFile(final String inFileParam) {
 		this.inFilePath = inFileParam;
+		this.cmdArgsAsStringBuffer.append(" ");
+		this.cmdArgsAsStringBuffer.append(inFileParam);
 	}
 	
 	private final String getAbsolutePath(String result) {
@@ -226,5 +267,9 @@ public class CmdArgs {
 	public String getInFilePath() {
 		return this.inFilePath;
 	}
-	
+
+	public String getCmdLineAsString() {
+		final String result = this.cmdArgsAsStringBuffer.toString();
+		return result;
+	}
 }

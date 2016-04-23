@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Input#getText <em>Text</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Input#getFile <em>File</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getInput()
  * @model

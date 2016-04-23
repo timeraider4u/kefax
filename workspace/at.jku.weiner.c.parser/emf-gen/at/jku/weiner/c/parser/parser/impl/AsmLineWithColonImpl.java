@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl#getAsmLine <em>Asm Line</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

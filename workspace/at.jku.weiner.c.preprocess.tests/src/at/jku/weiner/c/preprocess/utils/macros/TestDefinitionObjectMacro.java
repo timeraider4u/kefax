@@ -11,25 +11,25 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestDefinitionObjectMacro {
-
+	
 	@Inject
 	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-
+	
 	private DefinitionTable definitionTable;
 	private LexerUtils lexerUtils;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		MyLog.setLog_level(MyLog.LOG_NONE);
@@ -37,7 +37,7 @@ public class TestDefinitionObjectMacro {
 		this.definitionTable = new DefinitionTable(this.lexerUtils);
 		this.definitionTable.reset();
 	}
-
+	
 	@Test
 	public void testSimpleReplacement1() {
 		this.definitionTable.add("BAR", "X Y Z");
@@ -59,7 +59,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(5, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacement2() {
 		final List<Token> code = this.lexerUtils.getTokens("FOO BAR BAZ");
@@ -81,7 +81,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacement3() {
 		final List<Token> code = this.lexerUtils.getTokens("FOO BAR BAZ");
@@ -103,7 +103,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(5, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacement4() {
 		this.definitionTable.add("BAR", "");
@@ -126,7 +126,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacement5() {
 		this.definitionTable.add("BAR", "");
@@ -148,7 +148,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacement6() {
 		this.definitionTable.add("BAR", "");
@@ -171,7 +171,7 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals(1, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);
 	}
-
+	
 	@Test
 	public void testSimpleReplacementEmpty() {
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(
@@ -183,5 +183,5 @@ public class TestDefinitionObjectMacro {
 		Assert.assertEquals("", token.getText());
 		Assert.assertEquals(InternalPreprocessLexer.RULE_ID, token.getType());
 	}
-
+	
 }

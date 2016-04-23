@@ -7,35 +7,35 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public class Copy {
 	private final File src;
 	private final File dst;
 	private final Path srcPath;
 	private final Path dstPath;
-
+	
 	public Copy(final String src, final String dst) {
 		this(new File(src), new File(dst));
 	}
-
+	
 	public Copy(final File src, final File dst, final String name) {
 		this(new File(src, name), new File(dst, name));
 	}
-
+	
 	public Copy(final File src, final File dst) {
 		this.src = src;
 		this.dst = dst;
 		this.srcPath = src.toPath();
 		this.dstPath = dst.toPath();
 	}
-
+	
 	/*
 	 * public void copyAndContinue() { try { this.copy(); } catch (IOException
 	 * e) { System.err.println("copying of file '" + this.srcPath + "' to dst='"
 	 * + this.dst + "' failed!"); } }
 	 */
-
+	
 	public void copy() throws IOException {
 		this.dst.getParentFile().mkdirs();
 		if (this.src.isDirectory()) {

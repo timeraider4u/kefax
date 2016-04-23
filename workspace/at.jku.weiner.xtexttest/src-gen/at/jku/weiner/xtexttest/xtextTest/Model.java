@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Model#getXtextTest <em>Xtext Test</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Model#getEmfTest <em>Emf Test</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getModel()
  * @model

@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorImpl#getPointer <em>Pointer</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorImpl#getDirectAbstractDeclarator <em>Direct Abstract Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorImpl#getGccDeclExtAbstract <em>Gcc Decl Ext Abstract</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

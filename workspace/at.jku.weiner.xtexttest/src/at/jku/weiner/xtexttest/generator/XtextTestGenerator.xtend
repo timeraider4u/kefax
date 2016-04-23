@@ -6,14 +6,10 @@ package at.jku.weiner.xtexttest.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import at.jku.weiner.xtexttest.xtextTest.XtextTest
 import org.eclipse.emf.common.util.URI
-import at.jku.weiner.xtexttest.xtextTest.Element
-import at.jku.weiner.xtexttest.xtextTest.Inner
-import org.eclipse.emf.common.util.EList
 import org.eclipse.xtend.lib.annotations.Accessors
 import at.jku.weiner.xtexttest.xtextTest.Model
-import at.jku.weiner.c.common.log.MyLog
+import at.jku.weiner.log.MyLog
 
 /**
  * Generates code from your model files on save.

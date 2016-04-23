@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib,
  at.jku.weiner.c.common,
- fr.inria.atlanmod.neoemf.core;bundle-version="0.0.1";visibility:=reexport
+ fr.inria.atlanmod.neoemf.core;bundle-version="0.0.1";visibility:=reexport,
+ at.jku.weiner.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.parser,
  at.jku.weiner.c.parser.generator,

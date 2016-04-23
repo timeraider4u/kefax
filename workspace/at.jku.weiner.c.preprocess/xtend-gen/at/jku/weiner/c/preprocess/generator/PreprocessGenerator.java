@@ -8,7 +8,6 @@ import at.jku.weiner.c.common.common.CommonFactory;
 import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
@@ -41,6 +40,7 @@ import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
+import at.jku.weiner.log.MyLog;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
@@ -68,6 +68,7 @@ import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
  * Generates code from your model files on save.
@@ -76,8 +77,8 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
  */
 @SuppressWarnings("all")
 public class PreprocessGenerator implements IGenerator {
-  /* @Accessors
-   */private String fileName = "hello_world.cdt.i";
+  @Accessors
+  private String fileName = "hello_world.cdt.i";
   
   @Accessors
   private TranslationUnit unit = null;
@@ -782,5 +783,86 @@ public class PreprocessGenerator implements IGenerator {
       String _plus_1 = (_plus + "\"");
       this.definitionTable.add(PredefinedMacros.MACRO_FILE, _plus_1);
     }
+  }
+  
+  @Pure
+  public String getFileName() {
+    return this.fileName;
+  }
+  
+  public void setFileName(final String fileName) {
+    this.fileName = fileName;
+  }
+  
+  @Pure
+  public TranslationUnit getUnit() {
+    return this.unit;
+  }
+  
+  public void setUnit(final TranslationUnit unit) {
+    this.unit = unit;
+  }
+  
+  @Pure
+  public boolean isLegacyMode() {
+    return this.legacyMode;
+  }
+  
+  public void setLegacyMode(final boolean legacyMode) {
+    this.legacyMode = legacyMode;
+  }
+  
+  @Pure
+  public boolean isInsertPredefinedMacros() {
+    return this.insertPredefinedMacros;
+  }
+  
+  public void setInsertPredefinedMacros(final boolean insertPredefinedMacros) {
+    this.insertPredefinedMacros = insertPredefinedMacros;
+  }
+  
+  @Pure
+  public boolean isValidateUnit() {
+    return this.validateUnit;
+  }
+  
+  public void setValidateUnit(final boolean validateUnit) {
+    this.validateUnit = validateUnit;
+  }
+  
+  @Pure
+  public Injector getCommonInjector() {
+    return this.commonInjector;
+  }
+  
+  public void setCommonInjector(final Injector commonInjector) {
+    this.commonInjector = commonInjector;
+  }
+  
+  @Pure
+  public boolean isStdInclude() {
+    return this.stdInclude;
+  }
+  
+  public void setStdInclude(final boolean stdInclude) {
+    this.stdInclude = stdInclude;
+  }
+  
+  @Pure
+  public String getAdditionalPreprocessingDirectives() {
+    return this.additionalPreprocessingDirectives;
+  }
+  
+  public void setAdditionalPreprocessingDirectives(final String additionalPreprocessingDirectives) {
+    this.additionalPreprocessingDirectives = additionalPreprocessingDirectives;
+  }
+  
+  @Pure
+  public boolean isTrimPreprocessModel() {
+    return this.trimPreprocessModel;
+  }
+  
+  public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
+    this.trimPreprocessModel = trimPreprocessModel;
   }
 }

@@ -4298,129 +4298,149 @@ public class InternalPreprocessLexer extends Lexer {
         public String getDescription() {
             return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_INCLUDE_NEXT | RULE_DEFINE | RULE_LINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_VA_ARGS | RULE_HEX_LITERAL | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_WHITESPACE | RULE_IGNORED | RULE_SPECIAL );";
         }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
+        public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
+            int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA46_0 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA46_0=='#') ) {s = 1;}
-
-                        else if ( (LA46_0=='i') ) {s = 2;}
-
-                        else if ( (LA46_0=='d') ) {s = 3;}
-
-                        else if ( (LA46_0=='l') ) {s = 4;}
-
-                        else if ( (LA46_0=='e') ) {s = 5;}
-
-                        else if ( (LA46_0=='w') ) {s = 6;}
-
-                        else if ( (LA46_0=='u') ) {s = 7;}
-
-                        else if ( (LA46_0=='p') ) {s = 8;}
-
-                        else if ( (LA46_0=='_') ) {s = 9;}
-
-                        else if ( (LA46_0=='0') ) {s = 10;}
-
-                        else if ( ((LA46_0>='1' && LA46_0<='9')) ) {s = 11;}
-
-                        else if ( (LA46_0=='\n'||LA46_0=='\r') ) {s = 12;}
-
-                        else if ( (LA46_0=='&') ) {s = 13;}
-
-                        else if ( (LA46_0=='=') ) {s = 14;}
-
-                        else if ( (LA46_0=='\\') ) {s = 15;}
-
-                        else if ( (LA46_0=='^') ) {s = 16;}
-
-                        else if ( (LA46_0==',') ) {s = 17;}
-
-                        else if ( (LA46_0==':') ) {s = 18;}
-
-                        else if ( (LA46_0=='/') ) {s = 19;}
-
-                        else if ( (LA46_0=='.') ) {s = 20;}
-
-                        else if ( (LA46_0=='\"') ) {s = 21;}
-
-                        else if ( (LA46_0=='>') ) {s = 22;}
-
-                        else if ( (LA46_0=='{') ) {s = 23;}
-
-                        else if ( (LA46_0=='[') ) {s = 24;}
-
-                        else if ( (LA46_0=='(') ) {s = 25;}
-
-                        else if ( (LA46_0=='<') ) {s = 26;}
-
-                        else if ( (LA46_0=='-') ) {s = 27;}
-
-                        else if ( (LA46_0=='%') ) {s = 28;}
-
-                        else if ( (LA46_0=='!') ) {s = 29;}
-
-                        else if ( (LA46_0=='|') ) {s = 30;}
-
-                        else if ( (LA46_0=='+') ) {s = 31;}
-
-                        else if ( (LA46_0=='?') ) {s = 32;}
-
-                        else if ( (LA46_0=='}') ) {s = 33;}
-
-                        else if ( (LA46_0==']') ) {s = 34;}
-
-                        else if ( (LA46_0==')') ) {s = 35;}
-
-                        else if ( (LA46_0==';') ) {s = 36;}
-
-                        else if ( (LA46_0=='\'') ) {s = 37;}
-
-                        else if ( (LA46_0=='*') ) {s = 38;}
-
-                        else if ( (LA46_0=='~') ) {s = 39;}
-
-                        else if ( (LA46_0=='L') ) {s = 40;}
-
-                        else if ( (LA46_0=='$'||(LA46_0>='A' && LA46_0<='K')||(LA46_0>='M' && LA46_0<='Z')||(LA46_0>='a' && LA46_0<='c')||(LA46_0>='f' && LA46_0<='h')||(LA46_0>='j' && LA46_0<='k')||(LA46_0>='m' && LA46_0<='o')||(LA46_0>='q' && LA46_0<='t')||LA46_0=='v'||(LA46_0>='x' && LA46_0<='z')) ) {s = 41;}
-
-                        else if ( (LA46_0=='\t'||LA46_0==' ') ) {s = 42;}
-
-                        else if ( (LA46_0=='\f') ) {s = 43;}
-
-                        else if ( ((LA46_0>='\u0000' && LA46_0<='\b')||LA46_0=='\u000B'||(LA46_0>='\u000E' && LA46_0<='\u001F')||LA46_0=='@'||LA46_0=='`'||(LA46_0>='\u007F' && LA46_0<='\uFFFF')) ) {s = 44;}
-
-                        if ( s>=0 ) return s;
+                        s = specialState0(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
                     case 1 : 
-                        int LA46_21 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA46_21>='\u0000' && LA46_21<='\uFFFF')) ) {s = 84;}
-
-                        else s = 83;
-
-                        if ( s>=0 ) return s;
+                        s = specialState1(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
                     case 2 : 
-                        int LA46_37 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA46_37>='\u0000' && LA46_37<='&')||(LA46_37>='(' && LA46_37<='\uFFFF')) ) {s = 109;}
-
-                        else s = 108;
-
-                        if ( s>=0 ) return s;
+                        s = specialState2(s, input);
+                        if (s >= 0) return s;
                         break;
+                    
             }
             NoViableAltException nvae =
                 new NoViableAltException(getDescription(), 46, _s, input);
             error(nvae);
             throw nvae;
+        }
+
+        private int specialState0(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA46_0 = input.LA(1);
+
+            s = -1;
+            if ( (LA46_0=='#') ) {s = 1;}
+
+            else if ( (LA46_0=='i') ) {s = 2;}
+
+            else if ( (LA46_0=='d') ) {s = 3;}
+
+            else if ( (LA46_0=='l') ) {s = 4;}
+
+            else if ( (LA46_0=='e') ) {s = 5;}
+
+            else if ( (LA46_0=='w') ) {s = 6;}
+
+            else if ( (LA46_0=='u') ) {s = 7;}
+
+            else if ( (LA46_0=='p') ) {s = 8;}
+
+            else if ( (LA46_0=='_') ) {s = 9;}
+
+            else if ( (LA46_0=='0') ) {s = 10;}
+
+            else if ( ((LA46_0>='1' && LA46_0<='9')) ) {s = 11;}
+
+            else if ( (LA46_0=='\n'||LA46_0=='\r') ) {s = 12;}
+
+            else if ( (LA46_0=='&') ) {s = 13;}
+
+            else if ( (LA46_0=='=') ) {s = 14;}
+
+            else if ( (LA46_0=='\\') ) {s = 15;}
+
+            else if ( (LA46_0=='^') ) {s = 16;}
+
+            else if ( (LA46_0==',') ) {s = 17;}
+
+            else if ( (LA46_0==':') ) {s = 18;}
+
+            else if ( (LA46_0=='/') ) {s = 19;}
+
+            else if ( (LA46_0=='.') ) {s = 20;}
+
+            else if ( (LA46_0=='\"') ) {s = 21;}
+
+            else if ( (LA46_0=='>') ) {s = 22;}
+
+            else if ( (LA46_0=='{') ) {s = 23;}
+
+            else if ( (LA46_0=='[') ) {s = 24;}
+
+            else if ( (LA46_0=='(') ) {s = 25;}
+
+            else if ( (LA46_0=='<') ) {s = 26;}
+
+            else if ( (LA46_0=='-') ) {s = 27;}
+
+            else if ( (LA46_0=='%') ) {s = 28;}
+
+            else if ( (LA46_0=='!') ) {s = 29;}
+
+            else if ( (LA46_0=='|') ) {s = 30;}
+
+            else if ( (LA46_0=='+') ) {s = 31;}
+
+            else if ( (LA46_0=='?') ) {s = 32;}
+
+            else if ( (LA46_0=='}') ) {s = 33;}
+
+            else if ( (LA46_0==']') ) {s = 34;}
+
+            else if ( (LA46_0==')') ) {s = 35;}
+
+            else if ( (LA46_0==';') ) {s = 36;}
+
+            else if ( (LA46_0=='\'') ) {s = 37;}
+
+            else if ( (LA46_0=='*') ) {s = 38;}
+
+            else if ( (LA46_0=='~') ) {s = 39;}
+
+            else if ( (LA46_0=='L') ) {s = 40;}
+
+            else if ( (LA46_0=='$'||(LA46_0>='A' && LA46_0<='K')||(LA46_0>='M' && LA46_0<='Z')||(LA46_0>='a' && LA46_0<='c')||(LA46_0>='f' && LA46_0<='h')||(LA46_0>='j' && LA46_0<='k')||(LA46_0>='m' && LA46_0<='o')||(LA46_0>='q' && LA46_0<='t')||LA46_0=='v'||(LA46_0>='x' && LA46_0<='z')) ) {s = 41;}
+
+            else if ( (LA46_0=='\t'||LA46_0==' ') ) {s = 42;}
+
+            else if ( (LA46_0=='\f') ) {s = 43;}
+
+            else if ( ((LA46_0>='\u0000' && LA46_0<='\b')||LA46_0=='\u000B'||(LA46_0>='\u000E' && LA46_0<='\u001F')||LA46_0=='@'||LA46_0=='`'||(LA46_0>='\u007F' && LA46_0<='\uFFFF')) ) {s = 44;}
+
+            return s;
+        }
+
+        private int specialState1(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA46_21 = input.LA(1);
+
+            s = -1;
+            if ( ((LA46_21>='\u0000' && LA46_21<='\uFFFF')) ) {s = 84;}
+
+            else s = 83;
+
+            return s;
+        }
+
+        private int specialState2(int s, IntStream _input) {
+            IntStream input = _input;
+            int LA46_37 = input.LA(1);
+
+            s = -1;
+            if ( ((LA46_37>='\u0000' && LA46_37<='&')||(LA46_37>='(' && LA46_37<='\uFFFF')) ) {s = 109;}
+
+            else s = 108;
+
+            return s;
         }
     }
  

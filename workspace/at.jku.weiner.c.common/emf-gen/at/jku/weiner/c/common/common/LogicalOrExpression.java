@@ -10,11 +10,11 @@ package at.jku.weiner.c.common.common;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.LogicalOrExpression#getLeft <em>Left</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.LogicalOrExpression#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getLogicalOrExpression()
  * @model

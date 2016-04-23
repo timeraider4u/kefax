@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getExpected <em>Expected</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getReplacePatterns <em>Replace Patterns</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getException <em>Exception</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

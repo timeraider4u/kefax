@@ -18,7 +18,7 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.junit.Assert;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public class LexerAndParserTest extends AbstractXtextTests {
 	

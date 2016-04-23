@@ -51,13 +51,13 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 import java.util.Stack
-import at.jku.weiner.c.common.log.MyLog
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
 import at.jku.weiner.c.preprocess.utils.LexerUtils
 import at.jku.weiner.c.preprocess.utils.Trimmer
 import at.jku.weiner.c.common.common.Expression
 import at.jku.weiner.c.preprocess.preprocess.LineDirective
+import at.jku.weiner.log.MyLog
 
 /**
  * Generates code from your model files on save.

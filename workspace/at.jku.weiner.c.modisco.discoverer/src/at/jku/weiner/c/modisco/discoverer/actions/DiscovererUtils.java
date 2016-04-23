@@ -17,16 +17,16 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.modisco.discoverer.utils.Messages;
+import at.jku.weiner.log.MyLog;
 
 public final class DiscovererUtils {
 	private static List<String> extensionList = null;
-
+	
 	private DiscovererUtils() {
-
+		
 	}
-
+	
 	protected static final void handleException(final Exception ex)
 			throws DiscoveryException {
 		if (ex instanceof DiscoveryException) {
@@ -38,12 +38,12 @@ public final class DiscovererUtils {
 		MyLog.errorNoThrows(DiscovererUtils.class, ex);
 		throw newEx;
 	}
-
+	
 	protected static boolean isApplicableOn(final IResource resource) {
 		MyLog.trace(DiscovererUtils.class, "isApplicableOn='" + resource + "'");
 		MyLog.trace(DiscovererUtils.class,
 				"isApplicableOn='" + resource.getClass() + "'");
-
+		
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
@@ -61,7 +61,7 @@ public final class DiscovererUtils {
 		}
 		return false;
 	}
-
+	
 	protected static boolean isCdtExtension(final String fileExtension) {
 		final boolean result = DiscovererUtils.getExtensionList().contains(
 				fileExtension);
@@ -69,7 +69,7 @@ public final class DiscovererUtils {
 				+ "'=" + result);
 		return result;
 	}
-
+	
 	protected static List<String> getExtensionList() {
 		if (DiscovererUtils.extensionList == null) {
 			final String[] list = Messages.extensionList.split(",");
@@ -77,7 +77,7 @@ public final class DiscovererUtils {
 		}
 		return DiscovererUtils.extensionList;
 	}
-
+	
 	protected static boolean checkFile(final IFile file) {
 		if (!file.exists()) {
 			return false;
@@ -92,7 +92,7 @@ public final class DiscovererUtils {
 		MyLog.trace(DiscovererUtils.class, "result=" + result);
 		return result;
 	}
-
+	
 	public static IFile getFileFor(final File file) throws DiscoveryException {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IPath location = Path.fromOSString(file.getAbsolutePath());
@@ -110,7 +110,7 @@ public final class DiscovererUtils {
 				+ result.getFullPath().toOSString());
 		return result;
 	}
-
+	
 	public static String getTargetDirectory(final IResource res,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		final IProject project = res.getProject();
@@ -126,5 +126,5 @@ public final class DiscovererUtils {
 		final String result = tmpStr.replaceAll("file[:]", "");
 		return result;
 	}
-
+	
 }

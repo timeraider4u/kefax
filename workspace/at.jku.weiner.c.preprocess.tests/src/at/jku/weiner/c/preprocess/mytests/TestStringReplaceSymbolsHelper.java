@@ -11,25 +11,25 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestStringReplaceSymbolsHelper {
-
+	
 	@Inject
 	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-
+	
 	private DefinitionTable definitionTable;
-
+	
 	@Before
 	public void setUp() {
 		MyLog.setLog_level(MyLog.LOG_NONE);
@@ -38,7 +38,7 @@ public class TestStringReplaceSymbolsHelper {
 		this.definitionTable = new DefinitionTable(lexerUtils);
 		this.definitionTable.reset();
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testSimplePattern() {
 		final String text = "FOO \"FOO\" FOO \"FOO\" FOO";
@@ -62,7 +62,7 @@ public class TestStringReplaceSymbolsHelper {
 		Assert.assertEquals(20, index);
 		Assert.assertFalse(matcher.find(21));
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test00() {
 		final String text = "A little penguin looks at you!";
@@ -72,20 +72,20 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test01() {
 		final String text = "\"A little penguin looks at you!\", said a penguin researcher.";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-
+		
 		this.definitionTable.add(symbol, replacement);
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals(
 				"\"A little penguin looks at you!\", said a red fox researcher.",
 				actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test02() {
 		final String text = "Foo bar, \"\\\"Foo bar\\\"\", \\Foo bar";
@@ -95,7 +95,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("Bar bar, \"\\\"Foo bar\\\"\", \\Bar bar", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test04() {
 		final String text = "Foo bar, \"\"Foo bar\"\", \\\\Foo bar";
@@ -105,7 +105,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("Bar bar, \"\"Bar bar\"\", \\\\Bar bar", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test05() {
 		final String text = "foo = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and foo;";
@@ -117,7 +117,7 @@ public class TestStringReplaceSymbolsHelper {
 				"Bar = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and Bar;",
 				actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test06() {
 		final String text = "A little penguin looks at aeo_oe?!";
@@ -127,7 +127,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little penguin looks at you?!", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test07() {
 		final String text = "A little penguin2 looks at you!";
@@ -137,7 +137,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little penguin2 looks at you!", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test08() {
 		final String text = "A little penguin looks at you!";
@@ -147,7 +147,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test09() {
 		final String text = "A little penguin looks at ae1_2_b_3!";
@@ -157,7 +157,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void test10() {
 		final String text = "A little penguin2 looks at you!";
@@ -167,5 +167,5 @@ public class TestStringReplaceSymbolsHelper {
 		final String actual = this.definitionTable.fullResolve(text);
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
-
+	
 }

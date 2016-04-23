@@ -4,24 +4,24 @@ import java.util.Stack;
 
 import org.antlr.runtime.TokenStream;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public final class Scope {
-
+	
 	protected static final Stack<ScopeSymbols> scope = new Stack<ScopeSymbols>();
-
+	
 	public static final void createFirstScope(final String scopeName) {
 		Scope.scope.clear();
 		Scope.createNewScope(scopeName);
 	}
-
+	
 	public static final void createNewScope(final String scopeName) {
 		MyLog.debug(Scope.class, "createNewScope='" + scopeName + "'");
 		final ScopeSymbols symbols = new ScopeSymbols(scopeName);
 		Scope.scope.push(symbols);
 		MyLog.trace(Scope.class, "Scope.size()='" + Scope.scope.size() + "'");
 	}
-
+	
 	public static final void removeScope() {
 		if (Scope.scope.size() > 0) {
 			MyLog.debug(Scope.class, "removeScope='"
@@ -30,24 +30,24 @@ public final class Scope {
 		}
 		MyLog.trace(Scope.class, "Scope.size()='" + Scope.scope.size() + "'");
 	}
-
+	
 	public static final void removeScope(final int expectedSize)
 			throws Exception {
 		Scope.removeScope();
 		if (expectedSize != Scope.scope.size()) {
 			final int actualSize = Scope.scope.size();
 			Scope.scope.clear();
-
+			
 			final RuntimeException ex = new RuntimeException("expected size='"
 					+ expectedSize + "', but was '" + actualSize + "'!");
 			MyLog.error(Scope.class, ex);
 		}
 	}
-
+	
 	public static int size() {
 		return Scope.scope.size();
 	}
-
+	
 	public static final boolean isTypeName(final int backtracking,
 			final TokenStream input) {
 		String token = input.LT(1).getText();
@@ -58,7 +58,7 @@ public final class Scope {
 				+ "', token(choosen)='" + token + "'");
 		return Scope.isTypeName(backtracking, token);
 	}
-
+	
 	private static final boolean isTypeName(final int backtracking,
 			final String name) {
 		MyLog.debug(Scope.class, "searching for typeName='" + name
@@ -77,12 +77,12 @@ public final class Scope {
 		MyLog.trace(Scope.class, "isTypeName='false'");
 		return false;
 	}
-
+	
 	public static final void setTemp(final TokenStream stream) {
 		final String string = stream.LT(1).getText();
 		Scope.scope.peek().setTemp(string);
 	}
-
+	
 	public static final void setTypedef(final int backtracking,
 			final boolean newTypeDef) {
 		// if (!newTypeDef) {
@@ -93,21 +93,21 @@ public final class Scope {
 		// }
 		Scope.scope.peek().setTypeDefValue(newTypeDef);
 	}
-
+	
 	public static final void addTypedefIfIsTypedef(final int backtracking) {
 		Scope.scope.peek().addType(backtracking);
 	}
-
+	
 	protected static final Stack<ScopeSymbols> scope2 = new Stack<ScopeSymbols>();
-
+	
 	public static final void saveState() {
 		Scope.copyTo(Scope.scope, Scope.scope2);
 	}
-
+	
 	public static final void restoreState() {
 		Scope.copyTo(Scope.scope2, Scope.scope);
 	}
-
+	
 	private static final void copyTo(final Stack<ScopeSymbols> source,
 			final Stack<ScopeSymbols> target) {
 		target.clear();

@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.ui,
  org.eclipse.modisco.infra.discovery.core;bundle-version="0.12.2",
  at.jku.weiner.kefax.dotconfig,
- at.jku.weiner.c.common
+ at.jku.weiner.c.common,
+ at.jku.weiner.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/commons-io-2.4.jar,

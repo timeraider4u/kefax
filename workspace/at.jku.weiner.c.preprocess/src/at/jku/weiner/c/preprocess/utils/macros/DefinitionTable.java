@@ -6,10 +6,10 @@ import java.util.Map;
 
 import org.antlr.runtime.Token;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
+import at.jku.weiner.log.MyLog;
 
 public final class DefinitionTable {
 	

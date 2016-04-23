@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
 import at.jku.weiner.kefax.dotconfig.dotconfig.DotConfigModel;
+import at.jku.weiner.log.MyLog;
 
 public class DotConfig {
-
+	
 	private static final FilenameFilter DOT_CONFIG_FILTER = new FilenameFilter() {
-
+		
 		@Override
 		public boolean accept(final File dir, final String name) {
 			if (name.equals(".config")) {
@@ -32,7 +32,7 @@ public class DotConfig {
 			return false;
 		}
 	};
-
+	
 	protected static File getDotConfigFile(final File linuxSrcDir,
 			final String linuxSrcDirPath) {
 		final File[] dotConfigFiles = linuxSrcDir
@@ -44,11 +44,11 @@ public class DotConfig {
 		if (dotConfigFiles.length > 1) {
 			throw new IllegalArgumentException(
 					"More than one .config file found in '" + linuxSrcDirPath
-					+ "'");
+							+ "'");
 		}
 		return dotConfigFiles[0];
 	}
-
+	
 	protected static List<Config> parseDotConfig(final File dotConfigFile,
 			final String dotConfig) {
 		try {
@@ -58,7 +58,7 @@ public class DotConfig {
 					+ dotConfig + "'!");
 		}
 	}
-
+	
 	/***
 	 * see http://wiki.eclipse.org/Xtext/FAQ#
 	 * How_do_I_load_my_model_in_a_standalone_Java_application.C2.A0.3F for
@@ -81,21 +81,21 @@ public class DotConfig {
 		}
 		return resultList;
 	}
-
+	
 	protected static void createFeaturesTxt(final File featuresFile,
 			final String features, final List<Config> configs) {
 		try {
 			DotConfig
-			.createFeaturesTxtInternal(featuresFile, features, configs);
+					.createFeaturesTxtInternal(featuresFile, features, configs);
 		} catch (final IOException e) {
 			throw new RuntimeException("Could not create features.txt as '"
 					+ features + "'");
 		}
 	}
-
+	
 	private static void createFeaturesTxtInternal(final File featuresFile,
 			final String features, final List<Config> configs)
-					throws IOException {
+			throws IOException {
 		MyLog.log(DotConfig.class, "Creating features.txt as '" + features
 				+ "'");
 		featuresFile.delete();
@@ -114,10 +114,10 @@ public class DotConfig {
 		}
 		output.close();
 	}
-
+	
 	public static void createDefineFile(final File defineFile,
 			final String defineFilePath, final List<Config> configs)
-					throws IOException {
+			throws IOException {
 		MyLog.log(DotConfig.class, "Creating define file as '" + defineFilePath
 				+ "'");
 		defineFile.delete();
@@ -136,6 +136,6 @@ public class DotConfig {
 			}
 		}
 		output.close();
-
+		
 	}
 }

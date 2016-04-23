@@ -10,11 +10,11 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.ConstantExpression#getRestrict <em>Restrict</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ConstantExpression#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getConstantExpression()
  * @model

@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#isExtension <em>Extension</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

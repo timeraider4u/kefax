@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.kefax.dotconfig.dotconfig.Config#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.kefax.dotconfig.dotconfig.Config#getV <em>V</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.kefax.dotconfig.dotconfig.DotconfigPackage#getConfig()
  * @model

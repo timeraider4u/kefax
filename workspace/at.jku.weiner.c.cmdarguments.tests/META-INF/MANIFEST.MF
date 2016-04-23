@@ -10,7 +10,6 @@ Require-Bundle: at.jku.weiner.c.cmdarguments,
  org.eclipse.xtext.xbase.junit,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.xbase.lib,
- at.jku.weiner.c.common,
  at.jku.weiner.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.cmdarguments.tests

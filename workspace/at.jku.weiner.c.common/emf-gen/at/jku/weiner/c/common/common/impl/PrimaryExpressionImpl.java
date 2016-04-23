@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getIdent <em>Ident</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#isParentheses <em>Parentheses</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

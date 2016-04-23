@@ -3,7 +3,7 @@
  */
 package at.jku.weiner.xtexttest.generator;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 import at.jku.weiner.xtexttest.xtextTest.After;
 import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.CodeCall;

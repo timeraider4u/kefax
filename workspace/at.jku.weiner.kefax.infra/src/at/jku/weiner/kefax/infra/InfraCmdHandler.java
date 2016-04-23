@@ -1,6 +1,8 @@
 package at.jku.weiner.kefax.infra;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,16 +34,16 @@ import at.jku.weiner.log.MyLog;
 import at.jku.weiner.xtext.XtextUtils;
 
 public class InfraCmdHandler extends MyActionHandler implements
-IResourceVisitor {
-
+		IResourceVisitor {
+	
 	private static final String HEADER_FILE_SUFFIX = ".h";
 	private final List<IFile> files;
-	
+
 	public InfraCmdHandler() {
 		super("at.jku.weiner.kefax.infra.infra.command");
 		this.files = new ArrayList<IFile>();
 	}
-	
+
 	@Override
 	protected void myRun() throws Exception {
 		MyLog.trace(InfraCmdHandler.class, "starting infra handler!");
@@ -49,24 +51,28 @@ IResourceVisitor {
 		final IFolder srcFolder = KefaxUtils.getLinuxExt4SrcFolder();
 		this.files.clear();
 		srcFolder.accept(this);
-		final IProject project = this.setUpProject();
-		final IFolder src = project.getFolder(MySettings.LINUX_DISCOVER_DIR);
-		if (src.exists()) {
-			src.delete(true, this.getMonitor());
+		final IProject dstProject = this.setUpProject();
+		final IFolder dstFolder = dstProject
+				.getFolder(MySettings.LINUX_DISCOVER_DIR);
+		if (dstFolder.exists()) {
+			dstFolder.delete(true, this.getMonitor());
 		}
-		src.create(true, true, this.getMonitor());
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		dstFolder.create(true, true, this.getMonitor());
+		dstProject.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		this.getMonitor().beginTask("working on .cmd files", this.files.size());
+		final IFile cmdOutFile = this.createCmdOutFile(dstFolder);
+		this.getMonitor().beginTask("working on .cmd files", this.files.size());
+
 		for (int i = 0; i < this.files.size(); i++) {
 			final IFile file = this.files.get(i);
-			this.parse(project, file);
+			this.parse(dstProject, file, cmdOutFile);
 			this.getMonitor().worked(1);
 			if (this.getMonitor().isCanceled()) {
 				throw new OperationCanceledException();
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean visit(final IResource resource) throws CoreException {
 		if (resource == null) {
@@ -102,17 +108,31 @@ IResourceVisitor {
 		return project;
 	}
 	
-	private void parse(final IProject project, final IFile file)
-			throws Exception {
-		final CmdArgs args = this.paresCmdLines(file);
-		
+	private IFile createCmdOutFile(final IFolder dstFolder)
+			throws CoreException {
+		final IFile cmdOutFile = dstFolder
+				.getFile(MySettings.LINUX_DISCOVER_CMD_OUT);
+		if (cmdOutFile.exists()) {
+			cmdOutFile.delete(true, this.getMonitor());
+		}
+		final byte[] bytes = "".getBytes();
+		final InputStream source = new ByteArrayInputStream(bytes);
+		cmdOutFile.create(source, true, this.getMonitor());
+		return cmdOutFile;
+	}
+
+	private void parse(final IProject project, final IFile file,
+			final IFile cmdOutFile) throws Exception {
+		final CmdArgs args = this.parseCmdLines(file);
+		this.writeToCmdOutFile(cmdOutFile, args);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		this.copySourceFile(args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		this.copyIncludeDirectories(args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
-	
-	private CmdArgs paresCmdLines(final IFile file) throws Exception {
+
+	private CmdArgs parseCmdLines(final IFile file) throws Exception {
 		if ((file == null) || (!file.isAccessible())) {
 			final Exception ex = new UnsupportedDataTypeException(
 					"Could not access cmd file='" + file + "'");
@@ -151,9 +171,17 @@ IResourceVisitor {
 		final CmdArgs args = new CmdArgs(file, cmdLine);
 		return args;
 	}
-
+	
+	private void writeToCmdOutFile(final IFile cmdOutFile, final CmdArgs args)
+			throws CoreException {
+		final String argsAsString = args.getCmdLineAsString();
+		final InputStream inStream = new ByteArrayInputStream(
+				argsAsString.getBytes());
+		cmdOutFile.appendContents(inStream, true, true, this.getMonitor());
+	}
+	
 	private void copySourceFile(final CmdArgs args) throws Exception,
-	CoreException {
+			CoreException {
 		final String inFileString = args.getInFilePath();
 		final List<String> includes = args.getIncludeDirectoriesPathsAsList();
 		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFileString + "'");
@@ -169,11 +197,11 @@ IResourceVisitor {
 		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
 		final IFile outFile = dstFolder.getFile(inFileString);
 		KefaxUtils.mkParentDirsFor(outFile, this.getMonitor());
-
+		
 		MyLog.trace(InfraCmdHandler.class, "outFile='" + outFile + "'");
 		inFile.copy(outFile.getFullPath(), true, this.getMonitor());
 	}
-
+	
 	private void copyIncludeDirectories(final CmdArgs args) throws Exception {
 		final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
 		final String srcFolderURIStr = srcFolder.getLocationURI().toString();
@@ -187,16 +215,16 @@ IResourceVisitor {
 			final int num = srcFolderPath.matchingFirstSegments(path);
 			final IPath myPath = path.makeRelativeTo(srcFolderPath);
 			final boolean isAbsolute = myPath.isAbsolute();
-
+			
 			if (!isAbsolute && (num >= 1)) {
 				this.copyIncludeDirectory(srcFolder, dstFolder, myPath);
 			}
 		}
 	}
-	
+
 	private void copyIncludeDirectory(final IFolder srcFolder,
 			final IFolder dstFolder, final IPath myPath) throws Exception {
-		MyLog.trace(InfraCmdHandler.class, "copy '" + myPath + "' from '"
+		MyLog.log(InfraCmdHandler.class, "copy '" + myPath + "' from '"
 				+ srcFolder + "' to '" + dstFolder + "'");
 		final IFolder srcIncFolder = srcFolder.getFolder(myPath);
 		final IFolder dstIncFolder = dstFolder.getFolder(myPath);
@@ -210,11 +238,13 @@ IResourceVisitor {
 			return;
 		}
 		for (int i = 0; i < members.length; i++) {
-
-			final IResource member = members[i];
-			System.err.println("	member='" + member + "'");
-			System.err.println("	dstIncPath='" + dstIncPath + "'");
 			
+			final IResource member = members[i];
+			// System.err.println("	member='" + member + "'");
+			// System.err.println("	member.type='" + member.getClass() + "'");
+			
+			// System.err.println("	dstIncPath='" + dstIncPath + "'");
+
 			if (member instanceof IFile) {
 				final String name = member.getName();
 				if (name.endsWith(InfraCmdHandler.HEADER_FILE_SUFFIX)) {
@@ -223,5 +253,5 @@ IResourceVisitor {
 			}
 		}
 	}
-
+	
 }

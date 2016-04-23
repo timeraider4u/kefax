@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.antlr.runtime.Token;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public final class DefinitionObjectMacro implements DefinitionMacro {
 

@@ -23,7 +23,6 @@ import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
-import at.jku.weiner.c.common.log.MyLog;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
@@ -33,6 +32,7 @@ import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionLongVisitor;
 import at.jku.weiner.c.preprocess.utils.expressions.IExpressionVisitor;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;

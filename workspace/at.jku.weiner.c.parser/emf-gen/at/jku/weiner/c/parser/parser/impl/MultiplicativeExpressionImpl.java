@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.MultiplicativeExpressionImpl#getOp <em>Op</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

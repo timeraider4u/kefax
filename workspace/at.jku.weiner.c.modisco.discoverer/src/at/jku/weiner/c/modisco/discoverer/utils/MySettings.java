@@ -1,6 +1,6 @@
 package at.jku.weiner.c.modisco.discoverer.utils;
 
-import at.jku.weiner.c.common.log.MyLog;
+import at.jku.weiner.log.MyLog;
 
 public final class MySettings {
 	public static final String EXCLUSIVE_MSG = "TRIM_PREPROCESS_MODEL and BATCH_MODE "

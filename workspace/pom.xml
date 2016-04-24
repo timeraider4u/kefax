@@ -180,8 +180,6 @@
 		<module>at.jku.weiner.c.common</module>
 		<module>at.jku.weiner.c.common.tests</module>
 		<module>at.jku.weiner.c.common.ui</module>
-		<module>at.jku.weiner.c.common.ui.log</module>
-		<module>at.jku.weiner.c.common.ui.log.service</module>
 		<module>at.jku.weiner.c.common.ui.tests</module>
 		<module>at.jku.weiner.c.parser</module>
 		<module>at.jku.weiner.c.parser.tests</module>
@@ -191,12 +189,10 @@
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
-		<!--
-		<module>at.jku.weiner.kefax.kbuild</module>
-		<module>at.jku.weiner.kefax.kbuild.tests</module>
-		<module>at.jku.weiner.kefax.kbuild.ui</module>
-		<module>at.jku.weiner.kefax.kbuild.ui.tests</module>
-		-->
+		
+		<module>at.jku.weiner.log</module>
+		<module>at.jku.weiner.log.eclipselog</module>
+		
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>

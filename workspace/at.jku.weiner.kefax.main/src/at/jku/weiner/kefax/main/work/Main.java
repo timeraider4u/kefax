@@ -7,10 +7,9 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -33,6 +32,8 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
 import at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromIResource;
 import at.jku.weiner.kefax.dotconfig.dotconfig.Config;
+import at.jku.weiner.kefax.infra.cmdargs.CmdArgs;
+import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Injector;
@@ -81,21 +82,14 @@ public class Main {
 	
 	private IStatus run2(final IProgressMonitor monitor,
 			final DiscoverFromIResource discoverer) throws Exception {
-		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		final IProject project = root.getProject("HelloC");
-		final IResource cmdRes = project.findMember("test.cmd");
-		if ((cmdRes == null) || !cmdRes.isAccessible()
-				|| !(cmdRes instanceof IFile)) {
-			this.error("invalid cmd file='" + cmdRes + "'!");
+		final IFile cmdFile = KefaxUtils.getCommandsFile();
+		
+		if ((cmdFile == null) || !cmdFile.isAccessible()) {
+			this.error("invalid cmd file='" + cmdFile + "'!");
 		}
-		final IFile cmdFile = (IFile) cmdRes;
-		final String cmdPath = cmdRes.getLocationURI().toString();
+		final String cmdPath = cmdFile.getLocationURI().toString();
 		MyLog.log(Main.class, "cmdPath='" + cmdPath + "'");
-		// Linux project
-		final IProject linux = root.getProject(Settings.LINUX);
-		if (linux == null) {
-			this.error("could not find linux project in workspace!");
-		}
+		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
 		// get command arguments Xtext units
 		final CmdArgsActivator activator = CmdArgsActivator.getInstance();
 		if (activator == null) {
@@ -138,7 +132,7 @@ public class Main {
 			final int num = i + 1;
 			MyLog.log(Main.class, "cmdLine=" + num + "/" + total + "!");
 			final CmdLine cmdLine = cmdLines.get(i);
-			final CmdArgs args = new CmdArgs(cmdPath, cmdLine, linux);
+			final CmdArgs args = new CmdArgs(cmdFile, cmdLine);
 			final String additionalDirectives = args
 					.getAdditionalDirectivesAsString();
 			MyLog.debug(Main.class, "additionalDirectives='"
@@ -149,7 +143,7 @@ public class Main {
 					+ "'");
 			final boolean stdInclude = !args.isNoStandardInclude();
 			MyLog.debug(Main.class, "stdInclude='" + stdInclude + "'");
-			final String inFile = args.getInFile();
+			final String inFile = args.getInFilePath();
 			MyLog.debug(Main.class, "inFile='" + inFile + "'");
 			if (!this.isValid(inFile)) {
 				MyLog.debug(Main.class, "inFile is invalid, inFile='" + inFile
@@ -157,7 +151,7 @@ public class Main {
 				continue;
 			}
 			// get discoverer resource input file
-			final IResource inFileRes = linux.findMember(inFile);
+			final IResource inFileRes = dstFolder.findMember(inFile);
 			if ((inFileRes == null) || !inFileRes.isAccessible()) {
 				this.error("could not access in-file='" + inFile
 						+ "' in linux project!");
@@ -234,12 +228,12 @@ public class Main {
 	
 	@SuppressWarnings("unused")
 	private void run() throws IOException {
-		final File linuxSrcDir = Settings.DEFAULT_LINUX_DIR;
+		final File linuxSrcDir = new File("DEFAULT_LINUX_DIR");
 		final String linuxSrcDirPath = linuxSrcDir.getAbsolutePath();
-		final File outDir = Settings.DEFAULT_OUT_DIR;
+		final File outDir = new File("DEFAULT_OUT_DIR");
 		if (outDir.exists()) {
 			MyLog.debug(Main.class, "deleting existing directory '"
-					+ Settings.DEFAULT_OUT + "'");
+					+ "DEFAULT_OUT" + "'");
 			outDir.delete();
 			FileUtils.deleteDirectory(outDir);
 		}
@@ -272,15 +266,15 @@ public class Main {
 	@SuppressWarnings("unused")
 	private static File parseLinuxSourceDir(final String[] args) {
 		if ((args == null) || (args.length <= 0)) {
-			return Settings.DEFAULT_LINUX_DIR;
+			return new File("DEFAULT_LINUX_DIR");
 		}
 		final String dir = args[0];
 		if (dir.isEmpty()) {
-			return Settings.DEFAULT_LINUX_DIR;
+			return new File("DEFAULT_LINUX_DIR");
 		}
 		final File srcDir = new File(dir);
 		if ((!srcDir.isDirectory()) || (!srcDir.canRead())) {
-			return Settings.DEFAULT_LINUX_DIR;
+			return new File("DEFAULT_LINUX_DIR");
 		}
 		return srcDir;
 	}

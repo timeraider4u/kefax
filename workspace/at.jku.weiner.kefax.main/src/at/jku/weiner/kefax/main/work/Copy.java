@@ -39,7 +39,7 @@ public class Copy {
 	public void copy() throws IOException {
 		this.dst.getParentFile().mkdirs();
 		if (this.src.isDirectory()) {
-			MyLog.debug(CmdArgs.class, "copy dir-src='" + this.src
+			MyLog.debug(Copy.class, "copy dir-src='" + this.src
 					+ "' to dir-dst='" + this.dst + "'");
 			final File[] files = this.src.listFiles();
 			this.dst.mkdirs();
@@ -49,7 +49,7 @@ public class Copy {
 				copy.copy();
 			}
 		} else {
-			MyLog.debug(CmdArgs.class, "copy src='" + this.src + "' to dst='"
+			MyLog.debug(Copy.class, "copy src='" + this.src + "' to dst='"
 					+ this.dst + "'");
 			final String name = this.src.getName();
 			if (name.endsWith(".dwo")) {

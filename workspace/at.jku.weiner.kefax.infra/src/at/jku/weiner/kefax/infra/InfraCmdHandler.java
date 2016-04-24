@@ -27,6 +27,7 @@ import com.google.inject.Injector;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
+import at.jku.weiner.kefax.infra.cmdargs.CmdArgs;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MySettings;
@@ -34,16 +35,16 @@ import at.jku.weiner.log.MyLog;
 import at.jku.weiner.xtext.XtextUtils;
 
 public class InfraCmdHandler extends MyActionHandler implements
-		IResourceVisitor {
-	
+IResourceVisitor {
+
 	private static final String HEADER_FILE_SUFFIX = ".h";
 	private final List<IFile> files;
-
+	
 	public InfraCmdHandler() {
 		super("at.jku.weiner.kefax.infra.infra.command");
 		this.files = new ArrayList<IFile>();
 	}
-
+	
 	@Override
 	protected void myRun() throws Exception {
 		MyLog.trace(InfraCmdHandler.class, "starting infra handler!");
@@ -62,7 +63,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 		this.getMonitor().beginTask("working on .cmd files", this.files.size());
 		final IFile cmdOutFile = this.createCmdOutFile(dstFolder);
 		this.getMonitor().beginTask("working on .cmd files", this.files.size());
-
+		
 		for (int i = 0; i < this.files.size(); i++) {
 			final IFile file = this.files.get(i);
 			this.parse(dstProject, file, cmdOutFile);
@@ -72,7 +73,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean visit(final IResource resource) throws CoreException {
 		if (resource == null) {
@@ -93,7 +94,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 		}
 		return false;
 	}
-	
+
 	private IProject setUpProject() throws CoreException {
 		final IProject project = KefaxUtils.getLinuxDiscoverProject();
 		if (project.exists()) {
@@ -107,11 +108,10 @@ public class InfraCmdHandler extends MyActionHandler implements
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		return project;
 	}
-	
+
 	private IFile createCmdOutFile(final IFolder dstFolder)
 			throws CoreException {
-		final IFile cmdOutFile = dstFolder
-				.getFile(MySettings.LINUX_DISCOVER_CMD_OUT);
+		final IFile cmdOutFile = KefaxUtils.getCommandsFile();
 		if (cmdOutFile.exists()) {
 			cmdOutFile.delete(true, this.getMonitor());
 		}
@@ -120,7 +120,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 		cmdOutFile.create(source, true, this.getMonitor());
 		return cmdOutFile;
 	}
-
+	
 	private void parse(final IProject project, final IFile file,
 			final IFile cmdOutFile) throws Exception {
 		final CmdArgs args = this.parseCmdLines(file);
@@ -131,7 +131,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 		this.copyIncludeDirectories(args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
-
+	
 	private CmdArgs parseCmdLines(final IFile file) throws Exception {
 		if ((file == null) || (!file.isAccessible())) {
 			final Exception ex = new UnsupportedDataTypeException(
@@ -171,7 +171,7 @@ public class InfraCmdHandler extends MyActionHandler implements
 		final CmdArgs args = new CmdArgs(file, cmdLine);
 		return args;
 	}
-	
+
 	private void writeToCmdOutFile(final IFile cmdOutFile, final CmdArgs args)
 			throws CoreException {
 		final String argsAsString = args.getCmdLineAsString();
@@ -179,9 +179,9 @@ public class InfraCmdHandler extends MyActionHandler implements
 				argsAsString.getBytes());
 		cmdOutFile.appendContents(inStream, true, true, this.getMonitor());
 	}
-	
+
 	private void copySourceFile(final CmdArgs args) throws Exception,
-			CoreException {
+	CoreException {
 		final String inFileString = args.getInFilePath();
 		final List<String> includes = args.getIncludeDirectoriesPathsAsList();
 		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFileString + "'");
@@ -197,11 +197,11 @@ public class InfraCmdHandler extends MyActionHandler implements
 		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
 		final IFile outFile = dstFolder.getFile(inFileString);
 		KefaxUtils.mkParentDirsFor(outFile, this.getMonitor());
-		
+
 		MyLog.trace(InfraCmdHandler.class, "outFile='" + outFile + "'");
 		inFile.copy(outFile.getFullPath(), true, this.getMonitor());
 	}
-	
+
 	private void copyIncludeDirectories(final CmdArgs args) throws Exception {
 		final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
 		final String srcFolderURIStr = srcFolder.getLocationURI().toString();
@@ -215,13 +215,13 @@ public class InfraCmdHandler extends MyActionHandler implements
 			final int num = srcFolderPath.matchingFirstSegments(path);
 			final IPath myPath = path.makeRelativeTo(srcFolderPath);
 			final boolean isAbsolute = myPath.isAbsolute();
-			
+
 			if (!isAbsolute && (num >= 1)) {
 				this.copyIncludeDirectory(srcFolder, dstFolder, myPath);
 			}
 		}
 	}
-
+	
 	private void copyIncludeDirectory(final IFolder srcFolder,
 			final IFolder dstFolder, final IPath myPath) throws Exception {
 		MyLog.log(InfraCmdHandler.class, "copy '" + myPath + "' from '"
@@ -238,13 +238,13 @@ public class InfraCmdHandler extends MyActionHandler implements
 			return;
 		}
 		for (int i = 0; i < members.length; i++) {
-			
+
 			final IResource member = members[i];
 			// System.err.println("	member='" + member + "'");
 			// System.err.println("	member.type='" + member.getClass() + "'");
-			
-			// System.err.println("	dstIncPath='" + dstIncPath + "'");
 
+			// System.err.println("	dstIncPath='" + dstIncPath + "'");
+			
 			if (member instanceof IFile) {
 				final String name = member.getName();
 				if (name.endsWith(InfraCmdHandler.HEADER_FILE_SUFFIX)) {
@@ -253,5 +253,5 @@ public class InfraCmdHandler extends MyActionHandler implements
 			}
 		}
 	}
-	
+
 }

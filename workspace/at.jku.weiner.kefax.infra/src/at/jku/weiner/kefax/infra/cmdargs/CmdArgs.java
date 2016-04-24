@@ -1,4 +1,4 @@
-package at.jku.weiner.kefax.infra;
+package at.jku.weiner.kefax.infra.cmdargs;
 
 import java.io.File;
 import java.text.ParseException;

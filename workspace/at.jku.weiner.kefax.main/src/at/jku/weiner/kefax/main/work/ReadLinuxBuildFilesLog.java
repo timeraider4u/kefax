@@ -16,13 +16,13 @@ public class ReadLinuxBuildFilesLog {
 	private static List<String> sourceFiles = new CopyOnWriteArrayList<String>();
 	
 	public static void run() throws IOException {
-		ReadLinuxBuildFilesLog.parseAll(Settings.FILE_NAME_KERNEL);
+		ReadLinuxBuildFilesLog.parseAll("FILE_NAME_KERNEL");
 		MyLog.debug(ReadLinuxBuildFilesLog.class,
 				"Parsing kernel-build-log completed!");
-		ReadLinuxBuildFilesLog.parseAll(Settings.FILE_NAME_BZIMAGE);
+		ReadLinuxBuildFilesLog.parseAll("FILE_NAME_BZIMAGE");
 		MyLog.debug(ReadLinuxBuildFilesLog.class,
 				"Parsing bzImage-build-log completed!");
-		ReadLinuxBuildFilesLog.parseAll(Settings.FILE_NAME_MODULES);
+		ReadLinuxBuildFilesLog.parseAll("FILE_NAME_MODULES");
 		MyLog.debug(ReadLinuxBuildFilesLog.class,
 				"Parsing modules-build-log completed!");
 		ReadLinuxBuildFilesLog.copyIncludeDirs();
@@ -70,10 +70,10 @@ public class ReadLinuxBuildFilesLog {
 	}
 	
 	private static void parseWord(final String word) {
-		if (word.startsWith(Settings.PREFIX_INCLUDE)) {
+		if (word.startsWith("PREFIX_INCLUDE")) {
 			ReadLinuxBuildFilesLog.handleIncludeDir(word);
 		} else {
-			for (final String ext : Settings.PREFIX_EXTS) {
+			for (final String ext : new String[] { "PREFIX_EXTS" }) {
 				if (word.endsWith(ext)) {
 					ReadLinuxBuildFilesLog.handleSourceFile(word);
 				}
@@ -82,11 +82,11 @@ public class ReadLinuxBuildFilesLog {
 	}
 	
 	private static void handleIncludeDir(final String word) {
-		final String include = word.substring(Settings.PREFIX_INCLUDE.length());
-		if (include.startsWith(Settings.PREFIX_SLASH)) {
+		final String include = word.substring("PREFIX_INCLUDE".length());
+		if (include.startsWith("PREFIX_SLASH")) {
 			return;
 		}
-		if (include.equals(Settings.PREFIX_POINT)) {
+		if (include.equals("PREFIX_POINT")) {
 			return;
 		}
 		final String includeFile = ReadLinuxBuildFilesLog
@@ -117,8 +117,8 @@ public class ReadLinuxBuildFilesLog {
 	
 	private static void copyIncludeDirs() throws IOException {
 		for (final String include : ReadLinuxBuildFilesLog.includeDirs) {
-			final File src = new File(Settings.DEFAULT_LINUX + include);
-			final File dst = new File(Settings.DEFAULT_OUT + include);
+			final File src = new File("DEFAULT_LINUX" + include);
+			final File dst = new File("DEFAULT_OUT" + include);
 			final Copy copy = new Copy(src, dst);
 			copy.copy();
 		}
@@ -127,8 +127,8 @@ public class ReadLinuxBuildFilesLog {
 	private static void copySourceFiles() throws IOException {
 		for (int i = 0; i < ReadLinuxBuildFilesLog.sourceFiles.size(); i++) {
 			final String sourceFile = ReadLinuxBuildFilesLog.sourceFiles.get(i);
-			final Copy copy = new Copy(Settings.DEFAULT_LINUX + sourceFile,
-					Settings.DEFAULT_OUT + sourceFile);
+			final Copy copy = new Copy("DEFAULT_LINUX" + sourceFile,
+					"DEFAULT_OUT" + sourceFile);
 			copy.copy();
 			ReadLinuxBuildFilesLog.parseSourceFileForIncludeFiles(sourceFile);
 		}
@@ -137,7 +137,7 @@ public class ReadLinuxBuildFilesLog {
 	private static void parseSourceFileForIncludeFiles(final String fileName)
 			throws IOException {
 		final BufferedReader br = new BufferedReader(new FileReader(
-				Settings.DEFAULT_LINUX + fileName));
+				"DEFAULT_LINUX" + fileName));
 		try {
 			final int index = fileName.lastIndexOf("/");
 			final String path = fileName.substring(0, index);
@@ -165,7 +165,7 @@ public class ReadLinuxBuildFilesLog {
 	}
 	
 	private static String getFileName(final String includeFile) {
-		final File src = new File(Settings.DEFAULT_LINUX + includeFile);
+		final File src = new File("DEFAULT_LINUX" + includeFile);
 		if (src.exists()) {
 			return includeFile;
 		}
@@ -178,7 +178,7 @@ public class ReadLinuxBuildFilesLog {
 		}
 		final String fileName = includeFile.substring(0, index)
 				+ includeFile.substring(lastIndex + 3);
-		if ((new File(Settings.DEFAULT_LINUX + fileName)).exists()) {
+		if ((new File("DEFAULT_LINUX" + fileName)).exists()) {
 			return fileName;
 		}
 		return "";
@@ -196,7 +196,7 @@ public class ReadLinuxBuildFilesLog {
 			subject = path + paths[paths.length - 1];
 			MyLog.trace(ReadLinuxBuildFilesLog.class, "  subject='" + subject
 					+ "'");
-			if ((new File(Settings.DEFAULT_LINUX + subject)).exists()) {
+			if ((new File("DEFAULT_LINUX" + subject)).exists()) {
 				return subject;
 			}
 		} while (paths.length > 1);

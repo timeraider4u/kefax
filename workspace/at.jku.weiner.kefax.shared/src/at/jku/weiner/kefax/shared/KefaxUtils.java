@@ -116,6 +116,20 @@ public final class KefaxUtils {
 		return src;
 	}
 	
+	public static IFolder getLinuxDiscoverTmpWorkingFolder() {
+		final IProject project = KefaxUtils.getLinuxDiscoverProject();
+		final IFolder src = project
+				.getFolder(MySettings.LINUX_DISCOVER_TMP_WORK_DIR);
+		return src;
+	}
+
+	public static IFile getCommandsFile() {
+		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+		final IFile cmdOutFile = dstFolder
+				.getFile(MySettings.LINUX_DISCOVER_CMD_OUT);
+		return cmdOutFile;
+	}
+	
 	public static boolean executeCommand(final List<String> command,
 			final File workingDirectory, final IProgressMonitor monitor,
 			final boolean redirectStdError) {

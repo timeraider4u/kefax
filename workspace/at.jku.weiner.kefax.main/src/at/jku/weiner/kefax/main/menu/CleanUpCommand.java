@@ -3,13 +3,11 @@ package at.jku.weiner.kefax.main.menu;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import at.jku.weiner.kefax.main.work.Settings;
+import at.jku.weiner.kefax.shared.KefaxUtils;
+import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public class CleanUpCommand extends AbstractHandler {
@@ -25,19 +23,14 @@ public class CleanUpCommand extends AbstractHandler {
 	}
 	
 	private void myRun() throws Exception {
-		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		final IProject linux = root.getProject(Settings.LINUX);
-		if (linux == null) {
-			throw new RuntimeException(
-					"could not find linux project in workspace!");
-		}
-		final IResource res = linux.findMember(Settings.TMP_WORK_DIR);
+		final IResource res = KefaxUtils.getLinuxDiscoverTmpWorkingFolder();
 		if (res == null) {
 			throw new RuntimeException("could not find '"
-					+ Settings.TMP_WORK_DIR + "' in project '" + Settings.LINUX
-					+ "'!");
+					+ MySettings.LINUX_DISCOVER_TMP_WORK_DIR + "' in project '"
+					+ MySettings.LINUX_DISCOVER_PRJ + "'!");
+		} else if (res.exists()) {
+			res.delete(true, new NullProgressMonitor());
 		}
-		res.delete(true, new NullProgressMonitor());
 	}
 	
 }

@@ -2,6 +2,9 @@ package at.jku.weiner.kefax.shared;
 
 public final class MySettings {
 	
+	public static final String HEADER_FILE_SUFFIX = ".h";
+	public static final String C_FILE_SUFFIX = ".c";
+	
 	public static final String LINUX_OS_NAME_1 = "linux";
 	public static final String LINUX_OS_NAME_2 = "Linux";
 	

@@ -22,6 +22,7 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 import at.jku.weiner.kefax.shared.KefaxUtils;
+import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public class CmdArgs {
@@ -37,13 +38,14 @@ public class CmdArgs {
 	
 	private boolean noStdInclude = false;
 	
-	private String inFilePath = null;
+	private final List<String> inFilePaths;
 	
 	public CmdArgs(final IFile file, final CmdLine line) throws Exception {
 		this.src = KefaxUtils.getLinuxSrcFolder();
 		this.path = KefaxUtils.getURIasFileString(file);
 		this.line = line;
 		this.id = line.getStart();
+		this.inFilePaths = new ArrayList<String>();
 		this.cmdArgsAsStringBuffer = new StringBuffer(this.id);
 		this.cmdArgsAsStringBuffer.append(" := ");
 		this.additionalDirectives = new StringBuffer("");
@@ -223,7 +225,7 @@ public class CmdArgs {
 	}
 	
 	private final void visitForInFile(final String inFileParam) {
-		this.inFilePath = inFileParam;
+		this.inFilePaths.add(inFileParam);
 		this.cmdArgsAsStringBuffer.append(" ");
 		this.cmdArgsAsStringBuffer.append(inFileParam);
 	}
@@ -264,12 +266,25 @@ public class CmdArgs {
 		return this.noStdInclude;
 	}
 	
-	public String getInFilePath() {
-		return this.inFilePath;
+	public List<String> getInFilePath() {
+		return Collections.unmodifiableList(this.inFilePaths);
+	}
+	
+	public List<String> getInRealCFilePath() {
+		final List<String> result = new ArrayList<String>();
+		for (int i = 0; i < this.inFilePaths.size(); i++) {
+			final String inFileString = this.inFilePaths.get(i);
+			if (inFileString.endsWith(MySettings.C_FILE_SUFFIX)
+					|| inFileString.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
+				result.add(inFileString);
+			}
+		}
+		return result;
 	}
 
 	public String getCmdLineAsString() {
 		final String result = this.cmdArgsAsStringBuffer.toString();
 		return result;
 	}
+	
 }

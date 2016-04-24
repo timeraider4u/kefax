@@ -37,7 +37,6 @@ import at.jku.weiner.xtext.XtextUtils;
 public class InfraCmdHandler extends MyActionHandler implements
 IResourceVisitor {
 
-	private static final String HEADER_FILE_SUFFIX = ".h";
 	private final List<IFile> files;
 	
 	public InfraCmdHandler() {
@@ -126,8 +125,14 @@ IResourceVisitor {
 		final CmdArgs args = this.parseCmdLines(file);
 		this.writeToCmdOutFile(cmdOutFile, args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		this.copySourceFile(args);
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		final List<String> list = args.getInRealCFilePath();
+		for (int i = 0; i < list.size(); i++) {
+			final String inFileString = list.get(i);
+			final IFile srcFile = this.copySourceFile(inFileString);
+			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+			this.copyHeaderFilesInSourceFileDirectory(srcFile);
+			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		}
 		this.copyIncludeDirectories(args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
@@ -179,13 +184,9 @@ IResourceVisitor {
 				argsAsString.getBytes());
 		cmdOutFile.appendContents(inStream, true, true, this.getMonitor());
 	}
-
-	private void copySourceFile(final CmdArgs args) throws Exception,
-	CoreException {
-		final String inFileString = args.getInFilePath();
-		final List<String> includes = args.getIncludeDirectoriesPathsAsList();
+	
+	private IFile copySourceFile(final String inFileString) throws Exception {
 		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFileString + "'");
-		MyLog.trace(InfraCmdHandler.class, "includes='" + includes + "'");
 		final IFolder src = KefaxUtils.getLinuxSrcFolder();
 		final IFile inFile = src.getFile(inFileString);
 		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFile + "'");
@@ -198,8 +199,35 @@ IResourceVisitor {
 		final IFile outFile = dstFolder.getFile(inFileString);
 		KefaxUtils.mkParentDirsFor(outFile, this.getMonitor());
 
-		MyLog.trace(InfraCmdHandler.class, "outFile='" + outFile + "'");
+		MyLog.log(InfraCmdHandler.class, "copy '" + inFileString + "' from '"
+				+ inFile + "' to '" + outFile + "'");
 		inFile.copy(outFile.getFullPath(), true, this.getMonitor());
+		return inFile;
+	}
+	
+	private void copyHeaderFilesInSourceFileDirectory(final IFile srcFile)
+			throws Exception {
+		final IContainer container = srcFile.getParent();
+		final IPath containerPath = container.getProjectRelativePath();
+		final IProject dstProject = KefaxUtils.getLinuxDiscoverProject();
+		final IFolder dstHeaderDir = dstProject.getFolder(containerPath);
+
+		final IResource members[] = container.members();
+		for (int i = 0; i < members.length; i++) {
+			final IResource res = members[i];
+			if ((res != null) && (res.isAccessible())) {
+				final String name = res.getName();
+				final IFile dstFile = dstHeaderDir.getFile(name);
+				final IPath dstPath = dstFile.getFullPath();
+				if (name.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
+					if (!dstFile.exists()) {
+						System.err.println("copying file='" + res + "' to '"
+								+ dstPath + "'");
+						res.copy(dstPath, true, this.getMonitor());
+					}
+				}
+			}
+		}
 	}
 
 	private void copyIncludeDirectories(final CmdArgs args) throws Exception {
@@ -247,7 +275,7 @@ IResourceVisitor {
 			
 			if (member instanceof IFile) {
 				final String name = member.getName();
-				if (name.endsWith(InfraCmdHandler.HEADER_FILE_SUFFIX)) {
+				if (name.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
 					member.copy(dstIncPath, true, this.getMonitor());
 				}
 			}

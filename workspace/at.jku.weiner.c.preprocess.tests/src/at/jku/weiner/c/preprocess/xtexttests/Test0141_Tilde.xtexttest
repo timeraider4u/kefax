@@ -1,0 +1,73 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0141_Tilde.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH IF WHITESPACE SKW_LEFTPAREN SKW_LEFTPAREN SKW_TILDE SKW_LEFTPAREN
+		HEX_LITERAL SKW_RIGHTPAREN SKW_RIGHTPAREN WHITESPACE
+		SKW_EQUAL WHITESPACE
+		HEX_LITERAL SKW_RIGHTPAREN NEWLINE
+			WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN 
+			WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(PrimaryExpression
+							parentheses?=true,
+							expr=
+							(common::EqualityExpression
+								op++"==",
+								left=
+								(PrimaryExpression
+									parentheses?=true,
+									expr=
+									(common::UnaryExpression
+										op++"~",
+										expr=
+										(PrimaryExpression
+											parentheses?=true,
+											expr=
+											(PrimaryExpression
+												const++"0x2B992DDFA23249D6"
+											)
+										)
+									)
+								),
+								right=
+								(PrimaryExpression
+									const++"0xD466D2205DCDB629"
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	long i = 9;"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+//----------------------------------------------------------------------
+output file="bin/Test0141_Tilde.c.i"
+expected file="expected/Test0141_Tilde.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

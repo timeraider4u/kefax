@@ -1,6 +1,7 @@
 package at.jku.weiner.c.preprocess.utils.expressions;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -9,6 +10,7 @@ import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+import at.jku.weiner.log.MyLog;
 
 import com.google.inject.Injector;
 
@@ -74,12 +76,15 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-		case "==":
-			result = ExpressionEvaluationUtils.convertFrom(a.equals(b));
-			break;
-		case "!=":
-			result = ExpressionEvaluationUtils.convertFrom(!a.equals(b));
-			break;
+			case "==":
+				// System.err.println("a='" + a + "'");
+				// System.err.println("b='" + b + "'");
+				result = ExpressionEvaluationUtils.convertFrom(a.equals(b));
+				// System.err.println("result='" + result + "'");
+				break;
+			case "!=":
+				result = ExpressionEvaluationUtils.convertFrom(!a.equals(b));
+				break;
 		}
 		return result;
 	}
@@ -89,18 +94,18 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-		case "<=":
-			result = ExpressionEvaluationUtils.convertFrom(a <= b);
-			break;
-		case "<":
-			result = ExpressionEvaluationUtils.convertFrom(a < b);
-			break;
-		case ">":
-			result = ExpressionEvaluationUtils.convertFrom(a > b);
-			break;
-		case ">=":
-			result = ExpressionEvaluationUtils.convertFrom(a >= b);
-			break;
+			case "<=":
+				result = ExpressionEvaluationUtils.convertFrom(a <= b);
+				break;
+			case "<":
+				result = ExpressionEvaluationUtils.convertFrom(a < b);
+				break;
+			case ">":
+				result = ExpressionEvaluationUtils.convertFrom(a > b);
+				break;
+			case ">=":
+				result = ExpressionEvaluationUtils.convertFrom(a >= b);
+				break;
 		}
 		return result;
 	}
@@ -110,15 +115,15 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-		case ">>":
-			result = (a >> b);
-			break;
-		case "<<":
-			result = (a << b);
-			break;
-		default:
-			throw new UnsupportedOperationException(
-					"other operators not allowed in preprocessor conditionals!");
+			case ">>":
+				result = (a >> b);
+				break;
+			case "<<":
+				result = (a << b);
+				break;
+			default:
+				throw new UnsupportedOperationException(
+						"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
@@ -128,15 +133,15 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-		case "+":
-			result = a + b;
-			break;
-		case "-":
-			result = a - b;
-			break;
-		default:
-			throw new UnsupportedOperationException(
-					"other operators not allowed in preprocessor conditionals!");
+			case "+":
+				result = a + b;
+				break;
+			case "-":
+				result = a - b;
+				break;
+			default:
+				throw new UnsupportedOperationException(
+						"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
@@ -146,18 +151,18 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 			final String op) {
 		Long result = null;
 		switch (op) {
-		case "*":
-			result = a * b;
-			break;
-		case "/":
-			result = a / b;
-			break;
-		case "%":
-			result = a % b;
-			break;
-		default:
-			throw new UnsupportedOperationException(
-					"other operators not allowed in preprocessor conditionals!");
+			case "*":
+				result = a * b;
+				break;
+			case "/":
+				result = a / b;
+				break;
+			case "%":
+				result = a % b;
+				break;
+			default:
+				throw new UnsupportedOperationException(
+						"other operators not allowed in preprocessor conditionals!");
 		}
 		return result;
 	}
@@ -166,21 +171,28 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 	public Long evaluateForUnaryExpression(final Long resultOfCastExpression,
 			final String op) {
 		switch (op) {
-		case "-":
-			return resultOfCastExpression * (-1);
-		case "!":
-			if (ExpressionLongVisitor.FALSE.equals(resultOfCastExpression)) {
-				return ExpressionLongVisitor.TRUE;
+			case "-":
+				return resultOfCastExpression * (-1);
+			case "!":
+				if (ExpressionLongVisitor.FALSE.equals(resultOfCastExpression)) {
+					return ExpressionLongVisitor.TRUE;
+				}
+				return ExpressionLongVisitor.FALSE;
+			case "+":
+				break;
+			case "~": {
+				// System.err.println("resultOfCastExpression='"
+				// + resultOfCastExpression + "'");
+				final long value = resultOfCastExpression.longValue();
+				final long result = (~(value));
+				// System.err.println("reverse='" + result + "'");
+				return result;
 			}
-			return ExpressionLongVisitor.FALSE;
-		case "+":
-			break;
-		case "&":
-		case "*":
-		case "~":
-		default:
-			throw new UnsupportedOperationException(
-					"address operators not allowed in preprocessor conditionals!");
+			case "&":
+			case "*":
+			default:
+				throw new UnsupportedOperationException(
+						"address operators not allowed in preprocessor conditionals!");
 		}
 		return resultOfCastExpression;
 	}
@@ -195,11 +207,20 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 		try {
 			if (constant.startsWith("0b") || constant.startsWith("0B")) {
 				constant = constant.substring(2);
+				final Long result = Long.valueOf(constant, 2);
+				return result;
+			} else if (constant.startsWith("0x")) {
+				constant = constant.substring(2);
+				final BigInteger big = new BigInteger(constant, 16);
+				final Long result = big.longValue();
+				return result;
+			} else {
+				constant = this.cutDecimalSuffix(constant);
+				final Long result = Long.valueOf(constant);
+				return result;
 			}
-			constant = this.cutDecimalSuffix(constant);
-			final Long result = Long.valueOf(constant);
-			return result;
 		} catch (final NumberFormatException ex) {
+			MyLog.errorNoThrows(ExpressionLongVisitor.class, ex);
 			return ExpressionLongVisitor.FALSE;
 		}
 	}
@@ -257,6 +278,7 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 				return result;
 			}
 		} catch (final IOException ex) {
+			MyLog.errorNoThrows(ExpressionLongVisitor.class, ex);
 			throw new RuntimeException(ex);
 		}
 	}

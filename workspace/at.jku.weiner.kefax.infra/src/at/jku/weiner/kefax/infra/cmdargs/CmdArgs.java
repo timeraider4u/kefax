@@ -33,7 +33,7 @@ public class CmdArgs {
 
 	private final List<IPath> includeDirectoriesPaths;
 	private final StringBuffer additionalDirectives;
-	private final StringBuffer useIncludeDirs;
+	private final List<String> useIncludeDirs;
 
 	private boolean noStdInclude = false;
 
@@ -48,7 +48,7 @@ public class CmdArgs {
 		this.cmdArgsAsStringBuffer = new StringBuffer(this.id);
 		this.cmdArgsAsStringBuffer.append(" := ");
 		this.additionalDirectives = new StringBuffer("");
-		this.useIncludeDirs = new StringBuffer("");
+		this.useIncludeDirs = new ArrayList<String>();
 		this.includeDirectoriesPaths = new ArrayList<IPath>();
 		this.addUseIncDir("");
 		if ((line == null) || (!(line instanceof Assignment))) {
@@ -216,10 +216,9 @@ public class CmdArgs {
 	}
 
 	private void appendToUseIncDirs(final String string) {
-		int index = this.useIncludeDirs.lastIndexOf(string);
+		final int index = this.useIncludeDirs.lastIndexOf(string);
 		if (index < 0) {
-			this.useIncludeDirs.append(string);
-			this.useIncludeDirs.append(File.pathSeparator);
+			this.useIncludeDirs.add(string);
 		}
 	}
 
@@ -276,7 +275,13 @@ public class CmdArgs {
 	}
 
 	public String getIncludeDirectoriesAsString() {
-		return this.useIncludeDirs.toString();
+		final StringBuffer buffer = new StringBuffer("");
+		for (int i = 0; i < this.useIncludeDirs.size(); i++) {
+			final String useIncDir = this.useIncludeDirs.get(i);
+			buffer.append(useIncDir);
+			buffer.append(File.pathSeparator);
+		}
+		return buffer.toString();
 	}
 
 	public List<IPath> getIncludeDirectoriesPathsAsList() {

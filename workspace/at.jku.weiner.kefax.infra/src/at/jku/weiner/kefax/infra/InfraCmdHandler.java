@@ -30,6 +30,7 @@ import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
 import at.jku.weiner.kefax.infra.cmdargs.CmdArgs;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
+import at.jku.weiner.kefax.shared.MyNotification;
 import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 import at.jku.weiner.xtext.XtextUtils;
@@ -38,12 +39,12 @@ public class InfraCmdHandler extends MyActionHandler implements
 IResourceVisitor {
 
 	private final List<IFile> files;
-	
+
 	public InfraCmdHandler() {
 		super("at.jku.weiner.kefax.infra.infra.command");
 		this.files = new ArrayList<IFile>();
 	}
-	
+
 	@Override
 	protected void myRun() throws Exception {
 		MyLog.trace(InfraCmdHandler.class, "starting infra handler!");
@@ -62,7 +63,7 @@ IResourceVisitor {
 		this.getMonitor().beginTask("working on .cmd files", this.files.size());
 		final IFile cmdOutFile = this.createCmdOutFile(dstFolder);
 		this.getMonitor().beginTask("working on .cmd files", this.files.size());
-		
+
 		for (int i = 0; i < this.files.size(); i++) {
 			final IFile file = this.files.get(i);
 			this.parse(dstProject, file, cmdOutFile);
@@ -71,6 +72,8 @@ IResourceVisitor {
 				throw new OperationCanceledException();
 			}
 		}
+		MyNotification.run(this.getActionName() + "finished!",
+				this.getActionName() + "finished successfully!");
 	}
 
 	@Override
@@ -119,24 +122,24 @@ IResourceVisitor {
 		cmdOutFile.create(source, true, this.getMonitor());
 		return cmdOutFile;
 	}
-	
+
 	private void parse(final IProject project, final IFile file,
 			final IFile cmdOutFile) throws Exception {
 		final CmdArgs args = this.parseCmdLines(file);
 		this.writeToCmdOutFile(cmdOutFile, args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		final List<String> list = args.getInRealCFilePath();
+		final List<IPath> list = args.getInRealCFilePath();
 		for (int i = 0; i < list.size(); i++) {
-			final String inFileString = list.get(i);
-			final IFile srcFile = this.copySourceFile(inFileString);
+			final IPath inFilePath = list.get(i);
+			this.copySourceFile(inFilePath);
 			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-			this.copyHeaderFilesInSourceFileDirectory(srcFile);
+			this.copyHeaderFilesInSourceFileDirectory(inFilePath);
 			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		}
 		this.copyIncludeDirectories(args);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
-	
+
 	private CmdArgs parseCmdLines(final IFile file) throws Exception {
 		if ((file == null) || (!file.isAccessible())) {
 			final Exception ex = new UnsupportedDataTypeException(
@@ -184,40 +187,44 @@ IResourceVisitor {
 				argsAsString.getBytes());
 		cmdOutFile.appendContents(inStream, true, true, this.getMonitor());
 	}
-	
-	private IFile copySourceFile(final String inFileString) throws Exception {
-		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFileString + "'");
+
+	private void copySourceFile(final IPath inFilePath) throws Exception {
+		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFilePath + "'");
 		final IFolder src = KefaxUtils.getLinuxSrcFolder();
-		final IFile inFile = src.getFile(inFileString);
+		final IFile inFile = src.getFile(inFilePath);
 		MyLog.trace(InfraCmdHandler.class, "inFile='" + inFile + "'");
 		if ((inFile == null) || (!inFile.isAccessible())) {
 			final Exception ex = new FileNotFoundException("inFile='" + inFile
-					+ "' can not be accessed ('" + inFileString + "')");
+					+ "' can not be accessed ('" + inFilePath + "')");
 			MyLog.error(InfraCmdHandler.class, ex);
 		}
 		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
-		final IFile outFile = dstFolder.getFile(inFileString);
+		final IFile outFile = dstFolder.getFile(inFilePath);
 		KefaxUtils.mkParentDirsFor(outFile, this.getMonitor());
 
-		MyLog.log(InfraCmdHandler.class, "copy '" + inFileString + "' from '"
+		MyLog.log(InfraCmdHandler.class, "copy '" + inFilePath + "' from '"
 				+ inFile + "' to '" + outFile + "'");
 		inFile.copy(outFile.getFullPath(), true, this.getMonitor());
-		return inFile;
 	}
-	
-	private void copyHeaderFilesInSourceFileDirectory(final IFile srcFile)
-			throws Exception {
-		final IContainer container = srcFile.getParent();
-		final IPath containerPath = container.getProjectRelativePath();
-		final IProject dstProject = KefaxUtils.getLinuxDiscoverProject();
-		final IFolder dstHeaderDir = dstProject.getFolder(containerPath);
 
-		final IResource members[] = container.members();
+	private void copyHeaderFilesInSourceFileDirectory(final IPath srcPath)
+			throws Exception {
+
+		final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
+		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+
+		final IFile srcInFile = srcFolder.getFile(srcPath);
+		final IFile dstInFile = dstFolder.getFile(srcPath);
+
+		final IFolder srcParent = (IFolder) srcInFile.getParent();
+		final IFolder dstParent = (IFolder) dstInFile.getParent();
+
+		final IResource members[] = srcParent.members();
 		for (int i = 0; i < members.length; i++) {
 			final IResource res = members[i];
 			if ((res != null) && (res.isAccessible())) {
 				final String name = res.getName();
-				final IFile dstFile = dstHeaderDir.getFile(name);
+				final IFile dstFile = dstParent.getFile(name);
 				final IPath dstPath = dstFile.getFullPath();
 				if (name.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
 					if (!dstFile.exists()) {
@@ -232,31 +239,20 @@ IResourceVisitor {
 
 	private void copyIncludeDirectories(final CmdArgs args) throws Exception {
 		final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
-		final String srcFolderURIStr = srcFolder.getLocationURI().toString();
-		final String srcFolderStr = srcFolderURIStr.replaceFirst("file:", "");
-		final IPath srcFolderPath = new Path(srcFolderStr);
 		final IFolder dstFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
-		final List<String> incDirs = args.getIncludeDirectoriesPathsAsList();
+		final List<IPath> incDirs = args.getIncludeDirectoriesPathsAsList();
 		for (int i = 0; i < incDirs.size(); i++) {
-			final String incDir = incDirs.get(i);
-			final IPath path = new Path(incDir);
-			final int num = srcFolderPath.matchingFirstSegments(path);
-			final IPath myPath = path.makeRelativeTo(srcFolderPath);
-			final boolean isAbsolute = myPath.isAbsolute();
-
-			if (!isAbsolute && (num >= 1)) {
-				this.copyIncludeDirectory(srcFolder, dstFolder, myPath);
-			}
+			final IPath incDir = incDirs.get(i);
+			this.copyIncludeDirectory(srcFolder, dstFolder, incDir);
 		}
 	}
-	
+
 	private void copyIncludeDirectory(final IFolder srcFolder,
 			final IFolder dstFolder, final IPath myPath) throws Exception {
 		MyLog.log(InfraCmdHandler.class, "copy '" + myPath + "' from '"
 				+ srcFolder + "' to '" + dstFolder + "'");
 		final IFolder srcIncFolder = srcFolder.getFolder(myPath);
 		final IFolder dstIncFolder = dstFolder.getFolder(myPath);
-		final IPath dstIncPath = dstIncFolder.getFullPath();
 		KefaxUtils.mkParentDirsFor(dstIncFolder, this.getMonitor());
 		if (!dstIncFolder.exists()) {
 			dstIncFolder.create(true, true, this.getMonitor());
@@ -266,18 +262,19 @@ IResourceVisitor {
 			return;
 		}
 		for (int i = 0; i < members.length; i++) {
-
 			final IResource member = members[i];
-			// System.err.println("	member='" + member + "'");
-			// System.err.println("	member.type='" + member.getClass() + "'");
-
-			// System.err.println("	dstIncPath='" + dstIncPath + "'");
-			
+			final String name = member.getName();
 			if (member instanceof IFile) {
-				final String name = member.getName();
 				if (name.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
-					member.copy(dstIncPath, true, this.getMonitor());
+					final IFile nextDstFile = dstIncFolder.getFile(name);
+					if (!nextDstFile.exists()) {
+						final IPath dstIncPath = nextDstFile.getFullPath();
+						member.copy(dstIncPath, true, this.getMonitor());
+					}
 				}
+			} else if (member instanceof IFolder) {
+				final IPath nextPath = new Path(name);
+				this.copyIncludeDirectory(srcIncFolder, dstIncFolder, nextPath);
 			}
 		}
 	}

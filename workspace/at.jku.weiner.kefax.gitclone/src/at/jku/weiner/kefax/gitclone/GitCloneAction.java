@@ -19,9 +19,10 @@ import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
 import at.jku.weiner.kefax.shared.MySettings;
+import at.jku.weiner.log.MyLog;
 
 public class GitCloneAction extends MyActionHandler {
-	
+
 	public GitCloneAction() {
 		super("at.jku.weiner.kefax.gitclone.job");
 	}
@@ -56,31 +57,32 @@ public class GitCloneAction extends MyActionHandler {
 
 	private void runClone(final IFolder src) throws Exception {
 		final String target = KefaxUtils.getLinuxSrcFolderAsFilePath();
-		System.out.println("target='" + target + "'");
+		MyLog.debug(GitCloneAction.class, "target='" + target + "'");
 		final File targetDir = new File(target);
 
 		MyNotification.run("at.jku.weiner.kefax.gitclone actions started",
 				"git clone " + MySettings.LINUX_CHECKOUT_URL
-				+ " can take several minutes!");
-		
+						+ " can take several minutes!");
+
 		final String format = "yyyy-MM-dd:HH:mm:ss";
 		final Date start = new Date();
 		final DateFormat dateFormat = new SimpleDateFormat(format);
 		final String startString = dateFormat.format(start);
-		System.out.println(startString);
+		MyLog.debug(GitCloneAction.class, startString);
 
 		// this.runGitCloneCommand1(targetDir);
 		this.runGitCloneCommand2(targetDir);
-		
+
 		final Date end = new Date();
 		final String endString = dateFormat.format(end);
-		System.out.println(endString);
+		MyLog.debug(GitCloneAction.class, endString);
 		final long durationInMs = end.getTime() - start.getTime();
 		final long durationInSec = durationInMs / 1000;
 		final long minutes = (long) (durationInSec / 60);
 		final long seconds = durationInSec % 60;
-		System.out.println("git clone " + MySettings.LINUX_CHECKOUT_BRANCH
-				+ " took '" + minutes + "' minutes '" + seconds + "' seconds");
+		MyLog.log(GitCloneAction.class, "git clone "
+				+ MySettings.LINUX_CHECKOUT_BRANCH + " took '" + minutes
+				+ "' minutes '" + seconds + "' seconds");
 	}
 
 	private void runGitCloneCommand2(final File targetDir) {
@@ -97,7 +99,7 @@ public class GitCloneAction extends MyActionHandler {
 		cmds.add(".");
 		KefaxUtils.executeCommand(cmds, targetDir, this.getMonitor(), true);
 	}
-	
+
 	@SuppressWarnings("unused")
 	/**
 	 * runGitCloneCommand1
@@ -127,5 +129,5 @@ public class GitCloneAction extends MyActionHandler {
 		result.add(item);
 		return Collections.unmodifiableList(result);
 	}
-	
+
 }

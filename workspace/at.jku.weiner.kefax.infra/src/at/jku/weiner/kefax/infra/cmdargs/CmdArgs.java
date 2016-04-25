@@ -8,7 +8,8 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 
@@ -29,44 +30,42 @@ public class CmdArgs {
 	private final StringBuffer cmdArgsAsStringBuffer;
 	private final String id;
 	private final CmdLine line;
-	private final String path;
-	private final IFolder src;
-	
-	private final List<String> includeDirectoriesPaths;
+
+	private final List<IPath> includeDirectoriesPaths;
 	private final StringBuffer additionalDirectives;
 	private final StringBuffer useIncludeDirs;
-	
+
 	private boolean noStdInclude = false;
-	
-	private final List<String> inFilePaths;
-	
+
+	private final List<IPath> inFilePaths;
+	private final IFile file;
+
 	public CmdArgs(final IFile file, final CmdLine line) throws Exception {
-		this.src = KefaxUtils.getLinuxSrcFolder();
-		this.path = KefaxUtils.getURIasFileString(file);
+		this.file = file;
 		this.line = line;
 		this.id = line.getStart();
-		this.inFilePaths = new ArrayList<String>();
+		this.inFilePaths = new ArrayList<IPath>();
 		this.cmdArgsAsStringBuffer = new StringBuffer(this.id);
 		this.cmdArgsAsStringBuffer.append(" := ");
 		this.additionalDirectives = new StringBuffer("");
 		this.useIncludeDirs = new StringBuffer("");
-		this.includeDirectoriesPaths = new ArrayList<String>();
-		this.addUseIncDir(null, false);
+		this.includeDirectoriesPaths = new ArrayList<IPath>();
+		this.addUseIncDir("");
 		if ((line == null) || (!(line instanceof Assignment))) {
 			final ParseException ex = new ParseException(
-					"cannot parse target - not supported - cmdFile='"
-							+ this.path + "'", 0);
+					"cannot parse target - not supported - cmdFile='" + file
+							+ "'", 0);
 			MyLog.error(CmdArgs.class, ex);
 		}
 		this.visit(this.line.getArguments());
 		this.cmdArgsAsStringBuffer.append(System.lineSeparator());
 	}
-	
+
 	private final void visit(final EList<Argument> list) throws Exception {
 		if ((list == null) || list.isEmpty()) {
 			final ParseException ex = new ParseException(
 					"list of arguments should contain entries, cmdPath='"
-							+ this.path + "'", 0);
+							+ this.file + "'", 0);
 			MyLog.error(CmdArgs.class, ex);
 		}
 		for (int i = 0; i < list.size(); i++) {
@@ -75,7 +74,7 @@ public class CmdArgs {
 			this.visit(arg);
 		}
 	}
-	
+
 	private final void visit(final Argument arg) {
 		final Macro macro = arg.getMacro();
 		final boolean incDir = arg.isIncDir();
@@ -83,7 +82,7 @@ public class CmdArgs {
 		final boolean isNoStdInc = arg.isNostdinc();
 		final PathCmd include = arg.getInclude();
 		final String in = arg.getIn();
-		
+
 		if (macro != null) {
 			this.visit(macro);
 		}
@@ -104,7 +103,7 @@ public class CmdArgs {
 			this.visitForInFile(in);
 		}
 	}
-	
+
 	private final void visit(final Macro macro) {
 		MyLog.trace(CmdArgs.class, "visitMacro='" + macro + "'");
 		if (macro instanceof SimpleMacro) {
@@ -117,7 +116,7 @@ public class CmdArgs {
 			this.visitFor((StringMacro) macro);
 		}
 	}
-	
+
 	private final void visitFor(final SimpleMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D");
 		this.cmdArgsAsStringBuffer.append(macro.getName());
@@ -127,7 +126,7 @@ public class CmdArgs {
 		this.additionalDirectives.append(" 1");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitFor(final ObjectMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D");
 		this.cmdArgsAsStringBuffer.append(macro.getName());
@@ -140,7 +139,7 @@ public class CmdArgs {
 		this.additionalDirectives.append(macro.getValue());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitFor(final FunctionMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D");
 		this.cmdArgsAsStringBuffer.append(macro.getName());
@@ -164,13 +163,13 @@ public class CmdArgs {
 		this.cmdArgsAsStringBuffer.append(")");
 		this.cmdArgsAsStringBuffer.append("=");
 		this.cmdArgsAsStringBuffer.append(macro.getValue());
-		
+
 		this.additionalDirectives.append(")");
 		this.additionalDirectives.append(" ");
 		this.additionalDirectives.append(macro.getValue());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private void visitFor(final StringMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D\"");
 		this.cmdArgsAsStringBuffer.append(macro.getString());
@@ -180,7 +179,7 @@ public class CmdArgs {
 		this.additionalDirectives.append(macro.getString());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitForUseIncDir(final PathCmd pathCmd,
 			final boolean incDir) {
 		if (incDir) {
@@ -188,95 +187,116 @@ public class CmdArgs {
 		} else {
 			this.cmdArgsAsStringBuffer.append(" -isystem ");
 		}
-		
+
 		final String str = pathCmd.getPath();
 		this.cmdArgsAsStringBuffer.append(str);
-		this.addUseIncDir(str, true);
+		this.addUseIncDir(str);
 	}
-	
-	private final void addUseIncDir(final String str, final boolean useAbsPath) {
-		final String absPath = this.getPathFor(str, useAbsPath);
-		this.useIncludeDirs.append(absPath);
-		this.includeDirectoriesPaths.add(absPath);
-		this.useIncludeDirs.append(File.pathSeparator);
-	}
-	
-	private final String getPathFor(final String str, final boolean useAbsPath) {
-		if (useAbsPath) {
-			final String absPath = this.getAbsolutePath(str);
-			return absPath;
+
+	private final void addUseIncDir(final String str) {
+		MyLog.trace(CmdArgs.class, "addUseIncDir for str='" + str + "'");
+		final URI uri = URI.createFileURI(str);
+		if (uri.isRelative() && (!(str.isEmpty()))) {
+			MyLog.trace(CmdArgs.class, "addUseIncDir for str(isRelative)='"
+					+ str + "'");
+			final IPath path = new Path(str);
+			this.includeDirectoriesPaths.add(path);
+			// this.useIncludeDirs.append(this.path);
+			final IFolder dstSrcFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+			final IFolder res = dstSrcFolder.getFolder(path);
+			final String location = res.getLocation().toOSString();
+			this.appendToUseIncDirs(location);
+		} else if (str.isEmpty()) {
+			final IFolder dstSrcFolder = KefaxUtils.getLinuxDiscoverSrcFolder();
+			final String location = dstSrcFolder.getLocation().toOSString();
+			this.appendToUseIncDirs(location);
+		} else {
+			this.appendToUseIncDirs(str);
 		}
-		return this.getLinuxAbsolutePath();
 	}
-	
+
+	private void appendToUseIncDirs(final String string) {
+		int index = this.useIncludeDirs.lastIndexOf(string);
+		if (index < 0) {
+			this.useIncludeDirs.append(string);
+			this.useIncludeDirs.append(File.pathSeparator);
+		}
+	}
+
+	// private final String getPathFor(final String str, final boolean
+	// useAbsPath) {
+	// if (useAbsPath) {
+	// final String absPath = this.getAbsolutePath(str);
+	// return absPath;
+	// }
+	// return this.getLinuxAbsolutePath();
+	// }
+
 	private final void visitForInclude(final PathCmd pathCmd) {
 		String str = pathCmd.getPath();
 		this.cmdArgsAsStringBuffer.append(" -include ");
 		this.cmdArgsAsStringBuffer.append(str);
-		
+
 		if (str.startsWith("./")) {
 			str = str.substring(2);
 		}
-		// final String absPath = this.getAbsolutePath(str);
 		this.additionalDirectives.append("#include <");
 		this.additionalDirectives.append(str);
 		this.additionalDirectives.append(">");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitForInFile(final String inFileParam) {
-		this.inFilePaths.add(inFileParam);
+		final IPath inPath = new Path(inFileParam);
+		this.inFilePaths.add(inPath);
 		this.cmdArgsAsStringBuffer.append(" ");
 		this.cmdArgsAsStringBuffer.append(inFileParam);
 	}
-	
-	private final String getAbsolutePath(String result) {
-		final URI uri = URI.createFileURI(result);
-		if (uri.isRelative()) {
-			final IResource res = this.src.findMember(result);
-			final String newStr = res.getLocationURI().toString();
-			result = newStr.replace("file:", "");
-		}
-		return result;
-	}
-	
-	private final String getLinuxAbsolutePath() {
-		final IResource res = this.src;
-		final String newStr = res.getLocationURI().toString();
-		final String result = newStr.replace("file:", "");
-		
-		return result;
-	}
-	
+
+	// private final String getAbsolutePath(String result) {
+	// final URI uri = URI.createFileURI(result);
+	// if (uri.isRelative()) {
+	// final IResource res = this.src.findMember(result);
+	// final String newStr = res.getLocationURI().toString();
+	// result = newStr.replace("file:", "");
+	// }
+	// return result;
+	// }
+	//
+	// private final String getLinuxAbsolutePath() {
+	// final IResource res = this.src;
+	// final String newStr = res.getLocationURI().toString();
+	// final String result = newStr.replace("file:", "");
+	//
+	// return result;
+	// }
+
 	public String getAdditionalDirectivesAsString() {
 		return this.additionalDirectives.toString();
 	}
-	
+
 	public String getIncludeDirectoriesAsString() {
 		return this.useIncludeDirs.toString();
 	}
-	
-	public List<String> getIncludeDirectoriesPathsAsList() {
-		final List<String> list = Collections
+
+	public List<IPath> getIncludeDirectoriesPathsAsList() {
+		final List<IPath> list = Collections
 				.unmodifiableList(this.includeDirectoriesPaths);
 		return list;
 	}
-	
+
 	public boolean isNoStandardInclude() {
 		return this.noStdInclude;
 	}
-	
-	public List<String> getInFilePath() {
-		return Collections.unmodifiableList(this.inFilePaths);
-	}
-	
-	public List<String> getInRealCFilePath() {
-		final List<String> result = new ArrayList<String>();
+
+	public List<IPath> getInRealCFilePath() {
+		final List<IPath> result = new ArrayList<IPath>();
 		for (int i = 0; i < this.inFilePaths.size(); i++) {
-			final String inFileString = this.inFilePaths.get(i);
-			if (inFileString.endsWith(MySettings.C_FILE_SUFFIX)
-					|| inFileString.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
-				result.add(inFileString);
+			final IPath inFile = this.inFilePaths.get(i);
+			final String inFileStr = inFile.toString();
+			if (inFileStr.endsWith(MySettings.C_FILE_SUFFIX)
+					|| inFileStr.endsWith(MySettings.HEADER_FILE_SUFFIX)) {
+				result.add(inFile);
 			}
 		}
 		return result;
@@ -286,5 +306,5 @@ public class CmdArgs {
 		final String result = this.cmdArgsAsStringBuffer.toString();
 		return result;
 	}
-	
+
 }

@@ -7,6 +7,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.util.EList;
@@ -34,7 +35,7 @@ import at.jku.weiner.log.MyLog;
 import com.google.inject.Injector;
 
 public class MainHandler extends MyActionHandler {
-	
+
 	public MainHandler() {
 		super("at.jku.weiner.kefax.job");
 	}
@@ -72,7 +73,7 @@ public class MainHandler extends MyActionHandler {
 	private void run2(final IProgressMonitor monitor,
 			final DiscoverFromIResource discoverer) throws Exception {
 		final IFile cmdFile = KefaxUtils.getCommandsFile();
-		
+
 		if ((cmdFile == null) || !cmdFile.isAccessible()) {
 			this.error("invalid cmd file='" + cmdFile + "'!");
 		}
@@ -133,17 +134,20 @@ public class MainHandler extends MyActionHandler {
 					+ includeDirectories + "'");
 			final boolean stdInclude = !args.isNoStandardInclude();
 			MyLog.debug(MainHandler.class, "stdInclude='" + stdInclude + "'");
-			final List<String> inFiles = args.getInRealCFilePath();
+			// final IFolder dstSrcFolder =
+			// KefaxUtils.getLinuxDiscoverSrcFolder();
+			final List<IPath> inFiles = args.getInRealCFilePath();
 			for (int j = 0; j < inFiles.size(); j++) {
-				final String inFile = inFiles.get(i);
+				final IPath inFilePath = inFiles.get(i);
+				// final IFile inFile = dstSrcFolder.getFile(inFilePath);
+				final String fileName = inFilePath.toString();
 				this.discoverSourceFile(monitor, discoverer, dstFolder,
 						additionalDirectives, includeDirectories, stdInclude,
-						inFile);
+						fileName);
 			}
-
 		}
 	}
-	
+
 	private void discoverSourceFile(final IProgressMonitor monitor,
 			final DiscoverFromIResource discoverer, final IFolder dstFolder,
 			final String additionalDirectives, final String includeDirectories,
@@ -174,7 +178,7 @@ public class MainHandler extends MyActionHandler {
 		discoverer.discoverElement(inFileRes, monitor);
 		this.updateProject();
 	}
-	
+
 	private boolean isValid(final String inFile) {
 		if (inFile == null) {
 			return false;
@@ -185,14 +189,14 @@ public class MainHandler extends MyActionHandler {
 		}
 		return false;
 	}
-	
+
 	private final Resource loadResource(final Injector injector,
 			final IFile iFile) throws Exception {
 		final IResourceFactory resourceFactory = injector
 				.getInstance(IResourceFactory.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				".cmd", resourceFactory);
-		
+
 		final IProject iProject = iFile.getProject();
 		final XtextResourceSetProvider provider = injector
 				.getInstance(XtextResourceSetProvider.class);
@@ -208,7 +212,7 @@ public class MainHandler extends MyActionHandler {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-	
+
 	private final void validateResource(final Injector injector,
 			final Resource resource) throws Exception {
 		// validate the resource
@@ -222,7 +226,7 @@ public class MainHandler extends MyActionHandler {
 					+ "': " + list.toString());
 		}
 	}
-	
+
 	private void error(final String text) throws RuntimeException {
 		final String msg = "at.jku.weiner.kefax.main: text='" + text + "'";
 		final RuntimeException ex = new RuntimeException(msg);
@@ -235,5 +239,5 @@ public class MainHandler extends MyActionHandler {
 					this.getMonitor());
 		}
 	}
-	
+
 }

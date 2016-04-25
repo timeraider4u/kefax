@@ -31,7 +31,7 @@ public class MyNotification extends AbstractNotificationPopup {
 		final Label messageLabel = new Label(composite, SWT.WRAP);
 		messageLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-		messageLabel.setText(this.message);
+		messageLabel.setText("" + this.message);
 		messageLabel.setBackground(composite.getBackground());
 	}
 

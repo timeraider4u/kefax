@@ -173,6 +173,7 @@
 	</pluginRepositories>
 	
 	<modules>
+		<!--
 		<module>at.jku.weiner.c.cmdarguments</module>
 		<module>at.jku.weiner.c.cmdarguments.tests</module>
 		<module>at.jku.weiner.c.cmdarguments.ui</module>
@@ -189,6 +190,7 @@
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
+		-->
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>

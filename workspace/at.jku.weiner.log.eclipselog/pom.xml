@@ -11,7 +11,7 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>at.jku.weiner.eclipse.log</artifactId>
+	<artifactId>at.jku.weiner.log.eclipselog</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
 	<build>

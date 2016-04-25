@@ -194,13 +194,14 @@
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>
-		
+		<!--
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>
 		<module>at.jku.weiner.xtexttest.ui</module>
 		<module>at.jku.weiner.xtexttest.ui.tests</module>
 		<module>at.jku.weiner.xtexttest.updatesite</module>
+		-->
 	</modules>
 
 	<build>

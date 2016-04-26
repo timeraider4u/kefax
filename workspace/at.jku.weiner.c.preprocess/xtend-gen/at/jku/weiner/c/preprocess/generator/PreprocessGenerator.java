@@ -45,7 +45,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import fr.inria.atlanmod.neoemf.core.Id;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -582,8 +581,8 @@ public class PreprocessGenerator implements IGenerator {
     if (_isDefined) {
       condDirective.setBranchTaken(obj);
       obj.setBranchTaken(true);
-      Id _id = obj.id();
-      String _plus = ("ifdef " + _id);
+      String _ident_1 = obj.getIdent();
+      String _plus = ("ifdef " + _ident_1);
       String _plus_1 = (_plus + "/");
       this.path.add(_plus_1);
       GroupOpt _group = obj.getGroup();
@@ -600,8 +599,8 @@ public class PreprocessGenerator implements IGenerator {
     if (_not) {
       condDirective.setBranchTaken(obj);
       obj.setBranchTaken(true);
-      Id _id = obj.id();
-      String _plus = ("ifnotdef " + _id);
+      String _ident_1 = obj.getIdent();
+      String _plus = ("ifnotdef " + _ident_1);
       String _plus_1 = (_plus + "/");
       this.path.add(_plus_1);
       GroupOpt _group = obj.getGroup();

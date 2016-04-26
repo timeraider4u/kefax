@@ -394,7 +394,7 @@ class PreprocessGenerator implements IGenerator {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			
-			path.add("ifdef " + obj.id + "/");
+			path.add("ifdef " + obj.ident + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";
@@ -405,7 +405,7 @@ class PreprocessGenerator implements IGenerator {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			
-			path.add("ifnotdef " + obj.id + "/");
+			path.add("ifnotdef " + obj.ident + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";

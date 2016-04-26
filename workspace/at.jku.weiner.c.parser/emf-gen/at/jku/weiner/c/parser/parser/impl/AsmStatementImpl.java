@@ -17,14 +17,15 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLine1 <em>Asm Line1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLines <em>Asm Lines</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#isLastComma <em>Last Comma</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getGoto <em>Goto</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -140,6 +141,26 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
 	public void setLastComma(boolean newLastComma)
 	{
 		eSet(ParserPackage.Literals.ASM_STATEMENT__LAST_COMMA, newLastComma);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getGoto()
+	{
+		return (String)eGet(ParserPackage.Literals.ASM_STATEMENT__GOTO, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoto(String newGoto)
+	{
+		eSet(ParserPackage.Literals.ASM_STATEMENT__GOTO, newGoto);
 	}
 
 } //AsmStatementImpl

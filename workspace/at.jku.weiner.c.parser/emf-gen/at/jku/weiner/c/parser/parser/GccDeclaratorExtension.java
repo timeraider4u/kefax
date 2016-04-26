@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccDeclaratorExtension()
  * @model

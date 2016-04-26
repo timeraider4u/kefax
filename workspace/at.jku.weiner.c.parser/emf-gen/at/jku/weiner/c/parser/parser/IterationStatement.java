@@ -10,7 +10,6 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.IterationStatement#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.IterationStatement#getExpr <em>Expr</em>}</li>
@@ -22,6 +21,7 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.IterationStatement#getIncExpr <em>Inc Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.IterationStatement#getInitDecl <em>Init Decl</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getIterationStatement()
  * @model

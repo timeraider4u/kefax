@@ -2799,13 +2799,22 @@ public interface ParserPackage extends EPackage
 	int ASM_STATEMENT__LAST_COMMA = STATEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Goto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASM_STATEMENT__GOTO = STATEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Asm Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+	int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -6347,6 +6356,17 @@ public interface ParserPackage extends EPackage
 	EAttribute getAsmStatement_LastComma();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmStatement#getGoto <em>Goto</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Goto</em>'.
+	 * @see at.jku.weiner.c.parser.parser.AsmStatement#getGoto()
+	 * @see #getAsmStatement()
+	 * @generated
+	 */
+	EAttribute getAsmStatement_Goto();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AssignmentExpression <em>Assignment Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9019,6 +9039,14 @@ public interface ParserPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute ASM_STATEMENT__LAST_COMMA = eINSTANCE.getAsmStatement_LastComma();
+
+		/**
+		 * The meta object literal for the '<em><b>Goto</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASM_STATEMENT__GOTO = eINSTANCE.getAsmStatement_Goto();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.

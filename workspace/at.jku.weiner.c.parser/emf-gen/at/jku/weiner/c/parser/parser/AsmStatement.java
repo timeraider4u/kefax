@@ -11,14 +11,15 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine1 <em>Asm Line1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLines <em>Asm Lines</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#isLastComma <em>Last Comma</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getGoto <em>Goto</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement()
  * @model
@@ -145,5 +146,32 @@ public interface AsmStatement extends Statement
 	 * @generated
 	 */
 	void setLastComma(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Goto</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goto</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goto</em>' attribute.
+	 * @see #setGoto(String)
+	 * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_Goto()
+	 * @model default=""
+	 * @generated
+	 */
+	String getGoto();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmStatement#getGoto <em>Goto</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goto</em>' attribute.
+	 * @see #getGoto()
+	 * @generated
+	 */
+	void setGoto(String value);
 
 } // AsmStatement

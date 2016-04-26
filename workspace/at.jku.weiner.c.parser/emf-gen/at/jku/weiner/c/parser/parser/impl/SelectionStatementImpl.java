@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl#getIf <em>If</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl#getExpr <em>Expr</em>}</li>
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl#getSwitch <em>Switch</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl#getSwitchStatement <em>Switch Statement</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -1045,6 +1045,11 @@
         xsi:type="ecore:EAttribute"
         name="lastComma"
         eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="goto"
+        eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"

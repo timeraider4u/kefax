@@ -1705,9 +1705,18 @@ public class ParserGenerator implements IGenerator {
     _builder.append(" ");
     _builder.newLineIfNotEmpty();
     {
-      String _volatile = obj.getVolatile();
-      boolean _notEquals = (!Objects.equal(_volatile, null));
+      String _goto = obj.getGoto();
+      boolean _notEquals = (!Objects.equal(_goto, null));
       if (_notEquals) {
+        String _goto_1 = obj.getGoto();
+        _builder.append(_goto_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _volatile = obj.getVolatile();
+      boolean _notEquals_1 = (!Objects.equal(_volatile, null));
+      if (_notEquals_1) {
         String _volatile_1 = obj.getVolatile();
         _builder.append(_volatile_1, "");
         _builder.append(" ");
@@ -1718,8 +1727,8 @@ public class ParserGenerator implements IGenerator {
     _builder.newLine();
     {
       AsmLine _asmLine1 = obj.getAsmLine1();
-      boolean _notEquals_1 = (!Objects.equal(_asmLine1, null));
-      if (_notEquals_1) {
+      boolean _notEquals_2 = (!Objects.equal(_asmLine1, null));
+      if (_notEquals_2) {
         _builder.append("\t");
         AsmLine _asmLine1_1 = obj.getAsmLine1();
         String _outputFor = this.outputFor(_asmLine1_1);

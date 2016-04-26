@@ -1,0 +1,145 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0093_AsmGoto.c"
+//----------------------------------------------------------------------
+lexer-tokens
+
+KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE IGNORED NEWLINE
+	WHITESPACE IGNORED NEWLINE
+	WHITESPACE IGNORED NEWLINE
+	WHITESPACE KW_ASM1 WHITESPACE KW_GOTO SKW_LEFTPAREN WHITESPACE STRING_LITERAL NEWLINE
+		WHITESPACE SKW_COLON NEWLINE
+		WHITESPACE SKW_COLON WHITESPACE STRING_LITERAL NEWLINE
+		WHITESPACE SKW_COLON WHITESPACE STRING_LITERAL NEWLINE
+		WHITESPACE SKW_COLON WHITESPACE ID NEWLINE
+ 	WHITESPACE SKW_RIGHTPAREN SKW_SEMI NEWLINE
+ 	WHITESPACE ID SKW_COLON WHITESPACE KW_RETURN SKW_SEMI NEWLINE
+SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// void foo()
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						ident++"foo"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						// statement
+						(Statement
+							stmt=
+							(AsmStatement
+								goto++"goto",
+								asmLine1=
+								// "mov %[e], %[d]\n\t"
+								(AsmLine
+									sym isNull,
+									expr=
+									(PrimaryExpression
+										string+*"[\\\"mov %[e], %[d]; jc %l[my_label]\\\"]"
+									)
+								),
+								asmLines+=
+								// : 
+								(AsmLineWithColon
+									asmLine isNull
+								), // end asm lines with colon
+								// : ""
+								(AsmLineWithColon
+									asmLine=
+									(AsmLineWithoutColon
+										asmLines+=
+										(AsmLine
+											sym isNull,
+											expr=
+											(PrimaryExpression
+												string+*"[\\\"\\\"]"
+											) // end expression
+										)
+									) // end asm line without colon
+								), // end asm line with colon
+								// : ""
+								(AsmLineWithColon
+									asmLine=
+									(AsmLineWithoutColon
+										asmLines+=
+										(AsmLine
+											sym isNull,
+											expr=
+											(PrimaryExpression
+												string+*"[\\\"\\\"]"
+											) // end expression
+										)
+									) // end asm line without colon
+								), // end asm line with colon
+								// : ""
+								(AsmLineWithColon
+									asmLine=
+									(AsmLineWithoutColon
+										asmLines+=
+										(AsmLine
+											sym isNull,
+											expr=
+											(PrimaryExpression
+												ident++"my_label"
+											) // end expression
+										)
+									) // end asm line without colon
+								) // end asm line with colon
+							) // end assembler statement
+						),
+						(Statement
+							stmt=
+							(LabeledStatement
+								ident++"my_label",
+								lStmt=
+								(Statement
+									stmt=
+									(JumpStatement
+										// no expression
+										return++"return"
+									)// end jump statement
+								)//end statement
+							)
+						)
+					)
+				)
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0093_AsmGoto.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

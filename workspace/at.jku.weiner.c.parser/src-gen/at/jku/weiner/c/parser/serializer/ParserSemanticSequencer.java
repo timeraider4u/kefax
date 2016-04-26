@@ -488,6 +488,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) 
+	 *         goto=KW_GOTO? 
 	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 	 *         asmLine1=AsmLine? 
 	 *         asmLines+=AsmLineWithColon* 

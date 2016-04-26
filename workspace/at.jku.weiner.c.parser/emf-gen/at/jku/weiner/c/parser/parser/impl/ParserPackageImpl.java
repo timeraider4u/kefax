@@ -3022,6 +3022,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAsmStatement_Goto()
+	{
+		return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAssignmentExpression()
 	{
 		return assignmentExpressionEClass;
@@ -4043,6 +4053,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINE1);
 		createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINES);
 		createEAttribute(asmStatementEClass, ASM_STATEMENT__LAST_COMMA);
+		createEAttribute(asmStatementEClass, ASM_STATEMENT__GOTO);
 
 		assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
 		createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
@@ -4498,6 +4509,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 		initEReference(getAsmStatement_AsmLine1(), this.getAsmLine(), null, "asmLine1", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAsmStatement_AsmLines(), this.getAsmLineWithColon(), null, "asmLines", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAsmStatement_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAsmStatement_Goto(), theEcorePackage.getEString(), "goto", "", 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

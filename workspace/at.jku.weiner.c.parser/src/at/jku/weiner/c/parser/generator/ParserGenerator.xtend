@@ -593,6 +593,7 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputForAsmStatement(AsmStatement obj) '''
 		«obj.asm» 
+		«IF obj.goto != null»«obj.goto»«ENDIF»
 		«IF obj.volatile != null»
 			«obj.volatile» 
 		«ENDIF»

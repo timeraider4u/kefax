@@ -19,17 +19,19 @@ import com.google.common.collect.Iterators;
 public class PredefinedMacros {
 	public static final String MACRO_FILE = "__FILE__";
 	public static final String MACRO_LINE = "__LINE__";
-	
+
+	private static final String COMPILER_STRING = "gcc_4.9.3";
+
 	private static final String BUNDLE_NAME = "at.jku.weiner.c.preprocess";
-	
+
 	private static Preprocess predefined = null;
 	private static boolean stdPreInclude = false;
-	
+
 	public static void clear() {
 		PredefinedMacros.predefined = null;
 		PredefinedMacros.stdPreInclude = false;
 	}
-	
+
 	public static Preprocess loadPreDefinedMacros(final boolean standAlone,
 			final boolean stdInclude) {
 		if ((PredefinedMacros.predefined != null)
@@ -53,14 +55,15 @@ public class PredefinedMacros {
 		PredefinedMacros.stdPreInclude = stdInclude;
 		return PredefinedMacros.predefined;
 	}
-	
+
 	/***
 	 * insert pre-defined macros
 	 */
 	public static URI getPredefinedURI(final boolean standAlone,
 			final boolean stdInclude) {
 		final String suffix = PredefinedMacros.getSuffix(stdInclude);
-		final String fileName = "res/predefined/gcc_4.8.4_" + suffix + ".h";
+		final String fileName = "res/predefined/"
+				+ PredefinedMacros.COMPILER_STRING + "_" + suffix + ".h";
 		if (standAlone) {
 			return PredefinedMacros.getURIFromFile(fileName);
 		}
@@ -68,14 +71,14 @@ public class PredefinedMacros {
 				+ PredefinedMacros.BUNDLE_NAME + "/" + fileName, true);
 		return uri;
 	}
-	
+
 	private static String getSuffix(final boolean stdInclude) {
 		if (stdInclude) {
 			return "default";
 		}
 		return "nostdinc";
 	}
-	
+
 	private static URI getURIFromFile(final String fileName) {
 		final File file = new File(".");
 		final URI uri = URI.createFileURI("../" + PredefinedMacros.BUNDLE_NAME
@@ -83,5 +86,5 @@ public class PredefinedMacros {
 		final URI base = URI.createFileURI(file.getAbsolutePath());
 		return uri.resolve(base);
 	}
-	
+
 }

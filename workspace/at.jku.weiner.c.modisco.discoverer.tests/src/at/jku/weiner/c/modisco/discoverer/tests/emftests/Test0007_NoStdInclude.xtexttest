@@ -15,7 +15,7 @@ source file="res/Test0007_NoStdInclude"
 	units+=
 	// Another predefined is loaded with -nostdinc
 	(TranslationUnit
-		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_nostdinc.h",
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.9.3_nostdinc.h",
 		preprocess=
 		(preprocess::Preprocess
 			

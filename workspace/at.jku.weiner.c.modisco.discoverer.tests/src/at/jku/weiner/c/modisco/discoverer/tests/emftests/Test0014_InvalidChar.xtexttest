@@ -14,7 +14,7 @@ source file="res/Test0014_InvalidChar"
 (Model
 	units+=
 	(TranslationUnit
-		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.9.3_default.h",
 		preprocess=
 		(preprocess::Preprocess
 			

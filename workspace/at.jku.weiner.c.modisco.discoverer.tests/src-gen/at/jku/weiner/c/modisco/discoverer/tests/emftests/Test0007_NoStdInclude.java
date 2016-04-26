@@ -96,7 +96,7 @@ public class Test0007_NoStdInclude {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		Assert.assertEquals("platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_nostdinc.h", TranslationUnit_1_Var
+		Assert.assertEquals("platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.9.3_nostdinc.h", TranslationUnit_1_Var
 		.getPath());
 		//1
 		final Preprocess Preprocess_2_Var

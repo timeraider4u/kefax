@@ -42,7 +42,8 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
 					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
 					put(grammarAccess.getPathCmdAccess().getAlternatives(), "rule__PathCmd__Alternatives");
-					put(grammarAccess.getPathLegalPartAccess().getAlternatives(), "rule__PathLegalPart__Alternatives");
+					put(grammarAccess.getPathLegalPartCommonAccess().getAlternatives(), "rule__PathLegalPartCommon__Alternatives");
+					put(grammarAccess.getPathLegalPart2Access().getAlternatives(), "rule__PathLegalPart2__Alternatives");
 					put(grammarAccess.getMacroLegalPartAccess().getAlternatives(), "rule__MacroLegalPart__Alternatives");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getOptionLegalContinuationAccess().getAlternatives(), "rule__OptionLegalContinuation__Alternatives");

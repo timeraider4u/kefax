@@ -8,7 +8,11 @@ split-lexer=true
 source file="res/Test0011_Outputfile.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	ID WS SKW_COLON SKW_ASSIGN WS KW_OUTPUT WS STRING2 WS KW_DEFINE ID NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_OUTPUT WS
+		// "C:\Program Files\MyApp\temp\temp.c" 
+		// STRING2
+		QUOTE1 ID SKW_COLON SKW_BACKSLASH ID WS ID QUOTE1
+		WS KW_DEFINE ID NEWLINE
 	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE ID WS
 		// -o ./arch/file_arch.h
 		KW_OUTPUT WS ID

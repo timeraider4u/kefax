@@ -661,65 +661,67 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cPathCmdAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Assignment cPathAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cPathPathLegalPartParserRuleCall_0_1_0 = (RuleCall)cPathAssignment_0_1.eContents().get(0);
+		private final RuleCall cPathPathLegalPart1ParserRuleCall_0_1_0 = (RuleCall)cPathAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final RuleCall cQUOTE1TerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Assignment cPathAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cPathPathLegalPartParserRuleCall_1_1_0 = (RuleCall)cPathAssignment_1_1.eContents().get(0);
+		private final RuleCall cPathPathLegalPart2ParserRuleCall_1_1_0 = (RuleCall)cPathAssignment_1_1.eContents().get(0);
 		private final RuleCall cQUOTE1TerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		
 		//PathCmd:
-		//	{PathCmd} path=PathLegalPart | QUOTE1 path=PathLegalPart QUOTE1;
+		//	{PathCmd} path=PathLegalPart1 | QUOTE1 path=PathLegalPart2 QUOTE1;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PathCmd} path=PathLegalPart | QUOTE1 path=PathLegalPart QUOTE1
+		//{PathCmd} path=PathLegalPart1 | QUOTE1 path=PathLegalPart2 QUOTE1
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{PathCmd} path=PathLegalPart
+		//{PathCmd} path=PathLegalPart1
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{PathCmd}
 		public Action getPathCmdAction_0_0() { return cPathCmdAction_0_0; }
 		
-		//path=PathLegalPart
+		//path=PathLegalPart1
 		public Assignment getPathAssignment_0_1() { return cPathAssignment_0_1; }
 		
-		//PathLegalPart
-		public RuleCall getPathPathLegalPartParserRuleCall_0_1_0() { return cPathPathLegalPartParserRuleCall_0_1_0; }
+		//PathLegalPart1
+		public RuleCall getPathPathLegalPart1ParserRuleCall_0_1_0() { return cPathPathLegalPart1ParserRuleCall_0_1_0; }
 		
-		//QUOTE1 path=PathLegalPart QUOTE1
+		//QUOTE1 path=PathLegalPart2 QUOTE1
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//QUOTE1
 		public RuleCall getQUOTE1TerminalRuleCall_1_0() { return cQUOTE1TerminalRuleCall_1_0; }
 		
-		//path=PathLegalPart
+		//path=PathLegalPart2
 		public Assignment getPathAssignment_1_1() { return cPathAssignment_1_1; }
 		
-		//PathLegalPart
-		public RuleCall getPathPathLegalPartParserRuleCall_1_1_0() { return cPathPathLegalPartParserRuleCall_1_1_0; }
+		//PathLegalPart2
+		public RuleCall getPathPathLegalPart2ParserRuleCall_1_1_0() { return cPathPathLegalPart2ParserRuleCall_1_1_0; }
 		
 		//QUOTE1
 		public RuleCall getQUOTE1TerminalRuleCall_1_2() { return cQUOTE1TerminalRuleCall_1_2; }
 	}
-	public class PathLegalPartElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
+	public class PathLegalPartCommonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPartCommon");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIdentifierParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cKW_NOSTDINCTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cKW_INCSYSTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cKW_INCLUDETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cANY_OTHERTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//PathLegalPart:
+		//PathLegalPartCommon:
 		//	Identifier
 		//	//	|	STRING2
 		//	| KW_NOSTDINC
 		//	| KW_INCSYS
-		//	| KW_INCLUDE;
+		//	| KW_INCLUDE
+		//	| ANY_OTHER;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Identifier //	|	STRING2
-		//| KW_NOSTDINC | KW_INCSYS | KW_INCLUDE
+		//| KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | ANY_OTHER
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Identifier
@@ -733,6 +735,40 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//KW_INCLUDE
 		public RuleCall getKW_INCLUDETerminalRuleCall_3() { return cKW_INCLUDETerminalRuleCall_3; }
+		
+		//ANY_OTHER
+		public RuleCall getANY_OTHERTerminalRuleCall_4() { return cANY_OTHERTerminalRuleCall_4; }
+	}
+	public class PathLegalPart1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart1");
+		private final RuleCall cPathLegalPartCommonParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//PathLegalPart1:
+		//	PathLegalPartCommon+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PathLegalPartCommon+
+		public RuleCall getPathLegalPartCommonParserRuleCall() { return cPathLegalPartCommonParserRuleCall; }
+	}
+	public class PathLegalPart2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPathLegalPartCommonParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PathLegalPart2:
+		//	PathLegalPartCommon
+		//	| WS+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PathLegalPartCommon | WS+
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PathLegalPartCommon
+		public RuleCall getPathLegalPartCommonParserRuleCall_0() { return cPathLegalPartCommonParserRuleCall_0; }
+		
+		//WS
+		public RuleCall getWSTerminalRuleCall_1() { return cWSTerminalRuleCall_1; }
 	}
 	public class MacroLegalPartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.MacroLegalPart");
@@ -979,7 +1015,9 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final FunctionMacroElements pFunctionMacro;
 	private final StringMacroElements pStringMacro;
 	private final PathCmdElements pPathCmd;
-	private final PathLegalPartElements pPathLegalPart;
+	private final PathLegalPartCommonElements pPathLegalPartCommon;
+	private final PathLegalPart1Elements pPathLegalPart1;
+	private final PathLegalPart2Elements pPathLegalPart2;
 	private final MacroLegalPartElements pMacroLegalPart;
 	private final MyCodeElements pMyCode;
 	private final OptionElements pOption;
@@ -1039,7 +1077,9 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFunctionMacro = new FunctionMacroElements();
 		this.pStringMacro = new StringMacroElements();
 		this.pPathCmd = new PathCmdElements();
-		this.pPathLegalPart = new PathLegalPartElements();
+		this.pPathLegalPartCommon = new PathLegalPartCommonElements();
+		this.pPathLegalPart1 = new PathLegalPart1Elements();
+		this.pPathLegalPart2 = new PathLegalPart2Elements();
 		this.pMacroLegalPart = new MacroLegalPartElements();
 		this.pMyCode = new MyCodeElements();
 		this.pOption = new OptionElements();
@@ -1247,7 +1287,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PathCmd:
-	//	{PathCmd} path=PathLegalPart | QUOTE1 path=PathLegalPart QUOTE1;
+	//	{PathCmd} path=PathLegalPart1 | QUOTE1 path=PathLegalPart2 QUOTE1;
 	public PathCmdElements getPathCmdAccess() {
 		return pPathCmd;
 	}
@@ -1256,18 +1296,40 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		return getPathCmdAccess().getRule();
 	}
 	
-	//PathLegalPart:
+	//PathLegalPartCommon:
 	//	Identifier
 	//	//	|	STRING2
 	//	| KW_NOSTDINC
 	//	| KW_INCSYS
-	//	| KW_INCLUDE;
-	public PathLegalPartElements getPathLegalPartAccess() {
-		return pPathLegalPart;
+	//	| KW_INCLUDE
+	//	| ANY_OTHER;
+	public PathLegalPartCommonElements getPathLegalPartCommonAccess() {
+		return pPathLegalPartCommon;
 	}
 	
-	public ParserRule getPathLegalPartRule() {
-		return getPathLegalPartAccess().getRule();
+	public ParserRule getPathLegalPartCommonRule() {
+		return getPathLegalPartCommonAccess().getRule();
+	}
+	
+	//PathLegalPart1:
+	//	PathLegalPartCommon+;
+	public PathLegalPart1Elements getPathLegalPart1Access() {
+		return pPathLegalPart1;
+	}
+	
+	public ParserRule getPathLegalPart1Rule() {
+		return getPathLegalPart1Access().getRule();
+	}
+	
+	//PathLegalPart2:
+	//	PathLegalPartCommon
+	//	| WS+;
+	public PathLegalPart2Elements getPathLegalPart2Access() {
+		return pPathLegalPart2;
+	}
+	
+	public ParserRule getPathLegalPart2Rule() {
+		return getPathLegalPart2Access().getRule();
 	}
 	
 	//MacroLegalPart:

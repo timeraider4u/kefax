@@ -1107,9 +1107,9 @@ rulePathCmd returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_0_1_0()); 
+	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPart1ParserRuleCall_0_1_0()); 
 	    }
-		lv_path_1_0=rulePathLegalPart		{
+		lv_path_1_0=rulePathLegalPart1		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPathCmdRule());
 	        }
@@ -1117,7 +1117,7 @@ rulePathCmd returns [EObject current=null]
        			$current, 
        			"path",
         		lv_path_1_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart1");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1130,9 +1130,9 @@ rulePathCmd returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPart2ParserRuleCall_1_1_0()); 
 	    }
-		lv_path_3_0=rulePathLegalPart		{
+		lv_path_3_0=rulePathLegalPart2		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPathCmdRule());
 	        }
@@ -1140,7 +1140,7 @@ rulePathCmd returns [EObject current=null]
        			$current, 
        			"path",
         		lv_path_3_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart2");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1156,24 +1156,24 @@ rulePathCmd returns [EObject current=null]
 
 
 
-// Entry rule entryRulePathLegalPart
-entryRulePathLegalPart returns [String current=null] 
+// Entry rule entryRulePathLegalPartCommon
+entryRulePathLegalPartCommon returns [String current=null] 
 :
-	{ newCompositeNode(grammarAccess.getPathLegalPartRule()); } 
-	 iv_rulePathLegalPart=rulePathLegalPart 
-	 { $current=$iv_rulePathLegalPart.current.getText(); }  
+	{ newCompositeNode(grammarAccess.getPathLegalPartCommonRule()); } 
+	 iv_rulePathLegalPartCommon=rulePathLegalPartCommon 
+	 { $current=$iv_rulePathLegalPartCommon.current.getText(); }  
 	 EOF 
 ;
 
-// Rule PathLegalPart
-rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule PathLegalPartCommon
+rulePathLegalPartCommon returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { enterRule(); 
     }
     @after { leaveRule();
     }:
 (
     { 
-        newCompositeNode(grammarAccess.getPathLegalPartAccess().getIdentifierParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getPathLegalPartCommonAccess().getIdentifierParserRuleCall_0()); 
     }
     this_Identifier_0=ruleIdentifier    {
 		$current.merge(this_Identifier_0);
@@ -1188,7 +1188,7 @@ rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 
     { 
-    newLeafNode(this_KW_NOSTDINC_1, grammarAccess.getPathLegalPartAccess().getKW_NOSTDINCTerminalRuleCall_1()); 
+    newLeafNode(this_KW_NOSTDINC_1, grammarAccess.getPathLegalPartCommonAccess().getKW_NOSTDINCTerminalRuleCall_1()); 
     }
 
     |    this_KW_INCSYS_2=RULE_KW_INCSYS    {
@@ -1196,7 +1196,7 @@ rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 
     { 
-    newLeafNode(this_KW_INCSYS_2, grammarAccess.getPathLegalPartAccess().getKW_INCSYSTerminalRuleCall_2()); 
+    newLeafNode(this_KW_INCSYS_2, grammarAccess.getPathLegalPartCommonAccess().getKW_INCSYSTerminalRuleCall_2()); 
     }
 
     |    this_KW_INCLUDE_3=RULE_KW_INCLUDE    {
@@ -1204,9 +1204,91 @@ rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 
     { 
-    newLeafNode(this_KW_INCLUDE_3, grammarAccess.getPathLegalPartAccess().getKW_INCLUDETerminalRuleCall_3()); 
+    newLeafNode(this_KW_INCLUDE_3, grammarAccess.getPathLegalPartCommonAccess().getKW_INCLUDETerminalRuleCall_3()); 
+    }
+
+    |    this_ANY_OTHER_4=RULE_ANY_OTHER    {
+		$current.merge(this_ANY_OTHER_4);
+    }
+
+    { 
+    newLeafNode(this_ANY_OTHER_4, grammarAccess.getPathLegalPartCommonAccess().getANY_OTHERTerminalRuleCall_4()); 
     }
 )
+    ;
+
+
+
+
+
+// Entry rule entryRulePathLegalPart1
+entryRulePathLegalPart1 returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getPathLegalPart1Rule()); } 
+	 iv_rulePathLegalPart1=rulePathLegalPart1 
+	 { $current=$iv_rulePathLegalPart1.current.getText(); }  
+	 EOF 
+;
+
+// Rule PathLegalPart1
+rulePathLegalPart1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+(
+    { 
+        newCompositeNode(grammarAccess.getPathLegalPart1Access().getPathLegalPartCommonParserRuleCall()); 
+    }
+    this_PathLegalPartCommon_0=rulePathLegalPartCommon    {
+		$current.merge(this_PathLegalPartCommon_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)+
+    ;
+
+
+
+
+
+// Entry rule entryRulePathLegalPart2
+entryRulePathLegalPart2 returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getPathLegalPart2Rule()); } 
+	 iv_rulePathLegalPart2=rulePathLegalPart2 
+	 { $current=$iv_rulePathLegalPart2.current.getText(); }  
+	 EOF 
+;
+
+// Rule PathLegalPart2
+rulePathLegalPart2 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+(
+    { 
+        newCompositeNode(grammarAccess.getPathLegalPart2Access().getPathLegalPartCommonParserRuleCall_0()); 
+    }
+    this_PathLegalPartCommon_0=rulePathLegalPartCommon    {
+		$current.merge(this_PathLegalPartCommon_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+
+    |    this_WS_1=RULE_WS    {
+		$current.merge(this_WS_1);
+    }
+
+    { 
+    newLeafNode(this_WS_1, grammarAccess.getPathLegalPart2Access().getWSTerminalRuleCall_1()); 
+    }
+)+
     ;
 
 

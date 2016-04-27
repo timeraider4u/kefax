@@ -101,17 +101,28 @@ StringMacro returns Macro:
 
 PathCmd:
 	{PathCmd}
-	(path=PathLegalPart)
+	(path=PathLegalPart1)
 	|
-	(QUOTE1 path=PathLegalPart QUOTE1)
+	(QUOTE1 path=PathLegalPart2 QUOTE1)
 ;
 
-PathLegalPart:
+PathLegalPartCommon:
 		Identifier
 //	|	STRING2
 	|	KW_NOSTDINC 
 	|	KW_INCSYS
 	|	KW_INCLUDE
+	|	ANY_OTHER
+;
+
+PathLegalPart1:
+	(PathLegalPartCommon)+
+;
+
+PathLegalPart2:
+	(	PathLegalPartCommon
+	|	WS
+	)+
 ;
 
 MacroLegalPart:

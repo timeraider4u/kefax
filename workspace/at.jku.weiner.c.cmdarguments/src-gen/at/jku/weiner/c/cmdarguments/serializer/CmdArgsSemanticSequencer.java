@@ -135,7 +135,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     path=PathLegalPart
+	 *     path=PathLegalPart1
 	 */
 	protected void sequence_PathCmd(EObject context, PathCmd semanticObject) {
 		if(errorAcceptor != null) {
@@ -144,7 +144,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_0_1_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathLegalPart1ParserRuleCall_0_1_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	

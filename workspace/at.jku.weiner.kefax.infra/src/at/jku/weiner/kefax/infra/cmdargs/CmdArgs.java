@@ -170,23 +170,15 @@ public class CmdArgs {
 
 		this.additionalDirectives.append(")");
 		this.additionalDirectives.append(" ");
-		this.additionalDirectives.append(macro.getValue());
+		final String value = macro.getValue();
+		final String content = value.replace("\\#", "#");
+		this.additionalDirectives.append(content);
 		this.additionalDirectives.append(System.lineSeparator());
 	}
 
 	private void visitFor(final StringMacro macro) {
 		final Macro inner = macro.getMacro();
 		this.visit(inner);
-		// final String text = macro.getString();
-		// // final String content = text;
-		// final String content = text.replace("\\#", "#");
-		// this.cmdArgsAsStringBuffer.append(" -D\"");
-		// this.cmdArgsAsStringBuffer.append(content);
-		// this.cmdArgsAsStringBuffer.append("\"");
-		//
-		// this.additionalDirectives.append("#define ");
-		// this.additionalDirectives.append(content);
-		// this.additionalDirectives.append(System.lineSeparator());
 	}
 
 	private final void visitForUseIncDir(final PathCmd pathCmd,

@@ -38,7 +38,11 @@ import at.jku.weiner.xtext.XtextUtils;
 public class InfraCmdHandler extends MyActionHandler implements
 IResourceVisitor {
 
+	private final boolean INCLUDE_SUBDIRECTORIES = false;
+
 	private final List<IFile> files;
+
+	private IFolder mySrcFolder = null;
 
 	public InfraCmdHandler() {
 		super("at.jku.weiner.kefax.infra.infra.command");
@@ -49,9 +53,11 @@ IResourceVisitor {
 	protected void myRun() throws Exception {
 		MyLog.trace(InfraCmdHandler.class, "starting infra handler!");
 		// final IFolder srcFolder = KefaxUtils.getLinuxSrcFolder();
-		final IFolder srcFolder = KefaxUtils.getLinuxExt4SrcFolder();
+		this.mySrcFolder = KefaxUtils.getLinuxTTYSrcFolder();
+
+		// final IFolder srcFolder = KefaxUtils.getLinuxExt4SrcFolder();
 		this.files.clear();
-		srcFolder.accept(this);
+		this.mySrcFolder.accept(this);
 		final IProject dstProject = this.setUpProject();
 		final IFolder dstFolder = dstProject
 				.getFolder(MySettings.LINUX_DISCOVER_DIR);
@@ -81,7 +87,13 @@ IResourceVisitor {
 		if (resource == null) {
 			return false;
 		} else if (resource instanceof IContainer) {
-			return true;
+			MyLog.trace(InfraCmdHandler.class, "visit for resource='"
+					+ resource + "'");
+			if (this.mySrcFolder.equals(resource)) {
+				MyLog.trace(InfraCmdHandler.class, "return true;");
+				return true;
+			}
+			return this.INCLUDE_SUBDIRECTORIES;
 		} else if (resource instanceof IFile) {
 			final IFile file = (IFile) resource;
 			final String name = resource.getName();

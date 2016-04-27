@@ -138,7 +138,7 @@ public class MainHandler extends MyActionHandler {
 			// KefaxUtils.getLinuxDiscoverSrcFolder();
 			final List<IPath> inFiles = args.getInRealCFilePath();
 			for (int j = 0; j < inFiles.size(); j++) {
-				final IPath inFilePath = inFiles.get(i);
+				final IPath inFilePath = inFiles.get(j);
 				// final IFile inFile = dstSrcFolder.getFile(inFilePath);
 				final String fileName = inFilePath.toString();
 				this.discoverSourceFile(monitor, discoverer, dstFolder,

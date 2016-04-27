@@ -18,9 +18,9 @@ import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public class ConfigureHandler extends MyActionHandler {
-	
+
 	private static final String ANT_SCRIPT_PATH = "configureScript/configureLinux.xml";
-	
+
 	private IProject project = null;
 	private String src = null;
 	private File workingDirectory = null;
@@ -35,7 +35,7 @@ public class ConfigureHandler extends MyActionHandler {
 	protected void myRun() throws Exception {
 		this.project = KefaxUtils.getLinuxProject();
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		
+
 		this.src = KefaxUtils.getLinuxSrcFolderAsFilePath();
 		this.workingDirectory = new File(this.src);
 		this.config = KefaxUtils.getLinuxConfigFile();
@@ -80,14 +80,13 @@ public class ConfigureHandler extends MyActionHandler {
 
 	private boolean addSelectedFeaturesToConfig() throws Exception {
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		if (!MyFileWriter.appendStringToFile(this.configPathAsString,
-				MySettings.CONFIG_1)) {
-			return false;
-		}
-		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		if (!MyFileWriter.appendStringToFile(this.configPathAsString,
-				MySettings.CONFIG_2)) {
-			return false;
+		final String[] configs = MySettings.CONFIGS;
+		for (int i = 0; i < configs.length; i++) {
+			final String config = configs[i];
+			if (!MyFileWriter.appendStringToFile(this.configPathAsString,
+					config)) {
+				return false;
+			}
 		}
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		return true;
@@ -136,5 +135,5 @@ public class ConfigureHandler extends MyActionHandler {
 		// runner.setArguments("-Dmessage=Building -verbose");
 		runner.run(this.getMonitor());
 	}
-	
+
 }

@@ -29,11 +29,11 @@ public final class KefaxUtils {
 	private static final String OS_NAME = "os.name";
 	public static final int STATE_OKAY = 0;
 	public static final int STATE_ERROR = 1;
-	
+
 	private KefaxUtils() {
-		
+
 	}
-	
+
 	public static boolean isLinuxOS() {
 		final String osName = System.getProperty(KefaxUtils.OS_NAME);
 		if (osName.contains(MySettings.LINUX_OS_NAME_1)) {
@@ -65,25 +65,25 @@ public final class KefaxUtils {
 		result.add(item);
 		return Collections.unmodifiableList(result);
 	}
-	
+
 	public static String getURIasString(final IResource res) {
 		final String result = res.getLocationURI().toString();
 		return result;
 	}
-	
+
 	public static String getURIasFileString(final IResource res) {
 		final IPath path = res.getLocation();
 		final String result = path.toOSString();
 		return result;
 	}
-	
+
 	public static IProject getLinuxProject() {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IWorkspaceRoot root = workspace.getRoot();
 		final IProject project = root.getProject(MySettings.LINUX_CHECKOUT_PRJ);
 		return project;
 	}
-	
+
 	public static IFolder getLinuxSrcFolder() {
 		final IProject project = KefaxUtils.getLinuxProject();
 		final IFolder src = project.getFolder(MySettings.LINUX_CHECKOUT_DIR);
@@ -102,20 +102,20 @@ public final class KefaxUtils {
 		final IFile file = src.getFile(MySettings.LINUX_CHECKOUT_CONFIG);
 		return file;
 	}
-	
+
 	public static IProject getLinuxDiscoverProject() {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IWorkspaceRoot root = workspace.getRoot();
 		final IProject project = root.getProject(MySettings.LINUX_DISCOVER_PRJ);
 		return project;
 	}
-	
+
 	public static IFolder getLinuxDiscoverSrcFolder() {
 		final IProject project = KefaxUtils.getLinuxDiscoverProject();
 		final IFolder src = project.getFolder(MySettings.LINUX_DISCOVER_DIR);
 		return src;
 	}
-	
+
 	public static IFolder getLinuxDiscoverTmpWorkingFolder() {
 		final IProject project = KefaxUtils.getLinuxDiscoverProject();
 		final IFolder src = project
@@ -129,7 +129,7 @@ public final class KefaxUtils {
 				.getFile(MySettings.LINUX_DISCOVER_CMD_OUT);
 		return cmdOutFile;
 	}
-	
+
 	public static boolean executeCommand(final List<String> command,
 			final File workingDirectory, final IProgressMonitor monitor,
 			final boolean redirectStdError) {
@@ -152,7 +152,7 @@ public final class KefaxUtils {
 		}
 		return result;
 	}
-	
+
 	private static int executeCommandInternalWithExceptionHandling(
 			final List<String> command, final File workingDirectory,
 			final IProgressMonitor monitor, final boolean redirectStdError) {
@@ -174,7 +174,7 @@ public final class KefaxUtils {
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 		processBuilder = processBuilder.directory(workingDirectory);
-		
+
 		processBuilder = processBuilder.redirectErrorStream(redirectStdError);
 		final Process process = processBuilder.start();
 		final InputStream inputStream = process.getInputStream();
@@ -185,22 +185,28 @@ public final class KefaxUtils {
 		// final InputStream errorStream = process.getErrorStream();
 		// final StreamReader errorReader = new StreamReader(errorStream);
 		final MyStreamReader inputReader = new MyStreamReader(inputStream);
-		
+
 		// errorReader.start();
 		inputReader.start();
 
 		final int result = process.waitFor();
 		inputReader.close();
 		// errorReader.close();
-		
+
 		return result;
 	}
 
-	public static IFolder getLinuxExt4SrcFolder() {
+	public static IFolder getLinuxTTYSrcFolder() {
 		final IFolder src = KefaxUtils.getLinuxSrcFolder();
-		final IFolder result = src.getFolder(MySettings.LINUX_EXT4_SRC);
+		final IFolder result = src.getFolder(MySettings.LINUX_TTY_SRC);
 		return result;
 	}
+
+	// public static IFolder getLinuxExt4SrcFolder() {
+	// final IFolder src = KefaxUtils.getLinuxSrcFolder();
+	// final IFolder result = src.getFolder(MySettings.LINUX_EXT4_SRC);
+	// return result;
+	// }
 
 	public static void mkParentDirsFor(final IResource resource,
 			final IProgressMonitor monitor) throws Exception {
@@ -210,7 +216,7 @@ public final class KefaxUtils {
 		}
 		KefaxUtils.workOn(resource.getParent(), monitor);
 	}
-	
+
 	private static void workOn(final IContainer resource,
 			final IProgressMonitor monitor) throws Exception {
 		if (resource.exists() || resource.isAccessible()) {
@@ -225,7 +231,7 @@ public final class KefaxUtils {
 			((IFolder) resource).create(true, true, monitor);
 		}
 	}
-	
+
 	private static boolean checkParent(final IContainer parent) {
 		if (parent == null) {
 			return false;

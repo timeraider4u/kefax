@@ -54,7 +54,7 @@ public class CmdArgs {
 		if ((line == null) || (!(line instanceof Assignment))) {
 			final ParseException ex = new ParseException(
 					"cannot parse target - not supported - cmdFile='" + file
-					+ "'", 0);
+							+ "'", 0);
 			MyLog.error(CmdArgs.class, ex);
 		}
 		this.visit(this.line.getArguments());
@@ -129,9 +129,11 @@ public class CmdArgs {
 
 	private final void visitFor(final ObjectMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D");
+		this.cmdArgsAsStringBuffer.append("\"");
 		this.cmdArgsAsStringBuffer.append(macro.getName());
 		this.cmdArgsAsStringBuffer.append("=");
 		this.cmdArgsAsStringBuffer.append(macro.getValue());
+		this.cmdArgsAsStringBuffer.append("\"");
 
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
@@ -142,6 +144,7 @@ public class CmdArgs {
 
 	private final void visitFor(final FunctionMacro macro) {
 		this.cmdArgsAsStringBuffer.append(" -D");
+		this.cmdArgsAsStringBuffer.append("\"");
 		this.cmdArgsAsStringBuffer.append(macro.getName());
 		this.cmdArgsAsStringBuffer.append("(");
 
@@ -163,6 +166,7 @@ public class CmdArgs {
 		this.cmdArgsAsStringBuffer.append(")");
 		this.cmdArgsAsStringBuffer.append("=");
 		this.cmdArgsAsStringBuffer.append(macro.getValue());
+		this.cmdArgsAsStringBuffer.append("\"");
 
 		this.additionalDirectives.append(")");
 		this.additionalDirectives.append(" ");
@@ -171,16 +175,18 @@ public class CmdArgs {
 	}
 
 	private void visitFor(final StringMacro macro) {
-		final String text = macro.getString();
-		// final String content = text;
-		final String content = text.replace("\\#", "#");
-		this.cmdArgsAsStringBuffer.append(" -D\"");
-		this.cmdArgsAsStringBuffer.append(content);
-		this.cmdArgsAsStringBuffer.append("\"");
-
-		this.additionalDirectives.append("#define ");
-		this.additionalDirectives.append(content);
-		this.additionalDirectives.append(System.lineSeparator());
+		final Macro inner = macro.getMacro();
+		this.visit(inner);
+		// final String text = macro.getString();
+		// // final String content = text;
+		// final String content = text.replace("\\#", "#");
+		// this.cmdArgsAsStringBuffer.append(" -D\"");
+		// this.cmdArgsAsStringBuffer.append(content);
+		// this.cmdArgsAsStringBuffer.append("\"");
+		//
+		// this.additionalDirectives.append("#define ");
+		// this.additionalDirectives.append(content);
+		// this.additionalDirectives.append(System.lineSeparator());
 	}
 
 	private final void visitForUseIncDir(final PathCmd pathCmd,

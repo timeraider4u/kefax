@@ -54,7 +54,7 @@ public class CmdArgs {
 		if ((line == null) || (!(line instanceof Assignment))) {
 			final ParseException ex = new ParseException(
 					"cannot parse target - not supported - cmdFile='" + file
-							+ "'", 0);
+					+ "'", 0);
 			MyLog.error(CmdArgs.class, ex);
 		}
 		this.visit(this.line.getArguments());
@@ -171,12 +171,15 @@ public class CmdArgs {
 	}
 
 	private void visitFor(final StringMacro macro) {
+		final String text = macro.getString();
+		// final String content = text;
+		final String content = text.replace("\\#", "#");
 		this.cmdArgsAsStringBuffer.append(" -D\"");
-		this.cmdArgsAsStringBuffer.append(macro.getString());
+		this.cmdArgsAsStringBuffer.append(content);
 		this.cmdArgsAsStringBuffer.append("\"");
 
 		this.additionalDirectives.append("#define ");
-		this.additionalDirectives.append(macro.getString());
+		this.additionalDirectives.append(content);
 		this.additionalDirectives.append(System.lineSeparator());
 	}
 

@@ -95,17 +95,20 @@ FunctionMacro returns Macro:
 
 StringMacro returns Macro:
 	{StringMacro}
-	string=STRING2
+	// string=STRING2
+	QUOTE1 macro=Macro QUOTE1
 ;
 
 PathCmd:
 	{PathCmd}
-	path=PathLegalPart
+	(path=PathLegalPart)
+	|
+	(QUOTE1 path=PathLegalPart QUOTE1)
 ;
 
 PathLegalPart:
 		Identifier
-	|	STRING2
+//	|	STRING2
 	|	KW_NOSTDINC 
 	|	KW_INCSYS
 	|	KW_INCLUDE
@@ -122,13 +125,15 @@ MacroLegalPart:
 MyCode:
 	(
 		Identifier 
-	|	STRING2
+//	|	STRING2
 	|	SKW_LEFTPAREN
 	|	SKW_RIGHTPAREN
 	|	KW_NOSTDINC 
 	|	KW_INCSYS
 	|	KW_INCLUDE
 	|	ANY_OTHER
+	|	SKW_HASH2
+	|	SKW_COMMA
 	)+
 ;
 
@@ -141,7 +146,7 @@ OptionPart:
 ;
 
 OptionLegalStart:
-	Identifier | STRING2
+	Identifier // | STRING2
 ;
 
 OptionLegalContinuation:
@@ -195,25 +200,27 @@ terminal fragment LETTER:
 	|	'_'
 ;
 
+terminal QUOTE1: '"';
 terminal INT: DIGIT+;
 terminal fragment DIGIT: ('0'..'9');
 
-terminal STRING2	: 
-			'"' ( SKW_BACKSLASH 
-				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
-				| !(SKW_BACKSLASH|'"')
-			)* '"' |
-			"'" ( SKW_BACKSLASH 
-				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
-				| !(SKW_BACKSLASH|"'")
-			)* "'"
-;
+//terminal STRING2	: 
+//			'"' ( SKW_BACKSLASH 
+//				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
+//				| !(SKW_BACKSLASH|'"')
+//			)* '"' |
+//			"'" ( SKW_BACKSLASH 
+//				. /* 'b'|'t'|'n'|'f'|'r'|'u'|'#'|'"'|"'"|'\\' */ 
+//				| !(SKW_BACKSLASH|"'")
+//			)* "'"
+//;
 
 terminal NEWLINE: '\n' | '\r';
 terminal WS: (' '|'\t');
-terminal fragment SKW_HASH: '#';
+terminal fragment SKW_HASH1: '#';
+terminal SKW_HASH2: SKW_BACKSLASH SKW_HASH1;
 terminal LINE_BREAK: SKW_BACKSLASH NEWLINE;
-terminal LINE_COMMENT: SKW_HASH -> NEWLINE;
+terminal LINE_COMMENT: SKW_HASH1 -> NEWLINE;
 
 terminal ANY_OTHER: .;
 //terminal END: EOF;

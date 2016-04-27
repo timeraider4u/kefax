@@ -1,8 +1,8 @@
 foobar.o := -DFOO(X)=BAR(X)
-foobar.o := -D"BAR(x)=#x" -D_BAR2=5
-foobar.o := -D"STR(s)=#s"
-foobar.o := -D"FOOBAR(X,Y)=FOO(X)##Y"
-foobar.o := -D"STR(s)=\#s"
-foobar.o := -D"FOOBAR(X,Y)=FOO(X)\#\#Y"
+foobar.o := -DBAR(x)=x -D_BAR2=5
+foobar.o := -DSTR(s)=s
+foobar.o := -DFOOBAR(X)=FOO(X)(Y)
+foobar.o := -DSTR(s)=FOO(BAR(s))
+foobar.o := -DFOOBAR(X,Y)=FOO(X),Y
 foobar.o := -Dnostdinc
 foobar.o := -Disystem=include

@@ -2,48 +2,50 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.cmdarguments
 language cmdArgs
+// imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0005_FunctionDefines.cmd"
+source file="res/Test0026_FunctionDefinesWithQuotes.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	// foobar.o := -DFOO(X)=BAR(X)
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE 
+	// foobar.o := -D"FOO(X)=BAR(X)"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1 
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
-		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
-	// foobar.o := -DBAR(x)=x -D_BAR2=5
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE 
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN QUOTE1 NEWLINE
+	// foobar.o := -D"BAR(x)=x" -D"_BAR2=5"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1 
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
-		ID
-		WS
-		KW_DEFINE ID SKW_ASSIGN ID 
-		NEWLINE
-	// foobar.o := -DSTR(s)=s
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		ID QUOTE1
+		WS 
+		KW_DEFINE QUOTE1 ID SKW_ASSIGN ID 
+		QUOTE1 NEWLINE
+	// foobar.o := -D"STR(s)=s"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN
 		ID 
-		NEWLINE
-	// foobar.o := -DFOOBAR(X)=FOO(X)(Y)
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		QUOTE1 NEWLINE
+	// foobar.o := -D"FOOBAR(X)=FOO(X)(Y)"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN 
-		NEWLINE
-	// foobar.o := -DSTR(s)=FOO(BAR(s))
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		QUOTE1 NEWLINE
+	// foobar.o := -D"STR(s)=FOO(BAR(s))"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
 		ID SKW_LEFTPAREN ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
-		NEWLINE
-	// foobar.o := -DFOOBAR(X,Y)=FOO(X),Y
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		QUOTE1 NEWLINE
+	// foobar.o := -D"FOOBAR(X,Y)=FOO(X),Y"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
 		ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_ASSIGN
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_COMMA ID
-		NEWLINE
-	// foobar.o := -Dnostdinc
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
-		KW_NOSTDINC NEWLINE
-	// foobar.o := -Disystem=include
-	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE
+		QUOTE1 NEWLINE
+	// foobar.o := -D"nostdinc"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
+		KW_NOSTDINC QUOTE1 NEWLINE
+	// foobar.o := -D"isystem=include"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
 		KW_INCSYS SKW_ASSIGN KW_INCLUDE
+		QUOTE1 NEWLINE
 //----------------------------------------------------------------------
 
 (Model
@@ -53,10 +55,13 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"FOO",
-				params+*"[X]",
-				value++"BAR(X)"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"FOO",
+					params+*"[X]",
+					value++"BAR(X)"
+				)
 			)
 		)
 	),
@@ -65,17 +70,23 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"BAR",
-				params+*"[x]",
-				value++"x"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"BAR",
+					params+*"[x]",
+					value++"x"
+				)
 			)
 		),
 		(Argument
 			macro=
-			(ObjectMacro
-				name++"_BAR2",
-				value++"5"
+			(StringMacro
+				macro=
+				(ObjectMacro
+					name++"_BAR2",
+					value++"5"
+				)
 			)
 		)
 	),
@@ -84,10 +95,13 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"STR",
-				params+*"[s]",
-				value++"s"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"STR",
+					params+*"[s]",
+					value++"s"
+				)
 			)
 		)
 	),
@@ -96,10 +110,13 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"FOOBAR",
-				params+*"[X]",
-				value++"FOO(X)(Y)"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"FOOBAR",
+					params+*"[X]",
+					value++"FOO(X)(Y)"
+				)
 			)
 		)
 	),
@@ -108,10 +125,13 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"STR",
-				params+*"[s]",
-				value++"FOO(BAR(s))"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"STR",
+					params+*"[s]",
+					value++"FOO(BAR(s))"
+				)
 			)
 		)
 	),
@@ -120,10 +140,13 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"FOOBAR",
-				params+*"[X, Y]",
-				value++"FOO(X),Y"
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"FOOBAR",
+					params+*"[X, Y]",
+					value++"FOO(X),Y"
+				)
 			)
 		)
 	),
@@ -132,8 +155,11 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(SimpleMacro
-				name++"nostdinc"
+			(StringMacro
+				macro=
+				(SimpleMacro
+					name++"nostdinc"
+				)
 			)
 		)
 	),
@@ -142,9 +168,12 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(ObjectMacro
-				name++"isystem",
-				value++"include"
+			(StringMacro
+				macro=
+				(ObjectMacro
+					name++"isystem",
+					value++"include"
+				)
 			)
 		)
 	)

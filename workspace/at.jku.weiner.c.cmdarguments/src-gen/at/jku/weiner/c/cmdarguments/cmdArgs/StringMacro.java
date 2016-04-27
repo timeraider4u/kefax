@@ -10,10 +10,10 @@ package at.jku.weiner.c.cmdarguments.cmdArgs;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString <em>String</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getMacro <em>Macro</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getStringMacro()
  * @model
@@ -22,29 +22,29 @@ package at.jku.weiner.c.cmdarguments.cmdArgs;
 public interface StringMacro extends Macro
 {
   /**
-   * Returns the value of the '<em><b>String</b></em>' attribute.
+   * Returns the value of the '<em><b>Macro</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>String</em>' attribute isn't clear,
+   * If the meaning of the '<em>Macro</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>String</em>' attribute.
-   * @see #setString(String)
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getStringMacro_String()
-   * @model
+   * @return the value of the '<em>Macro</em>' containment reference.
+   * @see #setMacro(Macro)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getStringMacro_Macro()
+   * @model containment="true"
    * @generated
    */
-  String getString();
+  Macro getMacro();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString <em>String</em>}' attribute.
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getMacro <em>Macro</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>String</em>' attribute.
-   * @see #getString()
+   * @param value the new value of the '<em>Macro</em>' containment reference.
+   * @see #getMacro()
    * @generated
    */
-  void setString(String value);
+  void setMacro(Macro value);
 
 } // StringMacro

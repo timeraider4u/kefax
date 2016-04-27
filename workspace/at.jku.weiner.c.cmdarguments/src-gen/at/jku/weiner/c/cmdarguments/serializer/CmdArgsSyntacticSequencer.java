@@ -70,6 +70,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNoStdIncRule())
 			return getNoStdIncToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getQUOTE1Rule())
+			return getQUOTE1Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ASSIGNRule())
 			return getSKW_ASSIGNToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_COLONRule())
@@ -172,6 +174,15 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "-nostdinc";
+	}
+	
+	/**
+	 * terminal QUOTE1: '"';
+	 */
+	protected String getQUOTE1Token(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\"";
 	}
 	
 	/**

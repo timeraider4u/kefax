@@ -5,28 +5,12 @@ language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0019_Multiline.cmd"
+source file="res/Test0024_SimpleDefinesWithQuote.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	ID WS SKW_COLON SKW_ASSIGN WS 
-		// -DFOO(X)=BAR(X) \
-		KW_DEFINE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN 
-			ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS LINE_BREAK
-		// -D"BAR(x)=#x"\
-		WS KW_DEFINE 
-			QUOTE1 ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN SKW_HASH2 ID QUOTE1 
-			LINE_BREAK
-		// 	-D_BAR2  \
-		WS KW_DEFINE ID WS WS LINE_BREAK
-		//  -D"STR(s)=#s" \
-		WS WS WS KW_DEFINE 
-			QUOTE1 ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN SKW_HASH2 ID QUOTE1
-			WS LINE_BREAK
-		// 	-D"FOOBAR(X,Y)=FOO(X)##Y"
-		WS KW_DEFINE
-			QUOTE1 ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_ASSIGN
-			ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_HASH2 SKW_HASH2 ID QUOTE1   
-			NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1 ID QUOTE1 NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1 ID QUOTE1 NEWLINE
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1 ID QUOTE1
 //----------------------------------------------------------------------
 
 (Model
@@ -36,34 +20,37 @@ lexer-tokens
 		arguments+=
 		(Argument
 			macro=
-			(FunctionMacro
-				name++"FOO",
-				params+*"[X]",
-				value++"BAR(X)"
+			(StringMacro
+				macro=
+				(SimpleMacro
+					name++"__FOO__BAR__"
+				)
 			)
-		),
+		)
+	),
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
 		(Argument
 			macro=
 			(StringMacro
-				//string++"BAR(x)=#x"
+				macro=
+				(SimpleMacro
+					name++"FOO2"
+				)
 			)
-		),
-		(Argument
-			macro=
-			(SimpleMacro
-				name++"_BAR2"
-			)
-		),
-		(Argument
-			macro=
-			(StringMacro
-				//string++"STR(s)=#s"
-			)
-		),
+		)
+	),
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
 		(Argument
 			macro=
 			(StringMacro
-				//string++"FOOBAR(X,Y)=FOO(X)##Y"
+				macro=
+				(SimpleMacro
+					name++"_BAR2"
+				)
 			)
 		)
 	)

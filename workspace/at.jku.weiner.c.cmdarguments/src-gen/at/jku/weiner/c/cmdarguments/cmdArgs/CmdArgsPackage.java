@@ -473,13 +473,13 @@ public interface CmdArgsPackage extends EPackage
   int STRING_MACRO = 10;
 
   /**
-   * The feature id for the '<em><b>String</b></em>' attribute.
+   * The feature id for the '<em><b>Macro</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_MACRO__STRING = MACRO_FEATURE_COUNT + 0;
+  int STRING_MACRO__MACRO = MACRO_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>String Macro</em>' class.
@@ -822,15 +822,15 @@ public interface CmdArgsPackage extends EPackage
   EClass getStringMacro();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString <em>String</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getMacro <em>Macro</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>String</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getString()
+   * @return the meta object for the containment reference '<em>Macro</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro#getMacro()
    * @see #getStringMacro()
    * @generated
    */
-  EAttribute getStringMacro_String();
+  EReference getStringMacro_Macro();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1126,12 +1126,12 @@ public interface CmdArgsPackage extends EPackage
     EClass STRING_MACRO = eINSTANCE.getStringMacro();
 
     /**
-     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Macro</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_MACRO__STRING = eINSTANCE.getStringMacro_String();
+    EReference STRING_MACRO__MACRO = eINSTANCE.getStringMacro_Macro();
 
   }
 

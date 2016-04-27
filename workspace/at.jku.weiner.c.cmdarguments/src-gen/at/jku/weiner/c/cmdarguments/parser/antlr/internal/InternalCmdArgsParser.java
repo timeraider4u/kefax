@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_DOT", "RULE_SKW_DIV", "RULE_SKW_COLON", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_SKW_DOLLAR", "RULE_SKW_BACKSLASH", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_LANG", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_KW_VAR", "RULE_ID_PART_1", "RULE_ID_PART_2", "RULE_ID", "RULE_LETTER", "RULE_INT", "RULE_DIGIT", "RULE_STRING2", "RULE_NEWLINE", "RULE_WS", "RULE_SKW_HASH", "RULE_LINE_BREAK", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SKW_DOT", "RULE_SKW_DIV", "RULE_SKW_COLON", "RULE_SKW_MINUS", "RULE_SKW_ASSIGN", "RULE_SKW_LEFTPAREN", "RULE_SKW_RIGHTPAREN", "RULE_SKW_COMMA", "RULE_SKW_DOLLAR", "RULE_SKW_BACKSLASH", "RULE_KW_DEFINE", "RULE_KW_INCDIR", "RULE_KW_OUTPUT", "RULE_KW_LANG", "RULE_KW_NOSTDINC", "RULE_KW_INCSYS", "RULE_KW_INCLUDE", "RULE_KW_VAR", "RULE_ID_PART_1", "RULE_ID_PART_2", "RULE_ID", "RULE_LETTER", "RULE_INT", "RULE_QUOTE1", "RULE_DIGIT", "RULE_NEWLINE", "RULE_WS", "RULE_SKW_HASH1", "RULE_SKW_HASH2", "RULE_LINE_BREAK", "RULE_LINE_COMMENT", "RULE_ANY_OTHER"
     };
     public static final int RULE_SKW_MINUS=7;
     public static final int RULE_ID=24;
@@ -29,31 +29,32 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final int RULE_KW_INCDIR=15;
     public static final int RULE_ID_PART_2=23;
     public static final int RULE_KW_OUTPUT=16;
-    public static final int RULE_ANY_OTHER=34;
+    public static final int RULE_ANY_OTHER=35;
     public static final int RULE_SKW_DOLLAR=12;
     public static final int RULE_KW_NOSTDINC=18;
     public static final int RULE_SKW_DOT=4;
     public static final int RULE_SKW_DIV=5;
-    public static final int RULE_LINE_BREAK=32;
+    public static final int RULE_LINE_BREAK=33;
     public static final int EOF=-1;
     public static final int RULE_LETTER=25;
     public static final int RULE_KW_VAR=21;
     public static final int RULE_SKW_RIGHTPAREN=10;
-    public static final int RULE_STRING2=28;
     public static final int RULE_KW_INCLUDE=20;
     public static final int RULE_KW_DEFINE=14;
     public static final int RULE_KW_LANG=17;
+    public static final int RULE_QUOTE1=27;
+    public static final int RULE_SKW_HASH2=32;
+    public static final int RULE_SKW_HASH1=31;
     public static final int RULE_KW_INCSYS=19;
-    public static final int RULE_LINE_COMMENT=33;
+    public static final int RULE_LINE_COMMENT=34;
     public static final int RULE_INT=26;
     public static final int RULE_SKW_BACKSLASH=13;
     public static final int RULE_SKW_COMMA=11;
     public static final int RULE_WS=30;
-    public static final int RULE_DIGIT=27;
+    public static final int RULE_DIGIT=28;
     public static final int RULE_SKW_COLON=6;
     public static final int RULE_SKW_LEFTPAREN=9;
     public static final int RULE_SKW_ASSIGN=8;
-    public static final int RULE_SKW_HASH=31;
 
     // delegates
     // delegators
@@ -2838,20 +2839,23 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringMacro"
-    // InternalCmdArgsParser.g:1044:1: ruleStringMacro returns [EObject current=null] : ( () ( (lv_string_1_0= RULE_STRING2 ) ) ) ;
+    // InternalCmdArgsParser.g:1044:1: ruleStringMacro returns [EObject current=null] : ( () this_QUOTE1_1= RULE_QUOTE1 ( (lv_macro_2_0= ruleMacro ) ) this_QUOTE1_3= RULE_QUOTE1 ) ;
     public final EObject ruleStringMacro() throws RecognitionException {
         EObject current = null;
 
-        Token lv_string_1_0=null;
+        Token this_QUOTE1_1=null;
+        Token this_QUOTE1_3=null;
+        EObject lv_macro_2_0 = null;
+
 
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1047:28: ( ( () ( (lv_string_1_0= RULE_STRING2 ) ) ) )
-            // InternalCmdArgsParser.g:1048:1: ( () ( (lv_string_1_0= RULE_STRING2 ) ) )
+            // InternalCmdArgsParser.g:1047:28: ( ( () this_QUOTE1_1= RULE_QUOTE1 ( (lv_macro_2_0= ruleMacro ) ) this_QUOTE1_3= RULE_QUOTE1 ) )
+            // InternalCmdArgsParser.g:1048:1: ( () this_QUOTE1_1= RULE_QUOTE1 ( (lv_macro_2_0= ruleMacro ) ) this_QUOTE1_3= RULE_QUOTE1 )
             {
-            // InternalCmdArgsParser.g:1048:1: ( () ( (lv_string_1_0= RULE_STRING2 ) ) )
-            // InternalCmdArgsParser.g:1048:2: () ( (lv_string_1_0= RULE_STRING2 ) )
+            // InternalCmdArgsParser.g:1048:1: ( () this_QUOTE1_1= RULE_QUOTE1 ( (lv_macro_2_0= ruleMacro ) ) this_QUOTE1_3= RULE_QUOTE1 )
+            // InternalCmdArgsParser.g:1048:2: () this_QUOTE1_1= RULE_QUOTE1 ( (lv_macro_2_0= ruleMacro ) ) this_QUOTE1_3= RULE_QUOTE1
             {
             // InternalCmdArgsParser.g:1048:2: ()
             // InternalCmdArgsParser.g:1049:5: 
@@ -2864,25 +2868,34 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCmdArgsParser.g:1054:2: ( (lv_string_1_0= RULE_STRING2 ) )
-            // InternalCmdArgsParser.g:1055:1: (lv_string_1_0= RULE_STRING2 )
+            this_QUOTE1_1=(Token)match(input,RULE_QUOTE1,FOLLOW_13); 
+             
+                newLeafNode(this_QUOTE1_1, grammarAccess.getStringMacroAccess().getQUOTE1TerminalRuleCall_1()); 
+                
+            // InternalCmdArgsParser.g:1058:1: ( (lv_macro_2_0= ruleMacro ) )
+            // InternalCmdArgsParser.g:1059:1: (lv_macro_2_0= ruleMacro )
             {
-            // InternalCmdArgsParser.g:1055:1: (lv_string_1_0= RULE_STRING2 )
-            // InternalCmdArgsParser.g:1056:3: lv_string_1_0= RULE_STRING2
+            // InternalCmdArgsParser.g:1059:1: (lv_macro_2_0= ruleMacro )
+            // InternalCmdArgsParser.g:1060:3: lv_macro_2_0= ruleMacro
             {
-            lv_string_1_0=(Token)match(input,RULE_STRING2,FOLLOW_2); 
+             
+            	        newCompositeNode(grammarAccess.getStringMacroAccess().getMacroMacroParserRuleCall_2_0()); 
+            	    
+            pushFollow(FOLLOW_26);
+            lv_macro_2_0=ruleMacro();
 
-            			newLeafNode(lv_string_1_0, grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0()); 
-            		
+            state._fsp--;
+
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getStringMacroRule());
+            	            current = createModelElementForParent(grammarAccess.getStringMacroRule());
             	        }
-                   		setWithLastConsumed(
+                   		set(
                    			current, 
-                   			"string",
-                    		lv_string_1_0, 
-                    		"at.jku.weiner.c.cmdarguments.CmdArgs.STRING2");
+                   			"macro",
+                    		lv_macro_2_0, 
+                    		"at.jku.weiner.c.cmdarguments.CmdArgs.Macro");
+            	        afterParserOrEnumRuleCall();
             	    
 
             }
@@ -2890,6 +2903,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
             }
 
+            this_QUOTE1_3=(Token)match(input,RULE_QUOTE1,FOLLOW_2); 
+             
+                newLeafNode(this_QUOTE1_3, grammarAccess.getStringMacroAccess().getQUOTE1TerminalRuleCall_3()); 
+                
 
             }
 
@@ -2911,7 +2928,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePathCmd"
-    // InternalCmdArgsParser.g:1080:1: entryRulePathCmd returns [EObject current=null] : iv_rulePathCmd= rulePathCmd EOF ;
+    // InternalCmdArgsParser.g:1088:1: entryRulePathCmd returns [EObject current=null] : iv_rulePathCmd= rulePathCmd EOF ;
     public final EObject entryRulePathCmd() throws RecognitionException {
         EObject current = null;
 
@@ -2919,8 +2936,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1081:2: (iv_rulePathCmd= rulePathCmd EOF )
-            // InternalCmdArgsParser.g:1082:2: iv_rulePathCmd= rulePathCmd EOF
+            // InternalCmdArgsParser.g:1089:2: (iv_rulePathCmd= rulePathCmd EOF )
+            // InternalCmdArgsParser.g:1090:2: iv_rulePathCmd= rulePathCmd EOF
             {
              newCompositeNode(grammarAccess.getPathCmdRule()); 
             pushFollow(FOLLOW_1);
@@ -2947,64 +2964,145 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePathCmd"
-    // InternalCmdArgsParser.g:1089:1: rulePathCmd returns [EObject current=null] : ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) ;
+    // InternalCmdArgsParser.g:1097:1: rulePathCmd returns [EObject current=null] : ( ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) | (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 ) ) ;
     public final EObject rulePathCmd() throws RecognitionException {
         EObject current = null;
 
+        Token this_QUOTE1_2=null;
+        Token this_QUOTE1_4=null;
         AntlrDatatypeRuleToken lv_path_1_0 = null;
+
+        AntlrDatatypeRuleToken lv_path_3_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1092:28: ( ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) )
-            // InternalCmdArgsParser.g:1093:1: ( () ( (lv_path_1_0= rulePathLegalPart ) ) )
+            // InternalCmdArgsParser.g:1100:28: ( ( ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) | (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 ) ) )
+            // InternalCmdArgsParser.g:1101:1: ( ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) | (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 ) )
             {
-            // InternalCmdArgsParser.g:1093:1: ( () ( (lv_path_1_0= rulePathLegalPart ) ) )
-            // InternalCmdArgsParser.g:1093:2: () ( (lv_path_1_0= rulePathLegalPart ) )
-            {
-            // InternalCmdArgsParser.g:1093:2: ()
-            // InternalCmdArgsParser.g:1094:5: 
-            {
+            // InternalCmdArgsParser.g:1101:1: ( ( () ( (lv_path_1_0= rulePathLegalPart ) ) ) | (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 ) )
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-                    current = forceCreateModelElement(
-                        grammarAccess.getPathCmdAccess().getPathCmdAction_0(),
-                        current);
-                
-
+            if ( ((LA27_0>=RULE_KW_NOSTDINC && LA27_0<=RULE_KW_VAR)||LA27_0==RULE_ID) ) {
+                alt27=1;
             }
-
-            // InternalCmdArgsParser.g:1099:2: ( (lv_path_1_0= rulePathLegalPart ) )
-            // InternalCmdArgsParser.g:1100:1: (lv_path_1_0= rulePathLegalPart )
-            {
-            // InternalCmdArgsParser.g:1100:1: (lv_path_1_0= rulePathLegalPart )
-            // InternalCmdArgsParser.g:1101:3: lv_path_1_0= rulePathLegalPart
-            {
-             
-            	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_1_0()); 
-            	    
-            pushFollow(FOLLOW_2);
-            lv_path_1_0=rulePathLegalPart();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getPathCmdRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"path",
-                    		lv_path_1_0, 
-                    		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
-            	        afterParserOrEnumRuleCall();
-            	    
-
+            else if ( (LA27_0==RULE_QUOTE1) ) {
+                alt27=2;
             }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 27, 0, input);
 
-
+                throw nvae;
             }
+            switch (alt27) {
+                case 1 :
+                    // InternalCmdArgsParser.g:1101:2: ( () ( (lv_path_1_0= rulePathLegalPart ) ) )
+                    {
+                    // InternalCmdArgsParser.g:1101:2: ( () ( (lv_path_1_0= rulePathLegalPart ) ) )
+                    // InternalCmdArgsParser.g:1101:3: () ( (lv_path_1_0= rulePathLegalPart ) )
+                    {
+                    // InternalCmdArgsParser.g:1101:3: ()
+                    // InternalCmdArgsParser.g:1102:5: 
+                    {
 
+                            current = forceCreateModelElement(
+                                grammarAccess.getPathCmdAccess().getPathCmdAction_0_0(),
+                                current);
+                        
+
+                    }
+
+                    // InternalCmdArgsParser.g:1107:2: ( (lv_path_1_0= rulePathLegalPart ) )
+                    // InternalCmdArgsParser.g:1108:1: (lv_path_1_0= rulePathLegalPart )
+                    {
+                    // InternalCmdArgsParser.g:1108:1: (lv_path_1_0= rulePathLegalPart )
+                    // InternalCmdArgsParser.g:1109:3: lv_path_1_0= rulePathLegalPart
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_0_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_2);
+                    lv_path_1_0=rulePathLegalPart();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPathCmdRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"path",
+                            		lv_path_1_0, 
+                            		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalCmdArgsParser.g:1126:6: (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 )
+                    {
+                    // InternalCmdArgsParser.g:1126:6: (this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1 )
+                    // InternalCmdArgsParser.g:1126:7: this_QUOTE1_2= RULE_QUOTE1 ( (lv_path_3_0= rulePathLegalPart ) ) this_QUOTE1_4= RULE_QUOTE1
+                    {
+                    this_QUOTE1_2=(Token)match(input,RULE_QUOTE1,FOLLOW_27); 
+                     
+                        newLeafNode(this_QUOTE1_2, grammarAccess.getPathCmdAccess().getQUOTE1TerminalRuleCall_1_0()); 
+                        
+                    // InternalCmdArgsParser.g:1130:1: ( (lv_path_3_0= rulePathLegalPart ) )
+                    // InternalCmdArgsParser.g:1131:1: (lv_path_3_0= rulePathLegalPart )
+                    {
+                    // InternalCmdArgsParser.g:1131:1: (lv_path_3_0= rulePathLegalPart )
+                    // InternalCmdArgsParser.g:1132:3: lv_path_3_0= rulePathLegalPart
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_1_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_26);
+                    lv_path_3_0=rulePathLegalPart();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPathCmdRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"path",
+                            		lv_path_3_0, 
+                            		"at.jku.weiner.c.cmdarguments.CmdArgs.PathLegalPart");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+                    this_QUOTE1_4=(Token)match(input,RULE_QUOTE1,FOLLOW_2); 
+                     
+                        newLeafNode(this_QUOTE1_4, grammarAccess.getPathCmdAccess().getQUOTE1TerminalRuleCall_1_2()); 
+                        
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -3026,7 +3124,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePathLegalPart"
-    // InternalCmdArgsParser.g:1125:1: entryRulePathLegalPart returns [String current=null] : iv_rulePathLegalPart= rulePathLegalPart EOF ;
+    // InternalCmdArgsParser.g:1160:1: entryRulePathLegalPart returns [String current=null] : iv_rulePathLegalPart= rulePathLegalPart EOF ;
     public final String entryRulePathLegalPart() throws RecognitionException {
         String current = null;
 
@@ -3034,8 +3132,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1126:1: (iv_rulePathLegalPart= rulePathLegalPart EOF )
-            // InternalCmdArgsParser.g:1127:2: iv_rulePathLegalPart= rulePathLegalPart EOF
+            // InternalCmdArgsParser.g:1161:1: (iv_rulePathLegalPart= rulePathLegalPart EOF )
+            // InternalCmdArgsParser.g:1162:2: iv_rulePathLegalPart= rulePathLegalPart EOF
             {
              newCompositeNode(grammarAccess.getPathLegalPartRule()); 
             pushFollow(FOLLOW_1);
@@ -3062,62 +3160,56 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePathLegalPart"
-    // InternalCmdArgsParser.g:1134:1: rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_KW_NOSTDINC_2= RULE_KW_NOSTDINC | this_KW_INCSYS_3= RULE_KW_INCSYS | this_KW_INCLUDE_4= RULE_KW_INCLUDE ) ;
+    // InternalCmdArgsParser.g:1169:1: rulePathLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE ) ;
     public final AntlrDatatypeRuleToken rulePathLegalPart() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_STRING2_1=null;
-        Token this_KW_NOSTDINC_2=null;
-        Token this_KW_INCSYS_3=null;
-        Token this_KW_INCLUDE_4=null;
+        Token this_KW_NOSTDINC_1=null;
+        Token this_KW_INCSYS_2=null;
+        Token this_KW_INCLUDE_3=null;
         AntlrDatatypeRuleToken this_Identifier_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1138:6: ( (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_KW_NOSTDINC_2= RULE_KW_NOSTDINC | this_KW_INCSYS_3= RULE_KW_INCSYS | this_KW_INCLUDE_4= RULE_KW_INCLUDE ) )
-            // InternalCmdArgsParser.g:1139:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_KW_NOSTDINC_2= RULE_KW_NOSTDINC | this_KW_INCSYS_3= RULE_KW_INCSYS | this_KW_INCLUDE_4= RULE_KW_INCLUDE )
+            // InternalCmdArgsParser.g:1173:6: ( (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE ) )
+            // InternalCmdArgsParser.g:1174:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE )
             {
-            // InternalCmdArgsParser.g:1139:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_KW_NOSTDINC_2= RULE_KW_NOSTDINC | this_KW_INCSYS_3= RULE_KW_INCSYS | this_KW_INCLUDE_4= RULE_KW_INCLUDE )
-            int alt27=5;
+            // InternalCmdArgsParser.g:1174:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE )
+            int alt28=4;
             switch ( input.LA(1) ) {
             case RULE_KW_VAR:
             case RULE_ID:
                 {
-                alt27=1;
-                }
-                break;
-            case RULE_STRING2:
-                {
-                alt27=2;
+                alt28=1;
                 }
                 break;
             case RULE_KW_NOSTDINC:
                 {
-                alt27=3;
+                alt28=2;
                 }
                 break;
             case RULE_KW_INCSYS:
                 {
-                alt27=4;
+                alt28=3;
                 }
                 break;
             case RULE_KW_INCLUDE:
                 {
-                alt27=5;
+                alt28=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
-                    // InternalCmdArgsParser.g:1140:5: this_Identifier_0= ruleIdentifier
+                    // InternalCmdArgsParser.g:1175:5: this_Identifier_0= ruleIdentifier
                     {
                      
                             newCompositeNode(grammarAccess.getPathLegalPartAccess().getIdentifierParserRuleCall_0()); 
@@ -3137,53 +3229,40 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCmdArgsParser.g:1151:10: this_STRING2_1= RULE_STRING2
+                    // InternalCmdArgsParser.g:1186:10: this_KW_NOSTDINC_1= RULE_KW_NOSTDINC
                     {
-                    this_STRING2_1=(Token)match(input,RULE_STRING2,FOLLOW_2); 
+                    this_KW_NOSTDINC_1=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_2); 
 
-                    		current.merge(this_STRING2_1);
+                    		current.merge(this_KW_NOSTDINC_1);
                         
                      
-                        newLeafNode(this_STRING2_1, grammarAccess.getPathLegalPartAccess().getSTRING2TerminalRuleCall_1()); 
+                        newLeafNode(this_KW_NOSTDINC_1, grammarAccess.getPathLegalPartAccess().getKW_NOSTDINCTerminalRuleCall_1()); 
                         
 
                     }
                     break;
                 case 3 :
-                    // InternalCmdArgsParser.g:1159:10: this_KW_NOSTDINC_2= RULE_KW_NOSTDINC
+                    // InternalCmdArgsParser.g:1194:10: this_KW_INCSYS_2= RULE_KW_INCSYS
                     {
-                    this_KW_NOSTDINC_2=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_2); 
+                    this_KW_INCSYS_2=(Token)match(input,RULE_KW_INCSYS,FOLLOW_2); 
 
-                    		current.merge(this_KW_NOSTDINC_2);
+                    		current.merge(this_KW_INCSYS_2);
                         
                      
-                        newLeafNode(this_KW_NOSTDINC_2, grammarAccess.getPathLegalPartAccess().getKW_NOSTDINCTerminalRuleCall_2()); 
+                        newLeafNode(this_KW_INCSYS_2, grammarAccess.getPathLegalPartAccess().getKW_INCSYSTerminalRuleCall_2()); 
                         
 
                     }
                     break;
                 case 4 :
-                    // InternalCmdArgsParser.g:1167:10: this_KW_INCSYS_3= RULE_KW_INCSYS
+                    // InternalCmdArgsParser.g:1202:10: this_KW_INCLUDE_3= RULE_KW_INCLUDE
                     {
-                    this_KW_INCSYS_3=(Token)match(input,RULE_KW_INCSYS,FOLLOW_2); 
+                    this_KW_INCLUDE_3=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_2); 
 
-                    		current.merge(this_KW_INCSYS_3);
+                    		current.merge(this_KW_INCLUDE_3);
                         
                      
-                        newLeafNode(this_KW_INCSYS_3, grammarAccess.getPathLegalPartAccess().getKW_INCSYSTerminalRuleCall_3()); 
-                        
-
-                    }
-                    break;
-                case 5 :
-                    // InternalCmdArgsParser.g:1175:10: this_KW_INCLUDE_4= RULE_KW_INCLUDE
-                    {
-                    this_KW_INCLUDE_4=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_2); 
-
-                    		current.merge(this_KW_INCLUDE_4);
-                        
-                     
-                        newLeafNode(this_KW_INCLUDE_4, grammarAccess.getPathLegalPartAccess().getKW_INCLUDETerminalRuleCall_4()); 
+                        newLeafNode(this_KW_INCLUDE_3, grammarAccess.getPathLegalPartAccess().getKW_INCLUDETerminalRuleCall_3()); 
                         
 
                     }
@@ -3210,7 +3289,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMacroLegalPart"
-    // InternalCmdArgsParser.g:1190:1: entryRuleMacroLegalPart returns [String current=null] : iv_ruleMacroLegalPart= ruleMacroLegalPart EOF ;
+    // InternalCmdArgsParser.g:1217:1: entryRuleMacroLegalPart returns [String current=null] : iv_ruleMacroLegalPart= ruleMacroLegalPart EOF ;
     public final String entryRuleMacroLegalPart() throws RecognitionException {
         String current = null;
 
@@ -3218,8 +3297,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1191:1: (iv_ruleMacroLegalPart= ruleMacroLegalPart EOF )
-            // InternalCmdArgsParser.g:1192:2: iv_ruleMacroLegalPart= ruleMacroLegalPart EOF
+            // InternalCmdArgsParser.g:1218:1: (iv_ruleMacroLegalPart= ruleMacroLegalPart EOF )
+            // InternalCmdArgsParser.g:1219:2: iv_ruleMacroLegalPart= ruleMacroLegalPart EOF
             {
              newCompositeNode(grammarAccess.getMacroLegalPartRule()); 
             pushFollow(FOLLOW_1);
@@ -3246,7 +3325,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMacroLegalPart"
-    // InternalCmdArgsParser.g:1199:1: ruleMacroLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER ) ;
+    // InternalCmdArgsParser.g:1226:1: ruleMacroLegalPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER ) ;
     public final AntlrDatatypeRuleToken ruleMacroLegalPart() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3260,48 +3339,48 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1203:6: ( (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER ) )
-            // InternalCmdArgsParser.g:1204:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER )
+            // InternalCmdArgsParser.g:1230:6: ( (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER ) )
+            // InternalCmdArgsParser.g:1231:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER )
             {
-            // InternalCmdArgsParser.g:1204:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER )
-            int alt28=5;
+            // InternalCmdArgsParser.g:1231:1: (this_Identifier_0= ruleIdentifier | this_KW_NOSTDINC_1= RULE_KW_NOSTDINC | this_KW_INCSYS_2= RULE_KW_INCSYS | this_KW_INCLUDE_3= RULE_KW_INCLUDE | this_ANY_OTHER_4= RULE_ANY_OTHER )
+            int alt29=5;
             switch ( input.LA(1) ) {
             case RULE_KW_VAR:
             case RULE_ID:
                 {
-                alt28=1;
+                alt29=1;
                 }
                 break;
             case RULE_KW_NOSTDINC:
                 {
-                alt28=2;
+                alt29=2;
                 }
                 break;
             case RULE_KW_INCSYS:
                 {
-                alt28=3;
+                alt29=3;
                 }
                 break;
             case RULE_KW_INCLUDE:
                 {
-                alt28=4;
+                alt29=4;
                 }
                 break;
             case RULE_ANY_OTHER:
                 {
-                alt28=5;
+                alt29=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt28) {
+            switch (alt29) {
                 case 1 :
-                    // InternalCmdArgsParser.g:1205:5: this_Identifier_0= ruleIdentifier
+                    // InternalCmdArgsParser.g:1232:5: this_Identifier_0= ruleIdentifier
                     {
                      
                             newCompositeNode(grammarAccess.getMacroLegalPartAccess().getIdentifierParserRuleCall_0()); 
@@ -3321,7 +3400,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCmdArgsParser.g:1216:10: this_KW_NOSTDINC_1= RULE_KW_NOSTDINC
+                    // InternalCmdArgsParser.g:1243:10: this_KW_NOSTDINC_1= RULE_KW_NOSTDINC
                     {
                     this_KW_NOSTDINC_1=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_2); 
 
@@ -3334,7 +3413,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalCmdArgsParser.g:1224:10: this_KW_INCSYS_2= RULE_KW_INCSYS
+                    // InternalCmdArgsParser.g:1251:10: this_KW_INCSYS_2= RULE_KW_INCSYS
                     {
                     this_KW_INCSYS_2=(Token)match(input,RULE_KW_INCSYS,FOLLOW_2); 
 
@@ -3347,7 +3426,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalCmdArgsParser.g:1232:10: this_KW_INCLUDE_3= RULE_KW_INCLUDE
+                    // InternalCmdArgsParser.g:1259:10: this_KW_INCLUDE_3= RULE_KW_INCLUDE
                     {
                     this_KW_INCLUDE_3=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_2); 
 
@@ -3360,7 +3439,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalCmdArgsParser.g:1240:10: this_ANY_OTHER_4= RULE_ANY_OTHER
+                    // InternalCmdArgsParser.g:1267:10: this_ANY_OTHER_4= RULE_ANY_OTHER
                     {
                     this_ANY_OTHER_4=(Token)match(input,RULE_ANY_OTHER,FOLLOW_2); 
 
@@ -3394,7 +3473,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMyCode"
-    // InternalCmdArgsParser.g:1255:1: entryRuleMyCode returns [String current=null] : iv_ruleMyCode= ruleMyCode EOF ;
+    // InternalCmdArgsParser.g:1282:1: entryRuleMyCode returns [String current=null] : iv_ruleMyCode= ruleMyCode EOF ;
     public final String entryRuleMyCode() throws RecognitionException {
         String current = null;
 
@@ -3402,8 +3481,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1256:1: (iv_ruleMyCode= ruleMyCode EOF )
-            // InternalCmdArgsParser.g:1257:2: iv_ruleMyCode= ruleMyCode EOF
+            // InternalCmdArgsParser.g:1283:1: (iv_ruleMyCode= ruleMyCode EOF )
+            // InternalCmdArgsParser.g:1284:2: iv_ruleMyCode= ruleMyCode EOF
             {
              newCompositeNode(grammarAccess.getMyCodeRule()); 
             pushFollow(FOLLOW_1);
@@ -3430,40 +3509,41 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyCode"
-    // InternalCmdArgsParser.g:1264:1: ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_4= RULE_KW_NOSTDINC | this_KW_INCSYS_5= RULE_KW_INCSYS | this_KW_INCLUDE_6= RULE_KW_INCLUDE | this_ANY_OTHER_7= RULE_ANY_OTHER )+ ;
+    // InternalCmdArgsParser.g:1291:1: ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_3= RULE_KW_NOSTDINC | this_KW_INCSYS_4= RULE_KW_INCSYS | this_KW_INCLUDE_5= RULE_KW_INCLUDE | this_ANY_OTHER_6= RULE_ANY_OTHER | this_SKW_HASH2_7= RULE_SKW_HASH2 | this_SKW_COMMA_8= RULE_SKW_COMMA )+ ;
     public final AntlrDatatypeRuleToken ruleMyCode() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_STRING2_1=null;
-        Token this_SKW_LEFTPAREN_2=null;
-        Token this_SKW_RIGHTPAREN_3=null;
-        Token this_KW_NOSTDINC_4=null;
-        Token this_KW_INCSYS_5=null;
-        Token this_KW_INCLUDE_6=null;
-        Token this_ANY_OTHER_7=null;
+        Token this_SKW_LEFTPAREN_1=null;
+        Token this_SKW_RIGHTPAREN_2=null;
+        Token this_KW_NOSTDINC_3=null;
+        Token this_KW_INCSYS_4=null;
+        Token this_KW_INCLUDE_5=null;
+        Token this_ANY_OTHER_6=null;
+        Token this_SKW_HASH2_7=null;
+        Token this_SKW_COMMA_8=null;
         AntlrDatatypeRuleToken this_Identifier_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1268:6: ( (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_4= RULE_KW_NOSTDINC | this_KW_INCSYS_5= RULE_KW_INCSYS | this_KW_INCLUDE_6= RULE_KW_INCLUDE | this_ANY_OTHER_7= RULE_ANY_OTHER )+ )
-            // InternalCmdArgsParser.g:1269:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_4= RULE_KW_NOSTDINC | this_KW_INCSYS_5= RULE_KW_INCSYS | this_KW_INCLUDE_6= RULE_KW_INCLUDE | this_ANY_OTHER_7= RULE_ANY_OTHER )+
+            // InternalCmdArgsParser.g:1295:6: ( (this_Identifier_0= ruleIdentifier | this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_3= RULE_KW_NOSTDINC | this_KW_INCSYS_4= RULE_KW_INCSYS | this_KW_INCLUDE_5= RULE_KW_INCLUDE | this_ANY_OTHER_6= RULE_ANY_OTHER | this_SKW_HASH2_7= RULE_SKW_HASH2 | this_SKW_COMMA_8= RULE_SKW_COMMA )+ )
+            // InternalCmdArgsParser.g:1296:1: (this_Identifier_0= ruleIdentifier | this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_3= RULE_KW_NOSTDINC | this_KW_INCSYS_4= RULE_KW_INCSYS | this_KW_INCLUDE_5= RULE_KW_INCLUDE | this_ANY_OTHER_6= RULE_ANY_OTHER | this_SKW_HASH2_7= RULE_SKW_HASH2 | this_SKW_COMMA_8= RULE_SKW_COMMA )+
             {
-            // InternalCmdArgsParser.g:1269:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_4= RULE_KW_NOSTDINC | this_KW_INCSYS_5= RULE_KW_INCSYS | this_KW_INCLUDE_6= RULE_KW_INCLUDE | this_ANY_OTHER_7= RULE_ANY_OTHER )+
-            int cnt29=0;
-            loop29:
+            // InternalCmdArgsParser.g:1296:1: (this_Identifier_0= ruleIdentifier | this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_3= RULE_KW_NOSTDINC | this_KW_INCSYS_4= RULE_KW_INCSYS | this_KW_INCLUDE_5= RULE_KW_INCLUDE | this_ANY_OTHER_6= RULE_ANY_OTHER | this_SKW_HASH2_7= RULE_SKW_HASH2 | this_SKW_COMMA_8= RULE_SKW_COMMA )+
+            int cnt30=0;
+            loop30:
             do {
-                int alt29=9;
-                alt29 = dfa29.predict(input);
-                switch (alt29) {
+                int alt30=10;
+                alt30 = dfa30.predict(input);
+                switch (alt30) {
             	case 1 :
-            	    // InternalCmdArgsParser.g:1270:5: this_Identifier_0= ruleIdentifier
+            	    // InternalCmdArgsParser.g:1297:5: this_Identifier_0= ruleIdentifier
             	    {
             	     
             	            newCompositeNode(grammarAccess.getMyCodeAccess().getIdentifierParserRuleCall_0()); 
             	        
-            	    pushFollow(FOLLOW_26);
+            	    pushFollow(FOLLOW_28);
             	    this_Identifier_0=ruleIdentifier();
 
             	    state._fsp--;
@@ -3478,104 +3558,117 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalCmdArgsParser.g:1281:10: this_STRING2_1= RULE_STRING2
+            	    // InternalCmdArgsParser.g:1308:10: this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN
             	    {
-            	    this_STRING2_1=(Token)match(input,RULE_STRING2,FOLLOW_26); 
+            	    this_SKW_LEFTPAREN_1=(Token)match(input,RULE_SKW_LEFTPAREN,FOLLOW_28); 
 
-            	    		current.merge(this_STRING2_1);
+            	    		current.merge(this_SKW_LEFTPAREN_1);
             	        
             	     
-            	        newLeafNode(this_STRING2_1, grammarAccess.getMyCodeAccess().getSTRING2TerminalRuleCall_1()); 
+            	        newLeafNode(this_SKW_LEFTPAREN_1, grammarAccess.getMyCodeAccess().getSKW_LEFTPARENTerminalRuleCall_1()); 
             	        
 
             	    }
             	    break;
             	case 3 :
-            	    // InternalCmdArgsParser.g:1289:10: this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN
+            	    // InternalCmdArgsParser.g:1316:10: this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN
             	    {
-            	    this_SKW_LEFTPAREN_2=(Token)match(input,RULE_SKW_LEFTPAREN,FOLLOW_26); 
+            	    this_SKW_RIGHTPAREN_2=(Token)match(input,RULE_SKW_RIGHTPAREN,FOLLOW_28); 
 
-            	    		current.merge(this_SKW_LEFTPAREN_2);
+            	    		current.merge(this_SKW_RIGHTPAREN_2);
             	        
             	     
-            	        newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getMyCodeAccess().getSKW_LEFTPARENTerminalRuleCall_2()); 
+            	        newLeafNode(this_SKW_RIGHTPAREN_2, grammarAccess.getMyCodeAccess().getSKW_RIGHTPARENTerminalRuleCall_2()); 
             	        
 
             	    }
             	    break;
             	case 4 :
-            	    // InternalCmdArgsParser.g:1297:10: this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN
+            	    // InternalCmdArgsParser.g:1324:10: this_KW_NOSTDINC_3= RULE_KW_NOSTDINC
             	    {
-            	    this_SKW_RIGHTPAREN_3=(Token)match(input,RULE_SKW_RIGHTPAREN,FOLLOW_26); 
+            	    this_KW_NOSTDINC_3=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_28); 
 
-            	    		current.merge(this_SKW_RIGHTPAREN_3);
+            	    		current.merge(this_KW_NOSTDINC_3);
             	        
             	     
-            	        newLeafNode(this_SKW_RIGHTPAREN_3, grammarAccess.getMyCodeAccess().getSKW_RIGHTPARENTerminalRuleCall_3()); 
+            	        newLeafNode(this_KW_NOSTDINC_3, grammarAccess.getMyCodeAccess().getKW_NOSTDINCTerminalRuleCall_3()); 
             	        
 
             	    }
             	    break;
             	case 5 :
-            	    // InternalCmdArgsParser.g:1305:10: this_KW_NOSTDINC_4= RULE_KW_NOSTDINC
+            	    // InternalCmdArgsParser.g:1332:10: this_KW_INCSYS_4= RULE_KW_INCSYS
             	    {
-            	    this_KW_NOSTDINC_4=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_26); 
+            	    this_KW_INCSYS_4=(Token)match(input,RULE_KW_INCSYS,FOLLOW_28); 
 
-            	    		current.merge(this_KW_NOSTDINC_4);
+            	    		current.merge(this_KW_INCSYS_4);
             	        
             	     
-            	        newLeafNode(this_KW_NOSTDINC_4, grammarAccess.getMyCodeAccess().getKW_NOSTDINCTerminalRuleCall_4()); 
+            	        newLeafNode(this_KW_INCSYS_4, grammarAccess.getMyCodeAccess().getKW_INCSYSTerminalRuleCall_4()); 
             	        
 
             	    }
             	    break;
             	case 6 :
-            	    // InternalCmdArgsParser.g:1313:10: this_KW_INCSYS_5= RULE_KW_INCSYS
+            	    // InternalCmdArgsParser.g:1340:10: this_KW_INCLUDE_5= RULE_KW_INCLUDE
             	    {
-            	    this_KW_INCSYS_5=(Token)match(input,RULE_KW_INCSYS,FOLLOW_26); 
+            	    this_KW_INCLUDE_5=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_28); 
 
-            	    		current.merge(this_KW_INCSYS_5);
+            	    		current.merge(this_KW_INCLUDE_5);
             	        
             	     
-            	        newLeafNode(this_KW_INCSYS_5, grammarAccess.getMyCodeAccess().getKW_INCSYSTerminalRuleCall_5()); 
+            	        newLeafNode(this_KW_INCLUDE_5, grammarAccess.getMyCodeAccess().getKW_INCLUDETerminalRuleCall_5()); 
             	        
 
             	    }
             	    break;
             	case 7 :
-            	    // InternalCmdArgsParser.g:1321:10: this_KW_INCLUDE_6= RULE_KW_INCLUDE
+            	    // InternalCmdArgsParser.g:1348:10: this_ANY_OTHER_6= RULE_ANY_OTHER
             	    {
-            	    this_KW_INCLUDE_6=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_26); 
+            	    this_ANY_OTHER_6=(Token)match(input,RULE_ANY_OTHER,FOLLOW_28); 
 
-            	    		current.merge(this_KW_INCLUDE_6);
+            	    		current.merge(this_ANY_OTHER_6);
             	        
             	     
-            	        newLeafNode(this_KW_INCLUDE_6, grammarAccess.getMyCodeAccess().getKW_INCLUDETerminalRuleCall_6()); 
+            	        newLeafNode(this_ANY_OTHER_6, grammarAccess.getMyCodeAccess().getANY_OTHERTerminalRuleCall_6()); 
             	        
 
             	    }
             	    break;
             	case 8 :
-            	    // InternalCmdArgsParser.g:1329:10: this_ANY_OTHER_7= RULE_ANY_OTHER
+            	    // InternalCmdArgsParser.g:1356:10: this_SKW_HASH2_7= RULE_SKW_HASH2
             	    {
-            	    this_ANY_OTHER_7=(Token)match(input,RULE_ANY_OTHER,FOLLOW_26); 
+            	    this_SKW_HASH2_7=(Token)match(input,RULE_SKW_HASH2,FOLLOW_28); 
 
-            	    		current.merge(this_ANY_OTHER_7);
+            	    		current.merge(this_SKW_HASH2_7);
             	        
             	     
-            	        newLeafNode(this_ANY_OTHER_7, grammarAccess.getMyCodeAccess().getANY_OTHERTerminalRuleCall_7()); 
+            	        newLeafNode(this_SKW_HASH2_7, grammarAccess.getMyCodeAccess().getSKW_HASH2TerminalRuleCall_7()); 
+            	        
+
+            	    }
+            	    break;
+            	case 9 :
+            	    // InternalCmdArgsParser.g:1364:10: this_SKW_COMMA_8= RULE_SKW_COMMA
+            	    {
+            	    this_SKW_COMMA_8=(Token)match(input,RULE_SKW_COMMA,FOLLOW_28); 
+
+            	    		current.merge(this_SKW_COMMA_8);
+            	        
+            	     
+            	        newLeafNode(this_SKW_COMMA_8, grammarAccess.getMyCodeAccess().getSKW_COMMATerminalRuleCall_8()); 
             	        
 
             	    }
             	    break;
 
             	default :
-            	    if ( cnt29 >= 1 ) break loop29;
+            	    if ( cnt30 >= 1 ) break loop30;
                         EarlyExitException eee =
-                            new EarlyExitException(29, input);
+                            new EarlyExitException(30, input);
                         throw eee;
                 }
-                cnt29++;
+                cnt30++;
             } while (true);
 
 
@@ -3597,7 +3690,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOption"
-    // InternalCmdArgsParser.g:1344:1: entryRuleOption returns [String current=null] : iv_ruleOption= ruleOption EOF ;
+    // InternalCmdArgsParser.g:1379:1: entryRuleOption returns [String current=null] : iv_ruleOption= ruleOption EOF ;
     public final String entryRuleOption() throws RecognitionException {
         String current = null;
 
@@ -3605,8 +3698,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1345:1: (iv_ruleOption= ruleOption EOF )
-            // InternalCmdArgsParser.g:1346:2: iv_ruleOption= ruleOption EOF
+            // InternalCmdArgsParser.g:1380:1: (iv_ruleOption= ruleOption EOF )
+            // InternalCmdArgsParser.g:1381:2: iv_ruleOption= ruleOption EOF
             {
              newCompositeNode(grammarAccess.getOptionRule()); 
             pushFollow(FOLLOW_1);
@@ -3633,7 +3726,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOption"
-    // InternalCmdArgsParser.g:1353:1: ruleOption returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* ) ;
+    // InternalCmdArgsParser.g:1388:1: ruleOption returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* ) ;
     public final AntlrDatatypeRuleToken ruleOption() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3647,26 +3740,26 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1357:6: ( ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* ) )
-            // InternalCmdArgsParser.g:1358:1: ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* )
+            // InternalCmdArgsParser.g:1392:6: ( ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* ) )
+            // InternalCmdArgsParser.g:1393:1: ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* )
             {
-            // InternalCmdArgsParser.g:1358:1: ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* )
-            // InternalCmdArgsParser.g:1358:2: (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )*
+            // InternalCmdArgsParser.g:1393:1: ( (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )* )
+            // InternalCmdArgsParser.g:1393:2: (this_OptionPart_0= ruleOptionPart )+ (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )*
             {
-            // InternalCmdArgsParser.g:1358:2: (this_OptionPart_0= ruleOptionPart )+
-            int cnt30=0;
-            loop30:
+            // InternalCmdArgsParser.g:1393:2: (this_OptionPart_0= ruleOptionPart )+
+            int cnt31=0;
+            loop31:
             do {
-                int alt30=2;
-                alt30 = dfa30.predict(input);
-                switch (alt30) {
+                int alt31=2;
+                alt31 = dfa31.predict(input);
+                switch (alt31) {
             	case 1 :
-            	    // InternalCmdArgsParser.g:1359:5: this_OptionPart_0= ruleOptionPart
+            	    // InternalCmdArgsParser.g:1394:5: this_OptionPart_0= ruleOptionPart
             	    {
             	     
             	            newCompositeNode(grammarAccess.getOptionAccess().getOptionPartParserRuleCall_0()); 
             	        
-            	    pushFollow(FOLLOW_27);
+            	    pushFollow(FOLLOW_29);
             	    this_OptionPart_0=ruleOptionPart();
 
             	    state._fsp--;
@@ -3682,48 +3775,48 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt30 >= 1 ) break loop30;
+            	    if ( cnt31 >= 1 ) break loop31;
                         EarlyExitException eee =
-                            new EarlyExitException(30, input);
+                            new EarlyExitException(31, input);
                         throw eee;
                 }
-                cnt30++;
+                cnt31++;
             } while (true);
 
-            // InternalCmdArgsParser.g:1369:3: (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )*
-            loop33:
+            // InternalCmdArgsParser.g:1404:3: (this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+ )*
+            loop34:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA33_0==RULE_SKW_COMMA) ) {
-                    alt33=1;
+                if ( (LA34_0==RULE_SKW_COMMA) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt34) {
             	case 1 :
-            	    // InternalCmdArgsParser.g:1369:8: this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+
+            	    // InternalCmdArgsParser.g:1404:8: this_SKW_COMMA_1= RULE_SKW_COMMA (this_SKW_MINUS_2= RULE_SKW_MINUS )? (this_OptionPart_3= ruleOptionPart )+
             	    {
-            	    this_SKW_COMMA_1=(Token)match(input,RULE_SKW_COMMA,FOLLOW_28); 
+            	    this_SKW_COMMA_1=(Token)match(input,RULE_SKW_COMMA,FOLLOW_30); 
 
             	    		current.merge(this_SKW_COMMA_1);
             	        
             	     
             	        newLeafNode(this_SKW_COMMA_1, grammarAccess.getOptionAccess().getSKW_COMMATerminalRuleCall_1_0()); 
             	        
-            	    // InternalCmdArgsParser.g:1376:1: (this_SKW_MINUS_2= RULE_SKW_MINUS )?
-            	    int alt31=2;
-            	    int LA31_0 = input.LA(1);
+            	    // InternalCmdArgsParser.g:1411:1: (this_SKW_MINUS_2= RULE_SKW_MINUS )?
+            	    int alt32=2;
+            	    int LA32_0 = input.LA(1);
 
-            	    if ( (LA31_0==RULE_SKW_MINUS) ) {
-            	        alt31=1;
+            	    if ( (LA32_0==RULE_SKW_MINUS) ) {
+            	        alt32=1;
             	    }
-            	    switch (alt31) {
+            	    switch (alt32) {
             	        case 1 :
-            	            // InternalCmdArgsParser.g:1376:6: this_SKW_MINUS_2= RULE_SKW_MINUS
+            	            // InternalCmdArgsParser.g:1411:6: this_SKW_MINUS_2= RULE_SKW_MINUS
             	            {
-            	            this_SKW_MINUS_2=(Token)match(input,RULE_SKW_MINUS,FOLLOW_29); 
+            	            this_SKW_MINUS_2=(Token)match(input,RULE_SKW_MINUS,FOLLOW_31); 
 
             	            		current.merge(this_SKW_MINUS_2);
             	                
@@ -3736,20 +3829,20 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalCmdArgsParser.g:1383:3: (this_OptionPart_3= ruleOptionPart )+
-            	    int cnt32=0;
-            	    loop32:
+            	    // InternalCmdArgsParser.g:1418:3: (this_OptionPart_3= ruleOptionPart )+
+            	    int cnt33=0;
+            	    loop33:
             	    do {
-            	        int alt32=2;
-            	        alt32 = dfa32.predict(input);
-            	        switch (alt32) {
+            	        int alt33=2;
+            	        alt33 = dfa33.predict(input);
+            	        switch (alt33) {
             	    	case 1 :
-            	    	    // InternalCmdArgsParser.g:1384:5: this_OptionPart_3= ruleOptionPart
+            	    	    // InternalCmdArgsParser.g:1419:5: this_OptionPart_3= ruleOptionPart
             	    	    {
             	    	     
             	    	            newCompositeNode(grammarAccess.getOptionAccess().getOptionPartParserRuleCall_1_2()); 
             	    	        
-            	    	    pushFollow(FOLLOW_27);
+            	    	    pushFollow(FOLLOW_29);
             	    	    this_OptionPart_3=ruleOptionPart();
 
             	    	    state._fsp--;
@@ -3765,142 +3858,14 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt32 >= 1 ) break loop32;
+            	    	    if ( cnt33 >= 1 ) break loop33;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(32, input);
+            	                    new EarlyExitException(33, input);
             	                throw eee;
             	        }
-            	        cnt32++;
+            	        cnt33++;
             	    } while (true);
 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop33;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule();
-                
-        }
-         
-        	catch (RecognitionException re) { 
-        	    recover(input,re); 
-        	    appendSkippedTokens();
-        	}
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOption"
-
-
-    // $ANTLR start "entryRuleOptionPart"
-    // InternalCmdArgsParser.g:1402:1: entryRuleOptionPart returns [String current=null] : iv_ruleOptionPart= ruleOptionPart EOF ;
-    public final String entryRuleOptionPart() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleOptionPart = null;
-
-
-        try {
-            // InternalCmdArgsParser.g:1403:1: (iv_ruleOptionPart= ruleOptionPart EOF )
-            // InternalCmdArgsParser.g:1404:2: iv_ruleOptionPart= ruleOptionPart EOF
-            {
-             newCompositeNode(grammarAccess.getOptionPartRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleOptionPart=ruleOptionPart();
-
-            state._fsp--;
-
-             current =iv_ruleOptionPart.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-         
-        	catch (RecognitionException re) { 
-        	    recover(input,re); 
-        	    appendSkippedTokens();
-        	}
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleOptionPart"
-
-
-    // $ANTLR start "ruleOptionPart"
-    // InternalCmdArgsParser.g:1411:1: ruleOptionPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* ) ;
-    public final AntlrDatatypeRuleToken ruleOptionPart() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        AntlrDatatypeRuleToken this_OptionLegalStart_0 = null;
-
-        AntlrDatatypeRuleToken this_OptionLegalContinuation_1 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // InternalCmdArgsParser.g:1415:6: ( (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* ) )
-            // InternalCmdArgsParser.g:1416:1: (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* )
-            {
-            // InternalCmdArgsParser.g:1416:1: (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* )
-            // InternalCmdArgsParser.g:1417:5: this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )*
-            {
-             
-                    newCompositeNode(grammarAccess.getOptionPartAccess().getOptionLegalStartParserRuleCall_0()); 
-                
-            pushFollow(FOLLOW_30);
-            this_OptionLegalStart_0=ruleOptionLegalStart();
-
-            state._fsp--;
-
-
-            		current.merge(this_OptionLegalStart_0);
-                
-             
-                    afterParserOrEnumRuleCall();
-                
-            // InternalCmdArgsParser.g:1427:1: (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )*
-            loop34:
-            do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
-
-                if ( (LA34_0==RULE_SKW_ASSIGN||(LA34_0>=RULE_KW_NOSTDINC && LA34_0<=RULE_KW_INCLUDE)||LA34_0==RULE_ANY_OTHER) ) {
-                    alt34=1;
-                }
-
-
-                switch (alt34) {
-            	case 1 :
-            	    // InternalCmdArgsParser.g:1428:5: this_OptionLegalContinuation_1= ruleOptionLegalContinuation
-            	    {
-            	     
-            	            newCompositeNode(grammarAccess.getOptionPartAccess().getOptionLegalContinuationParserRuleCall_1()); 
-            	        
-            	    pushFollow(FOLLOW_30);
-            	    this_OptionLegalContinuation_1=ruleOptionLegalContinuation();
-
-            	    state._fsp--;
-
-
-            	    		current.merge(this_OptionLegalContinuation_1);
-            	        
-            	     
-            	            afterParserOrEnumRuleCall();
-            	        
 
             	    }
             	    break;
@@ -3928,11 +3893,139 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleOption"
+
+
+    // $ANTLR start "entryRuleOptionPart"
+    // InternalCmdArgsParser.g:1437:1: entryRuleOptionPart returns [String current=null] : iv_ruleOptionPart= ruleOptionPart EOF ;
+    public final String entryRuleOptionPart() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleOptionPart = null;
+
+
+        try {
+            // InternalCmdArgsParser.g:1438:1: (iv_ruleOptionPart= ruleOptionPart EOF )
+            // InternalCmdArgsParser.g:1439:2: iv_ruleOptionPart= ruleOptionPart EOF
+            {
+             newCompositeNode(grammarAccess.getOptionPartRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleOptionPart=ruleOptionPart();
+
+            state._fsp--;
+
+             current =iv_ruleOptionPart.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+        	catch (RecognitionException re) { 
+        	    recover(input,re); 
+        	    appendSkippedTokens();
+        	}
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOptionPart"
+
+
+    // $ANTLR start "ruleOptionPart"
+    // InternalCmdArgsParser.g:1446:1: ruleOptionPart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* ) ;
+    public final AntlrDatatypeRuleToken ruleOptionPart() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        AntlrDatatypeRuleToken this_OptionLegalStart_0 = null;
+
+        AntlrDatatypeRuleToken this_OptionLegalContinuation_1 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // InternalCmdArgsParser.g:1450:6: ( (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* ) )
+            // InternalCmdArgsParser.g:1451:1: (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* )
+            {
+            // InternalCmdArgsParser.g:1451:1: (this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )* )
+            // InternalCmdArgsParser.g:1452:5: this_OptionLegalStart_0= ruleOptionLegalStart (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )*
+            {
+             
+                    newCompositeNode(grammarAccess.getOptionPartAccess().getOptionLegalStartParserRuleCall_0()); 
+                
+            pushFollow(FOLLOW_32);
+            this_OptionLegalStart_0=ruleOptionLegalStart();
+
+            state._fsp--;
+
+
+            		current.merge(this_OptionLegalStart_0);
+                
+             
+                    afterParserOrEnumRuleCall();
+                
+            // InternalCmdArgsParser.g:1462:1: (this_OptionLegalContinuation_1= ruleOptionLegalContinuation )*
+            loop35:
+            do {
+                int alt35=2;
+                int LA35_0 = input.LA(1);
+
+                if ( (LA35_0==RULE_SKW_ASSIGN||(LA35_0>=RULE_KW_NOSTDINC && LA35_0<=RULE_KW_INCLUDE)||LA35_0==RULE_ANY_OTHER) ) {
+                    alt35=1;
+                }
+
+
+                switch (alt35) {
+            	case 1 :
+            	    // InternalCmdArgsParser.g:1463:5: this_OptionLegalContinuation_1= ruleOptionLegalContinuation
+            	    {
+            	     
+            	            newCompositeNode(grammarAccess.getOptionPartAccess().getOptionLegalContinuationParserRuleCall_1()); 
+            	        
+            	    pushFollow(FOLLOW_32);
+            	    this_OptionLegalContinuation_1=ruleOptionLegalContinuation();
+
+            	    state._fsp--;
+
+
+            	    		current.merge(this_OptionLegalContinuation_1);
+            	        
+            	     
+            	            afterParserOrEnumRuleCall();
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop35;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule();
+                
+        }
+         
+        	catch (RecognitionException re) { 
+        	    recover(input,re); 
+        	    appendSkippedTokens();
+        	}
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleOptionPart"
 
 
     // $ANTLR start "entryRuleOptionLegalStart"
-    // InternalCmdArgsParser.g:1446:1: entryRuleOptionLegalStart returns [String current=null] : iv_ruleOptionLegalStart= ruleOptionLegalStart EOF ;
+    // InternalCmdArgsParser.g:1481:1: entryRuleOptionLegalStart returns [String current=null] : iv_ruleOptionLegalStart= ruleOptionLegalStart EOF ;
     public final String entryRuleOptionLegalStart() throws RecognitionException {
         String current = null;
 
@@ -3940,8 +4033,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1447:1: (iv_ruleOptionLegalStart= ruleOptionLegalStart EOF )
-            // InternalCmdArgsParser.g:1448:2: iv_ruleOptionLegalStart= ruleOptionLegalStart EOF
+            // InternalCmdArgsParser.g:1482:1: (iv_ruleOptionLegalStart= ruleOptionLegalStart EOF )
+            // InternalCmdArgsParser.g:1483:2: iv_ruleOptionLegalStart= ruleOptionLegalStart EOF
             {
              newCompositeNode(grammarAccess.getOptionLegalStartRule()); 
             pushFollow(FOLLOW_1);
@@ -3968,73 +4061,33 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOptionLegalStart"
-    // InternalCmdArgsParser.g:1455:1: ruleOptionLegalStart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 ) ;
+    // InternalCmdArgsParser.g:1490:1: ruleOptionLegalStart returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_Identifier_0= ruleIdentifier ;
     public final AntlrDatatypeRuleToken ruleOptionLegalStart() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_STRING2_1=null;
         AntlrDatatypeRuleToken this_Identifier_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1459:6: ( (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 ) )
-            // InternalCmdArgsParser.g:1460:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 )
+            // InternalCmdArgsParser.g:1494:6: (this_Identifier_0= ruleIdentifier )
+            // InternalCmdArgsParser.g:1496:5: this_Identifier_0= ruleIdentifier
             {
-            // InternalCmdArgsParser.g:1460:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 )
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+             
+                    newCompositeNode(grammarAccess.getOptionLegalStartAccess().getIdentifierParserRuleCall()); 
+                
+            pushFollow(FOLLOW_2);
+            this_Identifier_0=ruleIdentifier();
 
-            if ( (LA35_0==RULE_KW_VAR||LA35_0==RULE_ID) ) {
-                alt35=1;
-            }
-            else if ( (LA35_0==RULE_STRING2) ) {
-                alt35=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
-
-                throw nvae;
-            }
-            switch (alt35) {
-                case 1 :
-                    // InternalCmdArgsParser.g:1461:5: this_Identifier_0= ruleIdentifier
-                    {
-                     
-                            newCompositeNode(grammarAccess.getOptionLegalStartAccess().getIdentifierParserRuleCall_0()); 
-                        
-                    pushFollow(FOLLOW_2);
-                    this_Identifier_0=ruleIdentifier();
-
-                    state._fsp--;
+            state._fsp--;
 
 
-                    		current.merge(this_Identifier_0);
-                        
-                     
-                            afterParserOrEnumRuleCall();
-                        
-
-                    }
-                    break;
-                case 2 :
-                    // InternalCmdArgsParser.g:1472:10: this_STRING2_1= RULE_STRING2
-                    {
-                    this_STRING2_1=(Token)match(input,RULE_STRING2,FOLLOW_2); 
-
-                    		current.merge(this_STRING2_1);
-                        
-                     
-                        newLeafNode(this_STRING2_1, grammarAccess.getOptionLegalStartAccess().getSTRING2TerminalRuleCall_1()); 
-                        
-
-                    }
-                    break;
-
-            }
-
+            		current.merge(this_Identifier_0);
+                
+             
+                    afterParserOrEnumRuleCall();
+                
 
             }
 
@@ -4054,7 +4107,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOptionLegalContinuation"
-    // InternalCmdArgsParser.g:1487:1: entryRuleOptionLegalContinuation returns [String current=null] : iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF ;
+    // InternalCmdArgsParser.g:1514:1: entryRuleOptionLegalContinuation returns [String current=null] : iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF ;
     public final String entryRuleOptionLegalContinuation() throws RecognitionException {
         String current = null;
 
@@ -4062,8 +4115,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1488:1: (iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF )
-            // InternalCmdArgsParser.g:1489:2: iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF
+            // InternalCmdArgsParser.g:1515:1: (iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF )
+            // InternalCmdArgsParser.g:1516:2: iv_ruleOptionLegalContinuation= ruleOptionLegalContinuation EOF
             {
              newCompositeNode(grammarAccess.getOptionLegalContinuationRule()); 
             pushFollow(FOLLOW_1);
@@ -4090,7 +4143,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOptionLegalContinuation"
-    // InternalCmdArgsParser.g:1496:1: ruleOptionLegalContinuation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER ) ;
+    // InternalCmdArgsParser.g:1523:1: ruleOptionLegalContinuation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER ) ;
     public final AntlrDatatypeRuleToken ruleOptionLegalContinuation() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4103,10 +4156,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1500:6: ( (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER ) )
-            // InternalCmdArgsParser.g:1501:1: (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER )
+            // InternalCmdArgsParser.g:1527:6: ( (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER ) )
+            // InternalCmdArgsParser.g:1528:1: (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER )
             {
-            // InternalCmdArgsParser.g:1501:1: (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER )
+            // InternalCmdArgsParser.g:1528:1: (this_KW_NOSTDINC_0= RULE_KW_NOSTDINC | this_KW_INCSYS_1= RULE_KW_INCSYS | this_KW_INCLUDE_2= RULE_KW_INCLUDE | this_SKW_ASSIGN_3= RULE_SKW_ASSIGN | this_ANY_OTHER_4= RULE_ANY_OTHER )
             int alt36=5;
             switch ( input.LA(1) ) {
             case RULE_KW_NOSTDINC:
@@ -4143,7 +4196,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
             switch (alt36) {
                 case 1 :
-                    // InternalCmdArgsParser.g:1501:6: this_KW_NOSTDINC_0= RULE_KW_NOSTDINC
+                    // InternalCmdArgsParser.g:1528:6: this_KW_NOSTDINC_0= RULE_KW_NOSTDINC
                     {
                     this_KW_NOSTDINC_0=(Token)match(input,RULE_KW_NOSTDINC,FOLLOW_2); 
 
@@ -4156,7 +4209,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCmdArgsParser.g:1509:10: this_KW_INCSYS_1= RULE_KW_INCSYS
+                    // InternalCmdArgsParser.g:1536:10: this_KW_INCSYS_1= RULE_KW_INCSYS
                     {
                     this_KW_INCSYS_1=(Token)match(input,RULE_KW_INCSYS,FOLLOW_2); 
 
@@ -4169,7 +4222,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalCmdArgsParser.g:1517:10: this_KW_INCLUDE_2= RULE_KW_INCLUDE
+                    // InternalCmdArgsParser.g:1544:10: this_KW_INCLUDE_2= RULE_KW_INCLUDE
                     {
                     this_KW_INCLUDE_2=(Token)match(input,RULE_KW_INCLUDE,FOLLOW_2); 
 
@@ -4182,7 +4235,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalCmdArgsParser.g:1525:10: this_SKW_ASSIGN_3= RULE_SKW_ASSIGN
+                    // InternalCmdArgsParser.g:1552:10: this_SKW_ASSIGN_3= RULE_SKW_ASSIGN
                     {
                     this_SKW_ASSIGN_3=(Token)match(input,RULE_SKW_ASSIGN,FOLLOW_2); 
 
@@ -4195,7 +4248,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalCmdArgsParser.g:1533:10: this_ANY_OTHER_4= RULE_ANY_OTHER
+                    // InternalCmdArgsParser.g:1560:10: this_ANY_OTHER_4= RULE_ANY_OTHER
                     {
                     this_ANY_OTHER_4=(Token)match(input,RULE_ANY_OTHER,FOLLOW_2); 
 
@@ -4229,7 +4282,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIdentifier"
-    // InternalCmdArgsParser.g:1548:1: entryRuleIdentifier returns [String current=null] : iv_ruleIdentifier= ruleIdentifier EOF ;
+    // InternalCmdArgsParser.g:1575:1: entryRuleIdentifier returns [String current=null] : iv_ruleIdentifier= ruleIdentifier EOF ;
     public final String entryRuleIdentifier() throws RecognitionException {
         String current = null;
 
@@ -4237,8 +4290,8 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCmdArgsParser.g:1549:1: (iv_ruleIdentifier= ruleIdentifier EOF )
-            // InternalCmdArgsParser.g:1550:2: iv_ruleIdentifier= ruleIdentifier EOF
+            // InternalCmdArgsParser.g:1576:1: (iv_ruleIdentifier= ruleIdentifier EOF )
+            // InternalCmdArgsParser.g:1577:2: iv_ruleIdentifier= ruleIdentifier EOF
             {
              newCompositeNode(grammarAccess.getIdentifierRule()); 
             pushFollow(FOLLOW_1);
@@ -4265,7 +4318,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIdentifier"
-    // InternalCmdArgsParser.g:1557:1: ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR ) ;
+    // InternalCmdArgsParser.g:1584:1: ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR ) ;
     public final AntlrDatatypeRuleToken ruleIdentifier() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4278,10 +4331,10 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCmdArgsParser.g:1561:6: ( ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR ) )
-            // InternalCmdArgsParser.g:1562:1: ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR )
+            // InternalCmdArgsParser.g:1588:6: ( ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR ) )
+            // InternalCmdArgsParser.g:1589:1: ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR )
             {
-            // InternalCmdArgsParser.g:1562:1: ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR )
+            // InternalCmdArgsParser.g:1589:1: ( (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* ) | this_KW_VAR_4= RULE_KW_VAR )
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -4299,19 +4352,19 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             }
             switch (alt38) {
                 case 1 :
-                    // InternalCmdArgsParser.g:1562:2: (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* )
+                    // InternalCmdArgsParser.g:1589:2: (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* )
                     {
-                    // InternalCmdArgsParser.g:1562:2: (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* )
-                    // InternalCmdArgsParser.g:1562:7: this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )*
+                    // InternalCmdArgsParser.g:1589:2: (this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )* )
+                    // InternalCmdArgsParser.g:1589:7: this_ID_0= RULE_ID (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )*
                     {
-                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_31); 
+                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_33); 
 
                     		current.merge(this_ID_0);
                         
                      
                         newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0_0()); 
                         
-                    // InternalCmdArgsParser.g:1569:1: (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )*
+                    // InternalCmdArgsParser.g:1596:1: (this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID )*
                     loop37:
                     do {
                         int alt37=2;
@@ -4330,23 +4383,23 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
 
                         switch (alt37) {
                     	case 1 :
-                    	    // InternalCmdArgsParser.g:1569:6: this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID
+                    	    // InternalCmdArgsParser.g:1596:6: this_SKW_COLON_1= RULE_SKW_COLON this_SKW_BACKSLASH_2= RULE_SKW_BACKSLASH this_ID_3= RULE_ID
                     	    {
-                    	    this_SKW_COLON_1=(Token)match(input,RULE_SKW_COLON,FOLLOW_32); 
+                    	    this_SKW_COLON_1=(Token)match(input,RULE_SKW_COLON,FOLLOW_34); 
 
                     	    		current.merge(this_SKW_COLON_1);
                     	        
                     	     
                     	        newLeafNode(this_SKW_COLON_1, grammarAccess.getIdentifierAccess().getSKW_COLONTerminalRuleCall_0_1_0()); 
                     	        
-                    	    this_SKW_BACKSLASH_2=(Token)match(input,RULE_SKW_BACKSLASH,FOLLOW_33); 
+                    	    this_SKW_BACKSLASH_2=(Token)match(input,RULE_SKW_BACKSLASH,FOLLOW_35); 
 
                     	    		current.merge(this_SKW_BACKSLASH_2);
                     	        
                     	     
                     	        newLeafNode(this_SKW_BACKSLASH_2, grammarAccess.getIdentifierAccess().getSKW_BACKSLASHTerminalRuleCall_0_1_1()); 
                     	        
-                    	    this_ID_3=(Token)match(input,RULE_ID,FOLLOW_31); 
+                    	    this_ID_3=(Token)match(input,RULE_ID,FOLLOW_33); 
 
                     	    		current.merge(this_ID_3);
                     	        
@@ -4369,7 +4422,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCmdArgsParser.g:1591:10: this_KW_VAR_4= RULE_KW_VAR
+                    // InternalCmdArgsParser.g:1618:10: this_KW_VAR_4= RULE_KW_VAR
                     {
                     this_KW_VAR_4=(Token)match(input,RULE_KW_VAR,FOLLOW_2); 
 
@@ -4411,9 +4464,9 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     protected DFA23 dfa23 = new DFA23(this);
     protected DFA22 dfa22 = new DFA22(this);
     protected DFA24 dfa24 = new DFA24(this);
-    protected DFA29 dfa29 = new DFA29(this);
     protected DFA30 dfa30 = new DFA30(this);
-    protected DFA32 dfa32 = new DFA32(this);
+    protected DFA31 dfa31 = new DFA31(this);
+    protected DFA33 dfa33 = new DFA33(this);
     static final String DFA5_eotS =
         "\10\uffff";
     static final String DFA5_eofS =
@@ -4650,7 +4703,7 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             "\1\3\6\uffff\1\1\1\2\1\4\1\5\3\uffff\1\6\2\uffff\1\6",
             "",
             "",
-            "\1\10\12\uffff\1\11\1\12\1\7\1\10\2\uffff\1\10\3\uffff\3\10",
+            "\1\10\12\uffff\1\11\1\12\1\7\1\10\2\uffff\1\10\4\uffff\2\10",
             "",
             "",
             "",
@@ -4696,26 +4749,26 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA22_eotS =
         "\12\uffff";
     static final String DFA22_eofS =
-        "\1\4\2\3\3\uffff\1\3\2\uffff\1\3";
+        "\1\3\2\5\3\uffff\1\5\2\uffff\1\5";
     static final String DFA22_minS =
-        "\1\25\2\6\2\uffff\1\15\1\6\1\30\2\6";
+        "\1\25\2\6\1\uffff\1\15\1\uffff\1\6\1\30\2\6";
     static final String DFA22_maxS =
-        "\1\36\2\42\2\uffff\2\36\1\30\1\36\1\42";
+        "\1\36\2\43\1\uffff\1\36\1\uffff\1\36\1\30\1\36\1\43";
     static final String DFA22_acceptS =
-        "\3\uffff\1\1\1\2\5\uffff";
+        "\3\uffff\1\2\1\uffff\1\1\4\uffff";
     static final String DFA22_specialS =
         "\12\uffff}>";
     static final String[] DFA22_transitionS = {
-            "\1\2\2\uffff\1\1\3\uffff\1\3\2\4",
-            "\1\5\1\uffff\1\3\2\uffff\1\3\6\uffff\4\3\2\uffff\1\3\3\uffff\2\3\1\6\3\uffff\1\3",
-            "\1\4\1\uffff\1\3\2\uffff\1\3\6\uffff\4\3\2\uffff\1\3\3\uffff\2\3\1\6\3\uffff\1\3",
+            "\1\2\2\uffff\1\1\4\uffff\2\3",
+            "\1\4\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5",
+            "\1\3\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5",
             "",
+            "\1\7\17\uffff\2\3",
             "",
-            "\1\7\17\uffff\2\4",
-            "\1\4\1\3\6\uffff\4\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\10",
+            "\1\3\1\5\6\uffff\4\5\3\uffff\1\5\2\uffff\1\5\4\uffff\1\5\1\10",
             "\1\11",
-            "\1\4\1\3\6\uffff\4\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\10",
-            "\1\5\1\uffff\1\3\2\uffff\1\3\6\uffff\4\3\2\uffff\1\3\3\uffff\2\3\1\6\3\uffff\1\3"
+            "\1\3\1\5\6\uffff\4\5\3\uffff\1\5\2\uffff\1\5\4\uffff\1\5\1\10",
+            "\1\4\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5"
     };
 
     static final short[] DFA22_eot = DFA.unpackEncodedString(DFA22_eotS);
@@ -4758,26 +4811,26 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     static final String DFA24_minS =
         "\1\22\1\6\5\10\1\uffff\1\15\3\uffff\1\30\1\6";
     static final String DFA24_maxS =
-        "\1\42\6\36\1\uffff\1\15\3\uffff\1\30\1\36";
+        "\1\43\6\36\1\uffff\1\15\3\uffff\1\30\1\36";
     static final String DFA24_acceptS =
         "\7\uffff\1\4\1\uffff\1\1\1\2\1\3\2\uffff";
     static final String DFA24_specialS =
         "\16\uffff}>";
     static final String[] DFA24_transitionS = {
-            "\1\3\1\4\1\5\1\2\2\uffff\1\1\3\uffff\1\7\5\uffff\1\6",
-            "\1\10\1\uffff\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
-            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
-            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
-            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
-            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
-            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11",
+            "\1\3\1\4\1\5\1\2\2\uffff\1\1\2\uffff\1\7\7\uffff\1\6",
+            "\1\10\1\uffff\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
+            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
+            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
+            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
+            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
+            "\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11",
             "",
             "\1\14",
             "",
             "",
             "",
             "\1\15",
-            "\1\10\1\uffff\1\12\1\13\13\uffff\1\11\2\uffff\1\11\4\uffff\2\11"
+            "\1\10\1\uffff\1\12\1\13\13\uffff\1\11\2\uffff\1\11\2\uffff\1\11\1\uffff\2\11"
     };
 
     static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
@@ -4813,94 +4866,37 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             return "761:1: (this_SimpleMacro_0= ruleSimpleMacro | this_ObjectMacro_1= ruleObjectMacro | this_FunctionMacro_2= ruleFunctionMacro | this_StringMacro_3= ruleStringMacro )";
         }
     }
-    static final String DFA29_eotS =
-        "\21\uffff";
-    static final String DFA29_eofS =
-        "\1\1\1\uffff\2\15\10\uffff\1\15\3\uffff\1\15";
-    static final String DFA29_minS =
-        "\1\11\1\uffff\2\6\7\uffff\1\15\1\6\1\uffff\1\30\2\6";
-    static final String DFA29_maxS =
-        "\1\42\1\uffff\2\42\7\uffff\2\36\1\uffff\1\30\1\36\1\42";
-    static final String DFA29_acceptS =
-        "\1\uffff\1\11\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\2\uffff\1\1\3\uffff";
-    static final String DFA29_specialS =
-        "\21\uffff}>";
-    static final String[] DFA29_transitionS = {
-            "\1\5\1\6\7\uffff\1\7\1\10\1\11\1\3\2\uffff\1\2\3\uffff\1\4\2\1\3\uffff\1\12",
-            "",
-            "\1\13\2\uffff\2\15\7\uffff\4\15\2\uffff\1\15\3\uffff\2\15\1\14\3\uffff\1\15",
-            "\1\1\2\uffff\2\15\7\uffff\4\15\2\uffff\1\15\3\uffff\2\15\1\14\3\uffff\1\15",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\16\17\uffff\2\1",
-            "\1\1\1\15\6\uffff\4\15\3\uffff\1\15\2\uffff\1\15\4\uffff\1\15\1\17",
-            "",
-            "\1\20",
-            "\1\1\1\15\6\uffff\4\15\3\uffff\1\15\2\uffff\1\15\4\uffff\1\15\1\17",
-            "\1\13\2\uffff\2\15\7\uffff\4\15\2\uffff\1\15\3\uffff\2\15\1\14\3\uffff\1\15"
-    };
-
-    static final short[] DFA29_eot = DFA.unpackEncodedString(DFA29_eotS);
-    static final short[] DFA29_eof = DFA.unpackEncodedString(DFA29_eofS);
-    static final char[] DFA29_min = DFA.unpackEncodedStringToUnsignedChars(DFA29_minS);
-    static final char[] DFA29_max = DFA.unpackEncodedStringToUnsignedChars(DFA29_maxS);
-    static final short[] DFA29_accept = DFA.unpackEncodedString(DFA29_acceptS);
-    static final short[] DFA29_special = DFA.unpackEncodedString(DFA29_specialS);
-    static final short[][] DFA29_transition;
-
-    static {
-        int numStates = DFA29_transitionS.length;
-        DFA29_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA29_transition[i] = DFA.unpackEncodedString(DFA29_transitionS[i]);
-        }
-    }
-
-    class DFA29 extends DFA {
-
-        public DFA29(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 29;
-            this.eot = DFA29_eot;
-            this.eof = DFA29_eof;
-            this.min = DFA29_min;
-            this.max = DFA29_max;
-            this.accept = DFA29_accept;
-            this.special = DFA29_special;
-            this.transition = DFA29_transition;
-        }
-        public String getDescription() {
-            return "()+ loopback of 1269:1: (this_Identifier_0= ruleIdentifier | this_STRING2_1= RULE_STRING2 | this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_3= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_4= RULE_KW_NOSTDINC | this_KW_INCSYS_5= RULE_KW_INCSYS | this_KW_INCLUDE_6= RULE_KW_INCLUDE | this_ANY_OTHER_7= RULE_ANY_OTHER )+";
-        }
-    }
     static final String DFA30_eotS =
-        "\12\uffff";
+        "\22\uffff";
     static final String DFA30_eofS =
-        "\1\1\1\uffff\2\4\2\uffff\1\4\2\uffff\1\4";
+        "\1\1\1\uffff\2\16\11\uffff\1\16\3\uffff\1\16";
     static final String DFA30_minS =
-        "\1\13\1\uffff\2\6\1\uffff\1\15\1\6\1\30\2\6";
+        "\1\11\1\uffff\2\6\10\uffff\1\15\1\6\1\uffff\1\30\2\6";
     static final String DFA30_maxS =
-        "\1\36\1\uffff\2\42\1\uffff\2\36\1\30\1\36\1\42";
+        "\1\43\1\uffff\2\43\10\uffff\2\36\1\uffff\1\30\1\36\1\43";
     static final String DFA30_acceptS =
-        "\1\uffff\1\2\2\uffff\1\1\5\uffff";
+        "\1\uffff\1\12\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\2\uffff\1\1\3\uffff";
     static final String DFA30_specialS =
-        "\12\uffff}>";
+        "\22\uffff}>";
     static final String[] DFA30_transitionS = {
-            "\1\1\11\uffff\1\3\2\uffff\1\2\3\uffff\1\4\2\1",
+            "\1\4\1\5\1\13\6\uffff\1\6\1\7\1\10\1\3\2\uffff\1\2\2\uffff\1\1\1\uffff\2\1\1\uffff\1\12\2\uffff\1\11",
             "",
-            "\1\5\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4",
-            "\1\1\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4",
+            "\1\14\2\uffff\3\16\6\uffff\4\16\2\uffff\1\16\2\uffff\1\16\1\uffff\1\16\1\15\1\uffff\1\16\2\uffff\1\16",
+            "\1\1\2\uffff\3\16\6\uffff\4\16\2\uffff\1\16\2\uffff\1\16\1\uffff\1\16\1\15\1\uffff\1\16\2\uffff\1\16",
             "",
-            "\1\7\17\uffff\2\1",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\4\uffff\1\4\1\10",
-            "\1\11",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\4\uffff\1\4\1\10",
-            "\1\5\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4"
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\17\17\uffff\2\1",
+            "\1\1\1\16\6\uffff\4\16\3\uffff\1\16\2\uffff\1\16\4\uffff\1\16\1\20",
+            "",
+            "\1\21",
+            "\1\1\1\16\6\uffff\4\16\3\uffff\1\16\2\uffff\1\16\4\uffff\1\16\1\20",
+            "\1\14\2\uffff\3\16\6\uffff\4\16\2\uffff\1\16\2\uffff\1\16\1\uffff\1\16\1\15\1\uffff\1\16\2\uffff\1\16"
     };
 
     static final short[] DFA30_eot = DFA.unpackEncodedString(DFA30_eotS);
@@ -4933,65 +4929,123 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
             this.transition = DFA30_transition;
         }
         public String getDescription() {
-            return "()+ loopback of 1358:2: (this_OptionPart_0= ruleOptionPart )+";
+            return "()+ loopback of 1296:1: (this_Identifier_0= ruleIdentifier | this_SKW_LEFTPAREN_1= RULE_SKW_LEFTPAREN | this_SKW_RIGHTPAREN_2= RULE_SKW_RIGHTPAREN | this_KW_NOSTDINC_3= RULE_KW_NOSTDINC | this_KW_INCSYS_4= RULE_KW_INCSYS | this_KW_INCLUDE_5= RULE_KW_INCLUDE | this_ANY_OTHER_6= RULE_ANY_OTHER | this_SKW_HASH2_7= RULE_SKW_HASH2 | this_SKW_COMMA_8= RULE_SKW_COMMA )+";
         }
     }
-    static final String DFA32_eotS =
+    static final String DFA31_eotS =
         "\12\uffff";
-    static final String DFA32_eofS =
-        "\1\1\1\uffff\2\4\2\uffff\1\4\2\uffff\1\4";
-    static final String DFA32_minS =
-        "\1\13\1\uffff\2\6\1\uffff\1\15\1\6\1\30\2\6";
-    static final String DFA32_maxS =
-        "\1\36\1\uffff\2\42\1\uffff\2\36\1\30\1\36\1\42";
-    static final String DFA32_acceptS =
-        "\1\uffff\1\2\2\uffff\1\1\5\uffff";
-    static final String DFA32_specialS =
+    static final String DFA31_eofS =
+        "\1\1\1\uffff\2\6\1\uffff\1\6\3\uffff\1\6";
+    static final String DFA31_minS =
+        "\1\13\1\uffff\2\6\1\15\1\6\1\uffff\1\30\2\6";
+    static final String DFA31_maxS =
+        "\1\36\1\uffff\2\43\2\36\1\uffff\1\30\1\36\1\43";
+    static final String DFA31_acceptS =
+        "\1\uffff\1\2\4\uffff\1\1\3\uffff";
+    static final String DFA31_specialS =
         "\12\uffff}>";
-    static final String[] DFA32_transitionS = {
-            "\1\1\11\uffff\1\3\2\uffff\1\2\3\uffff\1\4\2\1",
+    static final String[] DFA31_transitionS = {
+            "\1\1\11\uffff\1\3\2\uffff\1\2\4\uffff\2\1",
             "",
-            "\1\5\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4",
-            "\1\1\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4",
-            "",
+            "\1\4\1\uffff\1\6\2\uffff\1\6\6\uffff\4\6\2\uffff\1\6\4\uffff\1\6\1\5\4\uffff\1\6",
+            "\1\1\1\uffff\1\6\2\uffff\1\6\6\uffff\4\6\2\uffff\1\6\4\uffff\1\6\1\5\4\uffff\1\6",
             "\1\7\17\uffff\2\1",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\4\uffff\1\4\1\10",
+            "\1\1\1\6\6\uffff\4\6\3\uffff\1\6\2\uffff\1\6\4\uffff\1\6\1\10",
+            "",
             "\1\11",
-            "\1\1\1\4\6\uffff\4\4\3\uffff\1\4\2\uffff\1\4\4\uffff\1\4\1\10",
-            "\1\5\1\uffff\1\4\2\uffff\1\4\6\uffff\4\4\2\uffff\1\4\3\uffff\2\4\1\6\3\uffff\1\4"
+            "\1\1\1\6\6\uffff\4\6\3\uffff\1\6\2\uffff\1\6\4\uffff\1\6\1\10",
+            "\1\4\1\uffff\1\6\2\uffff\1\6\6\uffff\4\6\2\uffff\1\6\4\uffff\1\6\1\5\4\uffff\1\6"
     };
 
-    static final short[] DFA32_eot = DFA.unpackEncodedString(DFA32_eotS);
-    static final short[] DFA32_eof = DFA.unpackEncodedString(DFA32_eofS);
-    static final char[] DFA32_min = DFA.unpackEncodedStringToUnsignedChars(DFA32_minS);
-    static final char[] DFA32_max = DFA.unpackEncodedStringToUnsignedChars(DFA32_maxS);
-    static final short[] DFA32_accept = DFA.unpackEncodedString(DFA32_acceptS);
-    static final short[] DFA32_special = DFA.unpackEncodedString(DFA32_specialS);
-    static final short[][] DFA32_transition;
+    static final short[] DFA31_eot = DFA.unpackEncodedString(DFA31_eotS);
+    static final short[] DFA31_eof = DFA.unpackEncodedString(DFA31_eofS);
+    static final char[] DFA31_min = DFA.unpackEncodedStringToUnsignedChars(DFA31_minS);
+    static final char[] DFA31_max = DFA.unpackEncodedStringToUnsignedChars(DFA31_maxS);
+    static final short[] DFA31_accept = DFA.unpackEncodedString(DFA31_acceptS);
+    static final short[] DFA31_special = DFA.unpackEncodedString(DFA31_specialS);
+    static final short[][] DFA31_transition;
 
     static {
-        int numStates = DFA32_transitionS.length;
-        DFA32_transition = new short[numStates][];
+        int numStates = DFA31_transitionS.length;
+        DFA31_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA32_transition[i] = DFA.unpackEncodedString(DFA32_transitionS[i]);
+            DFA31_transition[i] = DFA.unpackEncodedString(DFA31_transitionS[i]);
         }
     }
 
-    class DFA32 extends DFA {
+    class DFA31 extends DFA {
 
-        public DFA32(BaseRecognizer recognizer) {
+        public DFA31(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 32;
-            this.eot = DFA32_eot;
-            this.eof = DFA32_eof;
-            this.min = DFA32_min;
-            this.max = DFA32_max;
-            this.accept = DFA32_accept;
-            this.special = DFA32_special;
-            this.transition = DFA32_transition;
+            this.decisionNumber = 31;
+            this.eot = DFA31_eot;
+            this.eof = DFA31_eof;
+            this.min = DFA31_min;
+            this.max = DFA31_max;
+            this.accept = DFA31_accept;
+            this.special = DFA31_special;
+            this.transition = DFA31_transition;
         }
         public String getDescription() {
-            return "()+ loopback of 1383:3: (this_OptionPart_3= ruleOptionPart )+";
+            return "()+ loopback of 1393:2: (this_OptionPart_0= ruleOptionPart )+";
+        }
+    }
+    static final String DFA33_eotS =
+        "\12\uffff";
+    static final String DFA33_eofS =
+        "\1\1\1\uffff\2\5\2\uffff\1\5\2\uffff\1\5";
+    static final String DFA33_minS =
+        "\1\13\1\uffff\2\6\1\15\1\uffff\1\6\1\30\2\6";
+    static final String DFA33_maxS =
+        "\1\36\1\uffff\2\43\1\36\1\uffff\1\36\1\30\1\36\1\43";
+    static final String DFA33_acceptS =
+        "\1\uffff\1\2\3\uffff\1\1\4\uffff";
+    static final String DFA33_specialS =
+        "\12\uffff}>";
+    static final String[] DFA33_transitionS = {
+            "\1\1\11\uffff\1\3\2\uffff\1\2\4\uffff\2\1",
+            "",
+            "\1\4\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5",
+            "\1\1\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5",
+            "\1\7\17\uffff\2\1",
+            "",
+            "\1\1\1\5\6\uffff\4\5\3\uffff\1\5\2\uffff\1\5\4\uffff\1\5\1\10",
+            "\1\11",
+            "\1\1\1\5\6\uffff\4\5\3\uffff\1\5\2\uffff\1\5\4\uffff\1\5\1\10",
+            "\1\4\1\uffff\1\5\2\uffff\1\5\6\uffff\4\5\2\uffff\1\5\4\uffff\1\5\1\6\4\uffff\1\5"
+    };
+
+    static final short[] DFA33_eot = DFA.unpackEncodedString(DFA33_eotS);
+    static final short[] DFA33_eof = DFA.unpackEncodedString(DFA33_eofS);
+    static final char[] DFA33_min = DFA.unpackEncodedStringToUnsignedChars(DFA33_minS);
+    static final char[] DFA33_max = DFA.unpackEncodedStringToUnsignedChars(DFA33_maxS);
+    static final short[] DFA33_accept = DFA.unpackEncodedString(DFA33_acceptS);
+    static final short[] DFA33_special = DFA.unpackEncodedString(DFA33_specialS);
+    static final short[][] DFA33_transition;
+
+    static {
+        int numStates = DFA33_transitionS.length;
+        DFA33_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA33_transition[i] = DFA.unpackEncodedString(DFA33_transitionS[i]);
+        }
+    }
+
+    class DFA33 extends DFA {
+
+        public DFA33(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 33;
+            this.eot = DFA33_eot;
+            this.eof = DFA33_eof;
+            this.min = DFA33_min;
+            this.max = DFA33_max;
+            this.accept = DFA33_accept;
+            this.special = DFA33_special;
+            this.transition = DFA33_transition;
+        }
+        public String getDescription() {
+            return "()+ loopback of 1418:3: (this_OptionPart_3= ruleOptionPart )+";
         }
     }
  
@@ -5008,26 +5062,28 @@ public class InternalCmdArgsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000040000040L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000000004123C080L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000004113C0000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000000113C0000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000513C0000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000008093C0000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000000093C0000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000493C0000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000011200082L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000011200002L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001200082L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001200002L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00000004113C0600L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00000009013C0E00L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000004013C0400L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000008013C0400L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000C00L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000004013C0000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x00000004113C0602L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000011200802L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000011200080L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000011200000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x00000004001C0102L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000008013C0000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x00000000013C0000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x00000009013C0E02L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000001200802L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000001200080L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000001200000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x00000008001C0102L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000001000000L});
 
 }

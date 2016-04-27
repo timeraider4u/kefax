@@ -46,19 +46,20 @@ import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
-public class Test0019_Multiline {
+public class Test0025_SimpleObjectDefineWithQuotes {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -104,7 +105,7 @@ public class Test0019_Multiline {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0019_Multiline.cmd");
+			"res/Test0025_SimpleObjectDefineWithQuotes.cmd");
 			final String[] expected = new String[] {
 				"RULE_ID",
 				"RULE_WS",
@@ -112,66 +113,33 @@ public class Test0019_Multiline {
 				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
+				"RULE_QUOTE1",
 				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_ASSIGN",
 				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
+				"RULE_QUOTE1",
+				"RULE_NEWLINE",
 				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_WS",
-				"RULE_LINE_BREAK",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
 				"RULE_QUOTE1",
 				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_ASSIGN",
-				"RULE_SKW_HASH2",
 				"RULE_ID",
 				"RULE_QUOTE1",
-				"RULE_LINE_BREAK",
-				"RULE_WS",
-				"RULE_KW_DEFINE",
+				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_WS",
-				"RULE_WS",
-				"RULE_LINE_BREAK",
-				"RULE_WS",
-				"RULE_WS",
+				"RULE_SKW_COLON",
+				"RULE_SKW_ASSIGN",
 				"RULE_WS",
 				"RULE_KW_DEFINE",
 				"RULE_QUOTE1",
 				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_ASSIGN",
-				"RULE_SKW_HASH2",
-				"RULE_ID",
-				"RULE_QUOTE1",
-				"RULE_WS",
-				"RULE_LINE_BREAK",
-				"RULE_WS",
-				"RULE_KW_DEFINE",
-				"RULE_QUOTE1",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_ASSIGN",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_HASH2",
-				"RULE_SKW_HASH2",
 				"RULE_ID",
 				"RULE_QUOTE1",
 				"RULE_NEWLINE",
@@ -184,7 +152,7 @@ public class Test0019_Multiline {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0019_Multiline.cmd");
+			"res/Test0025_SimpleObjectDefineWithQuotes.cmd");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -196,7 +164,7 @@ public class Test0019_Multiline {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(1, Lines_0_list.size());
+		Assert.assertEquals(3, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -207,62 +175,74 @@ public class Test0019_Multiline {
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
-		Assert.assertEquals(5, Arguments_1_list.size());
+		Assert.assertEquals(1, Arguments_1_list.size());
 		//1
 		final Argument Argument_2_Var
 		 = (Argument)Arguments_1_list.get(0);
 		Assert.assertNotNull(Argument_2_Var
 		);
 		//2
-		final FunctionMacro FunctionMacro_3_Var
-		 = (FunctionMacro)Argument_2_Var
+		final StringMacro StringMacro_3_Var
+		 = (StringMacro)Argument_2_Var
 		.getMacro();
-		Assert.assertNotNull(FunctionMacro_3_Var
+		Assert.assertNotNull(StringMacro_3_Var
 		);
-		Assert.assertEquals("FOO", FunctionMacro_3_Var
-		.getName());
-		Assert.assertEquals("[X]", FunctionMacro_3_Var
-		.getParams().toString());
-		Assert.assertEquals("BAR(X)", FunctionMacro_3_Var
-		.getValue());
 		//3
-		final Argument Argument_4_Var
-		 = (Argument)Arguments_1_list.get(1);
-		Assert.assertNotNull(Argument_4_Var
-		);
-		//4
-		final StringMacro StringMacro_5_Var
-		 = (StringMacro)Argument_4_Var
+		final ObjectMacro ObjectMacro_4_Var
+		 = (ObjectMacro)StringMacro_3_Var
 		.getMacro();
-		Assert.assertNotNull(StringMacro_5_Var
+		Assert.assertNotNull(ObjectMacro_4_Var
 		);
+		Assert.assertEquals("FOO1", ObjectMacro_4_Var
+		.getName());
+		Assert.assertEquals("BAR", ObjectMacro_4_Var
+		.getValue());
+		//4
+		final CmdLine CmdLine_5_Var
+		 = (CmdLine)Lines_0_list.get(1);
+		Assert.assertNotNull(CmdLine_5_Var
+		);
+		Assert.assertEquals("foobar.o", CmdLine_5_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_5_list = CmdLine_5_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_5_list);
+		Assert.assertEquals(1, Arguments_5_list.size());
 		//5
 		final Argument Argument_6_Var
-		 = (Argument)Arguments_1_list.get(2);
+		 = (Argument)Arguments_5_list.get(0);
 		Assert.assertNotNull(Argument_6_Var
 		);
 		//6
-		final SimpleMacro SimpleMacro_7_Var
-		 = (SimpleMacro)Argument_6_Var
+		final StringMacro StringMacro_7_Var
+		 = (StringMacro)Argument_6_Var
 		.getMacro();
-		Assert.assertNotNull(SimpleMacro_7_Var
+		Assert.assertNotNull(StringMacro_7_Var
 		);
-		Assert.assertEquals("_BAR2", SimpleMacro_7_Var
-		.getName());
 		//7
-		final Argument Argument_8_Var
-		 = (Argument)Arguments_1_list.get(3);
-		Assert.assertNotNull(Argument_8_Var
-		);
-		//8
-		final StringMacro StringMacro_9_Var
-		 = (StringMacro)Argument_8_Var
+		final ObjectMacro ObjectMacro_8_Var
+		 = (ObjectMacro)StringMacro_7_Var
 		.getMacro();
-		Assert.assertNotNull(StringMacro_9_Var
+		Assert.assertNotNull(ObjectMacro_8_Var
 		);
+		Assert.assertEquals("FOO2", ObjectMacro_8_Var
+		.getName());
+		Assert.assertEquals("5", ObjectMacro_8_Var
+		.getValue());
+		//8
+		final CmdLine CmdLine_9_Var
+		 = (CmdLine)Lines_0_list.get(2);
+		Assert.assertNotNull(CmdLine_9_Var
+		);
+		Assert.assertEquals("foobar.o", CmdLine_9_Var
+		.getStart());
+		final EList<? extends EObject> Arguments_9_list = CmdLine_9_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_9_list);
+		Assert.assertEquals(1, Arguments_9_list.size());
 		//9
 		final Argument Argument_10_Var
-		 = (Argument)Arguments_1_list.get(4);
+		 = (Argument)Arguments_9_list.get(0);
 		Assert.assertNotNull(Argument_10_Var
 		);
 		//10
@@ -271,6 +251,16 @@ public class Test0019_Multiline {
 		.getMacro();
 		Assert.assertNotNull(StringMacro_11_Var
 		);
+		//11
+		final ObjectMacro ObjectMacro_12_Var
+		 = (ObjectMacro)StringMacro_11_Var
+		.getMacro();
+		Assert.assertNotNull(ObjectMacro_12_Var
+		);
+		Assert.assertEquals("FOO3", ObjectMacro_12_Var
+		.getName());
+		Assert.assertEquals("doSomething", ObjectMacro_12_Var
+		.getValue());
 	}
 	
 	

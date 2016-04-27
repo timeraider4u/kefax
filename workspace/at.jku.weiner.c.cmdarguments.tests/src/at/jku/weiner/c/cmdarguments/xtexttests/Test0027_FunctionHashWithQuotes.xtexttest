@@ -1,0 +1,63 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0027_FunctionHashWithQuotes.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	// foobar.o := -D"STR(s)=\#s"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_ASSIGN
+		SKW_HASH2 ID 
+		QUOTE1 NEWLINE
+	// foobar.o := -D"FOOBAR(X,Y)=FOO(X)\#\#Y"
+	ID WS SKW_COLON SKW_ASSIGN WS KW_DEFINE QUOTE1
+		ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_ASSIGN
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_HASH2 SKW_HASH2 ID
+		QUOTE1 NEWLINE
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"STR",
+					params+*"[s]",
+					value++"\\\\#s"
+				)
+			)
+		)
+	),
+	(CmdLine
+		start++"foobar.o",
+		arguments+=
+		(Argument
+			macro=
+			(StringMacro
+				macro=
+				(FunctionMacro
+					name++"FOOBAR",
+					params+*"[X, Y]",
+					value++"FOO(X)\\\\#\\\\#Y"
+				)
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

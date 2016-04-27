@@ -3,11 +3,14 @@
 package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.StringMacro;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -17,34 +20,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl#getString <em>String</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.StringMacroImpl#getMacro <em>Macro</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
 public class StringMacroImpl extends MacroImpl implements StringMacro
 {
   /**
-   * The default value of the '{@link #getString() <em>String</em>}' attribute.
+   * The cached value of the '{@link #getMacro() <em>Macro</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getString()
+   * @see #getMacro()
    * @generated
    * @ordered
    */
-  protected static final String STRING_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getString() <em>String</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getString()
-   * @generated
-   * @ordered
-   */
-  protected String string = STRING_EDEFAULT;
+  protected Macro macro;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,9 +65,9 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getString()
+  public Macro getMacro()
   {
-    return string;
+    return macro;
   }
 
   /**
@@ -82,12 +75,53 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setString(String newString)
+  public NotificationChain basicSetMacro(Macro newMacro, NotificationChain msgs)
   {
-    String oldString = string;
-    string = newString;
+    Macro oldMacro = macro;
+    macro = newMacro;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.STRING_MACRO__STRING, oldString, string));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CmdArgsPackage.STRING_MACRO__MACRO, oldMacro, newMacro);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMacro(Macro newMacro)
+  {
+    if (newMacro != macro)
+    {
+      NotificationChain msgs = null;
+      if (macro != null)
+        msgs = ((InternalEObject)macro).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.STRING_MACRO__MACRO, null, msgs);
+      if (newMacro != null)
+        msgs = ((InternalEObject)newMacro).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.STRING_MACRO__MACRO, null, msgs);
+      msgs = basicSetMacro(newMacro, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.STRING_MACRO__MACRO, newMacro, newMacro));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case CmdArgsPackage.STRING_MACRO__MACRO:
+        return basicSetMacro(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -100,8 +134,8 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
   {
     switch (featureID)
     {
-      case CmdArgsPackage.STRING_MACRO__STRING:
-        return getString();
+      case CmdArgsPackage.STRING_MACRO__MACRO:
+        return getMacro();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +150,8 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
   {
     switch (featureID)
     {
-      case CmdArgsPackage.STRING_MACRO__STRING:
-        setString((String)newValue);
+      case CmdArgsPackage.STRING_MACRO__MACRO:
+        setMacro((Macro)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +167,8 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
   {
     switch (featureID)
     {
-      case CmdArgsPackage.STRING_MACRO__STRING:
-        setString(STRING_EDEFAULT);
+      case CmdArgsPackage.STRING_MACRO__MACRO:
+        setMacro((Macro)null);
         return;
     }
     super.eUnset(featureID);
@@ -150,27 +184,10 @@ public class StringMacroImpl extends MacroImpl implements StringMacro
   {
     switch (featureID)
     {
-      case CmdArgsPackage.STRING_MACRO__STRING:
-        return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
+      case CmdArgsPackage.STRING_MACRO__MACRO:
+        return macro != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (string: ");
-    result.append(string);
-    result.append(')');
-    return result.toString();
   }
 
 } //StringMacroImpl

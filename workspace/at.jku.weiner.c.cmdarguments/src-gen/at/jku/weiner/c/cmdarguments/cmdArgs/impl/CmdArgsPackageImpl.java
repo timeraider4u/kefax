@@ -486,9 +486,9 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringMacro_String()
+  public EReference getStringMacro_Macro()
   {
-    return (EAttribute)stringMacroEClass.getEStructuralFeatures().get(0);
+    return (EReference)stringMacroEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -562,7 +562,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     createEAttribute(functionMacroEClass, FUNCTION_MACRO__VALUE);
 
     stringMacroEClass = createEClass(STRING_MACRO);
-    createEAttribute(stringMacroEClass, STRING_MACRO__STRING);
+    createEReference(stringMacroEClass, STRING_MACRO__MACRO);
   }
 
   /**
@@ -643,7 +643,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     initEAttribute(getFunctionMacro_Value(), ecorePackage.getEString(), "value", null, 0, 1, FunctionMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringMacroEClass, StringMacro.class, "StringMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringMacro_String(), ecorePackage.getEString(), "string", null, 0, 1, StringMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStringMacro_Macro(), this.getMacro(), null, "macro", null, 0, 1, StringMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

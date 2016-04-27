@@ -144,7 +144,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_1_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathLegalPartParserRuleCall_0_1_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
@@ -167,16 +167,16 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     string=STRING2
+	 *     macro=Macro
 	 */
 	protected void sequence_StringMacro(EObject context, StringMacro semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__STRING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__STRING));
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__MACRO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.STRING_MACRO__MACRO));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStringMacroAccess().getStringSTRING2TerminalRuleCall_1_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getStringMacroAccess().getMacroMacroParserRuleCall_2_0(), semanticObject.getMacro());
 		feeder.finish();
 	}
 	

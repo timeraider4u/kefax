@@ -62,21 +62,23 @@ fragment RULE_ID_PART_2 : (RULE_ID_PART_1|RULE_SKW_BACKSLASH|RULE_SKW_MINUS);
 
 fragment RULE_LETTER : ('A'..'Z'|'a'..'z'|'_');
 
+RULE_QUOTE1 : '"';
+
 fragment RULE_INT : RULE_DIGIT+;
 
 fragment RULE_DIGIT : '0'..'9';
-
-RULE_STRING2 : ('"' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'"')))* '"'|'\'' (RULE_SKW_BACKSLASH .|~((RULE_SKW_BACKSLASH|'\'')))* '\'');
 
 RULE_NEWLINE : ('\n'|'\r');
 
 RULE_WS : (' '|'\t');
 
-fragment RULE_SKW_HASH : '#';
+fragment RULE_SKW_HASH1 : '#';
+
+RULE_SKW_HASH2 : RULE_SKW_BACKSLASH RULE_SKW_HASH1;
 
 RULE_LINE_BREAK : RULE_SKW_BACKSLASH RULE_NEWLINE;
 
-RULE_LINE_COMMENT : RULE_SKW_HASH ( options {greedy=false;} : . )*RULE_NEWLINE;
+RULE_LINE_COMMENT : RULE_SKW_HASH1 ( options {greedy=false;} : . )*RULE_NEWLINE;
 
 RULE_ANY_OTHER : .;
 

@@ -20,7 +20,7 @@ import at.jku.weiner.c.modisco.discoverer.utils.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public final class XMISerializationBackend extends SerializationBackend {
-	
+
 	protected XMISerializationBackend(final IDiscoverer discoverer,
 			final MySettings mySettings) {
 		super(discoverer, mySettings);
@@ -28,31 +28,32 @@ public final class XMISerializationBackend extends SerializationBackend {
 
 	@Override
 	protected void initializeInternal() throws DiscoveryException {
-		
+
 	}
-	
+
 	@Override
 	protected ResourceSet createNewResourceSet() {
 		return new ResourceSetImpl();
 	}
-	
+
 	@Override
 	public URI createTargetURI(final IResource iResource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		return super.createTargetFileURI(iResource, monitor);
 	}
-	
+
 	@Override
 	protected String getBackendExtension() {
 		return Messages.modelFileSuffix;
 	}
-	
+
 	@Override
 	public Resource createNewTargetResource(final URI uri) {
 		final Resource targetModel = new XMIResourceImpl();
+		targetModel.setURI(uri);
 		return targetModel;
 	}
-	
+
 	@Override
 	protected void saveTargetModel(final Resource res, final URI uri)
 			throws IOException {
@@ -67,7 +68,7 @@ public final class XMISerializationBackend extends SerializationBackend {
 			res.save(options);
 		}
 	}
-	
+
 	@Override
 	protected boolean deleteLastSaved(final URI lastURI) throws IOException {
 		final String lastUriStr = lastURI.toFileString();
@@ -75,10 +76,10 @@ public final class XMISerializationBackend extends SerializationBackend {
 		final boolean wasDeleted = file.delete();
 		return wasDeleted;
 	}
-	
+
 	@Override
 	protected void closeInternal() throws IOException {
 
 	}
-	
+
 }

@@ -53,6 +53,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEmfTestAccess().getGroup_7(), "rule__EmfTest__Group_7__0");
 					put(grammarAccess.getEmfTestAccess().getGroup_9(), "rule__EmfTest__Group_9__0");
 					put(grammarAccess.getEmfTestAccess().getGroup_10(), "rule__EmfTest__Group_10__0");
+					put(grammarAccess.getEmfTestAccess().getGroup_11(), "rule__EmfTest__Group_11__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getPackageIDAccess().getGroup(), "rule__PackageID__Group__0");
 					put(grammarAccess.getPackageIDAccess().getGroup_1(), "rule__PackageID__Group_1__0");
@@ -108,10 +109,11 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEmfTestAccess().getTimeOutAssignment_7_2(), "rule__EmfTest__TimeOutAssignment_7_2");
 					put(grammarAccess.getEmfTestAccess().getCodeCallAssignment_8(), "rule__EmfTest__CodeCallAssignment_8");
 					put(grammarAccess.getEmfTestAccess().getOptionCallAssignment_9_1(), "rule__EmfTest__OptionCallAssignment_9_1");
-					put(grammarAccess.getEmfTestAccess().getFileAssignment_10_3(), "rule__EmfTest__FileAssignment_10_3");
-					put(grammarAccess.getEmfTestAccess().getRootAssignment_11(), "rule__EmfTest__RootAssignment_11");
-					put(grammarAccess.getEmfTestAccess().getBeforeAssignment_12(), "rule__EmfTest__BeforeAssignment_12");
-					put(grammarAccess.getEmfTestAccess().getAfterAssignment_13(), "rule__EmfTest__AfterAssignment_13");
+					put(grammarAccess.getEmfTestAccess().getParamCallAssignment_10_1(), "rule__EmfTest__ParamCallAssignment_10_1");
+					put(grammarAccess.getEmfTestAccess().getFileAssignment_11_3(), "rule__EmfTest__FileAssignment_11_3");
+					put(grammarAccess.getEmfTestAccess().getRootAssignment_12(), "rule__EmfTest__RootAssignment_12");
+					put(grammarAccess.getEmfTestAccess().getBeforeAssignment_13(), "rule__EmfTest__BeforeAssignment_13");
+					put(grammarAccess.getEmfTestAccess().getAfterAssignment_14(), "rule__EmfTest__AfterAssignment_14");
 					put(grammarAccess.getImportAccess().getIdAssignment_2(), "rule__Import__IdAssignment_2");
 					put(grammarAccess.getImportAccess().getAliasAssignment_4(), "rule__Import__AliasAssignment_4");
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");

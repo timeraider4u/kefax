@@ -147,6 +147,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         timeOut=INT? 
 	 *         codeCall=CodeCall 
 	 *         optionCall=CodeCall? 
+	 *         paramCall=CodeCall? 
 	 *         file=STRING 
 	 *         root=Element 
 	 *         before=Before? 

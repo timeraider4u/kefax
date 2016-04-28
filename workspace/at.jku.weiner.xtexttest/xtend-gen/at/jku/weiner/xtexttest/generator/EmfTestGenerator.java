@@ -201,6 +201,14 @@ public class EmfTestGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@SuppressWarnings(\"unused\")");
     _builder.newLine();
+    {
+      CodeCall _paramCall = this.test.getParamCall();
+      boolean _notEquals = (!Objects.equal(_paramCall, null));
+      if (_notEquals) {
+        _builder.append("@RunWith(Parameterized.class)");
+        _builder.newLine();
+      }
+    }
     _builder.append("public class ");
     String _javaClassFileName = this.getJavaClassFileName();
     _builder.append(_javaClassFileName, "");
@@ -208,6 +216,20 @@ public class EmfTestGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
+    {
+      CodeCall _paramCall_1 = this.test.getParamCall();
+      boolean _notEquals_1 = (!Objects.equal(_paramCall_1, null));
+      if (_notEquals_1) {
+        _builder.append("\t");
+        _builder.append("@Parameters");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public static Collection<Object[]> data() = EMFTest.getParameters();");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+      }
+    }
     _builder.append("\t");
     _builder.append("private final String pureJavaClassFileName = \"");
     String _javaClassFileName_1 = this.getJavaClassFileName();
@@ -223,12 +245,36 @@ public class EmfTestGenerator {
     _builder.append("\t");
     {
       CodeCall _optionCall = this.test.getOptionCall();
-      boolean _notEquals = (!Objects.equal(_optionCall, null));
-      if (_notEquals) {
+      boolean _notEquals_2 = (!Objects.equal(_optionCall, null));
+      if (_notEquals_2) {
         _builder.append("private Map<String,Object> options;");
       }
     }
     _builder.newLineIfNotEmpty();
+    {
+      CodeCall _paramCall_2 = this.test.getParamCall();
+      boolean _notEquals_3 = (!Objects.equal(_paramCall_2, null));
+      if (_notEquals_3) {
+        _builder.append("\t");
+        _builder.append("private final Boolean use;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public ");
+        String _javaClassFileName_2 = this.getJavaClassFileName();
+        _builder.append(_javaClassFileName_2, "\t");
+        _builder.append("(final Boolean use) {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("this.use = use;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -240,8 +286,8 @@ public class EmfTestGenerator {
     _builder.append("\t\t");
     {
       CodeCall _optionCall_1 = this.test.getOptionCall();
-      boolean _notEquals_1 = (!Objects.equal(_optionCall_1, null));
-      if (_notEquals_1) {
+      boolean _notEquals_4 = (!Objects.equal(_optionCall_1, null));
+      if (_notEquals_4) {
         _builder.append("options = ");
         CodeCall _optionCall_2 = this.test.getOptionCall();
         String _myclass = _optionCall_2.getMyclass();
@@ -261,8 +307,8 @@ public class EmfTestGenerator {
     _builder.newLineIfNotEmpty();
     {
       Before _before = this.test.getBefore();
-      boolean _notEquals_2 = (!Objects.equal(_before, null));
-      if (_notEquals_2) {
+      boolean _notEquals_5 = (!Objects.equal(_before, null));
+      if (_notEquals_5) {
         _builder.append("\t\t");
         Before _before_1 = this.test.getBefore();
         CodeCall _codeCall = _before_1.getCodeCall();
@@ -296,8 +342,8 @@ public class EmfTestGenerator {
     _builder.newLine();
     {
       After _after = this.test.getAfter();
-      boolean _notEquals_3 = (!Objects.equal(_after, null));
-      if (_notEquals_3) {
+      boolean _notEquals_6 = (!Objects.equal(_after, null));
+      if (_notEquals_6) {
         _builder.append("\t\t");
         After _after_1 = this.test.getAfter();
         CodeCall _codeCall_3 = _after_1.getCodeCall();
@@ -401,7 +447,16 @@ public class EmfTestGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("this.pureJavaClassFileName, this.sourceFile");
-    _builder.newLine();
+    {
+      CodeCall _paramCall = this.test.getParamCall();
+      boolean _notEquals = (!Objects.equal(_paramCall, null));
+      if (_notEquals) {
+        _builder.append(", this.use");
+      } else {
+        _builder.append(", true");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append(");");
     _builder.newLine();

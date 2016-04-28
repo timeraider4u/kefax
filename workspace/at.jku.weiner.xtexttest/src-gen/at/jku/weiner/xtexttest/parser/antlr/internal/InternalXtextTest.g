@@ -684,32 +684,63 @@ this_OPTIONS_11=RULE_OPTIONS
 
 
 (
-this_SOURCE_13=RULE_SOURCE
+this_PARAMS_13=RULE_PARAMS
     { 
-    newLeafNode(this_SOURCE_13, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_10_0()); 
-    }
-
-
-
-this_FILE_14=RULE_FILE
-    { 
-    newLeafNode(this_FILE_14, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_10_1()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_15, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_10_2()); 
+    newLeafNode(this_PARAMS_13, grammarAccess.getEmfTestAccess().getPARAMSTerminalRuleCall_10_0()); 
     }
 
 
 
 (
 (
-		lv_file_16_0=RULE_STRING
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getParamCallCodeCallParserRuleCall_10_1_0()); 
+	    }
+		lv_paramCall_14_0=ruleCodeCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"paramCall",
+        		lv_paramCall_14_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
+
+
+(
+this_SOURCE_15=RULE_SOURCE
+    { 
+    newLeafNode(this_SOURCE_15, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_11_0()); 
+    }
+
+
+
+this_FILE_16=RULE_FILE
+    { 
+    newLeafNode(this_FILE_16, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_11_1()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_17=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_17, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_11_2()); 
+    }
+
+
+
+(
+(
+		lv_file_18_0=RULE_STRING
 		{
-			newLeafNode(lv_file_16_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_10_3_0()); 
+			newLeafNode(lv_file_18_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_11_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -718,7 +749,7 @@ this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
        		setWithLastConsumed(
        			$current, 
        			"file",
-        		lv_file_16_0, 
+        		lv_file_18_0, 
         		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
@@ -731,16 +762,16 @@ this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_12_0()); 
 	    }
-		lv_root_17_0=ruleElement		{
+		lv_root_19_0=ruleElement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"root",
-        		lv_root_17_0, 
+        		lv_root_19_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Element");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -752,16 +783,16 @@ this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_13_0()); 
 	    }
-		lv_before_18_0=ruleBefore		{
+		lv_before_20_0=ruleBefore		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"before",
-        		lv_before_18_0, 
+        		lv_before_20_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Before");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -773,16 +804,16 @@ this_ASSIGNASSINGLE_15=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_13_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_14_0()); 
 	    }
-		lv_after_19_0=ruleAfter		{
+		lv_after_21_0=ruleAfter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"after",
-        		lv_after_19_0, 
+        		lv_after_21_0, 
         		"at.jku.weiner.xtexttest.XtextTest.After");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2549,6 +2580,8 @@ RULE_FILE : 'file';
 RULE_LEXER : 'lexer-tokens';
 
 RULE_OPTIONS : 'options';
+
+RULE_PARAMS : 'params';
 
 RULE_OUTPUT : 'output';
 

@@ -30,11 +30,20 @@ import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.common.common.TranslationUnit;
 
 @SuppressWarnings("unused")
-public class Test0002b_Emftest {
+@RunWith(Parameterized.class)
+public class Test0004_Emftest {
 	
-	private final String pureJavaClassFileName = "Test0002b_Emftest";
-	private final String sourceFile = "res/TestDiscoverer0001.c";
+	@Parameters
+	public static Collection<Object[]> data() = EMFTest.getParameters();
+	
+	private final String pureJavaClassFileName = "Test0004_Emftest";
+	private final String sourceFile = "res/TestDiscoverer0004.c";
 	private Map<String,Object> options;
+	private final Boolean use;
+	
+	public Test0004_Emftest(final Boolean use) {
+		this.use = use;
+	}
 	
 	@Before
 	public void initialize(){
@@ -59,7 +68,7 @@ public class Test0002b_Emftest {
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.emfTest(
-			this.pureJavaClassFileName, this.sourceFile, true
+			this.pureJavaClassFileName, this.sourceFile, this.use
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);

@@ -198,7 +198,7 @@ public final class KefaxUtils {
 
 	public static IFolder getLinuxTTYSrcFolder() {
 		final IFolder src = KefaxUtils.getLinuxSrcFolder();
-		final IFolder result = src.getFolder(MySettings.LINUX_TTY_SRC);
+		final IFolder result = src.getFolder(MySettings.LINUX_DISCOVERER_ROOT_SRC_FOLDER);
 		return result;
 	}
 

@@ -99,11 +99,26 @@ class EmfTestGenerator {
 	
 	def String outputClass() '''
 		@SuppressWarnings("unused")
+		«IF this.test.paramCall != null»
+		@RunWith(Parameterized.class)
+		«ENDIF»
 		public class «getJavaClassFileName» {
 			
+			«IF this.test.paramCall != null»
+			@Parameters
+			public static Collection<Object[]> data() = EMFTest.getParameters();
+			
+			«ENDIF»
 			private final String pureJavaClassFileName = "«getJavaClassFileName()»";
 			private final String sourceFile = "«this.test.file»";
 			«IF this.test.optionCall != null»private Map<String,Object> options;«ENDIF»
+			«IF this.test.paramCall != null»
+			private final Boolean use;
+			
+			public «getJavaClassFileName»(final Boolean use) {
+				this.use = use;
+			}
+			«ENDIF»
 			
 			@Before
 			public void initialize(){
@@ -147,7 +162,7 @@ class EmfTestGenerator {
 		@Test (timeout=«IF this.test.timeOut > 0»«this.test.timeOut»«ELSE»«TIMEOUT»«ENDIF»)
 		public void checkParserResult() throws Exception {
 			final EObject obj = «getClassFor(test.codeCall.myclass)».«test.codeCall.method»(
-				this.pureJavaClassFileName, this.sourceFile
+				this.pureJavaClassFileName, this.sourceFile«IF this.test.paramCall != null», this.use«ELSE», true«ENDIF»
 			);
 			Assert.assertNotNull(obj);
 			Assert.assertTrue(obj instanceof «test.root.name»);

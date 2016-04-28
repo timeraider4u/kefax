@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getRegex <em>Regex</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getReplace <em>Replace</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getReplacePatterns()
  * @model

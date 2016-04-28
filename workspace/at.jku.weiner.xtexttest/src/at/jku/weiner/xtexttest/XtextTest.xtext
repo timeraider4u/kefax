@@ -36,6 +36,8 @@ EmfTest:
 	(TIMEOUT ASSIGNASSINGLE timeOut=INT)?
 	codeCall=CodeCall
 	(OPTIONS optionCall=CodeCall)?
+	(PARAMS paramCall=CodeCall)?
+	
 	(SOURCE FILE ASSIGNASSINGLE file=STRING)
 	
 	root=Element
@@ -168,6 +170,7 @@ terminal SRCTEXT: 'text';
 terminal FILE: 'file';
 terminal LEXER: 'lexer-tokens';
 terminal OPTIONS: 'options';
+terminal PARAMS: 'params';
 terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';

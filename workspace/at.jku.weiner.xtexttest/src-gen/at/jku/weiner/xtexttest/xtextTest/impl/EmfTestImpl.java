@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getMydefault <em>Mydefault</em>}</li>
@@ -40,11 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getTimeOut <em>Time Out</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getCodeCall <em>Code Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getOptionCall <em>Option Call</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getParamCall <em>Param Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getFile <em>File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getAfter <em>After</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -139,6 +140,16 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * @ordered
    */
   protected CodeCall optionCall;
+
+  /**
+   * The cached value of the '{@link #getParamCall() <em>Param Call</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParamCall()
+   * @generated
+   * @ordered
+   */
+  protected CodeCall paramCall;
 
   /**
    * The default value of the '{@link #getFile() <em>File</em>}' attribute.
@@ -395,6 +406,54 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * <!-- end-user-doc -->
    * @generated
    */
+  public CodeCall getParamCall()
+  {
+    return paramCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParamCall(CodeCall newParamCall, NotificationChain msgs)
+  {
+    CodeCall oldParamCall = paramCall;
+    paramCall = newParamCall;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__PARAM_CALL, oldParamCall, newParamCall);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParamCall(CodeCall newParamCall)
+  {
+    if (newParamCall != paramCall)
+    {
+      NotificationChain msgs = null;
+      if (paramCall != null)
+        msgs = ((InternalEObject)paramCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__PARAM_CALL, null, msgs);
+      if (newParamCall != null)
+        msgs = ((InternalEObject)newParamCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__PARAM_CALL, null, msgs);
+      msgs = basicSetParamCall(newParamCall, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__PARAM_CALL, newParamCall, newParamCall));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getFile()
   {
     return file;
@@ -573,6 +632,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return basicSetCodeCall(null, msgs);
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
         return basicSetOptionCall(null, msgs);
+      case XtextTestPackage.EMF_TEST__PARAM_CALL:
+        return basicSetParamCall(null, msgs);
       case XtextTestPackage.EMF_TEST__ROOT:
         return basicSetRoot(null, msgs);
       case XtextTestPackage.EMF_TEST__BEFORE:
@@ -605,6 +666,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return getCodeCall();
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
         return getOptionCall();
+      case XtextTestPackage.EMF_TEST__PARAM_CALL:
+        return getParamCall();
       case XtextTestPackage.EMF_TEST__FILE:
         return getFile();
       case XtextTestPackage.EMF_TEST__ROOT:
@@ -646,6 +709,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return;
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
         setOptionCall((CodeCall)newValue);
+        return;
+      case XtextTestPackage.EMF_TEST__PARAM_CALL:
+        setParamCall((CodeCall)newValue);
         return;
       case XtextTestPackage.EMF_TEST__FILE:
         setFile((String)newValue);
@@ -691,6 +757,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
         setOptionCall((CodeCall)null);
         return;
+      case XtextTestPackage.EMF_TEST__PARAM_CALL:
+        setParamCall((CodeCall)null);
+        return;
       case XtextTestPackage.EMF_TEST__FILE:
         setFile(FILE_EDEFAULT);
         return;
@@ -729,6 +798,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return codeCall != null;
       case XtextTestPackage.EMF_TEST__OPTION_CALL:
         return optionCall != null;
+      case XtextTestPackage.EMF_TEST__PARAM_CALL:
+        return paramCall != null;
       case XtextTestPackage.EMF_TEST__FILE:
         return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case XtextTestPackage.EMF_TEST__ROOT:

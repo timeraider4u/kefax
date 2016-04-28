@@ -23,9 +23,6 @@ public final class MySettings {
 	public static final String LINUX_DISCOVER_CMD_OUT = "commands.cmd";
 	public static final String LINUX_DISCOVER_TMP_WORK_DIR = "tmp-discover";
 
-	public static final String LINUX_TTY_SRC = "drivers/tty/";
-	// public static final String LINUX_EXT4_SRC = "fs/ext4";
-
 	public static final String LINUX_CONFIG_YES = "y";
 	public static final String LINUX_CONFIG_MODULE = "m";
 
@@ -37,8 +34,11 @@ public final class MySettings {
 	 */
 	public static final String MAKE_ARG_3 = "vmlinux";
 
+	public static final String LINUX_DISCOVERER_ROOT_SRC_FOLDER = "drivers/tty/";
+	// public static final String LINUX_DISCOVERER_ROOT_SRC_FOLDER = "fs/ext4";
+
 	public static final String[] CONFIGS = new String[] { "CONFIG_TTY=y",
-			"CONFIG_VT=y" };
+	"CONFIG_VT=y" };
 
 	// public static final String[] CONFIGS = new String[] { "CONFIG_BLOCK=y",
 	// "CONFIG_EXT4_FS=y" };

@@ -86,6 +86,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getOUTPUTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPACKAGERule())
 			return getPACKAGEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getPARAMSRule())
+			return getPARAMSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPATTERNSRule())
 			return getPATTERNSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTPARENRule())
@@ -351,6 +353,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "package";
+	}
+	
+	/**
+	 * terminal PARAMS: 'params';
+	 */
+	protected String getPARAMSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "params";
 	}
 	
 	/**

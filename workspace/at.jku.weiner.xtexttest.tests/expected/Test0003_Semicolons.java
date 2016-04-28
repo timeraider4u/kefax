@@ -52,7 +52,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0001_Semicolons {
+public class Test0003_Semicolons {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -98,22 +98,22 @@ public class Test0001_Semicolons {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0001_Semicolons.c");
+			"res/Test0003_Semicolons.c");
 			final String[] expected = new String[] {
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -123,7 +123,7 @@ public class Test0001_Semicolons {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0001_Semicolons.c");
+			"res/Test0003_Semicolons.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -180,7 +180,7 @@ public class Test0001_Semicolons {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0001_Semicolons.c");
+			"res/Test0003_Semicolons.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -194,7 +194,7 @@ public class Test0001_Semicolons {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0001_Semicolons.c.i");
+				method.invoke(this.generator, "Test0003_Semicolons.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -202,9 +202,9 @@ public class Test0001_Semicolons {
 			// do nothing
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0001_Semicolons.c.i");
+		final String actual = this.getTextFromFile("bin/Test0003_Semicolons.c.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0001_Semicolons.c"
+			"res/Test0003_Semicolons.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 	}

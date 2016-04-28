@@ -420,9 +420,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEmfTest_ParamCall()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getEmfTest_File()
   {
-    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -432,7 +442,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    */
   public EReference getEmfTest_Root()
   {
-    return (EReference)emfTestEClass.getEStructuralFeatures().get(7);
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -442,7 +452,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    */
   public EReference getEmfTest_Before()
   {
-    return (EReference)emfTestEClass.getEStructuralFeatures().get(8);
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -452,7 +462,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    */
   public EReference getEmfTest_After()
   {
-    return (EReference)emfTestEClass.getEStructuralFeatures().get(9);
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -949,6 +959,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(emfTestEClass, EMF_TEST__TIME_OUT);
     createEReference(emfTestEClass, EMF_TEST__CODE_CALL);
     createEReference(emfTestEClass, EMF_TEST__OPTION_CALL);
+    createEReference(emfTestEClass, EMF_TEST__PARAM_CALL);
     createEAttribute(emfTestEClass, EMF_TEST__FILE);
     createEReference(emfTestEClass, EMF_TEST__ROOT);
     createEReference(emfTestEClass, EMF_TEST__BEFORE);
@@ -1065,6 +1076,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getEmfTest_TimeOut(), ecorePackage.getEInt(), "timeOut", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_CodeCall(), this.getCodeCall(), null, "codeCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_OptionCall(), this.getCodeCall(), null, "optionCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_ParamCall(), this.getCodeCall(), null, "paramCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEmfTest_File(), ecorePackage.getEString(), "file", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_Root(), this.getElement(), null, "root", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_Before(), this.getBefore(), null, "before", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

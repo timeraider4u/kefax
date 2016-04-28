@@ -4,7 +4,7 @@ package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0001_Semicolons.c"
+source file="res/Test0003_Semicolons.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	MYCODE NEWLINE
@@ -31,7 +31,7 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0001_Semicolons.c.i"
+output file="bin/Test0003_Semicolons.c.i"
 expected file isSameAsInputFile
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------

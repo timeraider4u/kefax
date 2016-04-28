@@ -173,8 +173,8 @@ public class MainHandler extends MyActionHandler {
 		// discoverer.setTrimPreprocessModel(true);
 		discoverer.setBatchMode(true);
 		// discoverer.setBatchMode(false);
-		discoverer.setUseNeoEMF(true);
-		// discoverer.setUseNeoEMF(false);
+		// discoverer.setUseNeoEMF(true);
+		discoverer.setUseNeoEMF(false);
 		discoverer.discoverElement(inFileRes, monitor);
 		this.updateProject();
 	}

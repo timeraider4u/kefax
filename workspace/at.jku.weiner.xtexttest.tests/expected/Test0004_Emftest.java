@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+import java.util.Collection;
 
 import org.antlr.runtime.Token;
 
@@ -22,6 +23,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;
@@ -34,7 +37,7 @@ import at.jku.weiner.c.common.common.TranslationUnit;
 public class Test0004_Emftest {
 	
 	@Parameters
-	public static Collection<Object[]> data() = EMFTest.getParameters();
+	public static Collection<Object[]> data() = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.getParameters();
 	
 	private final String pureJavaClassFileName = "Test0004_Emftest";
 	private final String sourceFile = "res/TestDiscoverer0004.c";

@@ -60,6 +60,7 @@ class EmfTestGenerator {
 		import java.nio.file.Paths;
 		import java.util.List;
 		import java.util.Map;
+		import java.util.Collection;
 		
 		import org.antlr.runtime.Token;
 		
@@ -75,6 +76,8 @@ class EmfTestGenerator {
 		import org.junit.Before;
 		import org.junit.Test;
 		import org.junit.runner.RunWith;
+		import org.junit.runners.Parameterized;
+		import org.junit.runners.Parameterized.Parameters;
 		
 		«iterateImports(test.root).replaceAll("\n+", "\n")»
 		
@@ -106,7 +109,7 @@ class EmfTestGenerator {
 			
 			«IF this.test.paramCall != null»
 			@Parameters
-			public static Collection<Object[]> data() = EMFTest.getParameters();
+			public static Collection<Object[]> data() = «getClassFor(this.test.paramCall.myclass)».«this.test.paramCall.method»();
 			
 			«ENDIF»
 			private final String pureJavaClassFileName = "«getJavaClassFileName()»";

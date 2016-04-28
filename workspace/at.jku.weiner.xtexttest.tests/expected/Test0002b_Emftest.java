@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+import java.util.Collection;
 
 import org.antlr.runtime.Token;
 
@@ -22,6 +23,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;

@@ -5,8 +5,10 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Collection;
 
 import org.antlr.runtime.Token;
 
@@ -22,6 +24,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;
@@ -65,11 +69,22 @@ import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.common.common.Constant2;
 
 @SuppressWarnings("unused")
+@RunWith(Parameterized.class)
 public class Test0012_BatchMode {
+	
+	@Parameters
+	public static Collection<Object[]> data() {
+		return Arrays.asList(new Object[][] { { true }, { false } });
+	};
 	
 	private final String pureJavaClassFileName = "Test0012_BatchMode";
 	private final String sourceFile = "res/Test0012_BatchMode";
 	private Map<String,Object> options;
+	private final Boolean use;
+	
+	public Test0012_BatchMode(final Boolean use) {
+		this.use = use;
+	}
 	
 	@Before
 	public void initialize(){
@@ -94,7 +109,7 @@ public class Test0012_BatchMode {
 	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTestB(
-			this.pureJavaClassFileName, this.sourceFile
+			this.pureJavaClassFileName, this.sourceFile, this.use
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);

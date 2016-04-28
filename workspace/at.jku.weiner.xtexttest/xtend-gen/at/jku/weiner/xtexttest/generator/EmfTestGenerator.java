@@ -104,6 +104,8 @@ public class EmfTestGenerator {
     _builder.newLine();
     _builder.append("import java.nio.file.Paths;");
     _builder.newLine();
+    _builder.append("import java.util.Arrays;");
+    _builder.newLine();
     _builder.append("import java.util.List;");
     _builder.newLine();
     _builder.append("import java.util.Map;");
@@ -230,17 +232,15 @@ public class EmfTestGenerator {
         _builder.append("@Parameters");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("public static Collection<Object[]> data() = ");
-        CodeCall _paramCall_2 = this.test.getParamCall();
-        String _myclass = _paramCall_2.getMyclass();
-        String _classFor = this.getClassFor(_myclass);
-        _builder.append(_classFor, "\t");
-        _builder.append(".");
-        CodeCall _paramCall_3 = this.test.getParamCall();
-        String _method = _paramCall_3.getMethod();
-        _builder.append(_method, "\t");
-        _builder.append("();");
-        _builder.newLineIfNotEmpty();
+        _builder.append("public static Collection<Object[]> data() {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return Arrays.asList(new Object[][] { { true }, { false } });");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("};");
+        _builder.newLine();
         _builder.append("\t");
         _builder.newLine();
       }
@@ -267,8 +267,8 @@ public class EmfTestGenerator {
     }
     _builder.newLineIfNotEmpty();
     {
-      CodeCall _paramCall_4 = this.test.getParamCall();
-      boolean _notEquals_3 = (!Objects.equal(_paramCall_4, null));
+      CodeCall _paramCall_2 = this.test.getParamCall();
+      boolean _notEquals_3 = (!Objects.equal(_paramCall_2, null));
       if (_notEquals_3) {
         _builder.append("\t");
         _builder.append("private final Boolean use;");
@@ -305,13 +305,13 @@ public class EmfTestGenerator {
       if (_notEquals_4) {
         _builder.append("options = ");
         CodeCall _optionCall_2 = this.test.getOptionCall();
-        String _myclass_1 = _optionCall_2.getMyclass();
-        String _classFor_1 = this.getClassFor(_myclass_1);
-        _builder.append(_classFor_1, "\t\t");
+        String _myclass = _optionCall_2.getMyclass();
+        String _classFor = this.getClassFor(_myclass);
+        _builder.append(_classFor, "\t\t");
         _builder.append(".");
         CodeCall _optionCall_3 = this.test.getOptionCall();
-        String _method_1 = _optionCall_3.getMethod();
-        _builder.append(_method_1, "\t\t");
+        String _method = _optionCall_3.getMethod();
+        _builder.append(_method, "\t\t");
         _builder.append("(");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
@@ -327,13 +327,13 @@ public class EmfTestGenerator {
         _builder.append("\t\t");
         Before _before_1 = this.test.getBefore();
         CodeCall _codeCall = _before_1.getCodeCall();
-        String _myclass_2 = _codeCall.getMyclass();
-        _builder.append(_myclass_2, "\t\t");
+        String _myclass_1 = _codeCall.getMyclass();
+        _builder.append(_myclass_1, "\t\t");
         _builder.append(".");
         Before _before_2 = this.test.getBefore();
         CodeCall _codeCall_1 = _before_2.getCodeCall();
-        String _method_2 = _codeCall_1.getMethod();
-        _builder.append(_method_2, "\t\t");
+        String _method_1 = _codeCall_1.getMethod();
+        _builder.append(_method_1, "\t\t");
         _builder.append("(");
         Before _before_3 = this.test.getBefore();
         CodeCall _codeCall_2 = _before_3.getCodeCall();
@@ -362,13 +362,13 @@ public class EmfTestGenerator {
         _builder.append("\t\t");
         After _after_1 = this.test.getAfter();
         CodeCall _codeCall_3 = _after_1.getCodeCall();
-        String _myclass_3 = _codeCall_3.getMyclass();
-        _builder.append(_myclass_3, "\t\t");
+        String _myclass_2 = _codeCall_3.getMyclass();
+        _builder.append(_myclass_2, "\t\t");
         _builder.append(".");
         After _after_2 = this.test.getAfter();
         CodeCall _codeCall_4 = _after_2.getCodeCall();
-        String _method_3 = _codeCall_4.getMethod();
-        _builder.append(_method_3, "\t\t");
+        String _method_2 = _codeCall_4.getMethod();
+        _builder.append(_method_2, "\t\t");
         _builder.append("(");
         After _after_3 = this.test.getAfter();
         CodeCall _codeCall_5 = _after_3.getCodeCall();

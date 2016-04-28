@@ -58,6 +58,7 @@ class EmfTestGenerator {
 		import java.nio.file.Files;
 		import java.nio.file.Path;
 		import java.nio.file.Paths;
+		import java.util.Arrays;
 		import java.util.List;
 		import java.util.Map;
 		import java.util.Collection;
@@ -109,7 +110,9 @@ class EmfTestGenerator {
 			
 			«IF this.test.paramCall != null»
 			@Parameters
-			public static Collection<Object[]> data() = «getClassFor(this.test.paramCall.myclass)».«this.test.paramCall.method»();
+			public static Collection<Object[]> data() {
+				return Arrays.asList(new Object[][] { { true }, { false } });
+			};
 			
 			«ENDIF»
 			private final String pureJavaClassFileName = "«getJavaClassFileName()»";

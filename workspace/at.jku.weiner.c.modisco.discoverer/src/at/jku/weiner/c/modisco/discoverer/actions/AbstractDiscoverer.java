@@ -73,7 +73,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 	@Parameter(name = "BATCH_MODE", requiresInputValue = false, description = "Re-use model and clean-up any temporarily saved serializations"
 			+ " (" + MySettings.EXCLUSIVE_MSG + ")")
 	public final void setBatchMode(final boolean batchMode) {
-		this.checkClosed("BATCH_MODE", batchMode, this.settings.isBatchMode());
+		// this.checkClosed("BATCH_MODE", batchMode,
+		// this.settings.isBatchMode());
 		this.settings.setBatchMode(batchMode);
 	}
 
@@ -82,7 +83,8 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 		if (setUseNeoEMF == this.settings.isUseNeoEMF()) {
 			return;
 		}
-		this.checkClosed("USENEOEMF", setUseNeoEMF, this.settings.isUseNeoEMF());
+		// this.checkClosed("USENEOEMF", setUseNeoEMF,
+		// this.settings.isUseNeoEMF());
 		this.settings.setUseNeoEMF(setUseNeoEMF);
 		this.backend = SerializationFactory.getBackend(this, this.settings);
 	}
@@ -91,6 +93,7 @@ public abstract class AbstractDiscoverer<T> extends AbstractModelDiscoverer<T>
 		return this.settings.isUseNeoEMF();
 	}
 
+	@SuppressWarnings("unused")
 	private void checkClosed(final String reason, final boolean val1,
 			final boolean val2) {
 		if (val1 == val2) {

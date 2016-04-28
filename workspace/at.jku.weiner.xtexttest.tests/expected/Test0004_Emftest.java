@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Collection;
@@ -37,7 +38,9 @@ import at.jku.weiner.c.common.common.TranslationUnit;
 public class Test0004_Emftest {
 	
 	@Parameters
-	public static Collection<Object[]> data() = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.getParameters();
+	public static Collection<Object[]> data() {
+		return Arrays.asList(new Object[][] { { true }, { false } });
+	};
 	
 	private final String pureJavaClassFileName = "Test0004_Emftest";
 	private final String sourceFile = "res/TestDiscoverer0004.c";

@@ -40,7 +40,8 @@ public class EMFTest {
 		return result;
 	}
 
-	public static List<Object[]> data() {
+	@SuppressWarnings("unused")
+	private static List<Object[]> getParameters() {
 		return Arrays.asList(new Object[][] { { true }, { false } });
 	}
 
@@ -72,7 +73,7 @@ public class EMFTest {
 		iProject.refreshLocal(IResource.DEPTH_INFINITE,
 				new NullProgressMonitor());
 
-		final TestUtils utils = new TestUtils(iProject, testName, resFiles);
+		final TestUtils utils = new TestUtils(iProject, testName, resFiles, use);
 		final Model result = utils.getModel();
 		TestUtils.reset();
 		EMFTest.myUtils = utils;
@@ -174,7 +175,7 @@ public class EMFTest {
 	public static void test0008_before() {
 		EMFTest.setUp();
 		TestUtils.mySettings
-		.setAdditionalDirectives("#define __MY_TYPE__ unsigned int");
+				.setAdditionalDirectives("#define __MY_TYPE__ unsigned int");
 	}
 
 	public static void test0008_after() {
@@ -184,7 +185,7 @@ public class EMFTest {
 	public static void test0009_before() {
 		EMFTest.setUp();
 		TestUtils.mySettings
-				.setAdditionalDirectives("#include \"../include/SimpleInclude.h\"");
+		.setAdditionalDirectives("#include \"../include/SimpleInclude.h\"");
 	}
 
 	public static void test0009_after() {

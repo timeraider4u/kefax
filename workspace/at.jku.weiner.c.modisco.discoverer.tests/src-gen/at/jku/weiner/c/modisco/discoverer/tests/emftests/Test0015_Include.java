@@ -5,8 +5,10 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Collection;
 
 import org.antlr.runtime.Token;
 
@@ -22,6 +24,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.TranslationUnit;
@@ -134,11 +138,22 @@ import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 
 @SuppressWarnings("unused")
+@RunWith(Parameterized.class)
 public class Test0015_Include {
+	
+	@Parameters
+	public static Collection<Object[]> data() {
+		return Arrays.asList(new Object[][] { { true }, { false } });
+	};
 	
 	private final String pureJavaClassFileName = "Test0015_Include";
 	private final String sourceFile = "res/Test0015_Include";
 	private Map<String,Object> options;
+	private final Boolean use;
+	
+	public Test0015_Include(final Boolean use) {
+		this.use = use;
+	}
 	
 	@Before
 	public void initialize(){
@@ -163,7 +178,7 @@ public class Test0015_Include {
 	@Test (timeout=45000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = at.jku.weiner.c.modisco.discoverer.tests.EMFTest.emfTestB(
-			this.pureJavaClassFileName, this.sourceFile
+			this.pureJavaClassFileName, this.sourceFile, this.use
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);

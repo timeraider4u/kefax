@@ -18,40 +18,40 @@ import at.jku.weiner.log.MyLog;
 public class TestUtils {
 	protected static MySettings mySettings = new MySettings();
 	protected static boolean isEmpty = false;
-	
+
 	private final IProject project;
 	private final DiscoverFromIResource discoverer;
 	private final Resource discoveredModel;
-	
+
 	public static final void reset() {
 		TestUtils.isEmpty = false;
 		TestUtils.mySettings = new MySettings();
 		TestUtils.mySettings.setUseNeoEMF(true);
 	}
-	
+
 	public TestUtils(final IProject iProject, final String testName,
-			final List<String> resFiles) throws Exception {
+			final List<String> resFiles, final Boolean use) throws Exception {
 		this.project = iProject;
 		Assert.assertNotNull(this.project);
-		
+
 		this.discoverer = new DiscoverFromIResource();
 		this.discoverer
-		.setSetStdInclude(TestUtils.mySettings.isSetStdInclude());
+				.setSetStdInclude(TestUtils.mySettings.isSetStdInclude());
 		this.discoverer.setIncludeDirs(TestUtils.mySettings.getIncludeDirs());
 		this.discoverer.setAdditionalDirectives(TestUtils.mySettings
 				.getAdditionalDirectives());
 		this.discoverer.setTrimPreprocessModel(TestUtils.mySettings
 				.isTrimPreprocessModel());
 		this.discoverer.setBatchMode(TestUtils.mySettings.isBatchMode());
-		this.discoverer.setUseNeoEMF(TestUtils.mySettings.isUseNeoEMF());
+		this.discoverer.setUseNeoEMF(use);
 		for (final String resName : resFiles) {
 			final IResource res = this.getRes(resName);
 			Assert.assertNotNull(res);
 			MyLog.trace(
 					TestUtils.class,
 					"testName='" + testName + ", resName=" + resName
-					+ "', includeDirs='"
-					+ TestUtils.mySettings.getIncludeDirs() + "'");
+							+ "', includeDirs='"
+							+ TestUtils.mySettings.getIncludeDirs() + "'");
 			this.discoverer.discoverElement(res, new NullProgressMonitor());
 			// Thread.sleep(500);
 		}
@@ -60,7 +60,7 @@ public class TestUtils {
 		this.discoveredModel = this.discoverer.getTargetResource();
 		Assert.assertNotNull(this.discoveredModel);
 	}
-	
+
 	private IResource getRes(final String fileName) {
 		IResource res = this.project.getFile(fileName);
 		if ((res == null) || !res.exists()) {
@@ -72,7 +72,7 @@ public class TestUtils {
 				res.exists() && res.isAccessible());
 		return res;
 	}
-	
+
 	public Model getModel() {
 		Assert.assertNotNull(this.discoveredModel);
 		Assert.assertEquals(1, this.discoveredModel.getContents().size());
@@ -80,7 +80,7 @@ public class TestUtils {
 		final Model model = (Model) root;
 		return model;
 	}
-	
+
 	private void checkTargetModelSerialization(final IProject iProject,
 			final String testName, final boolean isEmpty) throws Exception {
 		final IFolder resTmp = (IFolder) iProject.findMember("tmp-discover");
@@ -98,7 +98,7 @@ public class TestUtils {
 		}
 		Assert.assertEquals(size + 1, members.length);
 	}
-	
+
 	public void cleanUp() {
 		this.discoverer.close();
 		// PersistentResourceImpl
@@ -106,5 +106,5 @@ public class TestUtils {
 		// this.discoveredModel);
 		// this.discoveredModel.unload();
 	}
-	
+
 }

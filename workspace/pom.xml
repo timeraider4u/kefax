@@ -27,14 +27,25 @@
 		<antlr.generator.version>3.2.1-SNAPSHOT</antlr.generator.version>
 
 		<mwe2.version>${xtext.version}</mwe2.version>
-		
+		<!-- xtext language project itself -->
+		<lang.bin>${basedir}/bin</lang.bin>
+		<lang.src>${basedir}/src</lang.src>
 		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
 		<lang.src-gen>${basedir}/src-gen</lang.src-gen>
 		<lang.xtend-gen>${basedir}/xtend-gen</lang.xtend-gen>
+		<!-- test project -->
+		<lang.tests.bin>${basedir}/../${project.artifactId}.tests/bin</lang.tests.bin>
+		<lang.tests.src>${basedir}/../${project.artifactId}.tests/src</lang.tests.src>
 		<lang.tests.src-gen>${basedir}/../${project.artifactId}.tests/src-gen</lang.tests.src-gen>
 		<lang.tests.xtend-gen>${basedir}/../${project.artifactId}.tests/xtend-gen</lang.tests.xtend-gen>
+		<!-- ui project -->
+		<lang.ui.bin>${basedir}/../${project.artifactId}.ui/bin</lang.ui.bin>
+		<lang.ui.src>${basedir}/../${project.artifactId}.ui/src</lang.ui.src>
 		<lang.ui.src-gen>${basedir}/../${project.artifactId}.ui/src-gen</lang.ui.src-gen>
 		<lang.ui.xtend-gen>${basedir}/../${project.artifactId}.ui/xtend-gen</lang.ui.xtend-gen>
+		<!-- tests for ui - project -->
+		<lang.ui.tests.bin>${basedir}/../${project.artifactId}.ui.tests/bin</lang.ui.tests.bin>
+		<lang.ui.tests.src>${basedir}/../${project.artifactId}.ui.tests/src</lang.ui.tests.src>
 		<lang.ui.tests.src-gen>${basedir}/../${project.artifactId}.ui.tests/src-gen</lang.ui.tests.src-gen>
 		<lang.ui.tests.xtend-gen>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</lang.ui.tests.xtend-gen>
 
@@ -194,14 +205,14 @@
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>
-		<!--
+		<!-- -->
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>
 		<module>at.jku.weiner.xtexttest.tests</module>
 		<module>at.jku.weiner.xtexttest.ui</module>
 		<module>at.jku.weiner.xtexttest.ui.tests</module>
 		<module>at.jku.weiner.xtexttest.updatesite</module>
-		-->
+		<!-- -->
 	</modules>
 
 	<build>
@@ -279,6 +290,9 @@
 							<configuration>
 								<filesets>
 									<fileset>
+										<directory>${lang.bin}</directory>
+									</fileset>
+									<fileset>
 										<directory>${lang.emf-gen}</directory>
 									</fileset>
 									<fileset>
@@ -289,6 +303,9 @@
 									</fileset>
 									<!-- clean ui plugin as well -->
 									<fileset>
+										<directory>${lang.ui.bin}</directory>
+									</fileset>
+									<fileset>
 										<directory>${lang.ui.src-gen}</directory>
 									</fileset>
 									<fileset>
@@ -296,12 +313,18 @@
 									</fileset>
 									<!-- clean test fragment as well -->
 									<fileset>
+										<directory>${lang.tests.bin}</directory>
+									</fileset>
+									<fileset>
 										<directory>${lang.tests.src-gen}</directory>
 									</fileset>
 									<fileset>
 										<directory>${lang.tests.xtend-gen}</directory>
 									</fileset>
 									<!-- clean ui test fragment as well -->
+									<fileset>
+										<directory>${lang.ui.tests.bin}</directory>
+									</fileset>
 									<fileset>
 										<directory>${lang.ui.tests.src-gen}</directory>
 									</fileset>
@@ -394,14 +417,25 @@
 										<arg value="projectPath=${project.basedir}"/>
 									</java>
 									<!-- create directories and files - if they do not exist yet -->
-									<touch file="${lang.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.tests.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.tests.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.xtend-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.tests.src-gen}/.keep" mkdirs="true" />
-									<touch file="${lang.ui.tests.xtend-gen}/.keep" mkdirs="true" />
+									<touch file="${lang.bin}/.keep_bin" mkdirs="true" />
+									<touch file="${lang.src}/.keep_src" mkdirs="true" />
+									<touch file="${lang.src-gen}/.keep_src_gen" mkdirs="true" />
+									<touch file="${lang.xtend-gen}/.keep_xtend_gen" mkdirs="true" />
+									<!-- create directories and files - if they do not exist yet -->
+									<touch file="${lang.tests.bin}/.keep_bin" mkdirs="true" />
+									<touch file="${lang.tests.src}/.keep_src" mkdirs="true" />
+									<touch file="${lang.tests.src-gen}/.keep_src_gen" mkdirs="true" />
+									<touch file="${lang.tests.xtend-gen}/.keep_xtend_gen" mkdirs="true" />
+									<!-- create directories and files - if they do not exist yet -->
+									<touch file="${lang.ui.bin}/.keep_bin" mkdirs="true" />
+									<touch file="${lang.ui.src}/.keep_src" mkdirs="true" />
+									<touch file="${lang.ui.src-gen}/.keep_src_gen" mkdirs="true" />
+									<touch file="${lang.ui.xtend-gen}/.keep_xtend_gen" mkdirs="true" />
+									<!-- create directories and files - if they do not exist yet -->
+									<touch file="${lang.ui.tests.bin}/.keep_bin" mkdirs="true" />
+									<touch file="${lang.ui.tests.src}/.keep_src" mkdirs="true" />
+									<touch file="${lang.ui.tests.src-gen}/.keep_src_gen" mkdirs="true" />
+									<touch file="${lang.ui.tests.xtend-gen}/.keep_xtend_gen" mkdirs="true" />
 								</tasks>
 							</configuration>
 						</execution>

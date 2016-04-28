@@ -7,7 +7,6 @@ bin/
 bin
 target
 target/
-*.xtendbin
 *._trace
 MANIFEST.MF_gen
-*.xtextbin
+#*.xtextbin

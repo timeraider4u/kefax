@@ -203,6 +203,12 @@
 		<module>at.jku.weiner.c.parser.tests</module>
 		<module>at.jku.weiner.c.parser.ui</module>
 		<module>at.jku.weiner.c.parser.ui.tests</module>
+		
+		<module>at.jku.weiner.c.preprocess</module>
+		<module>at.jku.weiner.c.preprocess.tests</module>
+		<module>at.jku.weiner.c.preprocess.ui</module>
+		<module>at.jku.weiner.c.preprocess.ui.tests</module>
+		
 		<!--
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>

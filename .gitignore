@@ -7,6 +7,6 @@ bin/
 bin
 target
 target/
-#*._trace
+*._trace
 MANIFEST.MF_gen
-#*.xtextbin
+*.xtextbin

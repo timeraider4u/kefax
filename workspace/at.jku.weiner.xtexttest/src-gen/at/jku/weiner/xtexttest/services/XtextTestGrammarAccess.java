@@ -1640,7 +1640,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal PARAMS:
-	//	'params';
+	//	'xtexttest-params';
 	public TerminalRule getPARAMSRule() {
 		return tPARAMS;
 	}

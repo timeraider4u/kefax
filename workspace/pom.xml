@@ -571,12 +571,7 @@
 						</dependency>
 						<dependency>
 							<groupId>at.jku.weiner.kefax</groupId>
-							<artifactId>at.jku.weiner.c.common</artifactId>
-							<version>${my.version}</version>
-						</dependency>
-						<dependency>
-							<groupId>at.jku.weiner.kefax</groupId>
-							<artifactId>at.jku.weiner.c.common.ui.log.service</artifactId>
+							<artifactId>at.jku.weiner.log</artifactId>
 							<version>${my.version}</version>
 						</dependency>
 					</dependencies>

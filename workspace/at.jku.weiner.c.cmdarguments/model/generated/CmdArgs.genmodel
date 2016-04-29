@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.cmdarguments/src-gen" editDirectory="/at.jku.weiner.c.cmdarguments.edit/src"
-    editorDirectory="/at.jku.weiner.c.cmdarguments.editor/src" modelPluginID="at.jku.weiner.c.cmdarguments"
-    forceOverwrite="true" modelName="CmdArgs" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.cmdarguments/src-gen" editDirectory="/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.cmdarguments.edit/src"
+    editorDirectory="/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.cmdarguments.editor/src"
+    modelPluginID="at.jku.weiner.c.cmdarguments" forceOverwrite="true" modelName="CmdArgs"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.cmdarguments.edit"
-    editorPluginID="at.jku.weiner.c.cmdarguments.editor" runtimeVersion="2.10">
+    editorPluginID="at.jku.weiner.c.cmdarguments.edit" runtimeVersion="2.10">
   <genPackages prefix="CmdArgs" basePackage="at.jku.weiner.c.cmdarguments" disposableProviderFactory="true"
       fileExtensions="cmd" ecorePackage="CmdArgs.ecore#/">
     <genClasses ecoreClass="CmdArgs.ecore#//Model">

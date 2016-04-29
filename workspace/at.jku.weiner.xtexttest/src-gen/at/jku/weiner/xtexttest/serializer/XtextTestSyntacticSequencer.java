@@ -356,12 +356,12 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal PARAMS: 'params';
+	 * terminal PARAMS: 'xtexttest-params';
 	 */
 	protected String getPARAMSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "params";
+		return "xtexttest-params";
 	}
 	
 	/**

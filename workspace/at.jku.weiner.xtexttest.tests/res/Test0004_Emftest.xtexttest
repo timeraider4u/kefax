@@ -6,7 +6,7 @@ imports at.jku.weiner.c.parser.parser as parser
 
 class=EMFTest method=emfTest()
 options class=EMFTest method=getOptions()
-params class=EMFTest method=getParameters()
+xtexttest-params class=EMFTest method=getParameters()
 
 source file="res/TestDiscoverer0004.c"
 

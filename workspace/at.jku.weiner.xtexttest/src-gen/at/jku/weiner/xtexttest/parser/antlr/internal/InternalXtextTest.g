@@ -2581,7 +2581,7 @@ RULE_LEXER : 'lexer-tokens';
 
 RULE_OPTIONS : 'options';
 
-RULE_PARAMS : 'params';
+RULE_PARAMS : 'xtexttest-params';
 
 RULE_OUTPUT : 'output';
 

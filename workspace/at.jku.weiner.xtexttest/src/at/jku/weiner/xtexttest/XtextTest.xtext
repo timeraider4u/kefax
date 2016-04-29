@@ -170,7 +170,7 @@ terminal SRCTEXT: 'text';
 terminal FILE: 'file';
 terminal LEXER: 'lexer-tokens';
 terminal OPTIONS: 'options';
-terminal PARAMS: 'params';
+terminal PARAMS: 'xtexttest-params';
 terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';

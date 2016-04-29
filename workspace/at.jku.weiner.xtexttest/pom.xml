@@ -34,6 +34,10 @@
 						<id>cleanExt</id>
 						<phase>clean</phase>
 					</execution>
+					<execution>
+						<id>cleanXtendBinFiles</id>
+						<phase>process-classes</phase>
+					</execution>
 				</executions>
 			</plugin>
 			<!-- run  mwe2 generation -->

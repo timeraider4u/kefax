@@ -28,26 +28,30 @@
 
 		<mwe2.version>${xtext.version}</mwe2.version>
 		<!-- xtext language project itself -->
-		<lang.bin>${basedir}/bin</lang.bin>
-		<lang.src>${basedir}/src</lang.src>
-		<lang.emf-gen>${basedir}/emf-gen</lang.emf-gen>
-		<lang.src-gen>${basedir}/src-gen</lang.src-gen>
-		<lang.xtend-gen>${basedir}/xtend-gen</lang.xtend-gen>
+		<lang.dir>${basedir}</lang.dir>
+		<lang.bin>${lang.dir}/bin</lang.bin>
+		<lang.src>${lang.dir}/src</lang.src>
+		<lang.emf-gen>${lang.dir}/emf-gen</lang.emf-gen>
+		<lang.src-gen>${lang.dir}/src-gen</lang.src-gen>
+		<lang.xtend-gen>${lang.dir}/xtend-gen</lang.xtend-gen>
 		<!-- test project -->
-		<lang.tests.bin>${basedir}/../${project.artifactId}.tests/bin</lang.tests.bin>
-		<lang.tests.src>${basedir}/../${project.artifactId}.tests/src</lang.tests.src>
-		<lang.tests.src-gen>${basedir}/../${project.artifactId}.tests/src-gen</lang.tests.src-gen>
-		<lang.tests.xtend-gen>${basedir}/../${project.artifactId}.tests/xtend-gen</lang.tests.xtend-gen>
+		<lang.tests.dir>${basedir}/../${project.artifactId}.tests</lang.tests.dir>
+		<lang.tests.bin>${lang.tests.dir}/bin</lang.tests.bin>
+		<lang.tests.src>${lang.tests.dir}/src</lang.tests.src>
+		<lang.tests.src-gen>${lang.tests.dir}/src-gen</lang.tests.src-gen>
+		<lang.tests.xtend-gen>${lang.tests.dir}/xtend-gen</lang.tests.xtend-gen>
 		<!-- ui project -->
-		<lang.ui.bin>${basedir}/../${project.artifactId}.ui/bin</lang.ui.bin>
-		<lang.ui.src>${basedir}/../${project.artifactId}.ui/src</lang.ui.src>
-		<lang.ui.src-gen>${basedir}/../${project.artifactId}.ui/src-gen</lang.ui.src-gen>
-		<lang.ui.xtend-gen>${basedir}/../${project.artifactId}.ui/xtend-gen</lang.ui.xtend-gen>
+		<lang.ui.dir>${basedir}/../${project.artifactId}.ui</lang.ui.dir>
+		<lang.ui.bin>${lang.ui.dir}/bin</lang.ui.bin>
+		<lang.ui.src>${lang.ui.dir}/src</lang.ui.src>
+		<lang.ui.src-gen>${lang.ui.dir}.ui/src-gen</lang.ui.src-gen>
+		<lang.ui.xtend-gen>${lang.ui.dir}/xtend-gen</lang.ui.xtend-gen>
 		<!-- tests for ui - project -->
-		<lang.ui.tests.bin>${basedir}/../${project.artifactId}.ui.tests/bin</lang.ui.tests.bin>
-		<lang.ui.tests.src>${basedir}/../${project.artifactId}.ui.tests/src</lang.ui.tests.src>
-		<lang.ui.tests.src-gen>${basedir}/../${project.artifactId}.ui.tests/src-gen</lang.ui.tests.src-gen>
-		<lang.ui.tests.xtend-gen>${basedir}/../${project.artifactId}.ui.tests/xtend-gen</lang.ui.tests.xtend-gen>
+		<lang.ui.tests.dir>${basedir}/../${project.artifactId}.ui.tests</lang.ui.tests.dir>
+		<lang.ui.tests.bin>${lang.ui.tests.dir}/bin</lang.ui.tests.bin>
+		<lang.ui.tests.src>${lang.ui.tests.dir}/src</lang.ui.tests.src>
+		<lang.ui.tests.src-gen>${lang.ui.tests.dir}/src-gen</lang.ui.tests.src-gen>
+		<lang.ui.tests.xtend-gen>${lang.ui.tests.dir}/xtend-gen</lang.ui.tests.xtend-gen>
 
 	</properties>
 	
@@ -330,6 +334,27 @@
 									</fileset>
 									<fileset>
 										<directory>${lang.ui.tests.xtend-gen}</directory>
+									</fileset>
+								</filesets>
+							</configuration>
+						</execution>
+						<execution>
+							<id>cleanXtendBinFiles</id>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+							<phase>none</phase>
+							<configuration>
+								<excludeDefaultDirectories>true</excludeDefaultDirectories>
+								<followSymlinks>false</followSymlinks>
+								<filesets>
+									<fileset>
+										<directory>${basedir}</directory>
+										<includes>
+											<include>*._trace</include>
+											<include>*.xtextbin</include>
+											<include>*.xtendbin</include>
+										</includes>
 									</fileset>
 								</filesets>
 							</configuration>

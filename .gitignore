@@ -9,5 +9,5 @@ target
 target/
 *._trace
 MANIFEST.MF_gen
-*.xtextbin
+#*.xtextbin
 *.xtendbin

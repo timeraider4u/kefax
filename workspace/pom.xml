@@ -193,11 +193,12 @@
 		<module>at.jku.weiner.c.cmdarguments.tests</module>
 		<module>at.jku.weiner.c.cmdarguments.ui</module>
 		<module>at.jku.weiner.c.cmdarguments.ui.tests</module>
-		<!--
+		
 		<module>at.jku.weiner.c.common</module>
 		<module>at.jku.weiner.c.common.tests</module>
 		<module>at.jku.weiner.c.common.ui</module>
 		<module>at.jku.weiner.c.common.ui.tests</module>
+		<!--
 		<module>at.jku.weiner.c.parser</module>
 		<module>at.jku.weiner.c.parser.tests</module>
 		<module>at.jku.weiner.c.parser.ui</module>

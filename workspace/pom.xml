@@ -188,11 +188,12 @@
 	</pluginRepositories>
 	
 	<modules>
-		<!--
+		
 		<module>at.jku.weiner.c.cmdarguments</module>
 		<module>at.jku.weiner.c.cmdarguments.tests</module>
 		<module>at.jku.weiner.c.cmdarguments.ui</module>
 		<module>at.jku.weiner.c.cmdarguments.ui.tests</module>
+		<!--
 		<module>at.jku.weiner.c.common</module>
 		<module>at.jku.weiner.c.common.tests</module>
 		<module>at.jku.weiner.c.common.ui</module>
@@ -209,6 +210,7 @@
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>
+		<module>at.jku.weiner.xtext</module>
 		<!-- -->
 		<module>at.jku.weiner.xtexttest</module>
 		<module>at.jku.weiner.xtexttest.feature</module>

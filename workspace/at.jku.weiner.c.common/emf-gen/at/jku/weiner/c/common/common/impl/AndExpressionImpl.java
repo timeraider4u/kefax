@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.AndExpressionImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.AndExpressionImpl#getRight <em>Right</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

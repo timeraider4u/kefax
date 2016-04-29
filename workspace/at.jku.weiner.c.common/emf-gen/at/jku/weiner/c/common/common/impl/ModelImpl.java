@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ModelImpl#getUnits <em>Units</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

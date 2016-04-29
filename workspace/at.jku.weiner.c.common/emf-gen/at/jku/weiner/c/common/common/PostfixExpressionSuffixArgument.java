@@ -10,10 +10,10 @@ package at.jku.weiner.c.common.common;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument#getArgumentExpressionList <em>Argument Expression List</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getPostfixExpressionSuffixArgument()
  * @model

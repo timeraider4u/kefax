@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getHex <em>Hex</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getOct <em>Oct</em>}</li>
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getFloat <em>Float</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getBin <em>Bin</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

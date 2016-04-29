@@ -33,7 +33,7 @@
 				<executions>
 					<execution>
 						<id>cleanXtendBinFiles</id>
-						<phase>process-classes</phase>
+						<phase>post-integration-test</phase>
 					</execution>
 				</executions>
 			</plugin>

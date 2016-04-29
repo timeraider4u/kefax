@@ -355,9 +355,9 @@
 											<include>**/.*._trace</include>
 											<!-- unfortunately we need them,
 											see https://www.eclipse.org/forums/index.php/t/1072749/
+											-->
 											<include>**/*.xtextbin</include>
 											<include>**/.*.xtextbin</include>
-											-->
 											<include>**/*.xtendbin</include>
 											<include>**/.*.xtendbin</include>
 										</includes>

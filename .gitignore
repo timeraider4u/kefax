@@ -8,7 +8,7 @@ bin
 target
 target/
 MANIFEST.MF_gen
-#*.xtextbin
+*.xtextbin
 *.xtendbin
 *.trace
 *._trace

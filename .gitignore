@@ -11,3 +11,4 @@ MANIFEST.MF_gen
 #*.xtextbin
 *.xtendbin
 *.trace
+*._trace

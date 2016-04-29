@@ -44,7 +44,7 @@
 		<lang.ui.dir>${basedir}/../${project.artifactId}.ui</lang.ui.dir>
 		<lang.ui.bin>${lang.ui.dir}/bin</lang.ui.bin>
 		<lang.ui.src>${lang.ui.dir}/src</lang.ui.src>
-		<lang.ui.src-gen>${lang.ui.dir}.ui/src-gen</lang.ui.src-gen>
+		<lang.ui.src-gen>${lang.ui.dir}/src-gen</lang.ui.src-gen>
 		<lang.ui.xtend-gen>${lang.ui.dir}/xtend-gen</lang.ui.xtend-gen>
 		<!-- tests for ui - project -->
 		<lang.ui.tests.dir>${basedir}/../${project.artifactId}.ui.tests</lang.ui.tests.dir>
@@ -352,8 +352,11 @@
 										<directory>${basedir}</directory>
 										<includes>
 											<include>*._trace</include>
+											<include>.*._trace</include>
 											<include>*.xtextbin</include>
+											<include>.*.xtextbin</include>
 											<include>*.xtendbin</include>
+											<include>.*.xtendbin</include>
 										</includes>
 									</fileset>
 								</filesets>

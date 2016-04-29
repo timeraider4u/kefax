@@ -351,12 +351,12 @@
 									<fileset>
 										<directory>${project.basedir}</directory>
 										<includes>
-											<include>*._trace</include>
-											<include>.*._trace</include>
-											<include>*.xtextbin</include>
-											<include>.*.xtextbin</include>
-											<include>*.xtendbin</include>
-											<include>.*.xtendbin</include>
+											<include>**/*._trace</include>
+											<include>**/.*._trace</include>
+											<include>**/*.xtextbin</include>
+											<include>**/.*.xtextbin</include>
+											<include>**/*.xtendbin</include>
+											<include>**/.*.xtendbin</include>
 										</includes>
 									</fileset>
 								</filesets>

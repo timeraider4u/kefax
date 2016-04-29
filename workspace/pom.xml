@@ -349,7 +349,7 @@
 								<followSymlinks>false</followSymlinks>
 								<filesets>
 									<fileset>
-										<directory>${basedir}</directory>
+										<directory>${project.basedir}</directory>
 										<includes>
 											<include>*._trace</include>
 											<include>.*._trace</include>

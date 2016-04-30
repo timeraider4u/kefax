@@ -209,12 +209,10 @@
 		<module>at.jku.weiner.c.preprocess.ui</module>
 		<module>at.jku.weiner.c.preprocess.ui.tests</module>
 		
-		<!--
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
-		-->
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>

@@ -34,6 +34,10 @@
 						<id>cleanExt</id>
 						<phase>clean</phase>
 					</execution>
+					<execution>
+						<id>cleanXtendBinFiles</id>
+						<phase>post-integration-test</phase>
+					</execution>
 				</executions>
 			</plugin>
 			<!-- run  mwe2 generation -->
@@ -48,5 +52,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 </project>

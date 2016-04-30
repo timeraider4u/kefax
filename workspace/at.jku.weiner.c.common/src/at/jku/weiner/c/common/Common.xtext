@@ -338,7 +338,7 @@ terminal STRING_LITERAL:
 ;
 
 terminal HEX_LITERAL: HEX_PREFIX HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
-terminal HEX_PREFIX: '0' ('x'|'X');
+terminal HEX_PREFIX: ('0x'|'0X');
 
 terminal DECIMAL_LITERAL: ('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX? ;
 

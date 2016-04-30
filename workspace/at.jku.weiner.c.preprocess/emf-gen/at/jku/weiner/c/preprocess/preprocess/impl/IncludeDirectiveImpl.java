@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IncludeDirectiveImpl#isNext <em>Next</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

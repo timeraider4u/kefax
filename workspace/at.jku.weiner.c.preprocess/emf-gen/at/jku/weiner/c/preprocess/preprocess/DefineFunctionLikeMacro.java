@@ -10,11 +10,11 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getString <em>String</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getDefineFunctionLikeMacro()
  * @model

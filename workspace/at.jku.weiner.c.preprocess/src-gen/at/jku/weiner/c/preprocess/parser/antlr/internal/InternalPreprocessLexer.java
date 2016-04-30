@@ -493,20 +493,86 @@ public class InternalPreprocessLexer extends Lexer {
             int LA5_0 = input.LA(1);
 
             if ( (LA5_0=='0') ) {
-                int LA5_1 = input.LA(2);
-
-                if ( (LA5_1=='X'||LA5_1=='x') ) {
+                switch ( input.LA(2) ) {
+                case 'x':
+                    {
                     alt5=1;
-                }
-                else if ( ((LA5_1>='0' && LA5_1<='9')||(LA5_1>='A' && LA5_1<='W')||(LA5_1>='Y' && LA5_1<='Z')||(LA5_1>='a' && LA5_1<='w')||(LA5_1>='y' && LA5_1<='z')) ) {
+                    }
+                    break;
+                case 'X':
+                    {
+                    alt5=1;
+                    }
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case 'A':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                case 'H':
+                case 'I':
+                case 'J':
+                case 'K':
+                case 'L':
+                case 'M':
+                case 'N':
+                case 'O':
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                case 'T':
+                case 'U':
+                case 'V':
+                case 'W':
+                case 'Y':
+                case 'Z':
+                case 'a':
+                case 'c':
+                case 'd':
+                case 'e':
+                case 'f':
+                case 'g':
+                case 'h':
+                case 'i':
+                case 'j':
+                case 'k':
+                case 'l':
+                case 'm':
+                case 'n':
+                case 'o':
+                case 'p':
+                case 'q':
+                case 'r':
+                case 's':
+                case 't':
+                case 'u':
+                case 'v':
+                case 'w':
+                case 'y':
+                case 'z':
+                    {
                     alt5=2;
-                }
-                else {
+                    }
+                    break;
+                default:
                     NoViableAltException nvae =
                         new NoViableAltException("", 5, 1, input);
 
                     throw nvae;
                 }
+
             }
             else if ( ((LA5_0>='1' && LA5_0<='9')) ) {
                 alt5=2;
@@ -643,10 +709,10 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_PP_NUMBER"
     public final void mRULE_PP_NUMBER() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5921:25: ( ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' .. 'z' | 'A' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* ) )
-            // InternalPreprocess.g:5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' .. 'z' | 'A' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )
+            // InternalPreprocess.g:5921:25: ( ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' | 'c' .. 'z' | 'A' | 'C' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* ) )
+            // InternalPreprocess.g:5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' | 'c' .. 'z' | 'A' | 'C' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )
             {
-            // InternalPreprocess.g:5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' .. 'z' | 'A' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )
+            // InternalPreprocess.g:5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' | 'c' .. 'z' | 'A' | 'C' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )
             int alt9=2;
             alt9 = dfa9.predict(input);
             switch (alt9) {
@@ -684,7 +750,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:5921:53: ( '0' .. '9' )+ ( 'a' .. 'z' | 'A' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )*
+                    // InternalPreprocess.g:5921:53: ( '0' .. '9' )+ ( 'a' | 'c' .. 'z' | 'A' | 'C' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )*
                     {
                     // InternalPreprocess.g:5921:53: ( '0' .. '9' )+
                     int cnt7=0;
@@ -716,7 +782,7 @@ public class InternalPreprocessLexer extends Lexer {
                         cnt7++;
                     } while (true);
 
-                    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                    if ( input.LA(1)=='A'||(input.LA(1)>='C' && input.LA(1)<='Z')||input.LA(1)=='a'||(input.LA(1)>='c' && input.LA(1)<='z') ) {
                         input.consume();
 
                     }
@@ -725,7 +791,7 @@ public class InternalPreprocessLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalPreprocess.g:5921:85: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )*
+                    // InternalPreprocess.g:5921:93: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1702,11 +1768,11 @@ public class InternalPreprocessLexer extends Lexer {
             if ( (LA12_0=='\\') ) {
                 int LA12_1 = input.LA(2);
 
-                if ( (LA12_1=='\"'||LA12_1=='\''||(LA12_1>='0' && LA12_1<='7')||LA12_1=='\\'||LA12_1=='b'||LA12_1=='f'||LA12_1=='n'||LA12_1=='r'||LA12_1=='t'||LA12_1=='x') ) {
-                    alt12=1;
-                }
-                else if ( (LA12_1=='\n'||LA12_1=='\r') ) {
+                if ( (LA12_1=='\n'||LA12_1=='\r') ) {
                     alt12=3;
+                }
+                else if ( (LA12_1=='\"'||LA12_1=='\''||(LA12_1>='0' && LA12_1<='7')||LA12_1=='\\'||LA12_1=='b'||LA12_1=='f'||LA12_1=='n'||LA12_1=='r'||LA12_1=='t'||LA12_1=='x') ) {
+                    alt12=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1852,18 +1918,54 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HEX_PREFIX"
     public final void mRULE_HEX_PREFIX() throws RecognitionException {
         try {
-            // InternalPreprocess.g:6013:26: ( '0' ( 'x' | 'X' ) )
-            // InternalPreprocess.g:6013:28: '0' ( 'x' | 'X' )
+            // InternalPreprocess.g:6013:26: ( ( '0x' | '0X' ) )
+            // InternalPreprocess.g:6013:28: ( '0x' | '0X' )
             {
-            match('0'); 
-            if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
-                input.consume();
+            // InternalPreprocess.g:6013:28: ( '0x' | '0X' )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
+            if ( (LA14_0=='0') ) {
+                int LA14_1 = input.LA(2);
+
+                if ( (LA14_1=='x') ) {
+                    alt14=1;
+                }
+                else if ( (LA14_1=='X') ) {
+                    alt14=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 14, 1, input);
+
+                    throw nvae;
+                }
             }
             else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+            }
+            switch (alt14) {
+                case 1 :
+                    // InternalPreprocess.g:6013:29: '0x'
+                    {
+                    match("0x"); 
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPreprocess.g:6013:34: '0X'
+                    {
+                    match("0X"); 
+
+
+                    }
+                    break;
+
+            }
 
 
             }
@@ -1883,22 +1985,22 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6015:24: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( RULE_INTEGER_TYPE_SUFFIX )?
             {
             // InternalPreprocess.g:6015:24: ( '0' | '1' .. '9' ( '0' .. '9' )* )
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA15_0=='0') ) {
-                alt15=1;
+            if ( (LA16_0=='0') ) {
+                alt16=1;
             }
-            else if ( ((LA15_0>='1' && LA15_0<='9')) ) {
-                alt15=2;
+            else if ( ((LA16_0>='1' && LA16_0<='9')) ) {
+                alt16=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
                     // InternalPreprocess.g:6015:25: '0'
                     {
@@ -1911,17 +2013,17 @@ public class InternalPreprocessLexer extends Lexer {
                     {
                     matchRange('1','9'); 
                     // InternalPreprocess.g:6015:38: ( '0' .. '9' )*
-                    loop14:
+                    loop15:
                     do {
-                        int alt14=2;
-                        int LA14_0 = input.LA(1);
+                        int alt15=2;
+                        int LA15_0 = input.LA(1);
 
-                        if ( ((LA14_0>='0' && LA14_0<='9')) ) {
-                            alt14=1;
+                        if ( ((LA15_0>='0' && LA15_0<='9')) ) {
+                            alt15=1;
                         }
 
 
-                        switch (alt14) {
+                        switch (alt15) {
                     	case 1 :
                     	    // InternalPreprocess.g:6015:39: '0' .. '9'
                     	    {
@@ -1931,7 +2033,7 @@ public class InternalPreprocessLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop14;
+                    	    break loop15;
                         }
                     } while (true);
 
@@ -1942,13 +2044,13 @@ public class InternalPreprocessLexer extends Lexer {
             }
 
             // InternalPreprocess.g:6015:51: ( RULE_INTEGER_TYPE_SUFFIX )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0=='L'||LA16_0=='U'||LA16_0=='l'||LA16_0=='u') ) {
-                alt16=1;
+            if ( (LA17_0=='L'||LA17_0=='U'||LA17_0=='l'||LA17_0=='u') ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
                     // InternalPreprocess.g:6015:51: RULE_INTEGER_TYPE_SUFFIX
                     {
@@ -1980,18 +2082,18 @@ public class InternalPreprocessLexer extends Lexer {
             {
             match('0'); 
             // InternalPreprocess.g:6017:26: ( '0' .. '7' )+
-            int cnt17=0;
-            loop17:
+            int cnt18=0;
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( ((LA17_0>='0' && LA17_0<='7')) ) {
-                    alt17=1;
+                if ( ((LA18_0>='0' && LA18_0<='7')) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
             	    // InternalPreprocess.g:6017:27: '0' .. '7'
             	    {
@@ -2001,22 +2103,22 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt17 >= 1 ) break loop17;
+            	    if ( cnt18 >= 1 ) break loop18;
                         EarlyExitException eee =
-                            new EarlyExitException(17, input);
+                            new EarlyExitException(18, input);
                         throw eee;
                 }
-                cnt17++;
+                cnt18++;
             } while (true);
 
             // InternalPreprocess.g:6017:38: ( RULE_INTEGER_TYPE_SUFFIX )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0=='L'||LA18_0=='U'||LA18_0=='l'||LA18_0=='u') ) {
-                alt18=1;
+            if ( (LA19_0=='L'||LA19_0=='U'||LA19_0=='l'||LA19_0=='u') ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
                     // InternalPreprocess.g:6017:38: RULE_INTEGER_TYPE_SUFFIX
                     {
@@ -2047,32 +2149,32 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6019:20: ( '0b' | '0B' ) ( '0' .. '1' )+
             {
             // InternalPreprocess.g:6019:20: ( '0b' | '0B' )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0=='0') ) {
-                int LA19_1 = input.LA(2);
+            if ( (LA20_0=='0') ) {
+                int LA20_1 = input.LA(2);
 
-                if ( (LA19_1=='b') ) {
-                    alt19=1;
+                if ( (LA20_1=='b') ) {
+                    alt20=1;
                 }
-                else if ( (LA19_1=='B') ) {
-                    alt19=2;
+                else if ( (LA20_1=='B') ) {
+                    alt20=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 19, 1, input);
+                        new NoViableAltException("", 20, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
                     // InternalPreprocess.g:6019:21: '0b'
                     {
@@ -2093,18 +2195,18 @@ public class InternalPreprocessLexer extends Lexer {
             }
 
             // InternalPreprocess.g:6019:32: ( '0' .. '1' )+
-            int cnt20=0;
-            loop20:
+            int cnt21=0;
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( ((LA20_0>='0' && LA20_0<='1')) ) {
-                    alt20=1;
+                if ( ((LA21_0>='0' && LA21_0<='1')) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
             	    // InternalPreprocess.g:6019:33: '0' .. '1'
             	    {
@@ -2114,12 +2216,12 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt20 >= 1 ) break loop20;
+            	    if ( cnt21 >= 1 ) break loop21;
                         EarlyExitException eee =
-                            new EarlyExitException(20, input);
+                            new EarlyExitException(21, input);
                         throw eee;
                 }
-                cnt20++;
+                cnt21++;
             } while (true);
 
 
@@ -2164,21 +2266,21 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6023:37: ( RULE_UNSIGNED_SUFFIX ( RULE_LONG_SUFFIX )? | RULE_UNSIGNED_SUFFIX RULE_LONG_LONG_SUFFIX | RULE_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? | RULE_LONG_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? )
             {
             // InternalPreprocess.g:6023:37: ( RULE_UNSIGNED_SUFFIX ( RULE_LONG_SUFFIX )? | RULE_UNSIGNED_SUFFIX RULE_LONG_LONG_SUFFIX | RULE_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? | RULE_LONG_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? )
-            int alt24=4;
-            alt24 = dfa24.predict(input);
-            switch (alt24) {
+            int alt25=4;
+            alt25 = dfa25.predict(input);
+            switch (alt25) {
                 case 1 :
                     // InternalPreprocess.g:6023:38: RULE_UNSIGNED_SUFFIX ( RULE_LONG_SUFFIX )?
                     {
                     mRULE_UNSIGNED_SUFFIX(); 
                     // InternalPreprocess.g:6023:59: ( RULE_LONG_SUFFIX )?
-                    int alt21=2;
-                    int LA21_0 = input.LA(1);
+                    int alt22=2;
+                    int LA22_0 = input.LA(1);
 
-                    if ( (LA21_0=='L'||LA21_0=='l') ) {
-                        alt21=1;
+                    if ( (LA22_0=='L'||LA22_0=='l') ) {
+                        alt22=1;
                     }
-                    switch (alt21) {
+                    switch (alt22) {
                         case 1 :
                             // InternalPreprocess.g:6023:59: RULE_LONG_SUFFIX
                             {
@@ -2205,13 +2307,13 @@ public class InternalPreprocessLexer extends Lexer {
                     {
                     mRULE_LONG_SUFFIX(); 
                     // InternalPreprocess.g:6023:137: ( RULE_UNSIGNED_SUFFIX )?
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
+                    int alt23=2;
+                    int LA23_0 = input.LA(1);
 
-                    if ( (LA22_0=='U'||LA22_0=='u') ) {
-                        alt22=1;
+                    if ( (LA23_0=='U'||LA23_0=='u') ) {
+                        alt23=1;
                     }
-                    switch (alt22) {
+                    switch (alt23) {
                         case 1 :
                             // InternalPreprocess.g:6023:137: RULE_UNSIGNED_SUFFIX
                             {
@@ -2230,13 +2332,13 @@ public class InternalPreprocessLexer extends Lexer {
                     {
                     mRULE_LONG_LONG_SUFFIX(); 
                     // InternalPreprocess.g:6023:181: ( RULE_UNSIGNED_SUFFIX )?
-                    int alt23=2;
-                    int LA23_0 = input.LA(1);
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA23_0=='U'||LA23_0=='u') ) {
-                        alt23=1;
+                    if ( (LA24_0=='U'||LA24_0=='u') ) {
+                        alt24=1;
                     }
-                    switch (alt23) {
+                    switch (alt24) {
                         case 1 :
                             // InternalPreprocess.g:6023:181: RULE_UNSIGNED_SUFFIX
                             {
@@ -2317,22 +2419,22 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6029:34: ( 'll' | 'LL' )
             {
             // InternalPreprocess.g:6029:34: ( 'll' | 'LL' )
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA25_0=='l') ) {
-                alt25=1;
+            if ( (LA26_0=='l') ) {
+                alt26=1;
             }
-            else if ( (LA25_0=='L') ) {
-                alt25=2;
+            else if ( (LA26_0=='L') ) {
+                alt26=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 25, 0, input);
+                    new NoViableAltException("", 26, 0, input);
 
                 throw nvae;
             }
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
                     // InternalPreprocess.g:6029:35: 'll'
                     {
@@ -2370,44 +2472,14 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6031:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
             {
             // InternalPreprocess.g:6031:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
-            int alt37=4;
-            alt37 = dfa37.predict(input);
-            switch (alt37) {
+            int alt38=4;
+            alt38 = dfa38.predict(input);
+            switch (alt38) {
                 case 1 :
                     // InternalPreprocess.g:6031:23: ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )?
                     {
                     // InternalPreprocess.g:6031:23: ( '0' .. '9' )+
-                    int cnt26=0;
-                    loop26:
-                    do {
-                        int alt26=2;
-                        int LA26_0 = input.LA(1);
-
-                        if ( ((LA26_0>='0' && LA26_0<='9')) ) {
-                            alt26=1;
-                        }
-
-
-                        switch (alt26) {
-                    	case 1 :
-                    	    // InternalPreprocess.g:6031:24: '0' .. '9'
-                    	    {
-                    	    matchRange('0','9'); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt26 >= 1 ) break loop26;
-                                EarlyExitException eee =
-                                    new EarlyExitException(26, input);
-                                throw eee;
-                        }
-                        cnt26++;
-                    } while (true);
-
-                    mRULE_SKW_DOT(); 
-                    // InternalPreprocess.g:6031:48: ( '0' .. '9' )*
+                    int cnt27=0;
                     loop27:
                     do {
                         int alt27=2;
@@ -2420,6 +2492,36 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt27) {
                     	case 1 :
+                    	    // InternalPreprocess.g:6031:24: '0' .. '9'
+                    	    {
+                    	    matchRange('0','9'); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt27 >= 1 ) break loop27;
+                                EarlyExitException eee =
+                                    new EarlyExitException(27, input);
+                                throw eee;
+                        }
+                        cnt27++;
+                    } while (true);
+
+                    mRULE_SKW_DOT(); 
+                    // InternalPreprocess.g:6031:48: ( '0' .. '9' )*
+                    loop28:
+                    do {
+                        int alt28=2;
+                        int LA28_0 = input.LA(1);
+
+                        if ( ((LA28_0>='0' && LA28_0<='9')) ) {
+                            alt28=1;
+                        }
+
+
+                        switch (alt28) {
+                    	case 1 :
                     	    // InternalPreprocess.g:6031:49: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
@@ -2428,18 +2530,18 @@ public class InternalPreprocessLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop27;
+                    	    break loop28;
                         }
                     } while (true);
 
                     // InternalPreprocess.g:6031:60: ( RULE_EXPONENT )?
-                    int alt28=2;
-                    int LA28_0 = input.LA(1);
+                    int alt29=2;
+                    int LA29_0 = input.LA(1);
 
-                    if ( (LA28_0=='E'||LA28_0=='e') ) {
-                        alt28=1;
+                    if ( (LA29_0=='E'||LA29_0=='e') ) {
+                        alt29=1;
                     }
-                    switch (alt28) {
+                    switch (alt29) {
                         case 1 :
                             // InternalPreprocess.g:6031:60: RULE_EXPONENT
                             {
@@ -2451,13 +2553,13 @@ public class InternalPreprocessLexer extends Lexer {
                     }
 
                     // InternalPreprocess.g:6031:75: ( RULE_FLOAT_TYPE_SUFFIX )?
-                    int alt29=2;
-                    int LA29_0 = input.LA(1);
+                    int alt30=2;
+                    int LA30_0 = input.LA(1);
 
-                    if ( (LA29_0=='D'||LA29_0=='F'||LA29_0=='d'||LA29_0=='f') ) {
-                        alt29=1;
+                    if ( (LA30_0=='D'||LA30_0=='F'||LA30_0=='d'||LA30_0=='f') ) {
+                        alt30=1;
                     }
-                    switch (alt29) {
+                    switch (alt30) {
                         case 1 :
                             // InternalPreprocess.g:6031:75: RULE_FLOAT_TYPE_SUFFIX
                             {
@@ -2476,18 +2578,18 @@ public class InternalPreprocessLexer extends Lexer {
                     {
                     mRULE_SKW_DOT(); 
                     // InternalPreprocess.g:6031:112: ( '0' .. '9' )+
-                    int cnt30=0;
-                    loop30:
+                    int cnt31=0;
+                    loop31:
                     do {
-                        int alt30=2;
-                        int LA30_0 = input.LA(1);
+                        int alt31=2;
+                        int LA31_0 = input.LA(1);
 
-                        if ( ((LA30_0>='0' && LA30_0<='9')) ) {
-                            alt30=1;
+                        if ( ((LA31_0>='0' && LA31_0<='9')) ) {
+                            alt31=1;
                         }
 
 
-                        switch (alt30) {
+                        switch (alt31) {
                     	case 1 :
                     	    // InternalPreprocess.g:6031:113: '0' .. '9'
                     	    {
@@ -2497,22 +2599,22 @@ public class InternalPreprocessLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt30 >= 1 ) break loop30;
+                    	    if ( cnt31 >= 1 ) break loop31;
                                 EarlyExitException eee =
-                                    new EarlyExitException(30, input);
+                                    new EarlyExitException(31, input);
                                 throw eee;
                         }
-                        cnt30++;
+                        cnt31++;
                     } while (true);
 
                     // InternalPreprocess.g:6031:124: ( RULE_EXPONENT )?
-                    int alt31=2;
-                    int LA31_0 = input.LA(1);
+                    int alt32=2;
+                    int LA32_0 = input.LA(1);
 
-                    if ( (LA31_0=='E'||LA31_0=='e') ) {
-                        alt31=1;
+                    if ( (LA32_0=='E'||LA32_0=='e') ) {
+                        alt32=1;
                     }
-                    switch (alt31) {
+                    switch (alt32) {
                         case 1 :
                             // InternalPreprocess.g:6031:124: RULE_EXPONENT
                             {
@@ -2524,13 +2626,13 @@ public class InternalPreprocessLexer extends Lexer {
                     }
 
                     // InternalPreprocess.g:6031:139: ( RULE_FLOAT_TYPE_SUFFIX )?
-                    int alt32=2;
-                    int LA32_0 = input.LA(1);
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
 
-                    if ( (LA32_0=='D'||LA32_0=='F'||LA32_0=='d'||LA32_0=='f') ) {
-                        alt32=1;
+                    if ( (LA33_0=='D'||LA33_0=='F'||LA33_0=='d'||LA33_0=='f') ) {
+                        alt33=1;
                     }
-                    switch (alt32) {
+                    switch (alt33) {
                         case 1 :
                             // InternalPreprocess.g:6031:139: RULE_FLOAT_TYPE_SUFFIX
                             {
@@ -2548,18 +2650,18 @@ public class InternalPreprocessLexer extends Lexer {
                     // InternalPreprocess.g:6031:163: ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )?
                     {
                     // InternalPreprocess.g:6031:163: ( '0' .. '9' )+
-                    int cnt33=0;
-                    loop33:
+                    int cnt34=0;
+                    loop34:
                     do {
-                        int alt33=2;
-                        int LA33_0 = input.LA(1);
+                        int alt34=2;
+                        int LA34_0 = input.LA(1);
 
-                        if ( ((LA33_0>='0' && LA33_0<='9')) ) {
-                            alt33=1;
+                        if ( ((LA34_0>='0' && LA34_0<='9')) ) {
+                            alt34=1;
                         }
 
 
-                        switch (alt33) {
+                        switch (alt34) {
                     	case 1 :
                     	    // InternalPreprocess.g:6031:164: '0' .. '9'
                     	    {
@@ -2569,23 +2671,23 @@ public class InternalPreprocessLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt33 >= 1 ) break loop33;
+                    	    if ( cnt34 >= 1 ) break loop34;
                                 EarlyExitException eee =
-                                    new EarlyExitException(33, input);
+                                    new EarlyExitException(34, input);
                                 throw eee;
                         }
-                        cnt33++;
+                        cnt34++;
                     } while (true);
 
                     mRULE_EXPONENT(); 
                     // InternalPreprocess.g:6031:189: ( RULE_FLOAT_TYPE_SUFFIX )?
-                    int alt34=2;
-                    int LA34_0 = input.LA(1);
+                    int alt35=2;
+                    int LA35_0 = input.LA(1);
 
-                    if ( (LA34_0=='D'||LA34_0=='F'||LA34_0=='d'||LA34_0=='f') ) {
-                        alt34=1;
+                    if ( (LA35_0=='D'||LA35_0=='F'||LA35_0=='d'||LA35_0=='f') ) {
+                        alt35=1;
                     }
-                    switch (alt34) {
+                    switch (alt35) {
                         case 1 :
                             // InternalPreprocess.g:6031:189: RULE_FLOAT_TYPE_SUFFIX
                             {
@@ -2603,18 +2705,18 @@ public class InternalPreprocessLexer extends Lexer {
                     // InternalPreprocess.g:6031:213: ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX
                     {
                     // InternalPreprocess.g:6031:213: ( '0' .. '9' )+
-                    int cnt35=0;
-                    loop35:
+                    int cnt36=0;
+                    loop36:
                     do {
-                        int alt35=2;
-                        int LA35_0 = input.LA(1);
+                        int alt36=2;
+                        int LA36_0 = input.LA(1);
 
-                        if ( ((LA35_0>='0' && LA35_0<='9')) ) {
-                            alt35=1;
+                        if ( ((LA36_0>='0' && LA36_0<='9')) ) {
+                            alt36=1;
                         }
 
 
-                        switch (alt35) {
+                        switch (alt36) {
                     	case 1 :
                     	    // InternalPreprocess.g:6031:214: '0' .. '9'
                     	    {
@@ -2624,22 +2726,22 @@ public class InternalPreprocessLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt35 >= 1 ) break loop35;
+                    	    if ( cnt36 >= 1 ) break loop36;
                                 EarlyExitException eee =
-                                    new EarlyExitException(35, input);
+                                    new EarlyExitException(36, input);
                                 throw eee;
                         }
-                        cnt35++;
+                        cnt36++;
                     } while (true);
 
                     // InternalPreprocess.g:6031:225: ( RULE_EXPONENT )?
-                    int alt36=2;
-                    int LA36_0 = input.LA(1);
+                    int alt37=2;
+                    int LA37_0 = input.LA(1);
 
-                    if ( (LA36_0=='E'||LA36_0=='e') ) {
-                        alt36=1;
+                    if ( (LA37_0=='E'||LA37_0=='e') ) {
+                        alt37=1;
                     }
-                    switch (alt36) {
+                    switch (alt37) {
                         case 1 :
                             // InternalPreprocess.g:6031:225: RULE_EXPONENT
                             {
@@ -2684,13 +2786,13 @@ public class InternalPreprocessLexer extends Lexer {
                 throw mse;}
 
             // InternalPreprocess.g:6033:36: ( '+' | '-' )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA38_0=='+'||LA38_0=='-') ) {
-                alt38=1;
+            if ( (LA39_0=='+'||LA39_0=='-') ) {
+                alt39=1;
             }
-            switch (alt38) {
+            switch (alt39) {
                 case 1 :
                     // InternalPreprocess.g:
                     {
@@ -2710,18 +2812,18 @@ public class InternalPreprocessLexer extends Lexer {
             }
 
             // InternalPreprocess.g:6033:47: ( '0' .. '9' )+
-            int cnt39=0;
-            loop39:
+            int cnt40=0;
+            loop40:
             do {
-                int alt39=2;
-                int LA39_0 = input.LA(1);
+                int alt40=2;
+                int LA40_0 = input.LA(1);
 
-                if ( ((LA39_0>='0' && LA39_0<='9')) ) {
-                    alt39=1;
+                if ( ((LA40_0>='0' && LA40_0<='9')) ) {
+                    alt40=1;
                 }
 
 
-                switch (alt39) {
+                switch (alt40) {
             	case 1 :
             	    // InternalPreprocess.g:6033:48: '0' .. '9'
             	    {
@@ -2731,12 +2833,12 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt39 >= 1 ) break loop39;
+            	    if ( cnt40 >= 1 ) break loop40;
                         EarlyExitException eee =
-                            new EarlyExitException(39, input);
+                            new EarlyExitException(40, input);
                         throw eee;
                 }
-                cnt39++;
+                cnt40++;
             } while (true);
 
 
@@ -2779,21 +2881,14 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6037:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
             {
             // InternalPreprocess.g:6037:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
-            int alt40=3;
-            int LA40_0 = input.LA(1);
+            int alt41=3;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA40_0=='\\') ) {
+            if ( (LA41_0=='\\') ) {
                 switch ( input.LA(2) ) {
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
+                case 'x':
                     {
-                    alt40=2;
+                    alt41=3;
                     }
                     break;
                 case '\"':
@@ -2805,17 +2900,24 @@ public class InternalPreprocessLexer extends Lexer {
                 case 'r':
                 case 't':
                     {
-                    alt40=1;
+                    alt41=1;
                     }
                     break;
-                case 'x':
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
                     {
-                    alt40=3;
+                    alt41=2;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 40, 1, input);
+                        new NoViableAltException("", 41, 1, input);
 
                     throw nvae;
                 }
@@ -2823,11 +2925,11 @@ public class InternalPreprocessLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 40, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
                     // InternalPreprocess.g:6037:34: RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH )
                     {
@@ -2877,50 +2979,50 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6039:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
             {
             // InternalPreprocess.g:6039:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
-            int alt41=3;
-            int LA41_0 = input.LA(1);
+            int alt42=3;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA41_0=='\\') ) {
-                int LA41_1 = input.LA(2);
+            if ( (LA42_0=='\\') ) {
+                int LA42_1 = input.LA(2);
 
-                if ( ((LA41_1>='0' && LA41_1<='3')) ) {
-                    int LA41_2 = input.LA(3);
+                if ( ((LA42_1>='0' && LA42_1<='3')) ) {
+                    int LA42_2 = input.LA(3);
 
-                    if ( ((LA41_2>='0' && LA41_2<='7')) ) {
-                        int LA41_4 = input.LA(4);
+                    if ( ((LA42_2>='0' && LA42_2<='7')) ) {
+                        int LA42_4 = input.LA(4);
 
-                        if ( ((LA41_4>='0' && LA41_4<='7')) ) {
-                            alt41=1;
+                        if ( ((LA42_4>='0' && LA42_4<='7')) ) {
+                            alt42=1;
                         }
                         else {
-                            alt41=2;}
+                            alt42=2;}
                     }
                     else {
-                        alt41=3;}
+                        alt42=3;}
                 }
-                else if ( ((LA41_1>='4' && LA41_1<='7')) ) {
-                    int LA41_3 = input.LA(3);
+                else if ( ((LA42_1>='4' && LA42_1<='7')) ) {
+                    int LA42_3 = input.LA(3);
 
-                    if ( ((LA41_3>='0' && LA41_3<='7')) ) {
-                        alt41=2;
+                    if ( ((LA42_3>='0' && LA42_3<='7')) ) {
+                        alt42=2;
                     }
                     else {
-                        alt41=3;}
+                        alt42=3;}
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 41, 1, input);
+                        new NoViableAltException("", 42, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 41, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
             }
-            switch (alt41) {
+            switch (alt42) {
                 case 1 :
                     // InternalPreprocess.g:6039:31: RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7'
                     {
@@ -2969,18 +3071,18 @@ public class InternalPreprocessLexer extends Lexer {
             mRULE_SKW_BACKSLASH(); 
             match('x'); 
             // InternalPreprocess.g:6041:51: ( RULE_HEX_DIGIT )+
-            int cnt42=0;
-            loop42:
+            int cnt43=0;
+            loop43:
             do {
-                int alt42=2;
-                int LA42_0 = input.LA(1);
+                int alt43=2;
+                int LA43_0 = input.LA(1);
 
-                if ( ((LA42_0>='0' && LA42_0<='9')||(LA42_0>='A' && LA42_0<='F')||(LA42_0>='a' && LA42_0<='f')) ) {
-                    alt42=1;
+                if ( ((LA43_0>='0' && LA43_0<='9')||(LA43_0>='A' && LA43_0<='F')||(LA43_0>='a' && LA43_0<='f')) ) {
+                    alt43=1;
                 }
 
 
-                switch (alt42) {
+                switch (alt43) {
             	case 1 :
             	    // InternalPreprocess.g:6041:51: RULE_HEX_DIGIT
             	    {
@@ -2990,12 +3092,12 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt42 >= 1 ) break loop42;
+            	    if ( cnt43 >= 1 ) break loop43;
                         EarlyExitException eee =
-                            new EarlyExitException(42, input);
+                            new EarlyExitException(43, input);
                         throw eee;
                 }
-                cnt42++;
+                cnt43++;
             } while (true);
 
 
@@ -3165,29 +3267,29 @@ public class InternalPreprocessLexer extends Lexer {
             match("/*"); 
 
             // InternalPreprocess.g:6059:36: ( options {greedy=false; } : . )*
-            loop43:
+            loop44:
             do {
-                int alt43=2;
-                int LA43_0 = input.LA(1);
+                int alt44=2;
+                int LA44_0 = input.LA(1);
 
-                if ( (LA43_0=='*') ) {
-                    int LA43_1 = input.LA(2);
+                if ( (LA44_0=='*') ) {
+                    int LA44_1 = input.LA(2);
 
-                    if ( (LA43_1=='/') ) {
-                        alt43=2;
+                    if ( (LA44_1=='/') ) {
+                        alt44=2;
                     }
-                    else if ( ((LA43_1>='\u0000' && LA43_1<='.')||(LA43_1>='0' && LA43_1<='\uFFFF')) ) {
-                        alt43=1;
+                    else if ( ((LA44_1>='\u0000' && LA44_1<='.')||(LA44_1>='0' && LA44_1<='\uFFFF')) ) {
+                        alt44=1;
                     }
 
 
                 }
-                else if ( ((LA43_0>='\u0000' && LA43_0<=')')||(LA43_0>='+' && LA43_0<='\uFFFF')) ) {
-                    alt43=1;
+                else if ( ((LA44_0>='\u0000' && LA44_0<=')')||(LA44_0>='+' && LA44_0<='\uFFFF')) ) {
+                    alt44=1;
                 }
 
 
-                switch (alt43) {
+                switch (alt44) {
             	case 1 :
             	    // InternalPreprocess.g:6059:64: .
             	    {
@@ -3197,7 +3299,7 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop43;
+            	    break loop44;
                 }
             } while (true);
 
@@ -3221,17 +3323,17 @@ public class InternalPreprocessLexer extends Lexer {
             match("//"); 
 
             // InternalPreprocess.g:6061:35: (~ ( RULE_LINE_END ) )*
-            loop44:
+            loop45:
             do {
-                int alt44=2;
-                int LA44_0 = input.LA(1);
+                int alt45=2;
+                int LA45_0 = input.LA(1);
 
-                if ( ((LA44_0>='\u0000' && LA44_0<='\t')||(LA44_0>='\u000B' && LA44_0<='\f')||(LA44_0>='\u000E' && LA44_0<='\uFFFF')) ) {
-                    alt44=1;
+                if ( ((LA45_0>='\u0000' && LA45_0<='\t')||(LA45_0>='\u000B' && LA45_0<='\f')||(LA45_0>='\u000E' && LA45_0<='\uFFFF')) ) {
+                    alt45=1;
                 }
 
 
-                switch (alt44) {
+                switch (alt45) {
             	case 1 :
             	    // InternalPreprocess.g:6061:35: ~ ( RULE_LINE_END )
             	    {
@@ -3249,7 +3351,7 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop44;
+            	    break loop45;
                 }
             } while (true);
 
@@ -3287,26 +3389,26 @@ public class InternalPreprocessLexer extends Lexer {
             // InternalPreprocess.g:6065:16: ( RULE_LINEBREAK | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_FORM_FEED )
             {
             // InternalPreprocess.g:6065:16: ( RULE_LINEBREAK | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_FORM_FEED )
-            int alt45=4;
+            int alt46=4;
             switch ( input.LA(1) ) {
             case '\\':
                 {
-                alt45=1;
+                alt46=1;
                 }
                 break;
             case '/':
                 {
-                int LA45_2 = input.LA(2);
+                int LA46_2 = input.LA(2);
 
-                if ( (LA45_2=='*') ) {
-                    alt45=2;
+                if ( (LA46_2=='*') ) {
+                    alt46=2;
                 }
-                else if ( (LA45_2=='/') ) {
-                    alt45=3;
+                else if ( (LA46_2=='/') ) {
+                    alt46=3;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 45, 2, input);
+                        new NoViableAltException("", 46, 2, input);
 
                     throw nvae;
                 }
@@ -3314,17 +3416,17 @@ public class InternalPreprocessLexer extends Lexer {
                 break;
             case '\f':
                 {
-                alt45=4;
+                alt46=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 45, 0, input);
+                    new NoViableAltException("", 46, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
                     // InternalPreprocess.g:6065:17: RULE_LINEBREAK
                     {
@@ -3389,9 +3491,9 @@ public class InternalPreprocessLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_INCLUDE_NEXT | RULE_DEFINE | RULE_LINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_VA_ARGS | RULE_HEX_LITERAL | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_WHITESPACE | RULE_IGNORED | RULE_SPECIAL )
-        int alt46=66;
-        alt46 = dfa46.predict(input);
-        switch (alt46) {
+        int alt47=66;
+        alt47 = dfa47.predict(input);
+        switch (alt47) {
             case 1 :
                 // InternalPreprocess.g:1:10: RULE_HASH
                 {
@@ -3861,9 +3963,9 @@ public class InternalPreprocessLexer extends Lexer {
 
 
     protected DFA9 dfa9 = new DFA9(this);
-    protected DFA24 dfa24 = new DFA24(this);
-    protected DFA37 dfa37 = new DFA37(this);
-    protected DFA46 dfa46 = new DFA46(this);
+    protected DFA25 dfa25 = new DFA25(this);
+    protected DFA38 dfa38 = new DFA38(this);
+    protected DFA47 dfa47 = new DFA47(this);
     static final String DFA9_eotS =
         "\3\uffff\2\5\1\uffff";
     static final String DFA9_eofS =
@@ -3878,10 +3980,10 @@ public class InternalPreprocessLexer extends Lexer {
         "\6\uffff}>";
     static final String[] DFA9_transitionS = {
             "\1\1\11\2",
-            "\10\2\2\3\7\uffff\32\2\6\uffff\32\2",
+            "\10\2\2\3\7\uffff\1\2\1\uffff\30\2\6\uffff\1\2\1\uffff\30\2",
             "",
-            "\12\4\7\uffff\32\2\6\uffff\32\2",
-            "\12\4\7\uffff\32\2\6\uffff\32\2",
+            "\12\4\7\uffff\1\2\1\uffff\30\2\6\uffff\1\2\1\uffff\30\2",
+            "\12\4\7\uffff\1\2\1\uffff\30\2\6\uffff\1\2\1\uffff\30\2",
             ""
     };
 
@@ -3915,22 +4017,22 @@ public class InternalPreprocessLexer extends Lexer {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' .. 'z' | 'A' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )";
+            return "5921:27: ( '0' '8' .. '9' ( '0' .. '9' )* | ( '0' .. '9' )+ ( 'a' | 'c' .. 'z' | 'A' | 'C' .. 'Z' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' )* )";
         }
     }
-    static final String DFA24_eotS =
+    static final String DFA25_eotS =
         "\1\uffff\1\4\2\10\1\uffff\2\4\3\uffff";
-    static final String DFA24_eofS =
+    static final String DFA25_eofS =
         "\12\uffff";
-    static final String DFA24_minS =
+    static final String DFA25_minS =
         "\2\114\1\154\1\114\1\uffff\1\154\1\114\3\uffff";
-    static final String DFA24_maxS =
+    static final String DFA25_maxS =
         "\1\165\2\154\1\114\1\uffff\1\154\1\114\3\uffff";
-    static final String DFA24_acceptS =
+    static final String DFA25_acceptS =
         "\4\uffff\1\1\2\uffff\1\4\1\3\1\2";
-    static final String DFA24_specialS =
+    static final String DFA25_specialS =
         "\12\uffff}>";
-    static final String[] DFA24_transitionS = {
+    static final String[] DFA25_transitionS = {
             "\1\3\10\uffff\1\1\26\uffff\1\2\10\uffff\1\1",
             "\1\6\37\uffff\1\5",
             "\1\7",
@@ -3943,52 +4045,52 @@ public class InternalPreprocessLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
-    static final short[] DFA24_eof = DFA.unpackEncodedString(DFA24_eofS);
-    static final char[] DFA24_min = DFA.unpackEncodedStringToUnsignedChars(DFA24_minS);
-    static final char[] DFA24_max = DFA.unpackEncodedStringToUnsignedChars(DFA24_maxS);
-    static final short[] DFA24_accept = DFA.unpackEncodedString(DFA24_acceptS);
-    static final short[] DFA24_special = DFA.unpackEncodedString(DFA24_specialS);
-    static final short[][] DFA24_transition;
+    static final short[] DFA25_eot = DFA.unpackEncodedString(DFA25_eotS);
+    static final short[] DFA25_eof = DFA.unpackEncodedString(DFA25_eofS);
+    static final char[] DFA25_min = DFA.unpackEncodedStringToUnsignedChars(DFA25_minS);
+    static final char[] DFA25_max = DFA.unpackEncodedStringToUnsignedChars(DFA25_maxS);
+    static final short[] DFA25_accept = DFA.unpackEncodedString(DFA25_acceptS);
+    static final short[] DFA25_special = DFA.unpackEncodedString(DFA25_specialS);
+    static final short[][] DFA25_transition;
 
     static {
-        int numStates = DFA24_transitionS.length;
-        DFA24_transition = new short[numStates][];
+        int numStates = DFA25_transitionS.length;
+        DFA25_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA24_transition[i] = DFA.unpackEncodedString(DFA24_transitionS[i]);
+            DFA25_transition[i] = DFA.unpackEncodedString(DFA25_transitionS[i]);
         }
     }
 
-    class DFA24 extends DFA {
+    class DFA25 extends DFA {
 
-        public DFA24(BaseRecognizer recognizer) {
+        public DFA25(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 24;
-            this.eot = DFA24_eot;
-            this.eof = DFA24_eof;
-            this.min = DFA24_min;
-            this.max = DFA24_max;
-            this.accept = DFA24_accept;
-            this.special = DFA24_special;
-            this.transition = DFA24_transition;
+            this.decisionNumber = 25;
+            this.eot = DFA25_eot;
+            this.eof = DFA25_eof;
+            this.min = DFA25_min;
+            this.max = DFA25_max;
+            this.accept = DFA25_accept;
+            this.special = DFA25_special;
+            this.transition = DFA25_transition;
         }
         public String getDescription() {
             return "6023:37: ( RULE_UNSIGNED_SUFFIX ( RULE_LONG_SUFFIX )? | RULE_UNSIGNED_SUFFIX RULE_LONG_LONG_SUFFIX | RULE_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? | RULE_LONG_LONG_SUFFIX ( RULE_UNSIGNED_SUFFIX )? )";
         }
     }
-    static final String DFA37_eotS =
+    static final String DFA38_eotS =
         "\7\uffff\1\10\2\uffff";
-    static final String DFA37_eofS =
+    static final String DFA38_eofS =
         "\12\uffff";
-    static final String DFA37_minS =
+    static final String DFA38_minS =
         "\2\56\1\uffff\1\53\2\uffff\2\60\2\uffff";
-    static final String DFA37_maxS =
+    static final String DFA38_maxS =
         "\1\71\1\146\1\uffff\1\71\2\uffff\1\71\1\146\2\uffff";
-    static final String DFA37_acceptS =
+    static final String DFA38_acceptS =
         "\2\uffff\1\2\1\uffff\1\4\1\1\2\uffff\2\3";
-    static final String DFA37_specialS =
+    static final String DFA38_specialS =
         "\12\uffff}>";
-    static final String[] DFA37_transitionS = {
+    static final String[] DFA38_transitionS = {
             "\1\2\1\uffff\12\1",
             "\1\5\1\uffff\12\1\12\uffff\1\4\1\3\1\4\35\uffff\1\4\1\3\1\4",
             "",
@@ -4001,52 +4103,52 @@ public class InternalPreprocessLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA37_eot = DFA.unpackEncodedString(DFA37_eotS);
-    static final short[] DFA37_eof = DFA.unpackEncodedString(DFA37_eofS);
-    static final char[] DFA37_min = DFA.unpackEncodedStringToUnsignedChars(DFA37_minS);
-    static final char[] DFA37_max = DFA.unpackEncodedStringToUnsignedChars(DFA37_maxS);
-    static final short[] DFA37_accept = DFA.unpackEncodedString(DFA37_acceptS);
-    static final short[] DFA37_special = DFA.unpackEncodedString(DFA37_specialS);
-    static final short[][] DFA37_transition;
+    static final short[] DFA38_eot = DFA.unpackEncodedString(DFA38_eotS);
+    static final short[] DFA38_eof = DFA.unpackEncodedString(DFA38_eofS);
+    static final char[] DFA38_min = DFA.unpackEncodedStringToUnsignedChars(DFA38_minS);
+    static final char[] DFA38_max = DFA.unpackEncodedStringToUnsignedChars(DFA38_maxS);
+    static final short[] DFA38_accept = DFA.unpackEncodedString(DFA38_acceptS);
+    static final short[] DFA38_special = DFA.unpackEncodedString(DFA38_specialS);
+    static final short[][] DFA38_transition;
 
     static {
-        int numStates = DFA37_transitionS.length;
-        DFA37_transition = new short[numStates][];
+        int numStates = DFA38_transitionS.length;
+        DFA38_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA37_transition[i] = DFA.unpackEncodedString(DFA37_transitionS[i]);
+            DFA38_transition[i] = DFA.unpackEncodedString(DFA38_transitionS[i]);
         }
     }
 
-    class DFA37 extends DFA {
+    class DFA38 extends DFA {
 
-        public DFA37(BaseRecognizer recognizer) {
+        public DFA38(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 37;
-            this.eot = DFA37_eot;
-            this.eof = DFA37_eof;
-            this.min = DFA37_min;
-            this.max = DFA37_max;
-            this.accept = DFA37_accept;
-            this.special = DFA37_special;
-            this.transition = DFA37_transition;
+            this.decisionNumber = 38;
+            this.eot = DFA38_eot;
+            this.eof = DFA38_eof;
+            this.min = DFA38_min;
+            this.max = DFA38_max;
+            this.accept = DFA38_accept;
+            this.special = DFA38_special;
+            this.transition = DFA38_transition;
         }
         public String getDescription() {
             return "6031:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )";
         }
     }
-    static final String DFA46_eotS =
-        "\2\uffff\10\60\2\101\1\uffff\1\110\1\112\1\114\3\uffff\1\121\1\122\1\123\1\125\3\uffff\1\133\1\136\1\uffff\1\141\1\143\1\145\5\uffff\1\154\2\uffff\1\60\5\uffff\1\60\1\164\1\uffff\11\60\1\uffff\4\72\1\u0088\1\72\2\uffff\1\72\1\uffff\1\72\1\101\52\uffff\3\60\1\uffff\12\60\11\72\2\uffff\3\72\1\uffff\1\72\4\60\1\u00ab\1\60\1\u00ad\1\u00ae\5\60\2\72\1\uffff\3\72\1\uffff\1\72\3\uffff\1\60\1\u00ba\2\60\1\uffff\1\u00bd\2\uffff\1\u00be\1\60\1\u00c0\2\60\2\72\3\uffff\1\60\1\uffff\1\u00c5\1\u00c7\2\uffff\1\60\1\uffff\1\u00c9\1\60\1\72\1\u00cb\1\uffff\1\u00cd\1\uffff\1\u00ce\1\uffff\1\60\1\uffff\1\60\2\uffff\6\60\1\u00d7\1\u00d8\2\uffff";
-    static final String DFA46_eofS =
-        "\u00d9\uffff";
-    static final String DFA46_minS =
-        "\1\0\1\uffff\1\146\1\145\1\151\1\154\1\141\1\156\1\162\1\137\2\56\1\uffff\1\46\1\75\1\12\3\uffff\1\52\1\60\1\0\1\75\3\uffff\1\74\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\0\2\uffff\1\47\5\uffff\1\143\1\44\1\uffff\1\146\1\156\1\162\1\151\1\144\1\162\1\144\1\141\1\126\1\uffff\1\56\2\60\1\53\1\56\1\114\2\uffff\1\125\1\uffff\1\114\1\56\52\uffff\1\154\1\145\1\144\1\uffff\1\151\1\145\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\2\56\4\60\1\114\1\125\1\114\1\uffff\1\56\1\154\1\114\1\125\1\uffff\1\125\1\165\1\146\1\145\1\156\1\44\1\162\2\44\1\146\1\151\1\146\1\155\1\137\1\56\1\60\1\uffff\1\154\1\114\1\125\1\uffff\1\125\3\uffff\1\144\1\44\1\146\1\145\1\uffff\1\44\2\uffff\1\44\1\156\1\44\1\141\1\101\2\60\3\uffff\1\145\1\uffff\2\44\2\uffff\1\147\1\uffff\1\44\1\122\1\60\1\44\1\uffff\1\44\1\uffff\1\44\1\uffff\1\107\1\uffff\1\156\2\uffff\1\123\1\145\1\137\1\170\1\137\1\164\2\44\2\uffff";
-    static final String DFA46_maxS =
-        "\1\uffff\1\uffff\1\156\1\145\1\151\1\162\1\141\1\156\1\162\1\137\2\172\1\uffff\1\46\1\75\1\15\3\uffff\1\57\1\71\1\uffff\1\76\3\uffff\1\75\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\uffff\2\uffff\1\47\5\uffff\1\143\1\172\1\uffff\1\146\1\156\1\162\1\163\1\144\1\162\1\144\1\141\1\126\1\uffff\1\146\2\61\1\71\1\172\1\154\2\uffff\1\165\1\uffff\1\165\1\172\52\uffff\1\154\1\145\1\144\1\uffff\1\151\1\145\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\2\146\2\61\2\146\1\154\2\165\1\uffff\1\172\1\154\1\114\1\165\1\uffff\2\165\1\146\1\145\1\156\1\172\1\162\2\172\1\146\1\151\1\146\1\155\1\137\2\146\1\uffff\1\154\1\114\1\165\1\uffff\1\165\3\uffff\1\144\1\172\1\146\1\145\1\uffff\1\172\2\uffff\1\172\1\156\1\172\1\141\1\101\2\146\3\uffff\1\145\1\uffff\2\172\2\uffff\1\147\1\uffff\1\172\1\122\1\146\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\107\1\uffff\1\156\2\uffff\1\123\1\145\1\137\1\170\1\137\1\164\2\172\2\uffff";
-    static final String DFA46_acceptS =
-        "\1\uffff\1\1\12\uffff\1\23\3\uffff\1\30\1\31\1\32\4\uffff\1\41\1\42\1\43\2\uffff\1\51\3\uffff\1\60\1\61\1\62\1\63\1\65\1\uffff\1\67\1\70\1\uffff\1\71\1\100\1\101\1\102\1\1\2\uffff\1\71\11\uffff\1\22\6\uffff\1\74\1\77\1\uffff\1\22\2\uffff\1\23\1\24\1\25\1\26\1\36\1\27\1\101\1\30\1\31\1\32\1\33\1\34\1\35\1\73\1\37\1\40\1\64\1\41\1\42\1\43\1\45\1\44\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\65\1\66\1\72\1\67\1\70\1\100\3\uffff\1\11\23\uffff\1\75\4\uffff\1\22\20\uffff\1\22\3\uffff\1\22\1\uffff\3\22\4\uffff\1\5\1\uffff\1\15\1\16\7\uffff\3\22\1\uffff\1\13\2\uffff\1\6\1\17\1\uffff\1\10\4\uffff\1\14\1\uffff\1\4\1\uffff\1\20\1\uffff\1\2\1\uffff\1\12\1\7\10\uffff\1\21\1\3";
-    static final String DFA46_specialS =
-        "\1\0\24\uffff\1\1\17\uffff\1\2\u00b3\uffff}>";
-    static final String[] DFA46_transitionS = {
+    static final String DFA47_eotS =
+        "\2\uffff\10\60\2\100\1\uffff\1\107\1\111\1\113\3\uffff\1\120\1\121\1\122\1\124\3\uffff\1\132\1\135\1\uffff\1\140\1\142\1\144\5\uffff\1\153\2\uffff\1\60\5\uffff\1\60\1\163\1\uffff\11\60\1\uffff\1\72\1\uffff\3\72\1\uffff\1\u0088\1\uffff\1\72\1\uffff\1\100\52\uffff\3\60\1\uffff\12\60\5\72\1\uffff\4\72\2\uffff\2\72\4\60\1\u00a8\1\60\1\u00aa\1\u00ab\5\60\1\72\3\uffff\3\72\1\uffff\2\72\1\uffff\1\60\1\u00b7\2\60\1\uffff\1\u00ba\2\uffff\1\u00bb\1\60\1\u00bd\2\60\3\uffff\2\72\1\60\1\uffff\1\u00c2\1\u00c4\2\uffff\1\60\1\uffff\1\u00c6\1\60\1\72\1\u00c8\1\uffff\1\u00ca\1\uffff\1\u00cb\1\uffff\1\60\1\uffff\1\60\2\uffff\6\60\1\u00d4\1\u00d5\2\uffff";
+    static final String DFA47_eofS =
+        "\u00d6\uffff";
+    static final String DFA47_minS =
+        "\1\0\1\uffff\1\146\1\145\1\151\1\154\1\141\1\156\1\162\1\137\2\56\1\uffff\1\46\1\75\1\12\3\uffff\1\52\1\60\1\0\1\75\3\uffff\1\74\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\0\2\uffff\1\47\5\uffff\1\143\1\44\1\uffff\1\146\1\156\1\162\1\151\1\144\1\162\1\144\1\141\1\126\1\uffff\1\56\1\uffff\1\114\1\125\1\114\1\uffff\1\56\1\uffff\1\53\1\uffff\1\56\52\uffff\1\154\1\145\1\144\1\uffff\1\151\1\145\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\2\56\1\154\1\114\1\125\1\uffff\1\125\1\114\1\125\1\114\1\uffff\1\56\2\60\1\165\1\146\1\145\1\156\1\44\1\162\2\44\1\146\1\151\1\146\1\155\1\137\1\56\3\uffff\1\154\1\114\1\125\1\uffff\1\125\1\60\1\uffff\1\144\1\44\1\146\1\145\1\uffff\1\44\2\uffff\1\44\1\156\1\44\1\141\1\101\3\uffff\2\60\1\145\1\uffff\2\44\2\uffff\1\147\1\uffff\1\44\1\122\1\60\1\44\1\uffff\1\44\1\uffff\1\44\1\uffff\1\107\1\uffff\1\156\2\uffff\1\123\1\145\1\137\1\170\1\137\1\164\2\44\2\uffff";
+    static final String DFA47_maxS =
+        "\1\uffff\1\uffff\1\156\1\145\1\151\1\162\1\141\1\156\1\162\1\137\2\172\1\uffff\1\46\1\75\1\15\3\uffff\1\57\1\71\1\uffff\1\76\3\uffff\1\75\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\uffff\2\uffff\1\47\5\uffff\1\143\1\172\1\uffff\1\146\1\156\1\162\1\163\1\144\1\162\1\144\1\141\1\126\1\uffff\1\146\1\uffff\1\154\2\165\1\uffff\1\172\1\uffff\1\71\1\uffff\1\172\52\uffff\1\154\1\145\1\144\1\uffff\1\151\1\145\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\2\146\1\154\1\114\1\165\1\uffff\1\165\1\154\2\165\1\uffff\1\172\2\146\1\165\1\146\1\145\1\156\1\172\1\162\2\172\1\146\1\151\1\146\1\155\1\137\1\146\3\uffff\1\154\1\114\1\165\1\uffff\1\165\1\146\1\uffff\1\144\1\172\1\146\1\145\1\uffff\1\172\2\uffff\1\172\1\156\1\172\1\141\1\101\3\uffff\2\146\1\145\1\uffff\2\172\2\uffff\1\147\1\uffff\1\172\1\122\1\146\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\107\1\uffff\1\156\2\uffff\1\123\1\145\1\137\1\170\1\137\1\164\2\172\2\uffff";
+    static final String DFA47_acceptS =
+        "\1\uffff\1\1\12\uffff\1\23\3\uffff\1\30\1\31\1\32\4\uffff\1\41\1\42\1\43\2\uffff\1\51\3\uffff\1\60\1\61\1\62\1\63\1\65\1\uffff\1\67\1\70\1\uffff\1\71\1\100\1\101\1\102\1\1\2\uffff\1\71\11\uffff\1\22\1\uffff\1\76\3\uffff\1\74\1\uffff\1\77\1\uffff\1\22\1\uffff\1\23\1\24\1\25\1\26\1\36\1\27\1\101\1\30\1\31\1\32\1\33\1\34\1\35\1\73\1\37\1\40\1\64\1\41\1\42\1\43\1\45\1\46\1\44\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\65\1\66\1\72\1\67\1\70\1\100\3\uffff\1\11\17\uffff\1\22\4\uffff\1\75\21\uffff\3\22\3\uffff\1\22\2\uffff\1\22\4\uffff\1\5\1\uffff\1\15\1\16\5\uffff\3\22\3\uffff\1\13\2\uffff\1\6\1\17\1\uffff\1\10\4\uffff\1\14\1\uffff\1\4\1\uffff\1\20\1\uffff\1\2\1\uffff\1\12\1\7\10\uffff\1\21\1\3";
+    static final String DFA47_specialS =
+        "\1\2\24\uffff\1\1\17\uffff\1\0\u00b0\uffff}>";
+    static final String[] DFA47_transitionS = {
             "\11\54\1\52\1\14\1\54\1\53\1\14\22\54\1\52\1\35\1\25\1\1\1\51\1\34\1\15\1\45\1\31\1\43\1\46\1\37\1\21\1\33\1\24\1\23\1\12\11\13\1\22\1\44\1\32\1\16\1\26\1\40\1\54\13\51\1\50\16\51\1\30\1\17\1\42\1\20\1\11\1\54\3\51\1\3\1\5\3\51\1\2\2\51\1\4\3\51\1\10\4\51\1\7\1\51\1\6\3\51\1\27\1\36\1\41\1\47\uff81\54",
             "",
             "\1\57\7\uffff\1\56",
@@ -4057,67 +4159,66 @@ public class InternalPreprocessLexer extends Lexer {
             "\1\67",
             "\1\70",
             "\1\71",
-            "\1\102\1\uffff\10\77\2\73\7\uffff\1\72\1\75\1\72\1\104\1\76\1\104\5\72\1\105\10\72\1\100\5\72\6\uffff\1\72\1\74\1\72\1\104\1\76\1\104\5\72\1\103\10\72\1\100\5\72",
-            "\1\102\1\uffff\12\106\7\uffff\3\72\1\104\1\76\1\104\5\72\1\105\10\72\1\100\5\72\6\uffff\3\72\1\104\1\76\1\104\5\72\1\103\10\72\1\100\5\72",
+            "\1\102\1\uffff\10\101\2\73\7\uffff\1\72\1\74\1\72\1\104\1\103\1\104\5\72\1\77\10\72\1\75\5\72\6\uffff\1\72\1\74\1\72\1\104\1\103\1\104\5\72\1\76\10\72\1\75\5\72",
+            "\1\102\1\uffff\12\105\7\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\77\10\72\1\75\5\72\6\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\76\10\72\1\75\5\72",
             "",
-            "\1\111",
-            "\1\113",
-            "\1\115\2\uffff\1\115",
+            "\1\110",
+            "\1\112",
+            "\1\114\2\uffff\1\114",
             "",
             "",
             "",
-            "\1\115\4\uffff\1\115",
+            "\1\114\4\uffff\1\114",
             "\12\102",
-            "\0\124",
-            "\1\126\1\127",
+            "\0\123",
+            "\1\125\1\126",
             "",
             "",
             "",
-            "\1\134\1\135",
-            "\1\137",
+            "\1\134\1\133",
+            "\1\136",
             "",
-            "\1\142",
-            "\1\144",
-            "\1\146",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\47\155\1\uffff\uffd8\155",
-            "",
-            "",
-            "\1\155",
+            "\1\141",
+            "\1\143",
+            "\1\145",
             "",
             "",
             "",
             "",
             "",
-            "\1\161",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\162\11\60\1\163\14\60",
+            "\47\154\1\uffff\uffd8\154",
             "",
+            "",
+            "\1\154",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\160",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\161\11\60\1\162\14\60",
+            "",
+            "\1\164",
             "\1\165",
             "\1\166",
-            "\1\167",
-            "\1\170\11\uffff\1\171",
+            "\1\167\11\uffff\1\170",
+            "\1\171",
             "\1\172",
             "\1\173",
             "\1\174",
             "\1\175",
-            "\1\176",
             "",
-            "\1\102\1\uffff\1\177\11\u0080\12\uffff\1\104\1\76\1\104\35\uffff\1\104\1\76\1\104",
-            "\1\u0081\1\u0082",
-            "\1\u0081\1\u0082",
-            "\1\102\1\uffff\1\102\2\uffff\1\u0083\11\u0084",
-            "\1\102\1\uffff\10\77\2\u0089\7\uffff\3\72\1\104\1\76\1\104\5\72\1\u0087\10\72\1\u0085\5\72\6\uffff\3\72\1\104\1\76\1\104\5\72\1\u0086\10\72\1\u0085\5\72",
-            "\1\u008b\37\uffff\1\u008a",
+            "\1\102\1\uffff\1\176\11\177\12\uffff\1\104\1\103\1\104\35\uffff\1\104\1\103\1\104",
             "",
+            "\1\u0081\37\uffff\1\u0080",
+            "\1\u0083\26\uffff\1\u0082\10\uffff\1\u0083",
+            "\1\u0084\10\uffff\1\u0083\37\uffff\1\u0083",
             "",
-            "\1\u008d\26\uffff\1\u008c\10\uffff\1\u008d",
+            "\1\102\1\uffff\10\101\2\u0089\7\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\u0087\10\72\1\u0085\5\72\6\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\u0086\10\72\1\u0085\5\72",
             "",
-            "\1\u008e\10\uffff\1\u008d\37\uffff\1\u008d",
-            "\1\102\1\uffff\12\106\7\uffff\3\72\1\104\1\76\1\104\5\72\1\105\10\72\1\100\5\72\6\uffff\3\72\1\104\1\76\1\104\5\72\1\103\10\72\1\100\5\72",
+            "\1\102\1\uffff\1\102\2\uffff\1\u008a\11\u008b",
+            "",
+            "\1\102\1\uffff\12\105\7\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\77\10\72\1\75\5\72\6\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\5\72\1\76\10\72\1\75\5\72",
             "",
             "",
             "",
@@ -4159,11 +4260,14 @@ public class InternalPreprocessLexer extends Lexer {
             "",
             "",
             "",
+            "",
+            "\1\u008c",
+            "\1\u008d",
+            "\1\u008e",
             "",
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",
-            "",
             "\1\u0092",
             "\1\u0093",
             "\1\u0094",
@@ -4171,129 +4275,124 @@ public class InternalPreprocessLexer extends Lexer {
             "\1\u0096",
             "\1\u0097",
             "\1\u0098",
-            "\1\u0099",
+            "\1\102\1\uffff\1\176\7\177\2\u0099\12\uffff\1\104\1\103\1\104\35\uffff\1\104\1\103\1\104",
+            "\1\102\1\uffff\1\176\11\177\12\uffff\1\104\1\103\1\104\35\uffff\1\104\1\103\1\104",
             "\1\u009a",
             "\1\u009b",
-            "\1\102\1\uffff\1\177\7\u0080\2\u009c\12\uffff\1\104\1\76\1\104\35\uffff\1\104\1\76\1\104",
-            "\1\102\1\uffff\1\177\11\u0080\12\uffff\1\104\1\76\1\104\35\uffff\1\104\1\76\1\104",
-            "\1\u0081\1\u0082",
-            "\1\u0081\1\u0082",
-            "\1\u0083\7\u0084\2\u009d\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
-            "\1\u0083\11\u0084\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
-            "\1\u00a0\37\uffff\1\u009f",
-            "\1\u00a2\26\uffff\1\u00a1\10\uffff\1\u00a2",
-            "\1\u00a3\10\uffff\1\u00a2\37\uffff\1\u00a2",
+            "\1\u009c\37\uffff\1\u009c",
             "",
-            "\1\102\1\uffff\12\u0089\7\uffff\3\72\1\104\1\76\1\104\24\72\6\uffff\3\72\1\104\1\76\1\104\24\72",
+            "\1\u009c\37\uffff\1\u009c",
+            "\1\u009e\37\uffff\1\u009d",
+            "\1\u00a0\26\uffff\1\u009f\10\uffff\1\u00a0",
+            "\1\u00a1\10\uffff\1\u00a0\37\uffff\1\u00a0",
+            "",
+            "\1\102\1\uffff\12\u0089\7\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\24\72\6\uffff\1\72\1\uffff\1\72\1\104\1\103\1\104\24\72",
+            "\1\u008a\7\u008b\2\u00a2\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
+            "\1\u008a\11\u008b\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
             "\1\u00a4",
             "\1\u00a5",
-            "\1\u00a6\37\uffff\1\u00a6",
-            "",
-            "\1\u00a6\37\uffff\1\u00a6",
+            "\1\u00a6",
             "\1\u00a7",
-            "\1\u00a8",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u00a9",
-            "\1\u00aa",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u00ac",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00ad",
+            "\1\u00ae",
             "\1\u00af",
             "\1\u00b0",
+            "\1\102\1\uffff\1\176\11\177\12\uffff\1\104\1\103\1\104\35\uffff\1\104\1\103\1\104",
+            "",
+            "",
+            "",
             "\1\u00b1",
             "\1\u00b2",
-            "\1\u00b3",
-            "\1\102\1\uffff\1\177\11\u0080\12\uffff\1\104\1\76\1\104\35\uffff\1\104\1\76\1\104",
-            "\1\u00b4\11\u00b5\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
+            "\1\u00b3\37\uffff\1\u00b3",
+            "",
+            "\1\u00b3\37\uffff\1\u00b3",
+            "\1\u00b4\11\u00b5\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
             "",
             "\1\u00b6",
-            "\1\u00b7",
-            "\1\u00b8\37\uffff\1\u00b8",
-            "",
-            "\1\u00b8\37\uffff\1\u00b8",
-            "",
-            "",
-            "",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00b8",
             "\1\u00b9",
+            "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00bb",
+            "",
+            "",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u00bc",
-            "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00be",
             "\1\u00bf",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "",
+            "\1\u00b4\7\u00b5\2\u00c0\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
+            "\1\u00b4\11\u00b5\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
             "\1\u00c1",
-            "\1\u00c2",
-            "\1\u00b4\7\u00b5\2\u00c3\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
-            "\1\u00b4\11\u00b5\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
-            "",
-            "",
-            "",
-            "\1\u00c4",
             "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00c6\26\60",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00c3\26\60",
             "",
             "",
-            "\1\u00c8",
+            "\1\u00c5",
             "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00ca",
-            "\1\u00b4\11\u00b5\12\uffff\1\u009e\1\uffff\1\u009e\35\uffff\1\u009e\1\uffff\1\u009e",
-            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\u00cc\1\uffff\32\60",
+            "\1\u00c7",
+            "\1\u00b4\11\u00b5\12\uffff\1\u00a3\1\uffff\1\u00a3\35\uffff\1\u00a3\1\uffff\1\u00a3",
+            "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\u00c9\1\uffff\32\60",
             "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
+            "\1\u00cc",
+            "",
+            "\1\u00cd",
+            "",
+            "",
+            "\1\u00ce",
             "\1\u00cf",
-            "",
             "\1\u00d0",
-            "",
-            "",
             "\1\u00d1",
             "\1\u00d2",
             "\1\u00d3",
-            "\1\u00d4",
-            "\1\u00d5",
-            "\1\u00d6",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\60\13\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             ""
     };
 
-    static final short[] DFA46_eot = DFA.unpackEncodedString(DFA46_eotS);
-    static final short[] DFA46_eof = DFA.unpackEncodedString(DFA46_eofS);
-    static final char[] DFA46_min = DFA.unpackEncodedStringToUnsignedChars(DFA46_minS);
-    static final char[] DFA46_max = DFA.unpackEncodedStringToUnsignedChars(DFA46_maxS);
-    static final short[] DFA46_accept = DFA.unpackEncodedString(DFA46_acceptS);
-    static final short[] DFA46_special = DFA.unpackEncodedString(DFA46_specialS);
-    static final short[][] DFA46_transition;
+    static final short[] DFA47_eot = DFA.unpackEncodedString(DFA47_eotS);
+    static final short[] DFA47_eof = DFA.unpackEncodedString(DFA47_eofS);
+    static final char[] DFA47_min = DFA.unpackEncodedStringToUnsignedChars(DFA47_minS);
+    static final char[] DFA47_max = DFA.unpackEncodedStringToUnsignedChars(DFA47_maxS);
+    static final short[] DFA47_accept = DFA.unpackEncodedString(DFA47_acceptS);
+    static final short[] DFA47_special = DFA.unpackEncodedString(DFA47_specialS);
+    static final short[][] DFA47_transition;
 
     static {
-        int numStates = DFA46_transitionS.length;
-        DFA46_transition = new short[numStates][];
+        int numStates = DFA47_transitionS.length;
+        DFA47_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA46_transition[i] = DFA.unpackEncodedString(DFA46_transitionS[i]);
+            DFA47_transition[i] = DFA.unpackEncodedString(DFA47_transitionS[i]);
         }
     }
 
-    class DFA46 extends DFA {
+    class DFA47 extends DFA {
 
-        public DFA46(BaseRecognizer recognizer) {
+        public DFA47(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 46;
-            this.eot = DFA46_eot;
-            this.eof = DFA46_eof;
-            this.min = DFA46_min;
-            this.max = DFA46_max;
-            this.accept = DFA46_accept;
-            this.special = DFA46_special;
-            this.transition = DFA46_transition;
+            this.decisionNumber = 47;
+            this.eot = DFA47_eot;
+            this.eof = DFA47_eof;
+            this.min = DFA47_min;
+            this.max = DFA47_max;
+            this.accept = DFA47_accept;
+            this.special = DFA47_special;
+            this.transition = DFA47_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_INCLUDE_NEXT | RULE_DEFINE | RULE_LINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_VA_ARGS | RULE_HEX_LITERAL | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_WHITESPACE | RULE_IGNORED | RULE_SPECIAL );";
@@ -4318,127 +4417,127 @@ public class InternalPreprocessLexer extends Lexer {
                     
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 46, _s, input);
+                new NoViableAltException(getDescription(), 47, _s, input);
             error(nvae);
             throw nvae;
         }
 
         private int specialState0(int s, IntStream _input) {
             IntStream input = _input;
-            int LA46_0 = input.LA(1);
+            int LA47_37 = input.LA(1);
 
             s = -1;
-            if ( (LA46_0=='#') ) {s = 1;}
+            if ( ((LA47_37>='\u0000' && LA47_37<='&')||(LA47_37>='(' && LA47_37<='\uFFFF')) ) {s = 108;}
 
-            else if ( (LA46_0=='i') ) {s = 2;}
-
-            else if ( (LA46_0=='d') ) {s = 3;}
-
-            else if ( (LA46_0=='l') ) {s = 4;}
-
-            else if ( (LA46_0=='e') ) {s = 5;}
-
-            else if ( (LA46_0=='w') ) {s = 6;}
-
-            else if ( (LA46_0=='u') ) {s = 7;}
-
-            else if ( (LA46_0=='p') ) {s = 8;}
-
-            else if ( (LA46_0=='_') ) {s = 9;}
-
-            else if ( (LA46_0=='0') ) {s = 10;}
-
-            else if ( ((LA46_0>='1' && LA46_0<='9')) ) {s = 11;}
-
-            else if ( (LA46_0=='\n'||LA46_0=='\r') ) {s = 12;}
-
-            else if ( (LA46_0=='&') ) {s = 13;}
-
-            else if ( (LA46_0=='=') ) {s = 14;}
-
-            else if ( (LA46_0=='\\') ) {s = 15;}
-
-            else if ( (LA46_0=='^') ) {s = 16;}
-
-            else if ( (LA46_0==',') ) {s = 17;}
-
-            else if ( (LA46_0==':') ) {s = 18;}
-
-            else if ( (LA46_0=='/') ) {s = 19;}
-
-            else if ( (LA46_0=='.') ) {s = 20;}
-
-            else if ( (LA46_0=='\"') ) {s = 21;}
-
-            else if ( (LA46_0=='>') ) {s = 22;}
-
-            else if ( (LA46_0=='{') ) {s = 23;}
-
-            else if ( (LA46_0=='[') ) {s = 24;}
-
-            else if ( (LA46_0=='(') ) {s = 25;}
-
-            else if ( (LA46_0=='<') ) {s = 26;}
-
-            else if ( (LA46_0=='-') ) {s = 27;}
-
-            else if ( (LA46_0=='%') ) {s = 28;}
-
-            else if ( (LA46_0=='!') ) {s = 29;}
-
-            else if ( (LA46_0=='|') ) {s = 30;}
-
-            else if ( (LA46_0=='+') ) {s = 31;}
-
-            else if ( (LA46_0=='?') ) {s = 32;}
-
-            else if ( (LA46_0=='}') ) {s = 33;}
-
-            else if ( (LA46_0==']') ) {s = 34;}
-
-            else if ( (LA46_0==')') ) {s = 35;}
-
-            else if ( (LA46_0==';') ) {s = 36;}
-
-            else if ( (LA46_0=='\'') ) {s = 37;}
-
-            else if ( (LA46_0=='*') ) {s = 38;}
-
-            else if ( (LA46_0=='~') ) {s = 39;}
-
-            else if ( (LA46_0=='L') ) {s = 40;}
-
-            else if ( (LA46_0=='$'||(LA46_0>='A' && LA46_0<='K')||(LA46_0>='M' && LA46_0<='Z')||(LA46_0>='a' && LA46_0<='c')||(LA46_0>='f' && LA46_0<='h')||(LA46_0>='j' && LA46_0<='k')||(LA46_0>='m' && LA46_0<='o')||(LA46_0>='q' && LA46_0<='t')||LA46_0=='v'||(LA46_0>='x' && LA46_0<='z')) ) {s = 41;}
-
-            else if ( (LA46_0=='\t'||LA46_0==' ') ) {s = 42;}
-
-            else if ( (LA46_0=='\f') ) {s = 43;}
-
-            else if ( ((LA46_0>='\u0000' && LA46_0<='\b')||LA46_0=='\u000B'||(LA46_0>='\u000E' && LA46_0<='\u001F')||LA46_0=='@'||LA46_0=='`'||(LA46_0>='\u007F' && LA46_0<='\uFFFF')) ) {s = 44;}
+            else s = 107;
 
             return s;
         }
 
         private int specialState1(int s, IntStream _input) {
             IntStream input = _input;
-            int LA46_21 = input.LA(1);
+            int LA47_21 = input.LA(1);
 
             s = -1;
-            if ( ((LA46_21>='\u0000' && LA46_21<='\uFFFF')) ) {s = 84;}
+            if ( ((LA47_21>='\u0000' && LA47_21<='\uFFFF')) ) {s = 83;}
 
-            else s = 83;
+            else s = 82;
 
             return s;
         }
 
         private int specialState2(int s, IntStream _input) {
             IntStream input = _input;
-            int LA46_37 = input.LA(1);
+            int LA47_0 = input.LA(1);
 
             s = -1;
-            if ( ((LA46_37>='\u0000' && LA46_37<='&')||(LA46_37>='(' && LA46_37<='\uFFFF')) ) {s = 109;}
+            if ( (LA47_0=='#') ) {s = 1;}
 
-            else s = 108;
+            else if ( (LA47_0=='i') ) {s = 2;}
+
+            else if ( (LA47_0=='d') ) {s = 3;}
+
+            else if ( (LA47_0=='l') ) {s = 4;}
+
+            else if ( (LA47_0=='e') ) {s = 5;}
+
+            else if ( (LA47_0=='w') ) {s = 6;}
+
+            else if ( (LA47_0=='u') ) {s = 7;}
+
+            else if ( (LA47_0=='p') ) {s = 8;}
+
+            else if ( (LA47_0=='_') ) {s = 9;}
+
+            else if ( (LA47_0=='0') ) {s = 10;}
+
+            else if ( ((LA47_0>='1' && LA47_0<='9')) ) {s = 11;}
+
+            else if ( (LA47_0=='\n'||LA47_0=='\r') ) {s = 12;}
+
+            else if ( (LA47_0=='&') ) {s = 13;}
+
+            else if ( (LA47_0=='=') ) {s = 14;}
+
+            else if ( (LA47_0=='\\') ) {s = 15;}
+
+            else if ( (LA47_0=='^') ) {s = 16;}
+
+            else if ( (LA47_0==',') ) {s = 17;}
+
+            else if ( (LA47_0==':') ) {s = 18;}
+
+            else if ( (LA47_0=='/') ) {s = 19;}
+
+            else if ( (LA47_0=='.') ) {s = 20;}
+
+            else if ( (LA47_0=='\"') ) {s = 21;}
+
+            else if ( (LA47_0=='>') ) {s = 22;}
+
+            else if ( (LA47_0=='{') ) {s = 23;}
+
+            else if ( (LA47_0=='[') ) {s = 24;}
+
+            else if ( (LA47_0=='(') ) {s = 25;}
+
+            else if ( (LA47_0=='<') ) {s = 26;}
+
+            else if ( (LA47_0=='-') ) {s = 27;}
+
+            else if ( (LA47_0=='%') ) {s = 28;}
+
+            else if ( (LA47_0=='!') ) {s = 29;}
+
+            else if ( (LA47_0=='|') ) {s = 30;}
+
+            else if ( (LA47_0=='+') ) {s = 31;}
+
+            else if ( (LA47_0=='?') ) {s = 32;}
+
+            else if ( (LA47_0=='}') ) {s = 33;}
+
+            else if ( (LA47_0==']') ) {s = 34;}
+
+            else if ( (LA47_0==')') ) {s = 35;}
+
+            else if ( (LA47_0==';') ) {s = 36;}
+
+            else if ( (LA47_0=='\'') ) {s = 37;}
+
+            else if ( (LA47_0=='*') ) {s = 38;}
+
+            else if ( (LA47_0=='~') ) {s = 39;}
+
+            else if ( (LA47_0=='L') ) {s = 40;}
+
+            else if ( (LA47_0=='$'||(LA47_0>='A' && LA47_0<='K')||(LA47_0>='M' && LA47_0<='Z')||(LA47_0>='a' && LA47_0<='c')||(LA47_0>='f' && LA47_0<='h')||(LA47_0>='j' && LA47_0<='k')||(LA47_0>='m' && LA47_0<='o')||(LA47_0>='q' && LA47_0<='t')||LA47_0=='v'||(LA47_0>='x' && LA47_0<='z')) ) {s = 41;}
+
+            else if ( (LA47_0=='\t'||LA47_0==' ') ) {s = 42;}
+
+            else if ( (LA47_0=='\f') ) {s = 43;}
+
+            else if ( ((LA47_0>='\u0000' && LA47_0<='\b')||LA47_0=='\u000B'||(LA47_0>='\u000E' && LA47_0<='\u001F')||LA47_0=='@'||LA47_0=='`'||(LA47_0>='\u007F' && LA47_0<='\uFFFF')) ) {s = 44;}
 
             return s;
         }

@@ -2122,7 +2122,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal HEX_PREFIX:
-	//	'0' ('x' | 'X');
+	//	'0x' | '0X';
 	public TerminalRule getHEX_PREFIXRule() {
 		return tHEX_PREFIX;
 	}

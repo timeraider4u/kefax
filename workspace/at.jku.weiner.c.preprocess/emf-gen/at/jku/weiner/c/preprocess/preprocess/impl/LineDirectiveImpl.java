@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl#getLine <em>Line</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.LineDirectiveImpl#getPath <em>Path</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

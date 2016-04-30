@@ -8310,7 +8310,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal HEX_PREFIX returns ecore::EString:
-	//	'0' ('x' | 'X');
+	//	'0x' | '0X';
 	public TerminalRule getHEX_PREFIXRule() {
 		return gaCommon.getHEX_PREFIXRule();
 	}

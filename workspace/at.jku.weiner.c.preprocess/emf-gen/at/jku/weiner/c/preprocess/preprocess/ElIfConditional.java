@@ -11,10 +11,10 @@ import at.jku.weiner.c.common.common.Expression;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getExpression <em>Expression</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getElIfConditional()
  * @model

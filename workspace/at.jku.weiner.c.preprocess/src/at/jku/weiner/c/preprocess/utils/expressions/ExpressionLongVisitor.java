@@ -220,7 +220,7 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 				return result;
 			}
 		} catch (final NumberFormatException ex) {
-			MyLog.errorNoThrows(ExpressionLongVisitor.class, ex);
+			// MyLog.errorNoThrows(ExpressionLongVisitor.class, ex);
 			return ExpressionLongVisitor.FALSE;
 		}
 	}

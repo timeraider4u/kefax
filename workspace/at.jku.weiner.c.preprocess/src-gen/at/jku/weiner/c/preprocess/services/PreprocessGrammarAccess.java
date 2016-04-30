@@ -2574,7 +2574,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[39]->TerminalRule'SKW_DOLLAR'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
@@ -2758,7 +2758,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[69]->TerminalRule'SKW_UNDERSCORE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
@@ -2774,7 +2774,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[71]->TerminalRule'IDENTIFIER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
@@ -2784,7 +2784,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'LETTER'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
@@ -2803,7 +2803,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal HEX_PREFIX returns ecore::EString:
-	//	'0' ('x' | 'X');
+	//	'0x' | '0X';
 	public TerminalRule getHEX_PREFIXRule() {
 		return gaCommon.getHEX_PREFIXRule();
 	}
@@ -2830,7 +2830,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'HEX_DIGIT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
@@ -2840,7 +2840,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'INTEGER_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
@@ -2850,7 +2850,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'UNSIGNED_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
@@ -2860,7 +2860,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
@@ -2870,7 +2870,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[84]->TerminalRule'LONG_LONG_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
@@ -2889,7 +2889,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[86]->TerminalRule'EXPONENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
@@ -2899,7 +2899,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[87]->TerminalRule'FLOAT_TYPE_SUFFIX'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
@@ -2909,7 +2909,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'ESCAPE_SEQUENCE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
@@ -2919,7 +2919,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'OCTAL_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
@@ -2929,7 +2929,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[90]->TerminalRule'HEX_ESCAPE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
@@ -2939,7 +2939,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[91]->TerminalRule'LINEFEED'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
@@ -2949,7 +2949,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[92]->TerminalRule'CARRIAGERETURN'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
@@ -2965,7 +2965,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[94]->TerminalRule'LINEBREAK'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
@@ -2981,7 +2981,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[96]->TerminalRule'SPACE'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
@@ -2991,7 +2991,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[97]->TerminalRule'TAB'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();
@@ -3007,7 +3007,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[99]->TerminalRule'BLOCK_COMMENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return gaCommon.getBLOCK_COMMENTRule();
@@ -3017,7 +3017,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[100]->TerminalRule'LINE_COMMENT'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
@@ -3027,7 +3027,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
 	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[101]->TerminalRule'FORM_FEED'
-	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: jar:file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/target/at.jku.weiner.c.common-0.1.0-SNAPSHOT.jar!/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFORM_FEEDRule() {
 		return gaCommon.getFORM_FEEDRule();

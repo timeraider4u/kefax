@@ -210,6 +210,7 @@
 		<module>at.jku.weiner.c.preprocess.ui.tests</module>
 		
 		<module>at.jku.weiner.c.modisco.discoverer</module>
+		<module>at.jku.weiner.c.modisco.discoverer.ui</module>
 		
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>

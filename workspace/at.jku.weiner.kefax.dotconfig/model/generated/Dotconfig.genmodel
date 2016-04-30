@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.kefax.dotconfig/src-gen" editDirectory="/at.jku.weiner.kefax.dotconfig.edit/src"
-    editorDirectory="/at.jku.weiner.kefax.dotconfig.editor/src" modelPluginID="at.jku.weiner.kefax.dotconfig"
-    forceOverwrite="true" modelName="Dotconfig" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.kefax.dotconfig/src-gen" editDirectory="/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.kefax.dotconfig.edit/src"
+    editorDirectory="/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.kefax.dotconfig.editor/src"
+    modelPluginID="at.jku.weiner.kefax.dotconfig" forceOverwrite="true" modelName="Dotconfig"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.kefax.dotconfig.edit"
-    editorPluginID="at.jku.weiner.kefax.dotconfig.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.kefax.dotconfig.edit" runtimeVersion="2.10">
   <genPackages prefix="Dotconfig" basePackage="at.jku.weiner.kefax.dotconfig" disposableProviderFactory="true"
       fileExtensions=".config" ecorePackage="Dotconfig.ecore#/">
     <genClasses ecoreClass="Dotconfig.ecore#//DotConfigModel">

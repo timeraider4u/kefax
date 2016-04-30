@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.kefax.dotconfig.dotconfig.DotConfigModel#getConfigs <em>Configs</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.kefax.dotconfig.dotconfig.DotconfigPackage#getDotConfigModel()
  * @model

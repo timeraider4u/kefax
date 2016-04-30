@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.kefax.dotconfig.dotconfig.impl.ConfigImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.kefax.dotconfig.dotconfig.impl.ConfigImpl#getV <em>V</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

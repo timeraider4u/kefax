@@ -15,9 +15,8 @@
 	<packaging>eclipse-test-plugin</packaging>
 	
 	<properties>
-		<xtextLangName>XtextTest</xtextLangName>
-		<skip-tests-normal>true</skip-tests-normal>
-		<skip-gui-tests>false</skip-gui-tests>
+		<skip-tests-normal>false</skip-tests-normal>
+		<skip-gui-tests>true</skip-gui-tests>
 	</properties>
 
 	<build>
@@ -27,38 +26,21 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 			</plugin>
-			<!-- ensure that file src-gen/.../UiInjectorProvider.java exists -->
+			<!-- execute xtexttest generation -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.4.1</version>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>xtext-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>enforce-ui-files-exist</id>
-						<phase>validate</phase>
+						<id>runXtextTest</id>
+						<phase>generate-sources</phase>
 					</execution>
 				</executions>
-			</plugin>
-			<!-- execute xtend generation -->
-			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
 			</plugin>
 			<!-- run tycho test -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
-			</plugin>
-			<!-- run clean-up -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>cleanXtendBinFiles</id>
-						<phase>post-integration-test</phase>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

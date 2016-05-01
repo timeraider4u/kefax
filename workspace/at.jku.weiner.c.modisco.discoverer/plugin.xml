@@ -8,13 +8,6 @@
             id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromIResource">
       </discoverer>
    </extension>
-   <extension
-         point="org.eclipse.modisco.infra.discovery.core.discoverer">
-      <discoverer
-            class="at.jku.weiner.c.modisco.discoverer.actions.impl.DiscoverFromICContainer"
-            id="at.jku.weiner.c.modisco.discoverer.actions.DiscoverFromICContainer">
-      </discoverer>
-   </extension>
     <extension
          point="org.eclipse.modisco.infra.discovery.core.discoverer">
       <discoverer

@@ -4,4 +4,8 @@
 		<category name="at.jku.weiner.kefax"/>
 	</feature>
 	<category-def name="at.jku.weiner.kefax" label="at.jku.weiner.kefax"/>
+	<feature url="features/at.jku.weiner.xtexttest.feature_0.0.0.jar" id="at.jku.weiner.xtexttest.feature" version="0.0.0">
+		<category name="at.jku.weiner.xtexttest"/>
+	</feature>
+	<category-def name="at.jku.weiner.xtexttest" label="at.jku.weiner.xtexttest"/>
 </site>

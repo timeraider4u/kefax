@@ -8,7 +8,7 @@ timeOut = 45000
 
 class=EMFTest method=emfTest()
 options class=EMFTest method=getOptions()
-params class=EMFTest method=getParameters()
+xtexttest-params class=EMFTest method=getParameters()
 
 source file="res/Test0002_Empty"
 

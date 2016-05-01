@@ -35,6 +35,33 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<!-- deploy to Github gh-pages branch -->
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<branch>refs/heads/gh-pages</branch>
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<message>Creating site for ${project.version}</message>
+					<outputDirectory>${project.build.directory}/repository</outputDirectory>
+					<!--<path>${updates}/${output-dir}/</path>-->
+					<repositoryName>xtext-predicates</repositoryName>
+					<repositoryOwner>timeraider4u</repositoryOwner>
+					<noJekyll>true</noJekyll>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

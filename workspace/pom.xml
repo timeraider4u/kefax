@@ -213,10 +213,22 @@
 		<module>at.jku.weiner.c.modisco.discoverer.tests</module>
 		<module>at.jku.weiner.c.modisco.discoverer.ui</module>
 		
+		<module>at.jku.weiner.kefax.compile</module>
+		<module>at.jku.weiner.kefax.configfeatures</module>
+		<module>at.jku.weiner.kefax.configure</module>
+		
 		<module>at.jku.weiner.kefax.dotconfig</module>
 		<module>at.jku.weiner.kefax.dotconfig.tests</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui</module>
 		<module>at.jku.weiner.kefax.dotconfig.ui.tests</module>
+		<module>at.jku.weiner.kefax.gitclone</module>
+		<module>at.jku.weiner.kefax.infra</module>
+		
+		<module>at.jku.weiner.kefax.main</module>
+		<!--
+		<module>at.jku.weiner.kefax.main.tests</module>
+		-->
+		<module>at.jku.weiner.kefax.shared</module>
 		
 		<module>at.jku.weiner.log</module>
 		<module>at.jku.weiner.log.eclipselog</module>

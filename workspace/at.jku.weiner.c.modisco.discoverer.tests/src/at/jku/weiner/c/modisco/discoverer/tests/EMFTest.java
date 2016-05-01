@@ -1,12 +1,17 @@
 package at.jku.weiner.c.modisco.discoverer.tests;
 
 import java.io.File;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -15,6 +20,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmt.modisco.infra.common.core.internal.utils.ProjectUtils;
+import org.eclipse.osgi.service.datalocation.Location;
 import org.junit.Assert;
 import org.osgi.framework.Bundle;
 
@@ -91,6 +97,47 @@ public class EMFTest {
 
 	private static IProject getProject() throws Exception {
 		final Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
+		try {
+			final IProject newProject = getProjectFromModisco(bundle);
+			return newProject;
+		} catch (Exception ex) {
+			cleanUpOldProject();
+			// ex.printStackTrace();
+		}
+		String bundlePath = bundle.getLocation();
+
+		final Location platformInstall = Platform.getInstallLocation();
+		final URL url = platformInstall.getURL();
+		final String installPath = url.toString().replaceAll(".*file:", ""); 
+		if (bundlePath
+				.startsWith("initial@reference:file:")) { 
+			bundlePath = bundlePath.replaceAll(
+					"initial@reference:file:",
+					installPath);
+		}
+		final IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
+				.getProject(Activator.PLUGIN_ID);
+		newProject.create(new NullProgressMonitor());
+		newProject.open(new NullProgressMonitor());
+		newProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+		System.out.println("bundlePath='" + bundlePath + "'!");
+		final File bundleDir = new File(bundlePath);
+		final String destPath1 = newProject.getLocation().toOSString();
+//		final Date date = new Date();
+//		final DateFormat format = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
+//		final String destPath = destPath1 + "-" + format.format(date);
+		final String destPath = destPath1;
+		
+		System.out.println("destPath='" + destPath + "'!");
+		final File destDir = new File(destPath);
+		FileUtils.copyDirectory(bundleDir, destDir);
+		
+		newProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		return newProject;
+	}
+	
+	private static IProject getProjectFromModisco(Bundle bundle) throws Exception {
 		final IProject project = ProjectUtils.importPlugin(bundle);
 		return project;
 	}

@@ -41,3 +41,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: at.jku.weiner.c.modisco.discoverer.tests
+Import-Package: org.apache.commons.io

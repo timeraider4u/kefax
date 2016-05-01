@@ -14,6 +14,13 @@
 	<artifactId>workspace</artifactId>
 	<packaging>pom</packaging>
 	
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
+	
 	<properties>
 		<my.version>${project.parent.version}</my.version>
 		<tycho.version>0.24.0</tycho.version>
@@ -27,6 +34,10 @@
 		<antlr.generator.version>3.2.1-SNAPSHOT</antlr.generator.version>
 
 		<mwe2.version>${xtext.version}</mwe2.version>
+		
+		<!-- github server corresponds to entry in ~/.m2/settings.xml -->
+		<github.global.server>github</github.global.server>
+		
 		<!-- xtext language project itself -->
 		<lang.dir>${basedir}</lang.dir>
 		<lang.bin>${lang.dir}/bin</lang.bin>
@@ -714,6 +725,22 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+				</configuration>
+			</plugin>
+			
+			<!-- disable default deployment -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<phase>none</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<deployAtEnd>false</deployAtEnd>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
 				</configuration>
 			</plugin>
 		</plugins>

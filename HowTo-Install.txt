@@ -1,4 +1,8 @@
-Eclipse Modeling Luna SR2 AMD64:
+Tested with Eclipse Modeling Luna SR2 AMD64:
+
+	Download Eclipse Modeling Tools
+	https://eclipse.org/downloads/
+	
 		
 	Modeling package updates for Eclipse Luna 
 		http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/luna/

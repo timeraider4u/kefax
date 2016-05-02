@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.facet.util.emf.core.IBrowserRegistry;
+import org.eclipse.emf.facet.util.emf.core.IResourceBrowserOpener;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -150,7 +151,10 @@ public class MainHandler extends MyActionHandler {
 		// open browser
 		MyLog.debug(MainHandler.class, "discovering finished! Opening browser now!");
 		final Resource targetModel = discoverer.getTargetResource();
-		IBrowserRegistry.INSTANCE.browseResource(targetModel);
+		final IBrowserRegistry browserRegistry = IBrowserRegistry.INSTANCE;
+		final IResourceBrowserOpener browser = browserRegistry.getDefaultResourceBrowserOpener();
+		MyLog.debug(MainHandler.class, "opening browser='" + browser + "'");
+		browser.openResource(targetModel);
 	}
 
 	private void discoverSourceFile(final IProgressMonitor monitor,

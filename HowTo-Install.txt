@@ -43,3 +43,9 @@ Tested with
 	optional:
 		-> at.jku.weiner.xtextest/at.jku.weiner.xtexttest 0.1.0.201605021626
 
+	eclipse.ini:
+		-vmargs
+		-Dosgi.requiredJavaVersion=1.7
+		-XX:MaxPermSize=2048m
+		-Xms2048m
+		-Xmx2048m

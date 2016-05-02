@@ -17,7 +17,7 @@ import at.jku.weiner.kefax.shared.MyNotification;
 import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
-public class ConfigureHandler extends MyActionHandler {
+class ConfigureHandler extends MyActionHandler {	
 
 	private static final String ANT_SCRIPT_PATH = "configureScript/configureLinux.xml";
 
@@ -26,9 +26,11 @@ public class ConfigureHandler extends MyActionHandler {
 	private File workingDirectory = null;
 	private IFile config = null;
 	private String configPathAsString = null;
+	private final boolean isModeA;
 
-	public ConfigureHandler() {
+	public ConfigureHandler(boolean isModeA) {
 		super("at.jku.weiner.kefax.configure.commandHandler");
+		this.isModeA = isModeA;
 	}
 
 	@Override
@@ -80,7 +82,7 @@ public class ConfigureHandler extends MyActionHandler {
 
 	private boolean addSelectedFeaturesToConfig() throws Exception {
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		final String[] configs = MySettings.CONFIGS;
+		final String[] configs = this.getConfigs();
 		for (int i = 0; i < configs.length; i++) {
 			final String config = configs[i];
 			if (!MyFileWriter.appendStringToFile(this.configPathAsString,
@@ -90,6 +92,13 @@ public class ConfigureHandler extends MyActionHandler {
 		}
 		this.project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		return true;
+	}
+	
+	private String[] getConfigs() {
+		if (this.isModeA) {
+			return MySettings.CONFIGS;
+		}
+		return MySettings.CONFIGS;
 	}
 
 	private boolean updateConfig() throws Exception {

@@ -23,7 +23,7 @@
         point="org.eclipse.ui.menus">
      <menuContribution
            allPopups="false"
-           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.command">
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.commandB">
            <command
                  commandId="at.jku.weiner.kefax.configurefeatures.command"
                  label="4.) Read .config and generate features.txt"

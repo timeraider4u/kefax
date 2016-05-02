@@ -9,9 +9,14 @@
            name="at.jku.weiner.kefax.configure.delete.command">
      </command>
      <command
-           defaultHandler="at.jku.weiner.kefax.configure.ConfigureHandler"
-           id="at.jku.weiner.kefax.configure.command"
-           name="at.jku.weiner.kefax.configure.command">
+           defaultHandler="at.jku.weiner.kefax.configure.ConfigureHandlerA"
+           id="at.jku.weiner.kefax.configure.commandA"
+           name="at.jku.weiner.kefax.configure.commandA">
+     </command>
+      <command
+           defaultHandler="at.jku.weiner.kefax.configure.ConfigureHandlerB"
+           id="at.jku.weiner.kefax.configure.commandB"
+           name="at.jku.weiner.kefax.configure.commandB">
      </command>
   </extension>
   <extension
@@ -40,8 +45,18 @@
            allPopups="false"
            locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.delete.command">
            <command
-                 commandId="at.jku.weiner.kefax.configure.command"
-                 label="3.) Generate .config"
+                 commandId="at.jku.weiner.kefax.configure.commandA"
+                 label="3a) Generate .config"
+                 style="push"
+                 tooltip="Generate Linux .config">
+           </command>
+      </menuContribution>
+      <menuContribution
+           allPopups="false"
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.configure.commandA">
+           <command
+                 commandId="at.jku.weiner.kefax.configure.commandB"
+                 label="3b) Generate .config"
                  style="push"
                  tooltip="Generate Linux .config">
            </command>

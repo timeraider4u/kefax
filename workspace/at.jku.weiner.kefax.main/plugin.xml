@@ -13,6 +13,11 @@
            id="at.jku.weiner.kefax.main.demo1cmd"
            name="Demo1Command">
      </command>
+      <command
+           defaultHandler="at.jku.weiner.kefax.main.menu.Demo2Handler"
+           id="at.jku.weiner.kefax.main.demo2cmd"
+           name="Demo2Command">
+     </command>
      <command
 		      defaultHandler="at.jku.weiner.kefax.main.menu.SetLogLevelCommand"
 		      id="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
@@ -74,6 +79,11 @@
    		<command
              commandId="at.jku.weiner.kefax.main.demo1cmd"
              label="Run KeFaX demonstration A"
+             style="push">
+       </command>
+       <command
+             commandId="at.jku.weiner.kefax.main.demo2cmd"
+             label="Run KeFaX demonstration B"
              style="push">
        </command>
    		

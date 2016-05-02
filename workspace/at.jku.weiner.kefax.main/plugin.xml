@@ -64,12 +64,13 @@
    		point="org.eclipse.ui.menus">
    	<menuContribution
    		allPopups="false"
-   		locationURI="menu:at.jku.weiner.kefax.main.filemenu">
+   		locationURI="menu:at.jku.weiner.kefax.main.filemenu?before=at.jku.weiner.kefax.gitclone.command">
+   		<!-- TODO: add demo mode run commands here -->	
+   		
+   		
        <menu
              id="at.jku.weiner.kefax.main.menu.loglevel"
              label="Set log level">
-             
-             
                <command
 		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
 		            label="None"
@@ -115,7 +116,12 @@
 		               value="LOG_LEVEL_TRACE">
 		         </parameter>
 		      </command> 
+		      
        </menu>
+       <separator
+		      	name="separator-id"
+		      	visible="true">
+		      </separator>
      </menuContribution>
   </extension>
     <extension

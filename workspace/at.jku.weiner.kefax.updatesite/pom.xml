@@ -49,7 +49,7 @@
 					<message>Creating site for ${project.version}</message>
 					<outputDirectory>${project.build.directory}/repository</outputDirectory>
 					<!--<path>${updates}/${output-dir}/</path>-->
-					<repositoryName>xtext-predicates</repositoryName>
+					<repositoryName>kefax</repositoryName>
 					<repositoryOwner>timeraider4u</repositoryOwner>
 					<noJekyll>true</noJekyll>
 				</configuration>

@@ -25,7 +25,7 @@
          version="0.0.0"
          unpack="false"/>
 
-   <description url="https://github.com/timeraider4u/xtext-predicates">
+   <description url="https://github.com/timeraider4u/kefax">
 		XtextTest is a DSL language for testing DSL written in Xtext.
 		It simplifies the development of tests.
    </description>

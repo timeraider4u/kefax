@@ -20,14 +20,14 @@
 		</license>
 	</licenses>
 	
-	<url>https://github.com/timeraider4u/xtext-predicates.git</url>
+	<url>https://github.com/timeraider4u/kefax.git</url>
 	<description>Xtext predicates is a project to develop a Linux kernel feature 
 		extractor by creating an Eclipse Modisco discoverer for the C programming 
 		language using a modified version of Xtext.</description>
 	<scm>
-		<connection>scm:git:git://github.com/timeraider4u/xtext-predicates.git</connection>
-		<developerConnection>scm:git://github.com/timeraider4u/xtext-predicates.git</developerConnection>
-		<url>https://github.com/timeraider4u/xtext-predicates.git</url>
+		<connection>scm:git:git://github.com/timeraider4u/kefax.git</connection>
+		<developerConnection>scm:git://github.com/timeraider4u/kefax.git</developerConnection>
+		<url>https://github.com/timeraider4u/kefax.git</url>
 	</scm>
 	<developers>
 		<developer>

@@ -44,70 +44,90 @@
            locationURI="menu:org.eclipse.ui.main.menu">
         <menu
               id="at.jku.weiner.kefax.main.filemenu"
-              label="KeFaX">
-           <command
-                 commandId="at.jku.weiner.kefax.main.command"
-                 label="Discovering KeFaX"
-                 style="push"
-                 tooltip="Start discovering">
-           </command>
-           <menu
-                 id="at.jku.weiner.kefax.main.menu.loglevel"
-                 label="Set log level">
-                 
-                 
-	               <command
-			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
-			            label="None"
-			            style="radio">
-			         <parameter
-			               name="org.eclipse.ui.commands.radioStateParameter"
-			               value="LOG_LEVEL_NONE">
-			         </parameter>
-			      </command>
-			      <command
-			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
-			            label="Errors only"
-			            style="radio">
-			         <parameter
-			               name="org.eclipse.ui.commands.radioStateParameter"
-			               value="LOG_LEVEL_ERROR">
-			         </parameter>
-			      </command>
-			      <command
-			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
-			            label="Info (Normal logging)"
-			            style="radio">
-			         <parameter
-			               name="org.eclipse.ui.commands.radioStateParameter"
-			               value="LOG_LEVEL_INFO">
-			         </parameter>
-			      </command>
-			       <command
-			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
-			            label="Debug"
-			            style="radio">
-			         <parameter
-			               name="org.eclipse.ui.commands.radioStateParameter"
-			               value="LOG_LEVEL_DEBUG">
-			         </parameter>
-			      </command> 
-			       <command
-			            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
-			            label="Trace (even more debugging)"
-			            style="radio">
-			         <parameter
-			               name="org.eclipse.ui.commands.radioStateParameter"
-			               value="LOG_LEVEL_TRACE">
-			         </parameter>
-			      </command> 
-           </menu>
-           <command
-                 commandId="at.jku.weiner.kefax.main.menu.cleanup"
-                 label="Clean up tmp-discovery directory"
-                 style="push">
-           </command>
-        </menu>
+              label="KeFaX" />
+     </menuContribution>
+  </extension>
+  <extension
+  		 point="org.eclipse.ui.menus">
+     <menuContribution
+   		allPopups="false"
+   		locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.main.menu.cleanup">
+       <command
+             commandId="at.jku.weiner.kefax.main.command"
+             label="9.) Discovering KeFaX"
+             style="push"
+             tooltip="Start discovering">
+       </command>
+      </menuContribution>
+   </extension>
+   <extension
+   		point="org.eclipse.ui.menus">
+   	<menuContribution
+   		allPopups="false"
+   		locationURI="menu:at.jku.weiner.kefax.main.filemenu">
+       <menu
+             id="at.jku.weiner.kefax.main.menu.loglevel"
+             label="Set log level">
+             
+             
+               <command
+		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		            label="None"
+		            style="radio">
+		         <parameter
+		               name="org.eclipse.ui.commands.radioStateParameter"
+		               value="LOG_LEVEL_NONE">
+		         </parameter>
+		      </command>
+		      <command
+		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		            label="Errors only"
+		            style="radio">
+		         <parameter
+		               name="org.eclipse.ui.commands.radioStateParameter"
+		               value="LOG_LEVEL_ERROR">
+		         </parameter>
+		      </command>
+		      <command
+		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		            label="Info (Normal logging)"
+		            style="radio">
+		         <parameter
+		               name="org.eclipse.ui.commands.radioStateParameter"
+		               value="LOG_LEVEL_INFO">
+		         </parameter>
+		      </command>
+		       <command
+		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		            label="Debug"
+		            style="radio">
+		         <parameter
+		               name="org.eclipse.ui.commands.radioStateParameter"
+		               value="LOG_LEVEL_DEBUG">
+		         </parameter>
+		      </command> 
+		       <command
+		            commandId="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
+		            label="Trace (even more debugging)"
+		            style="radio">
+		         <parameter
+		               name="org.eclipse.ui.commands.radioStateParameter"
+		               value="LOG_LEVEL_TRACE">
+		         </parameter>
+		      </command> 
+       </menu>
+     </menuContribution>
+  </extension>
+    <extension
+   		point="org.eclipse.ui.menus">
+   	<menuContribution
+   		allPopups="false"
+   		locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.infra.command">
+       <command
+             commandId="at.jku.weiner.kefax.main.menu.cleanup"
+             label="8.) Clean up tmp-discovery directory"
+             style="push">
+       </command>
      </menuContribution>
   </extension>
  	

@@ -24,13 +24,18 @@ public class ConfigFeatureHandler extends MyActionHandler {
 		final IFile config = KefaxUtils.getLinuxConfigFile();
 		KefaxUtils.getLinuxSrcFolderAsFilePath();
 		final String configPathAsString = KefaxUtils.getURIasFileString(config);
+		final IProject dstProject = KefaxUtils.setUpProject(KefaxUtils.getLinuxDiscoverProject(), 
+				this.getMonitor(), 
+				true);
+		final String dst = KefaxUtils.getURIasFileString(dstProject);
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		final File featuresFile = new File(src, MySettings.FEATURES_TXT_NAME);
+		final File featuresFile = new File(dst, MySettings.FEATURES_TXT_NAME);
 		final DotConfig dotConfig = new DotConfig(config, configPathAsString,
 				featuresFile);
 		dotConfig.parseAndGenerateFeaturesTxt();
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		dstProject.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		MyNotification.run("Reading .config / features.txt generation done!",
 				"Reading config file and generating features.txt"
 						+ " has been successfull!");

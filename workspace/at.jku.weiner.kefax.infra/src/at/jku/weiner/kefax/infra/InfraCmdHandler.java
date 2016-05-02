@@ -58,7 +58,9 @@ IResourceVisitor {
 		// final IFolder srcFolder = KefaxUtils.getLinuxExt4SrcFolder();
 		this.files.clear();
 		this.mySrcFolder.accept(this);
-		final IProject dstProject = this.setUpProject();
+		final IProject dstProject = KefaxUtils.setUpProject(
+				KefaxUtils.getLinuxDiscoverProject(), 
+				this.getMonitor(), false);
 		final IFolder dstFolder = dstProject
 				.getFolder(MySettings.LINUX_DISCOVER_DIR);
 		if (dstFolder.exists()) {
@@ -107,20 +109,6 @@ IResourceVisitor {
 			}
 		}
 		return false;
-	}
-
-	private IProject setUpProject() throws CoreException {
-		final IProject project = KefaxUtils.getLinuxDiscoverProject();
-		if (project.exists()) {
-			// TODO maybe ask for confirmation before re-creating
-			project.delete(true, this.getMonitor());
-			project.create(this.getMonitor());
-		} else {
-			project.create(this.getMonitor());
-		}
-		project.open(this.getMonitor());
-		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		return project;
 	}
 
 	private IFile createCmdOutFile(final IFolder dstFolder)

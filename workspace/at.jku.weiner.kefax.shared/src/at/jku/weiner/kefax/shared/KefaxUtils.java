@@ -244,4 +244,21 @@ public final class KefaxUtils {
 		}
 		return true;
 	}
+	
+	public static IProject setUpProject(final IProject project, final IProgressMonitor monitor, 
+			final boolean forceDeleteBeforeCreate) throws Exception {
+		if (project.exists()) {
+			if (forceDeleteBeforeCreate) {
+				// TODO maybe ask for confirmation before re-creating
+				project.delete(true, monitor);
+				project.create(monitor);
+			}
+		} else {
+			project.create(monitor);
+		}
+		project.open(monitor);
+		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+		return project;
+	}
+	
 }

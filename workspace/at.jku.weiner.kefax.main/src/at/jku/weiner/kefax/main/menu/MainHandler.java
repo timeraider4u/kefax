@@ -55,12 +55,12 @@ public class MainHandler extends MyActionHandler {
 			this.run2(this.getMonitor(), discoverer);
 		} catch (final Exception ex) {
 			ex.printStackTrace();
-			MyLog.errorNoThrows(MainHandler.class, ex);
-		} finally {
 			this.updateProject();
 			discoverer.close();
-			this.getMonitor().done();
+			MyLog.error(MainHandler.class, ex);
 		}
+		this.updateProject();
+		discoverer.close();
 		final Date end = new Date();
 		final long difference = end.getTime() - start.getTime();
 		final long sec = difference / 1000;

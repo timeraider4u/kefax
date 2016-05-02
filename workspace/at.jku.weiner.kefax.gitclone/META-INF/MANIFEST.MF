@@ -13,3 +13,4 @@ Require-Bundle: at.jku.weiner.kefax.shared,
  at.jku.weiner.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Export-Package: at.jku.weiner.kefax.gitclone

@@ -18,7 +18,11 @@ Require-Bundle: org.eclipse.ui,
  at.jku.weiner.c.common,
  at.jku.weiner.log,
  at.jku.weiner.kefax.shared,
- at.jku.weiner.kefax.infra
+ at.jku.weiner.kefax.infra,
+ at.jku.weiner.kefax.gitclone,
+ at.jku.weiner.kefax.configure,
+ at.jku.weiner.kefax.configfeatures,
+ at.jku.weiner.kefax.compile
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/commons-io-2.4.jar,

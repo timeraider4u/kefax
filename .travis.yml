@@ -13,4 +13,4 @@ script:
    - mvn clean install
 
 #after_failure:
-#   - cat /home/travis/build/timeraider4u/xtext-predicates/workspace/at.jku.weiner.common/target/work/data/.metadata/.log
+#   - cat /home/travis/build/timeraider4u/kefax/workspace/at.jku.weiner.common/target/work/data/.metadata/.log

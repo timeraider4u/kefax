@@ -1,4 +1,4 @@
-# xtext-predicates
+# kefax
 My try to get semantic predicates working under
 XText, so that I can write a Xtext grammar for the
 programming language C.
@@ -6,7 +6,7 @@ programming language C.
 See also my post in the Eclipse forum:
 https://www.eclipse.org/forums/index.php?t=msg&th=1069632
 
-[![Build Status](https://travis-ci.org/timeraider4u/xtext-predicates.svg?branch=master)](https://travis-ci.org/timeraider4u/xtext-predicates)
+[![Build Status](https://travis-ci.org/timeraider4u/kefax.svg?branch=master)](https://travis-ci.org/timeraider4u/kefax)
 
 # HOWTO - install and use:
 Add https://timeraider4u.github.io/NeoEMF/ as Eclipse update site
@@ -18,7 +18,7 @@ and install the following features:
 * NeoEMF Blueprints Implementations
 	(fr.inria.atlanmod.neoemf.graph.blueprints.implementations.feature.feature.group)
 
-Add https://timeraider4u.github.io/NeoEMF/ as Eclipse update site
+Add https://timeraider4u.github.io/xtext/ as Eclipse update site
 and install the following features:
 * 'Xtext Complete SDK'
 	(org.eclipse.xtext.sdk.feature.group)
@@ -81,7 +81,7 @@ https://github.com/eclipse/xtext/blob/master/plugins/org.eclipse.xtext.generator
 ### What I am currently trying:
 https://www.eclipse.org/forums/index.php?t=msg&th=1069632
 ### and
-https://github.com/timeraider4u/xtext-predicates
+https://github.com/timeraider4u/kefax
 
 ### Predicate hoisting (and why hoisting is not allowed over actions):
 http://www.antlr.org/papers/LL-star/predicate-hoisting.pdf

@@ -150,8 +150,15 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+	
+	<plugin
+         id="at.jku.weiner.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <description url="https://github.com/timeraider4u/xtext-predicates">
+   <description url="https://github.com/timeraider4u/kefax">
 		Kefax - linux KErnel FeAture eXtractor
    </description>
 

@@ -9,6 +9,7 @@ import at.jku.weiner.kefax.gitclone.GitCloneAction;
 import at.jku.weiner.kefax.infra.InfraCmdHandler;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
+import at.jku.weiner.kefax.shared.MyNotification;
 
 public class Demo1Handler extends MyActionHandler {
 
@@ -38,6 +39,9 @@ public class Demo1Handler extends MyActionHandler {
 		compileHandler.start();
 		final InfraCmdHandler infraCmdHandler = new InfraCmdHandler();
 		infraCmdHandler.start();
+		final MainHandler mainHandler = new MainHandler();
+		mainHandler.start();
+		MyNotification.run("Kefax demo done", "Kefax demonstration has finished successfully!");
 	}
 
 }

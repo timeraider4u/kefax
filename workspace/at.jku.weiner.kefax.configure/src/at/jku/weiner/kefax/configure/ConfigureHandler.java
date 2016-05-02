@@ -96,9 +96,9 @@ class ConfigureHandler extends MyActionHandler {
 	
 	private String[] getConfigs() {
 		if (this.isModeA) {
-			return MySettings.CONFIGS;
+			return MySettings.CONFIGS_A;
 		}
-		return MySettings.CONFIGS;
+		return MySettings.CONFIGS_B;
 	}
 
 	private boolean updateConfig() throws Exception {

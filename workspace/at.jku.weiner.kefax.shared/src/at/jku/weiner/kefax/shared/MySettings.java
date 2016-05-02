@@ -37,8 +37,10 @@ public final class MySettings {
 	public static final String LINUX_DISCOVERER_ROOT_SRC_FOLDER = "drivers/tty/";
 	// public static final String LINUX_DISCOVERER_ROOT_SRC_FOLDER = "fs/ext4";
 
-	public static final String[] CONFIGS = new String[] { "CONFIG_TTY=y",
-	"CONFIG_VT=y" };
+	public static final String[] CONFIGS_A = new String[] { "CONFIG_TTY=y",
+	"CONFIG_VT=y", "# CONFIG_UNIX98_PTYS is not set" };
+	public static final String[] CONFIGS_B = new String[] { "CONFIG_TTY=y",
+	"CONFIG_VT=y", "CONFIG_UNIX98_PTYS=y" };
 
 	// public static final String[] CONFIGS = new String[] { "CONFIG_BLOCK=y",
 	// "CONFIG_EXT4_FS=y" };

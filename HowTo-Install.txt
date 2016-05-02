@@ -26,7 +26,7 @@ Eclipse Modeling Luna SR2 AMD64:
 
 	KeFaX
 	https://timeraider4u.github.io/kefax/
-		-> at.jku.weiner.kefax/at.jku.weiner.kefax 0.1.0.201605021420
+		-> at.jku.weiner.kefax/at.jku.weiner.kefax 0.1.0.201605021626
 	optional:
-		-> at.jku.weiner.xtextest/at.jku.weiner.xtexttest 0.1.0.201605021420
+		-> at.jku.weiner.xtextest/at.jku.weiner.xtexttest 0.1.0.201605021626
 

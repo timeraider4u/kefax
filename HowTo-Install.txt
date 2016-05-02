@@ -1,15 +1,24 @@
-Tested with Eclipse Modeling Luna SR2 AMD64:
+Tested with 
+	Eclipse Modeling Luna SR2 AMD64:
+		and
+	Eclipse Modeling Mars.2 Release (4.5.2)
 
 	Download Eclipse Modeling Tools
 	https://eclipse.org/downloads/
+		or
+	https://eclipse.org/downloads/packages/release/luna/sr2
 	
 		
-	Modeling package updates for Eclipse Luna 
+	Modeling package updates for Eclipse Luna / Eclipse Mars
+	either
 		http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/luna/
+	or
+		http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/mars/
 		(pre-defined update-site)
+		
 		-> Modeling/Modisco SDK (Incubation) 0.12.2.201501021045
-
-	http://download.eclipse.org/modeling/mdt/modisco/updates/release/ 
+	or
+		http://download.eclipse.org/modeling/mdt/modisco/updates/release/ 
 		-> Modisco/Modisco SDK (incubation) 0.13.2.201601200708
 	
 	NeoEMF

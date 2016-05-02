@@ -9,6 +9,11 @@
            name="MainCommand">
      </command>
      <command
+           defaultHandler="at.jku.weiner.kefax.main.menu.Demo1Handler"
+           id="at.jku.weiner.kefax.main.demo1cmd"
+           name="Demo1Command">
+     </command>
+     <command
 		      defaultHandler="at.jku.weiner.kefax.main.menu.SetLogLevelCommand"
 		      id="at.jku.weiner.kefax.main.menu.setLoglevelCmd"
 		      name="Set log level">
@@ -66,7 +71,11 @@
    		allPopups="false"
    		locationURI="menu:at.jku.weiner.kefax.main.filemenu?before=at.jku.weiner.kefax.gitclone.command">
    		<!-- TODO: add demo mode run commands here -->	
-   		
+   		<command
+             commandId="at.jku.weiner.kefax.main.demo1cmd"
+             label="Run first demo"
+             style="push">
+       </command>
    		
        <menu
              id="at.jku.weiner.kefax.main.menu.loglevel"

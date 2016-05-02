@@ -1,28 +1,20 @@
 package at.jku.weiner.kefax.main.menu;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import at.jku.weiner.kefax.shared.KefaxUtils;
+import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MySettings;
-import at.jku.weiner.log.MyLog;
 
-public class CleanUpCommand extends AbstractHandler {
+public class CleanUpCommand extends MyActionHandler {
 	
-	@Override
-	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		try {
-			this.myRun();
-		} catch (final Exception ex) {
-			MyLog.errorNoThrows(CleanUpCommand.class, ex);
-		}
-		return null;
+	public CleanUpCommand() {
+		super("at.jku.weiner.kefax.main.CleanUpCommand");
 	}
-	
-	private void myRun() throws Exception {
+
+	@Override
+	protected void myRun() throws Exception {
 		final IResource res = KefaxUtils.getLinuxDiscoverTmpWorkingFolder();
 		if (res == null) {
 			throw new RuntimeException("could not find '"

@@ -1,0 +1,32 @@
+Eclipse Modeling Luna SR2 AMD64:
+		
+	Modeling package updates for Eclipse Luna 
+		http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/luna/
+		(pre-defined update-site)
+		-> Modeling/Modisco SDK (Incubation) 0.12.2.201501021045
+
+	http://download.eclipse.org/modeling/mdt/modisco/updates/release/ 
+		-> Modisco/Modisco SDK (incubation) 0.13.2.201601200708
+	
+	NeoEMF
+	https://timeraider4u.github.io/NeoEMF/
+		each with version 0.0.1.201604020242
+		-> Base/NeoEMF Persistence framework
+		-> Backends/NeoEMF Blueprints adapter
+		-> Backends/NeoEMF Blueprints implementation
+
+	org.xtext.antlr.generator
+	https://timeraider4u.github.io/org.xtext.antlr.generator/
+		-> org.xtext.antlr.generator/org.xtext.antlr.generator.feature 
+			version 3.2.1.201604141818
+
+	Xtext-modified
+	https://timeraider4u.github.io/xtext/
+		-> Xtext/Xtext Complete SDK 2.9.0.v201604150031
+
+	KeFaX
+	https://timeraider4u.github.io/kefax/
+		-> at.jku.weiner.kefax/at.jku.weiner.kefax 0.1.0.201605021420
+	optional:
+		-> at.jku.weiner.xtextest/at.jku.weiner.xtexttest 0.1.0.201605021420
+

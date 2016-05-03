@@ -10,7 +10,7 @@ before_install:
 
 script:
 #   - export
-   - mvn clean install
+   - mvn --batch-mode clean install
 
 #after_failure:
 #   - cat /home/travis/build/timeraider4u/kefax/workspace/at.jku.weiner.common/target/work/data/.metadata/.log

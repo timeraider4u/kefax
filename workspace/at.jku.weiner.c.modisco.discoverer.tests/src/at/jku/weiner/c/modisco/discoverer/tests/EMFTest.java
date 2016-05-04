@@ -87,7 +87,8 @@ public class EMFTest {
 	}
 
 	private static void cleanUpOldProject() throws CoreException {
-		MyLog.setLog_level(MyLog.LOG_TRACE);
+		//MyLog.setLog_level(MyLog.LOG_TRACE);
+		MyLog.setLog_level(MyLog.LOG_INFO);
 		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(Activator.PLUGIN_ID);
 		if (oldProject.exists()) {

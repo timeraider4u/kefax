@@ -22,6 +22,7 @@ abstract class DemoHandler extends MyActionHandler {
 	@Override
 	protected final void myRun() throws Exception {
 		// TODO Auto-generated method stub
+		System.gc();
 		final IProject srcProject = KefaxUtils.getLinuxProject();
 		final IProject dstProject = KefaxUtils.getLinuxDiscoverProject();
 		if (srcProject.exists()) {

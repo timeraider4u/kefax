@@ -2,11 +2,8 @@ package at.jku.weiner.c.modisco.discoverer.tests;
 
 import java.io.File;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,7 +85,8 @@ public class EMFTest {
 
 	private static void cleanUpOldProject() throws CoreException {
 		//MyLog.setLog_level(MyLog.LOG_TRACE);
-		MyLog.setLog_level(MyLog.LOG_INFO);
+		//MyLog.setLog_level(MyLog.LOG_INFO);
+		MyLog.setLog_level(MyLog.LOG_NONE);
 		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(Activator.PLUGIN_ID);
 		if (oldProject.exists()) {

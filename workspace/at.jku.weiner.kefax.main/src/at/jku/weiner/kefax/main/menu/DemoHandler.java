@@ -1,5 +1,7 @@
 package at.jku.weiner.kefax.main.menu;
 
+import java.util.Date;
+
 import org.eclipse.core.resources.IProject;
 
 import at.jku.weiner.kefax.compile.CompileHandler;
@@ -10,6 +12,7 @@ import at.jku.weiner.kefax.infra.InfraCmdHandler;
 import at.jku.weiner.kefax.shared.KefaxUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.kefax.shared.MyNotification;
+import at.jku.weiner.log.MyLog;
 
 abstract class DemoHandler extends MyActionHandler {
 	private final boolean isMode;
@@ -21,8 +24,8 @@ abstract class DemoHandler extends MyActionHandler {
 
 	@Override
 	protected final void myRun() throws Exception {
-		// TODO Auto-generated method stub
-		System.gc();
+		final Date start = new Date();
+		//System.gc();
 		final IProject srcProject = KefaxUtils.getLinuxProject();
 		final IProject dstProject = KefaxUtils.getLinuxDiscoverProject();
 		if (srcProject.exists()) {
@@ -44,6 +47,16 @@ abstract class DemoHandler extends MyActionHandler {
 		infraCmdHandler.start();
 		final MainHandler mainHandler = new MainHandler();
 		mainHandler.start();
-		MyNotification.run("Kefax demo done", "Kefax demonstration has finished successfully!");
+		final Date end = new Date();
+		final long difference = end.getTime() - start.getTime();
+		final long sec = difference / 1000;
+		final long min = sec / 60;
+		final long seconds = sec % 60;
+		MyLog.log(MainHandler.class, "Demonstration mode took '" + min + "' minutes and '"
+				+ seconds + "' seconds for !");		
+		MyNotification.run("Kefax demo done", "Kefax demonstration has finished successfully after '" 
+				+ min + "'minutes and '" 
+				+ seconds + "' seconds!");
 	}
+	
 }

@@ -1,9 +1,15 @@
 package at.jku.weiner.kefax.main;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.State;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.handlers.RegistryToggleState;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import at.jku.weiner.kefax.main.menu.UseNeoEMFHandler;
 import at.jku.weiner.log.MyLog;
 
 /**
@@ -35,6 +41,16 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		Activator.plugin = this;
 		MyLog.trace(Activator.class, "Starting plug-in!");
+		// initialize UseNeoEMFHandler
+		initializeUseNeoEMFHandler();
+	}
+
+	private void initializeUseNeoEMFHandler() {
+		final ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getService(ICommandService.class);  
+	    final Command useNeoEMFCmd = commandService.getCommand(UseNeoEMFHandler.COMMAND_ID);
+	    final State useNeoEMFState = useNeoEMFCmd.getState(RegistryToggleState.STATE_ID);
+	    final Boolean useNeoEMF = ((Boolean)useNeoEMFState.getValue());
+	    UseNeoEMFHandler.setUseNeoEMFBackend(useNeoEMF);
 	}
 
 	/*

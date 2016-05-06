@@ -16,10 +16,12 @@ public abstract class MyActionHandler extends AbstractHandler {
 	
 	private final String actionName;
 	private IProgressMonitor monitor;
+	private ExecutionEvent event;
 
 	public MyActionHandler(final String actionName) {
 		this.actionName = actionName;
 		this.monitor = null;
+		event = null;
 	}
 	
 	private class MyActionJob extends Job {
@@ -40,6 +42,7 @@ public abstract class MyActionHandler extends AbstractHandler {
 	}
 	
 	public final void start() throws Exception {
+		event = null;
 		final Job job = new MyActionJob(this.getActionName());
 		job.schedule();
 		job.join();
@@ -52,6 +55,7 @@ public abstract class MyActionHandler extends AbstractHandler {
 	@Override
 	public final Object execute(final ExecutionEvent event)
 			throws ExecutionException {
+		this.event = event;
 		final Job job = new MyActionJob(this.getActionName());
 		job.schedule();
 		return null;
@@ -79,6 +83,10 @@ public abstract class MyActionHandler extends AbstractHandler {
 
 	public String getActionName() {
 		return this.actionName;
+	}
+	
+	protected ExecutionEvent getEvent() {
+		return this.event;
 	}
 	
 }

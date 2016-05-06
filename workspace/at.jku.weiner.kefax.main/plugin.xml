@@ -41,6 +41,15 @@
 		        </class>
 		   </state>
 	</command>
+	<command
+      defaultHandler="at.jku.weiner.kefax.main.menu.UseNeoEMFHandler"
+      id="at.jku.weiner.kefax.main.menu.useneoemf"
+      name="Use NeoEMF backend">
+	   <state
+	         class="org.eclipse.ui.handlers.RegistryToggleState:false"
+	         id="org.eclipse.ui.commands.toggleState">
+	   </state>
+	</command>
      <command
            defaultHandler="at.jku.weiner.kefax.main.menu.CleanUpCommand"
            id="at.jku.weiner.kefax.main.menu.cleanup"
@@ -86,7 +95,12 @@
              label="Run KeFaX demonstration B"
              style="push">
        </command>
-   		
+   		<command
+                  commandId="at.jku.weiner.kefax.main.menu.useneoemf"
+                  label="Use NeoEMF backend"
+                  style="toggle">
+       </command>
+                  
        <menu
              id="at.jku.weiner.kefax.main.menu.loglevel"
              label="Set log level">

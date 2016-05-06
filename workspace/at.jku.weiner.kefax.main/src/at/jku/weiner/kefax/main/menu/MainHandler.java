@@ -43,10 +43,12 @@ public class MainHandler extends MyActionHandler {
 	}
 
 	private IProject project = null;
+	boolean useNeoEMF = false;
 
 	@Override
 	protected void myRun() throws Exception {
 		final Date start = new Date();
+		this.useNeoEMF = UseNeoEMFHandler.useNeoEMFBackend();
 		final DiscoverFromIResource discoverer = new DiscoverFromIResource();
 		try {
 			this.project = KefaxUtils.getLinuxDiscoverProject();
@@ -151,10 +153,13 @@ public class MainHandler extends MyActionHandler {
 		// open browser
 		MyLog.debug(MainHandler.class, "discovering finished! Opening browser now!");
 		final Resource targetModel = discoverer.getTargetResource();
+		MyLog.debug(MainHandler.class, "resource targetModel='" + targetModel + "'");
 		final IBrowserRegistry browserRegistry = IBrowserRegistry.INSTANCE;
 		final IResourceBrowserOpener browser = browserRegistry.getDefaultResourceBrowserOpener();
 		MyLog.debug(MainHandler.class, "opening browser='" + browser + "'");
 		browser.openResource(targetModel);
+		
+		// Neo4EMFBrowser browser2 = new Neo4EMFBrowser();
 	}
 
 	private void discoverSourceFile(final IProgressMonitor monitor,
@@ -182,8 +187,7 @@ public class MainHandler extends MyActionHandler {
 		// discoverer.setTrimPreprocessModel(true);
 		discoverer.setBatchMode(true);
 		// discoverer.setBatchMode(false);
-		// discoverer.setUseNeoEMF(true);
-		discoverer.setUseNeoEMF(false);
+		discoverer.setUseNeoEMF(this.useNeoEMF);
 		discoverer.discoverElement(inFileRes, monitor);
 		this.updateProject();
 	}

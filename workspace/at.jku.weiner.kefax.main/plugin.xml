@@ -55,6 +55,16 @@
            id="at.jku.weiner.kefax.main.menu.cleanup"
            name="CleanUp">
      </command>
+     <command
+           defaultHandler="at.jku.weiner.kefax.main.menu.BrowserCommandHandler"
+           id="at.jku.weiner.kefax.main.menu.browser"
+           name="Open MoDisco browser">
+     </command>
+     <command
+           defaultHandler="at.jku.weiner.kefax.main.menu.CloseCommand"
+           id="at.jku.weiner.kefax.main.menu.close"
+           name="Close backend storage">
+     </command>
   </extension>
   <extension
         point="org.eclipse.ui.menus">
@@ -66,19 +76,6 @@
               label="KeFaX" />
      </menuContribution>
   </extension>
-  <extension
-  		 point="org.eclipse.ui.menus">
-     <menuContribution
-   		allPopups="false"
-   		locationURI="menu:at.jku.weiner.kefax.main.filemenu?after=at.jku.weiner.kefax.main.menu.cleanup">
-       <command
-             commandId="at.jku.weiner.kefax.main.command"
-             label="9.) Discovering KeFaX"
-             style="push"
-             tooltip="Start discovering">
-       </command>
-      </menuContribution>
-   </extension>
    <extension
    		point="org.eclipse.ui.menus">
    	<menuContribution
@@ -157,6 +154,8 @@
 		      </separator>
      </menuContribution>
   </extension>
+  
+  
     <extension
    		point="org.eclipse.ui.menus">
    	<menuContribution
@@ -167,7 +166,24 @@
              label="8.) Clean up tmp-discovery directory"
              style="push">
        </command>
-     </menuContribution>
-  </extension>
- 	
+       <command
+             commandId="at.jku.weiner.kefax.main.command"
+             label="9.) Discovering KeFaX"
+             style="push"
+             tooltip="Start discovering">
+       </command>
+       <command
+             commandId="at.jku.weiner.kefax.main.menu.browser"
+             label="10.) Open Eclipse MoDisco browser"
+             style="push"
+             tooltip="Open Eclipse MoDisco browser">
+       </command>
+       <command
+             commandId="at.jku.weiner.kefax.main.menu.close"
+             label="11.) Close backend storage"
+             style="push"
+             tooltip="Close backend storage">
+       </command>
+      </menuContribution>
+   </extension>
 </plugin>

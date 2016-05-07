@@ -47,6 +47,10 @@ abstract class DemoHandler extends MyActionHandler {
 		infraCmdHandler.start();
 		final MainHandler mainHandler = new MainHandler();
 		mainHandler.start();
+		final BrowserCommandHandler browserHandler = new BrowserCommandHandler();
+		browserHandler.start();
+		final CloseCommand closeHandler = new CloseCommand();
+		closeHandler.start();
 		final Date end = new Date();
 		final long difference = end.getTime() - start.getTime();
 		final long sec = difference / 1000;

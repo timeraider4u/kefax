@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.facet.util.emf.core.IBrowserRegistry;
-import org.eclipse.emf.facet.util.emf.core.IResourceBrowserOpener;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -56,13 +54,13 @@ public class MainHandler extends MyActionHandler {
 					"at.jku.weiner.kefax.main - Start of program!");
 			this.run2(this.getMonitor(), discoverer);
 		} catch (final Exception ex) {
+			BrowserCommandHandler.setDiscoverer(null);
+			CloseCommand.setDiscoverer(null);
 			ex.printStackTrace();
 			this.updateProject();
-			discoverer.close();
 			MyLog.error(MainHandler.class, ex);
 		}
 		this.updateProject();
-		discoverer.close();
 		final Date end = new Date();
 		final long difference = end.getTime() - start.getTime();
 		final long sec = difference / 1000;
@@ -70,8 +68,8 @@ public class MainHandler extends MyActionHandler {
 		final long seconds = sec % 60;
 		MyLog.log(MainHandler.class, "took '" + min + "' minutes and '"
 				+ seconds + "' seconds for parsing!");
-		MyLog.log(MainHandler.class,
-				"at.jku.weiner.kefax.main - End of program!");
+		BrowserCommandHandler.setDiscoverer(discoverer);
+		CloseCommand.setDiscoverer(discoverer);
 	}
 
 	private void run2(final IProgressMonitor monitor,
@@ -150,16 +148,6 @@ public class MainHandler extends MyActionHandler {
 						fileName);
 			}
 		}
-		// open browser
-		MyLog.debug(MainHandler.class, "discovering finished! Opening browser now!");
-		final Resource targetModel = discoverer.getTargetResource();
-		MyLog.debug(MainHandler.class, "resource targetModel='" + targetModel + "'");
-		final IBrowserRegistry browserRegistry = IBrowserRegistry.INSTANCE;
-		final IResourceBrowserOpener browser = browserRegistry.getDefaultResourceBrowserOpener();
-		MyLog.debug(MainHandler.class, "opening browser='" + browser + "'");
-		browser.openResource(targetModel);
-		
-		// Neo4EMFBrowser browser2 = new Neo4EMFBrowser();
 	}
 
 	private void discoverSourceFile(final IProgressMonitor monitor,

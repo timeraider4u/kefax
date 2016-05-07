@@ -58,6 +58,8 @@ AbstractDiscoverer<T> {
 
 		// clean-up
 		this.xtextUtils.cleanUp();
+		this.xtextUtils = null;
+		this.myStore = null;
 	}
 
 	/***

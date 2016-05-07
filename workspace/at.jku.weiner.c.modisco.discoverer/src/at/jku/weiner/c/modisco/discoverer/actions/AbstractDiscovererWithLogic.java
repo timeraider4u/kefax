@@ -55,11 +55,6 @@ AbstractDiscoverer<T> {
 		MyLog.trace(AbstractDiscovererWithLogic.class, "initialization done!");
 
 		this.discoverIResource();
-
-		// clean-up
-		this.xtextUtils.cleanUp();
-		this.xtextUtils = null;
-		this.myStore = null;
 	}
 
 	/***
@@ -196,6 +191,12 @@ AbstractDiscoverer<T> {
 		final IProject project = this.myStore.getIResource().getProject();
 		project.refreshLocal(IResource.DEPTH_INFINITE,
 				this.myStore.getMonitor());
+	}
+	
+	public void cleanUp() {
+		this.xtextUtils.cleanUp();
+		this.xtextUtils = null;
+		this.myStore = null;
 	}
 
 	public void close() {

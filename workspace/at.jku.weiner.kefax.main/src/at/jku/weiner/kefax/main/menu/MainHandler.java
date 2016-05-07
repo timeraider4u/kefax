@@ -148,6 +148,7 @@ public class MainHandler extends MyActionHandler {
 						fileName);
 			}
 		}
+		discoverer.cleanUp();
 	}
 
 	private void discoverSourceFile(final IProgressMonitor monitor,

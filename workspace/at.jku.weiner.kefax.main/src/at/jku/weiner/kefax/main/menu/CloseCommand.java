@@ -5,7 +5,7 @@ import at.jku.weiner.kefax.shared.MyActionHandler;
 
 public class CloseCommand extends MyActionHandler {
 	
-	private static DiscoverFromIResource discoverer;
+	private static DiscoverFromIResource discoverer = null;
 	
 	public static void setDiscoverer(final DiscoverFromIResource discoverer) {
 		CloseCommand.discoverer = discoverer;
@@ -13,7 +13,6 @@ public class CloseCommand extends MyActionHandler {
 
 	public CloseCommand() {
 		super("at.jku.weiner.kefax.main.closecommand");
-		discoverer = null;
 	}
 
 	@Override

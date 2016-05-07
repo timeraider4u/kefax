@@ -10,7 +10,7 @@ import at.jku.weiner.log.MyLog;
 
 public class BrowserCommandHandler extends MyActionHandler {
 
-	private static DiscoverFromIResource discoverer;
+	private static DiscoverFromIResource discoverer = null;
 	
 	public static void setDiscoverer(final DiscoverFromIResource discoverer) {
 		BrowserCommandHandler.discoverer = discoverer;
@@ -18,7 +18,6 @@ public class BrowserCommandHandler extends MyActionHandler {
 
 	public BrowserCommandHandler() {
 		super("at.jku.weiner.kefax.main.browsercommand");
-		discoverer = null;
 	}
 
 	@Override

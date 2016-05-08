@@ -1,0 +1,2 @@
+  MoDisco SDK (Incubation)	0.12.2.201501021045	org.eclipse.modisco.sdk.feature.feature.group	Eclipse Modeling Project
+	Discover C/C++ Model on folders -> Possible

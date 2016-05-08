@@ -1,0 +1,6 @@
+org.eclipse.xtext: org/eclipse/xtext/Xtext.genmodel -> generate model code
+org.eclipse.xtext.bootstrap > src/org.eclipse.xtext.bootstrap/GenerateXtext.mwe2 -> run as MWE2 Workflow
+../runPatch.sh
+cd releng/org.eclipse.xtext.releng/releng/ant/
+ant -f xtext-build.ant
+

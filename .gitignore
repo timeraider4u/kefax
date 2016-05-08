@@ -12,3 +12,4 @@ MANIFEST.MF_gen
 *.xtendbin
 *.trace
 *._trace
+.~lock.*

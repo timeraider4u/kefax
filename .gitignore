@@ -13,3 +13,9 @@ MANIFEST.MF_gen
 *.trace
 *._trace
 .~lock.*
+*.out
+*.aux
+*.bbl
+*.blg
+*.bak
+*.log

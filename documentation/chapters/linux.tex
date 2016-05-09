@@ -1,9 +1,9 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 \section{Linux kernel configuration/build}
-\IEEEPARstart{T}he The Linux kernel is developed by programmers from all around the world 
-and can be obtained at \url{https://www.kernel.org/}\cite{Kernel_1}.
-A mirrored version of the Linux kernel can be found at \url{https://github.com/torvalds/linux}\cite{Kernel_2}.
+\IEEEPARstart{T}he Linux kernel is developed by programmers from all around the world 
+and can be obtained at \cite{Kernel_1}.
+A mirrored version of the Linux kernel can be found on Github \cite{Kernel_2}.
 The kernel is developed, compiled and installed by using Unix-like tools.
 The main documentation is provided as plain text files while the kernel itself is programmed 
 in the C programming language. Although the kernel itself is developed in C and Assembler,
@@ -21,7 +21,8 @@ which have historically grown over time.
 
 The picture \ref{fig:overview} shows an overview of the dependencies between the different ``DSLs''.
 An overview of the kernel compilation and building can also be found at 
-\url{http://www.linuxjournal.com/article/6568}\cite{Kernel_3}
+\cite{Kernel_3}
+\FloatBarrier
 
 \subsection{.config}
 
@@ -31,8 +32,7 @@ Here is an example:
 \lstinputlisting[frame=single,extendedchars=true,label=Kconfig,caption={./drivers/video/console/Kconfig},
   breaklines=true,]{code/driversVideoConsoleKconfig.txt}
 
-A detailed description of the kconfig system can be found at
-\url{https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt}\cite{Kernel_4} 
+A detailed description of the kconfig system can be found at \cite{Kernel_4} 
 \\ \ \\
 The variability model of the Linux kernel is, e.g., described in She et al. 
 ``The Variability Model of The Linux Kernel''\cite{she2010variability},
@@ -42,12 +42,7 @@ and in Tartler et al. ``Dead or alive: finding zombie features in the linux kern
 Although these papers describe older kernel versions their main conclusions are still valid.
 
 \subsection{Generating a .config file}
-\begin{figure*}[ht]
-  \centering
-  \includegraphics[scale=0.5]{images/menuconfig}
-  \caption{Configuring the kernel with menuconfig, e.g., over a ssh connection}
-  \label{fig:menuconfig}
-\end{figure*}
+
 The users can then use one of the configuration tools which get delivered with the Linux kernel,
 e.g. {\it make oldconfig} when you already have a running kernel and you want to only 
 update to a new kernel version or 
@@ -60,10 +55,18 @@ Linux kernel source code.
 The following text listing is an example for such a generated configuration file:
 \lstinputlisting[frame=single,extendedchars=true,label=DotConfig,caption={.config file snippet},
   breaklines=true,]{code/dotConfig.txt}
+\FloatBarrier
 
 The following screenshot in figure \ref{fig:menuconfig} 
 shows the {\it menuconfig} program, 
 a graphical configuration tool which can be used on the terminal:
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[scale=0.5]{images/menuconfig}
+  \caption{Configuring the kernel with menuconfig, e.g., over a ssh connection}
+  \label{fig:menuconfig}
+\end{figure*}
+\FloatBarrier
 
 \subsection{Kbuild system}
 Whenever the kernel, its modules or any initramfs should be built the kbuild system is invoked. 
@@ -94,9 +97,6 @@ The following source snippet shows how the macro definitions are used in the C s
 The results of the compilation are binary object files which can be installed to 
 {\it /boot} and/or {\it /lib/modules/$<$linux-version$>$} with {\it make install}. 
 
-More information about kbuild itself can be found at
-\url{https://www.kernel.org/doc/Documentation/kbuild/makefiles.txt}\cite{Kernel_5}
+More information about kbuild itself can be found at \cite{Kernel_5}
 and
-\url{http://hemaprathaban.blogspot.co.at/2013/06/makefile-and-kconfig.html}\cite{Kernel_6}
-
-\FloatBarrier
+\cite{Kernel_6}

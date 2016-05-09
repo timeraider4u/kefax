@@ -1,0 +1,47 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\section{Implementation}
+\IEEEPARstart{T}his chapter will clarify the development history, 
+discovered bugs and design decisions taken.
+
+\subsection{Evaluation of existing tools}
+Let us first take a look on programs 
+which already existed when this project started and 
+why they have or have not been used  for KeFaX:
+
+\subsubsection{Using existing compilers / compiler-generators}
+C/C++ are very complex programming languages with a lot of disambiguties,
+lots of different revisions (e.g. ANSI C, ISO/IEC C99\cite{ISOC99}, C++11) and a 
+huge amount of compiler specific extensions
+(GNU GCC extensions, etc.). 
+The Linux kernel makes use of some of the GNU C extensions.
+Therefore, it is not possible to compile the vanilla sources of the Linux kernel with Clang
+LLVM yet - the Clang front-end\cite{ClangIntro} would provide a nice abstract syntax tree (AST), 
+e.g., as a XML file. For compiler generators like CocoR\cite{COCOR}, 
+GNU's implementation of Yacc called Bison\cite{Bison}, etc. there is no unique 
+and/or clear EBNF available for C/C++ which would also include most of the GNU C extensions.
+A little out-dated grammar  for GNU GCC can be found at \cite{GNUCEBNF}.
+GNU gcc itself provides its internal data structures to external programs.
+Applications might use this information and provide AST as XML, e.g.
+XOgastan\cite{XOgastan} or 
+GCC\_XML \cite{gccxml}
+The problem with these tools is that they are either not available anymore or are out-dated or buggy.
+But even if they would work, the next question is how to build-up the AST, 
+which tools and which data structures to use and how much effort would be required to do so \dots
+
+\subsubsection{Reverse Engineering}
+Inspired by Schneiden et al. "Model-Based Mining of Source Code Repositories"
+\cite{scheidgen2014model} the idea came up that it might be interesting to develop
+an {\it Eclipse MoDisco discoverer} \cite{Modisco_1}
+\cite{bruneliere2010modisco}
+\cite{bruneliere2014modisco}.
+{\it Eclipse MoDisco} is a reverse-engineering framework which is built on top of the
+{\it Eclipse EMF} (Eclipse Modeling Framework)..
+This would solve the question of which data structure / abstract syntax tree
+to use for storage.
+Discoverers are a set of Eclipse plug-ins that provide an importer/parser for a 
+certain programming language.
+There exist discoverers for Java, JSP, JSON and many more.
+Unfortunately, {\it Eclipse MoDisco discoverers} for C and C++ 
+did not exist when starting this project.
+

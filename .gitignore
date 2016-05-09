@@ -20,3 +20,4 @@ MANIFEST.MF_gen
 *.bak
 *.log
 *.backup
+*.synctex.gz

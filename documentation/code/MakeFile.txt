@@ -1,0 +1,5 @@
+obj-$(CONFIG_DUMMY_CONSOLE) += dummycon.o
+obj-$(CONFIG_FRAMEBUFFER_CONSOLE) += fbcon.o bitblit.o softcursor.o
+ifeq ($(CONFIG_FB_TILEBLITTING),y)
+obj-$(CONFIG_FRAMEBUFFER_CONSOLE) += tileblit.o
+endif

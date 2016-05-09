@@ -19,3 +19,4 @@ MANIFEST.MF_gen
 *.blg
 *.bak
 *.log
+*.backup

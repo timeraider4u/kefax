@@ -1,0 +1,13 @@
+config DUMMY_CONSOLE
+        bool
+        depends on VGA_CONSOLE!=y || SGI_NEWPORT_CONSOLE!=y 
+        default y
+
+config FRAMEBUFFER_CONSOLE
+        tristate "Framebuffer Console support"
+        depends on FB && !UML
+        select VT_HW_CONSOLE_BINDING
+        select CRC32
+        select FONT_SUPPORT
+        help
+          Low-level framebuffer-based console driver

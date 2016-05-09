@@ -1,0 +1,33 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\section{KeFaX requirements / KeFaX tasks}
+\IEEEPARstart{A}s a result of the required input structure of {\it ECCO}, 
+the following coarse tasks can be identified for this project:
+\begin{enumerate}
+ \item Parsing .config file
+ \item Obtaining compilation options (which source files are required to be 
+ parsed, which include directories are used)
+ \item Pre-processing source code and removing un-taken 
+ pre-processor conditionals
+ \item Parsing source code (.c / .h files)
+ \item ``Glue code'' $+$ (Complete data model)
+ \item Providing the data structure somehow to {\it ECCO}
+\end{enumerate}
+\ \\
+\ \\
+These steps can then be re-defined as:
+\begin{enumerate}
+ \item\label{reqTaskFeatureCreate} Manually create {\it .config} by selecting features 
+ (e.g., in {\it menuconfig})
+ \item\label{reqTaskParseDotConfig} Parse {\it .config}
+ \item\label{reqTaskFeatureTxtCreate} Create {\it features.txt}
+ ({\it .config} $\rightarrow$ {\it features.txt})
+ \item\label{reqTaskCompileOptions} Obtain compilation options from kbuild makefiles
+ \item\label{reqTaskPruneSource} Prune source code files
+ (code files for features that are not selected should be deleted)
+ ({\it .config} $+$ makefiles $\rightarrow$ code structure)
+ \item\label{reqTaskPreprocess} Run pre-processor on files and do fine-grain
+ ({\it \# ifdef} code which is not selected should be thrown away)
+ ({\it .config} $\rightarrow$ source code files)
+\end{enumerate}
+

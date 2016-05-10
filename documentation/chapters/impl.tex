@@ -83,9 +83,8 @@ How about using {\it EMF (Eclipse Modeling Framework)}
 \cite{steinberg2008emf}
 instead? EMF provides rich APIs for processing and transforming 
 a model into other models or code.
-%An tutorial on EMF can be found at 
-% insert LINK here!!!
-%
+An tutorial on EMF can, for example, be found at 
+\cite{EMF_Tutorial}.
 So which projects
 exist for working with C/C++ in conjunction with EMF?
 
@@ -106,11 +105,35 @@ Unfortunately, as the goal of EMF4CPP is a different one,
 it only supports a small subset of C++, 
 e.g. it is not possible to 
 use macro directives, embedded C or assembler code.
+EMF4CPP is, therefore, more similar to the 
+{\it Javascript for EMF (JS4EMF)} project
+\cite{JavaScript4EMF_1}
+\cite{JavaScript4EMF_2}.
+It is not possible 
+to parse the Linux kernel with
+this project.
 
 \subsubsection{Eclipse MoDisco}
 So far, the approaches have been disappointing because
 every one had major disadvantages. But the method described
-in this section about Eclipse MoDisco seems promising.
+in this section about Eclipse MoDisco seemed promising.
+
+The paper  "Model-Based Mining of Source Code Repositories"
+\cite{scheidgen2014model}
+written by
+Markus Scheidgen and Joachim
+Fischer describes how they utilized {\it Eclipse MoDisco}
+for reverse-engineering of open source code repositories
+like GitHub to gain static code analysis metrics about
+Java applications. 
+
+{\it Eclipse MoDisco} 
+\cite{Modisco_1}
+\cite{bruneliere2010modisco}
+\cite{bruneliere2014modisco}.
+claims to provide "an
+extensible framework to develop model-driven tools to support
+use-cases of existing software modernization". 
 
 \begin{figure}[ht]
     \centering
@@ -119,13 +142,16 @@ in this section about Eclipse MoDisco seems promising.
     \label{fig:JavaAST2}
 \end{figure}
 
-Inspired by Schneiden et al. "Model-Based Mining of Source Code Repositories"
-\cite{scheidgen2014model} the idea came up that it might be interesting to develop
-an {\it Eclipse MoDisco discoverer} \cite{Modisco_1}
-\cite{bruneliere2010modisco}
-\cite{bruneliere2014modisco}.
-{\it Eclipse MoDisco} is a reverse-engineering framework which is built on top of the
-{\it Eclipse EMF} (Eclipse Modeling Framework)..
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.35]{images/discoverer}
+	\caption{Using Eclipse MoDisco}
+    \label{fig:discoverer}
+\end{figure}
+\FloatBarrier
+
+It is a reverse-engineering framework which is built on top of the
+{\it Eclipse EMF} (Eclipse Modeling Framework).
 This would solve the question of which data structure / abstract syntax tree
 to use for storage.
 Discoverers are a set of Eclipse plug-ins that provide an importer/parser for a 
@@ -134,21 +160,137 @@ There exist discoverers for Java, JSP, JSON and many more.
 Unfortunately, {\it Eclipse MoDisco discoverers} for C and C++ 
 did not exist when starting this project.
 In the Eclipse forum in a thread called ``Looking for c/c++ discoverer''
-\cite{C_Discoverer} it was suggested to piggy-back use {\it Eclipse CDT}
+\cite{C_Discoverer} it was suggested to piggy-back use 
+{\it Eclipse CDT ((Compiler development tools))}
 \cite{Eclipse_CDT}\cite{piatov2012using} to implement a C/C++ discoverer.
 
-%\subsection{XText}
-%XText is an Eclipse plug-in with which it is possible to design a DSL (domain-specific language).
-%With its advanced editors this application allows to import and process DSL artifacts easily
-%and re-use the automatically generated models.
-%One problem with XText is that it is based on ANTLR and, therefore, can not deal with 
-%left recursion. Most C/C++ EBNFs are somehow using left-recursion to simplify the writing.
-%Other non-trivial problems can occur too when dealing with rich general-purpose languages like the C
-%program family. One try in using XText for parsing C/C++ can be seen below in figure \ref{fig:xtext}.
-%\begin{figure}[ht]
-%    \centering
-%	\includegraphics[scale=0.5]{images/xtext}
-%	\caption{Editing a xtext file}
-%    \label{fig:xtext}
-%\end{figure}
-%\FloatBarrier
+{\it Eclipse CDT} supports C/C++ and can deal with most of the GNU C extensions
+and pre-processing directives but it has 
+a deeply nested code structure that is not always easy to deal with when 
+walking the tree, as it can be seen in code snippet \ref{IASTNode}.
+
+\lstinputlisting[language=Java, firstline=1, lastline=39,frame=single,label=IASTNode,
+caption={Javadoc subinterfaces of  IASTNode},
+breaklines=true,]{code/iastnode.txt}
+
+Therefore, it was decided to change from {\it Eclipse CDT} to a different parsing 
+technology. 
+
+\subsubsection{ANTLR, EMFText and Xtext}
+Luckily there is an {\it ANTLR} grammar available 
+at the {\it antlr/grammars-v4} Github repository \cite{C_v4}.
+which already includes
+most of the GNU C extensions. 
+"ANTLR (ANother Tool for Language Recognition)
+is a powerful parser generator for reading, processing, executing, 
+or translating structured text or binary files.
+ It's widely used to build languages, tools, and frameworks. 
+ From a grammar, 
+ ANTLR generates a parser that can build and walk parse trees."\cite{Antlr}
+There exist bindings for different programming languages including Java
+(in which most of its parts are also developed) but {\it ANTLR} does not
+support exporting to {\it Eclipse EMF}.
+
+{\it ANTLR} itself is used by two Text-To-Model tools for the 
+{\it Eclipse IDE}:
+{\it EMFText} and {\it XText}. 
+Both provide the possibility to engineer DSLs and use the automated 
+generation of advanced text editors which support syntax highlighting,
+error recovering and auto-completion. 
+{\it XText} has the advantage compared to {\it EMFText} that it is
+an official Eclipse project and that it can automatically generate
+an Ecore meta-model out of a grammar description file. 
+Both use a version three of {\it ANTLR}
+\cite{ANTLR4_XText}
+\cite{ANTLR4_EMFText}
+which has some disadvantages
+compared to the newer re-written {\it ANTLR v4} which supports
+some automatically left-recursion resolution and, therefore,
+does not need semantic predicates anymore.
+Even if almost all complex EBNF grammars 
+use left-recursions,
+most of them can be re-factored to avoid disambiguates.
+\\ \ \\
+But there are cases in the C programming languages
+which require semantic predicates
+(e.g., to distinguish between declarations
+and function definitions) to remove left-recursion from the grammar. 
+For more information on semantic predicates see 
+\cite{parr1994adding} and \cite{SemPreds}.
+{\it ANTLR} in version four does not need semantic predicates anymore
+for parsing C/C++,
+version three supports them at least.
+Unfortunately, even if {\it EMFText} and {\it XText} both use {\it ANTLR} in version three,
+they do not support semantic predicates (they only support syntactical predicates).
+
+{\it XText} internally generates an ANTLR grammar file (e.g., {\it InternalParser.g})
+out of the DSL grammar description file (e.g., {\it Parser.xtext}).
+When semantic predicates where inserted into this intermediate file and this
+grammar was then fed into the {\it ANTLR} application as an input, it was possible
+to create a valid C parser. 
+Therefore, it was necessary to add semantic predicate support to {\it XText} first,
+to avoid patching of the intermediate file all the time.
+This has been implemented in \url{https://github.com/timeraider4u/xtext}
+\cite{Xtext_mod}
+which is a fork of the official {\it Xtext} source code.
+When this was done, the need for an own C pre-processor has arisen
+which should be able to also gain information on which conditionals 
+where taken, to resolve pre-processor macros and so on\dots
+The C pre-processor and parser
+have then been tested against various test code and 
+parts of the libc implementation.
+Afterwards the C pre-processor and parser 
+combination have been integrated into an {\it Eclipse MoDisco} discoverer
+and the final result
+has been tested against the Linux kernel. 
+Whenever
+an error occurred 
+new JUnit test cases have been added and the grammar files
+have been extended to support these language features as well.
+Not all GNU C extensions are supported yet (they are far too many).
+\\ \ \\
+Unfortunately, some issues still remain unsolved at this moment, 
+including some cases that can lead to {\it OutOfMemory exceptions}.
+Even moving from the default {\it EMF XMI storage back-end} to
+{\it NeoEMF} could not resolve this problem satisfactorily.
+{\it NeoEMF}\cite{NeoEMF}
+(previously called {\it Neo4EMF}) \cite{benelallam2014neo4emf}
+is a storage back-end for {\it EMF} models. 
+It provides adapters for {\it MapDB} and the graph database
+{\it Neo4J} to store/deal with {\it EMF} models.
+
+Some analysis with the Eclipse Memory Analyzer (MAT)
+\cite{Eclipse_MAT}
+\cite{Eclipse_MAT_2}
+has shown that there seem to be two reasons:
+The first one is that XText uses its own lazy loading implementation
+which conflicts with using a separate storage back-end
+(e.g., see \cite{NeoEMF_Xtext}).
+The second reason is that {\it Eclipse MoDisco} currently 
+only supports {\it XMI} serialization out-of-the-box and,
+therefore, the {\it EMF model browser} can not deal 
+with the lazy loading algorithm
+(which is used by {\it NeoEMF})
+correctly.
+
+\subsection{MORE TO DO}
+More detailed descriptions coming soon\dots
+
+%'[antlr-interest] Solution for specialStateTransition exceeding 65k' - MARC
+% http://marc.info/?l=antlr-interest&m=127495195324148
+%
+% Eclipse Community Forums: TMF (Xtext) » [Xtext] Embedding ANTLR code into XText?
+% https://www.eclipse.org/forums/index.php?t=msg&th=1069632
+%
+% Bug 362901 – Add @Nullable, @NonNull support
+% https://bugs.eclipse.org/bugs/show_bug.cgi?id=362901
+% and
+% Bug 428088 – @since tags should be generated to both getters and setters
+% https://bugs.eclipse.org/bugs/show_bug.cgi?id=428088
+%
+% Bug 475615 – Support "git clone --depth" in CloneCommand
+% https://bugs.eclipse.org/bugs/show_bug.cgi?id=475615
+%
+% Open Source Software Metrics by Resource Standard 
+% Software Source Code Metrics For C, C++ and Java
+% http://msquaredtechnologies.com/m2rsm/rsm_software_project_metrics.htm

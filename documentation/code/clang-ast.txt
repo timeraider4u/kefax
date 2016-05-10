@@ -1,0 +1,12 @@
+-FunctionDecl 0x234e1d0 <helloworld.c:6:1, line:9:1> line:6:5 main 'int (int, char **)'
+  |-ParmVarDecl 0x234e090 <col:10, col:14> col:14 argc 'int'
+  |-ParmVarDecl 0x234e100 <col:20, col:28> col:28 argv 'char **'
+  `-CompoundStmt 0x234e400 <col:34, line:9:1>
+    |-CallExpr 0x234e360 <line:7:2, col:25> 'int'
+    | |-ImplicitCastExpr 0x234e348 <col:2> 'int (*)(const char *, ...)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x234e280 <col:2> 'int (const char *, ...)' Function 0x22fa740 'printf' 'int (const char *, ...)'
+    | `-ImplicitCastExpr 0x234e3a8 <col:9> 'const char *' <BitCast>
+    |   `-ImplicitCastExpr 0x234e390 <col:9> 'char *' <ArrayToPointerDecay>
+    |     `-StringLiteral 0x234e2e8 <col:9> 'char [14]' lvalue "Hello World!\n"
+    `-ReturnStmt 0x234e3e0 <line:8:2, col:9>
+      `-IntegerLiteral 0x234e3c0 <col:9> 'int' 0

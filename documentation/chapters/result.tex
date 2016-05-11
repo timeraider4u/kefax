@@ -1,4 +1,61 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 \section{Lessons learned}
-\IEEEPARstart{T}ODO \dots
+\IEEEPARstart{A} summary of the lessons learned so far \dots
+
+\begin{itemize}
+ \item The C programming language has a complex grammar,
+ even without pre-processing directives and compiler
+ extensions, with lots of disambiguties.
+ \item Therefore, there is no {\it Text-To-Model} tool
+ availabel yet which supports such a
+ complex general programming 
+ language like C.
+ \item A tool based on {\it ANTLR v4} would be great,
+ as {\it ANTLR v3} no longer receives support and
+ version 4 is a lot more convinient
+ (e.g., semantic predicates no longer needed,
+ tree view on default, AST tree walker moved out of
+ grammar itself, etc.). Also more grammars
+ for version 4 exist and would, therefore, 
+ work out-of-the-box.
+ \item It would have been nice to have a dedicated
+ testing DSL for engineering DSLs. When constructing
+ a DSL it is often necessary to check each step of
+ the translation process (lexing, parsing and 
+ code generation) in detail.
+ But the test cases get huge and complex
+ when trying to assert 
+ that
+ lexer tokens, AST tree structures and the output
+ files are each correct.
+ The DSL used for testing {\it Xtext} projects
+ used in this project called {\it XtextTest} has been
+ a workaround for this situation, but it is obviously 
+ a poor solution to the problem.
+ \item Another interesting problem for further research
+ would be the co-evolution of abstract and concrete syntax
+ (together with automated refactoring of test cases)
+ during developing a DSL. E.g., you write your grammar and
+ test it on files. Then you have to change the grammar a bit
+ to also include some special cases. 
+ As a result of the improvements made to the DSL,
+ the metamodel has to be changed too and then the code
+ generation is not working anymore.
+ After fixing the code generation you find out that
+ also several dozens or even more of your JUnit tests 
+ have to be adapted too to reflect the newest features 
+ in the latest version of the DSL.
+ This is awkward! Some evolutionary semi-automatical 
+ approach would be helpful here, maybe 
+ the development of
+ several DSLs would
+ make sense here: The first DSL for describing the
+ concrete syntax could be, e.g., an {\it ANTLR} grammar file.
+ The second DSL describes the abstract syntax (the meta-model).
+ And then there is a third DSL which actually does the 
+ mapping between abstract and concrete syntax. And all of
+ them are updated whenever a single line of these DSLs is 
+ changed.
+\end{itemize}
+

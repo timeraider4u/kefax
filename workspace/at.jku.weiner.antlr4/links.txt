@@ -1,4 +1,6 @@
 http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
 
+https://www.eclipse.org/forums/index.php?&t=msg&th=126417
+
 http://emfjson.org/docs/
 

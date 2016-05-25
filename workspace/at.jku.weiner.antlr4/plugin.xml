@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="at.jku.weiner.antlr4.Antlr4Action"
+           id="at.jku.weiner.antlr4.command"
+           name="Antlr4 command">
+     </command>
+  </extension>
+  
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:org.eclipse.ui.main.menu">
+        <menu
+              id="at.jku.weiner.kefax.main.filemenu"
+              label="KeFaX" />
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:at.jku.weiner.kefax.main.filemenu">
+           <command
+                 commandId="at.jku.weiner.antlr4.command"
+                 label="Antlr4"
+                 style="push"
+                 tooltip="Antlr4 test command">
+           </command>
+       </menuContribution>
+     </extension>
+</plugin>

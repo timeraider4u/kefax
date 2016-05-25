@@ -1,0 +1,4 @@
+http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
+
+http://emfjson.org/docs/
+

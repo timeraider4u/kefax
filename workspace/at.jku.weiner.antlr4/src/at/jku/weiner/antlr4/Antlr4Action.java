@@ -16,12 +16,17 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenJDKLevel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -36,6 +41,9 @@ import at.jku.weiner.log.MyLog;
 
 public class Antlr4Action extends MyActionHandler {
 	
+	private static final String	PREFIX	= "hello";
+	private static final String	NS_URI	= "http://www.jku.at/weiner/hello";
+
 	public Antlr4Action() {
 		super("at.jku.weiner.antlr4");
 	}
@@ -51,7 +59,7 @@ public class Antlr4Action extends MyActionHandler {
 		MyLog.log(Antlr4Action.class, "result='" + result + "'");
 		
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		final IProject project = root.getProject("hello");
+		final IProject project = root.getProject(Antlr4Action.PREFIX);
 		if (!project.exists()) {
 			project.create(this.getMonitor());
 		}
@@ -79,9 +87,11 @@ public class Antlr4Action extends MyActionHandler {
 		final Resource myMetaModel = resourceSet.createResource(uri);
 		final EcoreFactory theCoreFactory = EcoreFactory.eINSTANCE;
 		final EPackage univEPackage = theCoreFactory.createEPackage();
-		univEPackage.setName("Hello");
-		univEPackage.setNsPrefix("hello");
-		univEPackage.setNsURI("http://www.jku.at/weiner/hello");
+		univEPackage.setName(Antlr4Action.PREFIX);
+		univEPackage.setNsPrefix(Antlr4Action.PREFIX);
+		univEPackage.setNsURI(Antlr4Action.NS_URI);
+		final EFactory factory = new EcoreFactoryImpl();
+		univEPackage.setEFactoryInstance(factory);
 		final EClass clazz = theCoreFactory.createEClass();
 		clazz.setInterface(false);
 		clazz.setAbstract(false);
@@ -97,8 +107,7 @@ public class Antlr4Action extends MyActionHandler {
 		univEPackage.getEClassifiers().add(clazz);
 		myMetaModel.getContents().add(univEPackage);
 		
-		resourceSet.getPackageRegistry().put("http://www.jku.at/weiner/hello",
-				univEPackage);
+		resourceSet.getPackageRegistry().put(Antlr4Action.NS_URI, univEPackage);
 		myMetaModel.save(null);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		// create genmodel
@@ -106,6 +115,20 @@ public class Antlr4Action extends MyActionHandler {
 		final IPath pathGenModel = genModel.getLocation();
 		final String stringGenModel = pathGenModel.toOSString();
 		this.createGenModel(univEPackage, string, stringGenModel, project);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		// create instance
+		final IFile resInst = folder.getFile("hello.xmi");
+		final IPath pathInst = resInst.getLocation();
+		final String stringInst = pathInst.toOSString();
+		final URI uriInst = URI.createFileURI(stringInst);
+		final Resource myModel = resourceSet.createResource(uriInst);
+		final EFactory univInstance = univEPackage.getEFactoryInstance();
+		final EObject adultObject = univInstance.create(clazz);
+		final EList<EObject> ModelObjects = new BasicEList<EObject>();
+		ModelObjects.add(adultObject);
+		
+		myModel.getContents().addAll(ModelObjects);
+		myModel.save(null);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		
 	}

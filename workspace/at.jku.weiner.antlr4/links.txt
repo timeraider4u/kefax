@@ -1,4 +1,6 @@
-http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
+http://stackoverflow.com/questions/30034826/create-and-modify-ecore-files-and-their-instances-from-code
+
+//http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
 
 https://www.eclipse.org/forums/index.php?&t=msg&th=126417
 

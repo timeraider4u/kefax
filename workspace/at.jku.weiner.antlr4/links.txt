@@ -6,3 +6,6 @@ https://www.eclipse.org/forums/index.php?&t=msg&th=126417
 
 http://emfjson.org/docs/
 
+http://www.ibm.com/developerworks/library/os-eclipse-dynamicemf/index.html
+
+http://www.devx.com/Java/Article/29093/0/page/2

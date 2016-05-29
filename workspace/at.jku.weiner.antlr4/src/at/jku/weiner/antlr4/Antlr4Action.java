@@ -25,35 +25,43 @@ import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.log.MyLog;
 
 public class Antlr4Action extends MyActionHandler {
-	
+
 	private static final String ANTLR_GEN = "src-gen";
 	private static final String OUTPUT_FOLDER = "bin";
-
+	
 	private static final String PREFIX = "hello";
 	private static final String NS_URI = "http://www.jku.at/weiner/hello";
 	private static final String PACKAGE = "my.mydefault.mysecond.third";
-	
+
 	public Antlr4Action() {
 		super("at.jku.weiner.antlr4");
 	}
-	
+
 	@Override
 	protected void myRun() throws Exception {
+		// get project scope
 		MyLog.setLog_level(MyLog.LOG_INFO);
-		// set-up project
 		final IResource antlrG4File = GeneratorUtils.getIResourceFor(this
 				.getEvent());
 		final IProject project = antlrG4File.getProject();
+		// create java project
+		final IJavaProject javaProject = GeneratorUtils.addJavaNature(project,
+				this.getMonitor());
+		final IClasspathEntry projectEntry = JavaCore.newSourceEntry(project
+				.getFullPath());
+		GeneratorUtils.removeClassPathEntry(javaProject, projectEntry,
+				this.getMonitor());
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		// set-up project
 		final String antlrG4FileName = GeneratorUtils
 				.getAbsoluteFileNameFor(antlrG4File);
-		
 		final IFolder myGenFolder = GeneratorUtils
 				.createSrcGenFolder(project, Antlr4Action.ANTLR_GEN,
 						Antlr4Action.PACKAGE, this.getMonitor());
 		final IFolder mySrcGenFolder = project
 				.getFolder(Antlr4Action.ANTLR_GEN);
 		final String myGenFolderName = GeneratorUtils
-				.getRelativePathFor(myGenFolder);
+				.getAbsoluteFileNameFor(myGenFolder);
 		// run ANTLR4 tool
 		GeneratorUtils.runAntlr4Tool(Antlr4Action.PACKAGE, antlrG4FileName,
 				myGenFolderName);
@@ -61,9 +69,7 @@ public class Antlr4Action extends MyActionHandler {
 		final IFile dstLibFile = GeneratorUtils.copyLibTo(project,
 				this.getMonitor());
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		// create java project
-		final IJavaProject javaProject = GeneratorUtils.addJavaNature(project,
-				this.getMonitor());
+		// create output folder
 		final IFolder binFolder = project.getFolder(Antlr4Action.OUTPUT_FOLDER);
 		if (!binFolder.exists()) {
 			binFolder.create(true, true, this.getMonitor());
@@ -81,20 +87,16 @@ public class Antlr4Action extends MyActionHandler {
 				dstLibFile.getFullPath(), null, null);
 		GeneratorUtils.addClassPathEntry(javaProject, libPathEntry,
 				this.getMonitor());
-		final IClasspathEntry projectEntry = JavaCore.newSourceEntry(project
-				.getFullPath());
-		GeneratorUtils.removeClassPathEntry(javaProject, projectEntry,
-				this.getMonitor());
 		
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		// return;
-		
+
 		// final URL url = bundle.getEntry(Main.FILE_NAME1);
 		// final URL fileURL = FileLocator.toFileURL(url);
 		// final String fileName = fileURL.getFile();
 		// final String result = Main.runInternal(fileName);
 		// MyLog.log(Antlr4Action.class, "result='" + result + "'");
-		
+
 		// final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		// final IProject project = root.getProject(Antlr4Action.PREFIX);
 		// if (!project.exists()) {
@@ -181,13 +183,13 @@ public class Antlr4Action extends MyActionHandler {
 		// + myModel.getContents().size() + "'");
 		//
 		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		
+
 	}
-	
+
 	private void createGenModel(final EPackage rootPackage,
 			final String ecoreLocation, final String genModelLocation,
 			final IProject project) throws Exception {
-		
+
 		final GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
 		genModel.setComplianceLevel(GenJDKLevel.JDK70_LITERAL);
 		final IFile genDir = project.getFile("emf-gen");
@@ -204,10 +206,10 @@ public class Antlr4Action extends MyActionHandler {
 		genModel.setEditorPluginID(name + ".editor");
 		genModel.setModelPluginID(name);
 		genModel.setTestsPluginID(name + ".tests");
-		
+
 		final GenPackage genPackage = genModel.getGenPackages().get(0);
 		genPackage.setPrefix(rootPackage.getNsPrefix());
-		
+
 		final URI genModelURI = URI.createFileURI(genModelLocation);
 		final XMIResourceImpl genModelResource = new XMIResourceImpl(
 				genModelURI);
@@ -215,6 +217,6 @@ public class Antlr4Action extends MyActionHandler {
 				XMLResource.OPTION_ENCODING, GeneratorUtils.ENCODING);
 		genModelResource.getContents().add(genModel);
 		genModelResource.save(Collections.EMPTY_MAP);
-		
+
 	}
 }

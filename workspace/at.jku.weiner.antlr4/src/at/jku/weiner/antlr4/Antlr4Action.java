@@ -1,11 +1,23 @@
 package at.jku.weiner.antlr4;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -31,6 +43,14 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
 import org.osgi.framework.Bundle;
 
 import at.jku.weiner.kefax.shared.MyActionHandler;
@@ -38,8 +58,14 @@ import at.jku.weiner.log.MyLog;
 
 public class Antlr4Action extends MyActionHandler {
 
+	private static final String OUTPUT_FOLDER = "bin";
+	private static final String ENCODING = "UTF-8";
+	private static final String ANTLR_GEN = "src-gen";
 	private static final String	PREFIX	= "hello";
 	private static final String	NS_URI	= "http://www.jku.at/weiner/hello";
+	private static final String LIB_DIR = "lib";
+	private static final String LIB_FILE = "antlr-4.4-complete.jar";
+	private static final String PACKAGE = "my.mydefault.mysecond.third";
 
 	public Antlr4Action() {
 		super("at.jku.weiner.antlr4");
@@ -47,12 +73,132 @@ public class Antlr4Action extends MyActionHandler {
 
 	@Override
 	protected void myRun() throws Exception {
+		MyLog.setLog_level(MyLog.LOG_INFO);
 		final Bundle bundle = Activator.getContext().getBundle();
+
+		final ExecutionEvent event = this.getEvent();
+		// get workbench window
+		final IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		// set selection service
+		final ISelectionService service = window.getSelectionService();
+		// set structured selection
+		final IStructuredSelection structured = (IStructuredSelection) service.getSelection();
+
+		//check if it is an IResource
+		final Object selected = structured.getFirstElement();
+		if (selected instanceof IResource) {
+			// get the selected resource
+			final IResource file = (IResource) structured.getFirstElement();
+			final IProject project = file.getProject();
+			// get the path
+			final IPath path = file.getLocation();
+			final String myPath = path.toOSString();
+			final URL url = bundle.getEntry(Antlr4Action.LIB_DIR + "/" + Antlr4Action.LIB_FILE);
+			final URL fileURL = FileLocator.toFileURL(url);
+			final String srcLibFileName = fileURL.getFile();
+			final IFolder dstSourceGenFolder = project.getFolder(Antlr4Action.ANTLR_GEN);
+			final IPath dstSourceGenFolderPath = dstSourceGenFolder.getFullPath();
+			if (!dstSourceGenFolder.exists()) {
+				dstSourceGenFolder.create(true, true, this.getMonitor());
+			}
+			IFolder dstSourceGenDstFolder = dstSourceGenFolder;
+			final String[] segments = Antlr4Action.PACKAGE.split("[\\.]");
+			for (int i = 0; i < segments.length; i++) {
+				final String segment = segments[i];
+				dstSourceGenDstFolder = dstSourceGenDstFolder.getFolder(segment);
+				MyLog.log(Antlr4Action.class, "create folder='" + dstSourceGenDstFolder + "'");
+				if (!dstSourceGenDstFolder.exists()) {
+					dstSourceGenDstFolder.create(true, true, this.getMonitor());
+				}
+			}
+			final IPath dstSourceGenDstFolderPath = dstSourceGenDstFolder.getLocation();
+			final String dstSrcGenFolderName = dstSourceGenDstFolderPath.toOSString();
+			MyLog.log(Antlr4Action.class, this.getClass().getCanonicalName()
+					+  ": execute on path='" + myPath + "'");
+			final ProcessBuilder builder = new ProcessBuilder( "java", "-cp", srcLibFileName,
+					"org.antlr.v4.Tool", myPath, "-listener", "-visitor", "-encoding", Antlr4Action.ENCODING,
+					"-package", Antlr4Action.PACKAGE, "-o", dstSrcGenFolderName);
+			final Process process = builder.start();
+			final InputStream stream = process.getErrorStream();
+			final InputStreamReader reader = new InputStreamReader(stream);
+			final BufferedReader in = new BufferedReader(reader);
+			String line = "";
+			try {
+				while ((line = in.readLine()) != null) {
+					MyLog.log(Antlr4Action.class, line);
+				}
+			} finally {
+				in.close();
+				reader.close();
+				stream.close();
+			}
+			process.waitFor();
+			final int retVal = process.exitValue();
+			process.destroy();
+			MyLog.log(Antlr4Action.class, "returnVal of org.antlr.v4.Tool='" + retVal + "'");
+			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+			final IProjectDescription description = project.getDescription();
+			final String[] naturesOrig = description.getNatureIds();
+			final List<String> natures = new ArrayList<String>(Arrays.asList(naturesOrig));
+			if (!natures.contains(JavaCore.NATURE_ID)) {
+				natures.add(JavaCore.NATURE_ID);
+			}
+			description.setNatureIds(natures.toArray(new String[0]));
+			project.setDescription(description, this.getMonitor());
+			final IFolder dstLibFolder = project.getFolder(Antlr4Action.LIB_DIR);
+			if (!dstLibFolder.exists()) {
+				dstLibFolder.create(true, true, this.getMonitor());
+			}
+			final IFile dstLibFile = dstLibFolder.getFile(Antlr4Action.LIB_FILE);
+			final IPath dstLibFilePath = dstLibFile.getLocation();
+			final String dstLibFileName = dstLibFilePath.toOSString();
+			if (!dstLibFile.exists()) {
+				final File src = new File(srcLibFileName);
+				final File dst = new File(dstLibFileName);
+				FileUtils.copyFile(src, dst);
+			}
+			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+			final IJavaProject javaProject = JavaCore.create(project);
+			final IFolder binFolder = project.getFolder(Antlr4Action.OUTPUT_FOLDER);
+			if (!binFolder.exists()) {
+				binFolder.create(true, true, this.getMonitor());
+			}
+			javaProject.setOutputLocation(binFolder.getFullPath(), null);
+			final Set<IClasspathEntry> entries = new HashSet<IClasspathEntry>();
+			entries.addAll(Arrays.asList(javaProject.getRawClasspath()));
+			final IClasspathEntry clazzPathEntry = JavaRuntime.getDefaultJREContainerEntry();
+			if (!entries.contains(clazzPathEntry)) {
+				entries.add(clazzPathEntry);
+			}
+			final IClasspathEntry srcPathEntry = JavaCore.newSourceEntry(dstSourceGenFolderPath);
+			if (!entries.contains(srcPathEntry)) {
+				entries.add(srcPathEntry);
+			}
+			final IClasspathEntry libPathEntry = JavaCore.newLibraryEntry(dstLibFile.getFullPath(), null, null);
+			if (!entries.contains(libPathEntry)) {
+				entries.add(libPathEntry);
+			}
+			final IClasspathEntry projectEntry = JavaCore.newSourceEntry(project.getFullPath());
+			if (entries.contains(projectEntry)) {
+				entries.remove(projectEntry);
+			}
+			final IClasspathEntry[] clazzPath = new IClasspathEntry[entries.size()];
+			final IClasspathEntry[] clazzPath2 = entries.toArray(clazzPath);
+			for (int i = 0; i < clazzPath2.length; i++) {
+				final IClasspathEntry entry = clazzPath2[i];
+				final IPath entryPath = entry.getPath();
+				MyLog.log(Antlr4Action.class, "clazzPath(" + i + ")='" + entry + "', path='" + entryPath + "'");
+			}
+			javaProject.setRawClasspath(clazzPath2, this.getMonitor());
+			project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+			return;
+		}
+
+
 		final URL url = bundle.getEntry(Main.FILE_NAME1);
 		final URL fileURL = FileLocator.toFileURL(url);
 		final String fileName = fileURL.getFile();
 		final String result = Main.runInternal(fileName);
-		MyLog.setLog_level(MyLog.LOG_INFO);
 		MyLog.log(Antlr4Action.class, "result='" + result + "'");
 
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -167,7 +313,7 @@ public class Antlr4Action extends MyActionHandler {
 		final XMIResourceImpl genModelResource = new XMIResourceImpl(
 				genModelURI);
 		genModelResource.getDefaultSaveOptions().put(
-				XMLResource.OPTION_ENCODING, "UTF-8");
+				XMLResource.OPTION_ENCODING, Antlr4Action.ENCODING);
 		genModelResource.getContents().add(genModel);
 		genModelResource.save(Collections.EMPTY_MAP);
 

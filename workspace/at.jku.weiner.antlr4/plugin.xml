@@ -44,4 +44,25 @@
            </command>
        </menuContribution>
      </extension>
+	<extension
+			point="org.eclipse.ui.menus">
+		<menuContribution
+				locationURI="popup:org.eclipse.ui.popup.any">
+			<command
+					commandId="at.jku.weiner.antlr4.command"
+					id="at.jku.weiner.antlr4.command.menu">
+				<visibleWhen>
+					<with variable="activeMenuSelection">
+						<iterate ifEmpty="false">
+							<adapt type="org.eclipse.core.resources.IResource">
+								<test 
+									property="org.eclipse.core.resources.name"
+									value="*.g4" />
+							</adapt>
+						</iterate>
+					</with>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
 </plugin>

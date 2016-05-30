@@ -2,12 +2,6 @@ package at.jku.weiner.antlr4;
 
 import java.util.Collections;
 
-import org.antlr.parser.antlr4.ANTLRv4Lexer;
-import org.antlr.parser.antlr4.ANTLRv4Parser;
-import org.antlr.parser.antlr4.ANTLRv4Parser.GrammarSpecContext;
-import org.antlr.v4.runtime.ANTLRFileStream;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -27,25 +21,26 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.launching.JavaRuntime;
 
+import at.jku.weiner.antlr4.utils.Antlr4Utils;
 import at.jku.weiner.antlr4.utils.GeneratorUtils;
 import at.jku.weiner.antlr4.utils.MetamodelUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.log.MyLog;
 
 public class Antlr4Action extends MyActionHandler {
-	
+
 	public static final String	DIR_MODEL		= "model";
 	private static final String	ANTLR_GEN		= "src-gen";
 	private static final String	OUTPUT_FOLDER	= "bin";
-
+	
 	private static final String	PREFIX			= "hello";
 	private static final String	NS_URI			= "http://www.jku.at/weiner/hello";
 	private static final String	PACKAGE			= "my.mydefault.mysecond.third";
-	
+
 	public Antlr4Action() {
 		super("at.jku.weiner.antlr4");
 	}
-	
+
 	@Override
 	protected void myRun() throws Exception {
 		// get project scope
@@ -96,19 +91,19 @@ public class Antlr4Action extends MyActionHandler {
 				dstLibFile.getFullPath(), null, null);
 		GeneratorUtils.addClassPathEntry(javaProject, libPathEntry,
 				this.getMonitor());
-
+		
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		// run ANTLRv4 generated parser and tree walkers
-		this.runParserAndListener(antlrG4FileName);
+		Antlr4Utils.runParserAndListener(antlrG4FileName);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-
+		
 		// run meta-model generation
 		final MetamodelUtils mmUtils = new MetamodelUtils(project,
 				this.getMonitor(), Antlr4Action.DIR_MODEL);
 		mmUtils.createECoreFile(Antlr4Action.PREFIX, Antlr4Action.PREFIX,
 				Antlr4Action.NS_URI);
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-
+		
 		// // create EClass
 		// final EClass clazz = theCoreFactory.createEClass();
 		// clazz.setInterface(false);
@@ -124,14 +119,14 @@ public class Antlr4Action extends MyActionHandler {
 		// clazz.getEStructuralFeatures().add(attribute);
 		// univEPackage.getEClassifiers().add(clazz);
 		//
-		
+
 		// // create genmodel
 		// final IFile genModel = folder.getFile("hello.genmodel");
 		// final IPath pathGenModel = genModel.getLocation();
 		// final String stringGenModel = pathGenModel.toOSString();
 		// this.createGenModel(univEPackage, string, stringGenModel, project);
 		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		
+
 		// // create instance
 		// final IFile resInst = folder.getFile("hello.xmi");
 		// final IPath pathInst = resInst.getLocation();
@@ -149,37 +144,11 @@ public class Antlr4Action extends MyActionHandler {
 		// + myModel.getContents().size() + "'");
 		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
-	
-	private String runParserAndListener(final String antlrG4FileName)
-			throws Exception {
-		// Set-up parser
-		final ANTLRv4Parser parser = Antlr4Action.getParser(antlrG4FileName);
-		// Specify our entry point
-		final GrammarSpecContext context = parser.grammarSpec();
-		
-		// Walk it and attach our listener
-		final ParseTreeWalker walker = new ParseTreeWalker();
-		final Antlr4MyListener listener = new Antlr4MyListener();
-		walker.walk(listener, context);
-		
-		final String result = listener.toString();
-		return result;
-	}
-	
-	public static ANTLRv4Parser getParser(final String fileName)
-			throws Exception {
-		final ANTLRFileStream fileStream = new ANTLRFileStream(fileName);
-		final ANTLRv4Lexer lexer = new ANTLRv4Lexer(fileStream);
-		final CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-		final ANTLRv4Parser parser = new ANTLRv4Parser(tokenStream);
-		parser.setBuildParseTree(true);
-		return parser;
-	}
-	
+
 	private void createGenModel(final EPackage rootPackage,
 			final String ecoreLocation, final String genModelLocation,
 			final IProject project) throws Exception {
-		
+
 		final GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
 		genModel.setComplianceLevel(GenJDKLevel.JDK70_LITERAL);
 		final IFile genDir = project.getFile("emf-gen");
@@ -196,10 +165,10 @@ public class Antlr4Action extends MyActionHandler {
 		genModel.setEditorPluginID(name + ".editor");
 		genModel.setModelPluginID(name);
 		genModel.setTestsPluginID(name + ".tests");
-		
+
 		final GenPackage genPackage = genModel.getGenPackages().get(0);
 		genPackage.setPrefix(rootPackage.getNsPrefix());
-		
+
 		final URI genModelURI = URI.createFileURI(genModelLocation);
 		final XMIResourceImpl genModelResource = new XMIResourceImpl(
 				genModelURI);
@@ -207,6 +176,6 @@ public class Antlr4Action extends MyActionHandler {
 				XMLResource.OPTION_ENCODING, GeneratorUtils.ENCODING);
 		genModelResource.getContents().add(genModel);
 		genModelResource.save(Collections.EMPTY_MAP);
-		
+
 	}
 }

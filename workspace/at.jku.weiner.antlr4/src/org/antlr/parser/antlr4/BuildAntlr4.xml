@@ -40,10 +40,9 @@
 			<param name="lib.file" value="${lib.file}" />
 		</antcall>
 		<antcall target="runAntlr4Tool">
-					<param name="file" value="${parser}"/>
-					<param name="lib.file" value="${lib.file}" />
-				</antcall>
-		
+			<param name="file" value="${parser}"/>
+			<param name="lib.file" value="${lib.file}" />
+		</antcall>
 	</target>
 	
 	<target name="runAntlr4Tool">

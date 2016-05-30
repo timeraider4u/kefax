@@ -1,4 +1,4 @@
-// Generated from /home/harry/workspace/kefax/workspace/at.jku.weiner.antlr4/src/org/antlr/parser/antlr4/ANTLRv4Parser.g4 by ANTLR 4.5.3
+// Generated from /home/adalgrim/weiner/Private/kefax/workspace/at.jku.weiner.antlr4/src/org/antlr/parser/antlr4/ANTLRv4Parser.g4 by ANTLR 4.5.3
 package org.antlr.parser.antlr4;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

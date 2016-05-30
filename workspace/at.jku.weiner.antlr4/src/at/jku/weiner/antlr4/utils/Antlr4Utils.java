@@ -9,11 +9,24 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import at.jku.weiner.antlr4.Antlr4MyListener;
 
-public class Antlr4Utils {
+public final class Antlr4Utils {
+	
+	private final ANTLRv4Parser parser;
+	private String fileName;
 
-	public static Antlr4MyListener runParserAndListener(final String fileName)
-			throws Exception {
-		final ANTLRv4Parser parser = Antlr4Utils.getParser(fileName);
+	public Antlr4Utils(final String fileName) throws Exception {
+		this.fileName = fileName;
+		this.parser = Antlr4Utils.getParser(fileName);
+	}
+	
+	public String getGrammarName() throws Exception {
+		final GrammarSpecContext context = this.parser.grammarSpec();
+		final String id = context.identifier().getText();
+		return id;
+	}
+
+	public Antlr4MyListener runParserAndListener() throws Exception {
+		final ANTLRv4Parser parser = Antlr4Utils.getParser(this.fileName);
 		final GrammarSpecContext context = parser.grammarSpec();
 		final ParseTreeWalker walker = new ParseTreeWalker();
 		final Antlr4MyListener listener = new Antlr4MyListener();

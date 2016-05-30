@@ -14,7 +14,8 @@ import at.jku.weiner.log.MyLog;
 
 public class TestRunParserAndListenerMisc {
 	
-	private String	fileName;
+	private String fileName;
+	private Antlr4Utils utils;
 
 	@Before
 	public void setUp() throws Exception {
@@ -22,12 +23,12 @@ public class TestRunParserAndListenerMisc {
 		final Bundle bundle = Activator.getContext().getBundle();
 		this.fileName = GeneratorUtils.getAbsoluteFileNameFor(bundle,
 				"data/my.g4");
+		this.utils = new Antlr4Utils(this.fileName);
 	}
 	
 	@Test
 	public void testRunner() throws Exception {
-		final Antlr4MyListener listener = Antlr4Utils
-				.runParserAndListener(this.fileName);
+		final Antlr4MyListener listener = this.utils.runParserAndListener();
 		Assert.assertNotNull(listener);
 		final Grammar grammar = listener.getGrammar();
 		Assert.assertNotNull(grammar);

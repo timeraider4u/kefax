@@ -20,5 +20,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: at.jku.weiner.antlr4
-Bundle-ClassPath: lib/antlr-4.4-complete.jar,
- .
+Bundle-ClassPath: .,
+ lib/antlr4-4.5.4-SNAPSHOT.jar

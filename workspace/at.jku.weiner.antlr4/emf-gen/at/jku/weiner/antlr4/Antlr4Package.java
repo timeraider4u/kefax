@@ -122,13 +122,22 @@ public interface Antlr4Package extends EPackage {
 	int RULE__IDENTIFIER = 0;
 
 	/**
+	 * The feature id for the '<em><b>References By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__REFERENCES_BY = 1;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 1;
+	int RULE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -158,6 +167,15 @@ public interface Antlr4Package extends EPackage {
 	 * @ordered
 	 */
 	int PARSER_RULE_SPEC__IDENTIFIER = RULE__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>References By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSER_RULE_SPEC__REFERENCES_BY = RULE__REFERENCES_BY;
 
 	/**
 	 * The number of structural features of the '<em>Parser Rule Spec</em>' class.
@@ -230,6 +248,17 @@ public interface Antlr4Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRule_Identifier();
+
+	/**
+	 * Returns the meta object for the reference list '{@link at.jku.weiner.antlr4.Rule#getReferencesBy <em>References By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References By</em>'.
+	 * @see at.jku.weiner.antlr4.Rule#getReferencesBy()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_ReferencesBy();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.antlr4.ParserRuleSpec <em>Parser Rule Spec</em>}'.
@@ -307,6 +336,14 @@ public interface Antlr4Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute RULE__IDENTIFIER = eINSTANCE.getRule_Identifier();
+
+		/**
+		 * The meta object literal for the '<em><b>References By</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__REFERENCES_BY = eINSTANCE.getRule_ReferencesBy();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.antlr4.impl.ParserRuleSpecImpl <em>Parser Rule Spec</em>}' class.

@@ -1,4 +1,4 @@
-package at.jku.weiner.antlr4;
+package at.jku.weiner.antlr4.utils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -32,25 +32,32 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.osgi.framework.Bundle;
 
+import at.jku.weiner.antlr4.Activator;
+import at.jku.weiner.antlr4.Antlr4Action;
 import at.jku.weiner.log.MyLog;
 
 public final class GeneratorUtils {
-	private static final String JAVA_PARAM_VISITOR = "-visitor";
-	private static final String JAVA_PARAM_LISTENER = "-listener";
-	private static final String JAVA_PARAM_ENCODING = "-encoding";
-	private static final String JAVA_PARAM_OUT = "-o";
-	private static final String JAVA_PARAM_PKG = "-package";
-	private static final String JAVA_PARAM_CP = "-cp";
-	private static final String JAVA_EXE_NAME = "java";
-	protected static final String ENCODING = "UTF-8";
-	private static final String TOOL_NAME = "org.antlr.v4.Tool";
-	public static final String LIB_DIR = "lib";
-	public static final String LIB_FILE = "antlr-4.4-complete.jar";
-	
-	private GeneratorUtils() {
+	public static final String		JAVA_PARAM_VISITOR	= "-visitor";
+	public static final String		JAVA_PARAM_LISTENER	= "-listener";
+	public static final String		JAVA_PARAM_ENCODING	= "-encoding";
+	public static final String		JAVA_PARAM_OUT		= "-o";
+	public static final String		JAVA_PARAM_PKG		= "-package";
+	public static final String		JAVA_PARAM_CP		= "-cp";
+	public static final String		JAVA_EXE_NAME		= "java";
+	public static final String		ENCODING			= "UTF-8";
+	public static final String		TOOL_NAME			= "org.antlr.v4.Tool";
+	public static final String		LIB_DIR				= "lib";
+	public static final String		LIB_FILE			= "antlr-4.4-complete.jar";
 
+	private final String			projectName;
+	private final IProgressMonitor	monitor;
+
+	public GeneratorUtils(final String projectName,
+			final IProgressMonitor monitor) {
+		this.projectName = projectName;
+		this.monitor = monitor;
 	}
-
+	
 	public static IResource getIResourceFor(final ExecutionEvent event)
 			throws Exception {
 		final IWorkbenchWindow window = HandlerUtil
@@ -60,13 +67,13 @@ public final class GeneratorUtils {
 		final IResource result = GeneratorUtils.getIResourceFor(selected);
 		return result;
 	}
-
+	
 	public static IResource getIResourceFor(final ISelection selection)
 			throws Exception {
 		if ((selection == null) || !(selection instanceof IStructuredSelection)) {
 			throw new IllegalArgumentException(
 					"expected IStructuredSelection, but got='" + selection
-							+ "'");
+					+ "'");
 		}
 		final IStructuredSelection structured = (IStructuredSelection) selection;
 		// check if it is an IResource
@@ -74,13 +81,13 @@ public final class GeneratorUtils {
 		if ((selected == null) || !(selected instanceof IResource)) {
 			throw new IllegalArgumentException(
 					"expected IResource as selected, but got='" + selected
-							+ "'");
+					+ "'");
 		}
 		// get the selected resource
 		final IResource res = (IResource) selected;
 		return res;
 	}
-
+	
 	public static IProject reCreateProject(final String projectName,
 			final IProgressMonitor monitor) throws Exception {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -92,7 +99,7 @@ public final class GeneratorUtils {
 		project.open(monitor);
 		return project;
 	}
-
+	
 	public static void reCreateFolder(final IFolder folder,
 			final IProgressMonitor monitor) throws Exception {
 		if (folder.exists()) {
@@ -102,13 +109,13 @@ public final class GeneratorUtils {
 		MyLog.debug(Antlr4Action.class, "create folder='" + folder + "'");
 		folder.create(true, true, monitor);
 	}
-
+	
 	public static IFolder createSrcGenFolder(final IProject project,
 			final String srcGenFileName, final String packageName,
 			final IProgressMonitor monitor) throws Exception {
 		final IFolder srcGenFolder = project.getFolder(srcGenFileName);
 		GeneratorUtils.reCreateFolder(srcGenFolder, monitor);
-
+		
 		IFolder folder = srcGenFolder;
 		final String[] segments = packageName.split("[\\.]");
 		for (int i = 0; i < segments.length; i++) {
@@ -118,13 +125,13 @@ public final class GeneratorUtils {
 		}
 		return folder;
 	}
-	
+
 	public static InputStream convertStringToStream(final String content) {
 		final byte[] bytes = content.getBytes();
 		final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
 		return in;
 	}
-	
+
 	public static String getAbsoluteFileNameFor(final Bundle bundle,
 			final String fileName) throws Exception {
 		final URL url = bundle.getEntry(fileName);
@@ -132,29 +139,29 @@ public final class GeneratorUtils {
 		final String result = fileURL.getFile();
 		return result;
 	}
-	
+
 	public static String getAbsoluteFileNameFor(final IResource res) {
 		final IPath path = res.getLocation();
 		final String result = path.toOSString();
 		return result;
 	}
-
+	
 	public static String getRelativePathFor(final IResource res) {
 		final IPath path = res.getFullPath();
 		final String result = path.toOSString();
 		return result;
 	}
-	
+
 	public static String getSrcLibFileName() throws Exception {
 		final Bundle bundle = Activator.getContext().getBundle();
 		final String result = GeneratorUtils.getAbsoluteFileNameFor(bundle,
 				GeneratorUtils.LIB_DIR + "/" + GeneratorUtils.LIB_FILE);
 		return result;
 	}
-	
+
 	public static int runAntlr4Tool(final String packageName,
 			final String antlrG4FileName, final String genFolderName)
-			throws Exception {
+					throws Exception {
 		MyLog.log(GeneratorUtils.class, GeneratorUtils.class.getCanonicalName()
 				+ ": execute on path='" + antlrG4FileName + "' with out='"
 				+ genFolderName + "'");
@@ -188,10 +195,10 @@ public final class GeneratorUtils {
 				+ retVal + "'");
 		return retVal;
 	}
-
+	
 	public static void addNature(final IProject project,
 			final IProgressMonitor monitor, final String natureId)
-			throws Exception {
+					throws Exception {
 		final IProjectDescription description = project.getDescription();
 		final String[] naturesOrig = description.getNatureIds();
 		final List<String> natures = new ArrayList<String>(
@@ -202,14 +209,14 @@ public final class GeneratorUtils {
 		description.setNatureIds(natures.toArray(new String[0]));
 		project.setDescription(description, monitor);
 	}
-
+	
 	public static IJavaProject addJavaNature(final IProject project,
 			final IProgressMonitor monitor) throws Exception {
 		GeneratorUtils.addNature(project, monitor, JavaCore.NATURE_ID);
 		final IJavaProject javaProject = JavaCore.create(project);
 		return javaProject;
 	}
-
+	
 	public static IFile copyLibTo(final IProject project,
 			final IProgressMonitor monitor) throws Exception {
 		final String srcLibFileName = GeneratorUtils.getSrcLibFileName();
@@ -229,13 +236,13 @@ public final class GeneratorUtils {
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		return dstLibFile;
 	}
-	
+
 	public static void addClassPathEntry(final IJavaProject project,
 			final IClasspathEntry entry, final IProgressMonitor monitor)
-					throws Exception {
+			throws Exception {
 		final IClasspathEntry[] entries = project.getRawClasspath();
 		final List<IClasspathEntry> list = Arrays.asList(entries);
-
+		
 		final ArrayList<IClasspathEntry> myList = new ArrayList<IClasspathEntry>();
 		myList.addAll(list);
 		if (!myList.contains(entry)) {
@@ -245,21 +252,21 @@ public final class GeneratorUtils {
 		final IClasspathEntry[] result = myList.toArray(temp);
 		project.setRawClasspath(result, monitor);
 	}
-	
+
 	public static void addClassPathEntry(final IJavaProject project,
 			final IResource res, final IProgressMonitor monitor)
-					throws Exception {
+			throws Exception {
 		final IPath path = res.getFullPath();
 		final IClasspathEntry entry = JavaCore.newSourceEntry(path);
 		GeneratorUtils.addClassPathEntry(project, entry, monitor);
 	}
-	
+
 	public static void removeClassPathEntry(final IJavaProject project,
 			final IClasspathEntry entry, final IProgressMonitor monitor)
-			throws Exception {
+					throws Exception {
 		final IClasspathEntry[] entries = project.getRawClasspath();
 		final List<IClasspathEntry> list = Arrays.asList(entries);
-
+		
 		final ArrayList<IClasspathEntry> myList = new ArrayList<IClasspathEntry>();
 		myList.addAll(list);
 		if (myList.contains(entry)) {
@@ -269,13 +276,13 @@ public final class GeneratorUtils {
 		final IClasspathEntry[] result = myList.toArray(temp);
 		project.setRawClasspath(result, monitor);
 	}
-	
+
 	public static void removeClassPathEntry(final IJavaProject project,
 			final IResource res, final IProgressMonitor monitor)
-			throws Exception {
+					throws Exception {
 		final IPath path = res.getFullPath();
 		final IClasspathEntry entry = JavaCore.newSourceEntry(path);
 		GeneratorUtils.removeClassPathEntry(project, entry, monitor);
 	}
-	
+
 }

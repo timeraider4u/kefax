@@ -1,4 +1,4 @@
-package at.jku.weiner.antlr4.tests;
+package at.jku.weiner.antlr4.utils.tests;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -9,8 +9,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.jku.weiner.antlr4.GeneratorUtils;
 import at.jku.weiner.antlr4.tests.mocks.ExampleProjectNature;
+import at.jku.weiner.antlr4.utils.GeneratorUtils;
 import at.jku.weiner.log.MyLog;
 
 public class GeneratorUtilsTestAddNature {

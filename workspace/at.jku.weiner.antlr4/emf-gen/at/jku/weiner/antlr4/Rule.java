@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.antlr4;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.antlr4.Rule#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link at.jku.weiner.antlr4.Rule#getReferencesBy <em>References By</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,4 +49,20 @@ public interface Rule extends EObject {
 	 * @generated
 	 */
 	void setIdentifier(String value);
+
+	/**
+	 * Returns the value of the '<em><b>References By</b></em>' reference list.
+	 * The list contents are of type {@link at.jku.weiner.antlr4.Rule}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>References By</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>References By</em>' reference list.
+	 * @see at.jku.weiner.antlr4.Antlr4Package#getRule_ReferencesBy()
+	 * @model
+	 * @generated
+	 */
+	EList<Rule> getReferencesBy();
 } // Rule

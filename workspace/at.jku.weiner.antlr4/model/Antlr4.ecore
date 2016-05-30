@@ -8,6 +8,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencesBy" upperBound="-1"
+        eType="#//Rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParserRuleSpec" eSuperTypes="#//Rule"/>
 </ecore:EPackage>

@@ -27,11 +27,14 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.launching.JavaRuntime;
 
+import at.jku.weiner.antlr4.utils.GeneratorUtils;
+import at.jku.weiner.antlr4.utils.MetamodelUtils;
 import at.jku.weiner.kefax.shared.MyActionHandler;
 import at.jku.weiner.log.MyLog;
 
 public class Antlr4Action extends MyActionHandler {
 	
+	public static final String	DIR_MODEL		= "model";
 	private static final String	ANTLR_GEN		= "src-gen";
 	private static final String	OUTPUT_FOLDER	= "bin";
 
@@ -95,50 +98,18 @@ public class Antlr4Action extends MyActionHandler {
 				this.getMonitor());
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		// return;
-
+		// run ANTLRv4 generated parser and tree walkers
 		this.runParserAndListener(antlrG4FileName);
-		
-		// final URL url = bundle.getEntry(Main.FILE_NAME1);
-		// final URL fileURL = FileLocator.toFileURL(url);
-		// final String fileName = fileURL.getFile();
-		// final String result = Main.runInternal(fileName);
-		// MyLog.log(Antlr4Action.class, "result='" + result + "'");
-		
-		// final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		// final IProject project = root.getProject(Antlr4Action.PREFIX);
-		// if (!project.exists()) {
-		// project.create(this.getMonitor());
-		// }
-		// project.open(this.getMonitor());
-		//
-		// final ResourceSet resourceSet = new ResourceSetImpl();
-		// resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-		// .put("ecore", new EcoreResourceFactoryImpl());
-		// resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-		// .put("xmi", new XMIResourceFactoryImpl());
-		// final IFolder folder = project.getFolder("model");
-		// if (!folder.exists()) {
-		// folder.create(true, true, this.getMonitor());
-		// }
-		// final IFile res = folder.getFile("hello.ecore");
-		// final IPath path = res.getLocation();
-		// final String string = path.toOSString();
-		// final URI uri = URI.createFileURI(string);
-		// final String string = res.getLocation().toOSString();
-		// final java.net.URI uri = java.net.URI.createFileURI("./univ.ecore");
-		// final String string = uri.toString();
-		// System.out.println("string='" + string + "'");
-		// final String fileString = uri.toFileString();
-		// System.out.println("fileString='" + fileString + "'");
-		// final Resource myMetaModel = resourceSet.createResource(uri);
-		// final EcoreFactory theCoreFactory = EcoreFactory.eINSTANCE;
-		// final EPackage univEPackage = theCoreFactory.createEPackage();
-		// univEPackage.setName(Antlr4Action.PREFIX);
-		// univEPackage.setNsPrefix(Antlr4Action.PREFIX);
-		// univEPackage.setNsURI(Antlr4Action.NS_URI);
-		// // final EFactory factory =
-		// // univEPackage.setEFactoryInstance(factory);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+
+		// run meta-model generation
+		final MetamodelUtils mmUtils = new MetamodelUtils(project,
+				this.getMonitor(), Antlr4Action.DIR_MODEL);
+		mmUtils.createECoreFile(Antlr4Action.PREFIX, Antlr4Action.PREFIX,
+				Antlr4Action.NS_URI);
+		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+
+		// // create EClass
 		// final EClass clazz = theCoreFactory.createEClass();
 		// clazz.setInterface(false);
 		// clazz.setAbstract(false);
@@ -152,27 +123,15 @@ public class Antlr4Action extends MyActionHandler {
 		// attribute.setUpperBound(1);
 		// clazz.getEStructuralFeatures().add(attribute);
 		// univEPackage.getEClassifiers().add(clazz);
-		// myMetaModel.getContents().add(univEPackage);
 		//
-		// // register locally
-		// resourceSet.getPackageRegistry().put(Antlr4Action.NS_URI,
-		// univEPackage);
-		// // register globally
-		// EPackage.Registry.INSTANCE.put(Antlr4Action.NS_URI, univEPackage);
-		// myMetaModel.save(null);
-		// System.out.println("ePackage.getEFactory='"
-		// + univEPackage.getEFactoryInstance() + "'");
-		// System.out.println("myMetaModel.getResourceSet()='"
-		// + myMetaModel.getResourceSet() + "'");
-		// System.out.println("myMetaModel.getContents().size()='"
-		// + myMetaModel.getContents().size() + "'");
-		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		
 		// // create genmodel
 		// final IFile genModel = folder.getFile("hello.genmodel");
 		// final IPath pathGenModel = genModel.getLocation();
 		// final String stringGenModel = pathGenModel.toOSString();
 		// this.createGenModel(univEPackage, string, stringGenModel, project);
 		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
+		
 		// // create instance
 		// final IFile resInst = folder.getFile("hello.xmi");
 		// final IPath pathInst = resInst.getLocation();
@@ -182,16 +141,13 @@ public class Antlr4Action extends MyActionHandler {
 		// final EFactory univInstance = univEPackage.getEFactoryInstance();
 		// final EObject adultObject = univInstance.create(clazz);
 		// adultObject.eSet(attribute, "Hello World!");
-		//
 		// myModel.getContents().add(adultObject);
 		// myModel.save(null);
 		// System.out.println("myModel.getResourceSet()='"
 		// + myModel.getResourceSet() + "'");
 		// System.out.println("myModel.getContents().size()='"
 		// + myModel.getContents().size() + "'");
-		//
 		// project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		
 	}
 	
 	private String runParserAndListener(final String antlrG4FileName)

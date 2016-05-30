@@ -1,4 +1,4 @@
-package at.jku.weiner.antlr4.tests;
+package at.jku.weiner.antlr4.utils.tests;
 
 import java.io.File;
 import java.io.InputStream;
@@ -16,7 +16,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
 
-import at.jku.weiner.antlr4.GeneratorUtils;
+import at.jku.weiner.antlr4.tests.Activator;
+import at.jku.weiner.antlr4.utils.GeneratorUtils;
 import at.jku.weiner.log.MyLog;
 
 public class GeneratorUtilsTestMisc {

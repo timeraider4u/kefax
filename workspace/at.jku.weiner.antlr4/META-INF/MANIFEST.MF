@@ -21,7 +21,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: at.jku.weiner.antlr4,
  at.jku.weiner.antlr4.impl,
- at.jku.weiner.antlr4.util
+ at.jku.weiner.antlr4.util,
+ at.jku.weiner.antlr4.utils
 Bundle-ClassPath: .,
  lib/antlr4-4.5.4-SNAPSHOT.jar
 Bundle-Vendor: %providerName

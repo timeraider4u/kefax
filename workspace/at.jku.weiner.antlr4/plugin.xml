@@ -8,11 +8,6 @@
            id="at.jku.weiner.antlr4.command"
            name="Antlr4 command">
      </command>
-      <command
-           defaultHandler="at.jku.weiner.antlr4.Antlr4PrintAction"
-           id="at.jku.weiner.antlr4print.command"
-           name="Antlr4 print command">
-     </command>
   </extension>
   
   <extension
@@ -25,25 +20,6 @@
               label="KeFaX" />
      </menuContribution>
   </extension>
-  <extension
-        point="org.eclipse.ui.menus">
-     <menuContribution
-           allPopups="false"
-           locationURI="menu:at.jku.weiner.kefax.main.filemenu">
-           <command
-                 commandId="at.jku.weiner.antlr4.command"
-                 label="Antlr4"
-                 style="push"
-                 tooltip="Antlr4 test command">
-           </command>
-           <command
-                 commandId="at.jku.weiner.antlr4print.command"
-                 label="Antlr4 print"
-                 style="push"
-                 tooltip="Antlr4 print command">
-           </command>
-       </menuContribution>
-     </extension>
 	<extension
 			point="org.eclipse.ui.menus">
 		<menuContribution

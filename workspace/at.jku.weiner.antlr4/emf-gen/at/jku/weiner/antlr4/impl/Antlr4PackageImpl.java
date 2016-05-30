@@ -154,6 +154,15 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRule_ReferencesBy() {
+		return (EReference)ruleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParserRuleSpec() {
 		return parserRuleSpecEClass;
 	}
@@ -192,6 +201,7 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__IDENTIFIER);
+		createEReference(ruleEClass, RULE__REFERENCES_BY);
 
 		parserRuleSpecEClass = createEClass(PARSER_RULE_SPEC);
 	}
@@ -233,6 +243,7 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 
 		initEClass(ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_ReferencesBy(), this.getRule(), null, "referencesBy", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parserRuleSpecEClass, ParserRuleSpec.class, "ParserRuleSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

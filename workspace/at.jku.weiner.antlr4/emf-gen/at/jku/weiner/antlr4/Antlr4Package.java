@@ -76,7 +76,7 @@ public interface Antlr4Package extends EPackage {
 	int GRAMMAR__IDENTIFIER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Rules</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -113,13 +113,22 @@ public interface Antlr4Package extends EPackage {
 	int RULE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IDENTIFIER = 0;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 0;
+	int RULE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -129,6 +138,44 @@ public interface Antlr4Package extends EPackage {
 	 * @ordered
 	 */
 	int RULE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link at.jku.weiner.antlr4.impl.ParserRuleSpecImpl <em>Parser Rule Spec</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.jku.weiner.antlr4.impl.ParserRuleSpecImpl
+	 * @see at.jku.weiner.antlr4.impl.Antlr4PackageImpl#getParserRuleSpec()
+	 * @generated
+	 */
+	int PARSER_RULE_SPEC = 2;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSER_RULE_SPEC__IDENTIFIER = RULE__IDENTIFIER;
+
+	/**
+	 * The number of structural features of the '<em>Parser Rule Spec</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSER_RULE_SPEC_FEATURE_COUNT = RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parser Rule Spec</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSER_RULE_SPEC_OPERATION_COUNT = RULE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -153,10 +200,10 @@ public interface Antlr4Package extends EPackage {
 	EAttribute getGrammar_Identifier();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.antlr4.Grammar#getRules <em>Rules</em>}'.
+	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.antlr4.Grammar#getRules <em>Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rules</em>'.
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
 	 * @see at.jku.weiner.antlr4.Grammar#getRules()
 	 * @see #getGrammar()
 	 * @generated
@@ -172,6 +219,27 @@ public interface Antlr4Package extends EPackage {
 	 * @generated
 	 */
 	EClass getRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.antlr4.Rule#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see at.jku.weiner.antlr4.Rule#getIdentifier()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Identifier();
+
+	/**
+	 * Returns the meta object for class '{@link at.jku.weiner.antlr4.ParserRuleSpec <em>Parser Rule Spec</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parser Rule Spec</em>'.
+	 * @see at.jku.weiner.antlr4.ParserRuleSpec
+	 * @generated
+	 */
+	EClass getParserRuleSpec();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -215,7 +283,7 @@ public interface Antlr4Package extends EPackage {
 		EAttribute GRAMMAR__IDENTIFIER = eINSTANCE.getGrammar_Identifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -231,6 +299,24 @@ public interface Antlr4Package extends EPackage {
 		 * @generated
 		 */
 		EClass RULE = eINSTANCE.getRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__IDENTIFIER = eINSTANCE.getRule_Identifier();
+
+		/**
+		 * The meta object literal for the '{@link at.jku.weiner.antlr4.impl.ParserRuleSpecImpl <em>Parser Rule Spec</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.jku.weiner.antlr4.impl.ParserRuleSpecImpl
+		 * @see at.jku.weiner.antlr4.impl.Antlr4PackageImpl#getParserRuleSpec()
+		 * @generated
+		 */
+		EClass PARSER_RULE_SPEC = eINSTANCE.getParserRuleSpec();
 
 	}
 

@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.antlr4;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -49,29 +50,19 @@ public interface Grammar extends EObject {
 	void setIdentifier(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Rules</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link at.jku.weiner.antlr4.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rules</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rules</em>' containment reference.
-	 * @see #setRules(Rule)
+	 * @return the value of the '<em>Rules</em>' containment reference list.
 	 * @see at.jku.weiner.antlr4.Antlr4Package#getGrammar_Rules()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Rule getRules();
-
-	/**
-	 * Sets the value of the '{@link at.jku.weiner.antlr4.Grammar#getRules <em>Rules</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rules</em>' containment reference.
-	 * @see #getRules()
-	 * @generated
-	 */
-	void setRules(Rule value);
+	EList<Rule> getRules();
 
 } // Grammar

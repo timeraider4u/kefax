@@ -57,6 +57,7 @@ public class Antlr4FactoryImpl extends EFactoryImpl implements Antlr4Factory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case Antlr4Package.GRAMMAR: return createGrammar();
+			case Antlr4Package.PARSER_RULE_SPEC: return createParserRuleSpec();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +71,16 @@ public class Antlr4FactoryImpl extends EFactoryImpl implements Antlr4Factory {
 	public Grammar createGrammar() {
 		GrammarImpl grammar = new GrammarImpl();
 		return grammar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParserRuleSpec createParserRuleSpec() {
+		ParserRuleSpecImpl parserRuleSpec = new ParserRuleSpecImpl();
+		return parserRuleSpec;
 	}
 
 	/**

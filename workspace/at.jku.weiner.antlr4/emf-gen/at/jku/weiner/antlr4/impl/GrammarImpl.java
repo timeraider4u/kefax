@@ -6,14 +6,18 @@ import at.jku.weiner.antlr4.Antlr4Package;
 import at.jku.weiner.antlr4.Grammar;
 import at.jku.weiner.antlr4.Rule;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,14 +55,14 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference.
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRules()
 	 * @generated
 	 * @ordered
 	 */
-	protected Rule rules;
+	protected EList<Rule> rules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,42 +109,11 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Rule getRules() {
+	public EList<Rule> getRules() {
+		if (rules == null) {
+			rules = new EObjectContainmentEList<Rule>(Rule.class, this, Antlr4Package.GRAMMAR__RULES);
+		}
 		return rules;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRules(Rule newRules, NotificationChain msgs) {
-		Rule oldRules = rules;
-		rules = newRules;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Antlr4Package.GRAMMAR__RULES, oldRules, newRules);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRules(Rule newRules) {
-		if (newRules != rules) {
-			NotificationChain msgs = null;
-			if (rules != null)
-				msgs = ((InternalEObject)rules).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Antlr4Package.GRAMMAR__RULES, null, msgs);
-			if (newRules != null)
-				msgs = ((InternalEObject)newRules).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Antlr4Package.GRAMMAR__RULES, null, msgs);
-			msgs = basicSetRules(newRules, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Antlr4Package.GRAMMAR__RULES, newRules, newRules));
 	}
 
 	/**
@@ -152,7 +125,7 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case Antlr4Package.GRAMMAR__RULES:
-				return basicSetRules(null, msgs);
+				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -178,6 +151,7 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -185,7 +159,8 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 				setIdentifier((String)newValue);
 				return;
 			case Antlr4Package.GRAMMAR__RULES:
-				setRules((Rule)newValue);
+				getRules().clear();
+				getRules().addAll((Collection<? extends Rule>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,7 +178,7 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 				setIdentifier(IDENTIFIER_EDEFAULT);
 				return;
 			case Antlr4Package.GRAMMAR__RULES:
-				setRules((Rule)null);
+				getRules().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -220,7 +195,7 @@ public class GrammarImpl extends MinimalEObjectImpl.Container implements Grammar
 			case Antlr4Package.GRAMMAR__IDENTIFIER:
 				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case Antlr4Package.GRAMMAR__RULES:
-				return rules != null;
+				return rules != null && !rules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

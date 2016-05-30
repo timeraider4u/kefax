@@ -31,6 +31,15 @@ public interface Antlr4Factory extends EFactory {
 	Grammar createGrammar();
 
 	/**
+	 * Returns a new object of class '<em>Parser Rule Spec</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parser Rule Spec</em>'.
+	 * @generated
+	 */
+	ParserRuleSpec createParserRuleSpec();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

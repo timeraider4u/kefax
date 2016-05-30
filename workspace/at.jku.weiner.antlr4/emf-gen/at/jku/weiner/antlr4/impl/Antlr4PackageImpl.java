@@ -5,6 +5,7 @@ package at.jku.weiner.antlr4.impl;
 import at.jku.weiner.antlr4.Antlr4Factory;
 import at.jku.weiner.antlr4.Antlr4Package;
 import at.jku.weiner.antlr4.Grammar;
+import at.jku.weiner.antlr4.ParserRuleSpec;
 import at.jku.weiner.antlr4.Rule;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -34,6 +35,13 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 	 * @generated
 	 */
 	private EClass ruleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parserRuleSpecEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -137,6 +145,24 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRule_Identifier() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParserRuleSpec() {
+		return parserRuleSpecEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Antlr4Factory getAntlr4Factory() {
 		return (Antlr4Factory)getEFactoryInstance();
 	}
@@ -165,6 +191,9 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 		createEReference(grammarEClass, GRAMMAR__RULES);
 
 		ruleEClass = createEClass(RULE);
+		createEAttribute(ruleEClass, RULE__IDENTIFIER);
+
+		parserRuleSpecEClass = createEClass(PARSER_RULE_SPEC);
 	}
 
 	/**
@@ -195,13 +224,17 @@ public class Antlr4PackageImpl extends EPackageImpl implements Antlr4Package {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		parserRuleSpecEClass.getESuperTypes().add(this.getRule());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(grammarEClass, Grammar.class, "Grammar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrammar_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, Grammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGrammar_Rules(), this.getRule(), null, "rules", null, 0, 1, Grammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGrammar_Rules(), this.getRule(), null, "rules", null, 0, -1, Grammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRule_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parserRuleSpecEClass, ParserRuleSpec.class, "ParserRuleSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

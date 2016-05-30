@@ -78,6 +78,13 @@ public class Antlr4Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Antlr4Package.PARSER_RULE_SPEC: {
+				ParserRuleSpec parserRuleSpec = (ParserRuleSpec)theEObject;
+				T result = caseParserRuleSpec(parserRuleSpec);
+				if (result == null) result = caseRule(parserRuleSpec);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -109,6 +116,21 @@ public class Antlr4Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRule(Rule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parser Rule Spec</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parser Rule Spec</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParserRuleSpec(ParserRuleSpec object) {
 		return null;
 	}
 

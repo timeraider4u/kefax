@@ -76,6 +76,10 @@ public class Antlr4AdapterFactory extends AdapterFactoryImpl {
 				return createRuleAdapter();
 			}
 			@Override
+			public Adapter caseParserRuleSpec(ParserRuleSpec object) {
+				return createParserRuleSpecAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -120,6 +124,20 @@ public class Antlr4AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.antlr4.ParserRuleSpec <em>Parser Rule Spec</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.antlr4.ParserRuleSpec
+	 * @generated
+	 */
+	public Adapter createParserRuleSpecAdapter() {
 		return null;
 	}
 

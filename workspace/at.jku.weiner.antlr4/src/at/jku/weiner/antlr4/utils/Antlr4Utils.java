@@ -10,31 +10,16 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import at.jku.weiner.antlr4.Antlr4MyListener;
 
 public final class Antlr4Utils {
-	
-	private final ANTLRv4Parser parser;
-	private String fileName;
 
+	private final ANTLRv4Parser	parser;
+	private final String		fileName;
+	
 	public Antlr4Utils(final String fileName) throws Exception {
 		this.fileName = fileName;
 		this.parser = Antlr4Utils.getParser(fileName);
 	}
-	
-	public String getGrammarName() throws Exception {
-		final GrammarSpecContext context = this.parser.grammarSpec();
-		final String id = context.identifier().getText();
-		return id;
-	}
 
-	public Antlr4MyListener runParserAndListener() throws Exception {
-		final ANTLRv4Parser parser = Antlr4Utils.getParser(this.fileName);
-		final GrammarSpecContext context = parser.grammarSpec();
-		final ParseTreeWalker walker = new ParseTreeWalker();
-		final Antlr4MyListener listener = new Antlr4MyListener();
-		walker.walk(listener, context);
-		return listener;
-	}
-
-	public static ANTLRv4Parser getParser(final String fileName)
+	private static ANTLRv4Parser getParser(final String fileName)
 			throws Exception {
 		final ANTLRFileStream fileStream = new ANTLRFileStream(fileName);
 		final ANTLRv4Lexer lexer = new ANTLRv4Lexer(fileStream);
@@ -43,4 +28,21 @@ public final class Antlr4Utils {
 		parser.setBuildParseTree(true);
 		return parser;
 	}
+
+	public String getGrammarName() throws Exception {
+		final GrammarSpecContext context = this.parser.grammarSpec();
+		final String id = context.identifier().getText();
+		return id;
+	}
+	
+	public Antlr4MyListener runParserAndListener(final MetamodelUtils mmUtils)
+			throws Exception {
+		final ANTLRv4Parser parser = Antlr4Utils.getParser(this.fileName);
+		final GrammarSpecContext context = parser.grammarSpec();
+		final ParseTreeWalker walker = new ParseTreeWalker();
+		final Antlr4MyListener listener = new Antlr4MyListener(mmUtils);
+		walker.walk(listener, context);
+		return listener;
+	}
+	
 }

@@ -47,7 +47,7 @@ public final class GeneratorUtils {
 	public static final String		ENCODING			= "UTF-8";
 	public static final String		TOOL_NAME			= "org.antlr.v4.Tool";
 	public static final String		LIB_DIR				= "lib";
-	public static final String		LIB_FILE			= "antlr-4.4-complete.jar";
+	public static final String		LIB_FILE			= "antlr4-4.5.4-SNAPSHOT.jar";
 
 	private final String			projectName;
 	private final IProgressMonitor	monitor;

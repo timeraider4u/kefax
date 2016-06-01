@@ -1,11 +1,14 @@
-http://stackoverflow.com/questions/30034826/create-and-modify-ecore-files-and-their-instances-from-code
+Eclipse Ecore generation:
+	
+	http://stackoverflow.com/questions/30034826/create-and-modify-ecore-files-and-their-instances-from-code
+	//http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
+	https://www.eclipse.org/forums/index.php?&t=msg&th=126417
+	http://emfjson.org/docs/
+	http://www.ibm.com/developerworks/library/os-eclipse-dynamicemf/index.html
+	http://www.devx.com/Java/Article/29093/0/page/2
 
-//http://stackoverflow.com/questions/9386348/emf-register-ecore-meta-model-programmatically
 
-https://www.eclipse.org/forums/index.php?&t=msg&th=126417
+ANTLR4 ASTs construction:
+	
+	http://stackoverflow.com/questions/29971097/how-to-create-ast-with-antlr4
 
-http://emfjson.org/docs/
-
-http://www.ibm.com/developerworks/library/os-eclipse-dynamicemf/index.html
-
-http://www.devx.com/Java/Article/29093/0/page/2

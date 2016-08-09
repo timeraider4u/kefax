@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -22,22 +23,26 @@ import at.jku.weiner.kefax.shared.MySettings;
 import at.jku.weiner.log.MyLog;
 
 public class GitCloneAction extends MyActionHandler {
-
+	
 	public GitCloneAction() {
 		super("at.jku.weiner.kefax.gitclone.job");
 	}
-
+	
 	@Override
 	protected void myRun() throws Exception {
 		final IProject project = this.setUpProject();
-
+		
 		final IFolder src = project.getFolder(MySettings.LINUX_CHECKOUT_DIR);
 		if (src.exists()) {
 			src.delete(true, this.getMonitor());
 		}
 		src.create(true, true, this.getMonitor());
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
-		this.runClone(src);
+		if (ReUseExistingLinuxSrc.reUseExistingLinuxSrc()) {
+			this.runReUseExistingLinuxSrc(src);
+		} else {
+			this.runClone(src);
+		}
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 	}
 
@@ -54,37 +59,37 @@ public class GitCloneAction extends MyActionHandler {
 		project.refreshLocal(IResource.DEPTH_INFINITE, this.getMonitor());
 		return project;
 	}
-
+	
 	private void runClone(final IFolder src) throws Exception {
 		final String target = KefaxUtils.getLinuxSrcFolderAsFilePath();
 		MyLog.debug(GitCloneAction.class, "target='" + target + "'");
 		final File targetDir = new File(target);
-
+		
 		MyNotification.run("at.jku.weiner.kefax.gitclone actions started",
 				"git clone " + MySettings.LINUX_CHECKOUT_URL
-						+ " can take several minutes!");
-
+				+ " can take several minutes!");
+		
 		final String format = "yyyy-MM-dd:HH:mm:ss";
 		final Date start = new Date();
 		final DateFormat dateFormat = new SimpleDateFormat(format);
 		final String startString = dateFormat.format(start);
 		MyLog.debug(GitCloneAction.class, startString);
-
+		
 		// this.runGitCloneCommand1(targetDir);
 		this.runGitCloneCommand2(targetDir);
-
+		
 		final Date end = new Date();
 		final String endString = dateFormat.format(end);
 		MyLog.debug(GitCloneAction.class, endString);
 		final long durationInMs = end.getTime() - start.getTime();
 		final long durationInSec = durationInMs / 1000;
-		final long minutes = (long) (durationInSec / 60);
+		final long minutes = durationInSec / 60;
 		final long seconds = durationInSec % 60;
 		MyLog.log(GitCloneAction.class, "git clone "
 				+ MySettings.LINUX_CHECKOUT_BRANCH + " took '" + minutes
 				+ "' minutes '" + seconds + "' seconds");
 	}
-
+	
 	private void runGitCloneCommand2(final File targetDir) {
 		final List<String> cmds = new ArrayList<String>();
 		cmds.add("git");
@@ -99,7 +104,7 @@ public class GitCloneAction extends MyActionHandler {
 		cmds.add(".");
 		KefaxUtils.executeCommand(cmds, targetDir, this.getMonitor(), true);
 	}
-
+	
 	@SuppressWarnings("unused")
 	/**
 	 * runGitCloneCommand1
@@ -119,15 +124,25 @@ public class GitCloneAction extends MyActionHandler {
 		final List<String> branchesToClone = GitCloneAction
 				.singleton("refs/heads/" + MySettings.LINUX_CHECKOUT_BRANCH);
 		clone.setBranchesToClone(branchesToClone);
-
+		
 		clone.setBranch(MySettings.LINUX_CHECKOUT_BRANCH);
 		clone.call();
 	}
-
+	
 	private static List<String> singleton(final String item) {
 		final List<String> result = new ArrayList<String>();
 		result.add(item);
 		return Collections.unmodifiableList(result);
 	}
+	
+	private void runReUseExistingLinuxSrc(final IFolder src) throws Exception {
+		MyLog.debug(GitCloneAction.class, "reUseExistingLinuxSrc!");
+		final String target = KefaxUtils.getLinuxSrcFolderAsFilePath();
+		MyLog.debug(GitCloneAction.class, "target='" + target + "'");
+		final String userHome = System.getProperty("user.home");
 
+		final File srcFile = new File(userHome + "/Private/linux/");
+		final File dstFile = new File(target);
+		FileUtils.copyDirectory(srcFile, dstFile);
+	}
 }

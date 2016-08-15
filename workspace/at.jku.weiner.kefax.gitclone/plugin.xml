@@ -8,6 +8,15 @@
            id="at.jku.weiner.kefax.gitclone.command"
            name="Git clone command">
      </command>
+      <command
+		      defaultHandler="at.jku.weiner.kefax.gitclone.ReUseExistingLinuxSrc"
+		      id="at.jku.weiner.kefax.main.menu.reuseexistinglinuxsrc"
+		      name="Re-use existing Linux source code">
+			   <state
+			         class="org.eclipse.ui.handlers.RegistryToggleState:false"
+			         id="org.eclipse.ui.commands.toggleState">
+			   </state>
+			</command>
   </extension>
   
   <extension
@@ -31,6 +40,11 @@
                  style="push"
                  tooltip="Checkout linux source code (git clone)">
            </command>
+          <command
+                  commandId="at.jku.weiner.kefax.main.menu.reuseexistinglinuxsrc"
+                  label="Re-use existing Linux source code"
+                  style="toggle">
+       </command>
        </menuContribution>
      </extension>
 </plugin>

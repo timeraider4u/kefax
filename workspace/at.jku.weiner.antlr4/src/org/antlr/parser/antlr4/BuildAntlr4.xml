@@ -5,29 +5,26 @@
 	</description>
 	
 	<!-- set global properties for this build -->
+	<property name="encoding" value="UTF-8" />
 	<property name="script_dir" value="${basedir}" />
 	<property name="script" value="${ant.file}" />
 	<property name="my_dir" location="${script_dir}/../../../../../" />
 	<fileset id="lib.fileset" dir="${my_dir}/lib" includes="**/antlr4*.jar"/>
-	<property name="pkg_dir" value="org/antlr/parser/antlr4" />
-	<property name="pkg_name" value="org.antlr.parser.antlr4" />
 	<property name="tool" value="org.antlr.v4.Tool" />
-	<property name="src_dir1" value="${my_dir}/src/${pkg_dir}" />
-	<property name="src_dir2" value="${my_dir}/src-gen/${pkg_dir}" />
-	
-	<property name="lexer1" value="${src_dir1}/LexBasic.g4" />
-	<property name="lexer2" value="${src_dir1}/ANTLRv4Lexer.g4" />
-	<property name="parser" value="${src_dir1}/ANTLRv4Parser.g4" />
-	
-	<property name="encoding" value="UTF-8" />
 	
 	<target name="init">
+		<!-- set properties for ANTLRv4Lexer.g4 and ANTLRv4Parser.g4 -->
+		<property name="pkg_dir" value="org/antlr/parser/antlr4" />
+		<property name="pkg_name" value="org.antlr.parser.antlr4" />
+		<property name="src_dir1" value="${my_dir}/src/${pkg_dir}" />
+		<property name="src_dir2" value="${my_dir}/src-gen/${pkg_dir}" />
+		<property name="lexer1" value="${src_dir1}/LexBasic.g4" />
+		<property name="lexer2" value="${src_dir1}/ANTLRv4Lexer.g4" />
+		<property name="parser" value="${src_dir1}/ANTLRv4Parser.g4" />
 		<!--
 		<echo>${user.dir}</echo>
 		<echo>${my_dir}</echo>
 		-->
-		<pathconvert property="lib.file" refid="lib.fileset" />
-		<!-- <echo message="found : ${lib.file}"/> -->
 		<delete dir="${src_dir2}" failonerror="false" />
 		<mkdir dir="${src_dir2}" />
 		<!--
@@ -36,37 +33,58 @@
 		</antcall>
 		-->
 		<antcall target="runAntlr4Tool">
-			<param name="file" value="${lexer2}"/>
-			<param name="lib.file" value="${lib.file}" />
+			<param name="g4file" value="${lexer2}"/>
+			<param name="outDir" value="${src_dir2}" />
+			<param name="pkgName" value="${pkg_name}" />
 		</antcall>
 		<antcall target="runAntlr4Tool">
-			<param name="file" value="${parser}"/>
-			<param name="lib.file" value="${lib.file}" />
+			<param name="g4file" value="${parser}"/>
+			<param name="outDir" value="${src_dir2}" />
+			<param name="pkgName" value="${pkg_name}" />
 		</antcall>
 	</target>
 	
+	<!-- runAntlr4Tool -->
+	<!-- parameter1: g4file - type String -->
+	<!-- parameter2: outDir - type String -->
+	<!-- parameter3: pkgName - type String -->
 	<target name="runAntlr4Tool">
-		<echo message="file='${file}'" />
+		<!-- set-up properties -->
+		<dirname property="g4dir" file="${g4file}"/>
+		<pathconvert property="lib.file" refid="lib.fileset" />
+		<!-- debug the properties -->
+		<!--
+		<echo message="g4file='${g4file}'" />
+		<echo message="outDir='${outDir}'" />
+		<echo message="packageName='${pkgName}'" />
 		<echo message="lib.file='${lib.file}'" />
-		<java dir="${src_dir2}" classname="${tool}"
+		<echo message="g4dir='${g4dir}'" />
+		-->
+		<property name="msg1" value="java -cp '${lib.file}:${g4dir}:${outDir}'" />
+		<property name="msg2" value="${msg1} ${tool} ${g4file}"/>
+		<property name="msg3" value="${msg2} -o ${outDir}" />
+		<property name="msg4" value="${msg3} -package ${pkgName}" />
+		<property name="msg5" value="${msg4} -encoding ${encoding}" />
+		<property name="msg6" value="${msg5} -listener -no-visitor" />
+		<echo message="${msg6}" />
+		<!-- and run antlr4 tool -->
+		<java dir="${outDir}" classname="${tool}"
 			fork="true"
 			failonerror="true">
-			<arg value="${file}"/>
+			<arg value="${g4file}"/>
 			<arg value="-o" />
-			<arg value="${src_dir2}" />
+			<arg value="${outDir}" />
 			<arg value="-package" />
-			<arg value="${pkg_name}" />
+			<arg value="${pkgName}" />
 			<arg value="-encoding" />
 			<arg value="${encoding}" />
 			<arg value="-listener" />
 			<arg value="-no-visitor" />
 			<!-- <arg value="-incTokenInVisit" />-->
-			
 			<classpath>
 				<pathelement location="${lib.file}"/>				
-				<pathelement location="${src_dir1}" />
-				<pathelement location="${src_dir2}" />
-
+				<pathelement location="${g4dir}" />
+				<pathelement location="${outDir}" />
 			</classpath>
 		</java>
 	</target>

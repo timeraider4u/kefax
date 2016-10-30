@@ -2,6 +2,11 @@
 
 #jdk: oraclejdk7
 
+sudo: false
+cache:
+    directories: 
+    - $HOME/.m2
+
 env: DISPLAY=:99.0
 
 before_install:
@@ -10,7 +15,7 @@ before_install:
 
 script:
 #   - export
-   - travis_wait 30 mvn --batch-mode --quiet clean install
+   - mvn --batch-mode clean install
 
 #after_failure:
 #   - cat /home/travis/build/timeraider4u/kefax/workspace/at.jku.weiner.common/target/work/data/.metadata/.log
